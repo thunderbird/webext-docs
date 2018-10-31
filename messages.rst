@@ -15,13 +15,10 @@ list(folder)
   - ``path`` (string)
   - [``name``] (string)
 
-
-
 get(messageId)
 --------------
 
 - ``messageId`` (integer)
-
 
 update(messageId, newProperties)
 --------------------------------
@@ -32,8 +29,6 @@ update(messageId, newProperties)
   - [``flagged``] (boolean)
   - [``read``] (boolean)
   - [``tags``] (array)
-
-
 
 listTags()
 ----------

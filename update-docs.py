@@ -132,6 +132,15 @@ def format_namespace(namespace):
                     lines.extend(format_object(param["name"], param))
                 lines.append("")
 
+    index = 0
+    previous = ""
+    while index < len(lines):
+        if lines[index] == "" and previous == "":
+            del lines[index]
+        else:
+            previous = lines[index]
+            index += 1
+
     return "\n".join(lines) + "\n"
 
 

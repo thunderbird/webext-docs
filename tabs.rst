@@ -23,7 +23,6 @@ Tab
 - [``width``] (integer) The width of the tab in pixels.
 - [``windowId``] (integer) The ID of the window the tab is contained within.
 
-
 TabStatus
 ---------
 Whether the tabs have completed loading.
@@ -45,7 +44,6 @@ An object describing filters to apply to tabs.onUpdated events.
 - [``urls``] (array) A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
 - [``windowId``] (integer)
 
-
 Functions
 =========
 
@@ -56,13 +54,11 @@ Retrieves details about the specified tab.
 - ``tabId`` (integer)
 - ``callback`` (function)
 
-
 getCurrent(callback)
 --------------------
 Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
 
 - ``callback`` (function)
-
 
 create(createProperties, [callback])
 ------------------------------------
@@ -78,14 +74,12 @@ Creates a new tab.
 
 - [``callback``] (function)
 
-
 duplicate(tabId, [callback])
 ----------------------------
 Duplicates a tab.
 
 - ``tabId`` (integer) The ID of the tab which is to be duplicated.
 - [``callback``] (function)
-
 
 query(queryInfo, callback)
 --------------------------
@@ -107,7 +101,6 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
 - ``callback`` (function)
 
-
 update([tabId], updateProperties, [callback])
 ---------------------------------------------
 Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.
@@ -119,7 +112,6 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
   - [``url``] (string) A URL to navigate the tab to.
 
 - [``callback``] (function)
-
 
 move(tabIds, moveProperties, [callback])
 ----------------------------------------
@@ -133,7 +125,6 @@ Moves one or more tabs to a new position within its window, or to a new window. 
 
 - [``callback``] (function)
 
-
 reload([tabId], [reloadProperties], [callback])
 -----------------------------------------------
 Reload a tab.
@@ -145,14 +136,12 @@ Reload a tab.
 
 - [``callback``] (function)
 
-
 remove(tabIds, [callback])
 --------------------------
 Closes one or more tabs.
 
 - ``tabIds`` The tab or list of tabs to close.
 - [``callback``] (function)
-
 
 executeScript([tabId], details, [callback])
 -------------------------------------------
@@ -162,7 +151,6 @@ Injects JavaScript code into a page. For details, see the $(topic:content_script
 - ``details`` `extensionTypes.InjectDetails`_ Details of the script to run.
 - [``callback``] (function) Called after all the JavaScript has been executed.
 
-
 insertCSS([tabId], details, [callback])
 ---------------------------------------
 Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
@@ -170,7 +158,6 @@ Injects CSS into a page. For details, see the $(topic:content_scripts)[programma
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
 - ``details`` `extensionTypes.InjectDetails`_ Details of the CSS text to insert.
 - [``callback``] (function) Called when all the CSS has been inserted.
-
 
 removeCSS([tabId], details, [callback])
 ---------------------------------------

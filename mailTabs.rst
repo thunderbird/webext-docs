@@ -22,13 +22,10 @@ update([tabId], properties)
   - [``layout``] (string)
   - [``messagePaneVisible``] (boolean)
 
-
-
 getSelectedMessages([tabId])
 ----------------------------
 
 - [``tabId``] (integer)
-
 
 setQuickFilter(properties)
 --------------------------
@@ -45,5 +42,4 @@ setQuickFilter(properties)
   - [``tags``] (boolean)
   - [``text``] (string)
   - [``unread``] (boolean)
-
 

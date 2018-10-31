@@ -22,7 +22,6 @@ A node representing an address book.
 - [``parentId``] (string) The ``id`` of the parent object.
 - [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
 
-
 Functions
 =========
 
@@ -40,14 +39,12 @@ Gets a list of the user's address books, optionally including all contacts and m
 
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for each address book.
 
-
 get(id, [complete])
 -------------------
 Gets a single address book, optionally including all contacts and mailing lists.
 
 - ``id`` (string)
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for this address book.
-
 
 create(properties)
 ------------------
@@ -57,8 +54,6 @@ Creates a new, empty address book.
 
   - ``name`` (string)
 
-
-
 update(id, properties)
 ----------------------
 Renames an address book.
@@ -67,8 +62,6 @@ Renames an address book.
 - ``properties`` (object)
 
   - ``name`` (string)
-
-
 
 delete(id)
 ----------

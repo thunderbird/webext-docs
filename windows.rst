@@ -31,7 +31,6 @@ Window
 - [``type``] `WindowType`_ The type of browser window this is.
 - [``width``] (integer) The width of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned width property, for example when querying closed windows from the $(ref:sessions) API.
 
-
 CreateType
 ----------
 Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
@@ -51,7 +50,6 @@ Gets details about a window.
 
 - ``callback`` (function)
 
-
 getCurrent([getInfo], callback)
 -------------------------------
 Gets the $(topic:current-window)[current window].
@@ -62,7 +60,6 @@ Gets the $(topic:current-window)[current window].
   - [``windowTypes``] (array) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 - ``callback`` (function)
-
 
 getLastFocused([getInfo], callback)
 -----------------------------------
@@ -75,7 +72,6 @@ Gets the window that was most recently focused &mdash; typically the window 'on 
 
 - ``callback`` (function)
 
-
 getAll([getInfo], callback)
 ---------------------------
 Gets all windows.
@@ -86,7 +82,6 @@ Gets all windows.
   - [``windowTypes``] (array) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 - ``callback`` (function)
-
 
 create([createData], [callback])
 --------------------------------
@@ -109,7 +104,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
 
 - [``callback``] (function)
 
-
 update(windowId, updateInfo, [callback])
 ----------------------------------------
 Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.
@@ -127,7 +121,6 @@ Updates the properties of a window. Specify only the properties that you want to
   - [``width``] (integer) The width to resize the window to in pixels. This value is ignored for panels.
 
 - [``callback``] (function)
-
 
 remove(windowId, [callback])
 ----------------------------
