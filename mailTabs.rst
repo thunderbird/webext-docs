@@ -1,6 +1,7 @@
 ========
 mailTabs
 ========
+The permission ``mailTabs`` is required to use ``mailTabs``.
 
 Functions
 =========
@@ -19,8 +20,48 @@ update([tabId], properties)
 
   - [``displayedFolder``] (object)
   - [``folderPaneVisible``] (boolean)
-  - [``layout``] (string)
+  - [``layout``] (string [enum_layout]_)
   - [``messagePaneVisible``] (boolean)
+  - [``sortOrder``] (string [enum_sortOrder]_)
+  - [``sortType``] (string [enum_sortType]_)
+
+.. [enum_layout]:
+Values for layout:
+
+- ``standard``
+- ``wide``
+- ``vertical``
+
+.. [enum_sortOrder]:
+Values for sortOrder:
+
+- ``none``
+- ``ascending``
+- ``descending``
+
+.. [enum_sortType]:
+Values for sortType:
+
+- ``byNone``
+- ``byDate``
+- ``bySubject``
+- ``byAuthor``
+- ``byId``
+- ``byThread``
+- ``byPriority``
+- ``byStatus``
+- ``bySize``
+- ``byFlagged``
+- ``byUnread``
+- ``byRecipient``
+- ``byLocation``
+- ``byTags``
+- ``byJunkStatus``
+- ``byAttachments``
+- ``byAccount``
+- ``byCustom``
+- ``byReceived``
+- ``byCorrespondent``
 
 getSelectedMessages([tabId])
 ----------------------------

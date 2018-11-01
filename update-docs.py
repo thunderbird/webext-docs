@@ -17,27 +17,46 @@ def replace_code(string):
     return string
 
 
-def format_member(name, prop):
+def format_member(key, value):
     parts = []
 
-    if prop.get("optional", False):
-        parts.append("[``%s``]" % name)
+    if value.get("optional", False):
+        parts.append("[``%s``]" % key)
     else:
-        parts.append("``%s``" % name)
+        parts.append("``%s``" % key)
 
-    if "type" in prop:
-        parts.append("(%s)" % prop["type"])
-    elif "$ref" in prop:
-        parts.append("`%s`_" % prop["$ref"])
+    if "type" in value:
+        if value.get("enum") is None:
+            parts.append("(%s)" % value["type"])
+        else:
+            parts.append("(%s [enum_%s]_)" % (value["type"], key))
+    elif "$ref" in value:
+        parts.append("`%s`_" % value["$ref"])
 
-    if "description" in prop:
-        parts.append(replace_code(prop["description"]))
+    if "description" in value:
+        parts.append(replace_code(value["description"]))
     
     return " ".join(parts)
 
 
+def format_enum(key, value):
+    if value.get("enum") is None:
+        return []
+
+    enum_lines = [
+        ".. [enum_%s]:" % key,
+        "Values for %s:" % key,
+        "",
+    ]
+    for enum_value in value.get("enum"):
+        enum_lines.append("- ``%s``" % enum_value)
+    enum_lines.append("")
+    return enum_lines
+
+
 def format_object(name, prop):
     lines = ["- %s" % format_member(name, prop)]
+    enum_lines = []
 
     if prop.get("type", None) == "object" and "properties" in prop:
         lines.append("")
@@ -45,12 +64,16 @@ def format_object(name, prop):
         for [key, value] in items:
             if not value.get("optional", False):
                 lines.append("  - %s" % format_member(key, value))
+                enum_lines.extend(format_enum(key, value))
 
         for [key, value] in items:
             if value.get("optional", False):
                 lines.append("  - %s" % format_member(key, value))
+                enum_lines.extend(format_enum(key, value))
+
         lines.append("")
 
+    lines.extend(enum_lines)
     return lines
 
 
