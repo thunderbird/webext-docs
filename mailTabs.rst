@@ -20,45 +20,51 @@ update([tabId], properties)
 
   - [``displayedFolder``] (object)
   - [``folderPaneVisible``] (boolean)
-  - [``layout``] (string [#enum_layout]_)
+  - [``layout``] (`string <enum_layout_>`_)
   - [``messagePaneVisible``] (boolean)
-  - [``sortOrder``] (string [#enum_sortOrder]_)
-  - [``sortType``] (string [#enum_sortType]_)
+  - [``sortOrder``] (`string <enum_sortOrder_>`_)
+  - [``sortType``] (`string <enum_sortType_>`_)
 
-.. [#enum_layout]: Values for layout:
+.. _enum_layout:
 
-  - ``standard``
-  - ``wide``
-  - ``vertical``
+Values for layout:
 
-.. [#enum_sortOrder]: Values for sortOrder:
+- ``standard``
+- ``wide``
+- ``vertical``
 
-  - ``none``
-  - ``ascending``
-  - ``descending``
+.. _enum_sortOrder:
 
-.. [#enum_sortType]: Values for sortType:
+Values for sortOrder:
 
-  - ``byNone``
-  - ``byDate``
-  - ``bySubject``
-  - ``byAuthor``
-  - ``byId``
-  - ``byThread``
-  - ``byPriority``
-  - ``byStatus``
-  - ``bySize``
-  - ``byFlagged``
-  - ``byUnread``
-  - ``byRecipient``
-  - ``byLocation``
-  - ``byTags``
-  - ``byJunkStatus``
-  - ``byAttachments``
-  - ``byAccount``
-  - ``byCustom``
-  - ``byReceived``
-  - ``byCorrespondent``
+- ``none``
+- ``ascending``
+- ``descending``
+
+.. _enum_sortType:
+
+Values for sortType:
+
+- ``byNone``
+- ``byDate``
+- ``bySubject``
+- ``byAuthor``
+- ``byId``
+- ``byThread``
+- ``byPriority``
+- ``byStatus``
+- ``bySize``
+- ``byFlagged``
+- ``byUnread``
+- ``byRecipient``
+- ``byLocation``
+- ``byTags``
+- ``byJunkStatus``
+- ``byAttachments``
+- ``byAccount``
+- ``byCustom``
+- ``byReceived``
+- ``byCorrespondent``
 
 getSelectedMessages([tabId])
 ----------------------------

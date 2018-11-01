@@ -29,7 +29,7 @@ def format_member(key, value):
         if value.get("enum") is None:
             parts.append("(%s)" % value["type"])
         else:
-            parts.append("(%s [enum_%s]_)" % (value["type"], key))
+            parts.append("(`%s <enum_%s_>`_)" % (value["type"], key))
     elif "$ref" in value:
         parts.append("`%s`_" % value["$ref"])
 
@@ -44,7 +44,8 @@ def format_enum(key, value):
         return []
 
     enum_lines = [
-        ".. [enum_%s]:" % key,
+        ".. _enum_%s:" % key,
+        "",
         "Values for %s:" % key,
         "",
     ]
