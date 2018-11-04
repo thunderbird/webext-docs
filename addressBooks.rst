@@ -8,9 +8,13 @@ The permission ``addressBooks`` is required to use ``addressBooks``.
 Types
 =====
 
+.. _NodeType:
+
 NodeType
 --------
 Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
+
+.. _AddressBookNode:
 
 AddressBookNode
 ---------------
@@ -18,7 +22,7 @@ A node representing an address book.
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``name`` (string)
-- ``type`` `NodeType`_ Always set to ``addressBook``.
+- ``type`` :ref:`NodeType` Always set to ``addressBook``.
 - [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
 - [``mailingLists``] (array) A list of mailingLists in this node's address book.
 - [``parentId``] (string) The ``id`` of the parent object.

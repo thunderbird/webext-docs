@@ -8,15 +8,19 @@ The permission ``addressBooks`` is required to use ``contacts``.
 Types
 =====
 
+.. _ContactNode:
+
 ContactNode
 -----------
 A node representing a contact in an address book.
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
-- ``properties`` `ContactProperties`_
-- ``type`` `NodeType`_ Always set to ``contact``.
+- ``properties`` :ref:`ContactProperties`
+- ``type`` :ref:`NodeType` Always set to ``contact``.
 - [``parentId``] (string) The ``id`` of the parent object.
 - [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
+
+.. _ContactProperties:
 
 ContactProperties
 -----------------
@@ -42,14 +46,14 @@ create(parentId, properties)
 Adds a new contact to the address book with the id ``parentId``.
 
 - ``parentId`` (string)
-- ``properties`` `ContactProperties`_
+- ``properties`` :ref:`ContactProperties`
 
 update(id, properties)
 ----------------------
 Edits the properties of a contact. To remove a property, specify it as ``null``.
 
 - ``id`` (string)
-- ``properties`` `ContactProperties`_
+- ``properties`` :ref:`ContactProperties`
 
 delete(id)
 ----------

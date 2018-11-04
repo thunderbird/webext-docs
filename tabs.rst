@@ -6,6 +6,8 @@ Use the ``browser.tabs`` API to interact with the browser's tab system. You can 
 Types
 =====
 
+.. _Tab:
+
 Tab
 ---
 
@@ -23,17 +25,25 @@ Tab
 - [``width``] (integer) The width of the tab in pixels.
 - [``windowId``] (integer) The ID of the window the tab is contained within.
 
+.. _TabStatus:
+
 TabStatus
 ---------
 Whether the tabs have completed loading.
+
+.. _WindowType:
 
 WindowType
 ----------
 The type of window.
 
+.. _UpdatePropertyName:
+
 UpdatePropertyName
 ------------------
 Event names supported in onUpdated.
+
+.. _UpdateFilter:
 
 UpdateFilter
 ------------
@@ -93,11 +103,11 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``index``] (integer) The position of the tabs within their windows.
   - [``isMail3Pane``] (boolean)
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
-  - [``status``] `TabStatus`_ Whether the tabs have completed loading.
+  - [``status``] :ref:`TabStatus` Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
   - [``url``] Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
-  - [``windowType``] `WindowType`_ The type of window the tabs are in.
+  - [``windowType``] :ref:`WindowType` The type of window the tabs are in.
 
 - ``callback`` (function)
 
@@ -148,7 +158,7 @@ executeScript([tabId], details, [callback])
 Injects JavaScript code into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
-- ``details`` `extensionTypes.InjectDetails`_ Details of the script to run.
+- ``details`` :ref:`extensionTypes.InjectDetails` Details of the script to run.
 - [``callback``] (function) Called after all the JavaScript has been executed.
 
 insertCSS([tabId], details, [callback])
@@ -156,7 +166,7 @@ insertCSS([tabId], details, [callback])
 Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
-- ``details`` `extensionTypes.InjectDetails`_ Details of the CSS text to insert.
+- ``details`` :ref:`extensionTypes.InjectDetails` Details of the CSS text to insert.
 - [``callback``] (function) Called when all the CSS has been inserted.
 
 removeCSS([tabId], details, [callback])
@@ -164,6 +174,6 @@ removeCSS([tabId], details, [callback])
 Removes injected CSS from a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
-- ``details`` `extensionTypes.InjectDetails`_ Details of the CSS text to remove.
+- ``details`` :ref:`extensionTypes.InjectDetails` Details of the CSS text to remove.
 - [``callback``] (function) Called when all the CSS has been removed.
 

@@ -12,27 +12,27 @@ Functions
 
 list(folder)
 ------------
+Lists all messages in the specified folder. WARNING: this could return a very large number of messages, which would negatively affect performance.
 
-- ``folder`` (object)
-
-  - ``accountId`` (string)
-  - ``path`` (string)
-  - [``name``] (string)
+- ``folder`` :ref:`MailFolder`
 
 get(messageId)
 --------------
+Returns a specified message.
 
 - ``messageId`` (integer)
 
 update(messageId, newProperties)
 --------------------------------
+Marks or unmarks a message as read, starred, or tagged.
 
 - ``messageId`` (integer)
 - ``newProperties`` (object)
 
-  - [``flagged``] (boolean)
-  - [``read``] (boolean)
-  - [``tags``] (array)
+  - [``flagged``] (boolean) Marks the message as starred or unstarred.
+  - [``read``] (boolean) Marks the message as read or unread.
+  - [``tags``] (array) Sets the tags on the message. For a list of available tags, call the listTags method.
 
 listTags()
 ----------
+Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
