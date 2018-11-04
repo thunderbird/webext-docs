@@ -5,8 +5,9 @@
 
 import argparse, glob, json, os, re
 
-DOCS_DIR = os.path.dirname(__file__)
-SCHEMAS_DIR = os.path.realpath(os.path.join(DOCS_DIR, "../schemas"))
+DEST_DIR = os.path.dirname(__file__)
+PREAMBLE_DIR = os.path.join(DEST_DIR, "preamble")
+SRC_DIR = "/home/geoff/mozilla/mozilla-central/comm/mail/components/extensions/schemas"
 
 
 def replace_code(string):
@@ -101,7 +102,13 @@ def header_3(string):
 
 
 def format_namespace(namespace):
-    lines = header_1(namespace["namespace"])
+    preamble = os.path.join(PREAMBLE_DIR, namespace["namespace"] + ".rst")
+    if os.path.exists(preamble):
+        with open(preamble) as fp_preamble:
+            lines = map(lambda l: l.strip(), fp_preamble.readlines())
+            lines.append("")
+    else:
+        lines = header_1(namespace["namespace"])
 
     if "description" in namespace:
         lines.append(replace_code(namespace["description"]))
@@ -185,19 +192,19 @@ if __name__ == "__main__":
 
     files = []
     if args.all:
-        for filename in glob.glob(os.path.join(SCHEMAS_DIR, "*.json")):
+        for filename in glob.glob(os.path.join(SRC_DIR, "*.json")):
             files.append(os.path.basename(filename)[:-5])
     else:
         for filename in args.file:
-            if os.path.exists(os.path.join(SCHEMAS_DIR, filename + ".json")):
+            if os.path.exists(os.path.join(SRC_DIR, filename + ".json")):
                 files.append(filename)
 
     if len(files) == 0:
         print "No files found"
 
     for filename in sorted(files):
-        with open(os.path.join(SCHEMAS_DIR, filename + ".json")) as f_input:
-            content = f_input.read()
+        with open(os.path.join(SRC_DIR, filename + ".json")) as fp_input:
+            content = fp_input.read()
             content = re.sub(r"(^|\n)//.*", "", content)
             document = json.loads(content)
 
@@ -205,5 +212,5 @@ if __name__ == "__main__":
             if namespace["namespace"] == "manifest":
                 continue
 
-            with open(os.path.join(DOCS_DIR, namespace["namespace"] + ".rst"), "w") as f_output:
-                f_output.write(format_namespace(namespace))
+            with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
+                fp_output.write(format_namespace(namespace))

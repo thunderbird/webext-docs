@@ -1,6 +1,8 @@
 =============
 browserAction
 =============
+The browserAction and :doc:`composeAction` APIs first appeared in Thunderbird 64.
+
 Use toolbar actions to put icons in the mail window toolbar. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 Types
