@@ -9,6 +9,8 @@ DEST_DIR = os.path.dirname(__file__)
 PREAMBLE_DIR = os.path.join(DEST_DIR, "preamble")
 SRC_DIR = "/home/geoff/mozilla/mozilla-central/comm/mail/components/extensions/schemas"
 
+current_namespace_name = None
+
 
 def replace_code(string):
     string = string.replace("<em>", "*").replace("</em>", "*")
@@ -32,7 +34,10 @@ def format_member(key, value):
         else:
             parts.append("(`%s <enum_%s_>`_)" % (value["type"], key))
     elif "$ref" in value:
-        parts.append(":ref:`%s`" % value["$ref"])
+        if "." in value["$ref"]:
+            parts.append(":ref:`%s`" % value["$ref"])
+        else:
+            parts.append(":ref:`%s.%s`" % (current_namespace_name, value["$ref"]))
 
     if "description" in value:
         parts.append(replace_code(value["description"]))
@@ -105,13 +110,15 @@ def header_3(string):
 
 
 def format_namespace(namespace):
-    preamble = os.path.join(PREAMBLE_DIR, namespace["namespace"] + ".rst")
+    global current_namespace_name
+    current_namespace_name = namespace["namespace"]
+    preamble = os.path.join(PREAMBLE_DIR, current_namespace_name + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
             lines = map(lambda l: l.rstrip("\n"), fp_preamble.readlines())
             lines.append("")
     else:
-        lines = header_1(namespace["namespace"])
+        lines = header_1(current_namespace_name)
 
     if "description" in namespace:
         lines.append(replace_code(namespace["description"]))
@@ -121,7 +128,7 @@ def format_namespace(namespace):
             lines.extend([
                 ".. note::",
                 "",
-                "  The permission ``%s`` is required to use ``%s``." % (permission, namespace["namespace"]),
+                "  The permission ``%s`` is required to use ``%s``." % (permission, current_namespace_name),
                 "",
             ])
 
@@ -132,7 +139,7 @@ def format_namespace(namespace):
         for type_ in namespace["types"]:
             lines.extend([
                 "",
-                ".. _%s:" % type_["id"],
+                ".. _%s.%s:" % (current_namespace_name, type_["id"]),
                 "",
             ])
             lines.extend(header_3(type_["id"]))

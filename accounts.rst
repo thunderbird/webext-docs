@@ -13,7 +13,7 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 Types
 =====
 
-.. _MailFolder:
+.. _accounts.MailFolder:
 
 MailFolder
 ----------

@@ -11,7 +11,7 @@ The address books API, also including the :doc:`addressBooks` and :doc:`contacts
 Types
 =====
 
-.. _MailingListNode:
+.. _mailingLists.MailingListNode:
 
 MailingListNode
 ---------------
@@ -22,7 +22,7 @@ A node representing a mailing list.
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``name`` (string)
 - ``nickName`` (string)
-- ``type`` :ref:`NodeType` Always set to ``mailingList``.
+- ``type`` :ref:`addressBooks.NodeType` Always set to ``mailingList``.
 - [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
 - [``parentId``] (string) The ``id`` of the parent object.
 - [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.

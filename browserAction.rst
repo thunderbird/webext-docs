@@ -9,7 +9,7 @@ Use toolbar actions to put icons in the mail window toolbar. In addition to its 
 Types
 =====
 
-.. _Details:
+.. _browserAction.Details:
 
 Details
 -------
@@ -19,12 +19,12 @@ Specifies to which tab or window the value should be set, or from which one it s
 - [``tabId``] (integer) When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
 - [``windowId``] (integer) When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
 
-.. _ColorArray:
+.. _browserAction.ColorArray:
 
 ColorArray
 ----------
 
-.. _ImageDataType:
+.. _browserAction.ImageDataType:
 
 ImageDataType
 -------------
@@ -50,7 +50,7 @@ getTitle(details, callback)
 
 Gets the title of the toolbar action.
 
-- ``details`` :ref:`Details`
+- ``details`` :ref:`browserAction.Details`
 - ``callback`` (function)
 
 setIcon(details, [callback])
@@ -81,7 +81,7 @@ getPopup(details, callback)
 
 Gets the html document set as the popup for this toolbar action.
 
-- ``details`` :ref:`Details`
+- ``details`` :ref:`browserAction.Details`
 - ``callback`` (function)
 
 setBadgeText(details, [callback])
@@ -100,7 +100,7 @@ getBadgeText(details, callback)
 
 Gets the badge text of the toolbar action. If no tab nor window is specified is specified, the global badge text is returned.
 
-- ``details`` :ref:`Details`
+- ``details`` :ref:`browserAction.Details`
 - ``callback`` (function)
 
 setBadgeBackgroundColor(details, [callback])
@@ -119,7 +119,7 @@ getBadgeBackgroundColor(details, callback)
 
 Gets the background color of the toolbar action.
 
-- ``details`` :ref:`Details`
+- ``details`` :ref:`browserAction.Details`
 - ``callback`` (function)
 
 enable([tabId], [callback])
@@ -143,7 +143,7 @@ isEnabled(details)
 
 Checks whether the toolbar action is enabled.
 
-- ``details`` :ref:`Details`
+- ``details`` :ref:`browserAction.Details`
 
 openPopup()
 -----------

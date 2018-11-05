@@ -18,21 +18,21 @@ list(folder)
 
 Lists all messages in the specified folder. WARNING: this could return a very large number of messages, which would negatively affect performance.
 
-- ``folder`` :ref:`MailFolder`
+- ``folder`` :ref:`accounts.MailFolder`
 
 get(messageId)
 --------------
 
 Returns a specified message.
 
-- ``messageId`` (integer)
+- ``messageId`` (string)
 
 update(messageId, newProperties)
 --------------------------------
 
 Marks or unmarks a message as read, starred, or tagged.
 
-- ``messageId`` (integer)
+- ``messageId`` (string)
 - ``newProperties`` (object)
 
   - [``flagged``] (boolean) Marks the message as starred or unstarred.

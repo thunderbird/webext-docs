@@ -7,7 +7,7 @@ Use the ``browser.tabs`` API to interact with the browser's tab system. You can 
 Types
 =====
 
-.. _Tab:
+.. _tabs.Tab:
 
 Tab
 ---
@@ -26,28 +26,28 @@ Tab
 - [``width``] (integer) The width of the tab in pixels.
 - [``windowId``] (integer) The ID of the window the tab is contained within.
 
-.. _TabStatus:
+.. _tabs.TabStatus:
 
 TabStatus
 ---------
 
 Whether the tabs have completed loading.
 
-.. _WindowType:
+.. _tabs.WindowType:
 
 WindowType
 ----------
 
 The type of window.
 
-.. _UpdatePropertyName:
+.. _tabs.UpdatePropertyName:
 
 UpdatePropertyName
 ------------------
 
 Event names supported in onUpdated.
 
-.. _UpdateFilter:
+.. _tabs.UpdateFilter:
 
 UpdateFilter
 ------------
@@ -113,11 +113,11 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``index``] (integer) The position of the tabs within their windows.
   - [``isMail3Pane``] (boolean) Whether the tab is a Thunderbird 3-pane tab.
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
-  - [``status``] :ref:`TabStatus` Whether the tabs have completed loading.
+  - [``status``] :ref:`tabs.TabStatus` Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
   - [``url``] Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
-  - [``windowType``] :ref:`WindowType` The type of window the tabs are in.
+  - [``windowType``] :ref:`tabs.WindowType` The type of window the tabs are in.
 
 - ``callback`` (function)
 
