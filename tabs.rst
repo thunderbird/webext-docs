@@ -111,7 +111,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``currentWindow``] (boolean) Whether the tabs are in the $(topic:current-window)[current window].
   - [``highlighted``] (boolean) Whether the tabs are highlighted.  Works as an alias of active.
   - [``index``] (integer) The position of the tabs within their windows.
-  - [``isMail3Pane``] (boolean)
+  - [``isMail3Pane``] (boolean) Whether the tab is a Thunderbird 3-pane tab.
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
   - [``status``] :ref:`TabStatus` Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
