@@ -1,9 +1,12 @@
 ============
 addressBooks
 ============
+
 The address books API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
-The permission ``addressBooks`` is required to use ``addressBooks``.
+.. note::
+
+  The permission ``addressBooks`` is required to use ``addressBooks``.
 
 Types
 =====
@@ -12,12 +15,14 @@ Types
 
 NodeType
 --------
+
 Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
 
 .. _AddressBookNode:
 
 AddressBookNode
 ---------------
+
 A node representing an address book.
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
@@ -33,20 +38,24 @@ Functions
 
 openUI()
 --------
+
 Opens the address book user interface.
 
 closeUI()
 ---------
+
 Closes the address book user interface.
 
 list([complete])
 ----------------
+
 Gets a list of the user's address books, optionally including all contacts and mailing lists.
 
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for each address book.
 
 get(id, [complete])
 -------------------
+
 Gets a single address book, optionally including all contacts and mailing lists.
 
 - ``id`` (string)
@@ -54,6 +63,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
 
 create(properties)
 ------------------
+
 Creates a new, empty address book.
 
 - ``properties`` (object)
@@ -62,6 +72,7 @@ Creates a new, empty address book.
 
 update(id, properties)
 ----------------------
+
 Renames an address book.
 
 - ``id`` (string)
@@ -71,6 +82,7 @@ Renames an address book.
 
 delete(id)
 ----------
+
 Removes an address book, and all associated contacts and mailing lists.
 
 - ``id`` (string)

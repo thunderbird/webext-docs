@@ -1,6 +1,7 @@
 =============
 browserAction
 =============
+
 The browserAction and :doc:`composeAction` APIs first appeared in Thunderbird 64.
 
 Use toolbar actions to put icons in the mail window toolbar. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
@@ -12,6 +13,7 @@ Types
 
 Details
 -------
+
 Specifies to which tab or window the value should be set, or from which one it should be retrieved. If no tab nor window is specified, the global value is set or retrieved.
 
 - [``tabId``] (integer) When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
@@ -26,6 +28,7 @@ ColorArray
 
 ImageDataType
 -------------
+
 Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
 
 Functions
@@ -33,6 +36,7 @@ Functions
 
 setTitle(details, [callback])
 -----------------------------
+
 Sets the title of the toolbar action. This shows up in the tooltip.
 
 - ``details`` (object)
@@ -43,6 +47,7 @@ Sets the title of the toolbar action. This shows up in the tooltip.
 
 getTitle(details, callback)
 ---------------------------
+
 Gets the title of the toolbar action.
 
 - ``details`` :ref:`Details`
@@ -50,6 +55,7 @@ Gets the title of the toolbar action.
 
 setIcon(details, [callback])
 ----------------------------
+
 Sets the icon for the toolbar action. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
 
 - ``details`` (object)
@@ -61,6 +67,7 @@ Sets the icon for the toolbar action. The icon can be specified either as the pa
 
 setPopup(details, [callback])
 -----------------------------
+
 Sets the html document to be opened as a popup when the user clicks on the toolbar action's icon.
 
 - ``details`` (object)
@@ -71,6 +78,7 @@ Sets the html document to be opened as a popup when the user clicks on the toolb
 
 getPopup(details, callback)
 ---------------------------
+
 Gets the html document set as the popup for this toolbar action.
 
 - ``details`` :ref:`Details`
@@ -78,6 +86,7 @@ Gets the html document set as the popup for this toolbar action.
 
 setBadgeText(details, [callback])
 ---------------------------------
+
 Sets the badge text for the toolbar action. The badge is displayed on top of the icon.
 
 - ``details`` (object)
@@ -88,6 +97,7 @@ Sets the badge text for the toolbar action. The badge is displayed on top of the
 
 getBadgeText(details, callback)
 -------------------------------
+
 Gets the badge text of the toolbar action. If no tab nor window is specified is specified, the global badge text is returned.
 
 - ``details`` :ref:`Details`
@@ -95,6 +105,7 @@ Gets the badge text of the toolbar action. If no tab nor window is specified is 
 
 setBadgeBackgroundColor(details, [callback])
 --------------------------------------------
+
 Sets the background color for the badge.
 
 - ``details`` (object)
@@ -105,6 +116,7 @@ Sets the background color for the badge.
 
 getBadgeBackgroundColor(details, callback)
 ------------------------------------------
+
 Gets the background color of the toolbar action.
 
 - ``details`` :ref:`Details`
@@ -112,6 +124,7 @@ Gets the background color of the toolbar action.
 
 enable([tabId], [callback])
 ---------------------------
+
 Enables the toolbar action for a tab. By default, toolbar actions are enabled.
 
 - [``tabId``] (integer) The id of the tab for which you want to modify the toolbar action.
@@ -119,6 +132,7 @@ Enables the toolbar action for a tab. By default, toolbar actions are enabled.
 
 disable([tabId], [callback])
 ----------------------------
+
 Disables the toolbar action for a tab.
 
 - [``tabId``] (integer) The id of the tab for which you want to modify the toolbar action.
@@ -126,10 +140,12 @@ Disables the toolbar action for a tab.
 
 isEnabled(details)
 ------------------
+
 Checks whether the toolbar action is enabled.
 
 - ``details`` :ref:`Details`
 
 openPopup()
 -----------
+
 Opens the extension popup window in the active window.

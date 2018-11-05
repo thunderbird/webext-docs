@@ -1,6 +1,7 @@
 ====
 tabs
 ====
+
 Use the ``browser.tabs`` API to interact with the browser's tab system. You can use this API to create, modify, and rearrange tabs in the browser.
 
 Types
@@ -29,24 +30,28 @@ Tab
 
 TabStatus
 ---------
+
 Whether the tabs have completed loading.
 
 .. _WindowType:
 
 WindowType
 ----------
+
 The type of window.
 
 .. _UpdatePropertyName:
 
 UpdatePropertyName
 ------------------
+
 Event names supported in onUpdated.
 
 .. _UpdateFilter:
 
 UpdateFilter
 ------------
+
 An object describing filters to apply to tabs.onUpdated events.
 
 - [``properties``] (array) A list of property names. Events that do not match any of the names will be filtered out.
@@ -59,6 +64,7 @@ Functions
 
 get(tabId, callback)
 --------------------
+
 Retrieves details about the specified tab.
 
 - ``tabId`` (integer)
@@ -66,12 +72,14 @@ Retrieves details about the specified tab.
 
 getCurrent(callback)
 --------------------
+
 Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
 
 - ``callback`` (function)
 
 create(createProperties, [callback])
 ------------------------------------
+
 Creates a new tab.
 
 - ``createProperties`` (object)
@@ -86,6 +94,7 @@ Creates a new tab.
 
 duplicate(tabId, [callback])
 ----------------------------
+
 Duplicates a tab.
 
 - ``tabId`` (integer) The ID of the tab which is to be duplicated.
@@ -93,6 +102,7 @@ Duplicates a tab.
 
 query(queryInfo, callback)
 --------------------------
+
 Gets all tabs that have the specified properties, or all tabs if no properties are specified.
 
 - ``queryInfo`` (object)
@@ -113,6 +123,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
 update([tabId], updateProperties, [callback])
 ---------------------------------------------
+
 Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.
 
 - [``tabId``] (integer) Defaults to the selected tab of the $(topic:current-window)[current window].
@@ -125,6 +136,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
 
 move(tabIds, moveProperties, [callback])
 ----------------------------------------
+
 Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
 
 - ``tabIds`` The tab or list of tabs to move.
@@ -137,6 +149,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
 
 reload([tabId], [reloadProperties], [callback])
 -----------------------------------------------
+
 Reload a tab.
 
 - [``tabId``] (integer) The ID of the tab to reload; defaults to the selected tab of the current window.
@@ -148,6 +161,7 @@ Reload a tab.
 
 remove(tabIds, [callback])
 --------------------------
+
 Closes one or more tabs.
 
 - ``tabIds`` The tab or list of tabs to close.
@@ -155,6 +169,7 @@ Closes one or more tabs.
 
 executeScript([tabId], details, [callback])
 -------------------------------------------
+
 Injects JavaScript code into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
@@ -163,6 +178,7 @@ Injects JavaScript code into a page. For details, see the $(topic:content_script
 
 insertCSS([tabId], details, [callback])
 ---------------------------------------
+
 Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
@@ -171,6 +187,7 @@ Injects CSS into a page. For details, see the $(topic:content_scripts)[programma
 
 removeCSS([tabId], details, [callback])
 ---------------------------------------
+
 Removes injected CSS from a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.

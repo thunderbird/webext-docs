@@ -1,25 +1,31 @@
 ========
 mailTabs
 ========
+
 This is preliminary documentation for the mail tabs API being developed in `bug 1499617`__.
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
 
-The permission ``mailTabs`` is required to use ``mailTabs``.
+.. note::
+
+  The permission ``mailTabs`` is required to use ``mailTabs``.
 
 Functions
 =========
 
 getAll()
 --------
+
 Returns an array of all mail tabs in all windows.
 
 getCurrent()
 ------------
+
 Returns the current mail tab in the most recent window, or throws an exception if the current tab is not a mail tab.
 
 update([tabId], updateProperties)
 ---------------------------------
+
 Modifies the properties of a mail tab. Properties that are not specified in ``updateProperties`` are not modified.
 
 - [``tabId``] (integer) Defaults to the selected tab of the current window.
@@ -75,12 +81,14 @@ Values for sortType:
 
 getSelectedMessages([tabId])
 ----------------------------
+
 Lists the selected messages in the current folder. A messages permission is required to do this.
 
 - [``tabId``] (integer) Defaults to the selected tab of the current window.
 
 setQuickFilter([tabId], properties)
 -----------------------------------
+
 Sets the Quick Filter user interface based on the options specified.
 
 - [``tabId``] (integer) Defaults to the selected tab of the current window.

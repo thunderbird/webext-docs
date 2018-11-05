@@ -1,9 +1,12 @@
 ========
 contacts
 ========
+
 The address books API, also including the :doc:`addressBooks` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
-The permission ``addressBooks`` is required to use ``contacts``.
+.. note::
+
+  The permission ``addressBooks`` is required to use ``contacts``.
 
 Types
 =====
@@ -12,6 +15,7 @@ Types
 
 ContactNode
 -----------
+
 A node representing a contact in an address book.
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
@@ -24,6 +28,7 @@ A node representing a contact in an address book.
 
 ContactProperties
 -----------------
+
 A set of properties for a particular contact. For a complete list of properties that Thunderbird uses, see https://hg.mozilla.org/comm-central/file/tip/mailnews/addrbook/public/nsIAbCard.idl
 
 Functions
@@ -31,18 +36,21 @@ Functions
 
 list(parentId)
 --------------
+
 Gets all the contacts in the address book with the id ``parentId``.
 
 - ``parentId`` (string)
 
 get(id)
 -------
+
 Gets a single contact.
 
 - ``id`` (string)
 
 create(parentId, properties)
 ----------------------------
+
 Adds a new contact to the address book with the id ``parentId``.
 
 - ``parentId`` (string)
@@ -50,6 +58,7 @@ Adds a new contact to the address book with the id ``parentId``.
 
 update(id, properties)
 ----------------------
+
 Edits the properties of a contact. To remove a property, specify it as ``null``.
 
 - ``id`` (string)
@@ -57,6 +66,7 @@ Edits the properties of a contact. To remove a property, specify it as ``null``.
 
 delete(id)
 ----------
+
 Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
 
 - ``id`` (string)

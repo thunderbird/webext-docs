@@ -84,6 +84,7 @@ def header_1(string):
         "=" * len(string),
         string,
         "=" * len(string),
+        "",
     ]
 
 
@@ -91,6 +92,7 @@ def header_2(string):
     return [
         string,
         "=" * len(string),
+        "",
     ]
 
 
@@ -98,6 +100,7 @@ def header_3(string):
     return [
         string,
         "-" * len(string),
+        "",
     ]
 
 
@@ -105,7 +108,7 @@ def format_namespace(namespace):
     preamble = os.path.join(PREAMBLE_DIR, namespace["namespace"] + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
-            lines = map(lambda l: l.strip(), fp_preamble.readlines())
+            lines = map(lambda l: l.rstrip("\n"), fp_preamble.readlines())
             lines.append("")
     else:
         lines = header_1(namespace["namespace"])
@@ -115,8 +118,12 @@ def format_namespace(namespace):
 
     if "permissions" in namespace:
         for permission in namespace["permissions"]:
-            lines.append("The permission ``%s`` is required to use ``%s``." %
-                (permission, namespace["namespace"]))
+            lines.extend([
+                ".. note::",
+                "",
+                "  The permission ``%s`` is required to use ``%s``." % (permission, namespace["namespace"]),
+                "",
+            ])
 
     if "types" in namespace:
         lines.append("")

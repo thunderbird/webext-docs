@@ -1,6 +1,7 @@
 =======
 windows
 =======
+
 Use the ``browser.windows`` API to interact with browser windows. You can use this API to create, modify, and rearrange windows in the browser.
 
 Types
@@ -10,12 +11,14 @@ Types
 
 WindowType
 ----------
+
 The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.
 
 .. _WindowState:
 
 WindowState
 -----------
+
 The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
 
 .. _Window:
@@ -41,6 +44,7 @@ Window
 
 CreateType
 ----------
+
 Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
 
 Functions
@@ -48,6 +52,7 @@ Functions
 
 get(windowId, [getInfo], callback)
 ----------------------------------
+
 Gets details about a window.
 
 - ``windowId`` (integer)
@@ -60,6 +65,7 @@ Gets details about a window.
 
 getCurrent([getInfo], callback)
 -------------------------------
+
 Gets the $(topic:current-window)[current window].
 
 - [``getInfo``] (object) 
@@ -71,6 +77,7 @@ Gets the $(topic:current-window)[current window].
 
 getLastFocused([getInfo], callback)
 -----------------------------------
+
 Gets the window that was most recently focused &mdash; typically the window 'on top'.
 
 - [``getInfo``] (object) 
@@ -82,6 +89,7 @@ Gets the window that was most recently focused &mdash; typically the window 'on 
 
 getAll([getInfo], callback)
 ---------------------------
+
 Gets all windows.
 
 - [``getInfo``] (object) 
@@ -93,6 +101,7 @@ Gets all windows.
 
 create([createData], [callback])
 --------------------------------
+
 Creates (opens) a new browser with any optional sizing, position or default URL provided.
 
 - [``createData``] (object)
@@ -114,6 +123,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
 
 update(windowId, updateInfo, [callback])
 ----------------------------------------
+
 Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.
 
 - ``windowId`` (integer)
@@ -132,6 +142,7 @@ Updates the properties of a window. Specify only the properties that you want to
 
 remove(windowId, [callback])
 ----------------------------
+
 Removes (closes) a window, and all the tabs inside it.
 
 - ``windowId`` (integer)
