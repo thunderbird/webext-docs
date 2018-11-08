@@ -84,6 +84,16 @@ def format_object(name, prop):
     return lines
 
 
+def format_params(function):
+    params = []
+    for param in function["parameters"]:
+        if param.get("optional", False):
+            params.append("[%s]" % param["name"])
+        else:
+            params.append(param["name"])
+    return ", ".join(params)
+
+
 def header_1(string):
     return [
         "=" * len(string),
@@ -163,19 +173,13 @@ def format_namespace(namespace):
         lines.append("")
         lines.extend(header_2("Functions"))
         for function in namespace["functions"]:
-            params = []
-            for param in function["parameters"]:
-                if param.get("optional", False):
-                    params.append("[%s]" % param["name"])
-                else:
-                    params.append(param["name"])
             lines.append("")
-            lines.extend(header_3("%s(%s)" % (function["name"], ", ".join(params))))
+            lines.extend(header_3("%s(%s)" % (function["name"], format_params(function))))
 
             if "description" in function:
                 lines.append(replace_code(function["description"]) + "")
 
-            if len(params):
+            if len(function["parameters"]):
                 lines.append("")
                 for param in function["parameters"]:
                     lines.extend(format_object(param["name"], param))
@@ -186,7 +190,7 @@ def format_namespace(namespace):
         lines.extend(header_2("Events"))
         for event in namespace["events"]:
             lines.append("")
-            lines.extend(header_3(event["name"]))
+            lines.extend(header_3("%s(%s)" % (event["name"], format_params(event))))
 
             if "description" in event:
                 lines.append(replace_code(event["description"]) + "")

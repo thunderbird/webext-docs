@@ -109,12 +109,12 @@ Sets the Quick Filter user interface based on the options specified.
 Events
 ======
 
-onDisplayedFolderChanged
-------------------------
+onDisplayedFolderChanged()
+--------------------------
 
 Fired when the displayed folder changes in any mail tab.
 
-onSelectedMessagesChanged
--------------------------
+onSelectedMessagesChanged()
+---------------------------
 
 Fired when the selected messages change in any mail tab.

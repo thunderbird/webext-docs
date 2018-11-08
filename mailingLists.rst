@@ -101,37 +101,37 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
 Events
 ======
 
-onCreated
----------
+onCreated(node)
+---------------
 
 Fired when a mailing list is created.
 
 - ``node`` (:ref:`mailingLists.MailingListNode`)
 
-onUpdated
----------
+onUpdated(node)
+---------------
 
 Fired when a mailing list is changed.
 
 - ``node`` (:ref:`mailingLists.MailingListNode`)
 
-onDeleted
----------
+onDeleted(parentId, id)
+-----------------------
 
 Fired when a mailing list is deleted.
 
 - ``parentId`` (string)
 - ``id`` (string)
 
-onMemberAdded
--------------
+onMemberAdded(node)
+-------------------
 
 Fired when a contact is added to the mailing list.
 
 - ``node`` (:ref:`contacts.ContactNode`)
 
-onMemberRemoved
----------------
+onMemberRemoved(parentId, id)
+-----------------------------
 
 Fired when a contact is removed from the mailing list.
 

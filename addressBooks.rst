@@ -90,22 +90,22 @@ Removes an address book, and all associated contacts and mailing lists.
 Events
 ======
 
-onCreated
----------
+onCreated(node)
+---------------
 
 Fired when an address book is created.
 
 - ``node`` (:ref:`addressBooks.AddressBookNode`)
 
-onUpdated
----------
+onUpdated(node)
+---------------
 
 Fired when an address book is renamed.
 
 - ``node`` (:ref:`addressBooks.AddressBookNode`)
 
-onDeleted
----------
+onDeleted(id)
+-------------
 
 Fired when an addressBook is deleted.
 

@@ -197,15 +197,15 @@ Removes injected CSS from a page. For details, see the $(topic:content_scripts)[
 Events
 ======
 
-onCreated
----------
+onCreated(tab)
+--------------
 
 Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 - ``tab`` (:ref:`tabs.Tab`) Details of the tab that was created.
 
-onUpdated
----------
+onUpdated(tabId, changeInfo, tab)
+---------------------------------
 
 Fired when a tab is updated.
 
@@ -218,8 +218,8 @@ Fired when a tab is updated.
 
 - ``tab`` (:ref:`tabs.Tab`) Gives the state of the tab that was updated.
 
-onMoved
--------
+onMoved(tabId, moveInfo)
+------------------------
 
 Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see $(ref:tabs.onDetached).
 
@@ -230,8 +230,8 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
   - ``toIndex`` (integer)
   - ``windowId`` (integer)
 
-onActivated
------------
+onActivated(activeInfo)
+-----------------------
 
 Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
@@ -240,8 +240,8 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
   - ``tabId`` (integer) The ID of the tab that has become active.
   - ``windowId`` (integer) The ID of the window the active tab changed inside of.
 
-onDetached
-----------
+onDetached(tabId, detachInfo)
+-----------------------------
 
 Fired when a tab is detached from a window, for example because it is being moved between windows.
 
@@ -251,8 +251,8 @@ Fired when a tab is detached from a window, for example because it is being move
   - ``oldPosition`` (integer)
   - ``oldWindowId`` (integer)
 
-onAttached
-----------
+onAttached(tabId, attachInfo)
+-----------------------------
 
 Fired when a tab is attached to a window, for example because it was moved between windows.
 
@@ -262,8 +262,8 @@ Fired when a tab is attached to a window, for example because it was moved betwe
   - ``newPosition`` (integer)
   - ``newWindowId`` (integer)
 
-onRemoved
----------
+onRemoved(tabId, removeInfo)
+----------------------------
 
 Fired when a tab is closed.
 

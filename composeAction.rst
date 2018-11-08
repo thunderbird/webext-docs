@@ -153,7 +153,7 @@ Opens the extension popup window in the active window.
 Events
 ======
 
-onClicked
----------
+onClicked()
+-----------
 
 Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.

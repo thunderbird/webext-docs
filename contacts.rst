@@ -74,23 +74,23 @@ Removes a contact from the address book. The contact is also removed from any ma
 Events
 ======
 
-onCreated
----------
+onCreated(node, id)
+-------------------
 
 Fired when a contact is created.
 
 - ``node`` (:ref:`contacts.ContactNode`)
 - ``id`` (string)
 
-onUpdated
----------
+onUpdated(node)
+---------------
 
 Fired when a contact is changed.
 
 - ``node`` (:ref:`contacts.ContactNode`)
 
-onDeleted
----------
+onDeleted(parentId, id)
+-----------------------
 
 Fired when a contact is removed from an address book.
 
