@@ -27,7 +27,7 @@ A node representing an address book.
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``name`` (string)
-- ``type`` :ref:`addressBooks.NodeType` Always set to ``addressBook``.
+- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``addressBook``.
 - [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
 - [``mailingLists``] (array) A list of mailingLists in this node's address book.
 - [``parentId``] (string) The ``id`` of the parent object.
@@ -87,3 +87,26 @@ Removes an address book, and all associated contacts and mailing lists.
 
 - ``id`` (string)
 
+Events
+======
+
+onCreated
+---------
+
+Fired when an address book is created.
+
+- ``node`` (:ref:`addressBooks.AddressBookNode`)
+
+onUpdated
+---------
+
+Fired when an address book is renamed.
+
+- ``node`` (:ref:`addressBooks.AddressBookNode`)
+
+onDeleted
+---------
+
+Fired when an addressBook is deleted.
+
+- ``id`` (string)

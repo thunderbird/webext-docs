@@ -19,8 +19,8 @@ ContactNode
 A node representing a contact in an address book.
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
-- ``properties`` :ref:`contacts.ContactProperties`
-- ``type`` :ref:`addressBooks.NodeType` Always set to ``contact``.
+- ``properties`` (:ref:`contacts.ContactProperties`)
+- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``contact``.
 - [``parentId``] (string) The ``id`` of the parent object.
 - [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
 
@@ -54,7 +54,7 @@ create(parentId, properties)
 Adds a new contact to the address book with the id ``parentId``.
 
 - ``parentId`` (string)
-- ``properties`` :ref:`contacts.ContactProperties`
+- ``properties`` (:ref:`contacts.ContactProperties`)
 
 update(id, properties)
 ----------------------
@@ -62,7 +62,7 @@ update(id, properties)
 Edits the properties of a contact. To remove a property, specify it as ``null``.
 
 - ``id`` (string)
-- ``properties`` :ref:`contacts.ContactProperties`
+- ``properties`` (:ref:`contacts.ContactProperties`)
 
 delete(id)
 ----------
@@ -71,3 +71,28 @@ Removes a contact from the address book. The contact is also removed from any ma
 
 - ``id`` (string)
 
+Events
+======
+
+onCreated
+---------
+
+Fired when a contact is created.
+
+- ``node`` (:ref:`contacts.ContactNode`)
+- ``id`` (string)
+
+onUpdated
+---------
+
+Fired when a contact is changed.
+
+- ``node`` (:ref:`contacts.ContactNode`)
+
+onDeleted
+---------
+
+Fired when a contact is removed from an address book.
+
+- ``parentId`` (string)
+- ``id`` (string)

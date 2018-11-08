@@ -18,7 +18,7 @@ list(folder)
 
 Lists all messages in the specified folder. WARNING: this could return a very large number of messages, which would negatively affect performance.
 
-- ``folder`` :ref:`accounts.MailFolder`
+- ``folder`` (:ref:`accounts.MailFolder`)
 
 get(messageId)
 --------------

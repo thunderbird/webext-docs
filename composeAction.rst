@@ -50,7 +50,7 @@ getTitle(details, callback)
 
 Gets the title of the toolbar action.
 
-- ``details`` :ref:`composeAction.Details`
+- ``details`` (:ref:`composeAction.Details`)
 - ``callback`` (function)
 
 setIcon(details, [callback])
@@ -81,7 +81,7 @@ getPopup(details, callback)
 
 Gets the html document set as the popup for this toolbar action.
 
-- ``details`` :ref:`composeAction.Details`
+- ``details`` (:ref:`composeAction.Details`)
 - ``callback`` (function)
 
 setBadgeText(details, [callback])
@@ -100,7 +100,7 @@ getBadgeText(details, callback)
 
 Gets the badge text of the toolbar action. If no tab nor window is specified is specified, the global badge text is returned.
 
-- ``details`` :ref:`composeAction.Details`
+- ``details`` (:ref:`composeAction.Details`)
 - ``callback`` (function)
 
 setBadgeBackgroundColor(details, [callback])
@@ -119,7 +119,7 @@ getBadgeBackgroundColor(details, callback)
 
 Gets the background color of the toolbar action.
 
-- ``details`` :ref:`composeAction.Details`
+- ``details`` (:ref:`composeAction.Details`)
 - ``callback`` (function)
 
 enable([tabId], [callback])
@@ -143,9 +143,17 @@ isEnabled(details)
 
 Checks whether the toolbar action is enabled.
 
-- ``details`` :ref:`composeAction.Details`
+- ``details`` (:ref:`composeAction.Details`)
 
 openPopup()
 -----------
 
 Opens the extension popup window in the active window.
+
+Events
+======
+
+onClicked
+---------
+
+Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.

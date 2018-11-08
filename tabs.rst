@@ -113,11 +113,11 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``index``] (integer) The position of the tabs within their windows.
   - [``isMail3Pane``] (boolean) Whether the tab is a Thunderbird 3-pane tab.
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
-  - [``status``] :ref:`tabs.TabStatus` Whether the tabs have completed loading.
+  - [``status``] (:ref:`tabs.TabStatus`) Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
   - [``url``] Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
-  - [``windowType``] :ref:`tabs.WindowType` The type of window the tabs are in.
+  - [``windowType``] (:ref:`tabs.WindowType`) The type of window the tabs are in.
 
 - ``callback`` (function)
 
@@ -173,7 +173,7 @@ executeScript([tabId], details, [callback])
 Injects JavaScript code into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
-- ``details`` :ref:`extensionTypes.InjectDetails` Details of the script to run.
+- ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the script to run.
 - [``callback``] (function) Called after all the JavaScript has been executed.
 
 insertCSS([tabId], details, [callback])
@@ -182,7 +182,7 @@ insertCSS([tabId], details, [callback])
 Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
-- ``details`` :ref:`extensionTypes.InjectDetails` Details of the CSS text to insert.
+- ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to insert.
 - [``callback``] (function) Called when all the CSS has been inserted.
 
 removeCSS([tabId], details, [callback])
@@ -191,6 +191,84 @@ removeCSS([tabId], details, [callback])
 Removes injected CSS from a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
-- ``details`` :ref:`extensionTypes.InjectDetails` Details of the CSS text to remove.
+- ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to remove.
 - [``callback``] (function) Called when all the CSS has been removed.
 
+Events
+======
+
+onCreated
+---------
+
+Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+
+- ``tab`` (:ref:`tabs.Tab`) Details of the tab that was created.
+
+onUpdated
+---------
+
+Fired when a tab is updated.
+
+- ``tabId`` (integer)
+- ``changeInfo`` (object) Lists the changes to the state of the tab that was updated.
+
+  - [``favIconUrl``] (string) The tab's new favicon URL.
+  - [``status``] (string) The status of the tab. Can be either *loading* or *complete*.
+  - [``url``] (string) The tab's URL if it has changed.
+
+- ``tab`` (:ref:`tabs.Tab`) Gives the state of the tab that was updated.
+
+onMoved
+-------
+
+Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see $(ref:tabs.onDetached).
+
+- ``tabId`` (integer)
+- ``moveInfo`` (object)
+
+  - ``fromIndex`` (integer)
+  - ``toIndex`` (integer)
+  - ``windowId`` (integer)
+
+onActivated
+-----------
+
+Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+
+- ``activeInfo`` (object)
+
+  - ``tabId`` (integer) The ID of the tab that has become active.
+  - ``windowId`` (integer) The ID of the window the active tab changed inside of.
+
+onDetached
+----------
+
+Fired when a tab is detached from a window, for example because it is being moved between windows.
+
+- ``tabId`` (integer)
+- ``detachInfo`` (object)
+
+  - ``oldPosition`` (integer)
+  - ``oldWindowId`` (integer)
+
+onAttached
+----------
+
+Fired when a tab is attached to a window, for example because it was moved between windows.
+
+- ``tabId`` (integer)
+- ``attachInfo`` (object)
+
+  - ``newPosition`` (integer)
+  - ``newWindowId`` (integer)
+
+onRemoved
+---------
+
+Fired when a tab is closed.
+
+- ``tabId`` (integer)
+- ``removeInfo`` (object)
+
+  - ``isWindowClosing`` (boolean) True when the tab is being closed because its window is being closed.
+  - ``windowId`` (integer) The window whose tab is closed.

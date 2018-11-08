@@ -35,9 +35,9 @@ def format_member(key, value):
             parts.append("(`%s <enum_%s_>`_)" % (value["type"], key))
     elif "$ref" in value:
         if "." in value["$ref"]:
-            parts.append(":ref:`%s`" % value["$ref"])
+            parts.append("(:ref:`%s`)" % value["$ref"])
         else:
-            parts.append(":ref:`%s.%s`" % (current_namespace_name, value["$ref"]))
+            parts.append("(:ref:`%s.%s`)" % (current_namespace_name, value["$ref"]))
 
     if "description" in value:
         parts.append(replace_code(value["description"]))
@@ -181,6 +181,22 @@ def format_namespace(namespace):
                     lines.extend(format_object(param["name"], param))
                 lines.append("")
 
+    if "events" in namespace:
+        lines.append("")
+        lines.extend(header_2("Events"))
+        for event in namespace["events"]:
+            lines.append("")
+            lines.extend(header_3(event["name"]))
+
+            if "description" in event:
+                lines.append(replace_code(event["description"]) + "")
+
+            if len(event["parameters"]):
+                lines.append("")
+                for param in event["parameters"]:
+                    lines.extend(format_object(param["name"], param))
+                lines.append("")
+
     index = 0
     previous = ""
     while index < len(lines):
@@ -190,7 +206,10 @@ def format_namespace(namespace):
             previous = lines[index]
             index += 1
 
-    return "\n".join(lines) + "\n"
+    if lines[-1] != "":
+        lines.append("")
+
+    return "\n".join(lines)
 
 
 if __name__ == "__main__":

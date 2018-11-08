@@ -94,9 +94,9 @@ Sets the Quick Filter user interface based on the options specified.
 - [``tabId``] (integer) Defaults to the selected tab of the current window.
 - ``properties`` (object)
 
-  - [``addrBook``] (boolean) Shows only messages from people in the address book.
-  - [``attachment``] (boolean) Shows only messages with attachments`.
+  - [``attachment``] (boolean) Shows only messages with attachments.
   - [``body``] (boolean) Shows messages where ``text`` matches the message body.
+  - [``contact``] (boolean) Shows only messages from people in the address book.
   - [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
   - [``sender``] (boolean) Shows messages where ``text`` matches the sender.
   - [``show``] (boolean) Shows or hides the Quick Filter bar.
@@ -106,3 +106,15 @@ Sets the Quick Filter user interface based on the options specified.
   - [``text``] (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
   - [``unread``] (boolean) Shows only unread messages.
 
+Events
+======
+
+onDisplayedFolderChanged
+------------------------
+
+Fired when the displayed folder changes in any mail tab.
+
+onSelectedMessagesChanged
+-------------------------
+
+Fired when the selected messages change in any mail tab.

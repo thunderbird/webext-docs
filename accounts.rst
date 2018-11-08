@@ -38,4 +38,3 @@ get(accountId)
 Returns details of the requested account, or null if it doesn't exist.
 
 - ``accountId`` (string)
-
