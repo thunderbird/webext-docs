@@ -22,7 +22,7 @@ This is a test run of the Thunderbird WebExtension API documentation. The docume
 The following APIs are also included and work as they do in Firfox:
 
 - `contentScripts <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts>`_
-- `experiments <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/experiments>`_
+- `experiments <https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments>`_
 - `extension <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension>`_
 - `i18n <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n>`_
 - `management <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/management>`_
