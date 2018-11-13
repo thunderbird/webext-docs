@@ -7,7 +7,6 @@ import argparse, glob, json, os, re
 
 DEST_DIR = os.path.dirname(__file__)
 PREAMBLE_DIR = os.path.join(DEST_DIR, "preamble")
-SRC_DIR = "/home/geoff/mozilla/mozilla-central/comm/mail/components/extensions/schemas"
 
 current_namespace_name = None
 
@@ -220,31 +219,29 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Create WebExtensions documentation from schema files"
     )
-    parser.add_argument("-a", "--all", dest="all", action="store_true",
-                        help="Recreate all documentation")
+    parser.add_argument("path", help="""Path to comm-central""")
     parser.add_argument("file", nargs="*",
                         help="""The name of an API to document, which corresponds
                         to a .json file in the schemas directory""")
     args = parser.parse_args()
 
-    if (not args.file and not args.all) or (args.file and args.all):
-        print "You must specify either -a or a file"
-        exit(1)
+    src_dir = os.path.join(args.path, "mail/components/extensions/schemas")
 
     files = []
-    if args.all:
-        for filename in glob.glob(os.path.join(SRC_DIR, "*.json")):
+    if len(args.file) == 0:
+        # Do all files.
+        for filename in glob.glob(os.path.join(src_dir, "*.json")):
             files.append(os.path.basename(filename)[:-5])
     else:
         for filename in args.file:
-            if os.path.exists(os.path.join(SRC_DIR, filename + ".json")):
+            if os.path.exists(os.path.join(src_dir, filename + ".json")):
                 files.append(filename)
 
     if len(files) == 0:
         print "No files found"
 
     for filename in sorted(files):
-        with open(os.path.join(SRC_DIR, filename + ".json")) as fp_input:
+        with open(os.path.join(src_dir, filename + ".json")) as fp_input:
             content = fp_input.read()
             content = re.sub(r"(^|\n)//.*", "", content)
             document = json.loads(content)

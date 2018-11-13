@@ -25,14 +25,21 @@ get(messageId)
 
 Returns a specified message.
 
-- ``messageId`` (string)
+- ``messageId`` (integer)
+
+getFull(messageId)
+------------------
+
+Returns a specified message.
+
+- ``messageId`` (integer)
 
 update(messageId, newProperties)
 --------------------------------
 
 Marks or unmarks a message as read, starred, or tagged.
 
-- ``messageId`` (string)
+- ``messageId`` (integer)
 - ``newProperties`` (object)
 
   - [``flagged``] (boolean) Marks the message as starred or unstarred.
