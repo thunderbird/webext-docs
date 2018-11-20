@@ -19,24 +19,33 @@ def replace_code(string):
     return string
 
 
-def format_member(key, value):
+def format_member(name, value):
     parts = []
 
-    if value.get("optional", False):
-        parts.append("[``%s``]" % key)
-    else:
-        parts.append("``%s``" % key)
+    if (name):
+        if value.get("optional", False):
+            parts.append("[``%s``]" % name)
+        else:
+            parts.append("``%s``" % name)
 
     if "type" in value:
         if value.get("enum") is None:
             parts.append("(%s)" % value["type"])
         else:
-            parts.append("(`%s <enum_%s_>`_)" % (value["type"], key))
+            parts.append("(`%s <enum_%s_>`_)" % (value["type"], name))
     elif "$ref" in value:
         if "." in value["$ref"]:
             parts.append("(:ref:`%s`)" % value["$ref"])
         else:
             parts.append("(:ref:`%s.%s`)" % (current_namespace_name, value["$ref"]))
+    elif "choices" in value:
+        choices = []
+        for choice in value["choices"]:
+            if "type" in choice:
+                choices.append(choice["type"])
+            elif "$ref" in choice:
+                choices.append(":ref:`%s.%s`" % (current_namespace_name, choice["$ref"]))
+        parts.append("(%s)" % " or ".join(choices))
 
     if "description" in value:
         parts.append(replace_code(value["description"]))
@@ -44,14 +53,14 @@ def format_member(key, value):
     return " ".join(parts)
 
 
-def format_enum(key, value):
+def format_enum(name, value):
     if value.get("enum") is None:
         return []
 
     enum_lines = [
-        ".. _enum_%s:" % key,
+        ".. _enum_%s:" % name,
         "",
-        "Values for %s:" % key,
+        "Values for %s:" % name,
         "",
     ]
     for enum_value in value.get("enum"):
@@ -60,13 +69,13 @@ def format_enum(key, value):
     return enum_lines
 
 
-def format_object(name, prop):
-    lines = ["- %s" % format_member(name, prop)]
+def format_object(name, obj):
+    lines = ["- %s" % format_member(name, obj)]
     enum_lines = []
 
-    if prop.get("type", None) == "object" and "properties" in prop:
+    if obj.get("type", None) == "object" and "properties" in obj:
         lines.append("")
-        items = sorted(prop["properties"].items())
+        items = sorted(obj["properties"].items())
         for [key, value] in items:
             if not value.get("optional", False):
                 lines.append("  - %s" % format_member(key, value))
@@ -144,6 +153,7 @@ def format_namespace(namespace):
     if "types" in namespace:
         lines.append("")
         lines.extend(header_2("Types"))
+        enum_lines = []
 
         for type_ in namespace["types"]:
             lines.extend([
@@ -162,17 +172,25 @@ def format_namespace(namespace):
                 for [key, value] in items:
                     if not value.get("optional", False):
                         lines.extend(format_object(key, value))
+                        enum_lines.extend(format_enum(key, value))
 
                 for [key, value] in items:
                     if value.get("optional", False):
                         lines.extend(format_object(key, value))
+                        enum_lines.extend(format_enum(key, value))
                 lines.append("")
+
+        lines.extend(enum_lines)
 
     if "functions" in namespace:
         lines.append("")
         lines.extend(header_2("Functions"))
         for function in namespace["functions"]:
-            lines.append("")
+            lines.extend([
+                "",
+                ".. _%s.%s:" % (current_namespace_name, function["name"]),
+                "",
+            ])
             lines.extend(header_3("%s(%s)" % (function["name"], format_params(function))))
 
             if "description" in function:
@@ -188,7 +206,11 @@ def format_namespace(namespace):
         lines.append("")
         lines.extend(header_2("Events"))
         for event in namespace["events"]:
-            lines.append("")
+            lines.extend([
+                "",
+                ".. _%s.%s:" % (current_namespace_name, event["name"]),
+                "",
+            ])
             lines.extend(header_3("%s(%s)" % (event["name"], format_params(event))))
 
             if "description" in event:
@@ -198,6 +220,15 @@ def format_namespace(namespace):
                 lines.append("")
                 for param in event["parameters"]:
                     lines.extend(format_object(param["name"], param))
+                lines.append("")
+
+            if "returns" in event:
+                lines.extend([
+                    "",
+                    "Event listeners should return:",
+                    "",
+                ])
+                lines.extend(format_object("", event["returns"]))
                 lines.append("")
 
     index = 0

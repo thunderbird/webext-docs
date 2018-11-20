@@ -50,6 +50,8 @@ Specifies what type of browser window to create. The 'panel' and 'detached_panel
 Functions
 =========
 
+.. _windows.get:
+
 get(windowId, [getInfo], callback)
 ----------------------------------
 
@@ -63,6 +65,8 @@ Gets details about a window.
 
 - ``callback`` (function)
 
+.. _windows.getCurrent:
+
 getCurrent([getInfo], callback)
 -------------------------------
 
@@ -74,6 +78,8 @@ Gets the $(topic:current-window)[current window].
   - [``windowTypes``] (array) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 - ``callback`` (function)
+
+.. _windows.getLastFocused:
 
 getLastFocused([getInfo], callback)
 -----------------------------------
@@ -87,6 +93,8 @@ Gets the window that was most recently focused &mdash; typically the window 'on 
 
 - ``callback`` (function)
 
+.. _windows.getAll:
+
 getAll([getInfo], callback)
 ---------------------------
 
@@ -98,6 +106,8 @@ Gets all windows.
   - [``windowTypes``] (array) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 - ``callback`` (function)
+
+.. _windows.create:
 
 create([createData], [callback])
 --------------------------------
@@ -116,10 +126,12 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
   - [``titlePreface``] (string) A string to add to the beginning of the window title.
   - [``top``] (integer) The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
   - [``type``] (:ref:`windows.CreateType`) Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
-  - [``url``] A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+  - [``url``] (string or array) A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
   - [``width``] (integer) The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
 
 - [``callback``] (function)
+
+.. _windows.update:
 
 update(windowId, updateInfo, [callback])
 ----------------------------------------
@@ -140,6 +152,8 @@ Updates the properties of a window. Specify only the properties that you want to
 
 - [``callback``] (function)
 
+.. _windows.remove:
+
 remove(windowId, [callback])
 ----------------------------
 
@@ -151,6 +165,8 @@ Removes (closes) a window, and all the tabs inside it.
 Events
 ======
 
+.. _windows.onCreated:
+
 onCreated(window)
 -----------------
 
@@ -158,12 +174,16 @@ Fired when a window is created.
 
 - ``window`` (:ref:`windows.Window`) Details of the window that was created.
 
+.. _windows.onRemoved:
+
 onRemoved(windowId)
 -------------------
 
 Fired when a window is removed (closed).
 
 - ``windowId`` (integer) ID of the removed window.
+
+.. _windows.onFocusChanged:
 
 onFocusChanged(windowId)
 ------------------------

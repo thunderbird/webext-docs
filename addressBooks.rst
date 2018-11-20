@@ -36,15 +36,21 @@ A node representing an address book.
 Functions
 =========
 
+.. _addressBooks.openUI:
+
 openUI()
 --------
 
 Opens the address book user interface.
 
+.. _addressBooks.closeUI:
+
 closeUI()
 ---------
 
 Closes the address book user interface.
+
+.. _addressBooks.list:
 
 list([complete])
 ----------------
@@ -52,6 +58,8 @@ list([complete])
 Gets a list of the user's address books, optionally including all contacts and mailing lists.
 
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for each address book.
+
+.. _addressBooks.get:
 
 get(id, [complete])
 -------------------
@@ -61,6 +69,8 @@ Gets a single address book, optionally including all contacts and mailing lists.
 - ``id`` (string)
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for this address book.
 
+.. _addressBooks.create:
+
 create(properties)
 ------------------
 
@@ -69,6 +79,8 @@ Creates a new, empty address book.
 - ``properties`` (object)
 
   - ``name`` (string)
+
+.. _addressBooks.update:
 
 update(id, properties)
 ----------------------
@@ -80,6 +92,8 @@ Renames an address book.
 
   - ``name`` (string)
 
+.. _addressBooks.delete:
+
 delete(id)
 ----------
 
@@ -90,6 +104,8 @@ Removes an address book, and all associated contacts and mailing lists.
 Events
 ======
 
+.. _addressBooks.onCreated:
+
 onCreated(node)
 ---------------
 
@@ -97,12 +113,16 @@ Fired when an address book is created.
 
 - ``node`` (:ref:`addressBooks.AddressBookNode`)
 
+.. _addressBooks.onUpdated:
+
 onUpdated(node)
 ---------------
 
 Fired when an address book is renamed.
 
 - ``node`` (:ref:`addressBooks.AddressBookNode`)
+
+.. _addressBooks.onDeleted:
 
 onDeleted(id)
 -------------

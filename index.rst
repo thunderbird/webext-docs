@@ -10,6 +10,7 @@ This is a test run of the Thunderbird WebExtension API documentation. The docume
   accounts
   addressBooks
   browserAction
+  cloudfile
   composeAction
   contacts
   legacy

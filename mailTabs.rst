@@ -10,18 +10,53 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
 
   The permission ``mailTabs`` is required to use ``mailTabs``.
 
+Types
+=====
+
+.. _mailTabs.QuickFilterTagsDetail:
+
+QuickFilterTagsDetail
+---------------------
+
+- ``mode`` (`string <enum_mode_>`_) Whether all of the tag filters must apply, or any of them.
+- ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+
+.. _mailTabs.QuickFilterTextDetail:
+
+QuickFilterTextDetail
+---------------------
+
+- ``text`` (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
+- [``body``] (boolean) Shows messages where ``text`` matches the message body.
+- [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
+- [``sender``] (boolean) Shows messages where ``text`` matches the sender.
+- [``subject``] (boolean) Shows messages where ``text`` matches the subject.
+
+.. _enum_mode:
+
+Values for mode:
+
+- ``all``
+- ``any``
+
 Functions
 =========
+
+.. _mailTabs.getAll:
 
 getAll()
 --------
 
 Returns an array of all mail tabs in all windows.
 
+.. _mailTabs.getCurrent:
+
 getCurrent()
 ------------
 
 Returns the current mail tab in the most recent window, or throws an exception if the current tab is not a mail tab.
+
+.. _mailTabs.update:
 
 update([tabId], updateProperties)
 ---------------------------------
@@ -79,12 +114,16 @@ Values for sortType:
 - ``byReceived``
 - ``byCorrespondent``
 
+.. _mailTabs.getSelectedMessages:
+
 getSelectedMessages([tabId])
 ----------------------------
 
 Lists the selected messages in the current folder. A messages permission is required to do this.
 
 - [``tabId``] (integer) Defaults to the selected tab of the current window.
+
+.. _mailTabs.setQuickFilter:
 
 setQuickFilter([tabId], properties)
 -----------------------------------
@@ -95,24 +134,24 @@ Sets the Quick Filter user interface based on the options specified.
 - ``properties`` (object)
 
   - [``attachment``] (boolean) Shows only messages with attachments.
-  - [``body``] (boolean) Shows messages where ``text`` matches the message body.
   - [``contact``] (boolean) Shows only messages from people in the address book.
-  - [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
-  - [``sender``] (boolean) Shows messages where ``text`` matches the sender.
   - [``show``] (boolean) Shows or hides the Quick Filter bar.
   - [``starred``] (boolean) Shows only starred messages.
-  - [``subject``] (boolean) Shows messages where ``text`` matches the subject.
-  - [``tags``] (boolean) Shows only messages with tags on them.
-  - [``text``] (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
+  - [``tags``] (boolean or :ref:`mailTabs.QuickFilterTagsDetail`) Shows only messages with tags on them.
+  - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
   - [``unread``] (boolean) Shows only unread messages.
 
 Events
 ======
 
+.. _mailTabs.onDisplayedFolderChanged:
+
 onDisplayedFolderChanged()
 --------------------------
 
 Fired when the displayed folder changes in any mail tab.
+
+.. _mailTabs.onSelectedMessagesChanged:
 
 onSelectedMessagesChanged()
 ---------------------------

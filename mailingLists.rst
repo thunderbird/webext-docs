@@ -30,6 +30,8 @@ A node representing a mailing list.
 Functions
 =========
 
+.. _mailingLists.list:
+
 list(parentId)
 --------------
 
@@ -37,12 +39,16 @@ Gets all the mailing lists in the address book with id ``parentId``.
 
 - ``parentId`` (string)
 
+.. _mailingLists.get:
+
 get(id)
 -------
 
 Gets a single mailing list.
 
 - ``id`` (string)
+
+.. _mailingLists.create:
 
 create(parentId, properties)
 ----------------------------
@@ -56,6 +62,8 @@ Creates a new mailing list in the address book with id ``parentId``.
   - [``description``] (string)
   - [``nickName``] (string)
 
+.. _mailingLists.update:
+
 update(id, properties)
 ----------------------
 
@@ -68,12 +76,16 @@ Edits the properties of a mailing list.
   - [``description``] (string)
   - [``nickName``] (string)
 
+.. _mailingLists.delete:
+
 delete(id)
 ----------
 
 Removes the mailing list.
 
 - ``id`` (string)
+
+.. _mailingLists.addMember:
 
 addMember(id, contactId)
 ------------------------
@@ -83,12 +95,16 @@ Adds a contact to the mailing list with id ``id``. If the contact and mailing li
 - ``id`` (string)
 - ``contactId`` (string)
 
+.. _mailingLists.listMembers:
+
 listMembers(id)
 ---------------
 
 Gets all contacts that are members of the mailing list with id ``id``.
 
 - ``id`` (string)
+
+.. _mailingLists.removeMember:
 
 removeMember(id, contactId)
 ---------------------------
@@ -101,6 +117,8 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
 Events
 ======
 
+.. _mailingLists.onCreated:
+
 onCreated(node)
 ---------------
 
@@ -108,12 +126,16 @@ Fired when a mailing list is created.
 
 - ``node`` (:ref:`mailingLists.MailingListNode`)
 
+.. _mailingLists.onUpdated:
+
 onUpdated(node)
 ---------------
 
 Fired when a mailing list is changed.
 
 - ``node`` (:ref:`mailingLists.MailingListNode`)
+
+.. _mailingLists.onDeleted:
 
 onDeleted(parentId, id)
 -----------------------
@@ -123,12 +145,16 @@ Fired when a mailing list is deleted.
 - ``parentId`` (string)
 - ``id`` (string)
 
+.. _mailingLists.onMemberAdded:
+
 onMemberAdded(node)
 -------------------
 
 Fired when a contact is added to the mailing list.
 
 - ``node`` (:ref:`contacts.ContactNode`)
+
+.. _mailingLists.onMemberRemoved:
 
 onMemberRemoved(parentId, id)
 -----------------------------

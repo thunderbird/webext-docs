@@ -62,6 +62,8 @@ An object describing filters to apply to tabs.onUpdated events.
 Functions
 =========
 
+.. _tabs.get:
+
 get(tabId, callback)
 --------------------
 
@@ -70,12 +72,16 @@ Retrieves details about the specified tab.
 - ``tabId`` (integer)
 - ``callback`` (function)
 
+.. _tabs.getCurrent:
+
 getCurrent(callback)
 --------------------
 
 Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
 
 - ``callback`` (function)
+
+.. _tabs.create:
 
 create(createProperties, [callback])
 ------------------------------------
@@ -92,6 +98,8 @@ Creates a new tab.
 
 - [``callback``] (function)
 
+.. _tabs.duplicate:
+
 duplicate(tabId, [callback])
 ----------------------------
 
@@ -99,6 +107,8 @@ Duplicates a tab.
 
 - ``tabId`` (integer) The ID of the tab which is to be duplicated.
 - [``callback``] (function)
+
+.. _tabs.query:
 
 query(queryInfo, callback)
 --------------------------
@@ -115,11 +125,13 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
   - [``status``] (:ref:`tabs.TabStatus`) Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
-  - [``url``] Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
+  - [``url``] (string or array) Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
   - [``windowType``] (:ref:`tabs.WindowType`) The type of window the tabs are in.
 
 - ``callback`` (function)
+
+.. _tabs.update:
 
 update([tabId], updateProperties, [callback])
 ---------------------------------------------
@@ -134,18 +146,22 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
 
 - [``callback``] (function)
 
+.. _tabs.move:
+
 move(tabIds, moveProperties, [callback])
 ----------------------------------------
 
 Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
 
-- ``tabIds`` The tab or list of tabs to move.
+- ``tabIds`` (integer or array) The tab or list of tabs to move.
 - ``moveProperties`` (object)
 
   - ``index`` (integer) The position to move the window to. -1 will place the tab at the end of the window.
   - [``windowId``] (integer) Defaults to the window the tab is currently in.
 
 - [``callback``] (function)
+
+.. _tabs.reload:
 
 reload([tabId], [reloadProperties], [callback])
 -----------------------------------------------
@@ -159,13 +175,17 @@ Reload a tab.
 
 - [``callback``] (function)
 
+.. _tabs.remove:
+
 remove(tabIds, [callback])
 --------------------------
 
 Closes one or more tabs.
 
-- ``tabIds`` The tab or list of tabs to close.
+- ``tabIds`` (integer or array) The tab or list of tabs to close.
 - [``callback``] (function)
+
+.. _tabs.executeScript:
 
 executeScript([tabId], details, [callback])
 -------------------------------------------
@@ -176,6 +196,8 @@ Injects JavaScript code into a page. For details, see the $(topic:content_script
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the script to run.
 - [``callback``] (function) Called after all the JavaScript has been executed.
 
+.. _tabs.insertCSS:
+
 insertCSS([tabId], details, [callback])
 ---------------------------------------
 
@@ -184,6 +206,8 @@ Injects CSS into a page. For details, see the $(topic:content_scripts)[programma
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to insert.
 - [``callback``] (function) Called when all the CSS has been inserted.
+
+.. _tabs.removeCSS:
 
 removeCSS([tabId], details, [callback])
 ---------------------------------------
@@ -197,12 +221,16 @@ Removes injected CSS from a page. For details, see the $(topic:content_scripts)[
 Events
 ======
 
+.. _tabs.onCreated:
+
 onCreated(tab)
 --------------
 
 Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 - ``tab`` (:ref:`tabs.Tab`) Details of the tab that was created.
+
+.. _tabs.onUpdated:
 
 onUpdated(tabId, changeInfo, tab)
 ---------------------------------
@@ -218,6 +246,8 @@ Fired when a tab is updated.
 
 - ``tab`` (:ref:`tabs.Tab`) Gives the state of the tab that was updated.
 
+.. _tabs.onMoved:
+
 onMoved(tabId, moveInfo)
 ------------------------
 
@@ -230,6 +260,8 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
   - ``toIndex`` (integer)
   - ``windowId`` (integer)
 
+.. _tabs.onActivated:
+
 onActivated(activeInfo)
 -----------------------
 
@@ -239,6 +271,8 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
 
   - ``tabId`` (integer) The ID of the tab that has become active.
   - ``windowId`` (integer) The ID of the window the active tab changed inside of.
+
+.. _tabs.onDetached:
 
 onDetached(tabId, detachInfo)
 -----------------------------
@@ -251,6 +285,8 @@ Fired when a tab is detached from a window, for example because it is being move
   - ``oldPosition`` (integer)
   - ``oldWindowId`` (integer)
 
+.. _tabs.onAttached:
+
 onAttached(tabId, attachInfo)
 -----------------------------
 
@@ -261,6 +297,8 @@ Fired when a tab is attached to a window, for example because it was moved betwe
 
   - ``newPosition`` (integer)
   - ``newWindowId`` (integer)
+
+.. _tabs.onRemoved:
 
 onRemoved(tabId, removeInfo)
 ----------------------------

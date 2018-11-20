@@ -34,6 +34,8 @@ A set of properties for a particular contact. For a complete list of properties 
 Functions
 =========
 
+.. _contacts.list:
+
 list(parentId)
 --------------
 
@@ -41,12 +43,16 @@ Gets all the contacts in the address book with the id ``parentId``.
 
 - ``parentId`` (string)
 
+.. _contacts.get:
+
 get(id)
 -------
 
 Gets a single contact.
 
 - ``id`` (string)
+
+.. _contacts.create:
 
 create(parentId, properties)
 ----------------------------
@@ -56,6 +62,8 @@ Adds a new contact to the address book with the id ``parentId``.
 - ``parentId`` (string)
 - ``properties`` (:ref:`contacts.ContactProperties`)
 
+.. _contacts.update:
+
 update(id, properties)
 ----------------------
 
@@ -63,6 +71,8 @@ Edits the properties of a contact. To remove a property, specify it as ``null``.
 
 - ``id`` (string)
 - ``properties`` (:ref:`contacts.ContactProperties`)
+
+.. _contacts.delete:
 
 delete(id)
 ----------
@@ -74,6 +84,8 @@ Removes a contact from the address book. The contact is also removed from any ma
 Events
 ======
 
+.. _contacts.onCreated:
+
 onCreated(node, id)
 -------------------
 
@@ -82,12 +94,16 @@ Fired when a contact is created.
 - ``node`` (:ref:`contacts.ContactNode`)
 - ``id`` (string)
 
+.. _contacts.onUpdated:
+
 onUpdated(node)
 ---------------
 
 Fired when a contact is changed.
 
 - ``node`` (:ref:`contacts.ContactNode`)
+
+.. _contacts.onDeleted:
 
 onDeleted(parentId, id)
 -----------------------
