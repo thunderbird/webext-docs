@@ -4,6 +4,25 @@ composeAction
 
 The :doc:`browserAction` and composeAction APIs first appeared in Thunderbird 64.
 
+Manifest file properties
+========================
+
+- [``compose_action``] (object)
+
+  - [``browser_style``] (boolean)
+  - [``default_area``] (`string <enum_default_area_>`_) Defines the location the composeAction will appear by default. The default location is maintoolbar.
+  - [``default_icon``] (:ref:`cloudfile.IconPath`)
+  - [``default_popup``] (string)
+  - [``default_title``] (string)
+  - [``theme_icons``] (array) Specifies icons to use for dark and light themes
+
+.. _enum_default_area:
+
+Values for default_area:
+
+- ``maintoolbar``
+- ``formattoolbar``
+
 Use toolbar actions to put icons in the message composition toolbars. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup.
 
 Types

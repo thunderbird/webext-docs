@@ -34,7 +34,7 @@ def format_member(name, value):
         else:
             parts.append("(`%s <enum_%s_>`_)" % (value["type"], name))
     elif "$ref" in value:
-        if "." in value["$ref"]:
+        if "." in value["$ref"] or current_namespace_name is None:
             parts.append("(:ref:`%s`)" % value["$ref"])
         else:
             parts.append("(:ref:`%s.%s`)" % (current_namespace_name, value["$ref"]))
@@ -127,16 +127,19 @@ def header_3(string):
     ]
 
 
-def format_namespace(namespace):
+def format_namespace(namespace, manifest_namespace=None):
     global current_namespace_name
     current_namespace_name = namespace["namespace"]
     preamble = os.path.join(PREAMBLE_DIR, current_namespace_name + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
-            lines = map(lambda l: l.rstrip("\n"), fp_preamble.readlines())
+            lines = map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines())
             lines.append("")
     else:
         lines = header_1(current_namespace_name)
+
+    if manifest_namespace is not None:
+        lines.extend(manifest_namespace)
 
     if "description" in namespace:
         lines.append(replace_code(namespace["description"]))
@@ -243,7 +246,24 @@ def format_namespace(namespace):
     if lines[-1] != "":
         lines.append("")
 
-    return "\n".join(lines)
+    return "\n".join(lines).encode("utf-8")
+
+
+def format_manifest_namespace(manifest):
+    if "types" not in manifest:
+        return
+
+    lines = []
+    for type_ in manifest["types"]:
+        if type_.get("$extend", None) != "WebExtensionManifest":
+            continue
+        for [name, value] in type_["properties"].items():
+            lines.extend(format_object(name, value))
+
+    if len(lines) > 0:
+        lines = header_2("Manifest file properties") + lines
+
+    return lines
 
 
 if __name__ == "__main__":
@@ -277,9 +297,19 @@ if __name__ == "__main__":
             content = re.sub(r"(^|\n)//.*", "", content)
             document = json.loads(content)
 
+        manifest_namespace = None
         for namespace in document:
             if namespace["namespace"] == "manifest":
+                manifest_namespace = format_manifest_namespace(namespace)
                 continue
 
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
-                fp_output.write(format_namespace(namespace))
+                fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))
+                manifest_namespace = None
+
+        if manifest_namespace is not None:
+            namespace = {
+                "namespace": filename
+            }
+            with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
+                fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))

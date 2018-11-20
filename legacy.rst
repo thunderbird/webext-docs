@@ -17,3 +17,8 @@ return to its previous state correctly. Wibbly-wobbly, timey-wimey, … stuff.
 
   Legacy extensions will not be around forever, and possibly will not even make it to Thunderbird
   68.
+
+Manifest file properties
+========================
+
+- [``legacy``] (boolean or object)

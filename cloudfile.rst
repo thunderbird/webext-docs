@@ -6,6 +6,17 @@ This is preliminary documentation for the cloudFile (a.k.a. fileLink) API being 
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1481052
 
+Manifest file properties
+========================
+
+- [``cloudfile``] (object)
+
+  - ``management_url`` (string)
+  - ``name`` (string)
+  - ``settings_url`` (string)
+  - [``new_account_url``] (string)
+  - [``service_url``] (string)
+
 Types
 =====
 
