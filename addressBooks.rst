@@ -81,31 +81,6 @@ Removes an address book, and all associated contacts and mailing lists.
 
 - ``id`` (string)
 
-Types
-=====
-
-.. _addressBooks.NodeType:
-
-NodeType
---------
-
-Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
-
-.. _addressBooks.AddressBookNode:
-
-AddressBookNode
----------------
-
-A node representing an address book.
-
-- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
-- ``name`` (string)
-- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``addressBook``.
-- [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
-- [``mailingLists``] (array) A list of mailingLists in this node's address book.
-- [``parentId``] (string) The ``id`` of the parent object.
-- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
-
 Events
 ======
 
@@ -135,3 +110,28 @@ onDeleted(id)
 Fired when an addressBook is deleted.
 
 - ``id`` (string)
+
+Types
+=====
+
+.. _addressBooks.NodeType:
+
+NodeType
+--------
+
+Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
+
+.. _addressBooks.AddressBookNode:
+
+AddressBookNode
+---------------
+
+A node representing an address book.
+
+- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
+- ``name`` (string)
+- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``addressBook``.
+- [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
+- [``mailingLists``] (array) A list of mailingLists in this node's address book.
+- [``parentId``] (string) The ``id`` of the parent object.
+- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.

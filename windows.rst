@@ -119,6 +119,36 @@ Removes (closes) a window, and all the tabs inside it.
 - ``windowId`` (integer)
 - [``callback``] (function)
 
+Events
+======
+
+.. _windows.onCreated:
+
+onCreated(window)
+-----------------
+
+Fired when a window is created.
+
+- ``window`` (:ref:`windows.Window`) Details of the window that was created.
+
+.. _windows.onRemoved:
+
+onRemoved(windowId)
+-------------------
+
+Fired when a window is removed (closed).
+
+- ``windowId`` (integer) ID of the removed window.
+
+.. _windows.onFocusChanged:
+
+onFocusChanged(windowId)
+------------------------
+
+Fired when the currently focused window changes. Will be $(ref:windows.WINDOW_ID_NONE) if all browser windows have lost focus. Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
+
+- ``windowId`` (integer) ID of the newly focused window.
+
 Types
 =====
 
@@ -161,33 +191,3 @@ CreateType
 ----------
 
 Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
-
-Events
-======
-
-.. _windows.onCreated:
-
-onCreated(window)
------------------
-
-Fired when a window is created.
-
-- ``window`` (:ref:`windows.Window`) Details of the window that was created.
-
-.. _windows.onRemoved:
-
-onRemoved(windowId)
--------------------
-
-Fired when a window is removed (closed).
-
-- ``windowId`` (integer) ID of the removed window.
-
-.. _windows.onFocusChanged:
-
-onFocusChanged(windowId)
-------------------------
-
-Fired when the currently focused window changes. Will be $(ref:windows.WINDOW_ID_NONE) if all browser windows have lost focus. Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
-
-- ``windowId`` (integer) ID of the newly focused window.

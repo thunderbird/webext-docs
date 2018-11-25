@@ -117,6 +117,23 @@ Sets the Quick Filter user interface based on the options specified.
   - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
   - [``unread``] (boolean) Shows only unread messages.
 
+Events
+======
+
+.. _mailTabs.onDisplayedFolderChanged:
+
+onDisplayedFolderChanged()
+--------------------------
+
+Fired when the displayed folder changes in any mail tab.
+
+.. _mailTabs.onSelectedMessagesChanged:
+
+onSelectedMessagesChanged()
+---------------------------
+
+Fired when the selected messages change in any mail tab.
+
 Types
 =====
 
@@ -145,20 +162,3 @@ Values for mode:
 
 - ``all``
 - ``any``
-
-Events
-======
-
-.. _mailTabs.onDisplayedFolderChanged:
-
-onDisplayedFolderChanged()
---------------------------
-
-Fired when the displayed folder changes in any mail tab.
-
-.. _mailTabs.onSelectedMessagesChanged:
-
-onSelectedMessagesChanged()
----------------------------
-
-Fired when the selected messages change in any mail tab.

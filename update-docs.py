@@ -173,6 +173,35 @@ def format_namespace(namespace, manifest_namespace=None):
                     lines.extend(format_object(param["name"], param))
                 lines.append("")
 
+    if "events" in namespace:
+        lines.append("")
+        lines.extend(header_2("Events"))
+        for event in namespace["events"]:
+            lines.extend([
+                "",
+                ".. _%s.%s:" % (current_namespace_name, event["name"]),
+                "",
+            ])
+            lines.extend(header_3("%s(%s)" % (event["name"], format_params(event))))
+
+            if "description" in event:
+                lines.append(replace_code(event["description"]) + "")
+
+            if len(event["parameters"]):
+                lines.append("")
+                for param in event["parameters"]:
+                    lines.extend(format_object(param["name"], param))
+                lines.append("")
+
+            if "returns" in event:
+                lines.extend([
+                    "",
+                    "Event listeners should return:",
+                    "",
+                ])
+                lines.extend(format_object("", event["returns"]))
+                lines.append("")
+
     if "types" in namespace:
         lines.append("")
         lines.extend(header_2("Types"))
@@ -204,35 +233,6 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
         lines.extend(enum_lines)
-
-    if "events" in namespace:
-        lines.append("")
-        lines.extend(header_2("Events"))
-        for event in namespace["events"]:
-            lines.extend([
-                "",
-                ".. _%s.%s:" % (current_namespace_name, event["name"]),
-                "",
-            ])
-            lines.extend(header_3("%s(%s)" % (event["name"], format_params(event))))
-
-            if "description" in event:
-                lines.append(replace_code(event["description"]) + "")
-
-            if len(event["parameters"]):
-                lines.append("")
-                for param in event["parameters"]:
-                    lines.extend(format_object(param["name"], param))
-                lines.append("")
-
-            if "returns" in event:
-                lines.extend([
-                    "",
-                    "Event listeners should return:",
-                    "",
-                ])
-                lines.extend(format_object("", event["returns"]))
-                lines.append("")
 
     index = 0
     previous = ""

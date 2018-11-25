@@ -170,6 +170,16 @@ openPopup()
 
 Opens the extension popup window in the active window.
 
+Events
+======
+
+.. _composeAction.onClicked:
+
+onClicked()
+-----------
+
+Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.
+
 Types
 =====
 
@@ -194,13 +204,3 @@ ImageDataType
 -------------
 
 Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
-
-Events
-======
-
-.. _composeAction.onClicked:
-
-onClicked()
------------
-
-Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.

@@ -58,29 +58,6 @@ Removes a contact from the address book. The contact is also removed from any ma
 
 - ``id`` (string)
 
-Types
-=====
-
-.. _contacts.ContactNode:
-
-ContactNode
------------
-
-A node representing a contact in an address book.
-
-- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
-- ``properties`` (:ref:`contacts.ContactProperties`)
-- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``contact``.
-- [``parentId``] (string) The ``id`` of the parent object.
-- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
-
-.. _contacts.ContactProperties:
-
-ContactProperties
------------------
-
-A set of properties for a particular contact. For a complete list of properties that Thunderbird uses, see https://hg.mozilla.org/comm-central/file/tip/mailnews/addrbook/public/nsIAbCard.idl
-
 Events
 ======
 
@@ -112,3 +89,26 @@ Fired when a contact is removed from an address book.
 
 - ``parentId`` (string)
 - ``id`` (string)
+
+Types
+=====
+
+.. _contacts.ContactNode:
+
+ContactNode
+-----------
+
+A node representing a contact in an address book.
+
+- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
+- ``properties`` (:ref:`contacts.ContactProperties`)
+- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``contact``.
+- [``parentId``] (string) The ``id`` of the parent object.
+- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
+
+.. _contacts.ContactProperties:
+
+ContactProperties
+-----------------
+
+A set of properties for a particular contact. For a complete list of properties that Thunderbird uses, see https://hg.mozilla.org/comm-central/file/tip/mailnews/addrbook/public/nsIAbCard.idl
