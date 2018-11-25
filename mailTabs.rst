@@ -6,6 +6,11 @@ This is preliminary documentation for the mail tabs API being developed in `bug 
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
 
+Permissions
+===========
+
+- mailTabs
+
 .. note::
 
   The permission ``mailTabs`` is required to use ``mailTabs``.

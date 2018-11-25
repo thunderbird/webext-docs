@@ -250,18 +250,31 @@ def format_namespace(namespace, manifest_namespace=None):
 
 
 def format_manifest_namespace(manifest):
+    global current_namespace_name
+    current_namespace_name = None
+
     if "types" not in manifest:
         return
 
     lines = []
+    property_lines = []
+    permission_lines = []
     for type_ in manifest["types"]:
-        if type_.get("$extend", None) != "WebExtensionManifest":
-            continue
-        for [name, value] in type_["properties"].items():
-            lines.extend(format_object(name, value))
+        if type_.get("$extend", None) == "WebExtensionManifest":
+            for [name, value] in type_["properties"].items():
+                property_lines.extend(format_object(name, value))
+        if type_.get("$extend", None) == "OptionalPermission":
+            for choice in type_["choices"]:
+                for value in choice["enum"]:
+                    permission_lines.append("- %s" % value)
 
-    if len(lines) > 0:
-        lines = header_2("Manifest file properties") + lines
+    if len(property_lines) > 0:
+        lines = header_2("Manifest file properties") + property_lines
+
+    if len(permission_lines) > 0:
+        lines.extend(header_2("Permissions"))
+        lines.extend(permission_lines)
+        lines.append("")
 
     return lines
 

@@ -6,6 +6,11 @@ This is preliminary documentation for the messages API being developed in `bug 1
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 
+Permissions
+===========
+
+- messagesRead
+
 .. note::
 
   The permission ``messagesRead`` is required to use ``messages``.
@@ -18,9 +23,14 @@ Functions
 list(folder)
 ------------
 
-Lists all messages in the specified folder. WARNING: this could return a very large number of messages, which would negatively affect performance.
-
 - ``folder`` (:ref:`accounts.MailFolder`)
+
+.. _messages.continueList:
+
+continueList(messageListId)
+---------------------------
+
+- ``messageListId`` (string)
 
 .. _messages.get:
 

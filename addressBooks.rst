@@ -4,6 +4,11 @@ addressBooks
 
 The address books API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
+Permissions
+===========
+
+- addressBooks
+
 .. note::
 
   The permission ``addressBooks`` is required to use ``addressBooks``.

@@ -11,7 +11,7 @@ Manifest file properties
 
   - [``browser_style``] (boolean)
   - [``default_area``] (string) Currently unused.
-  - [``default_icon``] (:ref:`mailingLists.IconPath`)
+  - [``default_icon``] (:ref:`IconPath`)
   - [``default_popup``] (string)
   - [``default_title``] (string)
   - [``theme_icons``] (array) Specifies icons to use for dark and light themes
