@@ -127,12 +127,20 @@ onDisplayedFolderChanged()
 
 Fired when the displayed folder changes in any mail tab.
 
+.. note::
+
+  The permission ``accountsRead`` is required to use ``onDisplayedFolderChanged``.
+
 .. _mailTabs.onSelectedMessagesChanged:
 
 onSelectedMessagesChanged()
 ---------------------------
 
 Fired when the selected messages change in any mail tab.
+
+.. note::
+
+  The permission ``messagesRead`` is required to use ``onSelectedMessagesChanged``.
 
 Types
 =====

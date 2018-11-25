@@ -6,7 +6,7 @@
 import argparse, glob, json, os, re
 
 DEST_DIR = os.path.dirname(__file__)
-PREAMBLE_DIR = os.path.join(DEST_DIR, "preamble")
+OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
 
 current_namespace_name = None
 
@@ -130,10 +130,20 @@ def header_3(string):
 def format_namespace(namespace, manifest_namespace=None):
     global current_namespace_name
     current_namespace_name = namespace["namespace"]
-    preamble = os.path.join(PREAMBLE_DIR, current_namespace_name + ".rst")
-    if os.path.exists(preamble):
-        with open(preamble) as fp_preamble:
-            lines = map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines())
+    overlay = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
+    overlay_sections = {}
+    if os.path.exists(overlay):
+        with open(overlay) as fp_overlay:
+            lines = []
+            current_section = None
+            for line in map(lambda l: l.rstrip("\n").decode("utf-8"), fp_overlay.readlines()):
+                if line.startswith(".. _"):
+                    current_section = []
+                    overlay_sections[line] = current_section
+                elif current_section is not None:
+                    current_section.append(line)
+                else:
+                    lines.append(line)
             lines.append("")
     else:
         lines = header_1(current_namespace_name)
@@ -233,6 +243,28 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
         lines.extend(enum_lines)
+
+    index = 0
+    append_soon = None
+    while index < len(lines):
+        line = lines[index]
+        if line.startswith(".. _"):
+            if append_soon is not None:
+                lines[index:index] = append_soon + [""]
+                index += len(append_soon) + 1
+                append_soon = None
+            if line in overlay_sections:
+                append_soon = overlay_sections[line]
+        elif append_soon is not None and line.startswith("==="):
+            # Oops, go back a bit
+            index -= 2
+            lines[index:index] = append_soon + [""]
+            append_soon = None
+        index += 1
+
+    if append_soon is not None:
+        lines.extend(append_soon)
+        append_soon = None
 
     index = 0
     previous = ""
