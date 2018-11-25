@@ -15,35 +15,6 @@ Permissions
 
   The permission ``mailTabs`` is required to use ``mailTabs``.
 
-Types
-=====
-
-.. _mailTabs.QuickFilterTagsDetail:
-
-QuickFilterTagsDetail
----------------------
-
-- ``mode`` (`string <enum_mode_>`_) Whether all of the tag filters must apply, or any of them.
-- ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
-
-.. _mailTabs.QuickFilterTextDetail:
-
-QuickFilterTextDetail
----------------------
-
-- ``text`` (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
-- [``body``] (boolean) Shows messages where ``text`` matches the message body.
-- [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
-- [``sender``] (boolean) Shows messages where ``text`` matches the sender.
-- [``subject``] (boolean) Shows messages where ``text`` matches the subject.
-
-.. _enum_mode:
-
-Values for mode:
-
-- ``all``
-- ``any``
-
 Functions
 =========
 
@@ -145,6 +116,35 @@ Sets the Quick Filter user interface based on the options specified.
   - [``tags``] (boolean or :ref:`mailTabs.QuickFilterTagsDetail`) Shows only messages with tags on them.
   - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
   - [``unread``] (boolean) Shows only unread messages.
+
+Types
+=====
+
+.. _mailTabs.QuickFilterTagsDetail:
+
+QuickFilterTagsDetail
+---------------------
+
+- ``mode`` (`string <enum_mode_>`_) Whether all of the tag filters must apply, or any of them.
+- ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+
+.. _mailTabs.QuickFilterTextDetail:
+
+QuickFilterTextDetail
+---------------------
+
+- ``text`` (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
+- [``body``] (boolean) Shows messages where ``text`` matches the message body.
+- [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
+- [``sender``] (boolean) Shows messages where ``text`` matches the sender.
+- [``subject``] (boolean) Shows messages where ``text`` matches the subject.
+
+.. _enum_mode:
+
+Values for mode:
+
+- ``all``
+- ``any``
 
 Events
 ======

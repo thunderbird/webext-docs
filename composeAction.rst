@@ -25,31 +25,6 @@ Values for default_area:
 
 Use toolbar actions to put icons in the message composition toolbars. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup.
 
-Types
-=====
-
-.. _composeAction.Details:
-
-Details
--------
-
-Specifies to which tab or window the value should be set, or from which one it should be retrieved. If no tab nor window is specified, the global value is set or retrieved.
-
-- [``tabId``] (integer) When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
-- [``windowId``] (integer) When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
-
-.. _composeAction.ColorArray:
-
-ColorArray
-----------
-
-.. _composeAction.ImageDataType:
-
-ImageDataType
--------------
-
-Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
-
 Functions
 =========
 
@@ -194,6 +169,31 @@ openPopup()
 -----------
 
 Opens the extension popup window in the active window.
+
+Types
+=====
+
+.. _composeAction.Details:
+
+Details
+-------
+
+Specifies to which tab or window the value should be set, or from which one it should be retrieved. If no tab nor window is specified, the global value is set or retrieved.
+
+- [``tabId``] (integer) When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+- [``windowId``] (integer) When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
+
+.. _composeAction.ColorArray:
+
+ColorArray
+----------
+
+.. _composeAction.ImageDataType:
+
+ImageDataType
+-------------
+
+Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
 
 Events
 ======

@@ -153,6 +153,26 @@ def format_namespace(namespace, manifest_namespace=None):
                 "",
             ])
 
+    if "functions" in namespace:
+        lines.append("")
+        lines.extend(header_2("Functions"))
+        for function in namespace["functions"]:
+            lines.extend([
+                "",
+                ".. _%s.%s:" % (current_namespace_name, function["name"]),
+                "",
+            ])
+            lines.extend(header_3("%s(%s)" % (function["name"], format_params(function))))
+
+            if "description" in function:
+                lines.append(replace_code(function["description"]) + "")
+
+            if len(function["parameters"]):
+                lines.append("")
+                for param in function["parameters"]:
+                    lines.extend(format_object(param["name"], param))
+                lines.append("")
+
     if "types" in namespace:
         lines.append("")
         lines.extend(header_2("Types"))
@@ -184,26 +204,6 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
         lines.extend(enum_lines)
-
-    if "functions" in namespace:
-        lines.append("")
-        lines.extend(header_2("Functions"))
-        for function in namespace["functions"]:
-            lines.extend([
-                "",
-                ".. _%s.%s:" % (current_namespace_name, function["name"]),
-                "",
-            ])
-            lines.extend(header_3("%s(%s)" % (function["name"], format_params(function))))
-
-            if "description" in function:
-                lines.append(replace_code(function["description"]) + "")
-
-            if len(function["parameters"]):
-                lines.append("")
-                for param in function["parameters"]:
-                    lines.extend(format_object(param["name"], param))
-                lines.append("")
 
     if "events" in namespace:
         lines.append("")

@@ -11,61 +11,6 @@ Permissions
 
 Use the ``browser.tabs`` API to interact with the browser's tab system. You can use this API to create, modify, and rearrange tabs in the browser.
 
-Types
-=====
-
-.. _tabs.Tab:
-
-Tab
----
-
-- ``active`` (boolean) Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
-- ``highlighted`` (boolean) Whether the tab is highlighted. Works as an alias of active
-- ``index`` (integer) The zero-based index of the tab within its window.
-- ``selected`` (boolean) Whether the tab is selected.
-- [``favIconUrl``] (string) The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
-- [``height``] (integer) The height of the tab in pixels.
-- [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID, for example when querying foreign tabs using the $(ref:sessions) API, in which case a session ID may be present. Tab ID can also be set to $(ref:tabs.TAB_ID_NONE) for apps and devtools windows.
-- [``lastAccessed``] (integer) The last time the tab was accessed as the number of milliseconds since epoch.
-- [``status``] (string) Either *loading* or *complete*.
-- [``title``] (string) The title of the tab. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
-- [``url``] (string) The URL the tab is displaying. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
-- [``width``] (integer) The width of the tab in pixels.
-- [``windowId``] (integer) The ID of the window the tab is contained within.
-
-.. _tabs.TabStatus:
-
-TabStatus
----------
-
-Whether the tabs have completed loading.
-
-.. _tabs.WindowType:
-
-WindowType
-----------
-
-The type of window.
-
-.. _tabs.UpdatePropertyName:
-
-UpdatePropertyName
-------------------
-
-Event names supported in onUpdated.
-
-.. _tabs.UpdateFilter:
-
-UpdateFilter
-------------
-
-An object describing filters to apply to tabs.onUpdated events.
-
-- [``properties``] (array) A list of property names. Events that do not match any of the names will be filtered out.
-- [``tabId``] (integer)
-- [``urls``] (array) A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
-- [``windowId``] (integer)
-
 Functions
 =========
 
@@ -224,6 +169,61 @@ Removes injected CSS from a page. For details, see the $(topic:content_scripts)[
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to remove.
 - [``callback``] (function) Called when all the CSS has been removed.
+
+Types
+=====
+
+.. _tabs.Tab:
+
+Tab
+---
+
+- ``active`` (boolean) Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
+- ``highlighted`` (boolean) Whether the tab is highlighted. Works as an alias of active
+- ``index`` (integer) The zero-based index of the tab within its window.
+- ``selected`` (boolean) Whether the tab is selected.
+- [``favIconUrl``] (string) The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
+- [``height``] (integer) The height of the tab in pixels.
+- [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID, for example when querying foreign tabs using the $(ref:sessions) API, in which case a session ID may be present. Tab ID can also be set to $(ref:tabs.TAB_ID_NONE) for apps and devtools windows.
+- [``lastAccessed``] (integer) The last time the tab was accessed as the number of milliseconds since epoch.
+- [``status``] (string) Either *loading* or *complete*.
+- [``title``] (string) The title of the tab. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
+- [``url``] (string) The URL the tab is displaying. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
+- [``width``] (integer) The width of the tab in pixels.
+- [``windowId``] (integer) The ID of the window the tab is contained within.
+
+.. _tabs.TabStatus:
+
+TabStatus
+---------
+
+Whether the tabs have completed loading.
+
+.. _tabs.WindowType:
+
+WindowType
+----------
+
+The type of window.
+
+.. _tabs.UpdatePropertyName:
+
+UpdatePropertyName
+------------------
+
+Event names supported in onUpdated.
+
+.. _tabs.UpdateFilter:
+
+UpdateFilter
+------------
+
+An object describing filters to apply to tabs.onUpdated events.
+
+- [``properties``] (array) A list of property names. Events that do not match any of the names will be filtered out.
+- [``tabId``] (integer)
+- [``urls``] (array) A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
+- [``windowId``] (integer)
 
 Events
 ======

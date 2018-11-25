@@ -8,25 +8,6 @@ The address books API, also including the :doc:`addressBooks` and :doc:`contacts
 
   The permission ``addressBooks`` is required to use ``mailingLists``.
 
-Types
-=====
-
-.. _mailingLists.MailingListNode:
-
-MailingListNode
----------------
-
-A node representing a mailing list.
-
-- ``description`` (string)
-- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
-- ``name`` (string)
-- ``nickName`` (string)
-- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``mailingList``.
-- [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
-- [``parentId``] (string) The ``id`` of the parent object.
-- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
-
 Functions
 =========
 
@@ -113,6 +94,25 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
 
 - ``id`` (string)
 - ``contactId`` (string)
+
+Types
+=====
+
+.. _mailingLists.MailingListNode:
+
+MailingListNode
+---------------
+
+A node representing a mailing list.
+
+- ``description`` (string)
+- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
+- ``name`` (string)
+- ``nickName`` (string)
+- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``mailingList``.
+- [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
+- [``parentId``] (string) The ``id`` of the parent object.
+- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
 
 Events
 ======

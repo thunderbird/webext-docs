@@ -15,20 +15,6 @@ Permissions
 
   The permission ``accountsRead`` is required to use ``accounts``.
 
-Types
-=====
-
-.. _accounts.MailFolder:
-
-MailFolder
-----------
-
-A folder object, as returned by the ``list`` and ``get`` methods.
-
-- ``accountId`` (string)
-- ``path`` (string)
-- [``name``] (string)
-
 Functions
 =========
 
@@ -47,3 +33,17 @@ get(accountId)
 Returns details of the requested account, or null if it doesn't exist.
 
 - ``accountId`` (string)
+
+Types
+=====
+
+.. _accounts.MailFolder:
+
+MailFolder
+----------
+
+A folder object, as returned by the ``list`` and ``get`` methods.
+
+- ``accountId`` (string)
+- ``path`` (string)
+- [``name``] (string)

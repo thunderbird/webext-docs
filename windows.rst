@@ -4,49 +4,6 @@ windows
 
 Use the ``browser.windows`` API to interact with browser windows. You can use this API to create, modify, and rearrange windows in the browser.
 
-Types
-=====
-
-.. _windows.WindowType:
-
-WindowType
-----------
-
-The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.
-
-.. _windows.WindowState:
-
-WindowState
------------
-
-The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
-
-.. _windows.Window:
-
-Window
-------
-
-- ``alwaysOnTop`` (boolean) Whether the window is set to be always on top.
-- ``focused`` (boolean) Whether the window is currently the focused window.
-- ``incognito`` (boolean) Whether the window is incognito.
-- [``height``] (integer) The height of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned height property, for example when querying closed windows from the $(ref:sessions) API.
-- [``id``] (integer) The ID of the window. Window IDs are unique within a browser session. Under some circumstances a Window may not be assigned an ID, for example when querying windows using the $(ref:sessions) API, in which case a session ID may be present.
-- [``left``] (integer) The offset of the window from the left edge of the screen in pixels. Under some circumstances a Window may not be assigned left property, for example when querying closed windows from the $(ref:sessions) API.
-- [``sessionId``] (string) The session ID used to uniquely identify a Window obtained from the $(ref:sessions) API.
-- [``state``] (:ref:`windows.WindowState`) The state of this browser window.
-- [``tabs``] (array) Array of $(ref:tabs.Tab) objects representing the current tabs in the window.
-- [``title``] (string) The title of the window. Read-only.
-- [``top``] (integer) The offset of the window from the top edge of the screen in pixels. Under some circumstances a Window may not be assigned top property, for example when querying closed windows from the $(ref:sessions) API.
-- [``type``] (:ref:`windows.WindowType`) The type of browser window this is.
-- [``width``] (integer) The width of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned width property, for example when querying closed windows from the $(ref:sessions) API.
-
-.. _windows.CreateType:
-
-CreateType
-----------
-
-Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
-
 Functions
 =========
 
@@ -161,6 +118,49 @@ Removes (closes) a window, and all the tabs inside it.
 
 - ``windowId`` (integer)
 - [``callback``] (function)
+
+Types
+=====
+
+.. _windows.WindowType:
+
+WindowType
+----------
+
+The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.
+
+.. _windows.WindowState:
+
+WindowState
+-----------
+
+The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
+
+.. _windows.Window:
+
+Window
+------
+
+- ``alwaysOnTop`` (boolean) Whether the window is set to be always on top.
+- ``focused`` (boolean) Whether the window is currently the focused window.
+- ``incognito`` (boolean) Whether the window is incognito.
+- [``height``] (integer) The height of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned height property, for example when querying closed windows from the $(ref:sessions) API.
+- [``id``] (integer) The ID of the window. Window IDs are unique within a browser session. Under some circumstances a Window may not be assigned an ID, for example when querying windows using the $(ref:sessions) API, in which case a session ID may be present.
+- [``left``] (integer) The offset of the window from the left edge of the screen in pixels. Under some circumstances a Window may not be assigned left property, for example when querying closed windows from the $(ref:sessions) API.
+- [``sessionId``] (string) The session ID used to uniquely identify a Window obtained from the $(ref:sessions) API.
+- [``state``] (:ref:`windows.WindowState`) The state of this browser window.
+- [``tabs``] (array) Array of $(ref:tabs.Tab) objects representing the current tabs in the window.
+- [``title``] (string) The title of the window. Read-only.
+- [``top``] (integer) The offset of the window from the top edge of the screen in pixels. Under some circumstances a Window may not be assigned top property, for example when querying closed windows from the $(ref:sessions) API.
+- [``type``] (:ref:`windows.WindowType`) The type of browser window this is.
+- [``width``] (integer) The width of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned width property, for example when querying closed windows from the $(ref:sessions) API.
+
+.. _windows.CreateType:
+
+CreateType
+----------
+
+Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
 
 Events
 ======
