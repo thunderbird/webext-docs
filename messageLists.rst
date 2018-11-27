@@ -22,7 +22,7 @@ You could also wrap this code in a generator for ease-of-use:
 
 .. code-block:: javascript
 
-  function* listMessages(folder) {
+  async function* listMessages(folder) {
     let page = await browser.messages.list(folder);
     for (let message of page.messages) {
       yield message;
