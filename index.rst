@@ -2,7 +2,11 @@
 Thunderbird WebExtension APIs
 =============================
 
-This is a test run of the Thunderbird WebExtension API documentation. The documents were generated automatically from the schema documents at ``mail/components/extensions/schemas``.
+This is a test run of the Thunderbird WebExtension API documentation. The documents were generated automatically from the schema documents at `mail/components/extensions/schemas <https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/>`_.
+
+.. note::
+
+  These APIs should be considered experimental and could change at any time. For any problems or feature requests please `file a bug <https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API>`_.
 
 .. toctree::
   :maxdepth: 1
@@ -10,7 +14,7 @@ This is a test run of the Thunderbird WebExtension API documentation. The docume
   accounts
   addressBooks
   browserAction
-  cloudfile
+  cloudFile
   composeAction
   contacts
   legacy

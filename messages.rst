@@ -23,12 +23,16 @@ Functions
 list(folder)
 ------------
 
+Gets all messages in a folder. See :doc:`messageLists` for more information.
+
 - ``folder`` (:ref:`accounts.MailFolder`)
 
 .. _messages.continueList:
 
 continueList(messageListId)
 ---------------------------
+
+Returns the next chunk of messages in a list. See :doc:`messageLists` for more information.
 
 - ``messageListId`` (string)
 
