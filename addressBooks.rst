@@ -39,6 +39,10 @@ Gets a list of the user's address books, optionally including all contacts and m
 
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for each address book.
 
+Returns:
+
+- array of :ref:`addressBooks.AddressBookNode`
+
 .. _addressBooks.get:
 
 get(id, [complete])
@@ -48,6 +52,10 @@ Gets a single address book, optionally including all contacts and mailing lists.
 
 - ``id`` (string)
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for this address book.
+
+Returns:
+
+- :ref:`addressBooks.AddressBookNode`
 
 .. _addressBooks.create:
 
@@ -59,6 +67,10 @@ Creates a new, empty address book.
 - ``properties`` (object)
 
   - ``name`` (string)
+
+Returns:
+
+- string The ID of the new address book.
 
 .. _addressBooks.update:
 

@@ -25,12 +25,20 @@ Retrieve information about a single cloud file account
 
 - ``accountId`` (string)
 
+Returns:
+
+- :ref:`cloudFile.CloudFileAccount`
+
 .. _cloudFile.getAllAccounts:
 
 getAllAccounts()
 ----------------
 
 Retrieve all cloud file accounts for the current add-on
+
+Returns:
+
+- array of :ref:`cloudFile.CloudFileAccount`
 
 .. _cloudFile.updateAccount:
 
@@ -48,6 +56,10 @@ Update a cloud file account
   - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+
+Returns:
+
+- :ref:`cloudFile.CloudFileAccount`
 
 Events
 ======

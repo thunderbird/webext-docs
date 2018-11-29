@@ -20,6 +20,10 @@ Gets all the contacts in the address book with the id ``parentId``.
 
 - ``parentId`` (string)
 
+Returns:
+
+- array of :ref:`contacts.ContactNode`
+
 .. _contacts.get:
 
 get(id)
@@ -28,6 +32,10 @@ get(id)
 Gets a single contact.
 
 - ``id`` (string)
+
+Returns:
+
+- :ref:`contacts.ContactNode`
 
 .. _contacts.create:
 
@@ -38,6 +46,10 @@ Adds a new contact to the address book with the id ``parentId``.
 
 - ``parentId`` (string)
 - ``properties`` (:ref:`contacts.ContactProperties`)
+
+Returns:
+
+- string The ID of the new contact.
 
 .. _contacts.update:
 

@@ -20,6 +20,10 @@ Gets all the mailing lists in the address book with id ``parentId``.
 
 - ``parentId`` (string)
 
+Returns:
+
+- array of :ref:`mailingLists.MailingListNode`
+
 .. _mailingLists.get:
 
 get(id)
@@ -28,6 +32,10 @@ get(id)
 Gets a single mailing list.
 
 - ``id`` (string)
+
+Returns:
+
+- :ref:`mailingLists.MailingListNode`
 
 .. _mailingLists.create:
 
@@ -42,6 +50,10 @@ Creates a new mailing list in the address book with id ``parentId``.
   - ``name`` (string)
   - [``description``] (string)
   - [``nickName``] (string)
+
+Returns:
+
+- string The ID of the new mailing list.
 
 .. _mailingLists.update:
 
@@ -84,6 +96,10 @@ listMembers(id)
 Gets all contacts that are members of the mailing list with id ``id``.
 
 - ``id`` (string)
+
+Returns:
+
+- array of :ref:`contacts.ContactNode`
 
 .. _mailingLists.removeMember:
 
