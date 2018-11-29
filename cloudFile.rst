@@ -64,7 +64,7 @@ Fired when a file should be uploaded to the cloud file provider
 
 Event listeners should return:
 
-- (object)
+- object
 
   - [``aborted``] (boolean) Set this to true if the file upload was aborted
   - [``url``] (string) The URL where the uploaded file can be accessed

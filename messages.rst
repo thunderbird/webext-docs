@@ -23,18 +23,26 @@ Functions
 list(folder)
 ------------
 
-Gets all messages in a folder. See :doc:`messageLists` for more information.
+Gets all messages in a folder.
 
 - ``folder`` (:ref:`accounts.MailFolder`)
+
+Returns:
+
+- :ref:`messages.MessageList`
 
 .. _messages.continueList:
 
 continueList(messageListId)
 ---------------------------
 
-Returns the next chunk of messages in a list. See :doc:`messageLists` for more information.
+Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
 
 - ``messageListId`` (string)
+
+Returns:
+
+- :ref:`messages.MessageList`
 
 .. _messages.get:
 
@@ -74,3 +82,16 @@ listTags()
 ----------
 
 Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
+
+Types
+=====
+
+.. _messages.MessageList:
+
+MessageList
+-----------
+
+See :doc:`how-to/messageLists` for more information.
+
+- ``id`` (string)
+- ``messages`` (array)

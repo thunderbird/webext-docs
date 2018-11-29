@@ -11,6 +11,26 @@ OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
 current_namespace_name = None
 
 
+def merge_objects(a, b):
+    if isinstance(a, list):
+        for c in a:
+            name = c.get("namespace", c.get("name"))
+            if name is None:
+                continue
+            for d in b:
+                if d.get("namespace", d.get("name")) == name:
+                    merge_objects(c, d)
+    elif isinstance(a, dict):
+        for [e, f] in a.iteritems():
+            if e not in b:
+                b[e] = f
+                continue
+            if e not in ["namespace", "name"]:
+                merge_objects(f, b[e])
+    else:
+        print "Unexpected item:", a
+
+
 def replace_code(string):
     string = string.replace("<em>", "*").replace("</em>", "*")
     string = string.replace("<b>", "**").replace("</b>", "**")
@@ -22,22 +42,29 @@ def replace_code(string):
 def format_member(name, value):
     parts = []
 
-    if (name):
+    if name:
+        type_string = "(%s)"
         if value.get("optional", False):
             parts.append("[``%s``]" % name)
         else:
             parts.append("``%s``" % name)
+    else:
+        type_string = "%s"
 
     if "type" in value:
         if value.get("enum") is None:
-            parts.append("(%s)" % value["type"])
+            type_part = value["type"]
         else:
-            parts.append("(`%s <enum_%s_>`_)" % (value["type"], name))
+            type_part = "`%s <enum_%s_>`_" % (value["type"], name)
+        parts.append(type_string % type_part)
+
     elif "$ref" in value:
         if "." in value["$ref"] or current_namespace_name is None:
-            parts.append("(:ref:`%s`)" % value["$ref"])
+            type_part = ":ref:`%s`" % value["$ref"]
         else:
-            parts.append("(:ref:`%s.%s`)" % (current_namespace_name, value["$ref"]))
+            type_part = ":ref:`%s.%s`" % (current_namespace_name, value["$ref"])
+        parts.append(type_string % type_part)
+
     elif "choices" in value:
         choices = []
         for choice in value["choices"]:
@@ -45,7 +72,7 @@ def format_member(name, value):
                 choices.append(choice["type"])
             elif "$ref" in choice:
                 choices.append(":ref:`%s.%s`" % (current_namespace_name, choice["$ref"]))
-        parts.append("(%s)" % " or ".join(choices))
+        parts.append(type_string % " or ".join(choices))
 
     if "description" in value:
         parts.append(replace_code(value["description"]))
@@ -73,7 +100,7 @@ def format_object(name, obj):
     lines = ["- %s" % format_member(name, obj)]
     enum_lines = []
 
-    if obj.get("type", None) == "object" and "properties" in obj:
+    if obj.get("type") == "object" and "properties" in obj:
         lines.append("")
         items = sorted(obj["properties"].items())
         for [key, value] in items:
@@ -100,6 +127,23 @@ def format_params(function):
         else:
             params.append(param["name"])
     return ", ".join(params)
+
+
+def format_permissions(obj):
+    if "permissions" not in obj:
+        return []
+
+    lines = []
+    name = obj.get("namespace", obj.get("name"))
+    for permission in obj["permissions"]:
+        lines.extend([
+            "",
+            ".. note::",
+            "",
+            "  The permission ``%s`` is required to use ``%s``." % (permission, name),
+            "",
+        ])
+    return lines
 
 
 def header_1(string):
@@ -130,96 +174,86 @@ def header_3(string):
 def format_namespace(namespace, manifest_namespace=None):
     global current_namespace_name
     current_namespace_name = namespace["namespace"]
-    overlay = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
-    overlay_sections = {}
-    if os.path.exists(overlay):
-        with open(overlay) as fp_overlay:
-            lines = []
-            current_section = None
-            for line in map(lambda l: l.rstrip("\n").decode("utf-8"), fp_overlay.readlines()):
-                if line.startswith(".. _"):
-                    current_section = []
-                    overlay_sections[line] = current_section
-                elif current_section is not None:
-                    current_section.append(line)
-                else:
-                    lines.append(line)
+    preamble = os.path.join(PREAMBLE_DIR, current_namespace_name + ".rst")
+    if os.path.exists(preamble):
+        with open(preamble) as fp_preamble:
+            lines = map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines())
             lines.append("")
     else:
         lines = header_1(current_namespace_name)
 
+    if "description" in namespace:
+        lines.append(replace_code(namespace["description"]))
+        lines.append("")
+
     if manifest_namespace is not None:
         lines.extend(manifest_namespace)
 
-    if "description" in namespace:
-        lines.append(replace_code(namespace["description"]))
-
-    if "permissions" in namespace:
-        for permission in namespace["permissions"]:
-            lines.extend([
-                ".. note::",
-                "",
-                "  The permission ``%s`` is required to use ``%s``." % (permission, current_namespace_name),
-                "",
-            ])
+    lines.extend(format_permissions(namespace))
 
     if "functions" in namespace:
-        lines.append("")
         lines.extend(header_2("Functions"))
         for function in namespace["functions"]:
             lines.extend([
-                "",
                 ".. _%s.%s:" % (current_namespace_name, function["name"]),
                 "",
             ])
             lines.extend(header_3("%s(%s)" % (function["name"], format_params(function))))
 
             if "description" in function:
-                lines.append(replace_code(function["description"]) + "")
+                lines.append(replace_code(function["description"]))
+                lines.append("")
 
             if len(function["parameters"]):
-                lines.append("")
                 for param in function["parameters"]:
                     lines.extend(format_object(param["name"], param))
                 lines.append("")
+
+            if "returns" in function:
+                lines.extend([
+                    "Returns:",
+                    "",
+                ])
+                lines.extend(format_object("", function["returns"]))
+                lines.append("")
+
+            lines.extend(format_permissions(function))
 
     if "events" in namespace:
         lines.append("")
         lines.extend(header_2("Events"))
         for event in namespace["events"]:
             lines.extend([
-                "",
                 ".. _%s.%s:" % (current_namespace_name, event["name"]),
                 "",
             ])
             lines.extend(header_3("%s(%s)" % (event["name"], format_params(event))))
 
             if "description" in event:
-                lines.append(replace_code(event["description"]) + "")
+                lines.append(replace_code(event["description"]))
+                lines.append("")
 
             if len(event["parameters"]):
-                lines.append("")
                 for param in event["parameters"]:
                     lines.extend(format_object(param["name"], param))
                 lines.append("")
 
             if "returns" in event:
                 lines.extend([
-                    "",
                     "Event listeners should return:",
                     "",
                 ])
                 lines.extend(format_object("", event["returns"]))
                 lines.append("")
 
+            lines.extend(format_permissions(event))
+
     if "types" in namespace:
-        lines.append("")
         lines.extend(header_2("Types"))
         enum_lines = []
 
         for type_ in namespace["types"]:
             lines.extend([
-                "",
                 ".. _%s.%s:" % (current_namespace_name, type_["id"]),
                 "",
             ])
@@ -227,9 +261,9 @@ def format_namespace(namespace, manifest_namespace=None):
 
             if "description" in type_:
                 lines.append(replace_code(type_["description"]))
+                lines.append("")
 
             if "properties" in type_:
-                lines.append("")
                 items = sorted(type_["properties"].items())
                 for [key, value] in items:
                     if not value.get("optional", False):
@@ -243,28 +277,6 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
         lines.extend(enum_lines)
-
-    index = 0
-    append_soon = None
-    while index < len(lines):
-        line = lines[index]
-        if line.startswith(".. _"):
-            if append_soon is not None:
-                lines[index:index] = append_soon + [""]
-                index += len(append_soon) + 1
-                append_soon = None
-            if line in overlay_sections:
-                append_soon = overlay_sections[line]
-        elif append_soon is not None and line.startswith("==="):
-            # Oops, go back a bit
-            index -= 2
-            lines[index:index] = append_soon + [""]
-            append_soon = None
-        index += 1
-
-    if append_soon is not None:
-        lines.extend(append_soon)
-        append_soon = None
 
     index = 0
     previous = ""
@@ -299,6 +311,7 @@ def format_manifest_namespace(manifest):
             for choice in type_["choices"]:
                 for value in choice["enum"]:
                     permission_lines.append("- %s" % value)
+            permission_lines.append("")
 
     if len(property_lines) > 0:
         lines = header_2("Manifest file properties") + property_lines
@@ -306,7 +319,6 @@ def format_manifest_namespace(manifest):
     if len(permission_lines) > 0:
         lines.extend(header_2("Permissions"))
         lines.extend(permission_lines)
-        lines.append("")
 
     return lines
 
@@ -341,6 +353,11 @@ if __name__ == "__main__":
             content = fp_input.read()
             content = re.sub(r"(^|\n)//.*", "", content)
             document = json.loads(content)
+
+        if os.path.exists(os.path.join(OVERLAY_DIR, filename + ".json")):
+            with open(os.path.join(OVERLAY_DIR, filename + ".json")) as fp_overlay:
+                overlay = json.load(fp_overlay)
+                merge_objects(overlay, document)
 
         manifest_namespace = None
         for namespace in document:

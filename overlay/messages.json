@@ -1,0 +1,34 @@
+[
+  {
+    "namespace": "messages",
+    "functions": [
+      {
+        "name": "list",
+        "returns": {
+          "$ref": "MessageList"
+        }
+      },
+      {
+        "name": "continueList",
+        "returns": {
+          "$ref": "MessageList"
+        }
+      }
+    ],
+    "types": [
+      {
+        "id": "MessageList",
+        "type": "object",
+        "description": "See :doc:`how-to/messageLists` for more information.",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "messages": {
+            "type": "array"
+          }
+        }
+      }
+    ]
+  }
+]

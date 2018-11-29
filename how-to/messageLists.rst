@@ -1,6 +1,6 @@
-=============
-Message Lists
-=============
+==========================
+Working with Message Lists
+==========================
 
 Mail folders could contain a *lot* of messages: thousands, tens of thousands, or even hundreds of thousands.
 

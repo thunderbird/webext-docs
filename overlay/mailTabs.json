@@ -1,0 +1,27 @@
+[
+  {
+    "namespace": "mailTabs",
+    "functions": [
+      {
+        "name": "getSelectedMessages",
+        "returns": {
+          "$ref": "messages.MessageList"
+        }
+      }
+    ],
+    "events": [
+      {
+        "name": "onDisplayedFolderChanged",
+        "permissions": [
+          "accountsRead"
+        ]
+      },
+      {
+        "name": "onSelectedMessagesChanged",
+        "permissions": [
+          "messagesRead"
+        ]
+      }
+    ]
+  }
+]

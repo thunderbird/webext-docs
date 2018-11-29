@@ -99,6 +99,10 @@ Lists the selected messages in the current folder. A messages permission is requ
 
 - [``tabId``] (integer) Defaults to the selected tab of the current window.
 
+Returns:
+
+- :ref:`messages.MessageList`
+
 .. _mailTabs.setQuickFilter:
 
 setQuickFilter([tabId], properties)

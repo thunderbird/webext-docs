@@ -2,14 +2,14 @@
 tabs
 ====
 
+Use the ``browser.tabs`` API to interact with the browser's tab system. You can use this API to create, modify, and rearrange tabs in the browser.
+
 Permissions
 ===========
 
 - activeTab
 - tabs
 - tabHide
-
-Use the ``browser.tabs`` API to interact with the browser's tab system. You can use this API to create, modify, and rearrange tabs in the browser.
 
 Functions
 =========
