@@ -130,9 +130,11 @@ def format_object(name, obj):
     return lines
 
 
-def format_params(function):
+def format_params(function, callback=None):
     params = []
     for param in function["parameters"]:
+        if param["name"] == callback:
+            continue
         if param.get("optional", False):
             params.append("[%s]" % param["name"])
         else:
@@ -205,11 +207,12 @@ def format_namespace(namespace, manifest_namespace=None):
     if "functions" in namespace:
         lines.extend(header_2("Functions"))
         for function in namespace["functions"]:
+            async = function.get("async")
             lines.extend([
                 ".. _%s.%s:" % (current_namespace_name, function["name"]),
                 "",
             ])
-            lines.extend(header_3("%s(%s)" % (function["name"], format_params(function))))
+            lines.extend(header_3("%s(%s)" % (function["name"], format_params(function, callback=async))))
 
             if "description" in function:
                 lines.append(replace_code(function["description"]))
@@ -217,7 +220,11 @@ def format_namespace(namespace, manifest_namespace=None):
 
             if len(function["parameters"]):
                 for param in function["parameters"]:
-                    lines.extend(format_object(param["name"], param))
+                    if async == param["name"]:
+                        if len(param["parameters"]) > 0:
+                            function["returns"] = param["parameters"][0]
+                    else:
+                        lines.extend(format_object(param["name"], param))
                 lines.append("")
 
             if "returns" in function:

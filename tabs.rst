@@ -16,27 +16,32 @@ Functions
 
 .. _tabs.get:
 
-get(tabId, callback)
---------------------
+get(tabId)
+----------
 
 Retrieves details about the specified tab.
 
 - ``tabId`` (integer)
-- ``callback`` (function)
+
+Returns:
+
+- :ref:`tabs.Tab`
 
 .. _tabs.getCurrent:
 
-getCurrent(callback)
---------------------
+getCurrent()
+------------
 
 Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
 
-- ``callback`` (function)
+Returns:
+
+- :ref:`tabs.Tab`
 
 .. _tabs.create:
 
-create(createProperties, [callback])
-------------------------------------
+create(createProperties)
+------------------------
 
 Creates a new tab.
 
@@ -48,22 +53,27 @@ Creates a new tab.
   - [``url``] (string) The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
   - [``windowId``] (integer) The window to create the new tab in. Defaults to the $(topic:current-window)[current window].
 
-- [``callback``] (function)
+Returns:
+
+- :ref:`tabs.Tab` Details about the created tab. Will contain the ID of the new tab.
 
 .. _tabs.duplicate:
 
-duplicate(tabId, [callback])
-----------------------------
+duplicate(tabId)
+----------------
 
 Duplicates a tab.
 
 - ``tabId`` (integer) The ID of the tab which is to be duplicated.
-- [``callback``] (function)
+
+Returns:
+
+- :ref:`tabs.Tab` Details about the duplicated tab. The $(ref:tabs.Tab) object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
 
 .. _tabs.query:
 
-query(queryInfo, callback)
---------------------------
+query(queryInfo)
+----------------
 
 Gets all tabs that have the specified properties, or all tabs if no properties are specified.
 
@@ -81,12 +91,14 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
   - [``windowType``] (:ref:`tabs.WindowType`) The type of window the tabs are in.
 
-- ``callback`` (function)
+Returns:
+
+- array of :ref:`tabs.Tab`
 
 .. _tabs.update:
 
-update([tabId], updateProperties, [callback])
----------------------------------------------
+update([tabId], updateProperties)
+---------------------------------
 
 Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.
 
@@ -96,12 +108,14 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
   - [``active``] (boolean) Whether the tab should be active. Does not affect whether the window is focused (see $(ref:windows.update)).
   - [``url``] (string) A URL to navigate the tab to.
 
-- [``callback``] (function)
+Returns:
+
+- :ref:`tabs.Tab` Details about the updated tab. The $(ref:tabs.Tab) object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
 
 .. _tabs.move:
 
-move(tabIds, moveProperties, [callback])
-----------------------------------------
+move(tabIds, moveProperties)
+----------------------------
 
 Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
 
@@ -111,12 +125,14 @@ Moves one or more tabs to a new position within its window, or to a new window. 
   - ``index`` (integer) The position to move the window to. -1 will place the tab at the end of the window.
   - [``windowId``] (integer) Defaults to the window the tab is currently in.
 
-- [``callback``] (function)
+Returns:
+
+- :ref:`tabs.Tab` or array Details about the moved tabs.
 
 .. _tabs.reload:
 
-reload([tabId], [reloadProperties], [callback])
------------------------------------------------
+reload([tabId], [reloadProperties])
+-----------------------------------
 
 Reload a tab.
 
@@ -125,50 +141,48 @@ Reload a tab.
 
   - [``bypassCache``] (boolean) Whether using any local cache. Default is false.
 
-- [``callback``] (function)
-
 .. _tabs.remove:
 
-remove(tabIds, [callback])
---------------------------
+remove(tabIds)
+--------------
 
 Closes one or more tabs.
 
 - ``tabIds`` (integer or array) The tab or list of tabs to close.
-- [``callback``] (function)
 
 .. _tabs.executeScript:
 
-executeScript([tabId], details, [callback])
--------------------------------------------
+executeScript([tabId], details)
+-------------------------------
 
 Injects JavaScript code into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the script to run.
-- [``callback``] (function) Called after all the JavaScript has been executed.
+
+Returns:
+
+- array of any The result of the script in every injected frame.
 
 .. _tabs.insertCSS:
 
-insertCSS([tabId], details, [callback])
----------------------------------------
+insertCSS([tabId], details)
+---------------------------
 
 Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to insert.
-- [``callback``] (function) Called when all the CSS has been inserted.
 
 .. _tabs.removeCSS:
 
-removeCSS([tabId], details, [callback])
----------------------------------------
+removeCSS([tabId], details)
+---------------------------
 
 Removes injected CSS from a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to remove.
-- [``callback``] (function) Called when all the CSS has been removed.
 
 Events
 ======
@@ -278,7 +292,7 @@ Tab
 - [``favIconUrl``] (string) The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
 - [``height``] (integer) The height of the tab in pixels.
 - [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID, for example when querying foreign tabs using the $(ref:sessions) API, in which case a session ID may be present. Tab ID can also be set to $(ref:tabs.TAB_ID_NONE) for apps and devtools windows.
-- [``lastAccessed``] (integer) The last time the tab was accessed as the number of milliseconds since epoch.
+- [``isMail3Pane``] (boolean) Whether the tab is a 3-pane tab.
 - [``status``] (string) Either *loading* or *complete*.
 - [``title``] (string) The title of the tab. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
 - [``url``] (string) The URL the tab is displaying. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
