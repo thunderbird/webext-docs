@@ -1,0 +1,28 @@
+[
+  {
+    "namespace": "cloudFile",
+    "functions": [
+      {
+        "name": "getAccount",
+        "returns": {
+          "$ref": "CloudFileAccount"
+        }
+      },
+      {
+        "name": "getAllAccounts",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "CloudFileAccount"
+          }
+        }
+      },
+      {
+        "name": "updateAccount",
+        "returns": {
+          "$ref": "CloudFileAccount"
+        }
+      }
+    ]
+  }
+]

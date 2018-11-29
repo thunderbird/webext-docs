@@ -1,0 +1,92 @@
+[
+  {
+    "namespace": "addressBooks",
+    "functions": [
+      {
+        "name": "list",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "AddressBookNode"
+          }
+        }
+      },
+      {
+        "name": "get",
+        "returns": {
+          "$ref": "AddressBookNode"
+        }
+      },
+      {
+        "name": "create",
+        "returns": {
+          "type": "string",
+          "description": "The ID of the new address book."
+        }
+      }
+    ]
+  },
+  {
+    "namespace": "contacts",
+    "functions": [
+      {
+        "name": "list",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "ContactNode"
+          }
+        }
+      },
+      {
+        "name": "get",
+        "returns": {
+          "$ref": "ContactNode"
+        }
+      },
+      {
+        "name": "create",
+        "returns": {
+          "type": "string",
+          "description": "The ID of the new contact."
+        }
+      }
+    ]
+  },
+  {
+    "namespace": "mailingLists",
+    "functions": [
+      {
+        "name": "list",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "MailingListNode"
+          }
+        }
+      },
+      {
+        "name": "get",
+        "returns": {
+          "$ref": "MailingListNode"
+        }
+      },
+      {
+        "name": "create",
+        "returns": {
+          "type": "string",
+          "description": "The ID of the new mailing list."
+        }
+      },
+      {
+        "name": "listMembers",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "contacts.ContactNode"
+          }
+        }
+      }
+    ]
+  }
+]
