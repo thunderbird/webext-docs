@@ -18,6 +18,25 @@ return to its previous state correctly. Wibbly-wobbly, timey-wimey, … stuff.
   Legacy extensions will not be around forever, and possibly will not even make it to Thunderbird
   68.
 
+How To Link Your Options Page
+=============================
+
+From Thunderbird 65, you can specify an options page in manifest.json, as you could in the
+old-style manifest. If you don't have an options page, just set ``legacy`` to ``true``.
+
+::
+
+  {
+    ...
+    "legacy": {
+      "options": {
+        "page": "chrome://address/of/your/options.page",
+        "open_in_tab": true
+      }
+    }
+    ...
+  }
+
 Manifest file properties
 ========================
 
