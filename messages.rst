@@ -74,7 +74,7 @@ Marks or unmarks a message as read, starred, or tagged.
 
   - [``flagged``] (boolean) Marks the message as starred or unstarred.
   - [``read``] (boolean) Marks the message as read or unread.
-  - [``tags``] (array) Sets the tags on the message. For a list of available tags, call the listTags method.
+  - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
 
 .. _messages.listTags:
 

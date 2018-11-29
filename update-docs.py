@@ -39,6 +39,13 @@ def replace_code(string):
     return string
 
 
+def link_ref(ref):
+    if "." in ref or current_namespace_name is None:
+        return ":ref:`%s`" % ref
+    else:
+        return ":ref:`%s.%s`" % (current_namespace_name, ref)
+
+
 def format_member(name, value):
     parts = []
 
@@ -52,17 +59,21 @@ def format_member(name, value):
         type_string = "%s"
 
     if "type" in value:
-        if value.get("enum") is None:
-            type_part = value["type"]
-        else:
+        if value.get("enum") is not None:
             type_part = "`%s <enum_%s_>`_" % (value["type"], name)
+        elif value["type"] == "array":
+            if "items" in value and "type" in value["items"]:
+                type_part = "array of %s" % value["items"]["type"]
+            elif "items" in value and "$ref" in value["items"]:
+                type_part = "array of %s" % link_ref(value["items"]["$ref"])
+            else:
+                type_part = "array"
+        else:
+            type_part = value["type"]
         parts.append(type_string % type_part)
 
     elif "$ref" in value:
-        if "." in value["$ref"] or current_namespace_name is None:
-            type_part = ":ref:`%s`" % value["$ref"]
-        else:
-            type_part = ":ref:`%s.%s`" % (current_namespace_name, value["$ref"])
+        type_part = link_ref(value["$ref"])
         parts.append(type_string % type_part)
 
     elif "choices" in value:
@@ -174,7 +185,7 @@ def header_3(string):
 def format_namespace(namespace, manifest_namespace=None):
     global current_namespace_name
     current_namespace_name = namespace["namespace"]
-    preamble = os.path.join(PREAMBLE_DIR, current_namespace_name + ".rst")
+    preamble = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
             lines = map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines())

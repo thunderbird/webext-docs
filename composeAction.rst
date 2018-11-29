@@ -16,7 +16,7 @@ Manifest file properties
   - [``default_icon``] (:ref:`IconPath`)
   - [``default_popup``] (string)
   - [``default_title``] (string)
-  - [``theme_icons``] (array) Specifies icons to use for dark and light themes
+  - [``theme_icons``] (array of :ref:`ThemeIcons`) Specifies icons to use for dark and light themes
 
 .. _enum_default_area:
 

@@ -313,7 +313,7 @@ UpdateFilter
 
 An object describing filters to apply to tabs.onUpdated events.
 
-- [``properties``] (array) A list of property names. Events that do not match any of the names will be filtered out.
+- [``properties``] (array of :ref:`tabs.UpdatePropertyName`) A list of property names. Events that do not match any of the names will be filtered out.
 - [``tabId``] (integer)
-- [``urls``] (array) A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
+- [``urls``] (array of string) A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
 - [``windowId``] (integer)

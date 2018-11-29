@@ -160,6 +160,6 @@ A node representing a mailing list.
 - ``name`` (string)
 - ``nickName`` (string)
 - ``type`` (:ref:`addressBooks.NodeType`) Always set to ``mailingList``.
-- [``contacts``] (array) A list of contacts held by this node's address book or mailing list.
+- [``contacts``] (array of :ref:`contacts.ContactNode`) A list of contacts held by this node's address book or mailing list.
 - [``parentId``] (string) The ``id`` of the parent object.
 - [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
