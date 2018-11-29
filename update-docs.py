@@ -39,6 +39,22 @@ def replace_code(string):
     return string
 
 
+def get_type(obj, name):
+    if "type" in obj:
+        if obj.get("enum") is not None:
+            return "`%s <enum_%s_>`_" % (obj["type"], name)
+        elif obj["type"] == "array":
+            if "items" in obj:
+                return "array of %s" % get_type(obj["items"], name)
+            else:
+                return "array"
+        else:
+            return obj["type"]
+
+    elif "$ref" in obj:
+        return link_ref(obj["$ref"])
+
+
 def link_ref(ref):
     if "." in ref or current_namespace_name is None:
         return ":ref:`%s`" % ref
@@ -58,31 +74,13 @@ def format_member(name, value):
     else:
         type_string = "%s"
 
-    if "type" in value:
-        if value.get("enum") is not None:
-            type_part = "`%s <enum_%s_>`_" % (value["type"], name)
-        elif value["type"] == "array":
-            if "items" in value and "type" in value["items"]:
-                type_part = "array of %s" % value["items"]["type"]
-            elif "items" in value and "$ref" in value["items"]:
-                type_part = "array of %s" % link_ref(value["items"]["$ref"])
-            else:
-                type_part = "array"
-        else:
-            type_part = value["type"]
-        parts.append(type_string % type_part)
-
-    elif "$ref" in value:
-        type_part = link_ref(value["$ref"])
-        parts.append(type_string % type_part)
+    if "type" in value or "$ref" in value:
+        parts.append(type_string % get_type(value, name))
 
     elif "choices" in value:
         choices = []
         for choice in value["choices"]:
-            if "type" in choice:
-                choices.append(choice["type"])
-            elif "$ref" in choice:
-                choices.append(":ref:`%s.%s`" % (current_namespace_name, choice["$ref"]))
+            choices.append(get_type(choice, name))
         parts.append(type_string % " or ".join(choices))
 
     if "description" in value:

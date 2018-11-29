@@ -87,7 +87,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
   - [``status``] (:ref:`tabs.TabStatus`) Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
-  - [``url``] (string or array) Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
+  - [``url``] (string or array of string) Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
   - [``windowType``] (:ref:`tabs.WindowType`) The type of window the tabs are in.
 
@@ -119,7 +119,7 @@ move(tabIds, moveProperties)
 
 Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
 
-- ``tabIds`` (integer or array) The tab or list of tabs to move.
+- ``tabIds`` (integer or array of integer) The tab or list of tabs to move.
 - ``moveProperties`` (object)
 
   - ``index`` (integer) The position to move the window to. -1 will place the tab at the end of the window.
@@ -127,7 +127,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
 
 Returns:
 
-- :ref:`tabs.Tab` or array Details about the moved tabs.
+- :ref:`tabs.Tab` or array of :ref:`tabs.Tab` Details about the moved tabs.
 
 .. _tabs.reload:
 
@@ -148,7 +148,7 @@ remove(tabIds)
 
 Closes one or more tabs.
 
-- ``tabIds`` (integer or array) The tab or list of tabs to close.
+- ``tabIds`` (integer or array of integer) The tab or list of tabs to close.
 
 .. _tabs.executeScript:
 

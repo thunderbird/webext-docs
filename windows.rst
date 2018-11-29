@@ -91,7 +91,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
   - [``titlePreface``] (string) A string to add to the beginning of the window title.
   - [``top``] (integer) The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
   - [``type``] (:ref:`windows.CreateType`) Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
-  - [``url``] (string or array) A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+  - [``url``] (string or array of string) A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
   - [``width``] (integer) The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
 
 Returns:
