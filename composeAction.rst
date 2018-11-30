@@ -12,13 +12,13 @@ Manifest file properties
 - [``compose_action``] (object)
 
   - [``browser_style``] (boolean)
-  - [``default_area``] (`string <enum_default_area_>`_) Defines the location the composeAction will appear by default. The default location is maintoolbar.
+  - [``default_area``] (`string <enum_default_area_2_>`_) Defines the location the composeAction will appear by default. The default location is maintoolbar.
   - [``default_icon``] (:ref:`IconPath`)
   - [``default_popup``] (string)
   - [``default_title``] (string)
   - [``theme_icons``] (array of :ref:`ThemeIcons`) Specifies icons to use for dark and light themes
 
-.. _enum_default_area:
+.. _enum_default_area_2:
 
 Values for default_area:
 
@@ -183,6 +183,11 @@ Fired when a toolbar action icon is clicked.  This event will not fire if the to
 Types
 =====
 
+.. _composeAction.ColorArray:
+
+ColorArray
+----------
+
 .. _composeAction.Details:
 
 Details
@@ -192,11 +197,6 @@ Specifies to which tab or window the value should be set, or from which one it s
 
 - [``tabId``] (integer) When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
 - [``windowId``] (integer) When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
-
-.. _composeAction.ColorArray:
-
-ColorArray
-----------
 
 .. _composeAction.ImageDataType:
 

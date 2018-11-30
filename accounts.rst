@@ -25,6 +25,10 @@ list()
 
 Returns all mail accounts.
 
+Returns:
+
+- array of :ref:`accounts.MailAccount`
+
 .. _accounts.get:
 
 get(accountId)
@@ -34,8 +38,23 @@ Returns details of the requested account, or null if it doesn't exist.
 
 - ``accountId`` (string)
 
+Returns:
+
+- :ref:`accounts.MailAccount`
+
 Types
 =====
+
+.. _accounts.MailAccount:
+
+MailAccount
+-----------
+
+- ``folders`` (array of :ref:`accounts.MailFolder`)
+- ``hostName`` (string)
+- ``id`` (string)
+- ``name`` (string)
+- ``type`` (string)
 
 .. _accounts.MailFolder:
 

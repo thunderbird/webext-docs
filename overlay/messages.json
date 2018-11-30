@@ -13,9 +13,67 @@
         "returns": {
           "$ref": "MessageList"
         }
+      },
+      {
+        "name": "get",
+        "returns": {
+          "$ref": "MessageHeader"
+        }
+      },
+      {
+        "name": "listTags",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "MessageTag"
+          }
+        }
       }
     ],
     "types": [
+      {
+        "id": "MessageHeader",
+        "type": "object",
+        "properties": {
+          "messageId": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "date": {
+            "type": "date"
+          },
+          "read": {
+            "type": "boolean"
+          },
+          "flagged": {
+            "type": "boolean"
+          },
+          "ccList": {
+            "type": "string"
+          },
+          "bccList": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "recipients": {
+            "type": "string"
+          },
+          "folder": {
+            "$ref": "accounts.MailFolder"
+          },
+          "tags": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
       {
         "id": "MessageList",
         "type": "object",
@@ -25,7 +83,28 @@
             "type": "string"
           },
           "messages": {
-            "type": "array"
+            "type": "array",
+            "items": {
+              "$ref": "MessageHeader"
+            }
+          }
+        }
+      },
+      {
+        "id": "MessageTag",
+        "type": "object",
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string"
+          },
+          "ordinal": {
+            "type": "string"
           }
         }
       }

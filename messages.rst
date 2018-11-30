@@ -53,6 +53,10 @@ Returns a specified message.
 
 - ``messageId`` (integer)
 
+Returns:
+
+- :ref:`messages.MessageHeader`
+
 .. _messages.getFull:
 
 getFull(messageId)
@@ -83,8 +87,29 @@ listTags()
 
 Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
 
+Returns:
+
+- array of :ref:`messages.MessageTag`
+
 Types
 =====
+
+.. _messages.MessageHeader:
+
+MessageHeader
+-------------
+
+- ``author`` (string)
+- ``bccList`` (string)
+- ``ccList`` (string)
+- ``date`` (date)
+- ``flagged`` (boolean)
+- ``folder`` (:ref:`accounts.MailFolder`)
+- ``messageId`` (integer)
+- ``read`` (boolean)
+- ``recipients`` (string)
+- ``subject`` (string)
+- ``tags`` (array of string)
 
 .. _messages.MessageList:
 
@@ -94,4 +119,14 @@ MessageList
 See :doc:`how-to/messageLists` for more information.
 
 - ``id`` (string)
-- ``messages`` (array)
+- ``messages`` (array of :ref:`messages.MessageHeader`)
+
+.. _messages.MessageTag:
+
+MessageTag
+----------
+
+- ``color`` (string)
+- ``key`` (string)
+- ``ordinal`` (string)
+- ``tag`` (string)

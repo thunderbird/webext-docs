@@ -2,7 +2,7 @@
 Thunderbird WebExtension APIs
 =============================
 
-This is a test run of the Thunderbird WebExtension API documentation. The documents were generated automatically from the schema documents at `mail/components/extensions/schemas <https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/>`_.
+The documents were generated automatically from the schema documents at `mail/components/extensions/schemas <https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/>`_.
 
 .. note::
 
@@ -34,3 +34,11 @@ The following APIs are also included and work as they do in Firfox:
 - `permissions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/permissions>`_
 - `runtime <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime>`_
 - `theme <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/theme>`_
+
+How To
+======
+
+.. toctree::
+  :maxdepth: 1
+
+  how-to/messageLists

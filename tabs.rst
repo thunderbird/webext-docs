@@ -306,20 +306,6 @@ TabStatus
 
 Whether the tabs have completed loading.
 
-.. _tabs.WindowType:
-
-WindowType
-----------
-
-The type of window.
-
-.. _tabs.UpdatePropertyName:
-
-UpdatePropertyName
-------------------
-
-Event names supported in onUpdated.
-
 .. _tabs.UpdateFilter:
 
 UpdateFilter
@@ -331,3 +317,17 @@ An object describing filters to apply to tabs.onUpdated events.
 - [``tabId``] (integer)
 - [``urls``] (array of string) A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
 - [``windowId``] (integer)
+
+.. _tabs.UpdatePropertyName:
+
+UpdatePropertyName
+------------------
+
+Event names supported in onUpdated.
+
+.. _tabs.WindowType:
+
+WindowType
+----------
+
+The type of window.

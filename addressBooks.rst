@@ -126,13 +126,6 @@ Fired when an addressBook is deleted.
 Types
 =====
 
-.. _addressBooks.NodeType:
-
-NodeType
---------
-
-Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
-
 .. _addressBooks.AddressBookNode:
 
 AddressBookNode
@@ -147,3 +140,10 @@ A node representing an address book.
 - [``mailingLists``] (array of :ref:`mailingLists.MailingListNode`) A list of mailingLists in this node's address book.
 - [``parentId``] (string) The ``id`` of the parent object.
 - [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
+
+.. _addressBooks.NodeType:
+
+NodeType
+--------
+
+Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.

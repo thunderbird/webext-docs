@@ -3,6 +3,21 @@
     "namespace": "mailTabs",
     "functions": [
       {
+        "name": "getAll",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "MailTab"
+          }
+        }
+      },
+      {
+        "name": "getCurrent",
+        "returns": {
+          "$ref": "MailTab"
+        }
+      },
+      {
         "name": "getSelectedMessages",
         "returns": {
           "$ref": "messages.MessageList"
@@ -21,6 +36,73 @@
         "permissions": [
           "messagesRead"
         ]
+      }
+    ],
+    "types": [
+      {
+        "id": "MailTab",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "windowId": {
+            "type": "integer"
+          },
+          "active": {
+            "type": "boolean"
+          },
+          "sortType": {
+            "type": "string",
+            "enum": [
+              "byNone",
+              "byDate",
+              "bySubject",
+              "byAuthor",
+              "byId",
+              "byThread",
+              "byPriority",
+              "byStatus",
+              "bySize",
+              "byFlagged",
+              "byUnread",
+              "byRecipient",
+              "byLocation",
+              "byTags",
+              "byJunkStatus",
+              "byAttachments",
+              "byAccount",
+              "byCustom",
+              "byReceived",
+              "byCorrespondent"
+            ]
+          },
+          "sortOrder": {
+            "type": "string",
+            "enum": [
+              "none",
+              "ascending",
+              "descending"
+            ]
+          },
+          "layout": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "wide",
+              "vertical"
+            ]
+          },
+          "folderPaneVisible": {
+            "type": "boolean"
+          },
+          "messagePaneVisible": {
+            "type": "boolean"
+          },
+          "displayedFolder": {
+            "type": "accounts.MailFolder"
+          }
+        }
       }
     ]
   }

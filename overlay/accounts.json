@@ -1,0 +1,48 @@
+[
+  {
+    "namespace": "accounts",
+    "types": [
+      {
+        "id": "MailAccount",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "hostName": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "folders": {
+            "type": "array",
+            "items": {
+              "$ref": "MailFolder"
+            }
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "list",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "MailAccount"
+          }
+        }
+      },
+      {
+        "name": "get",
+        "returns": {
+          "$ref": "MailAccount"
+        }
+      }
+    ]
+  }
+]

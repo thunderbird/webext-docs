@@ -163,19 +163,12 @@ Fired when the currently focused window changes. Will be $(ref:windows.WINDOW_ID
 Types
 =====
 
-.. _windows.WindowType:
+.. _windows.CreateType:
 
-WindowType
+CreateType
 ----------
 
-The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.
-
-.. _windows.WindowState:
-
-WindowState
------------
-
-The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
+Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
 
 .. _windows.Window:
 
@@ -196,9 +189,16 @@ Window
 - [``type``] (:ref:`windows.WindowType`) The type of browser window this is.
 - [``width``] (integer) The width of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned width property, for example when querying closed windows from the $(ref:sessions) API.
 
-.. _windows.CreateType:
+.. _windows.WindowState:
 
-CreateType
+WindowState
+-----------
+
+The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
+
+.. _windows.WindowType:
+
+WindowType
 ----------
 
-Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
+The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.

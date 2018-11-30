@@ -25,12 +25,20 @@ getAll()
 
 Returns an array of all mail tabs in all windows.
 
+Returns:
+
+- array of :ref:`mailTabs.MailTab`
+
 .. _mailTabs.getCurrent:
 
 getCurrent()
 ------------
 
 Returns the current mail tab in the most recent window, or throws an exception if the current tab is not a mail tab.
+
+Returns:
+
+- :ref:`mailTabs.MailTab`
 
 .. _mailTabs.update:
 
@@ -44,12 +52,12 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
 
   - [``displayedFolder``] (object) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
   - [``folderPaneVisible``] (boolean) Shows or hides the folder pane.
-  - [``layout``] (`string <enum_layout_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
+  - [``layout``] (`string <enum_layout_3_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
   - [``messagePaneVisible``] (boolean) Shows or hides the message display pane.
-  - [``sortOrder``] (`string <enum_sortOrder_>`_) Sorts the list of messages. ``sortType`` must also be given.
-  - [``sortType``] (`string <enum_sortType_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
+  - [``sortOrder``] (`string <enum_sortOrder_5_>`_) Sorts the list of messages. ``sortType`` must also be given.
+  - [``sortType``] (`string <enum_sortType_6_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
 
-.. _enum_layout:
+.. _enum_layout_3:
 
 Values for layout:
 
@@ -57,7 +65,7 @@ Values for layout:
 - ``wide``
 - ``vertical``
 
-.. _enum_sortOrder:
+.. _enum_sortOrder_5:
 
 Values for sortOrder:
 
@@ -65,7 +73,7 @@ Values for sortOrder:
 - ``ascending``
 - ``descending``
 
-.. _enum_sortType:
+.. _enum_sortType_6:
 
 Values for sortType:
 
@@ -149,13 +157,76 @@ Fired when the selected messages change in any mail tab.
 Types
 =====
 
+.. _mailTabs.MailTab:
+
+MailTab
+-------
+
+- ``active`` (boolean)
+- ``displayedFolder`` (accounts.MailFolder)
+- ``folderPaneVisible`` (boolean)
+- ``id`` (integer)
+- ``layout`` (`string <enum_layout_18_>`_)
+- ``messagePaneVisible`` (boolean)
+- ``sortOrder`` (`string <enum_sortOrder_20_>`_)
+- ``sortType`` (`string <enum_sortType_21_>`_)
+- ``windowId`` (integer)
+
+.. _enum_layout_18:
+
+Values for layout:
+
+- ``standard``
+- ``wide``
+- ``vertical``
+
+.. _enum_sortOrder_20:
+
+Values for sortOrder:
+
+- ``none``
+- ``ascending``
+- ``descending``
+
+.. _enum_sortType_21:
+
+Values for sortType:
+
+- ``byNone``
+- ``byDate``
+- ``bySubject``
+- ``byAuthor``
+- ``byId``
+- ``byThread``
+- ``byPriority``
+- ``byStatus``
+- ``bySize``
+- ``byFlagged``
+- ``byUnread``
+- ``byRecipient``
+- ``byLocation``
+- ``byTags``
+- ``byJunkStatus``
+- ``byAttachments``
+- ``byAccount``
+- ``byCustom``
+- ``byReceived``
+- ``byCorrespondent``
+
 .. _mailTabs.QuickFilterTagsDetail:
 
 QuickFilterTagsDetail
 ---------------------
 
-- ``mode`` (`string <enum_mode_>`_) Whether all of the tag filters must apply, or any of them.
+- ``mode`` (`string <enum_mode_23_>`_) Whether all of the tag filters must apply, or any of them.
 - ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+
+.. _enum_mode_23:
+
+Values for mode:
+
+- ``all``
+- ``any``
 
 .. _mailTabs.QuickFilterTextDetail:
 
@@ -167,10 +238,3 @@ QuickFilterTextDetail
 - [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
 - [``sender``] (boolean) Shows messages where ``text`` matches the sender.
 - [``subject``] (boolean) Shows messages where ``text`` matches the subject.
-
-.. _enum_mode:
-
-Values for mode:
-
-- ``all``
-- ``any``

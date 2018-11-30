@@ -2,6 +2,8 @@
 cloudFile
 =========
 
+The cloudFile (a.k.a. fileLink) API first appeared in Thunderbird 64.
+
 Manifest file properties
 ========================
 
@@ -120,6 +122,17 @@ Fired when a cloud file account of this add-on was deleted
 Types
 =====
 
+.. _cloudFile.CloudFile:
+
+CloudFile
+---------
+
+Information about a cloud file
+
+- ``data`` (object)
+- ``id`` (integer)
+- ``name`` (string)
+
 .. _cloudFile.CloudFileAccount:
 
 CloudFileAccount
@@ -135,14 +148,3 @@ Information about a cloud file account
 - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
-
-.. _cloudFile.CloudFile:
-
-CloudFile
----------
-
-Information about a cloud file
-
-- ``data`` (object)
-- ``id`` (integer)
-- ``name`` (string)

@@ -9,6 +9,7 @@ DEST_DIR = os.path.dirname(__file__)
 OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
 
 current_namespace_name = None
+unique_id = 1
 
 
 def merge_objects(a, b):
@@ -16,6 +17,7 @@ def merge_objects(a, b):
         for c in a:
             name = c.get("namespace", c.get("name"))
             if name is None:
+                b.append(c)
                 continue
             for d in b:
                 if d.get("namespace", d.get("name")) == name:
@@ -42,7 +44,7 @@ def replace_code(string):
 def get_type(obj, name):
     if "type" in obj:
         if obj.get("enum") is not None:
-            return "`%s <enum_%s_>`_" % (obj["type"], name)
+            return "`%s <enum_%s_%d_>`_" % (obj["type"], name, unique_id)
         elif obj["type"] == "array":
             if "items" in obj:
                 return "array of %s" % get_type(obj["items"], name)
@@ -94,7 +96,7 @@ def format_enum(name, value):
         return []
 
     enum_lines = [
-        ".. _enum_%s:" % name,
+        ".. _enum_%s_%d:" % (name, unique_id),
         "",
         "Values for %s:" % name,
         "",
@@ -106,6 +108,8 @@ def format_enum(name, value):
 
 
 def format_object(name, obj):
+    global unique_id
+
     lines = ["- %s" % format_member(name, obj)]
     enum_lines = []
 
@@ -116,11 +120,13 @@ def format_object(name, obj):
             if not value.get("optional", False):
                 lines.append("  - %s" % format_member(key, value))
                 enum_lines.extend(format_enum(key, value))
+                unique_id += 1
 
         for [key, value] in items:
             if value.get("optional", False):
                 lines.append("  - %s" % format_member(key, value))
                 enum_lines.extend(format_enum(key, value))
+                unique_id += 1
 
         lines.append("")
 
@@ -183,8 +189,10 @@ def header_3(string):
 
 
 def format_namespace(namespace, manifest_namespace=None):
-    global current_namespace_name
+    global current_namespace_name, unique_id
+
     current_namespace_name = namespace["namespace"]
+    unique_id = 1
     preamble = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
@@ -266,9 +274,9 @@ def format_namespace(namespace, manifest_namespace=None):
 
     if "types" in namespace:
         lines.extend(header_2("Types"))
-        enum_lines = []
 
-        for type_ in namespace["types"]:
+        for type_ in sorted(namespace["types"], key=lambda t: t["id"]):
+            enum_lines = []
             lines.extend([
                 ".. _%s.%s:" % (current_namespace_name, type_["id"]),
                 "",
@@ -285,14 +293,16 @@ def format_namespace(namespace, manifest_namespace=None):
                     if not value.get("optional", False):
                         lines.extend(format_object(key, value))
                         enum_lines.extend(format_enum(key, value))
+                        unique_id += 1
 
                 for [key, value] in items:
                     if value.get("optional", False):
                         lines.extend(format_object(key, value))
                         enum_lines.extend(format_enum(key, value))
+                        unique_id += 1
                 lines.append("")
 
-        lines.extend(enum_lines)
+            lines.extend(enum_lines)
 
     index = 0
     previous = ""
@@ -310,8 +320,9 @@ def format_namespace(namespace, manifest_namespace=None):
 
 
 def format_manifest_namespace(manifest):
-    global current_namespace_name
+    global current_namespace_name, unique_id
     current_namespace_name = None
+    unique_id = 1
 
     if "types" not in manifest:
         return
