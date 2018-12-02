@@ -21,6 +21,12 @@
         }
       },
       {
+        "name": "getFull",
+        "returns": {
+          "$ref": "MessagePart"
+        }
+      },
+      {
         "name": "listTags",
         "returns": {
           "type": "array",
@@ -61,7 +67,10 @@
             "type": "string"
           },
           "recipients": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "folder": {
             "$ref": "accounts.MailFolder"
@@ -91,20 +100,66 @@
         }
       },
       {
+        "id": "MessagePart",
+        "type": "object",
+        "description": "Represents an email message \"part\", which could be the whole message",
+        "properties": {
+          "body": {
+            "type": "string",
+            "description": "The content of the part",
+            "optional": true
+          },
+          "contentType": {
+            "type": "string",
+            "optional": true
+          },
+          "headers": {
+            "type": "object",
+            "description": "An object of part headers, with the header name as key, and an array of header values as value",
+            "optional": true
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the part, if it is a file",
+            "optional": true
+          },
+          "partName": {
+            "type": "string",
+            "optional": true
+          },
+          "parts": {
+            "type": "array",
+            "items": {
+              "$ref": "MessagePart"
+            },
+            "description": "Any sub-parts of this part",
+            "optional": true
+          },
+          "size": {
+            "type": "integer",
+            "optional": true
+          }
+        }
+      },
+      {
         "id": "MessageTag",
         "type": "object",
         "properties": {
           "key": {
-            "type": "string"
+            "type": "string",
+            "description": "Distinct tag identifier – use this string when referring to a tag"
           },
           "tag": {
-            "type": "string"
+            "type": "string",
+            "description": "Human-readable tag name"
           },
           "color": {
-            "type": "string"
+            "type": "string",
+            "description": "Tag color"
           },
           "ordinal": {
-            "type": "string"
+            "type": "string",
+            "description": "Custom sort string (usually empty)"
           }
         }
       }

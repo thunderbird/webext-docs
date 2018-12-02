@@ -66,6 +66,10 @@ Returns a specified message.
 
 - ``messageId`` (integer)
 
+Returns:
+
+- :ref:`messages.MessagePart`
+
 .. _messages.update:
 
 update(messageId, newProperties)
@@ -107,7 +111,7 @@ MessageHeader
 - ``folder`` (:ref:`accounts.MailFolder`)
 - ``messageId`` (integer)
 - ``read`` (boolean)
-- ``recipients`` (string)
+- ``recipients`` (array of string)
 - ``subject`` (string)
 - ``tags`` (array of string)
 
@@ -121,12 +125,27 @@ See :doc:`how-to/messageLists` for more information.
 - ``id`` (string)
 - ``messages`` (array of :ref:`messages.MessageHeader`)
 
+.. _messages.MessagePart:
+
+MessagePart
+-----------
+
+Represents an email message "part", which could be the whole message
+
+- [``body``] (string) The content of the part
+- [``contentType``] (string)
+- [``headers``] (object) An object of part headers, with the header name as key, and an array of header values as value
+- [``name``] (string) Name of the part, if it is a file
+- [``partName``] (string)
+- [``parts``] (array of :ref:`messages.MessagePart`) Any sub-parts of this part
+- [``size``] (integer)
+
 .. _messages.MessageTag:
 
 MessageTag
 ----------
 
-- ``color`` (string)
-- ``key`` (string)
-- ``ordinal`` (string)
-- ``tag`` (string)
+- ``color`` (string) Tag color
+- ``key`` (string) Distinct tag identifier – use this string when referring to a tag
+- ``ordinal`` (string) Custom sort string (usually empty)
+- ``tag`` (string) Human-readable tag name
