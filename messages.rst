@@ -27,7 +27,7 @@ Gets all messages in a folder.
 
 - ``folder`` (:ref:`accounts.MailFolder`)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessageList`
 
@@ -40,7 +40,7 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
 
 - ``messageListId`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessageList`
 
@@ -53,7 +53,7 @@ Returns a specified message.
 
 - ``messageId`` (integer)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessageHeader`
 
@@ -66,7 +66,7 @@ Returns a specified message.
 
 - ``messageId`` (integer)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessagePart`
 
@@ -91,9 +91,11 @@ listTags()
 
 Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`messages.MessageTag`
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Types
 =====

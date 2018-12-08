@@ -27,7 +27,7 @@ Retrieve information about a single cloud file account
 
 - ``accountId`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`cloudFile.CloudFileAccount`
 
@@ -38,7 +38,7 @@ getAllAccounts()
 
 Retrieve all cloud file accounts for the current add-on
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`cloudFile.CloudFileAccount`
 
@@ -59,9 +59,11 @@ Update a cloud file account
   - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`cloudFile.CloudFileAccount`
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

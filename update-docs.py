@@ -235,13 +235,18 @@ def format_namespace(namespace, manifest_namespace=None):
 
             if "returns" in function:
                 lines.extend([
-                    "Returns:",
+                    "Returns a `Promise`_ fulfilled with:",
                     "",
                 ])
                 lines.extend(format_object("", function["returns"]))
                 lines.append("")
 
             lines.extend(format_permissions(function))
+
+        lines.extend([
+            ".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+            "",
+        ])
 
     if "events" in namespace:
         lines.append("")

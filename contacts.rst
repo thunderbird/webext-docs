@@ -20,7 +20,7 @@ Gets all the contacts in the address book with the id ``parentId``.
 
 - ``parentId`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`contacts.ContactNode`
 
@@ -33,7 +33,7 @@ Gets a single contact.
 
 - ``id`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`contacts.ContactNode`
 
@@ -47,7 +47,7 @@ Adds a new contact to the address book with the id ``parentId``.
 - ``parentId`` (string)
 - ``properties`` (:ref:`contacts.ContactProperties`)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - string The ID of the new contact.
 
@@ -69,6 +69,8 @@ delete(id)
 Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
 
 - ``id`` (string)
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

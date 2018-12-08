@@ -8,6 +8,10 @@ The documents were generated automatically from the schema documents at `mail/co
 
   These APIs should be considered experimental and could change at any time. For any problems or feature requests please `file a bug <https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API>`_.
 
+.. note::
+
+  WebExtension APIs are asynchronous, that is, they return a `Promise <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ object which resolves when ready. See `Using Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`_ for more information about Promises.
+
 .. toctree::
   :maxdepth: 1
 
@@ -38,7 +42,5 @@ The following APIs are also included and work as they do in Firfox:
 How To
 ======
 
-.. toctree::
-  :maxdepth: 1
-
-  how-to/messageLists
+- `Using Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`_
+- :doc:`how-to/messageLists`

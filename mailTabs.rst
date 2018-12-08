@@ -25,7 +25,7 @@ getAll()
 
 Returns an array of all mail tabs in all windows.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`mailTabs.MailTab`
 
@@ -36,7 +36,7 @@ getCurrent()
 
 Returns the current mail tab in the most recent window, or throws an exception if the current tab is not a mail tab.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`mailTabs.MailTab`
 
@@ -107,7 +107,7 @@ Lists the selected messages in the current folder. A messages permission is requ
 
 - [``tabId``] (integer) Defaults to the selected tab of the current window.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessageList`
 
@@ -128,6 +128,8 @@ Sets the Quick Filter user interface based on the options specified.
   - [``tags``] (boolean or :ref:`mailTabs.QuickFilterTagsDetail`) Shows only messages with tags on them.
   - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
   - [``unread``] (boolean) Shows only unread messages.
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

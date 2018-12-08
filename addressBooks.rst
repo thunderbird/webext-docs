@@ -39,7 +39,7 @@ Gets a list of the user's address books, optionally including all contacts and m
 
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for each address book.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`addressBooks.AddressBookNode`
 
@@ -53,7 +53,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
 - ``id`` (string)
 - [``complete``] (boolean) If set to true, results will include contacts and mailing lists for this address book.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`addressBooks.AddressBookNode`
 
@@ -68,7 +68,7 @@ Creates a new, empty address book.
 
   - ``name`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - string The ID of the new address book.
 
@@ -92,6 +92,8 @@ delete(id)
 Removes an address book, and all associated contacts and mailing lists.
 
 - ``id`` (string)
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

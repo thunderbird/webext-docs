@@ -25,7 +25,7 @@ list()
 
 Returns all mail accounts.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`accounts.MailAccount`
 
@@ -38,9 +38,11 @@ Returns details of the requested account, or null if it doesn't exist.
 
 - ``accountId`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`accounts.MailAccount`
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Types
 =====

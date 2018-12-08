@@ -20,7 +20,7 @@ Gets details about a window.
   - [``populate``] (boolean) If true, the $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
   - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`windows.Window`
 
@@ -36,7 +36,7 @@ Gets the $(topic:current-window)[current window].
   - [``populate``] (boolean) If true, the $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
   - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`windows.Window`
 
@@ -52,7 +52,7 @@ Gets the window that was most recently focused &mdash; typically the window 'on 
   - [``populate``] (boolean) If true, the $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
   - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`windows.Window`
 
@@ -68,7 +68,7 @@ Gets all windows.
   - [``populate``] (boolean) If true, each $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects for that window. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
   - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`windows.Window`
 
@@ -94,7 +94,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
   - [``url``] (string or array of string) A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
   - [``width``] (integer) The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`windows.Window` Contains details about the created window.
 
@@ -117,7 +117,7 @@ Updates the properties of a window. Specify only the properties that you want to
   - [``top``] (integer) The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
   - [``width``] (integer) The width to resize the window to in pixels. This value is ignored for panels.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`windows.Window`
 
@@ -129,6 +129,8 @@ remove(windowId)
 Removes (closes) a window, and all the tabs inside it.
 
 - ``windowId`` (integer)
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

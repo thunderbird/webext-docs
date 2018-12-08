@@ -23,7 +23,7 @@ Retrieves details about the specified tab.
 
 - ``tabId`` (integer)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab`
 
@@ -34,7 +34,7 @@ getCurrent()
 
 Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab`
 
@@ -53,7 +53,7 @@ Creates a new tab.
   - [``url``] (string) The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
   - [``windowId``] (integer) The window to create the new tab in. Defaults to the $(topic:current-window)[current window].
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab` Details about the created tab. Will contain the ID of the new tab.
 
@@ -66,7 +66,7 @@ Duplicates a tab.
 
 - ``tabId`` (integer) The ID of the tab which is to be duplicated.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab` Details about the duplicated tab. The $(ref:tabs.Tab) object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
 
@@ -91,7 +91,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
   - [``windowType``] (:ref:`tabs.WindowType`) The type of window the tabs are in.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`tabs.Tab`
 
@@ -108,7 +108,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
   - [``active``] (boolean) Whether the tab should be active. Does not affect whether the window is focused (see $(ref:windows.update)).
   - [``url``] (string) A URL to navigate the tab to.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab` Details about the updated tab. The $(ref:tabs.Tab) object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
 
@@ -125,7 +125,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
   - ``index`` (integer) The position to move the window to. -1 will place the tab at the end of the window.
   - [``windowId``] (integer) Defaults to the window the tab is currently in.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab` or array of :ref:`tabs.Tab` Details about the moved tabs.
 
@@ -160,7 +160,7 @@ Injects JavaScript code into a page. For details, see the $(topic:content_script
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the script to run.
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of any The result of the script in every injected frame.
 
@@ -183,6 +183,8 @@ Removes injected CSS from a page. For details, see the $(topic:content_scripts)[
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
 - ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to remove.
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

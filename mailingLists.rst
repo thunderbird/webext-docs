@@ -20,7 +20,7 @@ Gets all the mailing lists in the address book with id ``parentId``.
 
 - ``parentId`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`mailingLists.MailingListNode`
 
@@ -33,7 +33,7 @@ Gets a single mailing list.
 
 - ``id`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`mailingLists.MailingListNode`
 
@@ -51,7 +51,7 @@ Creates a new mailing list in the address book with id ``parentId``.
   - [``description``] (string)
   - [``nickName``] (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - string The ID of the new mailing list.
 
@@ -97,7 +97,7 @@ Gets all contacts that are members of the mailing list with id ``id``.
 
 - ``id`` (string)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`contacts.ContactNode`
 
@@ -110,6 +110,8 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
 
 - ``id`` (string)
 - ``contactId`` (string)
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======

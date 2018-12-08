@@ -41,7 +41,7 @@ Gets the title of the toolbar action.
 
 - ``details`` (:ref:`browserAction.Details`)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - string
 
@@ -77,7 +77,7 @@ Gets the html document set as the popup for this toolbar action.
 
 - ``details`` (:ref:`browserAction.Details`)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - string
 
@@ -101,7 +101,7 @@ Gets the badge text of the toolbar action. If no tab nor window is specified is 
 
 - ``details`` (:ref:`browserAction.Details`)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - string
 
@@ -125,7 +125,7 @@ Gets the background color of the toolbar action.
 
 - ``details`` (:ref:`browserAction.Details`)
 
-Returns:
+Returns a `Promise`_ fulfilled with:
 
 - :ref:`browserAction.ColorArray`
 
@@ -162,6 +162,8 @@ openPopup()
 -----------
 
 Opens the extension popup window in the active window.
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
 ======
