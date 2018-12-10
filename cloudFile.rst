@@ -52,7 +52,7 @@ Update a cloud file account
 - ``accountId`` (string)
 - ``updateProperties`` (object)
 
-  - [``configured``] (boolean) If true, the account is configured and ready to use.
+  - [``configured``] (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
   - [``managementUrl``] (string)
   - [``settingsUrl``] (string)
   - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
@@ -142,10 +142,10 @@ CloudFileAccount
 
 Information about a cloud file account
 
-- ``configured`` (boolean)
+- ``configured`` (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
 - ``id`` (string)
 - ``managementUrl`` (string)
-- ``name`` (string)
+- ``name`` (string) A user-friendly name for this account.
 - ``settingsUrl`` (string)
 - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
