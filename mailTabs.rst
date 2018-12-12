@@ -6,6 +6,11 @@ This is preliminary documentation for the mail tabs API being developed in `bug 
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
 
+The `Filter`__  and `Layout`__ sample extensions use this API.
+
+__ https://github.com/thundernest/sample-extensions/tree/master/filter
+__ https://github.com/thundernest/sample-extensions/tree/master/layout
+
 Permissions
 ===========
 

@@ -8,6 +8,10 @@ We also intend to uplift some or all of this API to Thunderbird 60 ESR.
 Currently extensions using this API can have one account per provider (thus one per extension)
 but it is designed for a future upgrade where multiple accounts per provider are possible.
 
+The `DropBox Uploader`__ sample extension uses this API.
+
+__ https://github.com/thundernest/sample-extensions/tree/master/dropbox
+
 Manifest file properties
 ========================
 
