@@ -57,12 +57,12 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
 
   - [``displayedFolder``] (object) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
   - [``folderPaneVisible``] (boolean) Shows or hides the folder pane.
-  - [``layout``] (`string <enum_layout_3_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
+  - [``layout``] (`string <enum_layout_4_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
   - [``messagePaneVisible``] (boolean) Shows or hides the message display pane.
-  - [``sortOrder``] (`string <enum_sortOrder_5_>`_) Sorts the list of messages. ``sortType`` must also be given.
-  - [``sortType``] (`string <enum_sortType_6_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
+  - [``sortOrder``] (`string <enum_sortOrder_6_>`_) Sorts the list of messages. ``sortType`` must also be given.
+  - [``sortType``] (`string <enum_sortType_7_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
 
-.. _enum_layout_3:
+.. _enum_layout_4:
 
 Values for layout:
 
@@ -70,7 +70,7 @@ Values for layout:
 - ``wide``
 - ``vertical``
 
-.. _enum_sortOrder_5:
+.. _enum_sortOrder_6:
 
 Values for sortOrder:
 
@@ -78,7 +78,7 @@ Values for sortOrder:
 - ``ascending``
 - ``descending``
 
-.. _enum_sortType_6:
+.. _enum_sortType_7:
 
 Values for sortType:
 
@@ -173,13 +173,13 @@ MailTab
 - ``displayedFolder`` (accounts.MailFolder)
 - ``folderPaneVisible`` (boolean)
 - ``id`` (integer)
-- ``layout`` (`string <enum_layout_18_>`_)
+- ``layout`` (`string <enum_layout_23_>`_)
 - ``messagePaneVisible`` (boolean)
-- ``sortOrder`` (`string <enum_sortOrder_20_>`_)
-- ``sortType`` (`string <enum_sortType_21_>`_)
+- ``sortOrder`` (`string <enum_sortOrder_25_>`_)
+- ``sortType`` (`string <enum_sortType_26_>`_)
 - ``windowId`` (integer)
 
-.. _enum_layout_18:
+.. _enum_layout_23:
 
 Values for layout:
 
@@ -187,7 +187,7 @@ Values for layout:
 - ``wide``
 - ``vertical``
 
-.. _enum_sortOrder_20:
+.. _enum_sortOrder_25:
 
 Values for sortOrder:
 
@@ -195,7 +195,7 @@ Values for sortOrder:
 - ``ascending``
 - ``descending``
 
-.. _enum_sortType_21:
+.. _enum_sortType_26:
 
 Values for sortType:
 
@@ -225,10 +225,10 @@ Values for sortType:
 QuickFilterTagsDetail
 ---------------------
 
-- ``mode`` (`string <enum_mode_23_>`_) Whether all of the tag filters must apply, or any of them.
+- ``mode`` (`string <enum_mode_28_>`_) Whether all of the tag filters must apply, or any of them.
 - ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
 
-.. _enum_mode_23:
+.. _enum_mode_28:
 
 Values for mode:
 

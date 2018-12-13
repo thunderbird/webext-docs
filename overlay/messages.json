@@ -55,10 +55,16 @@
             "type": "boolean"
           },
           "ccList": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "bccList": {
-            "type": "string"
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "author": {
             "type": "string"

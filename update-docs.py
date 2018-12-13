@@ -110,7 +110,10 @@ def format_enum(name, value):
 def format_object(name, obj):
     global unique_id
 
-    lines = ["- %s" % format_member(name, obj)]
+    if name is None:
+        lines = []
+    else:
+        lines = ["- %s" % format_member(name, obj)]
     enum_lines = []
 
     if obj.get("type") == "object" and "properties" in obj:
@@ -219,6 +222,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 "",
             ])
             lines.extend(header_3("%s(%s)" % (function["name"], format_params(function, callback=async))))
+            enum_lines = []
 
             if "description" in function:
                 lines.append(replace_code(function["description"]))
@@ -231,6 +235,9 @@ def format_namespace(namespace, manifest_namespace=None):
                             function["returns"] = param["parameters"][0]
                     else:
                         lines.extend(format_object(param["name"], param))
+                        enum_lines.extend(format_enum(param["name"], param))
+                        unique_id += 1
+
                 lines.append("")
 
             if "returns" in function:
@@ -242,6 +249,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
             lines.extend(format_permissions(function))
+            lines.extend(enum_lines)
 
         lines.extend([
             ".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
@@ -291,6 +299,21 @@ def format_namespace(namespace, manifest_namespace=None):
             if "description" in type_:
                 lines.append(replace_code(type_["description"]))
                 lines.append("")
+
+            if "type" in type_:
+                lines.append("%s:" % type_["type"])
+                lines.append("")
+
+            elif "choices" in type_:
+                first = True
+                for choice in type_["choices"]:
+                    if first:
+                        first = False
+                    else:
+                        lines.extend(["", "OR", ""])
+                    lines.append("%s: %s" % (choice["type"], choice.get("description", "")))
+                    if choice["type"] == "object":
+                        lines.extend(format_object(None, choice))
 
             if "properties" in type_:
                 items = sorted(type_["properties"].items())
