@@ -2,6 +2,10 @@
 compose
 =======
 
+This is preliminary documentation for the message composition window API being developed in `bug 1503423`__.
+
+__ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
+
 Functions
 =========
 
