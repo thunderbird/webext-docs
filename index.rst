@@ -30,7 +30,7 @@ The documents were generated automatically from the schema documents at `mail/co
   tabs
   windows
 
-The following APIs are also included and work as they do in Firfox:
+The following APIs are also included and work as they do in Firefox:
 
 - `contentScripts <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts>`_
 - `experiments <https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments>`_
