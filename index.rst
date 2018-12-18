@@ -19,6 +19,7 @@ The documents were generated automatically from the schema documents at `mail/co
   addressBooks
   browserAction
   cloudFile
+  commands
   compose
   composeAction
   contacts
