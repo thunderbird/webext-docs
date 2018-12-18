@@ -204,4 +204,4 @@ ImageDataType
 
 Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
 
-object
+`ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_

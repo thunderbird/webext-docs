@@ -50,6 +50,9 @@ def get_type(obj, name):
                 return "array of %s" % get_type(obj["items"], name)
             else:
                 return "array"
+        elif "isInstanceOf" in obj:
+            return "`%s <https://developer.mozilla.org/en-US/docs/Web/API/%s>`_" % \
+                (obj["isInstanceOf"], obj["isInstanceOf"])
         else:
             return obj["type"]
 
@@ -58,7 +61,9 @@ def get_type(obj, name):
 
 
 def link_ref(ref):
-    if "." in ref or current_namespace_name is None:
+    if ref.startswith("extensionTypes."):
+        return "`%s <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/%s>`_" % (ref[15:], ref[15:])
+    elif "." in ref or current_namespace_name is None:
         return ":ref:`%s`" % ref
     else:
         return ":ref:`%s.%s`" % (current_namespace_name, ref)

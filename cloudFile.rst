@@ -141,7 +141,7 @@ Information about a cloud file
 
 object
 
-- ``data`` (object)
+- ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_)
 - ``id`` (integer)
 - ``name`` (string)
 

@@ -158,7 +158,7 @@ executeScript([tabId], details)
 Injects JavaScript code into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
-- ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the script to run.
+- ``details`` (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_) Details of the script to run.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -172,7 +172,7 @@ insertCSS([tabId], details)
 Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
-- ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to insert.
+- ``details`` (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_) Details of the CSS text to insert.
 
 .. _tabs.removeCSS:
 
@@ -182,7 +182,7 @@ removeCSS([tabId], details)
 Removes injected CSS from a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
-- ``details`` (:ref:`extensionTypes.InjectDetails`) Details of the CSS text to remove.
+- ``details`` (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_) Details of the CSS text to remove.
 
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
