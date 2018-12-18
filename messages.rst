@@ -105,9 +105,11 @@ Types
 MessageHeader
 -------------
 
+object
+
 - ``author`` (string)
-- ``bccList`` (string)
-- ``ccList`` (string)
+- ``bccList`` (array of string)
+- ``ccList`` (array of string)
 - ``date`` (date)
 - ``flagged`` (boolean)
 - ``folder`` (:ref:`accounts.MailFolder`)
@@ -124,6 +126,8 @@ MessageList
 
 See :doc:`how-to/messageLists` for more information.
 
+object
+
 - ``id`` (string)
 - ``messages`` (array of :ref:`messages.MessageHeader`)
 
@@ -133,6 +137,8 @@ MessagePart
 -----------
 
 Represents an email message "part", which could be the whole message
+
+object
 
 - [``body``] (string) The content of the part
 - [``contentType``] (string)
@@ -146,6 +152,8 @@ Represents an email message "part", which could be the whole message
 
 MessageTag
 ----------
+
+object
 
 - ``color`` (string) Tag color
 - ``key`` (string) Distinct tag identifier – use this string when referring to a tag

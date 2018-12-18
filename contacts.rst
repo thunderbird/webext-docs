@@ -118,6 +118,8 @@ ContactNode
 
 A node representing a contact in an address book.
 
+object
+
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``properties`` (:ref:`contacts.ContactProperties`)
 - ``type`` (:ref:`addressBooks.NodeType`) Always set to ``contact``.
@@ -130,3 +132,5 @@ ContactProperties
 -----------------
 
 A set of properties for a particular contact. For a complete list of properties that Thunderbird uses, see https://hg.mozilla.org/comm-central/file/tip/mailnews/addrbook/public/nsIAbCard.idl
+
+object

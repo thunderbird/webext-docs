@@ -169,6 +169,8 @@ Types
 MailTab
 -------
 
+object
+
 - ``active`` (boolean)
 - ``displayedFolder`` (accounts.MailFolder)
 - ``folderPaneVisible`` (boolean)
@@ -225,6 +227,8 @@ Values for sortType:
 QuickFilterTagsDetail
 ---------------------
 
+object
+
 - ``mode`` (`string <enum_mode_28_>`_) Whether all of the tag filters must apply, or any of them.
 - ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
 
@@ -239,6 +243,8 @@ Values for mode:
 
 QuickFilterTextDetail
 ---------------------
+
+object
 
 - ``text`` (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
 - [``body``] (boolean) Shows messages where ``text`` matches the message body.

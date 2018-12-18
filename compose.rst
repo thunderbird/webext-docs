@@ -58,7 +58,7 @@ Types
 ComposeParams
 -------------
 
-object:
+object
 
 - [``bcc``] (array of :ref:`compose.ComposeRecipient`)
 - [``body``] (string)

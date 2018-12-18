@@ -139,6 +139,8 @@ AddressBookNode
 
 A node representing an address book.
 
+object
+
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``name`` (string)
 - ``type`` (:ref:`addressBooks.NodeType`) Always set to ``addressBook``.
@@ -153,3 +155,13 @@ NodeType
 --------
 
 Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
+
+`string <enum_NodeType_17_>`_
+
+.. _enum_NodeType_17:
+
+Values for NodeType:
+
+- ``addressBook``
+- ``contact``
+- ``mailingList``

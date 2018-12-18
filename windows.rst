@@ -172,10 +172,23 @@ CreateType
 
 Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
 
+`string <enum_CreateType_38_>`_
+
+.. _enum_CreateType_38:
+
+Values for CreateType:
+
+- ``normal``
+- ``popup``
+- ``panel``
+- ``detached_panel``
+
 .. _windows.Window:
 
 Window
 ------
+
+object
 
 - ``alwaysOnTop`` (boolean) Whether the window is set to be always on top.
 - ``focused`` (boolean) Whether the window is currently the focused window.
@@ -198,9 +211,33 @@ WindowState
 
 The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
 
+`string <enum_WindowState_51_>`_
+
+.. _enum_WindowState_51:
+
+Values for WindowState:
+
+- ``normal``
+- ``minimized``
+- ``maximized``
+- ``fullscreen``
+- ``docked``
+
 .. _windows.WindowType:
 
 WindowType
 ----------
 
 The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.
+
+`string <enum_WindowType_51_>`_
+
+.. _enum_WindowType_51:
+
+Values for WindowType:
+
+- ``normal``
+- ``popup``
+- ``panel``
+- ``app``
+- ``devtools``

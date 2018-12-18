@@ -139,6 +139,8 @@ CloudFile
 
 Information about a cloud file
 
+object
+
 - ``data`` (object)
 - ``id`` (integer)
 - ``name`` (string)
@@ -149,6 +151,8 @@ CloudFileAccount
 ----------------
 
 Information about a cloud file account
+
+object
 
 - ``configured`` (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
 - ``id`` (string)

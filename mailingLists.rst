@@ -177,6 +177,8 @@ MailingListNode
 
 A node representing a mailing list.
 
+object
+
 - ``description`` (string)
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``name`` (string)

@@ -287,6 +287,8 @@ Types
 Tab
 ---
 
+object
+
 - ``active`` (boolean) Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
 - ``highlighted`` (boolean) Whether the tab is highlighted. Works as an alias of active
 - ``index`` (integer) The zero-based index of the tab within its window.
@@ -308,12 +310,23 @@ TabStatus
 
 Whether the tabs have completed loading.
 
+`string <enum_TabStatus_66_>`_
+
+.. _enum_TabStatus_66:
+
+Values for TabStatus:
+
+- ``loading``
+- ``complete``
+
 .. _tabs.UpdateFilter:
 
 UpdateFilter
 ------------
 
 An object describing filters to apply to tabs.onUpdated events.
+
+object
 
 - [``properties``] (array of :ref:`tabs.UpdatePropertyName`) A list of property names. Events that do not match any of the names will be filtered out.
 - [``tabId``] (integer)
@@ -327,9 +340,31 @@ UpdatePropertyName
 
 Event names supported in onUpdated.
 
+`string <enum_UpdatePropertyName_70_>`_
+
+.. _enum_UpdatePropertyName_70:
+
+Values for UpdatePropertyName:
+
+- ``favIconUrl``
+- ``status``
+- ``title``
+
 .. _tabs.WindowType:
 
 WindowType
 ----------
 
 The type of window.
+
+`string <enum_WindowType_70_>`_
+
+.. _enum_WindowType_70:
+
+Values for WindowType:
+
+- ``normal``
+- ``popup``
+- ``panel``
+- ``app``
+- ``devtools``

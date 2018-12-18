@@ -52,6 +52,8 @@ Types
 MailAccount
 -----------
 
+object
+
 - ``folders`` (array of :ref:`accounts.MailFolder`)
 - ``hostName`` (string)
 - ``id`` (string)
@@ -64,6 +66,8 @@ MailFolder
 ----------
 
 A folder object, as returned by the ``list`` and ``get`` methods.
+
+object
 
 - ``accountId`` (string)
 - ``path`` (string)

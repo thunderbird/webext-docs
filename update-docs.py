@@ -156,11 +156,16 @@ def format_permissions(obj):
     lines = []
     name = obj.get("namespace", obj.get("name"))
     for permission in obj["permissions"]:
+        if permission.startswith("manifest:"):
+            permission = permission[9:]
+            text = "  A manifest entry named ``%s`` is required to use ``%s``."
+        else:
+            text = "  The permission ``%s`` is required to use ``%s``."
         lines.extend([
             "",
             ".. note::",
             "",
-            "  The permission ``%s`` is required to use ``%s``." % (permission, name),
+            text % (permission, name),
             "",
         ])
     return lines
@@ -301,8 +306,9 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
             if "type" in type_:
-                lines.append("%s:" % type_["type"])
+                lines.append(get_type(type_, type_["id"]))
                 lines.append("")
+                enum_lines.extend(format_enum(type_["id"], type_))
 
             elif "choices" in type_:
                 first = True
@@ -311,9 +317,10 @@ def format_namespace(namespace, manifest_namespace=None):
                         first = False
                     else:
                         lines.extend(["", "OR", ""])
-                    lines.append("%s: %s" % (choice["type"], choice.get("description", "")))
+                    lines.append("%s: %s" % (get_type(choice, type_["id"]), choice.get("description", "")))
                     if choice["type"] == "object":
                         lines.extend(format_object(None, choice))
+                    enum_lines.extend(format_enum(type_["id"], choice))
 
             if "properties" in type_:
                 items = sorted(type_["properties"].items())
