@@ -26,6 +26,7 @@ The documents were generated automatically from the schema documents at `mail/co
   legacy
   mailingLists
   mailTabs
+  menus
   messages
   tabs
   windows

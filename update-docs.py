@@ -61,9 +61,13 @@ def get_type(obj, name):
 
 
 def link_ref(ref):
-    if ref.startswith("extensionTypes."):
-        return "`%s <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/%s>`_" % (ref[15:], ref[15:])
-    elif "." in ref or current_namespace_name is None:
+    for moz_namespace in ["extension.", "extensionTypes."]:
+        if ref.startswith(moz_namespace):
+            name = ref[len(moz_namespace):]
+            url = "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/%s/%s"
+            url = url % (moz_namespace[:-1], name)
+            return "`%s <%s>`_" % (name, url)
+    if "." in ref or current_namespace_name is None:
         return ":ref:`%s`" % ref
     else:
         return ":ref:`%s.%s`" % (current_namespace_name, ref)
@@ -98,6 +102,8 @@ def format_member(name, value):
 
 def format_enum(name, value):
     if value.get("enum") is None:
+        if value.get("items") is not None:
+            return format_enum(name, value["items"])
         return []
 
     enum_lines = [
@@ -406,7 +412,9 @@ if __name__ == "__main__":
     if len(args.file) == 0:
         # Do all files.
         for filename in glob.glob(os.path.join(src_dir, "*.json")):
-            files.append(os.path.basename(filename)[:-5])
+            filename = os.path.basename(filename)[:-5]
+            if filename not in ["menus_child"]:
+                files.append(filename)
     else:
         for filename in args.file:
             if os.path.exists(os.path.join(src_dir, filename + ".json")):
