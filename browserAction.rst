@@ -18,6 +18,10 @@ Manifest file properties
   - [``default_title``] (string)
   - [``theme_icons``] (array of :ref:`ThemeIcons`) Specifies icons to use for dark and light themes
 
+.. note::
+
+  A manifest entry named ``browser_action`` is required to use ``browserAction``.
+
 Functions
 =========
 

@@ -380,11 +380,13 @@ def format_manifest_namespace(manifest):
         if type_.get("$extend", None) == "WebExtensionManifest":
             for [name, value] in type_["properties"].items():
                 property_lines.extend(format_object(name, value))
-        if type_.get("$extend", None) == "OptionalPermission":
+        if type_.get("$extend", None) in ["OptionalPermission", "Permission"]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
                     permission_lines.append("- %s" % value)
-            permission_lines.append("")
+
+    if len(permission_lines) > 0:
+        permission_lines.append("")
 
     if len(property_lines) > 0:
         lines = header_2("Manifest file properties") + property_lines

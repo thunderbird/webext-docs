@@ -25,6 +25,10 @@ Values for default_area:
 - ``maintoolbar``
 - ``formattoolbar``
 
+.. note::
+
+  A manifest entry named ``compose_action`` is required to use ``composeAction``.
+
 Functions
 =========
 

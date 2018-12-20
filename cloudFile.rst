@@ -23,6 +23,10 @@ Manifest file properties
   - [``new_account_url``] (string)
   - [``service_url``] (string)
 
+.. note::
+
+  A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
+
 Functions
 =========
 

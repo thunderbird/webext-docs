@@ -14,6 +14,7 @@ Use the browser.menus API to add items to the browser's menus. You can choose wh
 Permissions
 ===========
 
+- menus
 - menus.overrideContext
 
 .. note::
