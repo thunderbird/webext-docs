@@ -34,7 +34,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 - ``createProperties`` (object)
 
   - [``checked``] (boolean) The initial state of a checkbox or radio item: true for selected and false for unselected. Only one radio item can be selected at a time in a given group of radio items.
-  - [``command``] (string) Specifies a command to issue for the context click.  Currently supports internal commands _execute_page_action, _execute_browser_action and _execute_sidebar_action.
+  - [``command``] (string) Specifies a command to issue for the context click.  Currently supports internal command _execute_browser_action.
   - [``contexts``] (array of :ref:`menus.ContextType`) List of contexts this menu item will appear in. Defaults to ['page'] if not specified.
   - [``documentUrlPatterns``] (array of string) Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see $(topic:match_patterns)[Match Patterns].
   - [``enabled``] (boolean) Whether this context menu item is enabled or disabled. Defaults to true.
@@ -102,16 +102,14 @@ Show the matching menu items from this extension instead of the default menu. Th
 
 - ``contextOptions`` (object)
 
-  - [``bookmarkId``] (string) Required when context is 'bookmark'. Requires 'bookmark' permission.
-  - [``context``] (`string <enum_context_33_>`_) ContextType to override, to allow menu items from other extensions in the menu. Currently only 'bookmark' and 'tab' are supported. showDefaults cannot be used with this option.
+  - [``context``] (`string <enum_context_32_>`_) ContextType to override, to allow menu items from other extensions in the menu. Currently only 'tab' is supported. showDefaults cannot be used with this option.
   - [``showDefaults``] (boolean) Whether to also include default menu items in the menu.
   - [``tabId``] (integer) Required when context is 'tab'. Requires 'tabs' permission.
 
-.. _enum_context_33:
+.. _enum_context_32:
 
 Values for context:
 
-- ``bookmark``
 - ``tab``
 
 .. note::
@@ -179,11 +177,11 @@ Types
 ContextType
 -----------
 
-The different contexts a menu can appear in. Specifying 'all' is equivalent to the combination of all other contexts except for 'tab' and 'tools_menu'.
+The different contexts a menu can appear in. Specifying 'all' is equivalent to the combination of all other contexts except for 'tab'.
 
-`string <enum_ContextType_49_>`_
+`string <enum_ContextType_48_>`_
 
-.. _enum_ContextType_49:
+.. _enum_ContextType_48:
 
 Values for ContextType:
 
@@ -197,12 +195,10 @@ Values for ContextType:
 - ``image``
 - ``video``
 - ``audio``
-- ``launcher``
-- ``bookmark``
 - ``browser_action``
-- ``page_action``
 - ``tab``
-- ``tools_menu``
+- ``message_list``
+- ``folder_pane``
 
 .. _menus.ItemType:
 
@@ -211,9 +207,9 @@ ItemType
 
 The type of menu item.
 
-`string <enum_ItemType_49_>`_
+`string <enum_ItemType_48_>`_
 
-.. _enum_ItemType_49:
+.. _enum_ItemType_48:
 
 Values for ItemType:
 
@@ -231,12 +227,12 @@ Information sent when a context menu item is clicked.
 
 object
 
-- ``bookmarkId`` (string) The id of the bookmark where the context menu was clicked, if it was on a bookmark.
 - ``editable`` (boolean) A flag indicating whether the element is editable (text input, textarea, etc.).
 - ``menuItemId`` (integer or string) The ID of the menu item that was clicked.
-- ``modifiers`` (array of `string <enum_modifiers_52_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
+- ``modifiers`` (array of `string <enum_modifiers_50_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
 - [``button``] (integer) An integer value of button by which menu item was clicked.
 - [``checked``] (boolean) A flag indicating the state of a checkbox or radio item after it is clicked.
+- [``displayedFolder``] (:ref:`accounts.MailFolder`) The displayed folder, if the context menu was opened in the message list.
 - [``frameId``] (integer) The id of the frame of the element where the context menu was clicked.
 - [``frameUrl``] (string)  The URL of the frame of the element where the context menu was clicked, if it was in a frame.
 - [``linkText``] (string) If the element is a link, the text of that link.
@@ -244,13 +240,15 @@ object
 - [``mediaType``] (string) One of 'image', 'video', or 'audio' if the context menu was activated on one of these types of elements.
 - [``pageUrl``] (string) The URL of the page where the menu item was clicked. This property is not set if the click occured in a context where there is no current page, such as in a launcher context menu.
 - [``parentMenuItemId``] (integer or string) The parent ID, if any, for the item clicked.
+- [``selectedFolder``] (:ref:`accounts.MailFolder`) The selected folder, if the context menu was opened in the folder pane.
+- [``selectedMessages``] (:ref:`messages.MessageList`) The selected messages, if the context menu was opened in the message list.
 - [``selectionText``] (string) The text for the context selection, if any.
 - [``srcUrl``] (string) Will be present for elements with a 'src' URL.
 - [``targetElementId``] (integer) An identifier of the clicked element, if any. Use menus.getTargetElement in the page to find the corresponding element.
 - [``viewType``] (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_) The type of view where the menu is clicked. May be unset if the menu is not associated with a view.
 - [``wasChecked``] (boolean) A flag indicating the state of a checkbox or radio item before it was clicked.
 
-.. _enum_modifiers_52:
+.. _enum_modifiers_50:
 
 Values for modifiers:
 
