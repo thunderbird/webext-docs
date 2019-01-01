@@ -116,14 +116,14 @@ until the user closes the alert.)
 Implementing events
 -------------------
 
-Events are more complicated, but most of it is the same every time. The interesting bit is the
-``register`` function, with the argument I've named here ``fire``. Any call to ``fire.async`` will
-notify listeners that your event fired with the arguments you used.
+The code for events is more complicated, but the pattern is the same every time. The interesting
+bit is the ``register`` function, with the argument named ``fire`` in this example. Any call to
+``fire.async`` will notify listeners that the event fired with the arguments you used.
 
-In ``register``, we add event listeners, notification observers, or whatever else we need. It runs
-when the extension calls ``browser.myapi.onToolbarClick.addListener``. We return a function that
-removes the listeners and observers. This function runs when the extension calls
-``browser.myapi.onToolbarClick.removeListener``, or shuts down.
+In ``register``, add event listeners, notification observers, or whatever else is needed.
+``register`` runs when the extension calls ``browser.myapi.onToolbarClick.addListener``, and
+returns a function that removes the listeners and observers. This returned function runs when the
+extension calls ``browser.myapi.onToolbarClick.removeListener``, or shuts down.
 
 .. code-block:: javascript
 
