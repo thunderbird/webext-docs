@@ -113,20 +113,28 @@ removes the listeners and observers. This function runs when the extension calls
 
 .. code-block:: javascript
 
-  onToolbarClick: new ExtensionCommon.EventManager({
-    context,
-    name: "myapi.onToolbarClick",
-    register(fire) {
-      function callback(event, id, x, y) {
-        return fire.async(id, x, y);
-      }
+  var myapi = class extends ExtensionCommon.ExtensionAPI {
+    getAPI(context) {
+      return {
+        myapi: {
+          onToolbarClick: new ExtensionCommon.EventManager({
+            context,
+            name: "myapi.onToolbarClick",
+            register(fire) {
+              function callback(event, id, x, y) {
+                return fire.async(id, x, y);
+              }
 
-      windowListener.add(callback);
-      return function() {
-        windowListener.remove(callback);
-      };
-    },
-  }).api(),
+              windowListener.add(callback);
+              return function() {
+                windowListener.remove(callback);
+              };
+            },
+          }).api(),
+        }
+      }
+    }
+  };
 
 Getting your API added to Thunderbird
 =====================================
