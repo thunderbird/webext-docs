@@ -7,7 +7,9 @@ your extension to interact with Thunderbird, much like earlier types of extensio
 the built-in Thunderbird APIs can do 80% of what you want to achieve, then WebExtension experiments
 are for you.
 
-Firefox does not allow WebExtension experiments on release or beta versions. Thunderbird does.
+.. note::
+
+  Firefox does not allow WebExtension experiments on release or beta versions. Thunderbird does.
 
 Adding an experiment to your extension
 ======================================
@@ -25,6 +27,9 @@ __ https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webexte
 __ https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/schema.html
 __ https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/functions.html
 __ https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/events.html
+
+Extension manifest
+------------------
 
 Experimental APIs are declared in the experiment_apis property in a WebExtension’s manifest.json
 file. For example:
@@ -45,6 +50,9 @@ file. For example:
       }
     }
   }
+
+Schema
+------
 
 The schema defines the interface between your experiment API and the rest of your extension, which
 would use ``browser.myapi`` in this example. In it you describe the functions, events, and types
@@ -77,6 +85,9 @@ You can see some more-complicated schemas `in the Thunderbird source code`__.
 
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas
 
+Implementing functions
+----------------------
+
 And finally, the implementation. In this file, you'll put all the code that directly interacts with
 Thunderbird UI or components. Start by creating an object with the same name as your api at the top
 level. (Remember to use ``var myapi`` or ``this.myapi``, not ``let myapi`` or ``const myapi``.)
@@ -101,6 +112,9 @@ functions and events are members of this returned object:
 (Note that the sayHello function is an async function, and ``alert`` blocks until the prompt is
 closed. If you call ``browser.myapi.sayHello()``, it would return a Promise that doesn't resolve
 until the user closes the alert.)
+
+Implementing events
+-------------------
 
 Events are more complicated, but most of it is the same every time. The interesting bit is the
 ``register`` function, with the argument I've named here ``fire``. Any call to ``fire.async`` will
