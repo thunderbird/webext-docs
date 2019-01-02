@@ -6,6 +6,10 @@ The documents were generated automatically from the schema documents at `mail/co
 
 .. note::
 
+  These APIs are currently only regarding Thunderbird main windows which can contain webpage tabs. Other window types like composer or address books are currently not listed, but may be added in the future. If these are added in the future, they will not be able to contain webpage tabs, so please let your code expect that case, even if it's not the case today.
+
+.. note::
+
   These APIs should be considered experimental and could change at any time. For any problems or feature requests please `file a bug <https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API>`_.
 
 .. note::
