@@ -4,6 +4,9 @@ windows
 
 Use the ``browser.windows`` API to interact with browser windows. You can use this API to create, modify, and rearrange windows in the browser.
 
+.. note::
+  These APIs are currently only regarding Thunderbird main windows which can contain webpage tabs. Other window types like composer or address books are currently not listed, but may be added in the future. If these are added in the future, they will not be able to contain webpage tabs, so please let your code expect that case, even if it's not the case today.
+
 Functions
 =========
 
