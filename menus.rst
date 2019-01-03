@@ -169,6 +169,16 @@ onHidden()
 
 Fired when a menu is hidden. This event is only fired if onShown has fired before.
 
+Properties
+==========
+
+.. _menus.ACTION_MENU_TOP_LEVEL_LIMIT:
+
+ACTION_MENU_TOP_LEVEL_LIMIT
+---------------------------
+
+The maximum number of top level extension items that can be added to an extension action context menu. Any items beyond this limit will be ignored.
+
 Types
 =====
 

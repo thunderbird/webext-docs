@@ -12,9 +12,6 @@
           "name": {
             "type": "string"
           },
-          "hostName": {
-            "type": "string"
-          },
           "type": {
             "type": "string"
           },

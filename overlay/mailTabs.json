@@ -12,7 +12,7 @@
         }
       },
       {
-        "name": "getCurrent",
+        "name": "getActive",
         "returns": {
           "$ref": "MailTab"
         }
@@ -55,26 +55,26 @@
           "sortType": {
             "type": "string",
             "enum": [
-              "byNone",
-              "byDate",
-              "bySubject",
-              "byAuthor",
-              "byId",
-              "byThread",
-              "byPriority",
-              "byStatus",
-              "bySize",
-              "byFlagged",
-              "byUnread",
-              "byRecipient",
-              "byLocation",
-              "byTags",
-              "byJunkStatus",
-              "byAttachments",
-              "byAccount",
-              "byCustom",
-              "byReceived",
-              "byCorrespondent"
+              "none",
+              "date",
+              "subject",
+              "author",
+              "id",
+              "thread",
+              "priority",
+              "status",
+              "size",
+              "flagged",
+              "unread",
+              "recipient",
+              "location",
+              "tags",
+              "junkStatus",
+              "attachments",
+              "account",
+              "custom",
+              "received",
+              "correspondent"
             ]
           },
           "sortOrder": {

@@ -1,4 +1,5 @@
 #!/usr/bin/python
+# coding=utf-8
 # This Source Code Form is subject to the terms of the Mozilla Public
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -34,10 +35,20 @@ def merge_objects(a, b):
 
 
 def replace_code(string):
-    string = string.replace("<em>", "*").replace("</em>", "*")
-    string = string.replace("<b>", "**").replace("</b>", "**")
-    string = string.replace("<code>", "``").replace("</code>", "``")
-    string = string.replace("<var>", "``").replace("</var>", "``")
+    replacements = {
+        "<em>": "*",
+        "</em>": "*",
+        "<b>": "**",
+        "</b>": "**",
+        "<code>": "``",
+        "</code>": "``",
+        "<var>": "``",
+        "</var>": "``",
+        "&mdash;": u"—",
+    }
+    for [s, r] in replacements.items():
+        string = string.replace(s, r)
+
     return string
 
 
@@ -106,9 +117,7 @@ def format_enum(name, value):
             return format_enum(name, value["items"])
         return []
 
-    enum_lines = [
-        ".. _enum_%s_%d:" % (name, unique_id),
-        "",
+    enum_lines = reference("enum_%s_%d" % (name, unique_id)) + [
         "Values for %s:" % name,
         "",
     ]
@@ -199,10 +208,19 @@ def header_2(string):
     ]
 
 
-def header_3(string):
-    return [
+def header_3(string, label=None):
+    return reference(label) + [
         string,
         "-" * len(string),
+        "",
+    ]
+
+def reference(label):
+    if label is None:
+        return []
+
+    return [
+        ".. _%s:" % label,
         "",
     ]
 
@@ -233,11 +251,10 @@ def format_namespace(namespace, manifest_namespace=None):
         lines.extend(header_2("Functions"))
         for function in namespace["functions"]:
             async = function.get("async")
-            lines.extend([
-                ".. _%s.%s:" % (current_namespace_name, function["name"]),
-                "",
-            ])
-            lines.extend(header_3("%s(%s)" % (function["name"], format_params(function, callback=async))))
+            lines.extend(header_3(
+                "%s(%s)" % (function["name"], format_params(function, callback=async)),
+                label="%s.%s" % (current_namespace_name, function["name"]),
+            ))
             enum_lines = []
 
             if "description" in function:
@@ -276,11 +293,10 @@ def format_namespace(namespace, manifest_namespace=None):
         lines.append("")
         lines.extend(header_2("Events"))
         for event in namespace["events"]:
-            lines.extend([
-                ".. _%s.%s:" % (current_namespace_name, event["name"]),
-                "",
-            ])
-            lines.extend(header_3("%s(%s)" % (event["name"], format_params(event))))
+            lines.extend(header_3(
+                "%s(%s)" % (event["name"], format_params(event)),
+                label="%s.%s" % (current_namespace_name, event["name"]),
+            ))
 
             if "description" in event:
                 lines.append(replace_code(event["description"]))
@@ -301,16 +317,25 @@ def format_namespace(namespace, manifest_namespace=None):
 
             lines.extend(format_permissions(event))
 
+    if "properties" in namespace:
+        lines.extend(header_2("Properties"))
+
+        for key in sorted(namespace["properties"].iterkeys()):
+            lines.extend(header_3(key, label="%s.%s" % (current_namespace_name, key)))
+            lines.extend([
+                namespace["properties"][key].get("description"),
+                "",
+            ])
+
     if "types" in namespace:
         lines.extend(header_2("Types"))
 
         for type_ in sorted(namespace["types"], key=lambda t: t["id"]):
             enum_lines = []
-            lines.extend([
-                ".. _%s.%s:" % (current_namespace_name, type_["id"]),
-                "",
-            ])
-            lines.extend(header_3(type_["id"]))
+            lines.extend(header_3(
+                type_["id"],
+                label="%s.%s" % (current_namespace_name, type_["id"])
+            ))
 
             if "description" in type_:
                 lines.append(replace_code(type_["description"]))

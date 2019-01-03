@@ -2,10 +2,14 @@
 windows
 =======
 
-Use the ``browser.windows`` API to interact with browser windows. You can use this API to create, modify, and rearrange windows in the browser.
-
 .. note::
-  These APIs are currently only regarding Thunderbird main windows which can contain webpage tabs. Other window types like composer or address books are currently not listed, but may be added in the future. If these are added in the future, they will not be able to contain webpage tabs, so please let your code expect that case, even if it's not the case today.
+
+  These APIs are currently only regarding Thunderbird main windows which can contain webpage tabs.
+  Other window types like composer or address books are currently not listed, but may be added in
+  the future. If these are added in the future, they will not be able to contain webpage tabs, so
+  please let your code expect that case, even if it's not the case today.
+
+Use the ``browser.windows`` API to interact with Thunderbird. You can use this API to create, modify, and rearrange windows.
 
 Functions
 =========
@@ -20,8 +24,8 @@ Gets details about a window.
 - ``windowId`` (integer)
 - [``getInfo``] (object) 
 
-  - [``populate``] (boolean) If true, the $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+  - [``populate``] (boolean) If true, the :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
+  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -32,12 +36,12 @@ Returns a `Promise`_ fulfilled with:
 getCurrent([getInfo])
 ---------------------
 
-Gets the $(topic:current-window)[current window].
+Gets the current window.
 
 - [``getInfo``] (object) 
 
-  - [``populate``] (boolean) If true, the $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+  - [``populate``] (boolean) If true, the :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
+  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -48,12 +52,12 @@ Returns a `Promise`_ fulfilled with:
 getLastFocused([getInfo])
 -------------------------
 
-Gets the window that was most recently focused &mdash; typically the window 'on top'.
+Gets the window that was most recently focused — typically the window 'on top'.
 
 - [``getInfo``] (object) 
 
-  - [``populate``] (boolean) If true, the $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+  - [``populate``] (boolean) If true, the :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
+  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -68,8 +72,8 @@ Gets all windows.
 
 - [``getInfo``] (object) 
 
-  - [``populate``] (boolean) If true, each $(ref:windows.Window) object will have a ``tabs`` property that contains a list of the $(ref:tabs.Tab) objects for that window. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the $(ref:windows.Window) returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+  - [``populate``] (boolean) If true, each :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects for that window. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
+  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -161,9 +165,26 @@ Fired when a window is removed (closed).
 onFocusChanged(windowId)
 ------------------------
 
-Fired when the currently focused window changes. Will be $(ref:windows.WINDOW_ID_NONE) if all browser windows have lost focus. Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
+Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`) if all browser windows have lost focus. Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
 
 - ``windowId`` (integer) ID of the newly focused window.
+
+Properties
+==========
+
+.. _windows.WINDOW_ID_CURRENT:
+
+WINDOW_ID_CURRENT
+-----------------
+
+The windowId value that represents the current window.
+
+.. _windows.WINDOW_ID_NONE:
+
+WINDOW_ID_NONE
+--------------
+
+The windowId value that represents the absence of a window.
 
 Types
 =====
@@ -196,27 +217,26 @@ object
 - ``alwaysOnTop`` (boolean) Whether the window is set to be always on top.
 - ``focused`` (boolean) Whether the window is currently the focused window.
 - ``incognito`` (boolean) Whether the window is incognito.
-- [``height``] (integer) The height of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned height property, for example when querying closed windows from the $(ref:sessions) API.
-- [``id``] (integer) The ID of the window. Window IDs are unique within a browser session. Under some circumstances a Window may not be assigned an ID, for example when querying windows using the $(ref:sessions) API, in which case a session ID may be present.
-- [``left``] (integer) The offset of the window from the left edge of the screen in pixels. Under some circumstances a Window may not be assigned left property, for example when querying closed windows from the $(ref:sessions) API.
-- [``sessionId``] (string) The session ID used to uniquely identify a Window obtained from the $(ref:sessions) API.
+- [``height``] (integer) The height of the window, including the frame, in pixels.
+- [``id``] (integer) The ID of the window. Window IDs are unique within a session.
+- [``left``] (integer) The offset of the window from the left edge of the screen in pixels.
 - [``state``] (:ref:`windows.WindowState`) The state of this browser window.
-- [``tabs``] (array of :ref:`tabs.Tab`) Array of $(ref:tabs.Tab) objects representing the current tabs in the window.
+- [``tabs``] (array of :ref:`tabs.Tab`) Array of :ref:`tabs.Tab` objects representing the current tabs in the window.
 - [``title``] (string) The title of the window. Read-only.
-- [``top``] (integer) The offset of the window from the top edge of the screen in pixels. Under some circumstances a Window may not be assigned top property, for example when querying closed windows from the $(ref:sessions) API.
+- [``top``] (integer) The offset of the window from the top edge of the screen in pixels.
 - [``type``] (:ref:`windows.WindowType`) The type of browser window this is.
-- [``width``] (integer) The width of the window, including the frame, in pixels. Under some circumstances a Window may not be assigned width property, for example when querying closed windows from the $(ref:sessions) API.
+- [``width``] (integer) The width of the window, including the frame, in pixels.
 
 .. _windows.WindowState:
 
 WindowState
 -----------
 
-The state of this browser window. Under some circumstances a Window may not be assigned state property, for example when querying closed windows from the $(ref:sessions) API.
+The state of this window.
 
-`string <enum_WindowState_51_>`_
+`string <enum_WindowState_50_>`_
 
-.. _enum_WindowState_51:
+.. _enum_WindowState_50:
 
 Values for WindowState:
 
@@ -231,11 +251,11 @@ Values for WindowState:
 WindowType
 ----------
 
-The type of browser window this is. Under some circumstances a Window may not be assigned type property, for example when querying closed windows from the $(ref:sessions) API.
+The type of window this is. Under some circumstances a Window may not be assigned type property.
 
-`string <enum_WindowType_51_>`_
+`string <enum_WindowType_50_>`_
 
-.. _enum_WindowType_51:
+.. _enum_WindowType_50:
 
 Values for WindowType:
 

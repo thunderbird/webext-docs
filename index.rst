@@ -46,5 +46,8 @@ The following APIs are also included and work as they do in Firefox:
 How To
 ======
 
-- `Using Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`_
-- :doc:`how-to/messageLists`
+.. toctree::
+  :maxdepth: 1
+
+  how-to/experiments
+  how-to/messageLists

@@ -11,15 +11,6 @@ The `Filter`__  and `Layout`__ sample extensions use this API.
 __ https://github.com/thundernest/sample-extensions/tree/master/filter
 __ https://github.com/thundernest/sample-extensions/tree/master/layout
 
-Permissions
-===========
-
-- mailTabs
-
-.. note::
-
-  The permission ``mailTabs`` is required to use ``mailTabs``.
-
 Functions
 =========
 
@@ -34,12 +25,12 @@ Returns a `Promise`_ fulfilled with:
 
 - array of :ref:`mailTabs.MailTab`
 
-.. _mailTabs.getCurrent:
+.. _mailTabs.getActive:
 
-getCurrent()
-------------
+getActive()
+-----------
 
-Returns the current mail tab in the most recent window, or throws an exception if the current tab is not a mail tab.
+Returns the active mail tab in the most-recent window, or null if the active tab is not a mail tab.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -52,7 +43,7 @@ update([tabId], updateProperties)
 
 Modifies the properties of a mail tab. Properties that are not specified in ``updateProperties`` are not modified.
 
-- [``tabId``] (integer) Defaults to the selected tab of the current window.
+- [``tabId``] (integer) Defaults to the active tab of the most-recent window.
 - ``updateProperties`` (object)
 
   - [``displayedFolder``] (object) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
@@ -82,26 +73,26 @@ Values for sortOrder:
 
 Values for sortType:
 
-- ``byNone``
-- ``byDate``
-- ``bySubject``
-- ``byAuthor``
-- ``byId``
-- ``byThread``
-- ``byPriority``
-- ``byStatus``
-- ``bySize``
-- ``byFlagged``
-- ``byUnread``
-- ``byRecipient``
-- ``byLocation``
-- ``byTags``
-- ``byJunkStatus``
-- ``byAttachments``
-- ``byAccount``
-- ``byCustom``
-- ``byReceived``
-- ``byCorrespondent``
+- ``none``
+- ``date``
+- ``subject``
+- ``author``
+- ``id``
+- ``thread``
+- ``priority``
+- ``status``
+- ``size``
+- ``flagged``
+- ``unread``
+- ``recipient``
+- ``location``
+- ``tags``
+- ``junkStatus``
+- ``attachments``
+- ``account``
+- ``custom``
+- ``received``
+- ``correspondent``
 
 .. _mailTabs.getSelectedMessages:
 
@@ -110,7 +101,7 @@ getSelectedMessages([tabId])
 
 Lists the selected messages in the current folder. A messages permission is required to do this.
 
-- [``tabId``] (integer) Defaults to the selected tab of the current window.
+- [``tabId``] (integer) Defaults to the active tab of the most-recent window.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -123,7 +114,7 @@ setQuickFilter([tabId], properties)
 
 Sets the Quick Filter user interface based on the options specified.
 
-- [``tabId``] (integer) Defaults to the selected tab of the current window.
+- [``tabId``] (integer) Defaults to the active tab of the most-recent window.
 - ``properties`` (object)
 
   - [``attachment``] (boolean) Shows only messages with attachments.
@@ -201,26 +192,26 @@ Values for sortOrder:
 
 Values for sortType:
 
-- ``byNone``
-- ``byDate``
-- ``bySubject``
-- ``byAuthor``
-- ``byId``
-- ``byThread``
-- ``byPriority``
-- ``byStatus``
-- ``bySize``
-- ``byFlagged``
-- ``byUnread``
-- ``byRecipient``
-- ``byLocation``
-- ``byTags``
-- ``byJunkStatus``
-- ``byAttachments``
-- ``byAccount``
-- ``byCustom``
-- ``byReceived``
-- ``byCorrespondent``
+- ``none``
+- ``date``
+- ``subject``
+- ``author``
+- ``id``
+- ``thread``
+- ``priority``
+- ``status``
+- ``size``
+- ``flagged``
+- ``unread``
+- ``recipient``
+- ``location``
+- ``tags``
+- ``junkStatus``
+- ``attachments``
+- ``account``
+- ``custom``
+- ``received``
+- ``correspondent``
 
 .. _mailTabs.QuickFilterTagsDetail:
 

@@ -83,8 +83,8 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
   - [``currentWindow``] (boolean) Whether the tabs are in the $(topic:current-window)[current window].
   - [``highlighted``] (boolean) Whether the tabs are highlighted.  Works as an alias of active.
   - [``index``] (integer) The position of the tabs within their windows.
-  - [``isMail3Pane``] (boolean) Whether the tab is a Thunderbird 3-pane tab.
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
+  - [``mailTab``] (boolean) Whether the tab is a Thunderbird 3-pane tab.
   - [``status``] (:ref:`tabs.TabStatus`) Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
   - [``url``] (string or array of string) Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
@@ -279,6 +279,16 @@ Fired when a tab is closed.
   - ``isWindowClosing`` (boolean) True when the tab is being closed because its window is being closed.
   - ``windowId`` (integer) The window whose tab is closed.
 
+Properties
+==========
+
+.. _tabs.TAB_ID_NONE:
+
+TAB_ID_NONE
+-----------
+
+An ID which represents the absence of a browser tab.
+
 Types
 =====
 
@@ -296,7 +306,7 @@ object
 - [``favIconUrl``] (string) The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
 - [``height``] (integer) The height of the tab in pixels.
 - [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID, for example when querying foreign tabs using the $(ref:sessions) API, in which case a session ID may be present. Tab ID can also be set to $(ref:tabs.TAB_ID_NONE) for apps and devtools windows.
-- [``isMail3Pane``] (boolean) Whether the tab is a 3-pane tab.
+- [``mailTab``] (boolean) Whether the tab is a 3-pane tab.
 - [``status``] (string) Either *loading* or *complete*.
 - [``title``] (string) The title of the tab. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
 - [``url``] (string) The URL the tab is displaying. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
