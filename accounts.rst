@@ -57,7 +57,7 @@ object
 - ``folders`` (array of :ref:`accounts.MailFolder`) The folders for this account.
 - ``id`` (string) A unique identifier for this account.
 - ``name`` (string) The human-friendly name of this account.
-- ``type`` (string) What sort of account this is, e.g. ``imap``, ``news``, or ``pop3``.
+- ``type`` (string) What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``.
 
 .. _accounts.MailFolder:
 

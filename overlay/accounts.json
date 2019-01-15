@@ -16,7 +16,7 @@
           },
           "type": {
             "type": "string",
-            "description": "What sort of account this is, e.g. ``imap``, ``news``, or ``pop3``."
+            "description": "What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``."
           },
           "folders": {
             "type": "array",
