@@ -29,14 +29,14 @@ Functions
 create(createProperties, [callback])
 ------------------------------------
 
-Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in $(ref:runtime.lastError)).
+Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_).
 
 - ``createProperties`` (object)
 
   - [``checked``] (boolean) The initial state of a checkbox or radio item: true for selected and false for unselected. Only one radio item can be selected at a time in a given group of radio items.
   - [``command``] (string) Specifies a command to issue for the context click.  Currently supports internal command _execute_browser_action.
   - [``contexts``] (array of :ref:`menus.ContextType`) List of contexts this menu item will appear in. Defaults to ['page'] if not specified.
-  - [``documentUrlPatterns``] (array of string) Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see $(topic:match_patterns)[Match Patterns].
+  - [``documentUrlPatterns``] (array of string) Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see `Match Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`_.
   - [``enabled``] (boolean) Whether this context menu item is enabled or disabled. Defaults to true.
   - [``icons``] (object)
   - [``id``] (string) The unique ID to assign to this item. Mandatory for event pages. Cannot be the same as another ID for this extension.
@@ -48,7 +48,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
   - [``viewTypes``] (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_) List of view types where the menu item will be shown. Defaults to any view, including those without a viewType.
   - [``visible``] (boolean) Whether the item is visible in the menu.
 
-- [``callback``] (function) Called when the item has been created in the browser. If there were any problems creating the item, details will be available in $(ref:runtime.lastError).
+- [``callback``] (function) Called when the item has been created in the browser. If there were any problems creating the item, details will be available in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_.
 
 Returns a `Promise`_ fulfilled with:
 

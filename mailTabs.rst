@@ -19,14 +19,14 @@ Functions
 query(queryInfo)
 ----------------
 
-Gets all mail tabs that have the specified properties, or all tabs if no properties are specified.
+Gets all mail tabs that have the specified properties, or all mail tabs if no properties are specified.
 
 - ``queryInfo`` (object)
 
   - [``active``] (boolean) Whether the tabs are active in their windows.
   - [``currentWindow``] (boolean) Whether the tabs are in the current window.
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
-  - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
+  - [``windowId``] (integer) The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
 
 .. _mailTabs.update:
 

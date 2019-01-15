@@ -47,11 +47,11 @@ Creates a new tab.
 
 - ``createProperties`` (object)
 
-  - [``active``] (boolean) Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see $(ref:windows.update)). Defaults to ``true``.
+  - [``active``] (boolean) Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to ``true``.
   - [``index``] (integer) The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
   - [``selected``] (boolean) Whether the tab should become the selected tab in the window. Defaults to ``true``
   - [``url``] (string) The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
-  - [``windowId``] (integer) The window to create the new tab in. Defaults to the $(topic:current-window)[current window].
+  - [``windowId``] (integer) The window to create the new tab in. Defaults to the current window.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -68,7 +68,7 @@ Duplicates a tab.
 
 Returns a `Promise`_ fulfilled with:
 
-- :ref:`tabs.Tab` Details about the duplicated tab. The $(ref:tabs.Tab) object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
+- :ref:`tabs.Tab` Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
 
 .. _tabs.query:
 
@@ -80,15 +80,15 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 - ``queryInfo`` (object)
 
   - [``active``] (boolean) Whether the tabs are active in their windows.
-  - [``currentWindow``] (boolean) Whether the tabs are in the $(topic:current-window)[current window].
+  - [``currentWindow``] (boolean) Whether the tabs are in the current window.
   - [``highlighted``] (boolean) Whether the tabs are highlighted.  Works as an alias of active.
   - [``index``] (integer) The position of the tabs within their windows.
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
   - [``mailTab``] (boolean) Whether the tab is a Thunderbird 3-pane tab.
   - [``status``] (:ref:`tabs.TabStatus`) Whether the tabs have completed loading.
   - [``title``] (string) Match page titles against a pattern.
-  - [``url``] (string or array of string) Match tabs against one or more $(topic:match_patterns)[URL patterns]. Note that fragment identifiers are not matched.
-  - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
+  - [``url``] (string or array of string) Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`_. Note that fragment identifiers are not matched.
+  - [``windowId``] (integer) The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
   - [``windowType``] (:ref:`tabs.WindowType`) The type of window the tabs are in.
 
 Returns a `Promise`_ fulfilled with:
@@ -102,15 +102,15 @@ update([tabId], updateProperties)
 
 Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.
 
-- [``tabId``] (integer) Defaults to the selected tab of the $(topic:current-window)[current window].
+- [``tabId``] (integer) Defaults to the selected tab of the current window.
 - ``updateProperties`` (object)
 
-  - [``active``] (boolean) Whether the tab should be active. Does not affect whether the window is focused (see $(ref:windows.update)).
+  - [``active``] (boolean) Whether the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`).
   - [``url``] (string) A URL to navigate the tab to.
 
 Returns a `Promise`_ fulfilled with:
 
-- :ref:`tabs.Tab` Details about the updated tab. The $(ref:tabs.Tab) object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
+- :ref:`tabs.Tab` Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
 
 .. _tabs.move:
 
@@ -155,7 +155,7 @@ Closes one or more tabs.
 executeScript([tabId], details)
 -------------------------------
 
-Injects JavaScript code into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
+Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
 - ``details`` (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_) Details of the script to run.
@@ -169,7 +169,7 @@ Returns a `Promise`_ fulfilled with:
 insertCSS([tabId], details)
 ---------------------------
 
-Injects CSS into a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
+Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
 - ``details`` (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_) Details of the CSS text to insert.
@@ -179,7 +179,7 @@ Injects CSS into a page. For details, see the $(topic:content_scripts)[programma
 removeCSS([tabId], details)
 ---------------------------
 
-Removes injected CSS from a page. For details, see the $(topic:content_scripts)[programmatic injection] section of the content scripts doc.
+Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
 - ``details`` (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_) Details of the CSS text to remove.
@@ -219,7 +219,7 @@ Fired when a tab is updated.
 onMoved(tabId, moveInfo)
 ------------------------
 
-Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see $(ref:tabs.onDetached).
+Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
 
 - ``tabId`` (integer)
 - ``moveInfo`` (object)
@@ -305,7 +305,7 @@ object
 - ``selected`` (boolean) Whether the tab is selected.
 - [``favIconUrl``] (string) The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
 - [``height``] (integer) The height of the tab in pixels.
-- [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID, for example when querying foreign tabs using the $(ref:sessions) API, in which case a session ID may be present. Tab ID can also be set to $(ref:tabs.TAB_ID_NONE) for apps and devtools windows.
+- [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
 - [``mailTab``] (boolean) Whether the tab is a 3-pane tab.
 - [``status``] (string) Either *loading* or *complete*.
 - [``title``] (string) The title of the tab. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
