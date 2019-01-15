@@ -9,7 +9,7 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 Permissions
 ===========
 
-- accountsRead
+- accountsRead "See your mail accounts and their folders"
 
 .. note::
 

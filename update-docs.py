@@ -215,6 +215,7 @@ def header_3(string, label=None):
         "",
     ]
 
+
 def reference(label):
     if label is None:
         return []
@@ -401,6 +402,14 @@ def format_manifest_namespace(manifest):
     lines = []
     property_lines = []
     permission_lines = []
+
+    permission_strings = {}
+    with open(permissions_file) as pf:
+        for line in pf:
+            if line.startswith("webextPerms.description"):
+                parts = line.split("=", 2)
+                permission_strings[parts[0][24:]] = parts[1].strip()
+
     for type_ in manifest["types"]:
         if type_.get("$extend", None) == "WebExtensionManifest":
             for [name, value] in type_["properties"].items():
@@ -408,7 +417,10 @@ def format_manifest_namespace(manifest):
         if type_.get("$extend", None) in ["OptionalPermission", "Permission"]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
-                    permission_lines.append("- %s" % value)
+                    if value in permission_strings:
+                        permission_lines.append("- %s \"%s\"" % (value, permission_strings[value]))
+                    else:
+                        permission_lines.append("- %s" % value)
 
     if len(permission_lines) > 0:
         permission_lines.append("")
@@ -424,6 +436,8 @@ def format_manifest_namespace(manifest):
 
 
 if __name__ == "__main__":
+    global src_dir, permissions_file
+
     parser = argparse.ArgumentParser(
         description="Create WebExtensions documentation from schema files"
     )
@@ -434,6 +448,7 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     src_dir = os.path.join(args.path, "mail/components/extensions/schemas")
+    permissions_file = os.path.join(args.path, "mail/locales/en-US/chrome/messenger/addons.properties")
 
     files = []
     if len(args.file) == 0:

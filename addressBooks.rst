@@ -11,7 +11,7 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 Permissions
 ===========
 
-- addressBooks
+- addressBooks "Read and modify your address books and contacts"
 
 .. note::
 

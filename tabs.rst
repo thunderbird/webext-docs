@@ -8,8 +8,8 @@ Permissions
 ===========
 
 - activeTab
-- tabs
-- tabHide
+- tabs "Access browser tabs"
+- tabHide "Hide and show browser tabs"
 
 Functions
 =========

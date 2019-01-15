@@ -9,7 +9,7 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 Permissions
 ===========
 
-- messagesRead
+- messagesRead "Read your email messages and mark or tag them"
 
 .. note::
 
