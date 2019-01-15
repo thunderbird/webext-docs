@@ -2,7 +2,7 @@
 messages
 ========
 
-This is preliminary documentation for the messages API being developed in `bug 1488176`__.
+The messages API first appeared in Thunderbird 66 (see `bug 1488176`__).
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 
@@ -62,7 +62,7 @@ Returns a `Promise`_ fulfilled with:
 getFull(messageId)
 ------------------
 
-Returns a specified message.
+Returns a specified message, including all headers and MIME parts.
 
 - ``messageId`` (integer)
 

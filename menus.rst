@@ -2,7 +2,7 @@
 menus
 =====
 
-This is preliminary documentation for the menus API being developed in `bug 1503421`__.
+The menus API first appeared in Thunderbird 66 (see `bug 1503421`__).
 It is basically the same as the `Firefox menus API`__, but modified to suit Thunderbird.
 Note that the similar ``contextMenus`` API will not be added to Thunderbird.
 

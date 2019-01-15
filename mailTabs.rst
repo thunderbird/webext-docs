@@ -2,7 +2,7 @@
 mailTabs
 ========
 
-This is preliminary documentation for the mail tabs API being developed in `bug 1499617`__.
+The messages API first appeared in Thunderbird 66 (see `bug 1499617`__).
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
 
@@ -14,27 +14,19 @@ __ https://github.com/thundernest/sample-extensions/tree/master/layout
 Functions
 =========
 
-.. _mailTabs.getAll:
+.. _mailTabs.query:
 
-getAll()
---------
+query(queryInfo)
+----------------
 
-Returns an array of all mail tabs in all windows.
+Gets all mail tabs that have the specified properties, or all tabs if no properties are specified.
 
-Returns a `Promise`_ fulfilled with:
+- ``queryInfo`` (object)
 
-- array of :ref:`mailTabs.MailTab`
-
-.. _mailTabs.getActive:
-
-getActive()
------------
-
-Returns the active mail tab in the most-recent window, or null if the active tab is not a mail tab.
-
-Returns a `Promise`_ fulfilled with:
-
-- :ref:`mailTabs.MailTab`
+  - [``active``] (boolean) Whether the tabs are active in their windows.
+  - [``currentWindow``] (boolean) Whether the tabs are in the current window.
+  - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
+  - [``windowId``] (integer) The ID of the parent window, or $(ref:windows.WINDOW_ID_CURRENT) for the $(topic:current-window)[current window].
 
 .. _mailTabs.update:
 
@@ -43,17 +35,17 @@ update([tabId], updateProperties)
 
 Modifies the properties of a mail tab. Properties that are not specified in ``updateProperties`` are not modified.
 
-- [``tabId``] (integer) Defaults to the active tab of the most-recent window.
+- [``tabId``] (integer) Defaults to the active tab of the current window.
 - ``updateProperties`` (object)
 
   - [``displayedFolder``] (object) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
   - [``folderPaneVisible``] (boolean) Shows or hides the folder pane.
-  - [``layout``] (`string <enum_layout_4_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
+  - [``layout``] (`string <enum_layout_9_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
   - [``messagePaneVisible``] (boolean) Shows or hides the message display pane.
-  - [``sortOrder``] (`string <enum_sortOrder_6_>`_) Sorts the list of messages. ``sortType`` must also be given.
-  - [``sortType``] (`string <enum_sortType_7_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
+  - [``sortOrder``] (`string <enum_sortOrder_11_>`_) Sorts the list of messages. ``sortType`` must also be given.
+  - [``sortType``] (`string <enum_sortType_12_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
 
-.. _enum_layout_4:
+.. _enum_layout_9:
 
 Values for layout:
 
@@ -61,7 +53,7 @@ Values for layout:
 - ``wide``
 - ``vertical``
 
-.. _enum_sortOrder_6:
+.. _enum_sortOrder_11:
 
 Values for sortOrder:
 
@@ -69,7 +61,7 @@ Values for sortOrder:
 - ``ascending``
 - ``descending``
 
-.. _enum_sortType_7:
+.. _enum_sortType_12:
 
 Values for sortType:
 
@@ -101,7 +93,7 @@ getSelectedMessages([tabId])
 
 Lists the selected messages in the current folder. A messages permission is required to do this.
 
-- [``tabId``] (integer) Defaults to the active tab of the most-recent window.
+- [``tabId``] (integer) Defaults to the active tab of the current window.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -114,7 +106,7 @@ setQuickFilter([tabId], properties)
 
 Sets the Quick Filter user interface based on the options specified.
 
-- [``tabId``] (integer) Defaults to the active tab of the most-recent window.
+- [``tabId``] (integer) Defaults to the active tab of the current window.
 - ``properties`` (object)
 
   - [``attachment``] (boolean) Shows only messages with attachments.
@@ -166,13 +158,13 @@ object
 - ``displayedFolder`` (accounts.MailFolder)
 - ``folderPaneVisible`` (boolean)
 - ``id`` (integer)
-- ``layout`` (`string <enum_layout_23_>`_)
+- ``layout`` (`string <enum_layout_28_>`_)
 - ``messagePaneVisible`` (boolean)
-- ``sortOrder`` (`string <enum_sortOrder_25_>`_)
-- ``sortType`` (`string <enum_sortType_26_>`_)
+- ``sortOrder`` (`string <enum_sortOrder_30_>`_)
+- ``sortType`` (`string <enum_sortType_31_>`_)
 - ``windowId`` (integer)
 
-.. _enum_layout_23:
+.. _enum_layout_28:
 
 Values for layout:
 
@@ -180,7 +172,7 @@ Values for layout:
 - ``wide``
 - ``vertical``
 
-.. _enum_sortOrder_25:
+.. _enum_sortOrder_30:
 
 Values for sortOrder:
 
@@ -188,7 +180,7 @@ Values for sortOrder:
 - ``ascending``
 - ``descending``
 
-.. _enum_sortType_26:
+.. _enum_sortType_31:
 
 Values for sortType:
 
@@ -220,10 +212,10 @@ QuickFilterTagsDetail
 
 object
 
-- ``mode`` (`string <enum_mode_28_>`_) Whether all of the tag filters must apply, or any of them.
+- ``mode`` (`string <enum_mode_33_>`_) Whether all of the tag filters must apply, or any of them.
 - ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
 
-.. _enum_mode_28:
+.. _enum_mode_33:
 
 Values for mode:
 
