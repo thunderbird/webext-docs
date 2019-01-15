@@ -7,16 +7,20 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string"
+            "type": "string",
+            "description": "A unique identifier for this account."
           },
           "name": {
-            "type": "string"
+            "type": "string",
+            "description": "The human-friendly name of this account."
           },
           "type": {
-            "type": "string"
+            "type": "string",
+            "description": "What sort of account this is, e.g. ``imap``, ``news``, or ``pop3``."
           },
           "folders": {
             "type": "array",
+            "description": "The folders for this account.",
             "items": {
               "$ref": "MailFolder"
             }
