@@ -71,3 +71,17 @@ object
 - ``accountId`` (string) The account this folder belongs to.
 - ``path`` (string) Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
 - [``name``] (string) The human-friendly name of this folder.
+- [``type``] (`string <enum_type_9_>`_) The type of folder, for several common types.
+
+.. _enum_type_9:
+
+Values for type:
+
+- ``inbox``
+- ``drafts``
+- ``sent``
+- ``trash``
+- ``templates``
+- ``archives``
+- ``junk``
+- ``outbox``
