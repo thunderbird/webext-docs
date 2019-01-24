@@ -3,6 +3,9 @@ composeAction
 =============
 
 The :doc:`browserAction` and composeAction APIs first appeared in Thunderbird 64.
+They are very similar to Firefox's `browserAction API`__.
+
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction
 
 Use toolbar actions to put icons in the message composition toolbars. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup.
 

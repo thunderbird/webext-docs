@@ -2,15 +2,28 @@
 Thunderbird WebExtension APIs
 =============================
 
-The documents were generated automatically from the schema documents at `mail/components/extensions/schemas <https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/>`_.
+Thunderbird WebExtensions are very similar to those of Firefox. These documents assume you have
+some familiarity with building a WebExtension for Firefox. If not, it is highly recommended to
+begin by reading some of the `MDN documentation on the subject`__.
+
+WebExtension APIs are asynchronous, that is, they return a `Promise`__ object which resolves when
+ready. See `Using Promises`__ for more information about Promises.
+
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+__ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+__ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+The documents were generated automatically from the schema documents at
+`mail/components/extensions/schemas`__.
+
+__ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/
 
 .. note::
 
-  These APIs should be considered experimental and could change at any time. For any problems or feature requests please `file a bug <https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API>`_.
+  These APIs should be considered experimental and may change in the future.
+  For any problems or feature requests please `file a bug`__.
 
-.. note::
-
-  WebExtension APIs are asynchronous, that is, they return a `Promise <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise>`_ object which resolves when ready. See `Using Promises <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises>`_ for more information about Promises.
+__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
 .. toctree::
   :maxdepth: 1
