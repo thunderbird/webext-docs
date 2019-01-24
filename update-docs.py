@@ -45,6 +45,7 @@ def replace_code(string):
         "<var>": "``",
         "</var>": "``",
         "&mdash;": u"—",
+        "\n": "\n\n",
     }
     for [s, r] in replacements.items():
         string = string.replace(s, r)
