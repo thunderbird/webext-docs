@@ -133,4 +133,6 @@ ContactProperties
 
 A set of properties for a particular contact. For a complete list of properties that Thunderbird uses, see https://hg.mozilla.org/comm-central/file/tip/mailnews/addrbook/public/nsIAbCard.idl
 
+It is also possible to store custom properties. The custom property name however may only use a to z, A to Z, 1 to 9 and underscores.
+
 object
