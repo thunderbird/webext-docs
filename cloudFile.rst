@@ -17,11 +17,11 @@ Manifest file properties
 
 - [``cloud_file``] (object)
 
-  - ``management_url`` (string)
-  - ``name`` (string)
-  - ``settings_url`` (string)
-  - [``new_account_url``] (string)
-  - [``service_url``] (string)
+  - ``management_url`` (string) A page for configuring accounts, to be displayed in the preferences UI.
+  - ``name`` (string) Name of the cloud file service.
+  - [``new_account_url``] (string) **Deprecated.** This property was never used.
+  - [``service_url``] (string) URL to the web page of the cloud file service.
+  - [``settings_url``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
 
 .. note::
 
@@ -37,7 +37,7 @@ getAccount(accountId)
 
 Retrieve information about a single cloud file account
 
-- ``accountId`` (string)
+- ``accountId`` (string) Unique identifier of the account
 
 Returns a `Promise`_ fulfilled with:
 
@@ -61,12 +61,12 @@ updateAccount(accountId, updateProperties)
 
 Update a cloud file account
 
-- ``accountId`` (string)
+- ``accountId`` (string) Unique identifier of the account
 - ``updateProperties`` (object)
 
   - [``configured``] (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
-  - [``managementUrl``] (string)
-  - [``settingsUrl``] (string)
+  - [``managementUrl``] (string) A page for configuring accounts, to be displayed in the preferences UI.
+  - [``settingsUrl``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
   - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
@@ -103,7 +103,7 @@ onFileUploadAbort(account, fileId)
 ----------------------------------
 
 - ``account`` (:ref:`cloudFile.CloudFileAccount`) The created account
-- ``fileId`` (integer)
+- ``fileId`` (integer) An identifier for this file
 
 .. _cloudFile.onFileDeleted:
 
@@ -113,7 +113,7 @@ onFileDeleted(account, fileId)
 Fired when a file previously uploaded should be deleted
 
 - ``account`` (:ref:`cloudFile.CloudFileAccount`) The created account
-- ``fileId`` (integer) An identifier for this file, TODO might go away
+- ``fileId`` (integer) An identifier for this file
 
 .. _cloudFile.onAccountAdded:
 
@@ -145,9 +145,9 @@ Information about a cloud file
 
 object
 
-- ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_)
-- ``id`` (integer)
-- ``name`` (string)
+- ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_) Contents of the file to be transferred
+- ``id`` (integer) An identifier for this file
+- ``name`` (string) Filename of the file to be transferred
 
 .. _cloudFile.CloudFileAccount:
 
@@ -159,10 +159,10 @@ Information about a cloud file account
 object
 
 - ``configured`` (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
-- ``id`` (string)
-- ``managementUrl`` (string)
+- ``id`` (string) Unique identifier of the account
+- ``managementUrl`` (string) A page for configuring accounts, to be displayed in the preferences UI.
 - ``name`` (string) A user-friendly name for this account.
-- ``settingsUrl`` (string)
+- [``settingsUrl``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
 - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.

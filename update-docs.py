@@ -97,6 +97,9 @@ def format_member(name, value):
     else:
         type_string = "%s"
 
+    if value.get("deprecated"):
+        type_string += " **Deprecated.**"
+
     if "type" in value or "$ref" in value:
         parts.append(type_string % get_type(value, name))
 
