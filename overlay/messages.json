@@ -41,7 +41,7 @@
         "id": "MessageHeader",
         "type": "object",
         "properties": {
-          "messageId": {
+          "id": {
             "type": "integer",
             "minimum": 1
           },

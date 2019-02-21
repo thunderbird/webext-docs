@@ -9,6 +9,7 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 Permissions
 ===========
 
+- messagesMove "Move, copy, or delete your email messages"
 - messagesRead "Read your email messages and mark or tag them"
 
 .. note::
@@ -84,6 +85,48 @@ Marks or unmarks a message as read, starred, or tagged.
   - [``read``] (boolean) Marks the message as read or unread.
   - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
 
+.. _messages.move:
+
+move(messageIds, destination)
+-----------------------------
+
+Moves messages to a specified folder.
+
+- ``messageIds`` (array of integer) The IDs of the messages to move.
+- ``destination`` (:ref:`accounts.MailFolder`) The folder to move the messages to.
+
+.. note::
+
+  The permission ``messagesMove`` is required to use ``move``.
+
+.. _messages.copy:
+
+copy(messageIds, destination)
+-----------------------------
+
+Copies messages to a specified folder.
+
+- ``messageIds`` (array of integer) The IDs of the messages to copy.
+- ``destination`` (:ref:`accounts.MailFolder`) The folder to copy the messages to.
+
+.. note::
+
+  The permission ``messagesMove`` is required to use ``copy``.
+
+.. _messages.delete:
+
+delete(messageIds, [skipTrash])
+-------------------------------
+
+Deletes messages, or moves them to the trash folder.
+
+- ``messageIds`` (array of integer) The IDs of the messages to delete.
+- [``skipTrash``] (boolean) If true, the message will be permanently deleted without warning the user. If false or not specified, it will be moved to the trash folder.
+
+.. note::
+
+  The permission ``messagesMove`` is required to use ``delete``.
+
 .. _messages.listTags:
 
 listTags()
@@ -113,7 +156,7 @@ object
 - ``date`` (date)
 - ``flagged`` (boolean)
 - ``folder`` (:ref:`accounts.MailFolder`)
-- ``messageId`` (integer)
+- ``id`` (integer)
 - ``read`` (boolean)
 - ``recipients`` (array of string)
 - ``subject`` (string)
