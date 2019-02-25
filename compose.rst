@@ -21,7 +21,7 @@ beginNew([details])
 beginReply(messageId, [replyType])
 ----------------------------------
 
-- ``messageId`` (integer) The message to reply to
+- ``messageId`` (integer) The message to reply to, as retrieved using other APIs.
 - [``replyType``] (`string <enum_replyType_3_>`_)
 
 .. _enum_replyType_3:
@@ -37,7 +37,7 @@ Values for replyType:
 beginForward(messageId, [forwardType], [details])
 -------------------------------------------------
 
-- ``messageId`` (integer) The message to reply to
+- ``messageId`` (integer) The message to forward, as retrieved using other APIs.
 - [``forwardType``] (`string <enum_forwardType_5_>`_)
 - [``details``] (:ref:`compose.ComposeParams`)
 
@@ -72,14 +72,14 @@ object
 ComposeRecipient
 ----------------
 
-string: A name and email address in the format "Name <email@example.com>", or just an email address
+string: A name and email address in the format "Name <email@example.com>", or just an email address.
 
 OR
 
 object: 
 
-  - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs
-  - ``type`` (`string <enum_type_14_>`_) Which sort of object this ID is for
+  - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+  - ``type`` (`string <enum_type_14_>`_) Which sort of object this ID is for.
 
 .. _enum_type_14:
 
