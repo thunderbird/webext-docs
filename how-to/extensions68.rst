@@ -58,19 +58,16 @@ we just don't know.
 Overlay extensions are problematic because so much of what they depended on no longer exists.
 Bootstrapped extensions are less of a problem but are still considered at-risk.
 
-Required Changes for Thunderbird 68
-===================================
-
-At this point I'll attempt to list the changes many extensions will need for compatibility with
+In the following I'll attempt to list the changes many extensions will need for compatibility with
 Thunderbird 68. I'll probably miss something you need, because it is simply impossible to stay on
 top of everything. (Remember Thunderbird is based on the Firefox code, and they have been changing
 things all over the place.)
 
-Required Changes for Overlay Extensions
----------------------------------------
+Changes for Overlay Extensions
+=======================================
 
 Switch to JSON Manifest
-```````````````````````
+-----------------------
 
 .. note::
 
@@ -155,7 +152,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Intern
 
 
 Chrome Manifest
-```````````````
+---------------
 
 If you have a ``chrome.manifest``, some things have changed. Notably, ``overlay`` and ``style``
 lines are now handled by the new overlay loader. You'll see this line in the Error Console:
@@ -170,7 +167,7 @@ You might see the same line, but regarding ``interfaces``. Registering your own 
 ``.xpt`` files is no longer possible.
 
 Overlays
-````````
+--------
 
 We switched to a completely new overlay loader in Thunderbird 63. While we tried to retain parity
 with the old overlay loader, some things no longer work the way they used to, or at all.
@@ -192,29 +189,59 @@ works but it may break in the future. **Inline scripts are strongly discouraged.
 instead.
 
 
-Required Changes for all Extension Types
-----------------------------------------
+General Changes
+===============
 
 Removed XUL Elements
-````````````````````
+--------------------
+
 Some XUL elements no longer exist. Here are some I'm aware of:
 
-- ``<listbox>`` and friends - use ``<richlistbox>`` (`migration example <https://github.com/jobisoft/CategoryManager/commit/2267888be7de0d7ebe4f5b4626c48210c071b16f/>`_)
-- ``<colorpicker>`` - use HTML ``<input type="color">``
-- ``<progressmeter>`` - use HTML ``<progress>`` (`migration example <https://github.com/jobisoft/CategoryManager/commit/be23d9abfba29e5585d485348d84bd36c3c6bcaf/>`_)
-- ``<textbox type="number">`` - use HTML ``<input type="number">``
+- ``<listbox>`` and friends - use ``<richlistbox>``
+
+.. note::
+
+  The following listbox methods have also been removed:
+
+  - ``.insertItemAt(index)`` - use ``.insertBefore()``
+  - ``.removeItemAt(index)`` - use ``.getItemAtIndex(index).remove()``
+
+- ``<colorpicker>`` - use ``<html:input type="color">``
+- ``<progressmeter>`` - use ``<html:progress max="100">``
+- ``<textbox type="number">`` - use ``<html:input type="number">``
+
+.. note::
+
+  In order to use HTML elements in your XUL, you have to load its namespace into your overlay or dialog
+
+  .. code-block:: xml
+  
+    <dialog
+        xmlns:html="http://www.w3.org/1999/xhtml"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        ...
+        >
+
 - ``<menulist editable="true">`` - use the new custom element ``<menulist is="menulist-editable" editable="true">``
 
 .. note::
 
-  In order to use custom elements, you need load customElements.js in your XUL: 
-  ``<script type="application/javascript" src="chrome://messenger/content/customElements.js"/>``
+  In order to use custom elements, you need load ``customElements.js`` in your XUL:
+
+  .. code-block:: xml
   
-  For the editable menulist you also need to load menulist.css in your XUL:
-  ``<?xml-stylesheet href="chrome://messenger/content/menulist.css" type="text/css"?>``
+    <script type="application/javascript" src="chrome://messenger/content/customElements.js"/>
+  
+  For the editable menulist you also need to load ``menulist.css`` at the top of your XUL:
+
+  .. code-block:: xml
+  
+    <?xml-stylesheet href="chrome://messenger/content/menulist.css" type="text/css"?>
   
   An editable menulist can also be created via JavaScript:
+
   .. code-block:: javascript
+  
     let menulist = document.createElement("menulist", { is : "menulist-editable"});
     menulist.setAttribute("is", "menulist-editable");
     menulist.setAttribute("editable", "true");
@@ -223,32 +250,31 @@ Some XUL elements no longer exist. Here are some I'm aware of:
 Note that the replacements listed here might work in subtly different ways. Check your
 functionality!
 
-Removed XUL Element methods
-```````````````````````````
-These removals are related to the removal of the listbox element:
-
-- ``.insertItemAt(index)` - use ``.insertBefore()``
-- ``.removeItemAt(index)` - use ``.getItemAtIndex(index).remove()``
 
 Renamed Files
-`````````````
+-------------
+
 - ``mailServices.js`` has been renamed to ``MailServices.jsm``. The old name keeps working for now, 
   but you get a deprecation warning in the error console if you use the old name.
 
 Removed Interfaces
-``````````````````
+------------------
+
 - ``nsIStringBundleService``(XUL stringbundleset / stringbundle) - use ``Services.strings.createBundle(...)``
 
 .. note::
 
   In order to use stringbundles, you need to load stringbundle.js in your XUL: 
-  <script type="application/x-javascript" src="chrome://global/content/elements/stringbundle.js"/>,
+
+  .. code-block:: xml
+
+    <script type="application/x-javascript" src="chrome://global/content/elements/stringbundle.js"/>
+    
   For overlay extensions the XUL Overlay loader takes care of this. See also bug 1459743
 
  
-
 XBL
-```
+---
 
 XBL is on Death Row. Many XBL bindings have been replaced or simply no longer exist. The remainder
 are being removed. This may result in slight behaviour changes for some UI components.
@@ -260,7 +286,7 @@ __ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements
 
 
 Javascript Module Imports
-`````````````````````````
+-------------------------
 
 In Thunderbird 67, a major backwards-incompatible change was made to importing javascript modules.
 Where once you used any of these:
