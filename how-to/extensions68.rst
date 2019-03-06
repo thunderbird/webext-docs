@@ -11,7 +11,6 @@ of the changes. Since the release of Thunderbird 60, Bugzilla has another 50,000
 (Fortunately most of them are not bugs, it's just a term we use.) If just 1% of them affected
 Thunderbird extensions, this would be a very long document.
 
-
 Terminology
 ===========
 
@@ -58,13 +57,13 @@ we just don't know.
 Overlay extensions are problematic because so much of what they depended on no longer exists.
 Bootstrapped extensions are less of a problem but are still considered at-risk.
 
-In the following I'll attempt to list the changes many extensions will need for compatibility with
+Changes Required
+================
+
+At this point I'll attempt to list the changes many extensions will need for compatibility with
 Thunderbird 68. I'll probably miss something you need, because it is simply impossible to stay on
 top of everything. (Remember Thunderbird is based on the Firefox code, and they have been changing
 things all over the place.)
-
-Changes for Overlay Extensions
-=======================================
 
 Switch to JSON Manifest
 -----------------------
@@ -131,25 +130,23 @@ becomes:
 Note the ``legacy`` key. It's a special key to engage Thunderbird's new overlay loader. The value
 here could just be ``true``, but in this example there is an options page, so I put that
 information in. This is similar to the standard WebExtension ``options_ui`` key, but you can
-specify a chrome URL.
+specify a chrome URL. The key ``open_in_tab`` is optional and defaults to value ``false``.
+``true`` corresponds to optionsType 3 in install.rdf.
 
-The key ``open_in_tab`` is optional and defaults to value ``false``. Value ``true`` corresponds to 
-optionsType 3 in install.rdf. 
-
-Examples of overlay extension converted like this are:
- - `Mail Redirect <https://addons.thunderbird.net/de/thunderbird/addon/mailredirect/>`_ 
-
-The above example JSON manifest is only in English. You probably want to use translated strings
-in your manifest. Read `this MDN article about it`__. Unfortunately that means you now need two
-sets of translated strings, one (that you already have) for your extension and another for the manifest.
+This example is only in English. You probably want to use translated strings in your manifest.
+Read `this MDN article about it`__. Unfortunately that means you now need two sets of translated
+strings, one (that you already have) for your extension and another for the manifest.
 
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Internationalization#Internationalizing_manifest.json
+
+Examples of overlay extension converted like this are:
+ - `Open With <https://github.com/darktrojan/openwith/blob/VERSION_6.9/manifest.json>`_
+ - `Shrunked Image Resizer <https://github.com/darktrojan/shrunked/blob/VERSION_4.5/manifest.json>`_
 
 .. note::
 
   It *is* possible to have both ``install.rdf`` and ``manifest.json`` files in your extension, so
   you *could* release a version compatible with Thunderbird 60 and 68. I **do not** recommend it.
-
 
 Chrome Manifest
 ---------------
@@ -172,11 +169,10 @@ Overlays
 We switched to a completely new overlay loader in Thunderbird 63. While we tried to retain parity
 with the old overlay loader, some things no longer work the way they used to, or at all.
 
-For Thunderbird itself overlays have been progressively removed. By version 63, there are no overlays
-left, so extensions can of course not overlay the removed Thunderbird overlays any more. 
-For example, if your add-on overlaid ``mailWindowOverlay.xul``, that needs to be changed; in this 
-example you most likely need to overlay ``messenger.xul`` now. 
-
+Overlays in Thunderbird itself (except the calendar extensions) have been removed, so extensions
+can not overlay the removed Thunderbird overlays any more. For example, if your add-on overlaid
+``mailWindowOverlay.xul``, that needs to be changed; in this example you most likely need to
+overlay ``messenger.xul`` now.
 
 ``<script>`` Tags
 """""""""""""""""
@@ -188,91 +184,70 @@ You may be used to putting the contents of a script directly in a document. This
 works but it may break in the future. **Inline scripts are strongly discouraged.** Use a file
 instead.
 
-
-General Changes
-===============
-
 Removed XUL Elements
 --------------------
 
 Some XUL elements no longer exist. Here are some I'm aware of:
 
+- ``<colorpicker>`` - use ``<html:input type="color">``
 - ``<listbox>`` and friends - use ``<richlistbox>``
 
-.. note::
+  - ``.insertItemAt(index)`` no longer exists - use ``.insertBefore()``
+  - ``.removeItemAt(index)`` no longer exists - use ``.getItemAtIndex(index).remove()``
 
-  The following listbox methods have also been removed:
-
-  - ``.insertItemAt(index)`` - use ``.insertBefore()``
-  - ``.removeItemAt(index)`` - use ``.getItemAtIndex(index).remove()``
-
-- ``<colorpicker>`` - use ``<html:input type="color">``
+- ``<prefwindow>``, ``<prefpane>``, ``<preferences>``, and ``<preference>``
 - ``<progressmeter>`` - use ``<html:progress max="100">``
 - ``<textbox type="number">`` - use ``<html:input type="number">``
+- ``<textbox multiline="true">`` - use ``<html:textarea>``
 
-.. note::
+In order to use HTML elements in your XUL, you must load the HTML namespace into your overlay
+or dialog:
 
-  In order to use HTML elements in your XUL, you have to load its namespace into your overlay or dialog
+.. code-block:: xml
 
-  .. code-block:: xml
-  
-    <dialog
-        xmlns:html="http://www.w3.org/1999/xhtml"
-        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
-        ...
-        >
+  <dialog
+      xmlns:html="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"/>
 
-- ``<menulist editable="true">`` - use the new custom element ``<menulist is="menulist-editable" editable="true">``
+Some widgets are now implemented as `custom elements`__ and may need some extra work.
 
-.. note::
+For the most common example, the editable menulist is now a custom element, and it needs some
+extra files to be linked from your document:
 
-  In order to use custom elements, you need load ``customElements.js`` in your XUL:
+.. code-block:: xml
 
-  .. code-block:: xml
-  
+  <?xml version="1.0"?>
+  <?xml-stylesheet type="text/css" href="chrome://global/skin/global.css"?>
+  <!-- New stylesheet needed: -->
+  <?xml-stylesheet type="text/css" href="chrome://messenger/content/menulist.css"?>
+
+  <page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+    <!-- New script needed: -->
     <script type="application/javascript" src="chrome://messenger/content/customElements.js"/>
-  
-  For the editable menulist you also need to load ``menulist.css`` at the top of your XUL:
 
-  .. code-block:: xml
-  
-    <?xml-stylesheet href="chrome://messenger/content/menulist.css" type="text/css"?>
-  
-  An editable menulist can also be created via JavaScript:
+    <!-- Note the additional "is" attribute: -->
+    <menulist is="menulist-editable" editable="true">
+      <menupopup>
+        <menuitem value="foo" label="foo"/>
+        <menuitem value="bar" label="bar"/>
+      </menupopup>
+    </menulist>
+  </page>
 
-  .. code-block:: javascript
-  
-    let menulist = document.createElement("menulist", { is : "menulist-editable"});
-    menulist.setAttribute("is", "menulist-editable");
-    menulist.setAttribute("editable", "true");
-  
+An editable menulist can also be created via JavaScript:
 
-Note that the replacements listed here might work in subtly different ways. Check your
-functionality!
+.. code-block:: javascript
 
+  let menulist = document.createElement("menulist", { is : "menulist-editable" });
+  menulist.setAttribute("is", "menulist-editable");
+  menulist.setAttribute("editable", "true");
 
-Renamed Files
--------------
-
-- ``mailServices.js`` has been renamed to ``MailServices.jsm``. The old name keeps working for now, 
-  but you get a deprecation warning in the error console if you use the old name.
-
-Removed Interfaces
-------------------
-
-- ``nsIStringBundleService``(XUL stringbundleset / stringbundle) - use ``Services.strings.createBundle(...)``
+__ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements
 
 .. note::
 
-  In order to use stringbundles, you need to load stringbundle.js in your XUL: 
+  The replacements listed here might work in subtly different ways. Check your functionality!
 
-  .. code-block:: xml
-
-    <script type="application/x-javascript" src="chrome://global/content/elements/stringbundle.js"/>
-    
-  For overlay extensions the XUL Overlay loader takes care of this. See also bug 1459743
-
- 
 XBL
 ---
 
@@ -284,6 +259,14 @@ teams are using `custom elements`__ instead.
 
 __ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements
 
+Renamed Files
+-------------
+
+A number of Javascript modules have been renamed with the ``.jsm`` extension. Most notably:
+
+- ``mailServices.js`` has been renamed to ``MailServices.jsm``. The old name keeps working for now,
+  but you get a deprecation warning in the error console if you use the old name.
+- ``MailUtils.js`` is now ``MailUtils.jsm``.
 
 Javascript Module Imports
 -------------------------
