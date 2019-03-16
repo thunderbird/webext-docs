@@ -309,7 +309,7 @@ Network API Changes
 Thunderbird 67 made also some incompatible changes to the network interface.
 
 nsIStreamListener
-~~~~~~~~~~~~~~~~~
+"""""""""""""""""
 
 The onDataAvailable lost its non context argument. This was removed in https://bugzilla.mozilla.org/show_bug.cgi?id=1525319 which breaks the API.
 
@@ -332,7 +332,7 @@ In case the third parameter is a nsIInputStream it is the old API. If the second
   };
 
 nsIProtocolHandler
-~~~~~~~~~~~~~~~~~~
+""""""""""""""""""
 
 Here was also an incompatible change. The obsolete method newChannel was removed and newChannel2 was renamed to newChannel. A newChannel was unused since ages it should be rather safe just to replace the old newChannel implementation with the newChannel2 and do a forward in newChannel2
 
