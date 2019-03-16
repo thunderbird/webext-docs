@@ -301,3 +301,53 @@ You should now do this:
 ``ChromeUtils.import`` is a replacement for ``Components.utils.import`` (which was also changed)
 in this way. Note that no second argument is supplied. The returned object is a dictionary of only
 the objects listed in ``EXPORTED_SYMBOLS``.
+
+
+Network API Changes
+-------------------
+
+Thunderbird 67 made also some incompatible changes to the network interface.
+
+nsIStreamListener
+~~~~~~~~~~~~~~~~~
+
+The onDataAvailable lost its non context argument. This was removed in https://bugzilla.mozilla.org/show_bug.cgi?id=1525319 which breaks the API.
+
+To be backward compatible you need to probe the parameters.
+In case the third parameter is a nsIInputStream it is the old API. If the second one is an input stream it is the new API.
+
+.. code-block:: javascript
+
+  onDataAvailable = function (...args) {
+
+    // The old api passes the stream as third parameter
+    if (args[2] instanceof Ci.nsIInputStream)
+      return this.onOldDataAvailableCalled(args[2], args[3], args[4]);
+
+    // The new api uses the second parameter
+    if (args[1] instanceof Ci.nsIInputStream)
+      return this.onNewDataAvailableCalled(args[1], args[2], args[3]);
+
+    throw new Error("Unknown signature for nsIStreamListener.onDataAvailable()");
+  };
+
+nsIProtocolHandler
+~~~~~~~~~~~~~~~~~~
+
+Here was also an incompatible change. The obsolete method newChannel was removed and newChannel2 was renamed to newChannel. A newChannel was unused since ages it should be rather safe just to replace the old newChannel implementation with the newChannel2 and do a forward in newChannel2
+
+.. code-block:: javascript
+
+      // Change the signature there to the new one...
+      // ... you'll need to add the loadInfo parameter
+      //
+      // Note loadInfo may be null on old pre 67+ version.
+      newChannel(URI, loadInfo) {      
+        // Do your logic here         
+      }
+      
+      // Keep the old method as it will be needed for backward compatibility...
+      // ... and forward the request to the new method.
+      newChannel2(URI, loadInfo) {
+        return this.newChannel(URI, loadInfo);
+      }
