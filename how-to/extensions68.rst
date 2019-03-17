@@ -299,10 +299,9 @@ You should now do this:
   // or…
   var scope = ChromeUtils.import("resource://foo/modules/Foo.jsm"); // scope.Foo…
 
-``ChromeUtils.import`` is a replacement for ``Components.utils.import`` (which was also changed)
-in this way. Note that no second argument is supplied. The returned object is a dictionary of only
-the objects listed in ``EXPORTED_SYMBOLS``.
-
+``ChromeUtils.import`` is a replacement for ``Components.utils.import`` (which was also changed
+in this way). Note that no second argument is supplied. The returned object is a dictionary of
+only the objects listed in ``EXPORTED_SYMBOLS``.
 
 Network API Changes
 -------------------
