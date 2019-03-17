@@ -306,48 +306,67 @@ the objects listed in ``EXPORTED_SYMBOLS``.
 Network API Changes
 -------------------
 
-Thunderbird 67 made also some incompatible changes to the network interface.
+Thunderbird 67 made some incompatible changes to the network interface.
 
 nsIStreamListener
 """""""""""""""""
 
-The onDataAvailable lost its non context argument. This was removed in https://bugzilla.mozilla.org/show_bug.cgi?id=1525319 which breaks the API.
+The ``onDataAvailable`` method lost its ``context`` argument. This was removed in `bug 1525319`__
+which breaks the API.
 
-To be backward compatible you need to probe the parameters.
-In case the third parameter is a nsIInputStream it is the old API. If the second one is an input stream it is the new API.
+To be backward compatible you need to probe the parameters. In case the third parameter is an
+nsIInputStream it is the old API. If the second one is an input stream it is the new API.
+
+__ https://bugzilla.mozilla.org/show_bug.cgi?id=1525319
 
 .. code-block:: javascript
 
-  onDataAvailable = function (...args) {
-
-    // The old api passes the stream as third parameter
+  onDataAvailable(...args) {
+    // The old API passes the stream as third parameter
     if (args[2] instanceof Ci.nsIInputStream)
       return this.onOldDataAvailableCalled(args[2], args[3], args[4]);
 
-    // The new api uses the second parameter
+    // The new API uses the second parameter
     if (args[1] instanceof Ci.nsIInputStream)
       return this.onNewDataAvailableCalled(args[1], args[2], args[3]);
 
     throw new Error("Unknown signature for nsIStreamListener.onDataAvailable()");
-  };
+  }
+
+nsIRequestObserver
+""""""""""""""""""
+
+The ``onStartRequest`` and ``onStopRequest`` methods also no longer have a ``context`` argument,
+which could be detected in a similar way.
 
 nsIProtocolHandler
 """"""""""""""""""
 
-Here was also an incompatible change. The obsolete method newChannel was removed and newChannel2 was renamed to newChannel. A newChannel was unused since ages it should be rather safe just to replace the old newChannel implementation with the newChannel2 and do a forward in newChannel2
+The obsolete method ``newChannel`` was removed and ``newChannel2`` was renamed to ``newChannel``.
+(`Bug 1528971`__.)
+
+As ``newChannel`` has been unused for a long time it should be safe to just replace the old
+``newChannel`` implementation with the ``newChannel2`` and forward calls from ``newChannel2``.
+
+__ https://bugzilla.mozilla.org/show_bug.cgi?id=1528971
 
 .. code-block:: javascript
 
-      // Change the signature there to the new one...
-      // ... you'll need to add the loadInfo parameter
-      //
-      // Note loadInfo may be null on old pre 67+ version.
-      newChannel(URI, loadInfo) {      
-        // Do your logic here         
-      }
-      
-      // Keep the old method as it will be needed for backward compatibility...
-      // ... and forward the request to the new method.
-      newChannel2(URI, loadInfo) {
-        return this.newChannel(URI, loadInfo);
-      }
+  // Change the signature to the new one...
+  // ... you'll need to add the loadInfo parameter
+  //
+  // Note loadInfo may be null in Thunderbird 60.
+  newChannel(URI, loadInfo) {
+    // Do your logic here
+  }
+
+  // Keep the old method as it will be needed for backward compatibility...
+  // ... and forward the request to the new method.
+  newChannel2(URI, loadInfo) {
+    return this.newChannel(URI, loadInfo);
+  }
+
+.. note::
+
+  Again, even though these examples show you *can* write code compatible with both Thunderbird 60
+  and Thunderbird 68, that *doesn't mean you should*.
