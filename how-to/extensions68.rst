@@ -264,8 +264,9 @@ Renamed Files
 
 A number of Javascript modules have been renamed with the ``.jsm`` extension. Most notably:
 
-- ``mailServices.js`` has been renamed to ``MailServices.jsm``. The old name keeps working for now,
-  but you get a deprecation warning in the error console if you use the old name.
+- ``mailServices.js`` has been renamed to ``MailServices.jsm``. This change was originally
+  backwards-compatible with a deprecation warning, but the changes to module importing (see below)
+  made that pointless and the old file has now been removed completely.
 - ``MailUtils.js`` is now ``MailUtils.jsm``.
 
 Javascript Module Imports
