@@ -219,7 +219,8 @@ extra files to be linked from your document:
   <?xml version="1.0"?>
   <?xml-stylesheet type="text/css" href="chrome://global/skin/global.css"?>
   <!-- New stylesheet needed: -->
-  <?xml-stylesheet type="text/css" href="chrome://messenger/content/menulist.css"?>
+  <?xml-stylesheet type="text/css" href="chrome://messenger/skin/menulist.css"?>
+  <!-- Annoyingly, in Thunderbird 66, you want chrome://messenger/content/menulist.css. -->
 
   <page xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
     <!-- New script needed: -->
