@@ -371,3 +371,8 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1528971
 
   Again, even though these examples show you *can* write code compatible with both Thunderbird 60
   and Thunderbird 68, that *doesn't mean you should*.
+
+See Also
+========
+
+Some additional low-level details about things you may run into that have changed since Thunderbird 60 can be found `on the Thunderbird wiki <https://wiki.mozilla.org/Thunderbird/Add-ons_Guide_63#Removed_in_Thunderbird_60>`_.
