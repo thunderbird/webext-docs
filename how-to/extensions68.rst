@@ -11,6 +11,11 @@ of the changes. Since the release of Thunderbird 60, Bugzilla has another 50,000
 (Fortunately most of them are not bugs, it's just a term we use.) If just 1% of them affected
 Thunderbird extensions, this would be a very long document.
 
+Some additional low-level details about things you may run into that have changed since
+Thunderbird 60 can be found `on the Thunderbird wiki`__.
+
+__ https://wiki.mozilla.org/Thunderbird/Add-ons_Guide_63#Removed_in_Thunderbird_60
+
 Terminology
 ===========
 
@@ -371,8 +376,3 @@ __ https://bugzilla.mozilla.org/show_bug.cgi?id=1528971
 
   Again, even though these examples show you *can* write code compatible with both Thunderbird 60
   and Thunderbird 68, that *doesn't mean you should*.
-
-See Also
-========
-
-Some additional low-level details about things you may run into that have changed since Thunderbird 60 can be found `on the Thunderbird wiki <https://wiki.mozilla.org/Thunderbird/Add-ons_Guide_63#Removed_in_Thunderbird_60>`_.
