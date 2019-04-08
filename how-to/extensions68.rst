@@ -214,6 +214,13 @@ or dialog:
       xmlns:html="http://www.w3.org/1999/xhtml"
       xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"/>
 
+.. note::
+
+  The replacements listed here might work in subtly different ways. Check your functionality!
+
+Using Custom Elements
+---------------------
+
 Some widgets are now implemented as `custom elements`__ and may need some extra work.
 
 For the most common example, the editable menulist is now a custom element, and it needs some
@@ -250,9 +257,36 @@ An editable menulist can also be created via JavaScript:
 
 __ https://developer.mozilla.org/en-US/docs/Web/Web_Components/Custom_Elements
 
-.. note::
+``<dialog>`` Events
+-------------------
 
-  The replacements listed here might work in subtly different ways. Check your functionality!
+Previously, if you had a ``<dialog>`` and you wanted to respond to the buttons being pressed,
+you'd have something like this:
+
+.. code-block:: xml
+
+  <dialog buttons="accept,cancel"
+          ondialogaccept="return onAccept();">
+    <!-- dialog contents -->
+  </dialog>
+
+The event handler would return true if the dialog should close, or false to prevent closing.
+
+This no longer works. Instead, add the event handlers in javascript:
+
+.. code-block:: javascript
+
+  document.addEventListener("dialogaccept", function(event) {
+    event.preventDefault(); // Prevent the dialog closing.
+  });
+
+No return value is needed.
+
+``<wizard>`` Events
+-------------------
+
+The section about ``<dialog>`` events also applies to all ``onwizard…`` events on ``<wizard>``,
+and ``page…`` events on ``<wizardpage>``.
 
 XBL
 ---
