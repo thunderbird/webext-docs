@@ -248,7 +248,7 @@ object
 - [``linkText``] (string) If the element is a link, the text of that link.
 - [``linkUrl``] (string) If the element is a link, the URL it points to.
 - [``mediaType``] (string) One of 'image', 'video', or 'audio' if the context menu was activated on one of these types of elements.
-- [``pageUrl``] (string) The URL of the page where the menu item was clicked. This property is not set if the click occured in a context where there is no current page, such as in a launcher context menu.
+- [``pageUrl``] (string) The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu.
 - [``parentMenuItemId``] (integer or string) The parent ID, if any, for the item clicked.
 - [``selectedFolder``] (:ref:`accounts.MailFolder`) The selected folder, if the context menu was opened in the folder pane.
 - [``selectedMessages``] (:ref:`messages.MessageList`) The selected messages, if the context menu was opened in the message list.
