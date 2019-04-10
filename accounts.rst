@@ -6,7 +6,7 @@ The accounts API first appeared in Thunderbird 66 (see `bug 1488176`__).
 The folder-handling functions were added in Thunderbird 68 (see `bug 1531591`__).
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1531951
+__ https://bugzilla.mozilla.org/show_bug.cgi?id=1531591
 
 Permissions
 ===========
