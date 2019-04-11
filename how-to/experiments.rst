@@ -183,4 +183,6 @@ Getting your API added to Thunderbird
 If you think your API would be useful to other extensions, consider having it added to Thunderbird.
 `File a bug that blocks bug 1396172`__ and add your schema and implementation files as attachments.
 
+If you want to upload your extension on ATN then you'll need to get approval from the maildev@lists.thunderbird.net
+
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API&blocked=1396172
