@@ -3,6 +3,7 @@ contacts
 ========
 
 The address books API, also including the :doc:`addressBooks` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
+The quickSearch function was added in Thunderbird 68.
 
 The `Address Books`__ sample extension uses this API.
 
@@ -23,6 +24,20 @@ list(parentId)
 Gets all the contacts in the address book with the id ``parentId``.
 
 - ``parentId`` (string)
+
+Returns a `Promise`_ fulfilled with:
+
+- array of :ref:`contacts.ContactNode`
+
+.. _contacts.quickSearch:
+
+quickSearch([parentId], searchString)
+-------------------------------------
+
+Gets all contacts matching ``searchString`` in the address book with the id ``parentId``.
+
+- [``parentId``] (string) The ID of the address book to search. If not specified, all address books are searched.
+- ``searchString`` (string) One or more space-separated terms to search for.
 
 Returns a `Promise`_ fulfilled with:
 

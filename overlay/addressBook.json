@@ -39,6 +39,15 @@
         }
       },
       {
+        "name": "quickSearch",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "ContactNode"
+          }
+        }
+      },
+      {
         "name": "get",
         "returns": {
           "$ref": "ContactNode"

@@ -3,8 +3,10 @@ messages
 ========
 
 The messages API first appeared in Thunderbird 66 (see `bug 1488176`__).
+The archive function was added in Thunderbird 68 (see `bug 1529785`__).
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
+__ https://bugzilla.mozilla.org/show_bug.cgi?id=1529785
 
 .. note::
 
@@ -132,6 +134,19 @@ Deletes messages, or moves them to the trash folder.
 .. note::
 
   The permission ``messagesMove`` is required to use ``delete``.
+
+.. _messages.archive:
+
+archive(messageIds)
+-------------------
+
+Archives messages using the current settings.
+
+- ``messageIds`` (array of integer) The IDs of the messages to archive.
+
+.. note::
+
+  The permission ``messagesMove`` is required to use ``archive``.
 
 .. _messages.listTags:
 
