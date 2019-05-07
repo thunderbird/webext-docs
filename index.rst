@@ -36,6 +36,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   compose
   composeAction
   contacts
+  folders
   legacy
   mailingLists
   mailTabs
