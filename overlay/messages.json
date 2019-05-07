@@ -79,7 +79,7 @@
             }
           },
           "folder": {
-            "$ref": "accounts.MailFolder"
+            "$ref": "folders.MailFolder"
           },
           "tags": {
             "type": "array",

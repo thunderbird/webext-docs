@@ -34,7 +34,7 @@ list(folder)
 
 Gets all messages in a folder.
 
-- ``folder`` (:ref:`accounts.MailFolder`)
+- ``folder`` (:ref:`folders.MailFolder`)
 
 Returns a `Promise`_ fulfilled with:
 
@@ -101,7 +101,7 @@ move(messageIds, destination)
 Moves messages to a specified folder.
 
 - ``messageIds`` (array of integer) The IDs of the messages to move.
-- ``destination`` (:ref:`accounts.MailFolder`) The folder to move the messages to.
+- ``destination`` (:ref:`folders.MailFolder`) The folder to move the messages to.
 
 .. note::
 
@@ -115,7 +115,7 @@ copy(messageIds, destination)
 Copies messages to a specified folder.
 
 - ``messageIds`` (array of integer) The IDs of the messages to copy.
-- ``destination`` (:ref:`accounts.MailFolder`) The folder to copy the messages to.
+- ``destination`` (:ref:`folders.MailFolder`) The folder to copy the messages to.
 
 .. note::
 
@@ -176,7 +176,7 @@ object
 - ``ccList`` (array of string)
 - ``date`` (date)
 - ``flagged`` (boolean)
-- ``folder`` (:ref:`accounts.MailFolder`)
+- ``folder`` (:ref:`folders.MailFolder`)
 - ``id`` (integer)
 - ``read`` (boolean)
 - ``recipients`` (array of string)

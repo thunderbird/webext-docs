@@ -22,7 +22,7 @@
             "type": "array",
             "description": "The folders for this account.",
             "items": {
-              "$ref": "MailFolder"
+              "$ref": "folders.MailFolder"
             }
           }
         }

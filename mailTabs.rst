@@ -38,7 +38,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
 - [``tabId``] (integer) Defaults to the active tab of the current window.
 - ``updateProperties`` (object)
 
-  - [``displayedFolder``] (:ref:`accounts.MailFolder`) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
+  - [``displayedFolder``] (:ref:`folders.MailFolder`) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
   - [``folderPaneVisible``] (boolean) Shows or hides the folder pane.
   - [``layout``] (`string <enum_layout_9_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
   - [``messagePaneVisible``] (boolean) Shows or hides the message display pane.
