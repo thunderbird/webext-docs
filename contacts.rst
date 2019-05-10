@@ -58,12 +58,13 @@ Returns a `Promise`_ fulfilled with:
 
 .. _contacts.create:
 
-create(parentId, properties)
-----------------------------
+create(parentId, [id], properties)
+----------------------------------
 
 Adds a new contact to the address book with the id ``parentId``.
 
 - ``parentId`` (string)
+- [``id``] (string) Assigns the contact an id. If an existing contact has this id, an exception is thrown.
 - ``properties`` (:ref:`contacts.ContactProperties`)
 
 Returns a `Promise`_ fulfilled with:
