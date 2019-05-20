@@ -111,8 +111,9 @@ Sets the Quick Filter user interface based on the options specified.
 
   - [``attachment``] (boolean) Shows only messages with attachments.
   - [``contact``] (boolean) Shows only messages from people in the address book.
+  - [``flagged``] (boolean) Shows only flagged messages.
   - [``show``] (boolean) Shows or hides the Quick Filter bar.
-  - [``starred``] (boolean) Shows only starred messages.
+  - [``starred``] (boolean) **Deprecated.** Use ``flagged`` instead.
   - [``tags``] (boolean or :ref:`mailTabs.QuickFilterTagsDetail`) Shows only messages with tags on them.
   - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
   - [``unread``] (boolean) Shows only unread messages.
@@ -158,13 +159,13 @@ object
 - ``displayedFolder`` (accounts.MailFolder)
 - ``folderPaneVisible`` (boolean)
 - ``id`` (integer)
-- ``layout`` (`string <enum_layout_28_>`_)
+- ``layout`` (`string <enum_layout_29_>`_)
 - ``messagePaneVisible`` (boolean)
-- ``sortOrder`` (`string <enum_sortOrder_30_>`_)
-- ``sortType`` (`string <enum_sortType_31_>`_)
+- ``sortOrder`` (`string <enum_sortOrder_31_>`_)
+- ``sortType`` (`string <enum_sortType_32_>`_)
 - ``windowId`` (integer)
 
-.. _enum_layout_28:
+.. _enum_layout_29:
 
 Values for layout:
 
@@ -172,7 +173,7 @@ Values for layout:
 - ``wide``
 - ``vertical``
 
-.. _enum_sortOrder_30:
+.. _enum_sortOrder_31:
 
 Values for sortOrder:
 
@@ -180,7 +181,7 @@ Values for sortOrder:
 - ``ascending``
 - ``descending``
 
-.. _enum_sortType_31:
+.. _enum_sortType_32:
 
 Values for sortType:
 
@@ -212,10 +213,10 @@ QuickFilterTagsDetail
 
 object
 
-- ``mode`` (`string <enum_mode_33_>`_) Whether all of the tag filters must apply, or any of them.
+- ``mode`` (`string <enum_mode_34_>`_) Whether all of the tag filters must apply, or any of them.
 - ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
 
-.. _enum_mode_33:
+.. _enum_mode_34:
 
 Values for mode:
 
@@ -229,8 +230,9 @@ QuickFilterTextDetail
 
 object
 
-- ``text`` (string) String to match against the ``recipients``, ``sender``, ``subject``, or ``body``.
+- ``text`` (string) String to match against the ``recipients``, ``author``, ``subject``, or ``body``.
+- [``author``] (boolean) Shows messages where ``text`` matches the author.
 - [``body``] (boolean) Shows messages where ``text`` matches the message body.
 - [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
-- [``sender``] (boolean) Shows messages where ``text`` matches the sender.
+- [``sender``] (boolean) **Deprecated.** Use ``author`` instead.
 - [``subject``] (boolean) Shows messages where ``text`` matches the subject.

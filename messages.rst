@@ -84,12 +84,12 @@ Returns a `Promise`_ fulfilled with:
 update(messageId, newProperties)
 --------------------------------
 
-Marks or unmarks a message as read, starred, or tagged.
+Marks or unmarks a message as read, flagged, or tagged.
 
 - ``messageId`` (integer)
 - ``newProperties`` (object)
 
-  - [``flagged``] (boolean) Marks the message as starred or unstarred.
+  - [``flagged``] (boolean) Marks the message as flagged or unflagged.
   - [``read``] (boolean) Marks the message as read or unread.
   - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
 
