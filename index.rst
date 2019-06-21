@@ -20,7 +20,7 @@ __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schem
 
 .. note::
 
-  Until Thunderbird 68 is released there may be minor changes to these APIs.
+  Until Thunderbird 68 is released there may still be minor changes to these APIs.
   For any problems or feature requests please `file a bug`__.
 
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
