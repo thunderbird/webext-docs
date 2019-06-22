@@ -64,5 +64,4 @@ How To
   :maxdepth: 1
 
   how-to/experiments
-  how-to/extensions68
   how-to/messageLists
