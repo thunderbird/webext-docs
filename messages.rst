@@ -2,17 +2,18 @@
 messages
 ========
 
-The messages API first appeared in Thunderbird 66 (see `bug 1488176`__).
-The archive function was added in Thunderbird 68 (see `bug 1529785`__).
-
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1529785
+The messages API first appeared in Thunderbird 66.
 
 .. note::
 
   When the term ``messageId`` is used in these documents, it *doesn't* refer to the Message-ID
   email header. It is an internal tracking number that does not remain after a restart. Nor does
   it follow an email that has been moved to a different folder.
+
+.. warning::
+
+  Some functions in this API potentially return *a lot* of messages. Be careful what you wish for!
+  See :doc:`how-to/messageLists` for more information.
 
 Permissions
 ===========
@@ -79,6 +80,33 @@ Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessagePart`
 
+.. _messages.query:
+
+query(queryInfo)
+----------------
+
+*Added in Thunderbird 69*
+
+Gets all messages that have the specified properties, or all messages if no properties are specified.
+
+- ``queryInfo`` (object)
+
+  - [``author``] (string) Returns only messages with this value matching the author.
+  - [``body``] (string) Returns only messages with this value in the body of the mail.
+  - [``flagged``] (boolean) Returns only flagged (or unflagged if false) messages.
+  - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder.
+  - [``fromDate``] (`Date <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/Date>`_) Returns only messages with a date after this value.
+  - [``fromMe``] (boolean) Returns only messages with the author matching any configured identity.
+  - [``fullText``] (string) Returns only messages with this value somewhere in the mail (subject, body or author).
+  - [``recipients``] (string) Returns only messages with this value matching one or more recipients.
+  - [``subject``] (string) Returns only messages with this value matching the subject.
+  - [``toDate``] (`Date <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/Date>`_) Returns only messages with a date before this value.
+  - [``toMe``] (boolean) Returns only messages with one or more recipients matching any configured identity.
+
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`messages.MessageList`
+
 .. _messages.update:
 
 update(messageId, newProperties)
@@ -139,6 +167,8 @@ Deletes messages, or moves them to the trash folder.
 
 archive(messageIds)
 -------------------
+
+*Added in Thunderbird 68*
 
 Archives messages using the current settings.
 

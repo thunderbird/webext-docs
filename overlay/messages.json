@@ -27,6 +27,17 @@
         }
       },
       {
+        "name": "query",
+        "added": "69",
+        "returns": {
+          "$ref": "MessageList"
+        }
+      },
+      {
+        "name": "archive",
+        "added": "68"
+      },
+      {
         "name": "listTags",
         "returns": {
           "type": "array",
