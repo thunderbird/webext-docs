@@ -20,9 +20,12 @@ __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schem
 
 .. note::
 
-  Until Thunderbird 68 is released there may still be minor changes to these APIs.
+  This documentation is for Thunderbird 68. See the `"latest" version`__ for pre-release versions
+  of Thunderbird.
+
   For any problems or feature requests please `file a bug`__.
 
+__ https://thunderbird-webextensions.readthedocs.io/en/latest/
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
 .. toctree::
