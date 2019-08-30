@@ -28,6 +28,10 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
   - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
   - [``windowId``] (integer) The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
 
+Returns a `Promise`_ fulfilled with:
+
+- array of :ref:`mailTabs.MailTab`
+
 .. _mailTabs.update:
 
 update([tabId], updateProperties)

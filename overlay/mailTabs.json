@@ -3,18 +3,12 @@
     "namespace": "mailTabs",
     "functions": [
       {
-        "name": "getAll",
+        "name": "query",
         "returns": {
           "type": "array",
           "items": {
             "$ref": "MailTab"
           }
-        }
-      },
-      {
-        "name": "getActive",
-        "returns": {
-          "$ref": "MailTab"
         }
       },
       {
