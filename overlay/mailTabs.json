@@ -94,7 +94,7 @@
             "type": "boolean"
           },
           "displayedFolder": {
-            "type": "accounts.MailFolder"
+            "$ref": "folders.MailFolder"
           }
         }
       }

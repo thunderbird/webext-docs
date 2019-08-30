@@ -160,7 +160,7 @@ MailTab
 object
 
 - ``active`` (boolean)
-- ``displayedFolder`` (accounts.MailFolder)
+- ``displayedFolder`` (:ref:`folders.MailFolder`)
 - ``folderPaneVisible`` (boolean)
 - ``id`` (integer)
 - ``layout`` (`string <enum_layout_29_>`_)
