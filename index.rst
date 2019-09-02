@@ -41,6 +41,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   mailingLists
   mailTabs
   menus
+  messageDisplay
   messages
   tabs
   windows

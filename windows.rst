@@ -264,3 +264,6 @@ Values for WindowType:
 - ``panel``
 - ``app``
 - ``devtools``
+- ``addressBook``
+- ``messageCompose``
+- ``messageDisplay``

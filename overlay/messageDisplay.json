@@ -1,0 +1,13 @@
+[
+  {
+    "namespace": "messageDisplay",
+    "functions": [
+      {
+        "name": "getDisplayedMessage",
+        "returns": {
+          "$ref": "messages.MessageHeader"
+        }
+      }
+    ]
+  }
+]
