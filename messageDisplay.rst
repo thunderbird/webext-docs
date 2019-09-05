@@ -9,7 +9,7 @@ All are referenced by ``tabId`` in this API. Display windows are considered to h
 tab, which has limited functionality compared to tabs from the main window.
 
 More functions are planned for this API for adding to the user interface, as well as a message
-display action (similar to :ref:`browserAction` and :ref:`composeAction`).
+display action (similar to :doc:`browserAction` and :doc:`composeAction`).
 
 .. note::
 
