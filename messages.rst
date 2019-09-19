@@ -102,6 +102,7 @@ Gets all messages that have the specified properties, or all messages if no prop
   - [``subject``] (string) Returns only messages with this value matching the subject.
   - [``toDate``] (`Date <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/Date>`_) Returns only messages with a date before this value.
   - [``toMe``] (boolean) Returns only messages with one or more recipients matching any configured identity.
+  - [``unread``] (boolean) Returns only unread (or read if false) messages.
 
 Returns a `Promise`_ fulfilled with:
 
