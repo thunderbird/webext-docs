@@ -154,7 +154,7 @@ Using folder and message types
 ------------------------------
 
 The built-in schema define some common objects that you may wish to return, namely
-:ref:`MailFolder <accounts.MailFolder>`, :ref:`MessageHeader <messages.MessageHeader>`,
+:ref:`MailFolder <folders.MailFolder>`, :ref:`MessageHeader <messages.MessageHeader>`,
 and :ref:`MessageList <messages.MessageList>`.
 
 To use these types, interact with the ``folderManager`` or ``messageManager`` objects which are
