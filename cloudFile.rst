@@ -19,9 +19,17 @@ Manifest file properties
 
   - ``management_url`` (string) A page for configuring accounts, to be displayed in the preferences UI.
   - ``name`` (string) Name of the cloud file service.
+  - [``data_format``] (`string <enum_data_format_3_>`_) Determines the format of the ``data`` argument in ``onFileUpload``. *Added in Thunderbird 71*
   - [``new_account_url``] (string) **Deprecated.** This property was never used.
   - [``service_url``] (string) URL to the web page of the cloud file service.
   - [``settings_url``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
+
+.. _enum_data_format_3:
+
+Values for data_format:
+
+- ``ArrayBuffer``
+- ``File``
 
 .. note::
 
@@ -145,7 +153,7 @@ Information about a cloud file
 
 object
 
-- ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_) Contents of the file to be transferred
+- ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_ or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
 - ``id`` (integer) An identifier for this file
 - ``name`` (string) Filename of the file to be transferred
 
