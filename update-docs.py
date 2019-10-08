@@ -262,6 +262,10 @@ def format_namespace(namespace, manifest_namespace=None):
             ))
             enum_lines = []
 
+            if "added" in function:
+                lines.append("*Added in Thunderbird %s*" % function["added"])
+                lines.append("")
+
             if "description" in function:
                 lines.append(replace_code(function["description"]))
                 lines.append("")
@@ -302,6 +306,10 @@ def format_namespace(namespace, manifest_namespace=None):
                 "%s(%s)" % (event["name"], format_params(event)),
                 label="%s.%s" % (current_namespace_name, event["name"]),
             ))
+
+            if "added" in event:
+                lines.append("*Added in Thunderbird %s*" % event["added"])
+                lines.append("")
 
             if "description" in event:
                 lines.append(replace_code(event["description"]))
