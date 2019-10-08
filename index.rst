@@ -49,6 +49,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   mailTabs
   menus
   messageDisplay
+  messageDisplayAction
   messages
   tabs
   windows
