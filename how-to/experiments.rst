@@ -177,6 +177,15 @@ members of the ``context.extension`` object passed to ``getAPI``:
   // Start a MessageList from an array or enumerator of nsIMsgDBHdr:
   context.extension.messageManager.startMessageList(realFolder.messages);
 
+Experiment API Generator
+========================
+
+Try the `Experiment Generator`__ to quickly get started making a WebExtension experiment. It
+doesn't cover all the possibilities, but should be useful for most use-cases or learning how
+things work.
+
+__ https://darktrojan.github.io/generator/generator.html
+
 Getting your API added to Thunderbird
 =====================================
 
