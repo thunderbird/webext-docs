@@ -27,6 +27,10 @@ Gets the currently displayed message in the specified tab, or null if no message
 
 - ``tabId`` (integer)
 
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`messages.MessageHeader`
+
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events

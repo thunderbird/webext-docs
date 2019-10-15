@@ -29,7 +29,10 @@
       {
         "name": "query",
         "added": "69",
-        "backported": "68.2"
+        "backported": "68.2",
+        "returns": {
+          "$ref": "MessageList"
+        }
       },
       {
         "name": "listTags",

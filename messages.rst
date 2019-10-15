@@ -106,6 +106,10 @@ Gets all messages that have the specified properties, or all messages if no prop
   - [``toMe``] (boolean) Returns only messages with one or more recipients matching any configured identity.
   - [``unread``] (boolean) Returns only unread (or read if false) messages.
 
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`messages.MessageList`
+
 .. _messages.update:
 
 update(messageId, newProperties)
