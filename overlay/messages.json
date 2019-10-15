@@ -27,6 +27,11 @@
         }
       },
       {
+        "name": "query",
+        "added": "69",
+        "backported": "68.2"
+      },
+      {
         "name": "listTags",
         "returns": {
           "type": "array",
