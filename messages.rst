@@ -87,6 +87,8 @@ query(queryInfo)
 
 *Added in Thunderbird 69*
 
+*Backported to Thunderbird 68.2*
+
 Gets all messages that have the specified properties, or all messages if no properties are specified.
 
 - ``queryInfo`` (object)
@@ -168,8 +170,6 @@ Deletes messages, or moves them to the trash folder.
 
 archive(messageIds)
 -------------------
-
-*Added in Thunderbird 68*
 
 Archives messages using the current settings.
 
