@@ -266,6 +266,10 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("*Added in Thunderbird %s*" % function["added"])
                 lines.append("")
 
+            if "backported" in function:
+                lines.append("*Backported to Thunderbird %s*" % function["backported"])
+                lines.append("")
+
             if "description" in function:
                 lines.append(replace_code(function["description"]))
                 lines.append("")
