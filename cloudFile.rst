@@ -5,6 +5,10 @@ cloudFile
 The cloudFile (a.k.a. fileLink) API first appeared in Thunderbird 64, and was uplifted to
 Thunderbird 60.4 ESR.
 
+From Thunderbird 68.2.1 (Thunderbird 71 beta), an extension can choose to receive data for upload
+as a ``File`` object rather than as an ``ArrayBuffer``. You **should** specify which you want as
+the default may change in a future version.
+
 The `DropBox Uploader`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/dropbox
@@ -16,10 +20,9 @@ Manifest file properties
 
   - ``management_url`` (string) A page for configuring accounts, to be displayed in the preferences UI.
   - ``name`` (string) Name of the cloud file service.
-  - [``data_format``] (`string <enum_data_format_3_>`_) Determines the format of the ``data`` argument in ``onFileUpload``. *Added in Thunderbird 71*
+  - [``data_format``] (`string <enum_data_format_3_>`_) Determines the format of the ``data`` argument in ``onFileUpload``. *Added in Thunderbird 71, backported to 68.2.1*
   - [``new_account_url``] (string) **Deprecated.** This property was never used.
   - [``service_url``] (string) URL to the web page of the cloud file service.
-  - [``settings_url``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
 
 .. _enum_data_format_3:
 
@@ -71,7 +74,6 @@ Update a cloud file account
 
   - [``configured``] (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
   - [``managementUrl``] (string) A page for configuring accounts, to be displayed in the preferences UI.
-  - [``settingsUrl``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
   - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
   - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
@@ -167,7 +169,6 @@ object
 - ``id`` (string) Unique identifier of the account
 - ``managementUrl`` (string) A page for configuring accounts, to be displayed in the preferences UI.
 - ``name`` (string) A user-friendly name for this account.
-- [``settingsUrl``] (string) **Deprecated.** A page for configuring accounts, this is obsolete after Thunderbird 60.
 - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
 - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
