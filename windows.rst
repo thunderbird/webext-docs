@@ -4,10 +4,9 @@ windows
 
 .. note::
 
-  These APIs are currently only regarding Thunderbird main windows which can contain webpage tabs.
-  Other window types like composer or address books are currently not listed, but may be added in
-  the future. If these are added in the future, they will not be able to contain webpage tabs, so
-  please let your code expect that case, even if it's not the case today.
+  These APIs are for the main Thunderbird windows which can contain webpage tabs and also other
+  window types like composer or address books that cannot contain webpage tabs.  Make sure your
+  code interacts with windows appropriately, depending on their type.
 
 Use the ``browser.windows`` API to interact with Thunderbird. You can use this API to create, modify, and rearrange windows.
 
