@@ -27,6 +27,13 @@
         }
       },
       {
+        "name": "getRaw",
+        "added": "72",
+        "returns": {
+          "$ref": "MessageList"
+        }
+      },
+      {
         "name": "query",
         "added": "69",
         "backported": "68.2",
