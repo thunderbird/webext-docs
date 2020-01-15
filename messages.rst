@@ -136,6 +136,7 @@ Marks or unmarks a message as read, flagged, or tagged.
 - ``newProperties`` (object)
 
   - [``flagged``] (boolean) Marks the message as flagged or unflagged.
+  - [``junk``] (boolean) Marks the message as junk or not junk. *Added in Thunderbird 73*
   - [``read``] (boolean) Marks the message as read or unread.
   - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
 
