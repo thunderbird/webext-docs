@@ -242,7 +242,7 @@ object
 - ``modifiers`` (array of `string <enum_modifiers_50_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
 - [``button``] (integer) An integer value of button by which menu item was clicked.
 - [``checked``] (boolean) A flag indicating the state of a checkbox or radio item after it is clicked.
-- [``displayedFolder``] (:ref:`folders.MailFolder`) The displayed folder, if the context menu was opened in the message list.
+- [``displayedFolder``] (:ref:`folders.MailFolder`) The displayed folder, if the context menu was opened in the message list. The ``accountsRead`` permission is required.
 - [``frameId``] (integer) The id of the frame of the element where the context menu was clicked.
 - [``frameUrl``] (string)  The URL of the frame of the element where the context menu was clicked, if it was in a frame.
 - [``linkText``] (string) If the element is a link, the text of that link.
@@ -250,8 +250,8 @@ object
 - [``mediaType``] (string) One of 'image', 'video', or 'audio' if the context menu was activated on one of these types of elements.
 - [``pageUrl``] (string) The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu.
 - [``parentMenuItemId``] (integer or string) The parent ID, if any, for the item clicked.
-- [``selectedFolder``] (:ref:`folders.MailFolder`) The selected folder, if the context menu was opened in the folder pane.
-- [``selectedMessages``] (:ref:`messages.MessageList`) The selected messages, if the context menu was opened in the message list.
+- [``selectedFolder``] (:ref:`folders.MailFolder`) The selected folder, if the context menu was opened in the folder pane. The ``accountsRead`` permission is required.
+- [``selectedMessages``] (:ref:`messages.MessageList`) The selected messages, if the context menu was opened in the message list. The ``messagesRead`` permission is required.
 - [``selectionText``] (string) The text for the context selection, if any.
 - [``srcUrl``] (string) Will be present for elements with a 'src' URL.
 - [``targetElementId``] (integer) An identifier of the clicked element, if any. Use menus.getTargetElement in the page to find the corresponding element.
