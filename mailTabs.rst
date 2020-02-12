@@ -117,7 +117,7 @@ Sets the Quick Filter user interface based on the options specified.
   - [``contact``] (boolean) Shows only messages from people in the address book.
   - [``flagged``] (boolean) Shows only flagged messages.
   - [``show``] (boolean) Shows or hides the Quick Filter bar.
-  - [``tags``] (boolean or :ref:`mailTabs.QuickFilterTagsDetail`) Shows only messages with tags on them.
+  - [``tags``] (boolean or :ref:`messages.TagsDetail`) Shows only messages with tags on them.
   - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
   - [``unread``] (boolean) Shows only unread messages.
 
@@ -208,23 +208,6 @@ Values for sortType:
 - ``custom``
 - ``received``
 - ``correspondent``
-
-.. _mailTabs.QuickFilterTagsDetail:
-
-QuickFilterTagsDetail
----------------------
-
-object
-
-- ``mode`` (`string <enum_mode_33_>`_) Whether all of the tag filters must apply, or any of them.
-- ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
-
-.. _enum_mode_33:
-
-Values for mode:
-
-- ``all``
-- ``any``
 
 .. _mailTabs.QuickFilterTextDetail:
 

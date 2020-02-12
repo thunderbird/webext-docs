@@ -6,6 +6,11 @@ This message composition window API first appeared in Thunderbird 67 (see `bug 1
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
 
+Permissions
+===========
+
+- compose "Read and modify your email messages as you compose and send them"
+
 Functions
 =========
 
@@ -14,7 +19,7 @@ Functions
 beginNew([details])
 -------------------
 
-- [``details``] (:ref:`compose.ComposeParams`)
+- [``details``] (:ref:`compose.ComposeDetails`)
 
 .. _compose.beginReply:
 
@@ -39,7 +44,7 @@ beginForward(messageId, [forwardType], [details])
 
 - ``messageId`` (integer) The message to forward, as retrieved using other APIs.
 - [``forwardType``] (`string <enum_forwardType_5_>`_)
-- [``details``] (:ref:`compose.ComposeParams`)
+- [``details``] (:ref:`compose.ComposeDetails`)
 
 .. _enum_forwardType_5:
 
@@ -48,24 +53,78 @@ Values for forwardType:
 - ``forwardInline``
 - ``forwardAsAttachment``
 
+.. _compose.getComposeDetails:
+
+getComposeDetails(tabId)
+------------------------
+
+Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.
+
+- ``tabId`` (integer)
+
+.. note::
+
+  The permission ``compose`` is required to use ``getComposeDetails``.
+
+.. _compose.setComposeDetails:
+
+setComposeDetails(tabId, details)
+---------------------------------
+
+Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented.
+
+- ``tabId`` (integer)
+- ``details`` (:ref:`compose.ComposeDetails`)
+
+.. note::
+
+  The permission ``compose`` is required to use ``setComposeDetails``.
+
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+Events
+======
+
+.. _compose.onBeforeSend:
+
+onBeforeSend(details)
+---------------------
+
+Fired when a message is about to be sent from the compose window.
+
+- ``details`` (:ref:`compose.ComposeDetails`) The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
+
+Event listeners should return:
+
+- object
+
+  - [``cancel``] (boolean) Cancels the send.
+  - [``details``] (:ref:`compose.ComposeDetails`) Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
+
+.. note::
+
+  The permission ``compose`` is required to use ``onBeforeSend``.
 
 Types
 =====
 
-.. _compose.ComposeParams:
+.. _compose.ComposeDetails:
 
-ComposeParams
--------------
+ComposeDetails
+--------------
+
+Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.
 
 object
 
-- [``bcc``] (array of :ref:`compose.ComposeRecipient`)
+- [``bcc``] (:ref:`compose.ComposeRecipientList`)
 - [``body``] (string)
-- [``cc``] (array of :ref:`compose.ComposeRecipient`)
-- [``replyTo``] (string)
+- [``cc``] (:ref:`compose.ComposeRecipientList`)
+- [``followupTo``] (:ref:`compose.ComposeRecipientList`)
+- [``newsgroups``] (string or array of string)
+- [``replyTo``] (:ref:`compose.ComposeRecipientList`)
 - [``subject``] (string)
-- [``to``] (array of :ref:`compose.ComposeRecipient`)
+- [``to``] (:ref:`compose.ComposeRecipientList`)
 
 .. _compose.ComposeRecipient:
 
@@ -79,11 +138,22 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_14_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_21_>`_) Which sort of object this ID is for.
 
-.. _enum_type_14:
+.. _enum_type_21:
 
 Values for type:
 
 - ``contact``
 - ``mailingList``
+
+.. _compose.ComposeRecipientList:
+
+ComposeRecipientList
+--------------------
+
+string: A name and email address in the format "Name <email@example.com>", or just an email address.
+
+OR
+
+array of :ref:`compose.ComposeRecipient`: 

@@ -1,0 +1,4 @@
+_build
+chrome_settings_overrides.rst
+conf.py
+overlay/*.rst
