@@ -112,13 +112,13 @@ Gets all messages that have the specified properties, or all messages if no prop
   - [``body``] (string) Returns only messages with this value in the body of the mail.
   - [``flagged``] (boolean) Returns only flagged (or unflagged if false) messages.
   - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder.
-  - [``fromDate``] (`Date <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/Date>`_) Returns only messages with a date after this value.
+  - [``fromDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date after this value.
   - [``fromMe``] (boolean) Returns only messages with the author matching any configured identity.
   - [``fullText``] (string) Returns only messages with this value somewhere in the mail (subject, body or author).
   - [``recipients``] (string) Returns only messages with this value matching one or more recipients.
   - [``subject``] (string) Returns only messages with this value matching the subject.
   - [``tags``] (:ref:`messages.TagsDetail`) Returns only messages with the specified tags. For a list of available tags, call the listTags method. Querying for messages that must *not* have a tag does not work. *Added in Thunderbird 74*
-  - [``toDate``] (`Date <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/Date>`_) Returns only messages with a date before this value.
+  - [``toDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date before this value.
   - [``toMe``] (boolean) Returns only messages with one or more recipients matching any configured identity.
   - [``unread``] (boolean) Returns only unread (or read if false) messages.
 

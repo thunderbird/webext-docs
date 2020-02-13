@@ -73,6 +73,8 @@ def get_type(obj, name):
 
 
 def link_ref(ref):
+    if ref == "extensionTypes.Date":
+        return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_"
     for moz_namespace in ["extension.", "extensionTypes."]:
         if ref.startswith(moz_namespace):
             name = ref[len(moz_namespace):]
