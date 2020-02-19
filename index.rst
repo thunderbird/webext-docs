@@ -74,3 +74,16 @@ How To
 
   how-to/experiments
   how-to/messageLists
+
+Where To Get Help
+=================
+
+- `developer.thunderbird.net`__ for information about building Thunderbird, and creating extensions.
+- `Add-ons message board`__ for Thunderbird add-on developers to ask questions and share knowledge.
+- `Bugzilla`__ for bug reports and feature requests.
+- `developer.mozilla.org`__ for Firefox WebExtensions, on which Thunderbird's are based.
+
+__ https://developer.thunderbird.net/
+__ https://thunderbird.topicbox.com/groups/addons
+__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
