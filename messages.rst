@@ -102,6 +102,7 @@ Gets all messages that have the specified properties, or all messages if no prop
   - [``fullText``] (string) Returns only messages with this value somewhere in the mail (subject, body or author).
   - [``recipients``] (string) Returns only messages with this value matching one or more recipients.
   - [``subject``] (string) Returns only messages with this value matching the subject.
+  - [``tags``] (:ref:`messages.TagsDetail`) Returns only messages with the specified tags. For a list of available tags, call the listTags method. Querying for messages that must *not* have a tag does not work. *Added in Thunderbird 68.5.0*
   - [``toDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date before this value.
   - [``toMe``] (boolean) Returns only messages with one or more recipients matching any configured identity.
   - [``unread``] (boolean) Returns only unread (or read if false) messages.
@@ -254,3 +255,22 @@ object
 - ``key`` (string) Distinct tag identifier – use this string when referring to a tag
 - ``ordinal`` (string) Custom sort string (usually empty)
 - ``tag`` (string) Human-readable tag name
+
+.. _messages.TagsDetail:
+
+TagsDetail
+----------
+
+Used for filtering messages by tag in various methods. Note that functions using this type may have a partial implementation.
+
+object
+
+- ``mode`` (`string <enum_mode_55_>`_) Whether all of the tag filters must apply, or any of them.
+- ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+
+.. _enum_mode_55:
+
+Values for mode:
+
+- ``all``
+- ``any``
