@@ -1,9 +1,20 @@
 [
   {
     "namespace": "compose",
+    "functions": [
+      {
+        "name": "getComposeDetails",
+        "added": "74"
+      },
+      {
+        "name": "setComposeDetails",
+        "added": "74"
+      }
+    ],
     "events": [
       {
         "name": "onBeforeSend",
+        "added": "74",
         "parameters": [
           {
             "name": "tab",

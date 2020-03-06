@@ -1,0 +1,15 @@
+[
+  {
+    "namespace": "folders",
+    "types": [
+      {
+        "id": "MailFolder",
+        "properties": {
+          "subFolders": {
+            "added": "74"
+          }
+        }
+      }
+    ]
+  }
+]

@@ -58,6 +58,8 @@ Values for forwardType:
 getComposeDetails(tabId)
 ------------------------
 
+*Added in Thunderbird 74*
+
 Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.
 
 - ``tabId`` (integer)
@@ -70,6 +72,8 @@ Fetches the current state of a compose window. Currently only a limited amount o
 
 setComposeDetails(tabId, details)
 ---------------------------------
+
+*Added in Thunderbird 74*
 
 Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented.
 
@@ -89,6 +93,8 @@ Events
 
 onBeforeSend(tab, details)
 --------------------------
+
+*Added in Thunderbird 74*
 
 Fired when a message is about to be sent from the compose window.
 

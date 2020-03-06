@@ -65,7 +65,7 @@ object
 - ``accountId`` (string) The account this folder belongs to.
 - ``path`` (string) Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
 - [``name``] (string) The human-friendly name of this folder.
-- [``subFolders``] (array of :ref:`folders.MailFolder`)
+- [``subFolders``] (array of :ref:`folders.MailFolder`) *Added in Thunderbird 74*
 - [``type``] (`string <enum_type_10_>`_) The type of folder, for several common types.
 
 .. _enum_type_10:
