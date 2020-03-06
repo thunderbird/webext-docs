@@ -165,7 +165,7 @@ def format_object(name, obj):
 
 def format_params(function, callback=None):
     params = []
-    for param in function["parameters"]:
+    for param in function.get("parameters", []):
         if param["name"] == callback:
             continue
         if param.get("optional", False):
@@ -276,7 +276,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append(replace_code(function["description"]))
                 lines.append("")
 
-            if len(function["parameters"]):
+            if len(function.get("parameters", [])):
                 for param in function["parameters"]:
                     if async == param["name"]:
                         if len(param["parameters"]) > 0:
@@ -321,7 +321,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append(replace_code(event["description"]))
                 lines.append("")
 
-            if len(event["parameters"]):
+            if len(event.get("parameters", [])):
                 for param in event["parameters"]:
                     lines.extend(format_object(param["name"], param))
                 lines.append("")
