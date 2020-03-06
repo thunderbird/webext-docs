@@ -1,6 +1,23 @@
 [
   {
     "namespace": "compose",
+    "types": [
+      {
+        "id": "ComposeRecipientList",
+        "added": "74"
+      },
+      {
+        "id": "ComposeDetails",
+        "properties": {
+          "followupTo": {
+            "added": "74"
+          },
+          "newsgroups": {
+            "added": "74"
+          }
+        }
+      }
+    ],
     "functions": [
       {
         "name": "getComposeDetails",

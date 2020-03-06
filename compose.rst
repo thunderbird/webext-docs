@@ -127,8 +127,8 @@ object
 - [``bcc``] (:ref:`compose.ComposeRecipientList`)
 - [``body``] (string)
 - [``cc``] (:ref:`compose.ComposeRecipientList`)
-- [``followupTo``] (:ref:`compose.ComposeRecipientList`)
-- [``newsgroups``] (string or array of string)
+- [``followupTo``] (:ref:`compose.ComposeRecipientList`) *Added in Thunderbird 74*
+- [``newsgroups``] (string or array of string) *Added in Thunderbird 74*
 - [``replyTo``] (:ref:`compose.ComposeRecipientList`)
 - [``subject``] (string)
 - [``to``] (:ref:`compose.ComposeRecipientList`)
@@ -158,6 +158,8 @@ Values for type:
 
 ComposeRecipientList
 --------------------
+
+*Added in Thunderbird 74*
 
 string: A name and email address in the format "Name <email@example.com>", or just an email address.
 
