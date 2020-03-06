@@ -1,0 +1,26 @@
+[
+  {
+    "namespace": "composeAction",
+    "types": [
+      {
+        "id": "OnClickData",
+        "added": "74.0b2"
+      }
+    ],
+    "events": [
+      {
+        "name": "onClicked",
+        "parameters": [
+          {
+            "name": "tab",
+            "added": "74.0b2"
+          },
+          {
+            "name": "info",
+            "added": "74.0b2"
+          }
+        ]
+      }
+    ]
+  }
+]

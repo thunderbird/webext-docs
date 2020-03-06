@@ -1,0 +1,16 @@
+[
+  {
+    "namespace": "compose",
+    "events": [
+      {
+        "name": "onBeforeSend",
+        "parameters": [
+          {
+            "name": "tab",
+            "added": "74.0b2"
+          }
+        ]
+      }
+    ]
+  }
+]

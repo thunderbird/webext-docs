@@ -87,11 +87,12 @@ Events
 
 .. _compose.onBeforeSend:
 
-onBeforeSend(details)
----------------------
+onBeforeSend(tab, details)
+--------------------------
 
 Fired when a message is about to be sent from the compose window.
 
+- ``tab`` (:ref:`tabs.Tab`) *Added in Thunderbird 74.0b2*
 - ``details`` (:ref:`compose.ComposeDetails`) The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
 
 Event listeners should return:

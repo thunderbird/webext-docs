@@ -184,10 +184,13 @@ Events
 
 .. _composeAction.onClicked:
 
-onClicked()
------------
+onClicked(tab, [info])
+----------------------
 
 Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.
+
+- ``tab`` (:ref:`tabs.Tab`) *Added in Thunderbird 74.0b2*
+- [``info``] (:ref:`composeAction.OnClickData`) *Added in Thunderbird 74.0b2*
 
 Types
 =====
@@ -219,3 +222,27 @@ ImageDataType
 Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
 
 `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
+
+.. _composeAction.OnClickData:
+
+OnClickData
+-----------
+
+*Added in Thunderbird 74.0b2*
+
+Information sent when a compose action is clicked.
+
+object
+
+- ``modifiers`` (array of `string <enum_modifiers_21_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
+- [``button``] (integer) An integer value of button by which menu item was clicked.
+
+.. _enum_modifiers_21:
+
+Values for modifiers:
+
+- ``Shift``
+- ``Alt``
+- ``Command``
+- ``Ctrl``
+- ``MacCtrl``

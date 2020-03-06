@@ -39,7 +39,17 @@
         "backported": "68.2",
         "returns": {
           "$ref": "MessageList"
-        }
+        },
+        "parameters": [
+          {
+            "name": "queryInfo",
+            "properties": {
+              "tags": {
+                "added": "74"
+              }
+            }
+          }
+        ]
       },
       {
         "name": "listTags",
@@ -49,6 +59,19 @@
             "$ref": "MessageTag"
           }
         }
+      },
+      {
+        "name": "update",
+        "parameters": [
+          {
+            "name": "newProperties",
+            "properties": {
+              "junk": {
+                "added": "73"
+              }
+            }
+          }
+        ]
       }
     ],
     "types": [
@@ -103,12 +126,14 @@
             }
           },
           "junk": {
-            "type": "boolean"
+            "type": "boolean",
+            "added": "74"
           },
           "junkScore": {
             "type": "integer",
             "minimum": 0,
-            "maximum": 100
+            "maximum": 100,
+            "added": "74"
           }
         }
       },
