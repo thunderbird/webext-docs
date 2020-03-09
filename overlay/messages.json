@@ -74,6 +74,12 @@
         ]
       }
     ],
+    "events": [
+      {
+        "name": "onNewMailReceived",
+        "added": "75"
+      }
+    ],
     "types": [
       {
         "id": "MessageHeader",

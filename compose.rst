@@ -128,7 +128,9 @@ object
 - [``body``] (string)
 - [``cc``] (:ref:`compose.ComposeRecipientList`)
 - [``followupTo``] (:ref:`compose.ComposeRecipientList`) *Added in Thunderbird 74*
+- [``isPlainText``] (boolean) *Added in Thunderbird 75*
 - [``newsgroups``] (string or array of string) *Added in Thunderbird 74*
+- [``plainTextBody``] (string) *Added in Thunderbird 75*
 - [``replyTo``] (:ref:`compose.ComposeRecipientList`)
 - [``subject``] (string)
 - [``to``] (:ref:`compose.ComposeRecipientList`)
@@ -145,9 +147,9 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_21_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_23_>`_) Which sort of object this ID is for.
 
-.. _enum_type_21:
+.. _enum_type_23:
 
 Values for type:
 

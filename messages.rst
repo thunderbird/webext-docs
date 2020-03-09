@@ -207,6 +207,25 @@ Returns a `Promise`_ fulfilled with:
 
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+Events
+======
+
+.. _messages.onNewMailReceived:
+
+onNewMailReceived(folder, messages)
+-----------------------------------
+
+*Added in Thunderbird 75*
+
+Fired when a new message is received, and has been through junk classification and message filters.
+
+- ``folder`` (:ref:`folders.MailFolder`)
+- ``messages`` (:ref:`messages.MessageList`)
+
+.. note::
+
+  The permission ``accountsRead`` is required to use ``onNewMailReceived``.
+
 Types
 =====
 
