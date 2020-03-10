@@ -16,19 +16,23 @@ unique_id = 1
 def merge_objects(a, b):
     if isinstance(a, list):
         for c in a:
-            name = c.get("namespace", c.get("name"))
-            if name is None:
+            merged = False
+            if isinstance(c, dict):
+                name = c.get("namespace", c.get("name", c.get("id", c.get("$extend"))))
+                if name is not None:
+                    for d in b:
+                        if d.get("namespace", d.get("name", d.get("id", d.get("$extend")))) == name:
+                            merge_objects(c, d)
+                            merged = True
+            if not merged:
                 b.append(c)
                 continue
-            for d in b:
-                if d.get("namespace", d.get("name")) == name:
-                    merge_objects(c, d)
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
             if e not in b:
                 b[e] = f
                 continue
-            if e not in ["namespace", "name"]:
+            if e not in ["namespace", "name", "id", "$extend"]:
                 merge_objects(f, b[e])
     else:
         print "Unexpected item:", a
@@ -87,6 +91,12 @@ def link_ref(ref):
         return ":ref:`%s.%s`" % (current_namespace_name, ref)
 
 
+def format_addition(obj):
+    if "backported" in obj:
+        return "*Added in Thunderbird %s, backported to %s*" % (obj["added"], obj["backported"])
+    return "*Added in Thunderbird %s*" % obj["added"]
+
+
 def format_member(name, value):
     parts = []
 
@@ -113,6 +123,9 @@ def format_member(name, value):
 
     if "description" in value:
         parts.append(replace_code(value["description"]))
+
+    if "added" in value:
+        parts.append(format_addition(value))
     
     return " ".join(parts)
 
@@ -265,11 +278,7 @@ def format_namespace(namespace, manifest_namespace=None):
             enum_lines = []
 
             if "added" in function:
-                lines.append("*Added in Thunderbird %s*" % function["added"])
-                lines.append("")
-
-            if "backported" in function:
-                lines.append("*Backported to Thunderbird %s*" % function["backported"])
+                lines.append(format_addition(function))
                 lines.append("")
 
             if "description" in function:
@@ -314,7 +323,7 @@ def format_namespace(namespace, manifest_namespace=None):
             ))
 
             if "added" in event:
-                lines.append("*Added in Thunderbird %s*" % event["added"])
+                lines.append(format_addition(event))
                 lines.append("")
 
             if "description" in event:
@@ -355,6 +364,10 @@ def format_namespace(namespace, manifest_namespace=None):
                 type_["id"],
                 label="%s.%s" % (current_namespace_name, type_["id"])
             ))
+
+            if "added" in type_:
+                lines.append(format_addition(type_))
+                lines.append("")
 
             if "description" in type_:
                 lines.append(replace_code(type_["description"]))
@@ -493,6 +506,7 @@ if __name__ == "__main__":
             with open(os.path.join(OVERLAY_DIR, filename + ".json")) as fp_overlay:
                 overlay = json.load(fp_overlay)
                 merge_objects(overlay, document)
+                # print(json.dumps(document, indent=2))
 
         manifest_namespace = None
         for namespace in document:
