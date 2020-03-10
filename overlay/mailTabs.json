@@ -20,16 +20,10 @@
     ],
     "events": [
       {
-        "name": "onDisplayedFolderChanged",
-        "permissions": [
-          "accountsRead"
-        ]
+        "name": "onDisplayedFolderChanged"
       },
       {
-        "name": "onSelectedMessagesChanged",
-        "permissions": [
-          "messagesRead"
-        ]
+        "name": "onSelectedMessagesChanged"
       }
     ],
     "types": [
