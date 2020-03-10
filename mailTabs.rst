@@ -103,6 +103,10 @@ Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessageList`
 
+.. note::
+
+  The permission ``messagesRead`` is required to use ``getSelectedMessages``.
+
 .. _mailTabs.setQuickFilter:
 
 setQuickFilter([tabId], properties)
@@ -137,12 +141,20 @@ Fired when the displayed folder changes in any mail tab.
 
   The permission ``accountsRead`` is required to use ``onDisplayedFolderChanged``.
 
+.. note::
+
+  The permission ``accountsRead`` is required to use ``onDisplayedFolderChanged``.
+
 .. _mailTabs.onSelectedMessagesChanged:
 
 onSelectedMessagesChanged()
 ---------------------------
 
 Fired when the selected messages change in any mail tab.
+
+.. note::
+
+  The permission ``messagesRead`` is required to use ``onSelectedMessagesChanged``.
 
 .. note::
 
@@ -159,7 +171,7 @@ MailTab
 object
 
 - ``active`` (boolean)
-- ``displayedFolder`` (:ref:`folders.MailFolder`)
+- ``displayedFolder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
 - ``folderPaneVisible`` (boolean)
 - ``id`` (integer)
 - ``layout`` (`string <enum_layout_28_>`_)

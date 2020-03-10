@@ -241,7 +241,7 @@ object
 - ``ccList`` (array of string)
 - ``date`` (date)
 - ``flagged`` (boolean)
-- ``folder`` (:ref:`folders.MailFolder`)
+- ``folder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
 - ``id`` (integer)
 - ``junk`` (boolean) *Added in Thunderbird 74*
 - ``junkScore`` (integer) *Added in Thunderbird 74*

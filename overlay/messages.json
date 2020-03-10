@@ -123,7 +123,8 @@
             }
           },
           "folder": {
-            "$ref": "folders.MailFolder"
+            "$ref": "folders.MailFolder",
+            "description": "The ``accountsRead`` permission is required."
           },
           "tags": {
             "type": "array",

@@ -17,12 +17,13 @@ def merge_objects(a, b):
     if isinstance(a, list):
         for c in a:
             merged = False
-            name = c.get("namespace", c.get("name", c.get("id", c.get("$extend"))))
-            if name is not None:
-                for d in b:
-                    if d.get("namespace", d.get("name", d.get("id", d.get("$extend")))) == name:
-                        merge_objects(c, d)
-                        merged = True
+            if isinstance(c, dict):
+                name = c.get("namespace", c.get("name", c.get("id", c.get("$extend"))))
+                if name is not None:
+                    for d in b:
+                        if d.get("namespace", d.get("name", d.get("id", d.get("$extend")))) == name:
+                            merge_objects(c, d)
+                            merged = True
             if not merged:
                 b.append(c)
                 continue
