@@ -160,7 +160,7 @@ MailTab
 object
 
 - ``active`` (boolean)
-- ``displayedFolder`` (:ref:`folders.MailFolder`)
+- ``displayedFolder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
 - ``folderPaneVisible`` (boolean)
 - ``id`` (integer)
 - ``layout`` (`string <enum_layout_29_>`_)

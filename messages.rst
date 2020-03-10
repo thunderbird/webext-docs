@@ -85,9 +85,7 @@ Returns a `Promise`_ fulfilled with:
 query(queryInfo)
 ----------------
 
-*Added in Thunderbird 69*
-
-*Backported to Thunderbird 68.2*
+*Added in Thunderbird 68.2*
 
 Gets all messages that have the specified properties, or all messages if no properties are specified.
 
@@ -207,7 +205,7 @@ object
 - ``ccList`` (array of string)
 - ``date`` (date)
 - ``flagged`` (boolean)
-- ``folder`` (:ref:`folders.MailFolder`)
+- ``folder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
 - ``id`` (integer)
 - ``read`` (boolean)
 - ``recipients`` (array of string)

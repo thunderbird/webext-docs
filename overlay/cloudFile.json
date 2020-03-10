@@ -1,5 +1,22 @@
 [
   {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "WebExtensionManifest",
+        "properties": {
+          "cloud_file": {
+            "properties": {
+              "data_format": {
+                "added": "68.2.1"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
     "namespace": "cloudFile",
     "functions": [
       {

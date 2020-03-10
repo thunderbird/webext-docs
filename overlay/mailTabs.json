@@ -94,7 +94,8 @@
             "type": "boolean"
           },
           "displayedFolder": {
-            "$ref": "folders.MailFolder"
+            "$ref": "folders.MailFolder",
+            "description": "The ``accountsRead`` permission is required."
           }
         }
       }

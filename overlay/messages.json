@@ -28,8 +28,7 @@
       },
       {
         "name": "query",
-        "added": "69",
-        "backported": "68.2",
+        "added": "68.2",
         "returns": {
           "$ref": "MessageList"
         }
@@ -87,7 +86,8 @@
             }
           },
           "folder": {
-            "$ref": "folders.MailFolder"
+            "$ref": "folders.MailFolder",
+            "description": "The ``accountsRead`` permission is required."
           },
           "tags": {
             "type": "array",
