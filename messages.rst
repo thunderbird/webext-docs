@@ -20,6 +20,7 @@ Permissions
 
 - messagesMove "Move, copy, or delete your email messages"
 - messagesRead "Read your email messages and mark or tag them"
+- accountsRead "To access folders in a query result" 
 
 .. note::
 
@@ -109,7 +110,7 @@ Gets all messages that have the specified properties, or all messages if no prop
   - [``author``] (string) Returns only messages with this value matching the author.
   - [``body``] (string) Returns only messages with this value in the body of the mail.
   - [``flagged``] (boolean) Returns only flagged (or unflagged if false) messages.
-  - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder.
+  - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder. 
   - [``fromDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date after this value.
   - [``fromMe``] (boolean) Returns only messages with the author matching any configured identity.
   - [``fullText``] (string) Returns only messages with this value somewhere in the mail (subject, body or author).
