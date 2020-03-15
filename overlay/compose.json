@@ -27,7 +27,10 @@
     "functions": [
       {
         "name": "getComposeDetails",
-        "added": "74"
+        "added": "74",
+        "returns": {
+          "$ref": "ComposeDetails"
+        }
       },
       {
         "name": "setComposeDetails",

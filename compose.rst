@@ -64,6 +64,10 @@ Fetches the current state of a compose window. Currently only a limited amount o
 
 - ``tabId`` (integer)
 
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`compose.ComposeDetails`
+
 .. note::
 
   The permission ``compose`` is required to use ``getComposeDetails``.
