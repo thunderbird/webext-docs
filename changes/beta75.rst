@@ -1,6 +1,6 @@
-=======================================
-Updates and additions in Thunderbird 75
-=======================================
+=========================
+Changes in Thunderbird 75
+=========================
 
 browserAction/composeAction/messageDisplayAction
 ================================================
