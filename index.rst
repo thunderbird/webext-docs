@@ -66,6 +66,15 @@ The following APIs are also included and work as they do in Firefox:
 - `runtime <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime>`_
 - `theme <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/theme>`_
 
+Changes to APIs
+===============
+
+.. toctree::
+  :maxdepth: 1
+
+  changes/beta74
+  changes/beta75
+
 How To
 ======
 
