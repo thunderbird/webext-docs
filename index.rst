@@ -28,6 +28,10 @@ __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schem
 __ https://thunderbird-webextensions.readthedocs.io/en/latest/
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
+.. note::
+
+  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox, but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
+
 .. toctree::
   :maxdepth: 1
 
