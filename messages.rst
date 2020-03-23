@@ -93,7 +93,7 @@ Returns the unmodified source of a message.
 
 Returns a `Promise`_ fulfilled with:
 
-- :ref:`messages.MessageList`
+- string
 
 .. _messages.query:
 

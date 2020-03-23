@@ -30,7 +30,7 @@
         "name": "getRaw",
         "added": "72",
         "returns": {
-          "$ref": "MessageList"
+          "type": "string"
         }
       },
       {
