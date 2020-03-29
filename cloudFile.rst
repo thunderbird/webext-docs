@@ -18,7 +18,7 @@ Manifest file properties
 
 - [``cloud_file``] (object)
 
-  - ``management_url`` (string) A page for configuring accounts, to be displayed in the preferences UI.
+  - ``management_url`` (string) A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.
   - ``name`` (string) Name of the cloud file service.
   - [``data_format``] (`string <enum_data_format_3_>`_) Determines the format of the ``data`` argument in ``onFileUpload``. *Added in Thunderbird 71, backported to 68.2.1*
   - [``new_account_url``] (string) **Deprecated.** This property was never used.
