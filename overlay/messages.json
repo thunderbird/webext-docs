@@ -68,7 +68,8 @@
             "name": "newProperties",
             "properties": {
               "junk": {
-                "added": "73"
+                "added": "73",
+                "backported": "68.7"
               }
             }
           }
@@ -135,8 +136,7 @@
           },
           "junk": {
             "type": "boolean",
-            "added": "74",
-            "backported": "68.7"
+            "added": "74"
           },
           "junkScore": {
             "type": "integer",

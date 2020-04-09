@@ -139,7 +139,7 @@ Marks or unmarks a message as read, flagged, or tagged.
 - ``newProperties`` (object)
 
   - [``flagged``] (boolean) Marks the message as flagged or unflagged.
-  - [``junk``] (boolean) Marks the message as junk or not junk. *Added in Thunderbird 73*
+  - [``junk``] (boolean) Marks the message as junk or not junk. *Added in Thunderbird 73, backported to 68.7*
   - [``read``] (boolean) Marks the message as read or unread.
   - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
 
@@ -247,7 +247,7 @@ object
 - ``flagged`` (boolean)
 - ``folder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
 - ``id`` (integer)
-- ``junk`` (boolean) *Added in Thunderbird 74, backported to 68.7*
+- ``junk`` (boolean) *Added in Thunderbird 74*
 - ``junkScore`` (integer) *Added in Thunderbird 74*
 - ``read`` (boolean)
 - ``recipients`` (array of string)
