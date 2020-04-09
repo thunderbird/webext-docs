@@ -89,7 +89,7 @@ Returns a `Promise`_ fulfilled with:
 getRaw(messageId)
 -----------------
 
-*Added in Thunderbird 72*
+*Added in Thunderbird 72, backported to 68.7*
 
 Returns the unmodified source of a message.
 
