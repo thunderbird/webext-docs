@@ -80,6 +80,21 @@ Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessagePart`
 
+.. _messages.getRaw:
+
+getRaw(messageId)
+-----------------
+
+*Added in Thunderbird 68.7*
+
+Returns the unmodified source of a message.
+
+- ``messageId`` (integer)
+
+Returns a `Promise`_ fulfilled with:
+
+- string
+
 .. _messages.query:
 
 query(queryInfo)
