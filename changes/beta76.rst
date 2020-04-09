@@ -17,7 +17,7 @@ accounts
 compose
 =======
 
-* The :ref:`compose.ComposeDetails` type now has an `identity` field for getting or setting the
+* The :ref:`compose.ComposeDetails` type now has an ``identity`` field for getting or setting the
   identity associated with a message being composed.
 
 mailTabs/messageDisplay
@@ -36,23 +36,23 @@ mailTabs/messageDisplay
 messages
 ========
 
-* The `accountsRead` permission is now required for all functions that accept a
-  :ref:`folders.MailFolder` argument. The permission was already required to obtain a `MailFolder`
+* The ``accountsRead`` permission is now required for all functions that accept a
+  :ref:`folders.MailFolder` argument. The permission was already required to obtain a ``MailFolder``
   anyway, so this change should not break extensions.
 
 experiments
 ===========
 
-* For extensions with the `addressBooks` permission, a new `addressBookManager` object is available
-  to WebExtensions experiment implementations. The `addressBookManager` provides the following
-  functions to help you interact with the :doc:`/addressBooks`, :doc:`/contacts` and
+* For extensions with the ``addressBooks`` permission, a new ``addressBookManager`` object is
+  available to WebExtensions experiment implementations. The ``addressBookManager`` provides the
+  following functions to help you interact with the :doc:`/addressBooks`, :doc:`/contacts` and
   :doc:`/mailingLists` APIs:
 
-  * `findAddressBookById`, `findContactById`, `findMailingListById` to help you find "real" address
-    book objects (`nsIAbCard`, `nsIAbDirectory`) for the IDs provided by the addressBooks API. Note
-    that there is active development in the address book and these interfaces will be changing in
-    the near term without public announcement.
-  * `convert` to turn "real" objects back into API-friendly objects.
+  * ``findAddressBookById``, ``findContactById``, ``findMailingListById`` to help you find "real"
+    address book objects (``nsIAbCard``, ``nsIAbDirectory``) for the IDs provided by the
+    addressBooks API. Note that there is active development in the address book and these interfaces
+    will be changing in the near term without public announcement.
+  * ``convert`` to turn "real" objects back into API-friendly objects.
 
   For more information on these functions see the `source code of the addressBooks APIs`__.
 
