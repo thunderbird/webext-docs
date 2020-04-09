@@ -41,6 +41,10 @@ Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessageList`
 
+.. note::
+
+  The permission ``accountsRead`` is required to use ``list``.
+
 .. _messages.continueList:
 
 continueList(messageListId)
@@ -80,6 +84,21 @@ Returns a `Promise`_ fulfilled with:
 
 - :ref:`messages.MessagePart`
 
+.. _messages.getRaw:
+
+getRaw(messageId)
+-----------------
+
+*Added in Thunderbird 68.7*
+
+Returns the unmodified source of a message.
+
+- ``messageId`` (integer)
+
+Returns a `Promise`_ fulfilled with:
+
+- string
+
 .. _messages.query:
 
 query(queryInfo)
@@ -94,7 +113,7 @@ Gets all messages that have the specified properties, or all messages if no prop
   - [``author``] (string) Returns only messages with this value matching the author.
   - [``body``] (string) Returns only messages with this value in the body of the mail.
   - [``flagged``] (boolean) Returns only flagged (or unflagged if false) messages.
-  - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder.
+  - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder. The ``accountsRead`` permission is required.
   - [``fromDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date after this value.
   - [``fromMe``] (boolean) Returns only messages with the author matching any configured identity.
   - [``fullText``] (string) Returns only messages with this value somewhere in the mail (subject, body or author).
@@ -119,6 +138,7 @@ Marks or unmarks a message as read, flagged, or tagged.
 - ``newProperties`` (object)
 
   - [``flagged``] (boolean) Marks the message as flagged or unflagged.
+  - [``junk``] (boolean) Marks the message as junk or not junk. *Added in Thunderbird 68.7*
   - [``read``] (boolean) Marks the message as read or unread.
   - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
 
@@ -134,7 +154,7 @@ Moves messages to a specified folder.
 
 .. note::
 
-  The permission ``messagesMove`` is required to use ``move``.
+  The permissions ``accountsRead`` and ``messagesMove`` are required to use ``move``.
 
 .. _messages.copy:
 
@@ -148,7 +168,7 @@ Copies messages to a specified folder.
 
 .. note::
 
-  The permission ``messagesMove`` is required to use ``copy``.
+  The permissions ``accountsRead`` and ``messagesMove`` are required to use ``copy``.
 
 .. _messages.delete:
 

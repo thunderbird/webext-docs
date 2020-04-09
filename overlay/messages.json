@@ -27,6 +27,13 @@
         }
       },
       {
+        "name": "getRaw",
+        "added": "68.7",
+        "returns": {
+          "type": "string"
+        }
+      },
+      {
         "name": "query",
         "added": "68.2",
         "returns": {
@@ -41,6 +48,19 @@
             "$ref": "MessageTag"
           }
         }
+      },
+      {
+        "name": "update",
+        "parameters": [
+          {
+            "name": "newProperties",
+            "properties": {
+              "junk": {
+                "added": "68.7"
+              }
+            }
+          }
+        ]
       }
     ],
     "types": [

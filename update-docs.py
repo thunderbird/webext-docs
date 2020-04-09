@@ -92,6 +92,8 @@ def link_ref(ref):
 
 
 def format_addition(obj):
+    if "changed" in obj:
+        return "*Changed in Thunderbird %s*" % obj["changed"]
     if "backported" in obj:
         return "*Added in Thunderbird %s, backported to %s*" % (obj["added"], obj["backported"])
     return "*Added in Thunderbird %s*" % obj["added"]
@@ -124,7 +126,7 @@ def format_member(name, value):
     if "description" in value:
         parts.append(replace_code(value["description"]))
 
-    if "added" in value:
+    if "added" in value or "changed" in value:
         parts.append(format_addition(value))
     
     return " ".join(parts)
@@ -194,19 +196,32 @@ def format_permissions(obj):
 
     lines = []
     name = obj.get("namespace", obj.get("name"))
-    for permission in obj["permissions"]:
+    if len(obj["permissions"]) == 1:
+        permission = obj["permissions"][0]
         if permission.startswith("manifest:"):
             permission = permission[9:]
-            text = "  A manifest entry named ``%s`` is required to use ``%s``."
+            text = "  A manifest entry named ``%s`` is required to use ``%s``." % (permission, name)
         else:
-            text = "  The permission ``%s`` is required to use ``%s``."
-        lines.extend([
-            "",
-            ".. note::",
-            "",
-            text % (permission, name),
-            "",
-        ])
+            text = "  The permission ``%s`` is required to use ``%s``." % (permission, name)
+    else:
+        permissions = ""
+        for i in range(0, len(obj["permissions"])):
+            permission = obj["permissions"][i]
+            if i > 0:
+                if i + 1 == len(obj["permissions"]):
+                    permissions += " and "
+                else:
+                    permissions += ", "
+            permissions += "``%s``" % permission
+        text = "  The permissions %s are required to use ``%s``." % (permissions, name)
+
+    lines.extend([
+        "",
+        ".. note::",
+        "",
+        text,
+        "",
+    ])
     return lines
 
 
