@@ -38,10 +38,10 @@ Events
 
 .. _messageDisplay.onMessageDisplayed:
 
-onMessageDisplayed(tabId, message)
-----------------------------------
+onMessageDisplayed(tab, message)
+--------------------------------
 
 Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.
 
-- ``tabId`` (integer)
+- ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
 - ``message`` (:ref:`messages.MessageHeader`)

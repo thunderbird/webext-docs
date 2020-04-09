@@ -8,6 +8,17 @@
           "$ref": "messages.MessageHeader"
         }
       }
+    ],
+    "events": [
+      {
+        "name": "onMessageDisplayed",
+        "parameters": [
+          {
+            "name": "tab",
+            "changed": "76, previously just the tab's ID"
+          }
+        ]
+      }
     ]
   }
 ]

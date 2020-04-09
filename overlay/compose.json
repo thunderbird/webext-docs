@@ -9,6 +9,9 @@
       {
         "id": "ComposeDetails",
         "properties": {
+          "identityId": {
+            "added": "76"
+          },
           "followupTo": {
             "added": "74"
           },
@@ -25,6 +28,15 @@
       }
     ],
     "functions": [
+      {
+        "name": "beginReply",
+        "parameters": [
+          {
+            "name": "details",
+            "added": "76"
+          }
+        ]
+      },
       {
         "name": "getComposeDetails",
         "added": "74",

@@ -23,11 +23,12 @@ beginNew([details])
 
 .. _compose.beginReply:
 
-beginReply(messageId, [replyType])
-----------------------------------
+beginReply(messageId, [replyType], [details])
+---------------------------------------------
 
 - ``messageId`` (integer) The message to reply to, as retrieved using other APIs.
 - [``replyType``] (`string <enum_replyType_3_>`_)
+- [``details``] (:ref:`compose.ComposeDetails`) *Added in Thunderbird 76*
 
 .. _enum_replyType_3:
 
@@ -43,10 +44,10 @@ beginForward(messageId, [forwardType], [details])
 -------------------------------------------------
 
 - ``messageId`` (integer) The message to forward, as retrieved using other APIs.
-- [``forwardType``] (`string <enum_forwardType_5_>`_)
+- [``forwardType``] (`string <enum_forwardType_6_>`_)
 - [``details``] (:ref:`compose.ComposeDetails`)
 
-.. _enum_forwardType_5:
+.. _enum_forwardType_6:
 
 Values for forwardType:
 
@@ -132,6 +133,7 @@ object
 - [``body``] (string)
 - [``cc``] (:ref:`compose.ComposeRecipientList`)
 - [``followupTo``] (:ref:`compose.ComposeRecipientList`) *Added in Thunderbird 74*
+- [``identityId``] (string) The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. *Added in Thunderbird 76*
 - [``isPlainText``] (boolean) *Added in Thunderbird 75*
 - [``newsgroups``] (string or array of string) *Added in Thunderbird 74*
 - [``plainTextBody``] (string) *Added in Thunderbird 75*
@@ -151,9 +153,9 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_23_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_25_>`_) Which sort of object this ID is for.
 
-.. _enum_type_23:
+.. _enum_type_25:
 
 Values for type:
 

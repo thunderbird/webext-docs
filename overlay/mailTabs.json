@@ -20,10 +20,22 @@
     ],
     "events": [
       {
-        "name": "onDisplayedFolderChanged"
+        "name": "onDisplayedFolderChanged",
+        "parameters": [
+          {
+            "name": "tab",
+            "changed": "76, previously just the tab's ID"
+          }
+        ]
       },
       {
-        "name": "onSelectedMessagesChanged"
+        "name": "onSelectedMessagesChanged",
+        "parameters": [
+          {
+            "name": "tab",
+            "changed": "76, previously just the tab's ID"
+          }
+        ]
       }
     ],
     "types": [

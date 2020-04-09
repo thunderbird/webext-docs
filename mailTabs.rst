@@ -132,10 +132,13 @@ Events
 
 .. _mailTabs.onDisplayedFolderChanged:
 
-onDisplayedFolderChanged()
---------------------------
+onDisplayedFolderChanged(tab, displayedFolder)
+----------------------------------------------
 
 Fired when the displayed folder changes in any mail tab.
+
+- ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
+- ``displayedFolder`` (:ref:`folders.MailFolder`)
 
 .. note::
 
@@ -143,10 +146,13 @@ Fired when the displayed folder changes in any mail tab.
 
 .. _mailTabs.onSelectedMessagesChanged:
 
-onSelectedMessagesChanged()
----------------------------
+onSelectedMessagesChanged(tab, selectedMessages)
+------------------------------------------------
 
 Fired when the selected messages change in any mail tab.
+
+- ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
+- ``selectedMessages`` (:ref:`messages.MessageList`)
 
 .. note::
 
