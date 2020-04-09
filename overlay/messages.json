@@ -29,6 +29,7 @@
       {
         "name": "getRaw",
         "added": "72",
+        "backported": "68.7",
         "returns": {
           "type": "string"
         }
@@ -134,7 +135,8 @@
           },
           "junk": {
             "type": "boolean",
-            "added": "74"
+            "added": "74",
+            "backported": "68.7"
           },
           "junkScore": {
             "type": "integer",

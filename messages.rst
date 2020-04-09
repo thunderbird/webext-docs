@@ -89,7 +89,7 @@ Returns a `Promise`_ fulfilled with:
 getRaw(messageId)
 -----------------
 
-*Added in Thunderbird 72*
+*Added in Thunderbird 72, backported to 68.7*
 
 Returns the unmodified source of a message.
 
@@ -247,7 +247,7 @@ object
 - ``flagged`` (boolean)
 - ``folder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
 - ``id`` (integer)
-- ``junk`` (boolean) *Added in Thunderbird 74*
+- ``junk`` (boolean) *Added in Thunderbird 74, backported to 68.7*
 - ``junkScore`` (integer) *Added in Thunderbird 74*
 - ``read`` (boolean)
 - ``recipients`` (array of string)
