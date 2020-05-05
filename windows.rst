@@ -211,7 +211,7 @@ Values for CreateType:
 Window
 ------
 
-object
+object:
 
 - ``alwaysOnTop`` (boolean) Whether the window is set to be always on top.
 - ``focused`` (boolean) Whether the window is currently the focused window.

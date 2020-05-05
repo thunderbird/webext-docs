@@ -29,13 +29,31 @@
     ],
     "functions": [
       {
+        "name": "beginNew",
+        "changed": "77: return value added",
+        "returns": {
+          "$ref": "tabs.Tab"
+        }
+      },
+      {
+        "name": "beginForward",
+        "changed": "77: return value added",
+        "returns": {
+          "$ref": "tabs.Tab"
+        }
+      },
+      {
         "name": "beginReply",
+        "changed": "77: return value added",
         "parameters": [
           {
             "name": "details",
             "added": "76"
           }
-        ]
+        ],
+        "returns": {
+          "$ref": "tabs.Tab"
+        }
       },
       {
         "name": "getComposeDetails",

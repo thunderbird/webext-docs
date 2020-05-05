@@ -19,16 +19,28 @@ Functions
 beginNew([details])
 -------------------
 
+*Changed in Thunderbird 77: return value added*
+
 - [``details``] (:ref:`compose.ComposeDetails`)
+
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`tabs.Tab`
 
 .. _compose.beginReply:
 
 beginReply(messageId, [replyType], [details])
 ---------------------------------------------
 
+*Changed in Thunderbird 77: return value added*
+
 - ``messageId`` (integer) The message to reply to, as retrieved using other APIs.
 - [``replyType``] (`string <enum_replyType_3_>`_)
 - [``details``] (:ref:`compose.ComposeDetails`) *Added in Thunderbird 76*
+
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`tabs.Tab`
 
 .. _enum_replyType_3:
 
@@ -43,9 +55,15 @@ Values for replyType:
 beginForward(messageId, [forwardType], [details])
 -------------------------------------------------
 
+*Changed in Thunderbird 77: return value added*
+
 - ``messageId`` (integer) The message to forward, as retrieved using other APIs.
 - [``forwardType``] (`string <enum_forwardType_6_>`_)
 - [``details``] (:ref:`compose.ComposeDetails`)
+
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`tabs.Tab`
 
 .. _enum_forwardType_6:
 
@@ -127,7 +145,7 @@ ComposeDetails
 
 Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.
 
-object
+object:
 
 - [``bcc``] (:ref:`compose.ComposeRecipientList`)
 - [``body``] (string)

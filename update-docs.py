@@ -292,7 +292,7 @@ def format_namespace(namespace, manifest_namespace=None):
             ))
             enum_lines = []
 
-            if "added" in function:
+            if "added" in function or "changed" in function:
                 lines.append(format_addition(function))
                 lines.append("")
 
@@ -389,7 +389,12 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
             if "type" in type_:
-                lines.append(get_type(type_, type_["id"]))
+                if (type_["type"] == "object" and
+                        "isInstanceOf" not in type_ and
+                        ("properties" in type_ or "functions" in type_)):
+                    lines.append("object:")
+                else:
+                    lines.append(get_type(type_, type_["id"]))
                 lines.append("")
                 enum_lines.extend(format_enum(type_["id"], type_))
 
@@ -418,8 +423,15 @@ def format_namespace(namespace, manifest_namespace=None):
                         lines.extend(format_object(key, value))
                         enum_lines.extend(format_enum(key, value))
                         unique_id += 1
-                lines.append("")
 
+            if "functions" in type_:
+                for function in sorted(type_["functions"], key=lambda f: f["name"]):
+                    lines.append("- ``%s(%s)``" % (function["name"], format_params(function)))
+                    description = function.get("description", "")
+                    if description:
+                        lines[-1] += " %s" % description
+
+            lines.append("")
             lines.extend(enum_lines)
 
     index = 0
@@ -460,7 +472,12 @@ def format_manifest_namespace(manifest):
         if type_.get("$extend", None) == "WebExtensionManifest":
             for [name, value] in type_["properties"].items():
                 property_lines.extend(format_object(name, value))
-        if type_.get("$extend", None) in ["OptionalPermission", "Permission"]:
+        if type_.get("$extend", None) in [
+            "OptionalPermission",
+            "OptionalPermissionNoPrompt",
+            "Permission",
+            "PermissionNoPrompt"
+        ]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
                     if value in permission_strings:

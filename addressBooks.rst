@@ -139,7 +139,7 @@ AddressBookNode
 
 A node representing an address book.
 
-object
+object:
 
 - ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 - ``name`` (string)

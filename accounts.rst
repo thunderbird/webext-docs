@@ -64,7 +64,7 @@ Types
 MailAccount
 -----------
 
-object
+object:
 
 - ``folders`` (array of :ref:`folders.MailFolder`) The folders for this account.
 - ``id`` (string) A unique identifier for this account.
@@ -79,7 +79,7 @@ MailIdentity
 
 *Added in Thunderbird 76*
 
-object
+object:
 
 - ``accountId`` (string) The id of the :ref:`accounts.MailAccount` this identity belongs to.
 - ``email`` (string) The user's email address as used when messages are sent from this identity.

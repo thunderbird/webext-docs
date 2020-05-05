@@ -150,7 +150,7 @@ CloudFile
 
 Information about a cloud file
 
-object
+object:
 
 - ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_ or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
 - ``id`` (integer) An identifier for this file
@@ -163,7 +163,7 @@ CloudFileAccount
 
 Information about a cloud file account
 
-object
+object:
 
 - ``configured`` (boolean) If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
 - ``id`` (string) Unique identifier of the account

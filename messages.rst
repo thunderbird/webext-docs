@@ -238,7 +238,7 @@ Types
 MessageHeader
 -------------
 
-object
+object:
 
 - ``author`` (string)
 - ``bccList`` (array of string)
@@ -261,7 +261,7 @@ MessageList
 
 See :doc:`how-to/messageLists` for more information.
 
-object
+object:
 
 - ``id`` (string)
 - ``messages`` (array of :ref:`messages.MessageHeader`)
@@ -273,7 +273,7 @@ MessagePart
 
 Represents an email message "part", which could be the whole message
 
-object
+object:
 
 - [``body``] (string) The content of the part
 - [``contentType``] (string)
@@ -288,7 +288,7 @@ object
 MessageTag
 ----------
 
-object
+object:
 
 - ``color`` (string) Tag color
 - ``key`` (string) Distinct tag identifier – use this string when referring to a tag
@@ -302,7 +302,7 @@ TagsDetail
 
 Used for filtering messages by tag in various methods. Note that functions using this type may have a partial implementation.
 
-object
+object:
 
 - ``mode`` (`string <enum_mode_59_>`_) Whether all of the tag filters must apply, or any of them.
 - ``tags`` (object) Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.

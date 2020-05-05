@@ -155,6 +155,8 @@ Closes one or more tabs.
 executeScript([tabId], details)
 -------------------------------
 
+*Changed in Thunderbird 77: with the "compose" permission, this now works in the document of email messages during composition.*
+
 Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to run the script; defaults to the active tab of the current window.
@@ -169,6 +171,8 @@ Returns a `Promise`_ fulfilled with:
 insertCSS([tabId], details)
 ---------------------------
 
+*Changed in Thunderbird 77: with the "compose" permission, this now works in the document of email messages during composition.*
+
 Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 - [``tabId``] (integer) The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
@@ -178,6 +182,8 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
 
 removeCSS([tabId], details)
 ---------------------------
+
+*Changed in Thunderbird 77: with the "compose" permission, this now works in the document of email messages during composition.*
 
 Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
@@ -297,7 +303,7 @@ Types
 Tab
 ---
 
-object
+object:
 
 - ``active`` (boolean) Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
 - ``highlighted`` (boolean) Whether the tab is highlighted. Works as an alias of active
@@ -336,7 +342,7 @@ UpdateFilter
 
 An object describing filters to apply to tabs.onUpdated events.
 
-object
+object:
 
 - [``properties``] (array of :ref:`tabs.UpdatePropertyName`) A list of property names. Events that do not match any of the names will be filtered out.
 - [``tabId``] (integer)

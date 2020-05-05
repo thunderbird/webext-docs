@@ -46,6 +46,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   commands
   compose
   composeAction
+  composeScripts
   contacts
   folders
   legacy

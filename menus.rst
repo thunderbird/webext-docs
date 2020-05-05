@@ -235,7 +235,7 @@ OnClickData
 
 Information sent when a context menu item is clicked.
 
-object
+object:
 
 - ``editable`` (boolean) A flag indicating whether the element is editable (text input, textarea, etc.).
 - ``menuItemId`` (integer or string) The ID of the menu item that was clicked.

@@ -166,7 +166,7 @@ Types
 MailTab
 -------
 
-object
+object:
 
 - ``active`` (boolean)
 - ``displayedFolder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
@@ -224,7 +224,7 @@ Values for sortType:
 QuickFilterTextDetail
 ---------------------
 
-object
+object:
 
 - ``text`` (string) String to match against the ``recipients``, ``author``, ``subject``, or ``body``.
 - [``author``] (boolean) Shows messages where ``text`` matches the author.

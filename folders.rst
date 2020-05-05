@@ -60,7 +60,7 @@ MailFolder
 
 A folder object, as returned by the ``list`` and ``get`` methods. Use the accountId and path properties to refer to a folder.
 
-object
+object:
 
 - ``accountId`` (string) The account this folder belongs to.
 - ``path`` (string) Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
