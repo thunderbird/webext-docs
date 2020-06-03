@@ -107,6 +107,60 @@ Updates the compose window. Specify only fields that you want to change. Current
 
   The permission ``compose`` is required to use ``setComposeDetails``.
 
+.. _compose.listAttachments:
+
+listAttachments(tabId)
+----------------------
+
+*Added in Thunderbird 78*
+
+Lists all of the attachments of the message being composed in the specified tab.
+
+- ``tabId`` (integer)
+
+.. _compose.addAttachment:
+
+addAttachment(tabId, data)
+--------------------------
+
+*Added in Thunderbird 78*
+
+Adds an attachment to the message being composed in the specified tab.
+
+- ``tabId`` (integer)
+- ``data`` (object)
+
+  - ``file`` (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+  - [``name``] (string) The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
+
+.. _compose.updateAttachment:
+
+updateAttachment(tabId, attachmentId, data)
+-------------------------------------------
+
+*Added in Thunderbird 78*
+
+Renames and/or replaces the contents of an attachment to the message being composed in the specified tab.
+
+- ``tabId`` (integer)
+- ``attachmentId`` (integer)
+- ``data`` (object)
+
+  - [``file``] (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+  - [``name``] (string) The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
+
+.. _compose.removeAttachment:
+
+removeAttachment(tabId, attachmentId)
+-------------------------------------
+
+*Added in Thunderbird 78*
+
+Removes an attachment from the message being composed in the specified tab.
+
+- ``tabId`` (integer)
+- ``attachmentId`` (integer)
+
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
@@ -135,8 +189,47 @@ Event listeners should return:
 
   The permission ``compose`` is required to use ``onBeforeSend``.
 
+.. _compose.onAttachmentAdded:
+
+onAttachmentAdded(tab, attachment)
+----------------------------------
+
+*Added in Thunderbird 78*
+
+Fired when an attachment is added to a message being composed.
+
+- ``tab`` (:ref:`tabs.Tab`)
+- ``attachment`` (:ref:`compose.ComposeAttachment`)
+
+.. _compose.onAttachmentRemoved:
+
+onAttachmentRemoved(tab, attachmentId)
+--------------------------------------
+
+*Added in Thunderbird 78*
+
+Fired when an attachment is removed from a message being composed.
+
+- ``tab`` (:ref:`tabs.Tab`)
+- ``attachmentId`` (integer)
+
 Types
 =====
+
+.. _compose.ComposeAttachment:
+
+ComposeAttachment
+-----------------
+
+*Added in Thunderbird 78*
+
+Represents an attachment in a message being composed.
+
+object:
+
+- ``id`` (integer) A unique identifier for this attachment.
+- ``name`` (string) The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+- ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
 
 .. _compose.ComposeDetails:
 
@@ -171,9 +264,9 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_25_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_39_>`_) Which sort of object this ID is for.
 
-.. _enum_type_25:
+.. _enum_type_39:
 
 Values for type:
 

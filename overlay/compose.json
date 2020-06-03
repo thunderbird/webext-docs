@@ -25,6 +25,10 @@
             "added": "75"
           }
         }
+      },
+      {
+        "name": "ComposeAttachment",
+        "added": "78"
       }
     ],
     "functions": [
@@ -65,6 +69,22 @@
       {
         "name": "setComposeDetails",
         "added": "74"
+      },
+      {
+        "name": "listAttachments",
+        "added": "78"
+      },
+      {
+        "name": "addAttachment",
+        "added": "78"
+      },
+      {
+        "name": "updateAttachment",
+        "added": "78"
+      },
+      {
+        "name": "removeAttachment",
+        "added": "78"
       }
     ],
     "events": [
@@ -77,6 +97,14 @@
             "added": "74.0b2"
           }
         ]
+      },
+      {
+        "name": "onAttachmentAdded",
+        "added": "78"
+      },
+      {
+        "name": "onAttachmentRemoved",
+        "added": "78"
       }
     ]
   }
