@@ -111,7 +111,9 @@ def format_member(name, value):
     else:
         type_string = "%s"
 
-    if value.get("deprecated"):
+    if "unsupported" in value:
+        type_string += " **Unsupported.**"
+    elif "deprecated" in value:
         type_string += " **Deprecated.**"
 
     if "type" in value or "$ref" in value:
@@ -128,7 +130,6 @@ def format_member(name, value):
 
     if "added" in value or "changed" in value:
         parts.append(format_addition(value))
-    
     return " ".join(parts)
 
 
