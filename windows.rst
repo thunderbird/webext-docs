@@ -21,10 +21,7 @@ get(windowId, [getInfo])
 Gets details about a window.
 
 - ``windowId`` (integer)
-- [``getInfo``] (object) 
-
-  - [``populate``] (boolean) If true, the :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+- [``getInfo``] (:ref:`windows.GetInfo`)
 
 Returns a `Promise`_ fulfilled with:
 
@@ -37,10 +34,7 @@ getCurrent([getInfo])
 
 Gets the current window.
 
-- [``getInfo``] (object) 
-
-  - [``populate``] (boolean) If true, the :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+- [``getInfo``] (:ref:`windows.GetInfo`)
 
 Returns a `Promise`_ fulfilled with:
 
@@ -53,10 +47,7 @@ getLastFocused([getInfo])
 
 Gets the window that was most recently focused — typically the window 'on top'.
 
-- [``getInfo``] (object) 
-
-  - [``populate``] (boolean) If true, the :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+- [``getInfo``] (:ref:`windows.GetInfo`)
 
 Returns a `Promise`_ fulfilled with:
 
@@ -69,10 +60,10 @@ getAll([getInfo])
 
 Gets all windows.
 
-- [``getInfo``] (object) 
+- [``getInfo``] (object) Specifies properties used to filter the :ref:`windows.Window` returned and to determine whether they should contain a list of the :ref:`tabs.Tab` objects.
 
   - [``populate``] (boolean) If true, each :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects for that window. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type. If unset the default filter is set to ``['app', 'normal', 'panel', 'popup']``, with ``'app'`` and ``'panel'`` window types limited to the extension's own windows.
+  - [``windowTypes``] (array of :ref:`windows.WindowType`) If set, the :ref:`windows.Window` returned will be filtered based on its type.
 
 Returns a `Promise`_ fulfilled with:
 
@@ -195,9 +186,9 @@ CreateType
 
 Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
 
-`string <enum_CreateType_38_>`_
+`string <enum_CreateType_32_>`_
 
-.. _enum_CreateType_38:
+.. _enum_CreateType_32:
 
 Values for CreateType:
 
@@ -205,6 +196,18 @@ Values for CreateType:
 - ``popup``
 - ``panel``
 - ``detached_panel``
+
+.. _windows.GetInfo:
+
+GetInfo
+-------
+
+Specifies whether the :ref:`windows.Window` returned should contain a list of the :ref:`tabs.Tab` objects.
+
+object:
+
+- [``populate``] (boolean) If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
+- [``windowTypes``] (array of :ref:`windows.WindowType`) **Deprecated.** ``windowTypes`` is deprecated and ignored on Thunderbird.
 
 .. _windows.Window:
 
@@ -233,9 +236,9 @@ WindowState
 
 The state of this window.
 
-`string <enum_WindowState_50_>`_
+`string <enum_WindowState_46_>`_
 
-.. _enum_WindowState_50:
+.. _enum_WindowState_46:
 
 Values for WindowState:
 
@@ -252,9 +255,9 @@ WindowType
 
 The type of window this is. Under some circumstances a Window may not be assigned type property.
 
-`string <enum_WindowType_50_>`_
+`string <enum_WindowType_46_>`_
 
-.. _enum_WindowType_50:
+.. _enum_WindowType_46:
 
 Values for WindowType:
 
