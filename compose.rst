@@ -213,6 +213,22 @@ Fired when an attachment is removed from a message being composed.
 - ``tab`` (:ref:`tabs.Tab`)
 - ``attachmentId`` (integer)
 
+.. _compose.onIdentityChanged:
+
+onIdentityChanged(tab, identityId)
+----------------------------------
+
+*Added in Thunderbird 78.0b2*
+
+Fired when the user changes the identity that will be used to send a message being composed.
+
+- ``tab`` (:ref:`tabs.Tab`)
+- ``identityId`` (string)
+
+.. note::
+
+  The permission ``accountsRead`` is required to use ``onIdentityChanged``.
+
 Types
 =====
 

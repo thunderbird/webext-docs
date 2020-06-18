@@ -105,6 +105,10 @@
       {
         "name": "onAttachmentRemoved",
         "added": "78"
+      },
+      {
+        "name": "onIdentityChanged",
+        "added": "78.0b2"
       }
     ]
   }

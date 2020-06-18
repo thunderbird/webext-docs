@@ -20,21 +20,15 @@ __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schem
 
 .. note::
 
-  This documentation is for pre-release versions of Thunderbird. See the `"68" version`__ for
-  Thunderbird 68.
+  This documentation is for Thunderbird 78. See the `"68" version`__ for Thunderbird 68.
+  For any problems or feature requests please `file a bug`__.
 
 __ https://thunderbird-webextensions.readthedocs.io/en/68/
-
-.. note::
-
-  These APIs should be considered experimental and may change in the future.
-  For any problems or feature requests please `file a bug`__.
+__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
 .. note::
 
   In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox, but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
-
-__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
 .. toctree::
   :maxdepth: 1
@@ -59,16 +53,21 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   tabs
   windows
 
+.. toolkit_apis:
+
 The following APIs are also included and work as they do in Firefox:
 
 - `contentScripts <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts>`_
+- `downloads <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads>`_
 - `experiments <https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments>`_
 - `extension <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension>`_
 - `i18n <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n>`_
+- `identity <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity>`_ *Added in Thunderbird 78.0b2*
 - `management <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/management>`_
 - `permissions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/permissions>`_
 - `pkcs11 <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11>`_
 - `runtime <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime>`_
+- `storage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage>`_
 - `theme <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/theme>`_
 
 Changes to APIs
