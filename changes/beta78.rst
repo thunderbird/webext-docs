@@ -19,3 +19,15 @@ compose
   * :ref:`compose.onAttachmentRemoved`
 
   See the documentation on those functions and events for more information.
+
+* A new event, :ref:`compose.onIdentityChanged` was added.
+
+  *This change was made in Thunderbird 78 beta 2.*
+
+identity
+========
+
+* The `browser.identity <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity>`_
+  namespace for OAuth handling was enabled.
+
+  *This change was made in Thunderbird 78 beta 2.*
