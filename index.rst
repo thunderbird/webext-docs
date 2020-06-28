@@ -45,7 +45,6 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   composeScripts
   contacts
   folders
-  legacy
   mailingLists
   mailTabs
   menus
