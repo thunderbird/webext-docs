@@ -20,9 +20,11 @@ __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schem
 
 .. note::
 
-  This documentation is for Thunderbird 78. See the `"68" version`__ for Thunderbird 68.
+  This documentation is for pre-release versions of Thunderbird. See the `"78" version`__ for
+  Thunderbird 78, or the `"68" version`__ for Thunderbird 68.
   For any problems or feature requests please `file a bug`__.
 
+__ https://thunderbird-webextensions.readthedocs.io/en/78/
 __ https://thunderbird-webextensions.readthedocs.io/en/68/
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
