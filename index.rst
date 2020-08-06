@@ -82,6 +82,7 @@ Changes to APIs
   changes/beta76
   changes/beta77
   changes/beta78
+  changes/beta81
 
 How To
 ======

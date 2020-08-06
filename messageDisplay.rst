@@ -23,7 +23,8 @@ Functions
 getDisplayedMessage(tabId)
 --------------------------
 
-Gets the currently displayed message in the specified tab, or null if no message is displayed.
+Gets the currently displayed message in the specified tab. It returns null if no messages are selected,
+or if multiple messages are selected.
 
 - ``tabId`` (integer)
 
@@ -32,6 +33,23 @@ Returns a `Promise`_ fulfilled with:
 - :ref:`messages.MessageHeader`
 
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+getDisplayedMessages(tabId)
+---------------------------
+
+*Added in Thunderbird 80*
+
+Gets the currently displayed message(s) in the specified tab. Returns an empty
+array if no messages are displayed.
+
+- ``tabId`` (integer)
+
+Returns a `Promise`_ fulfilled with:
+
+- array of :ref:`messages.MessageHeader`
+
+.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 
 Events
 ======
@@ -45,3 +63,16 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
 
 - ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
 - ``message`` (:ref:`messages.MessageHeader`)
+
+.. _messageDisplay.onMessageDisplayed:
+
+onMessagesDisplayed(tab, messages)
+----------------------------------
+
+*Added in Thunderbird 80*
+
+Fired when one or more messages are displayed, whether in a 3-pane tab,
+a message tab, or a message window.
+
+- ``tab`` (:ref:`tabs.Tab`)
+- array of ``messages`` (:ref:`messages.MessageHeader`)
