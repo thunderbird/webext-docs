@@ -7,6 +7,16 @@
         "returns": {
           "$ref": "messages.MessageHeader"
         }
+      },
+      {
+        "name": "getDisplayedMessages",
+        "added": "81",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "messages.MessageHeader"
+          }
+        }
       }
     ],
     "events": [
@@ -18,6 +28,10 @@
             "changed": "76, previously just the tab's ID"
           }
         ]
+      },
+      {
+        "name": "onMessagesDisplayed",
+        "added": "81"
       }
     ]
   }
