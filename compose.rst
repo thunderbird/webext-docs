@@ -260,7 +260,7 @@ object:
 - [``body``] (string)
 - [``cc``] (:ref:`compose.ComposeRecipientList`)
 - [``followupTo``] (:ref:`compose.ComposeRecipientList`) *Added in Thunderbird 74*
-- [``identityId``] (string) The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. *Added in Thunderbird 76*
+- [``identityId``] (string) The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission ``accountsRead`` is required to include the ``identityId``. *Added in Thunderbird 76*
 - [``isPlainText``] (boolean) *Added in Thunderbird 75*
 - [``newsgroups``] (string or array of string) *Added in Thunderbird 74*
 - [``plainTextBody``] (string) *Added in Thunderbird 75*
