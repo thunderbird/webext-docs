@@ -17,7 +17,7 @@ accounts
 compose
 =======
 
-* The :ref:`compose.ComposeDetails` type now has an ``identity`` field for getting or setting the
+* The :ref:`compose.ComposeDetails` type now has an ``identityId`` field for getting or setting the
   identity associated with a message being composed.
 
 mailTabs/messageDisplay
