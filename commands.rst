@@ -31,7 +31,7 @@ Update the details of an already defined command.
 
   - ``name`` (string) The name of the command.
   - [``description``] (string) The new description for the command.
-  - [``shortcut``] (:ref:`manifest.KeyName`)
+  - [``shortcut``] (string) An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_ to set a new shortcut key. If the string does not match this format, the function throws an error.
 
 .. _commands.reset:
 
@@ -75,7 +75,7 @@ Types
 Command
 -------
 
-object
+object:
 
 - [``description``] (string) The Extension Command description
 - [``name``] (string) The name of the Extension Command
