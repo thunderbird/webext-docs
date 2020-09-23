@@ -38,6 +38,44 @@ Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab`
 
+.. _tabs.connect:
+
+connect(tabId, [connectInfo])
+-----------------------------
+
+*Added in Thunderbird 82*
+
+Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`_ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_.
+
+- ``tabId`` (integer)
+- [``connectInfo``] (object)
+
+  - [``frameId``] (integer) Open a port to a specific frame identified by ``frameId`` instead of all frames in the tab.
+  - [``name``] (string) Will be passed into onConnect for content scripts that are listening for the connection event.
+
+Returns a `Promise`_ fulfilled with:
+
+- :ref:`runtime.Port` A port that can be used to communicate with the content scripts running in the specified tab.
+
+.. _tabs.sendMessage:
+
+sendMessage(tabId, message, [options])
+--------------------------------------
+
+*Added in Thunderbird 82*
+
+Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back.  The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`_ event is fired in each content script running in the specified tab for the current extension.
+
+- ``tabId`` (integer)
+- ``message`` (any)
+- [``options``] (object)
+
+  - [``frameId``] (integer) Send a message to a specific frame identified by ``frameId`` instead of all frames in the tab.
+
+Returns a `Promise`_ fulfilled with:
+
+- any The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_ will be set to the error message.
+
 .. _tabs.create:
 
 create(createProperties)
@@ -326,9 +364,9 @@ TabStatus
 
 Whether the tabs have completed loading.
 
-`string <enum_TabStatus_66_>`_
+`string <enum_TabStatus_74_>`_
 
-.. _enum_TabStatus_66:
+.. _enum_TabStatus_74:
 
 Values for TabStatus:
 
@@ -356,9 +394,9 @@ UpdatePropertyName
 
 Event names supported in onUpdated.
 
-`string <enum_UpdatePropertyName_70_>`_
+`string <enum_UpdatePropertyName_78_>`_
 
-.. _enum_UpdatePropertyName_70:
+.. _enum_UpdatePropertyName_78:
 
 Values for UpdatePropertyName:
 
@@ -373,9 +411,9 @@ WindowType
 
 The type of window.
 
-`string <enum_WindowType_70_>`_
+`string <enum_WindowType_78_>`_
 
-.. _enum_WindowType_70:
+.. _enum_WindowType_78:
 
 Values for WindowType:
 

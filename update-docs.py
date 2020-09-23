@@ -545,15 +545,10 @@ if __name__ == "__main__":
         for namespace in document:
             if namespace["namespace"] == "manifest":
                 manifest_namespace = format_manifest_namespace(namespace)
+
+        for namespace in document:
+            if namespace["namespace"] == "manifest":
                 continue
 
-            with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
-                fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))
-                manifest_namespace = None
-
-        if manifest_namespace is not None:
-            namespace = {
-                "namespace": filename
-            }
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
                 fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))

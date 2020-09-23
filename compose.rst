@@ -256,6 +256,7 @@ Used by various functions to represent the state of a message being composed. No
 
 object:
 
+- [``attachments``] (array of object) Attachments to add to the message. Only used in the begin* functions. *Added in Thunderbird 82*
 - [``bcc``] (:ref:`compose.ComposeRecipientList`)
 - [``body``] (string)
 - [``cc``] (:ref:`compose.ComposeRecipientList`)
@@ -280,9 +281,9 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_39_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_40_>`_) Which sort of object this ID is for.
 
-.. _enum_type_39:
+.. _enum_type_40:
 
 Values for type:
 

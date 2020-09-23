@@ -50,6 +50,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   menus
   messageDisplay
   messageDisplayAction
+  messageDisplayScripts
   messages
   tabs
   windows
@@ -83,6 +84,7 @@ Changes to APIs
   changes/beta77
   changes/beta78
   changes/beta81
+  changes/beta82
 
 How To
 ======
