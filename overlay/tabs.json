@@ -13,6 +13,14 @@
       {
         "name": "removeCSS",
         "changed": "77: with the \"compose\" permission, this now works in the document of email messages during composition."
+      },
+      {
+        "name": "connect",
+        "added": "82"
+      },
+      {
+        "name": "sendMessage",
+        "added": "82"
       }
     ]
   }

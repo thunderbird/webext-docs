@@ -23,6 +23,10 @@
           },
           "plainTextBody": {
             "added": "75"
+          },
+          "attachments": {
+            "added": "82",
+            "backported": "78.4"
           }
         }
       },
