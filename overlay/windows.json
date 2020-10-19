@@ -17,6 +17,25 @@
           }
         ]
       }
+    ],
+    "types": [
+      {
+        "id": "WindowType",
+        "enumChanges": {
+          "addressBook": {
+            "added": 70,
+            "backported": "68.1.1"
+          },
+          "messageCompose": {
+            "added": 70,
+            "backported": "68.1.1"
+          },
+          "messageDisplay": {
+            "added": 70,
+            "backported": "68.1.1"
+          }
+        }
+      }
     ]
   }
 ]

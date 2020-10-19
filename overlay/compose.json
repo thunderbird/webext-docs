@@ -10,6 +10,7 @@
         "id": "ComposeDetails",
         "properties": {
           "identityId": {
+            "description": "The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission ``accountsRead`` is required to include the ``identityId``.",
             "added": "76"
           },
           "followupTo": {
@@ -31,7 +32,12 @@
       },
       {
         "name": "ComposeAttachment",
-        "added": "78"
+        "added": "78",
+        "properties": {
+          "size": {
+            "added": "83"
+          }
+        }
       }
     ],
     "functions": [

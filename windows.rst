@@ -266,6 +266,6 @@ Values for WindowType:
 - ``panel``
 - ``app``
 - ``devtools``
-- ``addressBook`` *added in Thunderbird 70, backported to 68.1.1*
-- ``messageCompose`` *added in Thunderbird 70, backported to 68.1.1*
-- ``messageDisplay`` *added in Thunderbird 70, backported to 68.1.1*
+- ``addressBook`` *Added in Thunderbird 70, backported to 68.1.1*
+- ``messageCompose`` *Added in Thunderbird 70, backported to 68.1.1*
+- ``messageDisplay`` *Added in Thunderbird 70, backported to 68.1.1*

@@ -60,6 +60,23 @@
           "description": "The ID of the new contact."
         }
       }
+    ],
+    "events": [
+      {
+        "name": "onUpdated",
+        "parameters": [
+          {
+            "name": "changedProperties",
+            "added": 83
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "id": "PropertyChange",
+        "added": 83
+      }
     ]
   },
   {

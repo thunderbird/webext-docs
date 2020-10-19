@@ -29,7 +29,7 @@ def merge_objects(a, b):
                 continue
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
-            if e not in b:
+            if e not in b or e in ["description"]:
                 b[e] = f
                 continue
             if e not in ["namespace", "name", "id", "$extend"]:
@@ -144,6 +144,11 @@ def format_enum(name, value):
         "",
     ]
     for enum_value in value.get("enum"):
+        if "enumChanges" in value:
+            changes = value.get("enumChanges")
+            if enum_value in changes:
+                enum_lines.append("- ``%s`` %s" % (enum_value, format_addition(changes.get(enum_value))))
+                continue
         enum_lines.append("- ``%s``" % enum_value)
     enum_lines.append("")
     return enum_lines

@@ -209,6 +209,7 @@ Values for ContextType:
 - ``tab``
 - ``message_list``
 - ``folder_pane``
+- ``compose_attachments`` *Added in Thunderbird 83*
 
 .. _menus.ItemType:
 
@@ -240,6 +241,7 @@ object:
 - ``editable`` (boolean) A flag indicating whether the element is editable (text input, textarea, etc.).
 - ``menuItemId`` (integer or string) The ID of the menu item that was clicked.
 - ``modifiers`` (array of `string <enum_modifiers_50_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
+- [``attachments``] (array of :ref:`compose.ComposeAttachment`) The selected attachments of a message being composed. *Added in Thunderbird 83*
 - [``button``] (integer) An integer value of button by which menu item was clicked.
 - [``checked``] (boolean) A flag indicating the state of a checkbox or radio item after it is clicked.
 - [``displayedFolder``] (:ref:`folders.MailFolder`) The displayed folder, if the context menu was opened in the message list. The ``accountsRead`` permission is required.
