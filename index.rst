@@ -51,7 +51,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   menus
   messageDisplay
   messageDisplayAction
-  messageDisplayScripts *Added in Thunderbird 78.4*
+  messageDisplayScripts (Added in Thunderbird 78.4) <messageDisplayScripts>
   messages
   tabs
   windows
