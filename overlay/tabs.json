@@ -16,11 +16,13 @@
       },
       {
         "name": "connect",
-        "added": "82"
+        "added": "82",
+        "backported": "78.4"
       },
       {
         "name": "sendMessage",
-        "added": "82"
+        "added": "82",
+        "backported": "78.4"
       }
     ]
   }

@@ -1,0 +1,20 @@
+[
+  {
+    "namespace": "menus",
+    "functions": [
+      {
+        "name": "create",
+        "parameters": [
+          {
+            "name": "createProperties",
+            "properties": {
+              "title": {
+                "description": "The text to be displayed in the item; this is *required* unless ``type`` is 'separator'. When the context is 'selection', you can use ``%s`` within the string to show the selected text. For example, if this parameter's value is \"Translate '%s' to Pig Latin\" and the user selects the word \"cool\", the context menu item for the selection is \"Translate 'cool' to Pig Latin\". To specify an access key for the new menu entry, include a ``&`` before the desired letter in the title. For example \"&Help\"."
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

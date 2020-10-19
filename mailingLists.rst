@@ -8,6 +8,11 @@ The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
+Permissions
+===========
+
+- addressBooks "Read and modify your address books and contacts"
+
 .. note::
 
   The permission ``addressBooks`` is required to use ``mailingLists``.

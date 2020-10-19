@@ -29,7 +29,7 @@ def merge_objects(a, b):
                 continue
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
-            if e not in b:
+            if e not in b or e in ["description"]:
                 b[e] = f
                 continue
             if e not in ["namespace", "name", "id", "$extend"]:
@@ -144,6 +144,11 @@ def format_enum(name, value):
         "",
     ]
     for enum_value in value.get("enum"):
+        if "enumChanges" in value:
+            changes = value.get("enumChanges")
+            if enum_value in changes:
+                enum_lines.append("- ``%s`` %s" % (enum_value, format_addition(changes.get(enum_value))))
+                continue
         enum_lines.append("- ``%s``" % enum_value)
     enum_lines.append("")
     return enum_lines
@@ -545,15 +550,10 @@ if __name__ == "__main__":
         for namespace in document:
             if namespace["namespace"] == "manifest":
                 manifest_namespace = format_manifest_namespace(namespace)
+
+        for namespace in document:
+            if namespace["namespace"] == "manifest":
                 continue
 
-            with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
-                fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))
-                manifest_namespace = None
-
-        if manifest_namespace is not None:
-            namespace = {
-                "namespace": filename
-            }
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
                 fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))

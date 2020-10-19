@@ -4,6 +4,7 @@
     "functions": [
       {
         "name": "getDisplayedMessage",
+        "description": "Gets the currently displayed message in the specified tab. It returns null if no messages are selected, or if multiple messages are selected.",
         "returns": {
           "$ref": "messages.MessageHeader"
         }
