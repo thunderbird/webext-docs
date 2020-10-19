@@ -150,6 +150,7 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
   - ``contexts`` (array of :ref:`menus.ContextType`) A list of all contexts that apply to the menu.
   - ``editable`` (boolean)
   - ``menuIds`` (array of None) A list of IDs of the menu items that were shown.
+  - [``attachments``] (array of :ref:`compose.ComposeAttachment`) *Added in Thunderbird 83*
   - [``frameUrl``] (string)
   - [``linkText``] (string)
   - [``linkUrl``] (string)
@@ -189,9 +190,9 @@ ContextType
 
 The different contexts a menu can appear in. Specifying 'all' is equivalent to the combination of all other contexts except for 'tab'.
 
-`string <enum_ContextType_48_>`_
+`string <enum_ContextType_49_>`_
 
-.. _enum_ContextType_48:
+.. _enum_ContextType_49:
 
 Values for ContextType:
 
@@ -218,9 +219,9 @@ ItemType
 
 The type of menu item.
 
-`string <enum_ItemType_48_>`_
+`string <enum_ItemType_49_>`_
 
-.. _enum_ItemType_48:
+.. _enum_ItemType_49:
 
 Values for ItemType:
 
@@ -240,7 +241,7 @@ object:
 
 - ``editable`` (boolean) A flag indicating whether the element is editable (text input, textarea, etc.).
 - ``menuItemId`` (integer or string) The ID of the menu item that was clicked.
-- ``modifiers`` (array of `string <enum_modifiers_50_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
+- ``modifiers`` (array of `string <enum_modifiers_51_>`_) An array of keyboard modifiers that were held while the menu item was clicked.
 - [``attachments``] (array of :ref:`compose.ComposeAttachment`) The selected attachments of a message being composed. *Added in Thunderbird 83*
 - [``button``] (integer) An integer value of button by which menu item was clicked.
 - [``checked``] (boolean) A flag indicating the state of a checkbox or radio item after it is clicked.
@@ -260,7 +261,7 @@ object:
 - [``viewType``] (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_) The type of view where the menu is clicked. May be unset if the menu is not associated with a view.
 - [``wasChecked``] (boolean) A flag indicating the state of a checkbox or radio item before it was clicked.
 
-.. _enum_modifiers_50:
+.. _enum_modifiers_51:
 
 Values for modifiers:
 

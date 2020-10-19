@@ -76,15 +76,10 @@ Changes to APIs
 ===============
 
 .. toctree::
+  :glob:
   :maxdepth: 1
 
-  changes/beta74
-  changes/beta75
-  changes/beta76
-  changes/beta77
-  changes/beta78
-  changes/beta81
-  changes/beta82
+  changes/*
 
 How To
 ======

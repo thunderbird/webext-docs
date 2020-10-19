@@ -33,6 +33,21 @@
           }
         }
       }
+    ],
+    "events": [
+      {
+        "name": "onShown",
+        "parameters": [
+          {
+            "name": "info",
+            "properties": {
+              "attachments": {
+                "added": 83
+              }
+            }
+          }
+        ]
+      }
     ]
   }
 ]
