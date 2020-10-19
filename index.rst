@@ -51,6 +51,7 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
   menus
   messageDisplay
   messageDisplayAction
+  messageDisplayScripts
   messages
   tabs
   windows
