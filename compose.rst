@@ -16,11 +16,12 @@ Functions
 
 .. _compose.beginNew:
 
-beginNew([details])
--------------------
+beginNew([messageId], [details])
+--------------------------------
 
 *Changed in Thunderbird 77: return value added*
 
+- [``messageId``] (integer) If specified, the message or template to edit as a new message. *Added in Thunderbird 84*
 - [``details``] (:ref:`compose.ComposeDetails`)
 
 Returns a `Promise`_ fulfilled with:
@@ -35,14 +36,14 @@ beginReply(messageId, [replyType], [details])
 *Changed in Thunderbird 77: return value added*
 
 - ``messageId`` (integer) The message to reply to, as retrieved using other APIs.
-- [``replyType``] (`string <enum_replyType_3_>`_)
+- [``replyType``] (`string <enum_replyType_4_>`_)
 - [``details``] (:ref:`compose.ComposeDetails`) *Added in Thunderbird 76*
 
 Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab`
 
-.. _enum_replyType_3:
+.. _enum_replyType_4:
 
 Values for replyType:
 
@@ -58,14 +59,14 @@ beginForward(messageId, [forwardType], [details])
 *Changed in Thunderbird 77: return value added*
 
 - ``messageId`` (integer) The message to forward, as retrieved using other APIs.
-- [``forwardType``] (`string <enum_forwardType_6_>`_)
+- [``forwardType``] (`string <enum_forwardType_7_>`_)
 - [``details``] (:ref:`compose.ComposeDetails`)
 
 Returns a `Promise`_ fulfilled with:
 
 - :ref:`tabs.Tab`
 
-.. _enum_forwardType_6:
+.. _enum_forwardType_7:
 
 Values for forwardType:
 
@@ -282,9 +283,9 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_41_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_42_>`_) Which sort of object this ID is for.
 
-.. _enum_type_41:
+.. _enum_type_42:
 
 Values for type:
 

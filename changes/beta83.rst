@@ -34,3 +34,5 @@ menus
   context menu on selected attachments in a compose window. The selected attachments can be
   accessed from the ``attachments`` property in an :ref:`onShown <menus.onShown>` or
   :ref:`onClicked <menus.onClicked>` listener.
+* The standard properties available to :ref:`onShown <menus.onShown>` are now available for
+  messages being displayed, if your extension has the ``messagesRead`` permission.

@@ -43,6 +43,12 @@
       {
         "name": "beginNew",
         "changed": "77: return value added",
+        "parameters": [
+          {
+            "name": "messageId",
+            "added": 84
+          }
+        ],
         "returns": {
           "$ref": "tabs.Tab"
         }
