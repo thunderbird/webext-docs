@@ -25,9 +25,9 @@ rtd_version = os.environ.get('READTHEDOCS_VERSION')
 if rtd_version == "latest":
     versionwarning_admonition_type = 'tip'
     versionwarning_banner_title = 'Tip'
-    versionwarning_default_message = "This documentation is for pre-release versions of Thunderbird. See the ìstableî version of this documentation for the current ESR release of Thunderbird."   
+    versionwarning_default_message = "This documentation is for pre-release versions of Thunderbird. See the ‚Äústable‚Äù version of this documentation for the current ESR release of Thunderbird."   
 else: 
-    versionwarning_default_message = "This documentation is for Thunderbird " + rtd_version + ", which is no longer supported. See the ìstableî version for the current ESR release of Thunderbird."
+    versionwarning_default_message = "This documentation is for Thunderbird " + rtd_version + ", which is no longer supported. See the ‚Äústable‚Äù version for the current ESR release of Thunderbird."
 
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
 
