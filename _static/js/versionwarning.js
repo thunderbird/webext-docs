@@ -19,7 +19,7 @@ function injectCustomWarningBanner(config) {
     console.debug("injectCustomWarningBanner");
     var warning = $(config.banner.html);
     var body = $(config.banner.body_selector);
-    body.prepend(warning);
+    body.prepend('123' + warning);
 }
 
 
