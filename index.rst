@@ -1,6 +1,6 @@
-=================================================
-WebExtension API Documentation for Thunderbird 78
-=================================================
+==========================================
+Thunderbird WebExtension API Documentation
+==========================================
 
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
 highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN documentation on the subject`__.
@@ -8,7 +8,9 @@ highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN d
 __ https://developer.thunderbird.net/add-ons/mailextensions
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
-For any problems or feature requests please `file a bug`__.
+.. note::
+
+  For any problems or feature requests please `file a bug`__.
 
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
@@ -25,8 +27,8 @@ __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
   In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
   but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
 
-Thunderbird APIs
-=================
+Thunderbird 78 APIs
+===================
 
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
@@ -103,8 +105,8 @@ The documentation for these APIs is generated automatically from the schema docu
 
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/
 
-Firefox APIs
-=================
+Firefox 78 APIs
+===============
 
 As Thunderbird is based on Firefox, many of its WebExtension APIs can be used in Thunderbird
 as well. The APIs listed in the following table are known to work with Thunderbird.
