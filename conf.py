@@ -21,3 +21,10 @@ html_static_path = ['_static']
 def setup(app):
    #app.add_javascript("custom.js")
    app.add_stylesheet("theme_overrides.css")
+
+extensions = [
+     # ... other extensions here
+     'versionwarning.extension',
+]
+
+versionwarning_default_message = "This page is part of the API documentation of the no longer supported Thunderbird READTHEDOCS_VERSION. The current version of this documentation is for Thunderbird {newest}."
