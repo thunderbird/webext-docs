@@ -40,6 +40,6 @@ extensions = [
 ]
 
 def setup(app):
-   #app.add_javascript("custom.js")
+   app.add_javascript("js/versionwarning2.js")
    app.add_stylesheet('theme_overrides.css')
    
