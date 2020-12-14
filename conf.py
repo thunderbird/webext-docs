@@ -22,10 +22,10 @@ html_static_path = ['_static']
 
 # Configure headers for non-stable versions
 rtd_version = os.environ.get('READTHEDOCS_VERSION')
-versionwarning_default_message = 'This version of the documentation is for to the discontinued Thunderbird ' + rtd_version + '. The API documentation for the current release of Thunderbird can be found <a href="/">here</a>.'
+versionwarning_default_message = 'This version of the documentation is for to the discontinued Thunderbird ' + rtd_version + '. The API documentation for the current release of Thunderbird can be found <a href="https://webextension-api.thunderbird.net">here</a>.'
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
 versionwarning_messages = {
-    'latest': 'This documentation is for pre-release versions of Thunderbird. The API documentation for the current release of Thunderbird can be found <a href="/">here</a>.',
+    'latest': 'This documentation is for pre-release versions of Thunderbird. The API documentation for the current release of Thunderbird can be found <a href="https://webextension-api.thunderbird.net">here</a>.',
 }
 
 if rtd_version == 'latest':
