@@ -24,9 +24,9 @@ html_static_path = ['_static']
 rtd_version = os.environ.get('READTHEDOCS_VERSION')
 versionwarning_default_message = 'This version of the documentation relates to the discontinued Thunderbird ' + rtd_version + '. For the current release see the API documentation for Thunderbird {newest}.'
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
-versionwarning_messages = {
-    'latest': 'This documentation is for pre-release versions of Thunderbird. For the current release see the API documentation for Thunderbird <a href="#"></a>.',
-}
+#versionwarning_messages = {
+#    'latest': 'This documentation is for pre-release versions of Thunderbird. For the current release see the API documentation for Thunderbird <a href="#"></a>.',
+#}
 
 if rtd_version == 'latest':
     versionwarning_admonition_type = 'tip'
