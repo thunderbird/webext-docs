@@ -22,12 +22,15 @@ html_static_path = ['_static']
 
 # Configure headers for non-stable versions
 rtd_version = os.environ.get('READTHEDOCS_VERSION')
-if rtd_version == "latest":
+versionwarning_default_message = 'This version of the documentation is for to the discontinued Thunderbird ' + rtd_version + '. The API documentation for the current release of Thunderbird can be found <a href="/">here</a>.'
+versionwarning_body_selector = 'div[itemprop="articleBody"]'
+versionwarning_messages = {
+    'latest': 'This documentation is for pre-release versions of Thunderbird. The API documentation for the current release of Thunderbird can be found <a href="/">here</a>.',
+}
+
+if rtd_version == 'latest':
     versionwarning_admonition_type = 'tip'
     versionwarning_banner_title = 'Tip'
-    versionwarning_default_message = "This documentation is for pre-release versions of Thunderbird. See the “stable” version of this documentation for the current ESR release of Thunderbird."   
-else: 
-    versionwarning_default_message = "This documentation is for Thunderbird " + rtd_version + ", which is no longer supported. See the “stable” version for the current ESR release of Thunderbird."
 
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
 
@@ -38,4 +41,4 @@ extensions = [
 
 def setup(app):
    #app.add_javascript("custom.js")
-   app.add_stylesheet("theme_overrides.css")
+   app.add_stylesheet('theme_overrides.css')
