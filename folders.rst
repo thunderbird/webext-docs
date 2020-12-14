@@ -18,7 +18,14 @@ Permissions
 
 Functions
 =========
+.. confval:: collapse_navigation
 
+    :type: boolean
+    :default: ``True``
+
+    With this enabled, navigation entries are not expandable -- the ``[+]``
+    icons next to each entry are removed.
+    
 .. _folders.create:
 
 create(parentFolder, childName)
