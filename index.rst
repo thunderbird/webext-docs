@@ -1,5 +1,5 @@
 =============================================
-Thunderbird 68 WebExtension API Documentation
+Thunderbird WebExtension API Documentation
 =============================================
 
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
