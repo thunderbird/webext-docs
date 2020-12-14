@@ -33,7 +33,8 @@ Thunderbird APIs
 
 .. note::
 
-  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox, but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
+  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
+  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
 
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
