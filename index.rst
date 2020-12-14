@@ -27,14 +27,13 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
-
-Thunderbird APIs
-=================
-
 .. note::
 
   In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
   but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
+
+Thunderbird APIs
+=================
 
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
