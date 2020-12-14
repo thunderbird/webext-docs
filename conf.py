@@ -1,6 +1,5 @@
 import os
 
-project = u'Thunderbird WebExtension APIs'
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
@@ -29,9 +28,12 @@ versionwarning_messages = {
 }
 
 if rtd_version == 'latest':
+    project = u'Thunderbird WebExtension API Documentation'
     versionwarning_admonition_type = 'tip'
     versionwarning_banner_title = 'Tip'
-
+else:
+    project = u'WebExtension API Documentation for Thunderbird ' + rtd_version
+    
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
 
 extensions = [
