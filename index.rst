@@ -1,5 +1,5 @@
 =============================================
-Thunderbird 78 WebExtension API Documentation
+Thunderbird WebExtension API Documentation
 =============================================
 
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
@@ -8,9 +8,7 @@ highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN d
 __ https://developer.thunderbird.net/add-ons/mailextensions
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
-.. note::
-
-  For any problems or feature requests please `file a bug`__.
+For any problems or feature requests please `file a bug`__.
 
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
