@@ -1,4 +1,5 @@
 import os
+import shutil
 
 project = u'Thunderbird WebExtension APIs'
 source_suffix = '.rst'
@@ -41,5 +42,9 @@ extensions = [
 
 def setup(app):
    #app.add_javascript("js/versionwarning2.js")
-   app.add_stylesheet('theme_overrides.css')
+   app.add_stylesheet('theme_overrides.css')   
+   staticpath = os.path.join(os.path.dirname(__file__), '_static')
+   staticjspath = os.path.join(staticpath, 'js')
+   shutil.copy(os.path.join(staticjspath,'versionwarning2.js'), os.path.join(staticjspath,'versionwarning.js'))
+   
    
