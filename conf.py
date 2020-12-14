@@ -1,5 +1,4 @@
 import os
-import shutil
 
 project = u'Thunderbird WebExtension APIs'
 source_suffix = '.rst'
@@ -41,7 +40,6 @@ extensions = [
 ]
 
 def setup(app):
-   #app.add_javascript("js/versionwarning2.js")
-   app.add_stylesheet('theme_overrides.css')   
-   
+   #app.add_javascript("custom.js")
+   app.add_stylesheet('theme_overrides.css')
    
