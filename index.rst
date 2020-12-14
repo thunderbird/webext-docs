@@ -29,6 +29,11 @@ __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 Thunderbird APIs
 =================
 
+.. note::
+
+  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
+  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
+
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
 +-------------------------------+------------------------------------------------------------+
@@ -222,10 +227,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. |webNavigation-Description| replace:: Add event listeners for the various stages of a navigation. A navigation consists of a frame in the browser transitioning from one URL to another, usually (but not always) in response to a user action like clicking a link.
 .. |webRequest-Description| replace:: Add event listeners for the various stages of making an HTTP request, which includes websocket requests on ws:// and wss://. The event listener receives detailed information about the request and can modify or cancel the request.
 
-.. note::
-
-  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
-  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
 
 .. toctree::
   :hidden:
