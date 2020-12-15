@@ -2,9 +2,10 @@
 
 function injectVersionWarningBanner(running_version, version, config) {
     console.debug("injectVersionWarningBanner");
-    console.debug($(config));
     var version_url = window.location.pathname.replace(running_version.slug, version.slug);
     var warning = $(config.banner.html);
+    console.debug(warning);
+    console.debug(warning.replace("{message}", $(config.banner.current)));
 
     warning
       .find("a")
