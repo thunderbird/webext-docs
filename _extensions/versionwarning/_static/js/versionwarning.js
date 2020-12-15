@@ -39,15 +39,13 @@ function getHighestVersion(versions) {
     var highest_version;
 
     $.each(versions, function (i, version) {
-        console.log(version)
-        if (isNaN(version)) {
+        if (isNaN(version.slug)) {
             // Skip versions that are not numbers
-            console.log("NaN");
         }
         else if (!highest_version) {
             highest_version = version;
         }
-        else if (version > highest_version) {
+        else if (version.slug > highest_version.slug) {
             highest_version = version;
         }
     });
