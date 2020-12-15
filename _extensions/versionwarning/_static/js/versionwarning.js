@@ -5,11 +5,11 @@ function injectVersionWarningBanner(running_version, highest_version, config) {
     let msg = config.banner.older_message;
     let title =  config.banner.older_title;
     let type = config.banner.older_type
-    if (running_version == "latest") {
+    if (running_version.slug == "latest") {
         msg = config.banner.latest_message;
         title =  config.banner.latest_title;
         type = config.banner.latest_type
-    } else if (running_version == highest_version) {
+    } else if (running_version.slug == highest_version.slug) {
         msg = config.banner.current_message;
         title =  config.banner.current_title;
         type = config.banner.current_type
@@ -21,14 +21,9 @@ function injectVersionWarningBanner(running_version, highest_version, config) {
             .replace("{id_div}", config.banner.id_div)
             .replace("{banner_title}", title)
             .replace("{admonition_type}", type)
-            .replace("{newest}",  '<a href="#"></a>')
-            .replace("{this}", running_version)
+            .replace("{newest}",  '<a href="'+version_url+'">'+highest_version.slug+'</a>')
+            .replace("{this}", running_version.slug)
     );
-
-    warning
-      .find("a")
-      .attr("href", version_url)
-      .text(highest_version.slug);
 
     var body = $(config.banner.body_selector);
     body.prepend(warning);
