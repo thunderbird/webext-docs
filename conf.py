@@ -1,4 +1,7 @@
-import os
+import sys, os
+
+# local extension folder
+sys.path.append(os.path.abspath('_extensions'))
 
 project = u'Thunderbird WebExtension APIs'
 source_suffix = '.rst'
@@ -24,9 +27,9 @@ html_static_path = ['_static']
 rtd_version = os.environ.get('READTHEDOCS_VERSION')
 versionwarning_default_message = 'This is the API documentation for Thunderbird ' + rtd_version + '. See the {newest} version for the current ESR of Thunderbird.'
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
-versionwarning_messages = {
-    'latest': 'This is the API documentation for pre-release versions of Thunderbird. See the <a href="/">78</a> version for the current ESR of Thunderbird.',
-}
+#versionwarning_messages = {
+#    'latest': 'This is the API documentation for pre-release versions of Thunderbird. See the <a href="/">78</a> version for the current ESR of Thunderbird.',
+#}
 
 if rtd_version == 'latest':
     versionwarning_admonition_type = 'tip'
@@ -37,10 +40,9 @@ versionwarning_body_selector = 'div[itemprop="articleBody"]'
 extensions = [
     # ... other extensions here
     'versionwarning.extension',
-    'sphinx_toolbox.confval',
+    #'sphinx_toolbox.confval',
 ]
 
 def setup(app):
    #app.add_javascript("custom.js")
    app.add_stylesheet('theme_overrides.css')
-   
