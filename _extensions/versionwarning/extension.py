@@ -17,14 +17,17 @@ def setup(app):
     </div>'''
 
     app.add_config_value('versionwarning_older_message', default_message, 'html')
+    app.add_config_value('versionwarning_older_indexmessage', '', 'html')
     app.add_config_value('versionwarning_older_title', 'Warning', 'html')
     app.add_config_value('versionwarning_older_type', 'warning', 'html')
 
     app.add_config_value('versionwarning_current_message', '', 'html')
+    app.add_config_value('versionwarning_current_indexmessage', '', 'html')
     app.add_config_value('versionwarning_current_title', 'Warning', 'html')
     app.add_config_value('versionwarning_current_type', 'warning', 'html')
 
     app.add_config_value('versionwarning_latest_message', '', 'html')
+    app.add_config_value('versionwarning_latest_indexmessage', '', 'html')
     app.add_config_value('versionwarning_latest_title', 'Warning', 'html')
     app.add_config_value('versionwarning_latest_type', 'warning', 'html')
 

@@ -30,9 +30,9 @@ versionwarning_latest_type = 'tip'
 versionwarning_latest_title = 'Note'   
 versionwarning_latest_message = 'This is the API documentation for pre-release versions of Thunderbird. See version {newest} for the current ESR of Thunderbird.'
 
-#versionwarning_current_type = 'tip'
-#versionwarning_current_title = 'Note'   
-#versionwarning_current_message = 'This is the API documentation for Thunderbird {this}.'
+versionwarning_current_type = 'tip'
+versionwarning_current_title = 'Note'   
+versionwarning_current_indexmessage = 'This is the API documentation for the current ESR of Thunderbird, version {this}. Other available versions are: {other}'
 
 versionwarning_older_type = 'warning'
 versionwarning_older_title = 'Warning'   

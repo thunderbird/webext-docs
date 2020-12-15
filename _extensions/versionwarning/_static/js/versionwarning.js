@@ -1,16 +1,30 @@
-function injectVersionWarningBanner(running_version, highest_version, config) {
+function injectVersionWarningBanner(running_version, highest_version, config, versions) {
     console.debug("injectVersionWarningBanner");
-    var version_url = window.location.pathname.replace(running_version.slug, highest_version.slug);
+    var current_url = window.location.pathname;
+    var isIndex = current_url.endsWith(running_version.slug + "/") || current_url.endsWith(running_version.slug + "/index.html");
     
-    let msg = config.banner.older_message;
+    var other = "";
+    $.each(versions, function (i, version) {
+        if (version.slug != running_version.slug && version.slug != highest_version.slug) {
+            other += "<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + version.slug + "</a> "
+        }
+    });
+    
+    let msg = (config.banner.older_indexmessage && isIndex) 
+                        : config.banner.older_indexmessage;
+                        ? config.banner.older_message;
     let title =  config.banner.older_title;
     let type = config.banner.older_type
     if (running_version.slug == "latest") {
-        msg = config.banner.latest_message;
+        msg = (config.banner.latest_indexmessage && isIndex) 
+                        : config.banner.latest_indexmessage;
+                        ? config.banner.latest_message;
         title =  config.banner.latest_title;
         type = config.banner.latest_type
     } else if (running_version.slug == highest_version.slug) {
-        msg = config.banner.current_message;
+        msg = (config.banner.current_indexmessage && isIndex) 
+                        : config.banner.current_indexmessage;
+                        ? config.banner.current_message;
         title =  config.banner.current_title;
         type = config.banner.current_type
     } 
@@ -22,8 +36,9 @@ function injectVersionWarningBanner(running_version, highest_version, config) {
                 .replace("{id_div}", config.banner.id_div)
                 .replace("{banner_title}", title)
                 .replace("{admonition_type}", type)
-                .replace("{newest}",  '<a href="'+version_url+'">'+highest_version.slug+'</a>')
+                .replace("{newest}",  '<a href="' + current_url.replace(running_version.slug, highest_version.slug) + '">' + highest_version.slug + '</a>')
                 .replace("{this}", running_version.slug)
+                .replace("{other}", other)
         );
 
         var body = $(config.banner.body_selector);
@@ -78,7 +93,7 @@ function checkVersion(config) {
 //                semver.lt(semver.coerce(running_version.slug), semver.coerce(highest_version.slug))
             ) {
                 console.debug("Highest version: " + highest_version.slug);
-                injectVersionWarningBanner(running_version, highest_version, config);
+                injectVersionWarningBanner(running_version, highest_version, config, versions["results"]);
             }
         },
         error: function () {
