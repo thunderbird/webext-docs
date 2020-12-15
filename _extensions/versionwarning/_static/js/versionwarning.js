@@ -8,9 +8,9 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
         if (version.slug != running_version.slug && version.slug != highest_version.slug) {
             let label = version.slug;
             if (label == "latest") {
-                label = "Latest (Pre-Release)"
+                label = "Latest"
             }
-            others.push("&quot;<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" +label + "</a>&quot;");
+            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>&quot;" +label + "&quot;</a>");
         }
     });
     let other = others.pop();
