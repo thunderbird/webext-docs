@@ -8,14 +8,8 @@ highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN d
 __ https://developer.thunderbird.net/add-ons/mailextensions
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
-.. note::
+For any problems or feature requests please `file a bug`__.
 
-  This documentation is for pre-release versions of Thunderbird. See the `"78" version`__ for
-  Thunderbird 78, or the `"68" version`__ for Thunderbird 68.
-  For any problems or feature requests please `file a bug`__.
-
-__ https://thunderbird-webextensions.readthedocs.io/en/78/
-__ https://thunderbird-webextensions.readthedocs.io/en/68/
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
 .. note::
@@ -25,6 +19,11 @@ __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-
 
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
+
+.. note::
+
+  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
+  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
 
 Thunderbird APIs
 =================
@@ -222,10 +221,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. |webNavigation-Description| replace:: Add event listeners for the various stages of a navigation. A navigation consists of a frame in the browser transitioning from one URL to another, usually (but not always) in response to a user action like clicking a link.
 .. |webRequest-Description| replace:: Add event listeners for the various stages of making an HTTP request, which includes websocket requests on ws:// and wss://. The event listener receives detailed information about the request and can modify or cancel the request.
 
-.. note::
-
-  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
-  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
 
 .. toctree::
   :hidden:

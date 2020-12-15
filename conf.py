@@ -1,3 +1,8 @@
+import sys, os
+
+# local extension folder
+sys.path.append(os.path.abspath('_extensions'))
+
 project = u'Thunderbird WebExtension APIs'
 source_suffix = '.rst'
 master_doc = 'index'
@@ -18,6 +23,28 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# Configure headers
+versionwarning_body_selector = 'div[itemprop="articleBody"]'
+
+versionwarning_latest_type = 'tip'
+versionwarning_latest_title = 'Note'   
+versionwarning_latest_message = 'This is the API documentation for pre-release versions of Thunderbird. See version {newest} for the current ESR of Thunderbird.'
+
+versionwarning_current_type = 'tip'
+versionwarning_current_title = 'Note'   
+versionwarning_current_indexmessage = 'This is the API documentation for the current ESR of Thunderbird, version {this}. Other available versions are: {other}'
+
+versionwarning_older_type = 'warning'
+versionwarning_older_title = 'Warning'   
+versionwarning_older_message = 'This is the API documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
+
+
+extensions = [
+    # ... other extensions here
+    'versionwarning.extension',
+    #'sphinx_toolbox.confval',
+]
+
 def setup(app):
    #app.add_javascript("custom.js")
-   app.add_stylesheet("theme_overrides.css")
+   app.add_stylesheet('theme_overrides.css')
