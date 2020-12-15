@@ -35,8 +35,9 @@ if rtd_version == 'latest':
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
 
 extensions = [
-     # ... other extensions here
-     'versionwarning.extension',
+    # ... other extensions here
+    'versionwarning.extension',
+    'sphinx_toolbox.confval'     
 ]
 
 def setup(app):
