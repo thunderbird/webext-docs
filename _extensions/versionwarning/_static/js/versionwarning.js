@@ -10,7 +10,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
             if (label == "latest") {
                 label = "Latest"
             }
-            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>&quot;" +label + "&quot;</a>");
+            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" +label + "</a>");
         }
     });
     let other = others.pop();
