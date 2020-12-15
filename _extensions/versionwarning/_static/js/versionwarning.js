@@ -81,6 +81,7 @@ function init() {
     // any page.
     var base_url = $('script[src*=versionwarning]').attr('src');
     base_url = base_url.replace('versionwarning.js', '');
+    console.log(base_url);
     $.ajax({
         url: base_url + "../../_static/data/versionwarning-data.json",
         success: function(config) {
