@@ -1,21 +1,33 @@
-//const semver = require('semver');
-
-function injectVersionWarningBanner(running_version, version, config) {
+function injectVersionWarningBanner(running_version, highest_version, config) {
     console.debug("injectVersionWarningBanner");
-    var version_url = window.location.pathname.replace(running_version.slug, version.slug);
+    var version_url = window.location.pathname.replace(running_version.slug, highest_version.slug);
+    
+    let msg = config.banner.older;
+    let title =  config.banner.title;
+    let type = config.banner.admonition_type
+    if (running_version == "latest") {
+        msg = config.banner.latest;
+        title =  config.banner.title;
+        type = config.banner.admonition_type
+    } else if (running_version == highest_version) {
+        msg = config.banner.current;
+        title =  config.banner.title;
+        type = config.banner.admonition_type
+    } 
+    
     var warning = $(
         config.banner.html
-            .replace("{message}", config.banner.current)
+            .replace("{message}", msg)
             .replace("{id_div}", config.banner.id_div)
-            .replace("{banner_title}", config.banner.title)
-            .replace("{admonition_type}", config.banner.admonition_type)
+            .replace("{banner_title}", .title)
+            .replace("{admonition_type}", type)
             .replace("{newest}",  '<a href="#"></a>')
     );
 
     warning
       .find("a")
       .attr("href", version_url)
-      .text(version.slug);
+      .text(highest_version.slug);
 
     var body = $(config.banner.body_selector);
     body.prepend(warning);
@@ -26,16 +38,13 @@ function getHighestVersion(versions) {
     var highest_version;
 
     $.each(versions, function (i, version) {
-/*        if (!semver.valid(semver.coerce(version.slug))) {
-            // Skip versions that are not valid
+        if ( isNaN(version)) {
+            // Skip versions that are not numbers
         }
-        else */ if (!highest_version) {
+        else if (!highest_version) {
             highest_version = version;
         }
-        else if (true
-//            semver.valid(semver.coerce(version.slug)) && semver.valid(semver.coerce(highest_version.slug)) &&
-//            semver.gt(semver.coerce(version.slug), semver.coerce(highest_version.slug))
-        ) {
+        else if (version > highest_version) {
             highest_version = version;
         }
     });
@@ -86,7 +95,6 @@ function init() {
     // any page.
     var base_url = $('script[src*=versionwarning]').attr('src');
     base_url = base_url.replace('versionwarning.js', '');
-    console.log(base_url);
     $.ajax({
         url: base_url + "../../_static/data/versionwarning-data.json",
         success: function(config) {
