@@ -16,16 +16,21 @@ def setup(app):
             </p>
     </div>'''
 
-    app.add_config_value('versionwarning_admonition_type', 'warning', 'html')
     app.add_config_value('versionwarning_older_message', default_message, 'html')
+    app.add_config_value('versionwarning_older_title', 'Warning', 'html')
+    app.add_config_value('versionwarning_older_type', 'warning', 'html')
+
     app.add_config_value('versionwarning_current_message', '', 'html')
+    app.add_config_value('versionwarning_current_title', 'Warning', 'html')
+    app.add_config_value('versionwarning_current_type', 'warning', 'html')
+
     app.add_config_value('versionwarning_latest_message', '', 'html')
-    app.add_config_value('versionwarning_messages', {}, 'html')
+    app.add_config_value('versionwarning_latest_title', 'Warning', 'html')
+    app.add_config_value('versionwarning_latest_type', 'warning', 'html')
 
     app.add_config_value('versionwarning_api_url', 'https://readthedocs.org/api/v2/', 'html')
     app.add_config_value('versionwarning_banner_html', banner_html, 'html')
     app.add_config_value('versionwarning_banner_id_div', 'version-warning-banner', 'html')
-    app.add_config_value('versionwarning_banner_title', 'Warning', 'html')
     app.add_config_value('versionwarning_body_selector', 'div.body', 'html')
     app.add_config_value('versionwarning_project_slug', os.environ.get('READTHEDOCS_PROJECT', None), 'html')
     app.add_config_value('versionwarning_project_version', os.environ.get('READTHEDOCS_VERSION', None), 'html')

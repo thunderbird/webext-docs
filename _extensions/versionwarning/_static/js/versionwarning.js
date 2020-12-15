@@ -2,26 +2,27 @@ function injectVersionWarningBanner(running_version, highest_version, config) {
     console.debug("injectVersionWarningBanner");
     var version_url = window.location.pathname.replace(running_version.slug, highest_version.slug);
     
-    let msg = config.banner.older;
-    let title =  config.banner.title;
-    let type = config.banner.admonition_type
+    let msg = config.banner.older_message;
+    let title =  config.banner.older_title;
+    let type = config.banner.older_type
     if (running_version == "latest") {
-        msg = config.banner.latest;
-        title =  config.banner.title;
-        type = config.banner.admonition_type
+        msg = config.banner.latest_message;
+        title =  config.banner.latest_title;
+        type = config.banner.latest_type
     } else if (running_version == highest_version) {
-        msg = config.banner.current;
-        title =  config.banner.title;
-        type = config.banner.admonition_type
+        msg = config.banner.current_message;
+        title =  config.banner.current_title;
+        type = config.banner.current_type
     } 
     
     var warning = $(
         config.banner.html
             .replace("{message}", msg)
             .replace("{id_div}", config.banner.id_div)
-            .replace("{banner_title}", .title)
+            .replace("{banner_title}", title)
             .replace("{admonition_type}", type)
             .replace("{newest}",  '<a href="#"></a>')
+            .replace("{this}", running_version)
     );
 
     warning

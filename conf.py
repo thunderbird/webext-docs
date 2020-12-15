@@ -24,16 +24,20 @@ html_theme_options = {
 html_static_path = ['_static']
 
 # Configure headers
-rtd_version = os.environ.get('READTHEDOCS_VERSION')
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
 
-versionwarning_latetst_message = 'This is the API documentation for pre-release versions of Thunderbird. See version {newest} for the current ESR of Thunderbird.'
-versionwarning_current_message = 'This is the API documentation for Thunderbird ' + rtd_version + '.'
-versionwarning_older_message = 'This is the API documentation for Thunderbird ' + rtd_version + '. See version {newest} for the current ESR of Thunderbird.'
+versionwarning_latest_type = 'tip'
+versionwarning_latest_title = 'Note'   
+versionwarning_latest_message = 'This is the API documentation for pre-release versions of Thunderbird. See version {newest} for the current ESR of Thunderbird.'
 
-if rtd_version == 'latest':
-    versionwarning_admonition_type = 'tip'
-    versionwarning_banner_title = 'Note'   
+versionwarning_current_type = 'tip'
+versionwarning_current_title = 'Note'   
+versionwarning_current_message = 'This is the API documentation for Thunderbird {this}.'
+
+versionwarning_older_type = 'warning'
+versionwarning_older_title = 'Warning'   
+versionwarning_older_message = 'This is the API documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
+
 
 extensions = [
     # ... other extensions here
