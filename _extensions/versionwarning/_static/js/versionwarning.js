@@ -83,6 +83,7 @@ function init() {
     $.ajax({
         url: base_url + "../../_static/data/versionwarning-data.json",
         success: function(config) {
+            console.log(config);
             // Check if there is already a banner added statically
             var banner = document.getElementById(config.banner.id_div);
             if (banner) {
