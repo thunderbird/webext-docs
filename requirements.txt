@@ -1,2 +1,1 @@
-sphinx-version-warning
 sphinx-toolbox
