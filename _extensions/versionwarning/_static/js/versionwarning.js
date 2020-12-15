@@ -15,18 +15,20 @@ function injectVersionWarningBanner(running_version, highest_version, config) {
         type = config.banner.current_type
     } 
     
-    var warning = $(
-        config.banner.html
-            .replace("{message}", msg)
-            .replace("{id_div}", config.banner.id_div)
-            .replace("{banner_title}", title)
-            .replace("{admonition_type}", type)
-            .replace("{newest}",  '<a href="'+version_url+'">'+highest_version.slug+'</a>')
-            .replace("{this}", running_version.slug)
-    );
+    if (msg) {
+        var warning = $(
+            config.banner.html
+                .replace("{message}", msg)
+                .replace("{id_div}", config.banner.id_div)
+                .replace("{banner_title}", title)
+                .replace("{admonition_type}", type)
+                .replace("{newest}",  '<a href="'+version_url+'">'+highest_version.slug+'</a>')
+                .replace("{this}", running_version.slug)
+        );
 
-    var body = $(config.banner.body_selector);
-    body.prepend(warning);
+        var body = $(config.banner.body_selector);
+        body.prepend(warning);
+    }
 }
 
 function getHighestVersion(versions) {
