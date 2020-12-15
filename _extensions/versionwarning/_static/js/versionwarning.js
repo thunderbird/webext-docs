@@ -3,12 +3,21 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     var current_url = window.location.pathname;
     var isIndex = current_url.endsWith(running_version.slug + "/") || current_url.endsWith(running_version.slug + "/index.html");
     
-    var other = "";
+    var others = [];
     $.each(versions, function (i, version) {
         if (version.slug != running_version.slug && version.slug != highest_version.slug) {
-            other += "<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + version.slug + "</a> "
+            let label = version.slug;
+            if (label == "latest") {
+                label = "Latest"
+            }
+            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" +label + "</a>");
         }
     });
+    let other = others.pop();
+    let first = others.join(", ");
+    if (first) {
+        other = first + " & " + other;
+    }
     
     let msg = (config.banner.older_indexmessage && isIndex) 
                         ? config.banner.older_indexmessage
