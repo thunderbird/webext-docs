@@ -2,7 +2,7 @@
 
 function injectVersionWarningBanner(running_version, version, config) {
     console.debug("injectVersionWarningBanner");
-    console.debug(config);
+    console.debug($(config));
     var version_url = window.location.pathname.replace(running_version.slug, version.slug);
     var warning = $(config.banner.html);
 
@@ -83,7 +83,6 @@ function init() {
     $.ajax({
         url: base_url + "../../_static/data/versionwarning-data.json",
         success: function(config) {
-            console.debug(config);
             // Check if there is already a banner added statically
             var banner = document.getElementById(config.banner.id_div);
             if (banner) {
