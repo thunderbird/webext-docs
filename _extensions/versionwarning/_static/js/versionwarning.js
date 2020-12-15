@@ -3,9 +3,14 @@
 function injectVersionWarningBanner(running_version, version, config) {
     console.debug("injectVersionWarningBanner");
     var version_url = window.location.pathname.replace(running_version.slug, version.slug);
-    var warning = $(config.banner.html);
-    console.debug("" + config.banner.html);
-    console.debug("" + config.banner.html.replace("{message}", config.banner.current));
+    var warning = $(
+        config.banner.html
+            .replace("{message}", config.banner.current)
+            .replace("{id_div}", config.banner.id_div)
+            .replace("{banner_title}", config.banner.title)
+            .replace("{admonition_type}", config.banner.admonition_type)
+            .replace("{newest}",  '<a href="#"></a>')
+    );
 
     warning
       .find("a")

@@ -49,6 +49,8 @@ def generate_versionwarning_data_json(app, config=None, **kwargs):
         },
         'banner': {
             'html': config.versionwarning_banner_html,
+            'title': config.versionwarning_banner_title,
+            'admonition_type': config.versionwarning_admonition_type,
             'id_div': config.versionwarning_banner_id_div,
             'body_selector': config.versionwarning_body_selector,
             'older': config.versionwarning_older_message,

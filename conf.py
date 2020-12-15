@@ -33,7 +33,7 @@ versionwarning_older_message = 'This is the API documentation for Thunderbird ' 
 
 if rtd_version == 'latest':
     versionwarning_admonition_type = 'tip'
-    versionwarning_banner_title = 'Tip'   
+    versionwarning_banner_title = 'Note'   
 
 extensions = [
     # ... other extensions here

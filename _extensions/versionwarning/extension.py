@@ -16,7 +16,6 @@ def setup(app):
             </p>
     </div>'''
 
-    app.add_config_value('versionwarning_message_placeholder', 'newest', 'html')
     app.add_config_value('versionwarning_admonition_type', 'warning', 'html')
     app.add_config_value('versionwarning_older_message', default_message, 'html')
     app.add_config_value('versionwarning_current_message', '', 'html')
