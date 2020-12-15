@@ -15,6 +15,11 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
   Registering a compose script through ``manifest.json`` is not possible at this point.
 
+Permissions
+===========
+
+- messagesModify "Read and modify your email messages as they are displayed to you"
+
 .. note::
 
   The permission ``compose`` is required to use ``composeScripts``.

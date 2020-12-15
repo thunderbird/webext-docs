@@ -16,6 +16,11 @@
             }
           }
         ]
+      },
+      {
+        "name": "openDefaultBrowser",
+        "added": "84",
+        "backported": "78.6"
       }
     ],
     "types": [

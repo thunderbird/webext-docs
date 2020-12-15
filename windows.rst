@@ -127,6 +127,17 @@ Removes (closes) a window, and all the tabs inside it.
 
 - ``windowId`` (integer)
 
+.. _windows.openDefaultBrowser:
+
+openDefaultBrowser(url)
+-----------------------
+
+*Added in Thunderbird 84, backported to 78.6*
+
+Opens the provided URL in the default system browser.
+
+- ``url`` (string)
+
 .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 Events
@@ -186,9 +197,9 @@ CreateType
 
 Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
 
-`string <enum_CreateType_32_>`_
+`string <enum_CreateType_33_>`_
 
-.. _enum_CreateType_32:
+.. _enum_CreateType_33:
 
 Values for CreateType:
 
@@ -236,9 +247,9 @@ WindowState
 
 The state of this window.
 
-`string <enum_WindowState_46_>`_
+`string <enum_WindowState_47_>`_
 
-.. _enum_WindowState_46:
+.. _enum_WindowState_47:
 
 Values for WindowState:
 
@@ -255,9 +266,9 @@ WindowType
 
 The type of window this is. Under some circumstances a Window may not be assigned type property.
 
-`string <enum_WindowType_46_>`_
+`string <enum_WindowType_47_>`_
 
-.. _enum_WindowType_46:
+.. _enum_WindowType_47:
 
 Values for WindowType:
 
