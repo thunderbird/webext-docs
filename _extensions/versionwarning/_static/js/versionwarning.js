@@ -11,20 +11,20 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     });
     
     let msg = (config.banner.older_indexmessage && isIndex) 
-                        : config.banner.older_indexmessage
-                        ? config.banner.older_message;
+                        ? config.banner.older_indexmessage
+                        : config.banner.older_message;
     let title =  config.banner.older_title;
     let type = config.banner.older_type
     if (running_version.slug == "latest") {
         msg = (config.banner.latest_indexmessage && isIndex) 
-                        : config.banner.latest_indexmessage
-                        ? config.banner.latest_message;
+                        ? config.banner.latest_indexmessage
+                        : config.banner.latest_message;
         title =  config.banner.latest_title;
         type = config.banner.latest_type
     } else if (running_version.slug == highest_version.slug) {
         msg = (config.banner.current_indexmessage && isIndex) 
-                        : config.banner.current_indexmessage
-                        ? config.banner.current_message;
+                        ? config.banner.current_indexmessage
+                        : config.banner.current_message;
         title =  config.banner.current_title;
         type = config.banner.current_type
     } 
