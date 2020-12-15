@@ -27,31 +27,33 @@ def generate_versionwarning_data_json(app, config=None, **kwargs):
     if config is None:
         config = app.config
 
-    if config.versionwarning_project_version in config.versionwarning_messages:
-        custom = True
-        message = config.versionwarning_messages.get(config.versionwarning_project_version)
-    else:
-        custom = False
-        message = config.versionwarning_default_message
+    #if config.versionwarning_project_version in config.versionwarning_messages:
+    #    custom = True
+    #    message = config.versionwarning_messages.get(config.versionwarning_project_version)
+    #else:
+    #    custom = False
+    #    message = config.versionwarning_default_message
 
-    banner_html = config.versionwarning_banner_html.format(
-        id_div=config.versionwarning_banner_id_div,
-        banner_title=config.versionwarning_banner_title,
-        message=message.format(
-            **{config.versionwarning_message_placeholder: '<a href="#"></a>'},
-        ),
-        admonition_type=config.versionwarning_admonition_type,
-    )
+    #banner_html = config.versionwarning_banner_html.format(
+    #    id_div=config.versionwarning_banner_id_div,
+    #    banner_title=config.versionwarning_banner_title,
+    #    message=message.format(
+    #        **{config.versionwarning_message_placeholder: '<a href="#"></a>'},
+    #    ),
+    #    admonition_type=config.versionwarning_admonition_type,
+    #)
 
     data = json.dumps({
         'meta': {
             'api_url': config.versionwarning_api_url,
         },
         'banner': {
-            'html': banner_html,
+            'html': config.versionwarning_banner_html,
             'id_div': config.versionwarning_banner_id_div,
             'body_selector': config.versionwarning_body_selector,
-            'custom': custom,
+            'older': config.versionwarning_older_message,
+            'current': config.versionwarning_current_message,
+            'latest': config.versionwarning_latest_message,
         },
         'project': {
             'slug': config.versionwarning_project_slug,

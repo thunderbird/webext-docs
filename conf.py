@@ -23,19 +23,17 @@ html_theme_options = {
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
-# Configure headers for non-stable versions
+# Configure headers
 rtd_version = os.environ.get('READTHEDOCS_VERSION')
-versionwarning_default_message = 'This is the API documentation for Thunderbird ' + rtd_version + '. See the {newest} version for the current ESR of Thunderbird.'
 versionwarning_body_selector = 'div[itemprop="articleBody"]'
-#versionwarning_messages = {
-#    'latest': 'This is the API documentation for pre-release versions of Thunderbird. See the <a href="/">78</a> version for the current ESR of Thunderbird.',
-#}
+
+versionwarning_latetst_message = 'This is the API documentation for pre-release versions of Thunderbird. See version {newest} for the current ESR of Thunderbird.'
+versionwarning_current_message = 'This is the API documentation for Thunderbird ' + rtd_version + '.'
+versionwarning_older_message = 'This is the API documentation for Thunderbird ' + rtd_version + '. See version {newest} for the current ESR of Thunderbird.'
 
 if rtd_version == 'latest':
     versionwarning_admonition_type = 'tip'
-    versionwarning_banner_title = 'Tip'
-
-versionwarning_body_selector = 'div[itemprop="articleBody"]'
+    versionwarning_banner_title = 'Tip'   
 
 extensions = [
     # ... other extensions here

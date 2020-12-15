@@ -2,6 +2,7 @@
 
 function injectVersionWarningBanner(running_version, version, config) {
     console.debug("injectVersionWarningBanner");
+    console.log(config);
     var version_url = window.location.pathname.replace(running_version.slug, version.slug);
     var warning = $(config.banner.html);
 
@@ -13,15 +14,6 @@ function injectVersionWarningBanner(running_version, version, config) {
     var body = $(config.banner.body_selector);
     body.prepend(warning);
 }
-
-
-function injectCustomWarningBanner(config) {
-    console.debug("injectCustomWarningBanner");
-    var warning = $(config.banner.html);
-    var body = $(config.banner.body_selector);
-    body.prepend(warning);
-}
-
 
 function getHighestVersion(versions) {
     console.debug("getHighestVersion");
@@ -95,11 +87,7 @@ function init() {
             var banner = document.getElementById(config.banner.id_div);
             if (banner) {
                 console.debug("There is already a banner added. No checking versions.")
-            }
-            else if (config.banner.custom) {
-                injectCustomWarningBanner(config);
-            }
-            else {
+            } else {
                 checkVersion(config);
             }
         },

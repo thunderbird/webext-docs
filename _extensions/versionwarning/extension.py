@@ -12,13 +12,15 @@ def setup(app):
     <div id="{id_div}" class="admonition {admonition_type}">
         <p class="first admonition-title">{banner_title}</p>
             <p class="last">
-                1234 {message} 5678
+                {message}
             </p>
     </div>'''
 
     app.add_config_value('versionwarning_message_placeholder', 'newest', 'html')
     app.add_config_value('versionwarning_admonition_type', 'warning', 'html')
-    app.add_config_value('versionwarning_default_message', default_message, 'html')
+    app.add_config_value('versionwarning_older_message', default_message, 'html')
+    app.add_config_value('versionwarning_current_message', '', 'html')
+    app.add_config_value('versionwarning_latest_message', '', 'html')
     app.add_config_value('versionwarning_messages', {}, 'html')
 
     app.add_config_value('versionwarning_api_url', 'https://readthedocs.org/api/v2/', 'html')
