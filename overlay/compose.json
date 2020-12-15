@@ -32,8 +32,14 @@
         }
       },
       {
-        "name": "ComposeAttachment",
-        "added": "78"
+        "id": "ComposeAttachment",
+        "added": "78",
+        "properties": {
+          "size": {
+            "added": "83",
+            "backported": "78.5.0"
+          }
+        }
       }
     ],
     "functions": [

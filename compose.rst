@@ -245,6 +245,7 @@ object:
 
 - ``id`` (integer) A unique identifier for this attachment.
 - ``name`` (string) The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+- ``size`` (integer) The size in bytes of this attachment. *Added in Thunderbird 83, backported to 78.5.0*
 - ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
 
 .. _compose.ComposeDetails:
@@ -281,9 +282,9 @@ OR
 object: 
 
   - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_40_>`_) Which sort of object this ID is for.
+  - ``type`` (`string <enum_type_41_>`_) Which sort of object this ID is for.
 
-.. _enum_type_40:
+.. _enum_type_41:
 
 Values for type:
 
