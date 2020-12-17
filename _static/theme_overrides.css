@@ -95,7 +95,9 @@
 	margin-bottom:3em;
 	margin-left: 1em;  
 }
-.api-section-body p {
+/* RTD adds extra p */
+.api-header-label p,
+.api-section-annotation p {
 	margin: 0 !important;
 }
 
