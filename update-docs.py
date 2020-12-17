@@ -320,8 +320,8 @@ def header_3(string, label=None, info=""):
     return reference(label) + [
         string,
         "-" * len(string),
-#        "",
-#        ".. api-section-annotation-hack:: " + info,
+        "",
+        ".. api-section-annotation-hack:: " + info,
         "",
     ]
 
