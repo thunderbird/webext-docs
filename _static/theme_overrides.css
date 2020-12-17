@@ -95,6 +95,9 @@
 	margin-bottom:3em;
 	margin-left: 1em;  
 }
+.api-section-body p {
+	margin: 0 !important;
+}
 
 
 /* styles for the api headers like "Parameters" */
