@@ -44,7 +44,7 @@ extensions = [
     'versionwarning.extension',
     'apiheader',
     'apimember',
-    'apisectionannotationhack',
+#    'apisectionannotationhack',
 ]
 
 def setup(app):
