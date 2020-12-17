@@ -45,21 +45,23 @@
     "functions": [
       {
         "name": "beginNew",
-        "changed": "77: return value added",
+        "description": "Open a compose window for a new message.",
         "returns": {
+          "added": "77",
           "$ref": "tabs.Tab"
         }
       },
       {
         "name": "beginForward",
-        "changed": "77: return value added",
+        "description": "Open a compose window and load a given message in forward mode.",
         "returns": {
+          "added": "77",
           "$ref": "tabs.Tab"
         }
       },
       {
         "name": "beginReply",
-        "changed": "77: return value added",
+        "description": "Open a compose window and load a given message in reply mode.",
         "parameters": [
           {
             "name": "details",
@@ -67,6 +69,7 @@
           }
         ],
         "returns": {
+          "added": "77",
           "$ref": "tabs.Tab"
         }
       },

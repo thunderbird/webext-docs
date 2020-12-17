@@ -46,6 +46,8 @@ def replace_code(string):
         "</b>": "**",
         "<code>": "``",
         "</code>": "``",
+        "<codeblock>": " ::\n\n",
+        "</codeblock>": "\n\n",
         "<var>": "``",
         "</var>": "``",
         "&mdash;": u"—",
@@ -57,10 +59,13 @@ def replace_code(string):
     return string
 
 
-def get_type(obj, name):
+def get_type(obj, name, use_enum_ref = False):
     if "type" in obj:
         if obj.get("enum") is not None:
-            return "`%s <enum_%s_%d_>`_" % (obj["type"], name, unique_id)
+            if use_enum_ref:
+                return "`%s <enum_%s_%d_>`_" % (obj["type"], name, unique_id)
+            else:
+                return "`%s`" % (obj["type"])
         elif obj["type"] == "array":
             if "items" in obj:
                 return "array of %s" % get_type(obj["items"], name)
@@ -93,21 +98,28 @@ def link_ref(ref):
 
 def format_addition(obj):
     if "changed" in obj:
-        return "*Changed in Thunderbird %s*" % obj["changed"]
+        return "-- [Changed in TB %s]" % obj["changed"]
     if "backported" in obj:
-        return "*Added in Thunderbird %s, backported to %s*" % (obj["added"], obj["backported"])
-    return "*Added in Thunderbird %s*" % obj["added"]
+        return "-- [Added in TB %s, backported to TB %s]" % (obj["added"], obj["backported"])
+    if "added" in obj:
+        return "-- [Added in TB %s]" % obj["added"]
+    return ""
 
-
-def format_member(name, value):
-    parts = []
+def get_api_member_parts(name, value):
+    parts = {
+        "name" : "",
+        "type" : "",
+        "annotation" : "",
+        "description" : [],
+        "enum" : [],
+    }
 
     if name:
         type_string = "(%s)"
         if value.get("optional", False):
-            parts.append("[``%s``]" % name)
+            parts['name'] = "[``%s``]" % name
         else:
-            parts.append("``%s``" % name)
+            parts['name'] = "``%s``" % name
     else:
         type_string = "%s"
 
@@ -117,70 +129,108 @@ def format_member(name, value):
         type_string += " **Deprecated.**"
 
     if "type" in value or "$ref" in value:
-        parts.append(type_string % get_type(value, name))
-
+        parts['type'] = type_string % get_type(value, name)
     elif "choices" in value:
         choices = []
         for choice in value["choices"]:
             choices.append(get_type(choice, name))
-        parts.append(type_string % " or ".join(choices))
+        parts['type'] = type_string % " or ".join(choices)
 
     if "description" in value:
-        parts.append(replace_code(value["description"]))
+        parts['description'] = [replace_code(value["description"])]
+    
+    parts['enum'].extend(format_enum(name, value))
+    if len(parts['enum']) > 0:
+        if len(parts['description']) > 0:
+            parts['description'].append("")
+        parts['description'].extend(parts['enum'])
 
     if "added" in value or "changed" in value:
-        parts.append(format_addition(value))
-    return " ".join(parts)
+        parts['annotation'] = format_addition(value)
+    return parts
 
 
-def format_enum(name, value):
+def format_enum(name, value, use_enum_ref = False):
     if value.get("enum") is None:
         if value.get("items") is not None:
             return format_enum(name, value["items"])
         return []
+    
+    enum_lines = []
+    if use_enum_ref:
+        enum_lines.extend(["Values for ``%s``:" % name, ""])
+        enum_lines.extend(reference("enum_%s_%d" % (name, unique_id)))
+    else:
+        enum_lines.extend(["Allowed values:", ""])
 
-    enum_lines = reference("enum_%s_%d" % (name, unique_id)) + [
-        "Values for %s:" % name,
-        "",
-    ]
     for enum_value in value.get("enum"):
+        enum_lines.append(".. api-member::")
+        enum_lines.append("   :name: ``" + enum_value + "``");
         if "enumChanges" in value:
             changes = value.get("enumChanges")
             if enum_value in changes:
-                enum_lines.append("- ``%s`` %s" % (enum_value, format_addition(changes.get(enum_value))))
-                continue
-        enum_lines.append("- ``%s``" % enum_value)
-    enum_lines.append("")
+                enum_lines.append("   :annotation: " + format_addition(changes.get(enum_value)))
+        enum_lines.append("")
+
     return enum_lines
 
 
-def format_object(name, obj):
+def format_object(name, obj, print_description_only = False, print_enum_only = False):
     global unique_id
+    # enums have been moved inline and are no longer referenced
+    #enum_lines = []
+    lines = []
+    parts =  get_api_member_parts(name, obj)
 
-    if name is None:
-        lines = []
-    else:
-        lines = ["- %s" % format_member(name, obj)]
-    enum_lines = []
+    if print_enum_only or print_description_only:
+        part = 'description' if print_description_only else 'enum'
+        if not len(parts[part]) > 0:
+            return []
+            
+        # fake api-member structure, so style sheets continue to work
+        lines.extend([
+            "",
+            ".. container:: api-member-node",
+            "",
+            "   .. container:: api-member-description",
+            "",
+        ])
+        for line in parts[part]:
+            lines.append("      " + line)
+        return lines
 
+    lines.extend([
+        "",
+        ".. api-member::",
+        "   :name: " + parts['name'],
+        "   :type: " + parts['type'],
+        "   :annotation: " + parts['annotation'],
+    ])    
+    if len(parts['description']):
+        lines.append(""),
+        for line in parts['description']:
+            lines.append("   " + line)
+        
     if obj.get("type") == "object" and "properties" in obj:
         lines.append("")
         items = sorted(obj["properties"].items())
         for [key, value] in items:
             if not value.get("optional", False):
-                lines.append("  - %s" % format_member(key, value))
-                enum_lines.extend(format_enum(key, value))
-                unique_id += 1
+                lines.extend(["   " + sub for sub in format_object(key, value)] )
+                #lines.append("  - %s" % get_api_member_parts(key, value))
+                #enum_lines.extend(format_enum(key, value))
+                #unique_id += 1
 
         for [key, value] in items:
             if value.get("optional", False):
-                lines.append("  - %s" % format_member(key, value))
-                enum_lines.extend(format_enum(key, value))
-                unique_id += 1
+                lines.extend(["   " + sub for sub in format_object(key, value)] )
+                #lines.append("  - %s" % get_api_member_parts(key, value))
+                #enum_lines.extend(format_enum(key, value))
+                #unique_id += 1
 
-        lines.append("")
 
-    lines.extend(enum_lines)
+    lines.append("")
+    #lines.extend(enum_lines)
     return lines
 
 
@@ -196,23 +246,30 @@ def format_params(function, callback=None):
     return ", ".join(params)
 
 
-def format_permissions(obj):
+def format_permissions(obj, use_info_box=True):
     if "permissions" not in obj:
         return []
 
     lines = []
+    manifest_entries = []
+    permission_entries = []
+    text = ""
+    
     name = obj.get("namespace", obj.get("name"))
     if len(obj["permissions"]) == 1:
         permission = obj["permissions"][0]
         if permission.startswith("manifest:"):
             permission = permission[9:]
             text = "  A manifest entry named ``%s`` is required to use ``%s``." % (permission, name)
+            manifest_entries.append(permission)
         else:
             text = "  The permission ``%s`` is required to use ``%s``." % (permission, name)
+            permission_entries.append(permission)
     else:
         permissions = ""
         for i in range(0, len(obj["permissions"])):
             permission = obj["permissions"][i]
+            permission_entries.append(permission)           
             if i > 0:
                 if i + 1 == len(obj["permissions"]):
                     permissions += " and "
@@ -221,13 +278,22 @@ def format_permissions(obj):
             permissions += "``%s``" % permission
         text = "  The permissions %s are required to use ``%s``." % (permissions, name)
 
-    lines.extend([
-        "",
-        ".. note::",
-        "",
-        text,
-        "",
-    ])
+    if use_info_box:
+        lines.extend([
+            "",
+            ".. rst-class:: api-permission-info",
+            "",
+            ".. note::",
+            "",
+            text,
+            "",
+        ])        
+    else:
+        content = []
+        for i in range(0, len(permission_entries)):
+            content.append("- ``%s``" % permission_entries[i])
+        lines.extend(api_entry("Required permissions", content))
+
     return lines
 
 
@@ -239,23 +305,43 @@ def header_1(string):
         "",
     ]
 
-
-def header_2(string):
+def header_2(string, classnames=""):
     return [
+        ".. rst-class:: " + classnames,
+        "",
         string,
         "=" * len(string),
         "",
     ]
 
-
-def header_3(string, label=None):
+def header_3(string, label=None, info=""):
+    # The api-section-annotation-hack directive attaches the anotation to the preeding section
+    # header, closes standard section div and opens api-section-body div
     return reference(label) + [
         string,
         "-" * len(string),
         "",
+        ".. api-section-annotation-hack:: " + info,
+        "",
     ]
 
+def api_entry(label, content = [], annotation=None):
+    lines = [
+        "",
+        ".. api-header::",
+        "   :label: " + label,
+    ]
+    if annotation:
+        lines.append("   :annotation: " + annotation)
+    
+    lines.append("")
+    if len(content):
+        for line in content:
+            lines.append("   " + line)
+        lines.append("")
 
+    return lines
+    
 def reference(label):
     if label is None:
         return []
@@ -289,106 +375,85 @@ def format_namespace(namespace, manifest_namespace=None):
     lines.extend(format_permissions(namespace))
 
     if "functions" in namespace:
-        lines.extend(header_2("Functions"))
+        lines.append("")
+        lines.extend(header_2("Functions", "api-main-section"))
         for function in namespace["functions"]:
             async = function.get("async")
             lines.extend(header_3(
                 "%s(%s)" % (function["name"], format_params(function, callback=async)),
                 label="%s.%s" % (current_namespace_name, function["name"]),
+                info=format_addition(function)
             ))
-            enum_lines = []
-
-            if "added" in function or "changed" in function:
-                lines.append(format_addition(function))
-                lines.append("")
+            # enums have been moved inline and are no longer referenced
+            #enum_lines = []
 
             if "description" in function:
                 lines.append(replace_code(function["description"]))
                 lines.append("")
 
-            if len(function.get("parameters", [])):
+            if len(function.get("parameters", [])) > 0:
+                content = []
                 for param in function["parameters"]:
                     if async == param["name"]:
+                        # used for callback type
                         if len(param["parameters"]) > 0:
                             function["returns"] = param["parameters"][0]
                     else:
-                        lines.extend(format_object(param["name"], param))
-                        enum_lines.extend(format_enum(param["name"], param))
+                        content.extend(format_object(param["name"], param))
+                        #enum_lines.extend(format_enum(param["name"], param))
                         unique_id += 1
-
-                lines.append("")
+                
+                if len(content) > 0:
+                    lines.extend(api_entry("Parameters", content))
 
             if "returns" in function:
-                lines.extend([
-                    "Returns a `Promise`_ fulfilled with:",
-                    "",
-                ])
-                lines.extend(format_object("", function["returns"]))
-                lines.append("")
+                content = []
+                content.extend(format_object("", function["returns"]))
+                content.append("")
+                content.append(".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise")
+                lines.extend(api_entry("Return type (`Promise`_)", content))
 
-            lines.extend(format_permissions(function))
-            lines.extend(enum_lines)
-
-        lines.extend([
-            ".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
-            "",
-        ])
+            lines.extend(format_permissions(function, use_info_box=False))
+            #lines.extend(enum_lines)
+            
 
     if "events" in namespace:
         lines.append("")
-        lines.extend(header_2("Events"))
+        lines.extend(header_2("Events", "api-main-section"))
         for event in namespace["events"]:
             lines.extend(header_3(
                 "%s(%s)" % (event["name"], format_params(event)),
                 label="%s.%s" % (current_namespace_name, event["name"]),
+                info=format_addition(event)
             ))
-
-            if "added" in event:
-                lines.append(format_addition(event))
-                lines.append("")
 
             if "description" in event:
                 lines.append(replace_code(event["description"]))
                 lines.append("")
 
             if len(event.get("parameters", [])):
+                content = []
                 for param in event["parameters"]:
-                    lines.extend(format_object(param["name"], param))
-                lines.append("")
+                    content.extend(format_object(param["name"], param))
+                lines.extend(api_entry("Parameters for event listeners", content))
 
             if "returns" in event:
-                lines.extend([
-                    "Event listeners should return:",
-                    "",
-                ])
-                lines.extend(format_object("", event["returns"]))
-                lines.append("")
+                lines.extend(api_entry("Expected return value of event listeners", format_object("", event["returns"])))
 
-            lines.extend(format_permissions(event))
-
-    if "properties" in namespace:
-        lines.extend(header_2("Properties"))
-
-        for key in sorted(namespace["properties"].iterkeys()):
-            lines.extend(header_3(key, label="%s.%s" % (current_namespace_name, key)))
-            lines.extend([
-                namespace["properties"][key].get("description"),
-                "",
-            ])
+            lines.extend(format_permissions(event, use_info_box=False))
 
     if "types" in namespace:
-        lines.extend(header_2("Types"))
+        lines.append("")
+        lines.extend(header_2("Types", "api-main-section"))
 
         for type_ in sorted(namespace["types"], key=lambda t: t["id"]):
-            enum_lines = []
+            # enums have been moved inline and are no longer referenced
+            #enum_lines = []
             lines.extend(header_3(
                 type_["id"],
-                label="%s.%s" % (current_namespace_name, type_["id"])
+                label="%s.%s" % (current_namespace_name, type_["id"]),
+                info=format_addition(type_)
             ))
-
-            if "added" in type_:
-                lines.append(format_addition(type_))
-                lines.append("")
 
             if "description" in type_:
                 lines.append(replace_code(type_["description"]))
@@ -398,11 +463,34 @@ def format_namespace(namespace, manifest_namespace=None):
                 if (type_["type"] == "object" and
                         "isInstanceOf" not in type_ and
                         ("properties" in type_ or "functions" in type_)):
-                    lines.append("object:")
+                    content = [];
+                    if "properties" in type_:
+                        items = sorted(type_["properties"].items())
+                        for [key, value] in items:
+                            if not value.get("optional", False):
+                                content.extend(format_object(key, value))
+                                #enum_lines.extend(format_enum(key, value))
+                                unique_id += 1
+
+                        for [key, value] in items:
+                            if value.get("optional", False):
+                                content.extend(format_object(key, value))
+                                #enum_lines.extend(format_enum(key, value))
+                                unique_id += 1
+
+                    if "functions" in type_:
+                        for function in sorted(type_["functions"], key=lambda f: f["name"]):
+                            content.append("- ``%s(%s)``" % (function["name"], format_params(function)))
+                            description = function.get("description", "")
+                            if description:
+                                content[-1] += " %s" % description
+
+                    lines.extend(api_entry("object", content))
                 else:
-                    lines.append(get_type(type_, type_["id"]))
+                    lines.extend(api_entry(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
+                    
                 lines.append("")
-                enum_lines.extend(format_enum(type_["id"], type_))
+                #enum_lines.extend(format_enum(type_["id"], type_))
 
             elif "choices" in type_:
                 first = True
@@ -411,34 +499,23 @@ def format_namespace(namespace, manifest_namespace=None):
                         first = False
                     else:
                         lines.extend(["", "OR", ""])
-                    lines.append("%s: %s" % (get_type(choice, type_["id"]), choice.get("description", "")))
-                    if choice["type"] == "object":
-                        lines.extend(format_object(None, choice))
-                    enum_lines.extend(format_enum(type_["id"], choice))
-
-            if "properties" in type_:
-                items = sorted(type_["properties"].items())
-                for [key, value] in items:
-                    if not value.get("optional", False):
-                        lines.extend(format_object(key, value))
-                        enum_lines.extend(format_enum(key, value))
-                        unique_id += 1
-
-                for [key, value] in items:
-                    if value.get("optional", False):
-                        lines.extend(format_object(key, value))
-                        enum_lines.extend(format_enum(key, value))
-                        unique_id += 1
-
-            if "functions" in type_:
-                for function in sorted(type_["functions"], key=lambda f: f["name"]):
-                    lines.append("- ``%s(%s)``" % (function["name"], format_params(function)))
-                    description = function.get("description", "")
-                    if description:
-                        lines[-1] += " %s" % description
+                    lines.extend(api_entry(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True)))
+                    #enum_lines.extend(format_enum(type_["id"], choice))
 
             lines.append("")
-            lines.extend(enum_lines)
+            #lines.extend(enum_lines)
+
+    if "properties" in namespace:
+        lines.append("")
+        lines.extend(header_2("Properties", "api-main-section"))
+
+        for key in sorted(namespace["properties"].iterkeys()):
+            lines.extend(header_3(key, label="%s.%s" % (current_namespace_name, key)))
+            lines.extend([
+                namespace["properties"][key].get("description"),
+                "",
+            ])
+
 
     index = 0
     previous = ""
@@ -486,21 +563,22 @@ def format_manifest_namespace(manifest):
         ]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
+                    permission_lines.append(".. api-member::")
+                    permission_lines.append("   :name: ``" + value + "``");
                     if value in permission_strings:
-                        permission_lines.append("- %s \"%s\"" % (value, permission_strings[value]))
-                    else:
-                        permission_lines.append("- %s" % value)
+                        permission_lines.append("");
+                        permission_lines.append("   " + permission_strings[value])               
 
     if len(permission_lines) > 0:
         permission_lines.append("")
 
     if len(property_lines) > 0:
-        lines = header_2("Manifest file properties") + property_lines
+        lines = header_2("Manifest file properties", "api-main-section") + property_lines
 
     if len(permission_lines) > 0:
-        lines.extend(header_2("Permissions"))
+        lines.extend(header_2("Permissions", "api-main-section"))
         lines.extend(permission_lines)
-
+        
     return lines
 
 

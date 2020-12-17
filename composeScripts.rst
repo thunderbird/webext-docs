@@ -15,14 +15,23 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
   Registering a compose script through ``manifest.json`` is not possible at this point.
 
+.. rst-class:: api-main-section
+
 Permissions
 ===========
 
-- messagesModify "Read and modify your email messages as they are displayed to you"
+.. api-member::
+   :name: ``messagesModify``
+
+   Read and modify your email messages as they are displayed to you
+
+.. rst-class:: api-permission-info
 
 .. note::
 
   The permission ``compose`` is required to use ``composeScripts``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -32,11 +41,21 @@ Functions
 register(composeScriptOptions)
 ------------------------------
 
+.. api-section-annotation-hack:: 
+
 Register a compose script programmatically
 
-- ``composeScriptOptions`` (:ref:`composeScripts.RegisteredComposeScriptOptions`)
+.. api-header::
+   :label: Parameters
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :name: ``composeScriptOptions``
+      :type: (:ref:`composeScripts.RegisteredComposeScriptOptions`)
+      :annotation: 
+   
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -46,20 +65,40 @@ Types
 RegisteredComposeScript
 -----------------------
 
+.. api-section-annotation-hack:: 
+
 An object that represents a compose script registered programmatically
 
-object:
+.. api-header::
+   :label: object
 
-- ``unregister()`` Unregister a compose script registered programmatically
+   - ``unregister()`` Unregister a compose script registered programmatically
 
 .. _composeScripts.RegisteredComposeScriptOptions:
 
 RegisteredComposeScriptOptions
 ------------------------------
 
+.. api-section-annotation-hack:: 
+
 Details of a compose script registered programmatically
 
-object:
+.. api-header::
+   :label: object
 
-- [``css``] (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_) The list of CSS files to inject
-- [``js``] (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_) The list of JavaScript files to inject
+   
+   .. api-member::
+      :name: [``css``]
+      :type: (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_)
+      :annotation: 
+   
+      The list of CSS files to inject
+   
+   
+   .. api-member::
+      :name: [``js``]
+      :type: (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_)
+      :annotation: 
+   
+      The list of JavaScript files to inject
+   
