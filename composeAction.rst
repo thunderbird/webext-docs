@@ -556,7 +556,7 @@ Information sent when a compose action is clicked.
 External Types
 ==============
 
-These following types are not defined by this Thunderbird WebExtension API, but are inherited from the underlying Mozilla WebExtension code base.
+These following types are not defined by this Thunderbird WebExtension API, but by the underlying Mozilla WebExtension code base.
 
 .. _composeAction.ThemeIcons:
 

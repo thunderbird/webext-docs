@@ -108,12 +108,12 @@ Details of a compose script registered programmatically
 External Types
 ==============
 
-These following types are not defined by this Thunderbird WebExtension API, but are inherited from the underlying Mozilla WebExtension code base.
+These following types are not defined by this Thunderbird WebExtension API, but by the underlying Mozilla WebExtension code base.
 
 .. _composeScripts.extensionTypes.ExtensionFileOrCode:
 
-extensionTypes.ExtensionFileOrCode
-----------------------------------
+ExtensionFileOrCode
+-------------------
 
 .. api-section-annotation-hack:: 
 

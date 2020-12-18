@@ -489,7 +489,7 @@ def format_namespace(namespace, manifest_namespace=None):
             # enums have been moved inline and are no longer referenced
             #enum_lines = []
             type_lines.extend(header_3(
-                type_["id"],
+                type_["name"] if "name" in type_ else type_["id"],
                 label="%s.%s" % (current_namespace_name, type_["id"]),
                 info=format_addition(type_)
             ))
