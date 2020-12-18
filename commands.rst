@@ -8,14 +8,23 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example, an action to open the browser action or send a command to the xtension.
 
+.. rst-class:: api-main-section
+
 Manifest file properties
 ========================
 
-- [``commands``] (object)
+.. api-member::
+   :name: [``commands``]
+   :type: (object)
+   :annotation: 
+
+.. rst-class:: api-permission-info
 
 .. note::
 
   A manifest entry named ``commands`` is required to use ``commands``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -25,35 +34,89 @@ Functions
 update(detail)
 --------------
 
+.. api-section-annotation-hack:: 
+
 Update the details of an already defined command.
 
-- ``detail`` (object) The new description for the command.
+.. api-header::
+   :label: Parameters
 
-  - ``name`` (string) The name of the command.
-  - [``description``] (string) The new description for the command.
-  - [``shortcut``] (string) An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_ to set a new shortcut key. If the string does not match this format, the function throws an error.
+   
+   .. api-member::
+      :name: ``detail``
+      :type: (object)
+      :annotation: 
+      
+      The new description for the command.
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+         :annotation: 
+         
+         The name of the command.
+      
+      
+      .. api-member::
+         :name: [``description``]
+         :type: (string)
+         :annotation: 
+         
+         The new description for the command.
+      
+      
+      .. api-member::
+         :name: [``shortcut``]
+         :type: (string)
+         :annotation: 
+         
+         An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_  to set a new shortcut key. If the string does not match this format, the function throws an error.
+      
+   
 
 .. _commands.reset:
 
 reset(name)
 -----------
 
+.. api-section-annotation-hack:: 
+
 Reset a command's details to what is specified in the manifest.
 
-- ``name`` (string) The name of the command.
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      :annotation: 
+      
+      The name of the command.
+   
 
 .. _commands.getAll:
 
 getAll()
 --------
 
+.. api-section-annotation-hack:: 
+
 Returns all the registered extension commands for this extension and their shortcut (if active).
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- array of :ref:`commands.Command`
+   
+   .. api-member::
+      :name: 
+      :type: array of :ref:`commands.Command`
+      :annotation: 
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -63,9 +126,21 @@ Events
 onCommand(command)
 ------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a registered command is activated using a keyboard shortcut.
 
-- ``command`` (string)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``command``
+      :type: (string)
+      :annotation: 
+   
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -75,8 +150,32 @@ Types
 Command
 -------
 
-object:
+.. api-section-annotation-hack:: 
 
-- [``description``] (string) The Extension Command description
-- [``name``] (string) The name of the Extension Command
-- [``shortcut``] (string) The shortcut active for this command, or blank if not active.
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``description``]
+      :type: (string)
+      :annotation: 
+      
+      The Extension Command description
+   
+   
+   .. api-member::
+      :name: [``name``]
+      :type: (string)
+      :annotation: 
+      
+      The name of the Extension Command
+   
+   
+   .. api-member::
+      :name: [``shortcut``]
+      :type: (string)
+      :annotation: 
+      
+      The shortcut active for this command, or blank if not active.
+   
