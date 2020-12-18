@@ -96,8 +96,7 @@
 	margin-left: 1em;  
 }
 /* RTD adds extra p */
-.api-header-label p,
-.api-section-annotation p {
+div.container p {
 	margin: 0 !important;
 }
 
