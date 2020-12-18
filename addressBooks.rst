@@ -64,7 +64,7 @@ Gets a list of the user's address books, optionally including all contacts and m
       :name: [``complete``]
       :type: (boolean)
       :annotation: 
-   
+      
       If set to true, results will include contacts and mailing lists for each address book.
    
 
@@ -103,7 +103,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
       :name: [``complete``]
       :type: (boolean)
       :annotation: 
-   
+      
       If set to true, results will include contacts and mailing lists for this address book.
    
 
@@ -136,7 +136,6 @@ Creates a new, empty address book.
       :name: ``properties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``name``
@@ -153,7 +152,7 @@ Creates a new, empty address book.
       :name: 
       :type: string
       :annotation: 
-   
+      
       The ID of the new address book.
    
    
@@ -182,7 +181,6 @@ Renames an address book.
       :name: ``properties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``name``
@@ -294,7 +292,7 @@ A node representing an address book.
       :name: ``id``
       :type: (string)
       :annotation: 
-   
+      
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
    
    
@@ -308,7 +306,7 @@ A node representing an address book.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       :annotation: 
-   
+      
       Always set to ``addressBook``.
    
    
@@ -316,7 +314,7 @@ A node representing an address book.
       :name: [``contacts``]
       :type: (array of :ref:`contacts.ContactNode`)
       :annotation: 
-   
+      
       A list of contacts held by this node's address book or mailing list.
    
    
@@ -324,7 +322,7 @@ A node representing an address book.
       :name: [``mailingLists``]
       :type: (array of :ref:`mailingLists.MailingListNode`)
       :annotation: 
-   
+      
       A list of mailingLists in this node's address book.
    
    
@@ -332,7 +330,7 @@ A node representing an address book.
       :name: [``parentId``]
       :type: (string)
       :annotation: 
-   
+      
       The ``id`` of the parent object.
    
    
@@ -340,7 +338,7 @@ A node representing an address book.
       :name: [``readOnly``]
       :type: (boolean)
       :annotation: 
-   
+      
       Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
    
 
@@ -359,9 +357,9 @@ Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, 
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``addressBook``
@@ -372,3 +370,4 @@ Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, 
          .. api-member::
             :name: ``mailingList``
          
+   

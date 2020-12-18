@@ -114,7 +114,6 @@ Creates a new mailing list in the address book with id ``parentId``.
       :name: ``properties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``name``
@@ -143,7 +142,7 @@ Creates a new mailing list in the address book with id ``parentId``.
       :name: 
       :type: string
       :annotation: 
-   
+      
       The ID of the new mailing list.
    
    
@@ -172,7 +171,6 @@ Edits the properties of a mailing list.
       :name: ``properties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``name``
@@ -433,7 +431,7 @@ A node representing a mailing list.
       :name: ``id``
       :type: (string)
       :annotation: 
-   
+      
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
    
    
@@ -453,7 +451,7 @@ A node representing a mailing list.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       :annotation: 
-   
+      
       Always set to ``mailingList``.
    
    
@@ -461,7 +459,7 @@ A node representing a mailing list.
       :name: [``contacts``]
       :type: (array of :ref:`contacts.ContactNode`)
       :annotation: 
-   
+      
       A list of contacts held by this node's address book or mailing list.
    
    
@@ -469,7 +467,7 @@ A node representing a mailing list.
       :name: [``parentId``]
       :type: (string)
       :annotation: 
-   
+      
       The ``id`` of the parent object.
    
    
@@ -477,6 +475,6 @@ A node representing a mailing list.
       :name: [``readOnly``]
       :type: (boolean)
       :annotation: 
-   
+      
       Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
    

@@ -119,7 +119,7 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       :name: ``accountId``
       :type: (string)
       :annotation: 
-   
+      
       The account this folder belongs to.
    
    
@@ -127,7 +127,7 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       :name: ``path``
       :type: (string)
       :annotation: 
-   
+      
       Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
    
    
@@ -135,7 +135,7 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       :name: [``name``]
       :type: (string)
       :annotation: 
-   
+      
       The human-friendly name of this folder.
    
    
@@ -149,10 +149,10 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       :name: [``type``]
       :type: (`string`)
       :annotation: 
-   
+      
       The type of folder, for several common types.
       
-      Allowed values:
+      Supported values:
       
       .. api-member::
          :name: ``inbox``

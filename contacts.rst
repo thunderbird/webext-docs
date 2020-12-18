@@ -78,7 +78,7 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
       :name: [``parentId``]
       :type: (string)
       :annotation: 
-   
+      
       The ID of the address book to search. If not specified, all address books are searched.
    
    
@@ -86,7 +86,7 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
       :name: ``searchString``
       :type: (string)
       :annotation: 
-   
+      
       One or more space-separated terms to search for.
    
 
@@ -156,7 +156,7 @@ Adds a new contact to the address book with the id ``parentId``.
       :name: [``id``]
       :type: (string)
       :annotation: 
-   
+      
       Assigns the contact an id. If an existing contact has this id, an exception is thrown.
    
    
@@ -174,7 +174,7 @@ Adds a new contact to the address book with the id ``parentId``.
       :name: 
       :type: string
       :annotation: 
-   
+      
       The ID of the new contact.
    
    
@@ -320,7 +320,7 @@ A node representing a contact in an address book.
       :name: ``id``
       :type: (string)
       :annotation: 
-   
+      
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
    
    
@@ -334,7 +334,7 @@ A node representing a contact in an address book.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       :annotation: 
-   
+      
       Always set to ``contact``.
    
    
@@ -342,7 +342,7 @@ A node representing a contact in an address book.
       :name: [``parentId``]
       :type: (string)
       :annotation: 
-   
+      
       The ``id`` of the parent object.
    
    
@@ -350,7 +350,7 @@ A node representing a contact in an address book.
       :name: [``readOnly``]
       :type: (boolean)
       :annotation: 
-   
+      
       Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
    
 

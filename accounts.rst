@@ -124,7 +124,7 @@ MailAccount
       :name: ``folders``
       :type: (array of :ref:`folders.MailFolder`)
       :annotation: 
-   
+      
       The folders for this account.
    
    
@@ -132,7 +132,7 @@ MailAccount
       :name: ``id``
       :type: (string)
       :annotation: 
-   
+      
       A unique identifier for this account.
    
    
@@ -140,7 +140,7 @@ MailAccount
       :name: ``identities``
       :type: (array of :ref:`accounts.MailIdentity`)
       :annotation: -- [Added in TB 76]
-   
+      
       The identities associated with this account. The default identity is listed first, others in no particular order.
    
    
@@ -148,7 +148,7 @@ MailAccount
       :name: ``name``
       :type: (string)
       :annotation: 
-   
+      
       The human-friendly name of this account.
    
    
@@ -156,7 +156,7 @@ MailAccount
       :name: ``type``
       :type: (string)
       :annotation: 
-   
+      
       What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``.
    
 
@@ -175,7 +175,7 @@ MailIdentity
       :name: ``accountId``
       :type: (string)
       :annotation: 
-   
+      
       The id of the :ref:`accounts.MailAccount` this identity belongs to.
    
    
@@ -183,7 +183,7 @@ MailIdentity
       :name: ``email``
       :type: (string)
       :annotation: 
-   
+      
       The user's email address as used when messages are sent from this identity.
    
    
@@ -191,7 +191,7 @@ MailIdentity
       :name: ``id``
       :type: (string)
       :annotation: 
-   
+      
       A unique identifier for this identity.
    
    
@@ -199,7 +199,7 @@ MailIdentity
       :name: ``label``
       :type: (string)
       :annotation: 
-   
+      
       A user-defined label for this identity.
    
    
@@ -207,7 +207,7 @@ MailIdentity
       :name: ``name``
       :type: (string)
       :annotation: 
-   
+      
       The user's name as used when messages are sent from this identity.
    
    
@@ -215,7 +215,7 @@ MailIdentity
       :name: ``organization``
       :type: (string)
       :annotation: 
-   
+      
       The organization associated with this identity.
    
    
@@ -223,6 +223,6 @@ MailIdentity
       :name: ``replyTo``
       :type: (string)
       :annotation: 
-   
+      
       The reply-to email address associated with this identity.
    

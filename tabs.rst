@@ -100,13 +100,12 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
       :name: [``connectInfo``]
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``frameId``]
          :type: (integer)
          :annotation: 
-      
+         
          Open a port to a specific frame identified by ``frameId`` instead of all frames in the tab.
       
       
@@ -114,7 +113,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
          :name: [``name``]
          :type: (string)
          :annotation: 
-      
+         
          Will be passed into onConnect for content scripts that are listening for the connection event.
       
    
@@ -125,9 +124,9 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
    
    .. api-member::
       :name: 
-      :type: :ref:`runtime.Port`
+      :type: `Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_
       :annotation: 
-   
+      
       A port that can be used to communicate with the content scripts running in the specified tab.
    
    
@@ -162,13 +161,12 @@ Sends a single message to the content script(s) in the specified tab, with an op
       :name: [``options``]
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``frameId``]
          :type: (integer)
          :annotation: 
-      
+         
          Send a message to a specific frame identified by ``frameId`` instead of all frames in the tab.
       
    
@@ -181,7 +179,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
       :name: 
       :type: any
       :annotation: 
-   
+      
       The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_ will be set to the error message.
    
    
@@ -204,13 +202,12 @@ Creates a new tab.
       :name: ``createProperties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``active``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to ``true``.
       
       
@@ -218,7 +215,7 @@ Creates a new tab.
          :name: [``index``]
          :type: (integer)
          :annotation: 
-      
+         
          The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
       
       
@@ -226,7 +223,7 @@ Creates a new tab.
          :name: [``selected``]
          :type: (boolean) **Unsupported.**
          :annotation: 
-      
+         
          Whether the tab should become the selected tab in the window. Defaults to ``true``
       
       
@@ -234,7 +231,7 @@ Creates a new tab.
          :name: [``url``]
          :type: (string)
          :annotation: 
-      
+         
          The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
       
       
@@ -242,7 +239,7 @@ Creates a new tab.
          :name: [``windowId``]
          :type: (integer)
          :annotation: 
-      
+         
          The window to create the new tab in. Defaults to the current window.
       
    
@@ -255,7 +252,7 @@ Creates a new tab.
       :name: 
       :type: :ref:`tabs.Tab`
       :annotation: 
-   
+      
       Details about the created tab. Will contain the ID of the new tab.
    
    
@@ -278,7 +275,7 @@ Duplicates a tab.
       :name: ``tabId``
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the tab which is to be duplicated.
    
 
@@ -290,7 +287,7 @@ Duplicates a tab.
       :name: 
       :type: :ref:`tabs.Tab`
       :annotation: 
-   
+      
       Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``tabs`` permission has not been requested.
    
    
@@ -313,13 +310,12 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       :name: ``queryInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``active``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are active in their windows.
       
       
@@ -327,7 +323,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``currentWindow``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are in the current window.
       
       
@@ -335,7 +331,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``highlighted``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are highlighted.  Works as an alias of active.
       
       
@@ -343,7 +339,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``index``]
          :type: (integer)
          :annotation: 
-      
+         
          The position of the tabs within their windows.
       
       
@@ -351,7 +347,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``lastFocusedWindow``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are in the last focused window.
       
       
@@ -359,7 +355,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``mailTab``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tab is a Thunderbird 3-pane tab.
       
       
@@ -367,7 +363,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``status``]
          :type: (:ref:`tabs.TabStatus`)
          :annotation: 
-      
+         
          Whether the tabs have completed loading.
       
       
@@ -375,7 +371,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``title``]
          :type: (string)
          :annotation: 
-      
+         
          Match page titles against a pattern.
       
       
@@ -383,7 +379,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``url``]
          :type: (string or array of string)
          :annotation: 
-      
+         
          Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`_. Note that fragment identifiers are not matched.
       
       
@@ -391,7 +387,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``windowId``]
          :type: (integer)
          :annotation: 
-      
+         
          The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
       
       
@@ -399,7 +395,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``windowType``]
          :type: (:ref:`tabs.WindowType`)
          :annotation: 
-      
+         
          The type of window the tabs are in.
       
    
@@ -433,7 +429,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       Defaults to the selected tab of the current window.
    
    
@@ -441,13 +437,12 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
       :name: ``updateProperties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``active``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`).
       
       
@@ -455,7 +450,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
          :name: [``url``]
          :type: (string)
          :annotation: 
-      
+         
          A URL to navigate the tab to.
       
    
@@ -468,7 +463,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
       :name: 
       :type: :ref:`tabs.Tab`
       :annotation: 
-   
+      
       Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``tabs`` permission has not been requested.
    
    
@@ -491,7 +486,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
       :name: ``tabIds``
       :type: (integer or array of integer)
       :annotation: 
-   
+      
       The tab or list of tabs to move.
    
    
@@ -499,13 +494,12 @@ Moves one or more tabs to a new position within its window, or to a new window. 
       :name: ``moveProperties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``index``
          :type: (integer)
          :annotation: 
-      
+         
          The position to move the window to. -1 will place the tab at the end of the window.
       
       
@@ -513,7 +507,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
          :name: [``windowId``]
          :type: (integer)
          :annotation: 
-      
+         
          Defaults to the window the tab is currently in.
       
    
@@ -526,7 +520,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
       :name: 
       :type: :ref:`tabs.Tab` or array of :ref:`tabs.Tab`
       :annotation: 
-   
+      
       Details about the moved tabs.
    
    
@@ -549,7 +543,7 @@ Reload a tab.
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the tab to reload; defaults to the selected tab of the current window.
    
    
@@ -557,13 +551,12 @@ Reload a tab.
       :name: [``reloadProperties``]
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``bypassCache``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether using any local cache. Default is false.
       
    
@@ -585,7 +578,7 @@ Closes one or more tabs.
       :name: ``tabIds``
       :type: (integer or array of integer)
       :annotation: 
-   
+      
       The tab or list of tabs to close.
    
 
@@ -606,7 +599,7 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the tab in which to run the script; defaults to the active tab of the current window.
    
    
@@ -614,7 +607,7 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
       :name: ``details``
       :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_)
       :annotation: 
-   
+      
       Details of the script to run.
    
 
@@ -626,7 +619,7 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
       :name: 
       :type: array of any
       :annotation: 
-   
+      
       The result of the script in every injected frame.
    
    
@@ -649,7 +642,7 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
    
    
@@ -657,7 +650,7 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
       :name: ``details``
       :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_)
       :annotation: 
-   
+      
       Details of the CSS text to insert.
    
 
@@ -678,7 +671,7 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
    
    
@@ -686,7 +679,7 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
       :name: ``details``
       :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_)
       :annotation: 
-   
+      
       Details of the CSS text to remove.
    
 
@@ -712,7 +705,7 @@ Fired when a tab is created. Note that the tab's URL may not be set at the time 
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
       :annotation: 
-   
+      
       Details of the tab that was created.
    
 
@@ -739,15 +732,14 @@ Fired when a tab is updated.
       :name: ``changeInfo``
       :type: (object)
       :annotation: 
-   
+      
       Lists the changes to the state of the tab that was updated.
-   
       
       .. api-member::
          :name: [``favIconUrl``]
          :type: (string)
          :annotation: 
-      
+         
          The tab's new favicon URL.
       
       
@@ -755,7 +747,7 @@ Fired when a tab is updated.
          :name: [``status``]
          :type: (string)
          :annotation: 
-      
+         
          The status of the tab. Can be either *loading* or *complete*.
       
       
@@ -763,7 +755,7 @@ Fired when a tab is updated.
          :name: [``url``]
          :type: (string)
          :annotation: 
-      
+         
          The tab's URL if it has changed.
       
    
@@ -772,7 +764,7 @@ Fired when a tab is updated.
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
       :annotation: 
-   
+      
       Gives the state of the tab that was updated.
    
 
@@ -799,7 +791,6 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
       :name: ``moveInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``fromIndex``
@@ -837,13 +828,12 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
       :name: ``activeInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``tabId``
          :type: (integer)
          :annotation: 
-      
+         
          The ID of the tab that has become active.
       
       
@@ -851,7 +841,7 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
          :name: ``windowId``
          :type: (integer)
          :annotation: 
-      
+         
          The ID of the window the active tab changed inside of.
       
    
@@ -879,7 +869,6 @@ Fired when a tab is detached from a window, for example because it is being move
       :name: ``detachInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``oldPosition``
@@ -917,7 +906,6 @@ Fired when a tab is attached to a window, for example because it was moved betwe
       :name: ``attachInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``newPosition``
@@ -955,13 +943,12 @@ Fired when a tab is closed.
       :name: ``removeInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``isWindowClosing``
          :type: (boolean)
          :annotation: 
-      
+         
          True when the tab is being closed because its window is being closed.
       
       
@@ -969,7 +956,7 @@ Fired when a tab is closed.
          :name: ``windowId``
          :type: (integer)
          :annotation: 
-      
+         
          The window whose tab is closed.
       
    
@@ -994,7 +981,7 @@ Tab
       :name: ``active``
       :type: (boolean)
       :annotation: 
-   
+      
       Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
    
    
@@ -1002,7 +989,7 @@ Tab
       :name: ``highlighted``
       :type: (boolean)
       :annotation: 
-   
+      
       Whether the tab is highlighted. Works as an alias of active
    
    
@@ -1010,7 +997,7 @@ Tab
       :name: ``index``
       :type: (integer)
       :annotation: 
-   
+      
       The zero-based index of the tab within its window.
    
    
@@ -1018,7 +1005,7 @@ Tab
       :name: ``selected``
       :type: (boolean) **Unsupported.**
       :annotation: 
-   
+      
       Whether the tab is selected.
    
    
@@ -1026,7 +1013,7 @@ Tab
       :name: [``favIconUrl``]
       :type: (string)
       :annotation: 
-   
+      
       The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``tabs`` permission. It may also be an empty string if the tab is loading.
    
    
@@ -1034,7 +1021,7 @@ Tab
       :name: [``height``]
       :type: (integer)
       :annotation: 
-   
+      
       The height of the tab in pixels.
    
    
@@ -1042,7 +1029,7 @@ Tab
       :name: [``id``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
    
    
@@ -1050,7 +1037,7 @@ Tab
       :name: [``mailTab``]
       :type: (boolean)
       :annotation: 
-   
+      
       Whether the tab is a 3-pane tab.
    
    
@@ -1058,7 +1045,7 @@ Tab
       :name: [``status``]
       :type: (string)
       :annotation: 
-   
+      
       Either *loading* or *complete*.
    
    
@@ -1066,7 +1053,7 @@ Tab
       :name: [``title``]
       :type: (string)
       :annotation: 
-   
+      
       The title of the tab. This property is only present if the extension's manifest includes the ``tabs`` permission.
    
    
@@ -1074,7 +1061,7 @@ Tab
       :name: [``url``]
       :type: (string)
       :annotation: 
-   
+      
       The URL the tab is displaying. This property is only present if the extension's manifest includes the ``tabs`` permission.
    
    
@@ -1082,7 +1069,7 @@ Tab
       :name: [``width``]
       :type: (integer)
       :annotation: 
-   
+      
       The width of the tab in pixels.
    
    
@@ -1090,7 +1077,7 @@ Tab
       :name: [``windowId``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the window the tab is contained within.
    
 
@@ -1109,9 +1096,9 @@ Whether the tabs have completed loading.
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``loading``
@@ -1119,6 +1106,7 @@ Whether the tabs have completed loading.
          .. api-member::
             :name: ``complete``
          
+   
 
 .. _tabs.UpdateFilter:
 
@@ -1137,7 +1125,7 @@ An object describing filters to apply to tabs.onUpdated events.
       :name: [``properties``]
       :type: (array of :ref:`tabs.UpdatePropertyName`)
       :annotation: 
-   
+      
       A list of property names. Events that do not match any of the names will be filtered out.
    
    
@@ -1151,7 +1139,7 @@ An object describing filters to apply to tabs.onUpdated events.
       :name: [``urls``]
       :type: (array of string)
       :annotation: 
-   
+      
       A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``tabs`` or  ``"activeTab"`` permission.
    
    
@@ -1176,9 +1164,9 @@ Event names supported in onUpdated.
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``favIconUrl``
@@ -1189,6 +1177,7 @@ Event names supported in onUpdated.
          .. api-member::
             :name: ``title``
          
+   
 
 .. _tabs.WindowType:
 
@@ -1205,9 +1194,9 @@ The type of window.
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``normal``
@@ -1224,6 +1213,7 @@ The type of window.
          .. api-member::
             :name: ``devtools``
          
+   
 
 .. rst-class:: api-main-section
 

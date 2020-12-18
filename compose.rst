@@ -69,7 +69,7 @@ Open a compose window and load a given message in reply mode.
       :name: ``messageId``
       :type: (integer)
       :annotation: 
-   
+      
       The message to reply to, as retrieved using other APIs.
    
    
@@ -77,8 +77,8 @@ Open a compose window and load a given message in reply mode.
       :name: [``replyType``]
       :type: (`string`)
       :annotation: 
-   
-      Allowed values:
+      
+      Supported values:
       
       .. api-member::
          :name: ``replyToSender``
@@ -126,7 +126,7 @@ Open a compose window and load a given message in forward mode.
       :name: ``messageId``
       :type: (integer)
       :annotation: 
-   
+      
       The message to forward, as retrieved using other APIs.
    
    
@@ -134,8 +134,8 @@ Open a compose window and load a given message in forward mode.
       :name: [``forwardType``]
       :type: (`string`)
       :annotation: 
-   
-      Allowed values:
+      
+      Supported values:
       
       .. api-member::
          :name: ``forwardInline``
@@ -271,7 +271,6 @@ Adds an attachment to the message being composed in the specified tab.
       :name: ``data``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``file``
@@ -283,7 +282,7 @@ Adds an attachment to the message being composed in the specified tab.
          :name: [``name``]
          :type: (string)
          :annotation: 
-      
+         
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
    
@@ -317,7 +316,6 @@ Renames and/or replaces the contents of an attachment to the message being compo
       :name: ``data``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``file``]
@@ -329,7 +327,7 @@ Renames and/or replaces the contents of an attachment to the message being compo
          :name: [``name``]
          :type: (string)
          :annotation: 
-      
+         
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
    
@@ -387,7 +385,7 @@ Fired when a message is about to be sent from the compose window.
       :name: ``details``
       :type: (:ref:`compose.ComposeDetails`)
       :annotation: 
-   
+      
       The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
    
 
@@ -399,13 +397,12 @@ Fired when a message is about to be sent from the compose window.
       :name: 
       :type: object
       :annotation: 
-   
       
       .. api-member::
          :name: [``cancel``]
          :type: (boolean)
          :annotation: 
-      
+         
          Cancels the send.
       
       
@@ -413,7 +410,7 @@ Fired when a message is about to be sent from the compose window.
          :name: [``details``]
          :type: (:ref:`compose.ComposeDetails`)
          :annotation: 
-      
+         
          Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
       
    
@@ -525,7 +522,7 @@ Represents an attachment in a message being composed.
       :name: ``id``
       :type: (integer)
       :annotation: 
-   
+      
       A unique identifier for this attachment.
    
    
@@ -533,7 +530,7 @@ Represents an attachment in a message being composed.
       :name: ``name``
       :type: (string)
       :annotation: 
-   
+      
       The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
    
    
@@ -541,7 +538,7 @@ Represents an attachment in a message being composed.
       :name: ``size``
       :type: (integer)
       :annotation: -- [Added in TB 83, backported to TB 78.5.0]
-   
+      
       The size in bytes of this attachment.
    
    - ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
@@ -563,7 +560,7 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``attachments``]
       :type: (array of object)
       :annotation: -- [Added in TB 82, backported to TB 78.4]
-   
+      
       Attachments to add to the message. Only used in the begin* functions.
    
    
@@ -595,7 +592,7 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``identityId``]
       :type: (string)
       :annotation: -- [Added in TB 76]
-   
+      
       The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission ``accountsRead`` is required to include the ``identityId``.
    
    
@@ -648,14 +645,46 @@ ComposeRecipient
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
+      .. container:: api-member-description-only
+         
          A name and email address in the format "Name <email@example.com>", or just an email address.
+   
 
 OR
 
 .. api-header::
    :label: object
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         .. api-member::
+            :name: ``id``
+            :type: (string)
+            :annotation: 
+            
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+         
+         
+         .. api-member::
+            :name: ``type``
+            :type: (`string`)
+            :annotation: 
+            
+            Which sort of object this ID is for.
+            
+            Supported values:
+            
+            .. api-member::
+               :name: ``contact``
+            
+            .. api-member::
+               :name: ``mailingList``
+            
+         
+   
 
 .. _compose.ComposeRecipientList:
 
@@ -670,9 +699,10 @@ ComposeRecipientList
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
+      .. container:: api-member-description-only
+         
          A name and email address in the format "Name <email@example.com>", or just an email address.
+   
 
 OR
 

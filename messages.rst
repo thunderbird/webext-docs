@@ -217,13 +217,12 @@ Gets all messages that have the specified properties, or all messages if no prop
       :name: ``queryInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``author``]
          :type: (string)
          :annotation: 
-      
+         
          Returns only messages with this value matching the author.
       
       
@@ -231,7 +230,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``body``]
          :type: (string)
          :annotation: 
-      
+         
          Returns only messages with this value in the body of the mail.
       
       
@@ -239,7 +238,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``flagged``]
          :type: (boolean)
          :annotation: 
-      
+         
          Returns only flagged (or unflagged if false) messages.
       
       
@@ -247,7 +246,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``folder``]
          :type: (:ref:`folders.MailFolder`)
          :annotation: 
-      
+         
          Returns only messages from the specified folder. The ``accountsRead`` permission is required.
       
       
@@ -255,7 +254,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``fromDate``]
          :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
          :annotation: 
-      
+         
          Returns only messages with a date after this value.
       
       
@@ -263,7 +262,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``fromMe``]
          :type: (boolean)
          :annotation: 
-      
+         
          Returns only messages with the author matching any configured identity.
       
       
@@ -271,7 +270,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``fullText``]
          :type: (string)
          :annotation: 
-      
+         
          Returns only messages with this value somewhere in the mail (subject, body or author).
       
       
@@ -279,7 +278,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``recipients``]
          :type: (string)
          :annotation: 
-      
+         
          Returns only messages with this value matching one or more recipients.
       
       
@@ -287,7 +286,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``subject``]
          :type: (string)
          :annotation: 
-      
+         
          Returns only messages with this value matching the subject.
       
       
@@ -295,7 +294,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``tags``]
          :type: (:ref:`messages.TagsDetail`)
          :annotation: -- [Added in TB 74]
-      
+         
          Returns only messages with the specified tags. For a list of available tags, call the listTags method. Querying for messages that must *not* have a tag does not work.
       
       
@@ -303,7 +302,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``toDate``]
          :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
          :annotation: 
-      
+         
          Returns only messages with a date before this value.
       
       
@@ -311,7 +310,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``toMe``]
          :type: (boolean)
          :annotation: 
-      
+         
          Returns only messages with one or more recipients matching any configured identity.
       
       
@@ -319,7 +318,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``unread``]
          :type: (boolean)
          :annotation: 
-      
+         
          Returns only unread (or read if false) messages.
       
    
@@ -359,13 +358,12 @@ Marks or unmarks a message as read, flagged, or tagged.
       :name: ``newProperties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``flagged``]
          :type: (boolean)
          :annotation: 
-      
+         
          Marks the message as flagged or unflagged.
       
       
@@ -373,7 +371,7 @@ Marks or unmarks a message as read, flagged, or tagged.
          :name: [``junk``]
          :type: (boolean)
          :annotation: -- [Added in TB 73, backported to TB 68.7]
-      
+         
          Marks the message as junk or not junk.
       
       
@@ -381,7 +379,7 @@ Marks or unmarks a message as read, flagged, or tagged.
          :name: [``read``]
          :type: (boolean)
          :annotation: 
-      
+         
          Marks the message as read or unread.
       
       
@@ -389,7 +387,7 @@ Marks or unmarks a message as read, flagged, or tagged.
          :name: [``tags``]
          :type: (array of string)
          :annotation: 
-      
+         
          Sets the tags on the message. For a list of available tags, call the listTags method.
       
    
@@ -411,7 +409,7 @@ Moves messages to a specified folder.
       :name: ``messageIds``
       :type: (array of integer)
       :annotation: 
-   
+      
       The IDs of the messages to move.
    
    
@@ -419,7 +417,7 @@ Moves messages to a specified folder.
       :name: ``destination``
       :type: (:ref:`folders.MailFolder`)
       :annotation: 
-   
+      
       The folder to move the messages to.
    
 
@@ -446,7 +444,7 @@ Copies messages to a specified folder.
       :name: ``messageIds``
       :type: (array of integer)
       :annotation: 
-   
+      
       The IDs of the messages to copy.
    
    
@@ -454,7 +452,7 @@ Copies messages to a specified folder.
       :name: ``destination``
       :type: (:ref:`folders.MailFolder`)
       :annotation: 
-   
+      
       The folder to copy the messages to.
    
 
@@ -481,7 +479,7 @@ Deletes messages, or moves them to the trash folder.
       :name: ``messageIds``
       :type: (array of integer)
       :annotation: 
-   
+      
       The IDs of the messages to delete.
    
    
@@ -489,7 +487,7 @@ Deletes messages, or moves them to the trash folder.
       :name: [``skipTrash``]
       :type: (boolean)
       :annotation: 
-   
+      
       If true, the message will be permanently deleted without warning the user. If false or not specified, it will be moved to the trash folder.
    
 
@@ -515,7 +513,7 @@ Archives messages using the current settings.
       :name: ``messageIds``
       :type: (array of integer)
       :annotation: 
-   
+      
       The IDs of the messages to archive.
    
 
@@ -630,7 +628,7 @@ MessageHeader
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
       :annotation: 
-   
+      
       The ``accountsRead`` permission is required.
    
    
@@ -718,7 +716,7 @@ Represents an email message "part", which could be the whole message
       :name: [``body``]
       :type: (string)
       :annotation: 
-   
+      
       The content of the part
    
    
@@ -732,7 +730,7 @@ Represents an email message "part", which could be the whole message
       :name: [``headers``]
       :type: (object)
       :annotation: 
-   
+      
       An object of part headers, with the header name as key, and an array of header values as value
    
    
@@ -740,7 +738,7 @@ Represents an email message "part", which could be the whole message
       :name: [``name``]
       :type: (string)
       :annotation: 
-   
+      
       Name of the part, if it is a file
    
    
@@ -754,7 +752,7 @@ Represents an email message "part", which could be the whole message
       :name: [``parts``]
       :type: (array of :ref:`messages.MessagePart`)
       :annotation: 
-   
+      
       Any sub-parts of this part
    
    
@@ -779,7 +777,7 @@ MessageTag
       :name: ``color``
       :type: (string)
       :annotation: 
-   
+      
       Tag color
    
    
@@ -787,7 +785,7 @@ MessageTag
       :name: ``key``
       :type: (string)
       :annotation: 
-   
+      
       Distinct tag identifier – use this string when referring to a tag
    
    
@@ -795,7 +793,7 @@ MessageTag
       :name: ``ordinal``
       :type: (string)
       :annotation: 
-   
+      
       Custom sort string (usually empty)
    
    
@@ -803,7 +801,7 @@ MessageTag
       :name: ``tag``
       :type: (string)
       :annotation: 
-   
+      
       Human-readable tag name
    
 
@@ -824,10 +822,10 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``mode``
       :type: (`string`)
       :annotation: 
-   
+      
       Whether all of the tag filters must apply, or any of them.
       
-      Allowed values:
+      Supported values:
       
       .. api-member::
          :name: ``all``
@@ -841,6 +839,6 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       :annotation: 
-   
+      
       Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    

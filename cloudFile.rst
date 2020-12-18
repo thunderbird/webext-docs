@@ -22,13 +22,12 @@ Manifest file properties
    :name: [``cloud_file``]
    :type: (object)
    :annotation: 
-
    
    .. api-member::
       :name: ``management_url``
       :type: (string)
       :annotation: 
-   
+      
       A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.
    
    
@@ -36,7 +35,7 @@ Manifest file properties
       :name: ``name``
       :type: (string)
       :annotation: 
-   
+      
       Name of the cloud file service.
    
    
@@ -44,10 +43,10 @@ Manifest file properties
       :name: [``data_format``]
       :type: (`string`)
       :annotation: -- [Added in TB 71, backported to TB 68.2.1]
-   
+      
       Determines the format of the ``data`` argument in ``onFileUpload``.
       
-      Allowed values:
+      Supported values:
       
       .. api-member::
          :name: ``ArrayBuffer``
@@ -61,7 +60,7 @@ Manifest file properties
       :name: [``new_account_url``]
       :type: (string) **Deprecated.**
       :annotation: 
-   
+      
       This property was never used.
    
    
@@ -69,7 +68,7 @@ Manifest file properties
       :name: [``service_url``]
       :type: (string)
       :annotation: 
-   
+      
       URL to the web page of the cloud file service.
    
 
@@ -101,7 +100,7 @@ Retrieve information about a single cloud file account
       :name: ``accountId``
       :type: (string)
       :annotation: 
-   
+      
       Unique identifier of the account
    
 
@@ -155,7 +154,7 @@ Update a cloud file account
       :name: ``accountId``
       :type: (string)
       :annotation: 
-   
+      
       Unique identifier of the account
    
    
@@ -163,13 +162,12 @@ Update a cloud file account
       :name: ``updateProperties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``configured``]
          :type: (boolean)
          :annotation: 
-      
+         
          If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
       
       
@@ -177,7 +175,7 @@ Update a cloud file account
          :name: [``managementUrl``]
          :type: (string)
          :annotation: 
-      
+         
          A page for configuring accounts, to be displayed in the preferences UI.
       
       
@@ -185,7 +183,7 @@ Update a cloud file account
          :name: [``spaceRemaining``]
          :type: (integer)
          :annotation: 
-      
+         
          The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
       
       
@@ -193,7 +191,7 @@ Update a cloud file account
          :name: [``spaceUsed``]
          :type: (integer)
          :annotation: 
-      
+         
          The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
       
       
@@ -201,7 +199,7 @@ Update a cloud file account
          :name: [``uploadSizeLimit``]
          :type: (integer)
          :annotation: 
-      
+         
          The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
       
    
@@ -240,7 +238,7 @@ Fired when a file should be uploaded to the cloud file provider
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       :annotation: 
-   
+      
       The created account
    
    
@@ -248,7 +246,7 @@ Fired when a file should be uploaded to the cloud file provider
       :name: ``fileInfo``
       :type: (:ref:`cloudFile.CloudFile`)
       :annotation: 
-   
+      
       The file to upload
    
 
@@ -260,13 +258,12 @@ Fired when a file should be uploaded to the cloud file provider
       :name: 
       :type: object
       :annotation: 
-   
       
       .. api-member::
          :name: [``aborted``]
          :type: (boolean)
          :annotation: 
-      
+         
          Set this to true if the file upload was aborted
       
       
@@ -274,7 +271,7 @@ Fired when a file should be uploaded to the cloud file provider
          :name: [``url``]
          :type: (string)
          :annotation: 
-      
+         
          The URL where the uploaded file can be accessed
       
    
@@ -294,7 +291,7 @@ onFileUploadAbort(account, fileId)
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       :annotation: 
-   
+      
       The created account
    
    
@@ -302,7 +299,7 @@ onFileUploadAbort(account, fileId)
       :name: ``fileId``
       :type: (integer)
       :annotation: 
-   
+      
       An identifier for this file
    
 
@@ -323,7 +320,7 @@ Fired when a file previously uploaded should be deleted
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       :annotation: 
-   
+      
       The created account
    
    
@@ -331,7 +328,7 @@ Fired when a file previously uploaded should be deleted
       :name: ``fileId``
       :type: (integer)
       :annotation: 
-   
+      
       An identifier for this file
    
 
@@ -352,7 +349,7 @@ Fired when a cloud file account of this add-on was created
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       :annotation: 
-   
+      
       The created account
    
 
@@ -373,7 +370,7 @@ Fired when a cloud file account of this add-on was deleted
       :name: ``accountId``
       :type: (string)
       :annotation: 
-   
+      
       The id of the removed account
    
 
@@ -405,7 +402,7 @@ Information about a cloud file
       :name: ``id``
       :type: (integer)
       :annotation: 
-   
+      
       An identifier for this file
    
    
@@ -413,7 +410,7 @@ Information about a cloud file
       :name: ``name``
       :type: (string)
       :annotation: 
-   
+      
       Filename of the file to be transferred
    
 
@@ -434,7 +431,7 @@ Information about a cloud file account
       :name: ``configured``
       :type: (boolean)
       :annotation: 
-   
+      
       If true, the account is configured and ready to use. This property is currently ignored and all accounts are assumed to be configured.
    
    
@@ -442,7 +439,7 @@ Information about a cloud file account
       :name: ``id``
       :type: (string)
       :annotation: 
-   
+      
       Unique identifier of the account
    
    
@@ -450,7 +447,7 @@ Information about a cloud file account
       :name: ``managementUrl``
       :type: (string)
       :annotation: 
-   
+      
       A page for configuring accounts, to be displayed in the preferences UI.
    
    
@@ -458,7 +455,7 @@ Information about a cloud file account
       :name: ``name``
       :type: (string)
       :annotation: 
-   
+      
       A user-friendly name for this account.
    
    
@@ -466,7 +463,7 @@ Information about a cloud file account
       :name: [``spaceRemaining``]
       :type: (integer)
       :annotation: 
-   
+      
       The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
    
    
@@ -474,7 +471,7 @@ Information about a cloud file account
       :name: [``spaceUsed``]
       :type: (integer)
       :annotation: 
-   
+      
       The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
    
    
@@ -482,6 +479,6 @@ Information about a cloud file account
       :name: [``uploadSizeLimit``]
       :type: (integer)
       :annotation: 
-   
+      
       The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
    

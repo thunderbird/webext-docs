@@ -89,16 +89,52 @@ Details of a compose script registered programmatically
    
    .. api-member::
       :name: [``css``]
-      :type: (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_)
+      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`)
       :annotation: 
-   
+      
       The list of CSS files to inject
    
    
    .. api-member::
       :name: [``js``]
-      :type: (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_)
+      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`)
       :annotation: 
-   
+      
       The list of JavaScript files to inject
+   
+
+.. rst-class:: api-main-section
+
+External Types
+==============
+
+These following types are not defined by this Thunderbird WebExtension API, but are inherited from the underlying Mozilla WebExtension code base.
+
+.. _composeScripts.extensionTypes.ExtensionFileOrCode:
+
+extensionTypes.ExtensionFileOrCode
+----------------------------------
+
+.. api-section-annotation-hack:: 
+
+Specify code, either by pointing to a file or by providing the code directly. Only one of the two is allowed.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``code``
+      :type: (string)
+      :annotation: 
+      
+      Some JavaScript code to register.
+   
+   
+   .. api-member::
+      :name: ``file``
+      :type: (string)
+      :annotation: 
+      
+      A URL starting at the extension's manifest.json and pointing to a JavaScript file to register.
    

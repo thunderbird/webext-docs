@@ -19,7 +19,6 @@ Manifest file properties
    :name: [``message_display_action``]
    :type: (object)
    :annotation: 
-
    
    .. api-member::
       :name: [``browser_style``]
@@ -31,13 +30,13 @@ Manifest file properties
       :name: [``default_area``]
       :type: (string)
       :annotation: 
-   
+      
       Currently unused.
    
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`IconPath`)
+      :type: (string)
       :annotation: 
    
    
@@ -55,9 +54,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`ThemeIcons`)
+      :type: (array of :ref:`messageDisplayAction.ThemeIcons`)
       :annotation: 
-   
+      
       Specifies icons to use for dark and light themes
    
 
@@ -89,13 +88,12 @@ Sets the title of the toolbar action. This shows up in the tooltip.
       :name: ``details``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``title``
          :type: (string or null)
          :annotation: 
-      
+         
          The string the toolbar action should display when moused over.
       
    
@@ -148,13 +146,12 @@ Sets the icon for the toolbar action. The icon can be specified either as the pa
       :name: ``details``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``imageData``]
          :type: (:ref:`messageDisplayAction.ImageDataType` or object)
          :annotation: 
-      
+         
          Either an ImageData object or a dictionary {size -> ImageData} representing icon to be set. If the icon is specified as a dictionary, the actual image to be used is chosen depending on screen's pixel density. If the number of image pixels that fit into one screen space unit equals ``scale``, then image with size ``scale`` * 19 will be selected. Initially only scales 1 and 2 will be supported. At least one image must be specified. Note that 'details.imageData = foo' is equivalent to 'details.imageData = {'19': foo}'
       
       
@@ -162,7 +159,7 @@ Sets the icon for the toolbar action. The icon can be specified either as the pa
          :name: [``path``]
          :type: (string or object)
          :annotation: 
-      
+         
          Either a relative image path or a dictionary {size -> relative image path} pointing to icon to be set. If the icon is specified as a dictionary, the actual image to be used is chosen depending on screen's pixel density. If the number of image pixels that fit into one screen space unit equals ``scale``, then image with size ``scale`` * 19 will be selected. Initially only scales 1 and 2 will be supported. At least one image must be specified. Note that 'details.path = foo' is equivalent to 'details.imageData = {'19': foo}'
       
    
@@ -184,13 +181,12 @@ Sets the html document to be opened as a popup when the user clicks on the toolb
       :name: ``details``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``popup``
          :type: (string or null)
          :annotation: 
-      
+         
          The html file to show in a popup.  If set to the empty string (''), no popup is shown.
       
    
@@ -243,13 +239,12 @@ Sets the badge text for the toolbar action. The badge is displayed on top of the
       :name: ``details``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``text``
          :type: (string or null)
          :annotation: 
-      
+         
          Any number of characters can be passed, but only about four can fit in the space.
       
    
@@ -302,13 +297,12 @@ Sets the background color for the badge.
       :name: ``details``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: ``color``
          :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
          :annotation: 
-      
+         
          An array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is ``[255, 0, 0, 255]``. Can also be a string with a CSS value, with opaque red being ``#FF0000`` or ``#F00``.
       
    
@@ -361,7 +355,7 @@ Enables the toolbar action for a tab. By default, toolbar actions are enabled.
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       The id of the tab for which you want to modify the toolbar action.
    
 
@@ -382,7 +376,7 @@ Disables the toolbar action for a tab.
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       The id of the tab for which you want to modify the toolbar action.
    
 
@@ -478,7 +472,7 @@ Specifies to which tab or window the value should be set, or from which one it s
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
    
    
@@ -486,7 +480,7 @@ Specifies to which tab or window the value should be set, or from which one it s
       :name: [``windowId``]
       :type: (integer)
       :annotation: 
-   
+      
       When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
    
 
@@ -519,10 +513,10 @@ Information sent when a message display action is clicked.
       :name: ``modifiers``
       :type: (array of `string`)
       :annotation: 
-   
+      
       An array of keyboard modifiers that were held while the menu item was clicked.
       
-      Allowed values:
+      Supported values:
       
       .. api-member::
          :name: ``Shift``
@@ -545,6 +539,50 @@ Information sent when a message display action is clicked.
       :name: [``button``]
       :type: (integer)
       :annotation: 
-   
+      
       An integer value of button by which menu item was clicked.
+   
+
+.. rst-class:: api-main-section
+
+External Types
+==============
+
+These following types are not defined by this Thunderbird WebExtension API, but are inherited from the underlying Mozilla WebExtension code base.
+
+.. _messageDisplayAction.ThemeIcons:
+
+ThemeIcons
+----------
+
+.. api-section-annotation-hack:: 
+
+Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``dark``
+      :type: (string)
+      :annotation: 
+      
+      A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified).
+   
+   
+   .. api-member::
+      :name: ``light``
+      :type: (string)
+      :annotation: 
+      
+      A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme).
+   
+   
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+      :annotation: 
+      
+      The size of the two icons in pixels, for example ``16`` or ``32``.
    

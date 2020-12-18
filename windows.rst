@@ -131,15 +131,14 @@ Gets all windows.
       :name: [``getInfo``]
       :type: (object)
       :annotation: 
-   
+      
       Specifies properties used to filter the :ref:`windows.Window` returned and to determine whether they should contain a list of the :ref:`tabs.Tab` objects.
-   
       
       .. api-member::
          :name: [``populate``]
          :type: (boolean)
          :annotation: 
-      
+         
          If true, each :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects for that window. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``tabs`` permission.
       
       
@@ -147,7 +146,7 @@ Gets all windows.
          :name: [``windowTypes``]
          :type: (array of :ref:`windows.WindowType`)
          :annotation: 
-      
+         
          If set, the :ref:`windows.Window` returned will be filtered based on its type.
       
    
@@ -181,13 +180,12 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       :name: [``createData``]
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``allowScriptsToClose``]
          :type: (boolean)
          :annotation: 
-      
+         
          Allow scripts to close the window.
       
       
@@ -195,7 +193,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``focused``]
          :type: (boolean) **Unsupported.**
          :annotation: 
-      
+         
          If true, opens an active window. If false, opens an inactive window.
       
       
@@ -203,7 +201,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``height``]
          :type: (integer)
          :annotation: 
-      
+         
          The height in pixels of the new window, including the frame. If not specified defaults to a natural height.
       
       
@@ -211,7 +209,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``incognito``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the new window should be an incognito window.
       
       
@@ -219,7 +217,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``left``]
          :type: (integer)
          :annotation: 
-      
+         
          The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
       
       
@@ -227,7 +225,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``state``]
          :type: (:ref:`windows.WindowState`)
          :annotation: 
-      
+         
          The initial state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
       
       
@@ -235,7 +233,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``tabId``]
          :type: (integer)
          :annotation: 
-      
+         
          The id of the tab for which you want to adopt to the new window.
       
       
@@ -243,7 +241,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``titlePreface``]
          :type: (string)
          :annotation: 
-      
+         
          A string to add to the beginning of the window title.
       
       
@@ -251,7 +249,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``top``]
          :type: (integer)
          :annotation: 
-      
+         
          The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
       
       
@@ -259,7 +257,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``type``]
          :type: (:ref:`windows.CreateType`)
          :annotation: 
-      
+         
          Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
       
       
@@ -267,7 +265,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``url``]
          :type: (string or array of string)
          :annotation: 
-      
+         
          A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
       
       
@@ -275,7 +273,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``width``]
          :type: (integer)
          :annotation: 
-      
+         
          The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
       
    
@@ -288,7 +286,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       :name: 
       :type: :ref:`windows.Window`
       :annotation: 
-   
+      
       Contains details about the created window.
    
    
@@ -317,13 +315,12 @@ Updates the properties of a window. Specify only the properties that you want to
       :name: ``updateInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``drawAttention``]
          :type: (boolean)
          :annotation: 
-      
+         
          If true, causes the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus. Set to false to cancel a previous draw attention request.
       
       
@@ -331,7 +328,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``focused``]
          :type: (boolean)
          :annotation: 
-      
+         
          If true, brings the window to the front. If false, brings the next window in the z-order to the front.
       
       
@@ -339,7 +336,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``height``]
          :type: (integer)
          :annotation: 
-      
+         
          The height to resize the window to in pixels. This value is ignored for panels.
       
       
@@ -347,7 +344,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``left``]
          :type: (integer)
          :annotation: 
-      
+         
          The offset from the left edge of the screen to move the window to in pixels. This value is ignored for panels.
       
       
@@ -355,7 +352,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``state``]
          :type: (:ref:`windows.WindowState`)
          :annotation: 
-      
+         
          The new state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
       
       
@@ -363,7 +360,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``titlePreface``]
          :type: (string)
          :annotation: 
-      
+         
          A string to add to the beginning of the window title.
       
       
@@ -371,7 +368,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``top``]
          :type: (integer)
          :annotation: 
-      
+         
          The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
       
       
@@ -379,7 +376,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``width``]
          :type: (integer)
          :annotation: 
-      
+         
          The width to resize the window to in pixels. This value is ignored for panels.
       
    
@@ -456,7 +453,7 @@ Fired when a window is created.
       :name: ``window``
       :type: (:ref:`windows.Window`)
       :annotation: 
-   
+      
       Details of the window that was created.
    
 
@@ -477,7 +474,7 @@ Fired when a window is removed (closed).
       :name: ``windowId``
       :type: (integer)
       :annotation: 
-   
+      
       ID of the removed window.
    
 
@@ -498,7 +495,7 @@ Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID
       :name: ``windowId``
       :type: (integer)
       :annotation: 
-   
+      
       ID of the newly focused window.
    
 
@@ -522,9 +519,9 @@ Specifies what type of browser window to create. The 'panel' and 'detached_panel
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``normal``
@@ -538,6 +535,7 @@ Specifies what type of browser window to create. The 'panel' and 'detached_panel
          .. api-member::
             :name: ``detached_panel``
          
+   
 
 .. _windows.GetInfo:
 
@@ -556,7 +554,7 @@ Specifies whether the :ref:`windows.Window` returned should contain a list of th
       :name: [``populate``]
       :type: (boolean)
       :annotation: 
-   
+      
       If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``tabs`` permission.
    
    
@@ -564,7 +562,7 @@ Specifies whether the :ref:`windows.Window` returned should contain a list of th
       :name: [``windowTypes``]
       :type: (array of :ref:`windows.WindowType`) **Deprecated.**
       :annotation: 
-   
+      
       ``windowTypes`` is deprecated and ignored on Thunderbird.
    
 
@@ -583,7 +581,7 @@ Window
       :name: ``alwaysOnTop``
       :type: (boolean)
       :annotation: 
-   
+      
       Whether the window is set to be always on top.
    
    
@@ -591,7 +589,7 @@ Window
       :name: ``focused``
       :type: (boolean)
       :annotation: 
-   
+      
       Whether the window is currently the focused window.
    
    
@@ -599,7 +597,7 @@ Window
       :name: ``incognito``
       :type: (boolean)
       :annotation: 
-   
+      
       Whether the window is incognito.
    
    
@@ -607,7 +605,7 @@ Window
       :name: [``height``]
       :type: (integer)
       :annotation: 
-   
+      
       The height of the window, including the frame, in pixels.
    
    
@@ -615,7 +613,7 @@ Window
       :name: [``id``]
       :type: (integer)
       :annotation: 
-   
+      
       The ID of the window. Window IDs are unique within a session.
    
    
@@ -623,7 +621,7 @@ Window
       :name: [``left``]
       :type: (integer)
       :annotation: 
-   
+      
       The offset of the window from the left edge of the screen in pixels.
    
    
@@ -631,7 +629,7 @@ Window
       :name: [``state``]
       :type: (:ref:`windows.WindowState`)
       :annotation: 
-   
+      
       The state of this browser window.
    
    
@@ -639,7 +637,7 @@ Window
       :name: [``tabs``]
       :type: (array of :ref:`tabs.Tab`)
       :annotation: 
-   
+      
       Array of :ref:`tabs.Tab` objects representing the current tabs in the window.
    
    
@@ -647,7 +645,7 @@ Window
       :name: [``title``]
       :type: (string)
       :annotation: 
-   
+      
       The title of the window. Read-only.
    
    
@@ -655,7 +653,7 @@ Window
       :name: [``top``]
       :type: (integer)
       :annotation: 
-   
+      
       The offset of the window from the top edge of the screen in pixels.
    
    
@@ -663,7 +661,7 @@ Window
       :name: [``type``]
       :type: (:ref:`windows.WindowType`)
       :annotation: 
-   
+      
       The type of browser window this is.
    
    
@@ -671,7 +669,7 @@ Window
       :name: [``width``]
       :type: (integer)
       :annotation: 
-   
+      
       The width of the window, including the frame, in pixels.
    
 
@@ -690,9 +688,9 @@ The state of this window.
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``normal``
@@ -709,6 +707,7 @@ The state of this window.
          .. api-member::
             :name: ``docked``
          
+   
 
 .. _windows.WindowType:
 
@@ -725,9 +724,9 @@ The type of window this is. Under some circumstances a Window may not be assigne
    
    .. container:: api-member-node
    
-      .. container:: api-member-description
-   
-         Allowed values:
+      .. container:: api-member-description-only
+         
+         Supported values:
          
          .. api-member::
             :name: ``normal``
@@ -756,6 +755,7 @@ The type of window this is. Under some circumstances a Window may not be assigne
             :name: ``messageDisplay``
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
          
+   
 
 .. rst-class:: api-main-section
 

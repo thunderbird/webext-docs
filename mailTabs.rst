@@ -33,13 +33,12 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
       :name: ``queryInfo``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``active``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are active in their windows.
       
       
@@ -47,7 +46,7 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
          :name: [``currentWindow``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are in the current window.
       
       
@@ -55,7 +54,7 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
          :name: [``lastFocusedWindow``]
          :type: (boolean)
          :annotation: 
-      
+         
          Whether the tabs are in the last focused window.
       
       
@@ -63,7 +62,7 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
          :name: [``windowId``]
          :type: (integer)
          :annotation: 
-      
+         
          The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
       
    
@@ -97,7 +96,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       Defaults to the active tab of the current window.
    
    
@@ -105,13 +104,12 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
       :name: ``updateProperties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``displayedFolder``]
          :type: (:ref:`folders.MailFolder`)
          :annotation: 
-      
+         
          Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
       
       
@@ -119,7 +117,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``folderPaneVisible``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows or hides the folder pane.
       
       
@@ -127,10 +125,10 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``layout``]
          :type: (`string`)
          :annotation: 
-      
+         
          Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
          
-         Allowed values:
+         Supported values:
          
          .. api-member::
             :name: ``standard``
@@ -147,7 +145,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``messagePaneVisible``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows or hides the message display pane.
       
       
@@ -155,10 +153,10 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``sortOrder``]
          :type: (`string`)
          :annotation: 
-      
+         
          Sorts the list of messages. ``sortType`` must also be given.
          
-         Allowed values:
+         Supported values:
          
          .. api-member::
             :name: ``none``
@@ -175,10 +173,10 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``sortType``]
          :type: (`string`)
          :annotation: 
-      
+         
          Sorts the list of messages. ``sortOrder`` must also be given.
          
-         Allowed values:
+         Supported values:
          
          .. api-member::
             :name: ``none``
@@ -260,7 +258,7 @@ Lists the selected messages in the current folder. A messages permission is requ
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       Defaults to the active tab of the current window.
    
 
@@ -298,7 +296,7 @@ Sets the Quick Filter user interface based on the options specified.
       :name: [``tabId``]
       :type: (integer)
       :annotation: 
-   
+      
       Defaults to the active tab of the current window.
    
    
@@ -306,13 +304,12 @@ Sets the Quick Filter user interface based on the options specified.
       :name: ``properties``
       :type: (object)
       :annotation: 
-   
       
       .. api-member::
          :name: [``attachment``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows only messages with attachments.
       
       
@@ -320,7 +317,7 @@ Sets the Quick Filter user interface based on the options specified.
          :name: [``contact``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows only messages from people in the address book.
       
       
@@ -328,7 +325,7 @@ Sets the Quick Filter user interface based on the options specified.
          :name: [``flagged``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows only flagged messages.
       
       
@@ -336,7 +333,7 @@ Sets the Quick Filter user interface based on the options specified.
          :name: [``show``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows or hides the Quick Filter bar.
       
       
@@ -344,7 +341,7 @@ Sets the Quick Filter user interface based on the options specified.
          :name: [``tags``]
          :type: (boolean or :ref:`messages.TagsDetail`)
          :annotation: 
-      
+         
          Shows only messages with tags on them.
       
       
@@ -352,7 +349,7 @@ Sets the Quick Filter user interface based on the options specified.
          :name: [``text``]
          :type: (:ref:`mailTabs.QuickFilterTextDetail`)
          :annotation: 
-      
+         
          Shows only messages matching the supplied text.
       
       
@@ -360,7 +357,7 @@ Sets the Quick Filter user interface based on the options specified.
          :name: [``unread``]
          :type: (boolean)
          :annotation: 
-      
+         
          Shows only unread messages.
       
    
@@ -456,7 +453,7 @@ MailTab
       :name: ``displayedFolder``
       :type: (:ref:`folders.MailFolder`)
       :annotation: 
-   
+      
       The ``accountsRead`` permission is required.
    
    
@@ -476,8 +473,8 @@ MailTab
       :name: ``layout``
       :type: (`string`)
       :annotation: 
-   
-      Allowed values:
+      
+      Supported values:
       
       .. api-member::
          :name: ``standard``
@@ -500,8 +497,8 @@ MailTab
       :name: ``sortOrder``
       :type: (`string`)
       :annotation: 
-   
-      Allowed values:
+      
+      Supported values:
       
       .. api-member::
          :name: ``none``
@@ -518,8 +515,8 @@ MailTab
       :name: ``sortType``
       :type: (`string`)
       :annotation: 
-   
-      Allowed values:
+      
+      Supported values:
       
       .. api-member::
          :name: ``none``
@@ -604,7 +601,7 @@ QuickFilterTextDetail
       :name: ``text``
       :type: (string)
       :annotation: 
-   
+      
       String to match against the ``recipients``, ``author``, ``subject``, or ``body``.
    
    
@@ -612,7 +609,7 @@ QuickFilterTextDetail
       :name: [``author``]
       :type: (boolean)
       :annotation: 
-   
+      
       Shows messages where ``text`` matches the author.
    
    
@@ -620,7 +617,7 @@ QuickFilterTextDetail
       :name: [``body``]
       :type: (boolean)
       :annotation: 
-   
+      
       Shows messages where ``text`` matches the message body.
    
    
@@ -628,7 +625,7 @@ QuickFilterTextDetail
       :name: [``recipients``]
       :type: (boolean)
       :annotation: 
-   
+      
       Shows messages where ``text`` matches the recipients.
    
    
@@ -636,6 +633,6 @@ QuickFilterTextDetail
       :name: [``subject``]
       :type: (boolean)
       :annotation: 
-   
+      
       Shows messages where ``text`` matches the subject.
    

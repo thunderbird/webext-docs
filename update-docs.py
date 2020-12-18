@@ -10,8 +10,12 @@ DEST_DIR = os.path.dirname(__file__)
 OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
 
 current_namespace_name = None
-unique_id = 1
 
+# enums have been moved inline and are no longer referenced
+# unique_id is no longer needed
+unique_id = 1
+additional_type_defs = {}
+additional_type_used = []
 
 def merge_objects(a, b):
     if isinstance(a, list):
@@ -59,13 +63,12 @@ def replace_code(string):
     return string
 
 
-def get_type(obj, name, use_enum_ref = False):
+def get_type(obj, name):
     if "type" in obj:
         if obj.get("enum") is not None:
-            if use_enum_ref:
-                return "`%s <enum_%s_%d_>`_" % (obj["type"], name, unique_id)
-            else:
-                return "`%s`" % (obj["type"])
+            # enums have been moved inline and are no longer referenced
+            #return "`%s <enum_%s_%d_>`_" % (obj["type"], name, unique_id)
+            return "`%s`" % (obj["type"])
         elif obj["type"] == "array":
             if "items" in obj:
                 return "array of %s" % get_type(obj["items"], name)
@@ -82,8 +85,21 @@ def get_type(obj, name, use_enum_ref = False):
 
 
 def link_ref(ref):
+    global additional_type_used
     if ref == "extensionTypes.Date":
         return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_"
+    if ref == "runtime.Port":
+        return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_"
+    if ref == "IconPath":
+        return "string"
+
+    for additional_type in additional_type_defs:
+        if additional_type['id'] == ref:
+            if not ref in additional_type_used:
+                additional_type_used.append(ref)
+            #print("- adding : " + ref)
+            return ":ref:`%s.%s`" % (current_namespace_name, ref)
+    
     for moz_namespace in ["extension.", "extensionTypes."]:
         if ref.startswith(moz_namespace):
             name = ref[len(moz_namespace):]
@@ -137,31 +153,26 @@ def get_api_member_parts(name, value):
         parts['type'] = type_string % " or ".join(choices)
 
     if "description" in value:
-        parts['description'] = [replace_code(value["description"])]
+        parts['description'] = ["", replace_code(value["description"])]
     
     parts['enum'].extend(format_enum(name, value))
-    if len(parts['enum']) > 0:
-        if len(parts['description']) > 0:
-            parts['description'].append("")
-        parts['description'].extend(parts['enum'])
-
+    
     if "added" in value or "changed" in value:
         parts['annotation'] = format_addition(value)
     return parts
 
 
-def format_enum(name, value, use_enum_ref = False):
+def format_enum(name, value):
     if value.get("enum") is None:
         if value.get("items") is not None:
             return format_enum(name, value["items"])
         return []
     
-    enum_lines = []
-    if use_enum_ref:
-        enum_lines.extend(["Values for ``%s``:" % name, ""])
-        enum_lines.extend(reference("enum_%s_%d" % (name, unique_id)))
-    else:
-        enum_lines.extend(["Allowed values:", ""])
+    enum_lines = [""]
+    # enums have been moved inline and are no longer referenced
+    #enum_lines.extend(["Values for ``%s``:" % name, ""])
+    #enum_lines.extend(reference("enum_%s_%d" % (name, unique_id)))
+    enum_lines.extend(["Supported values:", ""])
 
     for enum_value in value.get("enum"):
         enum_lines.append(".. api-member::")
@@ -179,58 +190,65 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
-    lines = []
     parts =  get_api_member_parts(name, obj)
+  
+    #enum_only:        fake header + enum
+    #description_only: fake header + description + enum + nested
+    #default:          standard header + description enum + nested
+
+    fakeHeader = []
+    content = []
+    lines = []
 
     if print_enum_only or print_description_only:
-        part = 'description' if print_description_only else 'enum'
-        if not len(parts[part]) > 0:
-            return []
-            
-        # fake api-member structure, so style sheets continue to work
-        lines.extend([
+        # fake api-member div structure, so style sheets continue to work
+        indent = "      "
+        fakeHeader.extend([
             "",
             ".. container:: api-member-node",
             "",
-            "   .. container:: api-member-description",
-            "",
+            "   .. container:: api-member-description-only",
         ])
-        for line in parts[part]:
-            lines.append("      " + line)
-        return lines
+    else:
+        indent = "   "
+        content.extend([
+            "",
+            ".. api-member::",
+            "   :name: " + parts['name'],
+            "   :type: " + parts['type'],
+            "   :annotation: " + parts['annotation'],
+        ])    
 
-    lines.extend([
-        "",
-        ".. api-member::",
-        "   :name: " + parts['name'],
-        "   :type: " + parts['type'],
-        "   :annotation: " + parts['annotation'],
-    ])    
-    if len(parts['description']):
-        lines.append(""),
-        for line in parts['description']:
-            lines.append("   " + line)
-        
+    nested_content = []
     if obj.get("type") == "object" and "properties" in obj:
-        lines.append("")
         items = sorted(obj["properties"].items())
         for [key, value] in items:
             if not value.get("optional", False):
-                lines.extend(["   " + sub for sub in format_object(key, value)] )
-                #lines.append("  - %s" % get_api_member_parts(key, value))
+                nested_content.extend(format_object(key, value))
+                #nested_content.append("  - %s" % get_api_member_parts(key, value))
                 #enum_lines.extend(format_enum(key, value))
                 #unique_id += 1
 
         for [key, value] in items:
             if value.get("optional", False):
-                lines.extend(["   " + sub for sub in format_object(key, value)] )
-                #lines.append("  - %s" % get_api_member_parts(key, value))
+                nested_content.extend(format_object(key, value))
+                #nested_content.append("  - %s" % get_api_member_parts(key, value))
                 #enum_lines.extend(format_enum(key, value))
                 #unique_id += 1
 
+    if print_enum_only:
+        content.extend([indent + sub for sub in parts['enum']])       
+    else:
+        content.extend([indent + sub for sub in parts['description']])
+        content.extend([indent + sub for sub in parts['enum']])
+        content.extend([indent + sub for sub in nested_content])
 
-    lines.append("")
-    #lines.extend(enum_lines)
+    if len(content) > 0:
+        lines.extend(fakeHeader)
+        lines.extend(content)
+        lines.append("")
+        #lines.extend(enum_lines)
+
     return lines
 
 
@@ -353,10 +371,9 @@ def reference(label):
 
 
 def format_namespace(namespace, manifest_namespace=None):
-    global current_namespace_name, unique_id
+    global unique_id, additional_type_used
 
-    current_namespace_name = namespace["namespace"]
-    unique_id = 1
+    #unique_id = 1
     preamble = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
@@ -401,7 +418,7 @@ def format_namespace(namespace, manifest_namespace=None):
                     else:
                         content.extend(format_object(param["name"], param))
                         #enum_lines.extend(format_enum(param["name"], param))
-                        unique_id += 1
+                        #unique_id += 1
                 
                 if len(content) > 0:
                     lines.extend(api_entry("Parameters", content))
@@ -442,22 +459,44 @@ def format_namespace(namespace, manifest_namespace=None):
 
             lines.extend(format_permissions(event, use_info_box=False))
 
-    if "types" in namespace:
-        lines.append("")
-        lines.extend(header_2("Types", "api-main-section"))
+    # loop over own type defs and additional type defs   
+    for run in range(2):
+        type_lines = []
+        type_header = []
+        typegroup = None
 
-        for type_ in sorted(namespace["types"], key=lambda t: t["id"]):
+        if run == 0:
+            if "types" in namespace:
+                typegroup = namespace['types']
+                type_header.append("")
+                type_header.extend(header_2("Types", "api-main-section"))
+            else:
+                continue
+        
+        if run == 1:
+            typegroup = additional_type_defs
+            type_header.append("")
+            type_header.extend(header_2("External Types", "api-main-section"))
+            type_header.append("These following types are not defined by this Thunderbird WebExtension API, but by the underlying Mozilla WebExtension code base.")
+            type_header.append("")
+            
+
+        for type_ in sorted(typegroup, key=lambda t: t["id"]):
+            # skip this type if it is not used
+            if run == 1 and not type_['id'] in additional_type_used:
+                continue
+            
             # enums have been moved inline and are no longer referenced
             #enum_lines = []
-            lines.extend(header_3(
+            type_lines.extend(header_3(
                 type_["id"],
                 label="%s.%s" % (current_namespace_name, type_["id"]),
                 info=format_addition(type_)
             ))
 
             if "description" in type_:
-                lines.append(replace_code(type_["description"]))
-                lines.append("")
+                type_lines.append(replace_code(type_["description"]))
+                type_lines.append("")
 
             if "type" in type_:
                 if (type_["type"] == "object" and
@@ -470,13 +509,13 @@ def format_namespace(namespace, manifest_namespace=None):
                             if not value.get("optional", False):
                                 content.extend(format_object(key, value))
                                 #enum_lines.extend(format_enum(key, value))
-                                unique_id += 1
+                                #unique_id += 1
 
                         for [key, value] in items:
                             if value.get("optional", False):
                                 content.extend(format_object(key, value))
                                 #enum_lines.extend(format_enum(key, value))
-                                unique_id += 1
+                                #unique_id += 1
 
                     if "functions" in type_:
                         for function in sorted(type_["functions"], key=lambda f: f["name"]):
@@ -485,11 +524,11 @@ def format_namespace(namespace, manifest_namespace=None):
                             if description:
                                 content[-1] += " %s" % description
 
-                    lines.extend(api_entry("object", content))
+                    type_lines.extend(api_entry("object", content))
                 else:
-                    lines.extend(api_entry(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
+                    type_lines.extend(api_entry(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
                     
-                lines.append("")
+                type_lines.append("")
                 #enum_lines.extend(format_enum(type_["id"], type_))
 
             elif "choices" in type_:
@@ -498,12 +537,16 @@ def format_namespace(namespace, manifest_namespace=None):
                     if first:
                         first = False
                     else:
-                        lines.extend(["", "OR", ""])
-                    lines.extend(api_entry(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True)))
+                        type_lines.extend(["", "OR", ""])
+                    type_lines.extend(api_entry(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True)))
                     #enum_lines.extend(format_enum(type_["id"], choice))
 
-            lines.append("")
-            #lines.extend(enum_lines)
+            type_lines.append("")
+            #type_lines.extend(enum_lines)
+            
+        if len(type_lines) > 0:
+            lines.extend(type_header)
+            lines.extend(type_lines)
 
     if "properties" in namespace:
         lines.append("")
@@ -533,9 +576,8 @@ def format_namespace(namespace, manifest_namespace=None):
 
 
 def format_manifest_namespace(manifest):
-    global current_namespace_name, unique_id
-    current_namespace_name = None
-    unique_id = 1
+    global unique_id
+    #unique_id = 1
 
     if "types" not in manifest:
         return
@@ -597,6 +639,13 @@ if __name__ == "__main__":
     src_dir = os.path.join(args.path, "mail/components/extensions/schemas")
     permissions_file = os.path.join(args.path, "mail/locales/en-US/chrome/messenger/addons.properties")
 
+    # read additional type defs
+    additional_type_defs_file = os.path.join(OVERLAY_DIR, "additional_type_defs.json")
+    with open(additional_type_defs_file) as fp_input:
+        content = fp_input.read()
+        content = re.sub(r"(^|\n)//.*", "", content)
+        additional_type_defs = json.loads(content)
+
     files = []
     if len(args.file) == 0:
         # Do all files.
@@ -613,6 +662,7 @@ if __name__ == "__main__":
         print "No files found"
 
     for filename in sorted(files):
+
         with open(os.path.join(src_dir, filename + ".json")) as fp_input:
             content = fp_input.read()
             content = re.sub(r"(^|\n)//.*", "", content)
@@ -625,13 +675,23 @@ if __name__ == "__main__":
                 # print(json.dumps(document, indent=2))
 
         manifest_namespace = None
+        # get all namespaces defined in the current file
+        namespaces = {}
         for namespace in document:
-            if namespace["namespace"] == "manifest":
-                manifest_namespace = format_manifest_namespace(namespace)
+            namespaces[namespace["namespace"]] = namespace 
 
+        # Loop thru all namespaces/pages and evaluate the manifest for EACH namespace
+        # in case we need to put global types (without external doc) used in the
+        # manifest local in this page 
         for namespace in document:
             if namespace["namespace"] == "manifest":
                 continue
 
+            additional_type_used = []
+            current_namespace_name = namespace["namespace"]
+
+            if "manifest" in namespaces:
+                manifest_namespace = format_manifest_namespace(namespaces["manifest"])
+                
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
                 fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))

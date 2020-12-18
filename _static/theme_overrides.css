@@ -24,7 +24,8 @@
 
 
 /* RTD adds extra p */
-div.container p {
+div.container > p,
+div.container > ul {
 	margin: 0 !important;
 }
 
@@ -46,12 +47,12 @@ div.container p {
   align-items: center;  
 }
 .api-main-section > .section > span {
-    font-size: 70%;
+    font-size: 80%;
     font-weight: bold;
     font-style: italic;
     padding: 5px;
     display: block;
-    color: #6ab0de;
+    color: #3782bb;
 }
 #functions > .section > span::after {
     content: "func";
@@ -85,7 +86,7 @@ div.container p {
 }
 #properties > .section > span::after {
     content: "prop";
-    color: #ccc;
+    color: #888;
 }
 
 /* api section class embraces only the section title, */
@@ -93,7 +94,7 @@ div.container p {
 .api-section-annotation > p {
   padding: 6px;
   margin:0;
-  font-size: 70%;
+  font-size: 80%;
   font-style: italic;
 }
 .api-section-body {
@@ -146,10 +147,10 @@ div.container p {
 .api-member-node {
   margin-bottom: 0.5ex;
 }
-.api-member-node ul,
+/*.api-member-node ul,
 .api-member-node p {
 	margin-bottom: 0 !important;
-}
+}*/
 .api-member-description > p {
   font-size: 95%;
 }
@@ -157,3 +158,11 @@ div.container p {
   margin-left: 2em;
   margin-bottom:1ex;
 }
+.api-member-description-only {
+  margin-bottom:1ex;  
+  margin-left: 1ex;
+}
+.api-member-description-only > .api-member-node {
+  margin-left:-1ex;  
+}
+
