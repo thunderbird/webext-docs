@@ -97,7 +97,6 @@ def link_ref(ref):
         if additional_type['id'] == ref:
             if not ref in additional_type_used:
                 additional_type_used.append(ref)
-            #print("- adding : " + ref)
             return ":ref:`%s.%s`" % (current_namespace_name, ref)
     
     for moz_namespace in ["extension.", "extensionTypes."]:
@@ -113,13 +112,21 @@ def link_ref(ref):
 
 
 def format_addition(obj):
-    if "changed" in obj:
-        return "-- [Changed in TB %s]" % obj["changed"]
     if "backported" in obj:
         return "-- [Added in TB %s, backported to TB %s]" % (obj["added"], obj["backported"])
     if "added" in obj:
         return "-- [Added in TB %s]" % obj["added"]
     return ""
+
+def format_changes(obj, inline = False):
+    lines = []
+    if "changed" in obj:
+        for k, v in obj['changed'].items():
+            if inline:
+                lines.append("*Changed in TB " + k + ": " + v + "*")
+            else:
+                lines.extend(api_member(name="Thunderbird " + k, description=[v]))
+    return lines
 
 def get_api_member_parts(name, value):
     parts = {
@@ -153,7 +160,12 @@ def get_api_member_parts(name, value):
         parts['type'] = type_string % " or ".join(choices)
 
     if "description" in value:
-        parts['description'] = ["", replace_code(value["description"])]
+        parts['description'].append("")
+        parts['description'].append(replace_code(value["description"]))
+    
+    if "changed" in value:
+        parts['description'].append("")
+        parts['description'].extend(format_changes(value, inline=True))
     
     parts['enum'].extend(format_enum(name, value))
     
@@ -176,7 +188,7 @@ def format_enum(name, value):
 
     for enum_value in value.get("enum"):
         enum_lines.append(".. api-member::")
-        enum_lines.append("   :name: ``" + enum_value + "``");
+        enum_lines.append("   :name: ``" + enum_value + "``")
         if "enumChanges" in value:
             changes = value.get("enumChanges")
             if enum_value in changes:
@@ -184,8 +196,7 @@ def format_enum(name, value):
         enum_lines.append("")
 
     return enum_lines
-
-
+    
 def format_object(name, obj, print_description_only = False, print_enum_only = False):
     global unique_id
     # enums have been moved inline and are no longer referenced
@@ -343,6 +354,23 @@ def header_3(string, label=None, info=""):
         "",
     ]
 
+def api_member(name=None, type=None, annotation=None, description=None):
+    lines = [
+        "",
+        ".. api-member::",
+    ]    
+    if name:
+        lines.append("   :name: " + name)
+    if type:
+        lines.append("   :type: " + type)
+    if annotation:
+        lines.append("   :annotation: " + annotation)
+    if description:
+        lines.append("")
+        for line in description:
+            lines.append("   " + line)
+    return lines
+
 def api_entry(label, content = [], annotation=None):
     lines = [
         "",
@@ -407,6 +435,9 @@ def format_namespace(namespace, manifest_namespace=None):
             if "description" in function:
                 lines.append(replace_code(function["description"]))
                 lines.append("")
+                
+            if "changed" in function:
+                lines.extend(api_entry("API changes", format_changes(function)))
 
             if len(function.get("parameters", [])) > 0:
                 content = []
@@ -448,6 +479,9 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append(replace_code(event["description"]))
                 lines.append("")
 
+            if "changed" in event:
+                lines.extend(api_entry("API changes", format_changes(event)))
+
             if len(event.get("parameters", [])):
                 content = []
                 for param in event["parameters"]:
@@ -477,7 +511,7 @@ def format_namespace(namespace, manifest_namespace=None):
             typegroup = additional_type_defs
             type_header.append("")
             type_header.extend(header_2("External Types", "api-main-section"))
-            type_header.append("These following types are not defined by this Thunderbird WebExtension API, but by the underlying Mozilla WebExtension code base.")
+            type_header.append("The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.")
             type_header.append("")
             
 
@@ -498,11 +532,14 @@ def format_namespace(namespace, manifest_namespace=None):
                 type_lines.append(replace_code(type_["description"]))
                 type_lines.append("")
 
+            if "changed" in type_:
+                lines.extend(api_entry("API changes", format_changes(type_)))
+
             if "type" in type_:
                 if (type_["type"] == "object" and
                         "isInstanceOf" not in type_ and
                         ("properties" in type_ or "functions" in type_)):
-                    content = [];
+                    content = []
                     if "properties" in type_:
                         items = sorted(type_["properties"].items())
                         for [key, value] in items:
@@ -606,9 +643,9 @@ def format_manifest_namespace(manifest):
             for choice in type_["choices"]:
                 for value in choice["enum"]:
                     permission_lines.append(".. api-member::")
-                    permission_lines.append("   :name: ``" + value + "``");
+                    permission_lines.append("   :name: ``" + value + "``")
                     if value in permission_strings:
-                        permission_lines.append("");
+                        permission_lines.append("")
                         permission_lines.append("   " + permission_strings[value])               
 
     if len(permission_lines) > 0:
@@ -664,6 +701,7 @@ if __name__ == "__main__":
     for filename in sorted(files):
 
         with open(os.path.join(src_dir, filename + ".json")) as fp_input:
+            print("Reading file: " + filename + ".json")
             content = fp_input.read()
             content = re.sub(r"(^|\n)//.*", "", content)
             document = json.loads(content)

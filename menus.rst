@@ -541,7 +541,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying ``all``        is equivalent to the combination of all other contexts except for ``tab``.
+The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts except for ``tab``.
 
 .. api-header::
    :label: `string`
