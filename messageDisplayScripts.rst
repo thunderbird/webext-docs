@@ -109,7 +109,7 @@ Details of a message display script registered programmatically
 External Types
 ==============
 
-These following types are not defined by this Thunderbird WebExtension API, but by the underlying Mozilla WebExtension code base.
+The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
 .. _messageDisplayScripts.extensionTypes.ExtensionFileOrCode:
 

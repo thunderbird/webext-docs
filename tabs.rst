@@ -587,9 +587,18 @@ Closes one or more tabs.
 executeScript([tabId], details)
 -------------------------------
 
-.. api-section-annotation-hack:: -- [Changed in TB 77: with the "compose" permission, this now works in the document of email messages during composition.]
+.. api-section-annotation-hack:: 
 
 Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
+
+.. api-header::
+   :label: API changes
+
+   
+   .. api-member::
+      :name: Thunderbird 77
+   
+      With the "compose" permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters
@@ -630,9 +639,18 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
 insertCSS([tabId], details)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Changed in TB 77: with the "compose" permission, this now works in the document of email messages during composition.]
+.. api-section-annotation-hack:: 
 
 Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
+
+.. api-header::
+   :label: API changes
+
+   
+   .. api-member::
+      :name: Thunderbird 77
+   
+      With the "compose" permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters
@@ -659,9 +677,18 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
 removeCSS([tabId], details)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Changed in TB 77: with the "compose" permission, this now works in the document of email messages during composition.]
+.. api-section-annotation-hack:: 
 
 Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
+
+.. api-header::
+   :label: API changes
+
+   
+   .. api-member::
+      :name: Thunderbird 77
+   
+      With the "compose" permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters

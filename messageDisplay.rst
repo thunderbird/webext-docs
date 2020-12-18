@@ -105,7 +105,9 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: -- [Changed in TB 76, previously just the tab's ID]
+      :annotation: 
+      
+      *Changed in TB 76: previously just the tab's ID*
    
    
    .. api-member::
