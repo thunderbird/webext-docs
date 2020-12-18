@@ -16,14 +16,23 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
   Registering a message display script through ``manifest.json`` is not possible at this point.
 
+.. rst-class:: api-main-section
+
 Permissions
 ===========
 
-- messagesModify "Read and modify your email messages as they are displayed to you"
+.. api-member::
+   :name: ``messagesModify``
+
+   Read and modify your email messages as they are displayed to you
+
+.. rst-class:: api-permission-info
 
 .. note::
 
   The permission ``messagesModify`` is required to use ``messageDisplayScripts``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -33,11 +42,21 @@ Functions
 register(messageDisplayScriptOptions)
 -------------------------------------
 
+.. api-section-annotation-hack:: 
+
 Register a message display script programmatically
 
-- ``messageDisplayScriptOptions`` (:ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`)
+.. api-header::
+   :label: Parameters
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :name: ``messageDisplayScriptOptions``
+      :type: (:ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`)
+      :annotation: 
+   
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -47,20 +66,76 @@ Types
 RegisteredMessageDisplayScript
 ------------------------------
 
+.. api-section-annotation-hack:: 
+
 An object that represents a message display script registered programmatically
 
-object:
+.. api-header::
+   :label: object
 
-- ``unregister()`` Unregister a message display script registered programmatically
+   - ``unregister()`` Unregister a message display script registered programmatically
 
 .. _messageDisplayScripts.RegisteredMessageDisplayScriptOptions:
 
 RegisteredMessageDisplayScriptOptions
 -------------------------------------
 
+.. api-section-annotation-hack:: 
+
 Details of a message display script registered programmatically
 
-object:
+.. api-header::
+   :label: object
 
-- [``css``] (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_) The list of CSS files to inject
-- [``js``] (array of `ExtensionFileOrCode <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExtensionFileOrCode>`_) The list of JavaScript files to inject
+   
+   .. api-member::
+      :name: [``css``]
+      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`)
+      :annotation: 
+      
+      The list of CSS files to inject
+   
+   
+   .. api-member::
+      :name: [``js``]
+      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`)
+      :annotation: 
+      
+      The list of JavaScript files to inject
+   
+
+.. rst-class:: api-main-section
+
+External Types
+==============
+
+These following types are not defined by this Thunderbird WebExtension API, but by the underlying Mozilla WebExtension code base.
+
+.. _messageDisplayScripts.extensionTypes.ExtensionFileOrCode:
+
+ExtensionFileOrCode
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Specify code, either by pointing to a file or by providing the code directly. Only one of the two is allowed.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``code``
+      :type: (string)
+      :annotation: 
+      
+      Some JavaScript code to register.
+   
+   
+   .. api-member::
+      :name: ``file``
+      :type: (string)
+      :annotation: 
+      
+      A URL starting at the extension's manifest.json and pointing to a JavaScript file to register.
+   

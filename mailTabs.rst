@@ -11,6 +11,8 @@ The `Filter`__  and `Layout`__ sample extensions use this API.
 __ https://github.com/thundernest/sample-extensions/tree/master/filter
 __ https://github.com/thundernest/sample-extensions/tree/master/layout
 
+.. rst-class:: api-main-section
+
 Functions
 =========
 
@@ -19,113 +21,348 @@ Functions
 query(queryInfo)
 ----------------
 
+.. api-section-annotation-hack:: 
+
 Gets all mail tabs that have the specified properties, or all mail tabs if no properties are specified.
 
-- ``queryInfo`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``active``] (boolean) Whether the tabs are active in their windows.
-  - [``currentWindow``] (boolean) Whether the tabs are in the current window.
-  - [``lastFocusedWindow``] (boolean) Whether the tabs are in the last focused window.
-  - [``windowId``] (integer) The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
+   
+   .. api-member::
+      :name: ``queryInfo``
+      :type: (object)
+      :annotation: 
+      
+      .. api-member::
+         :name: [``active``]
+         :type: (boolean)
+         :annotation: 
+         
+         Whether the tabs are active in their windows.
+      
+      
+      .. api-member::
+         :name: [``currentWindow``]
+         :type: (boolean)
+         :annotation: 
+         
+         Whether the tabs are in the current window.
+      
+      
+      .. api-member::
+         :name: [``lastFocusedWindow``]
+         :type: (boolean)
+         :annotation: 
+         
+         Whether the tabs are in the last focused window.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         :annotation: 
+         
+         The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
+      
+   
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- array of :ref:`mailTabs.MailTab`
+   
+   .. api-member::
+      :name: 
+      :type: array of :ref:`mailTabs.MailTab`
+      :annotation: 
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _mailTabs.update:
 
 update([tabId], updateProperties)
 ---------------------------------
 
+.. api-section-annotation-hack:: 
+
 Modifies the properties of a mail tab. Properties that are not specified in ``updateProperties`` are not modified.
 
-- [``tabId``] (integer) Defaults to the active tab of the current window.
-- ``updateProperties`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``displayedFolder``] (:ref:`folders.MailFolder`) Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
-  - [``folderPaneVisible``] (boolean) Shows or hides the folder pane.
-  - [``layout``] (`string <enum_layout_9_>`_) Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
-  - [``messagePaneVisible``] (boolean) Shows or hides the message display pane.
-  - [``sortOrder``] (`string <enum_sortOrder_11_>`_) Sorts the list of messages. ``sortType`` must also be given.
-  - [``sortType``] (`string <enum_sortType_12_>`_) Sorts the list of messages. ``sortOrder`` must also be given.
-
-.. _enum_layout_9:
-
-Values for layout:
-
-- ``standard``
-- ``wide``
-- ``vertical``
-
-.. _enum_sortOrder_11:
-
-Values for sortOrder:
-
-- ``none``
-- ``ascending``
-- ``descending``
-
-.. _enum_sortType_12:
-
-Values for sortType:
-
-- ``none``
-- ``date``
-- ``subject``
-- ``author``
-- ``id``
-- ``thread``
-- ``priority``
-- ``status``
-- ``size``
-- ``flagged``
-- ``unread``
-- ``recipient``
-- ``location``
-- ``tags``
-- ``junkStatus``
-- ``attachments``
-- ``account``
-- ``custom``
-- ``received``
-- ``correspondent``
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer)
+      :annotation: 
+      
+      Defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``updateProperties``
+      :type: (object)
+      :annotation: 
+      
+      .. api-member::
+         :name: [``displayedFolder``]
+         :type: (:ref:`folders.MailFolder`)
+         :annotation: 
+         
+         Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
+      
+      
+      .. api-member::
+         :name: [``folderPaneVisible``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows or hides the folder pane.
+      
+      
+      .. api-member::
+         :name: [``layout``]
+         :type: (`string`)
+         :annotation: 
+         
+         Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``standard``
+         
+         .. api-member::
+            :name: ``wide``
+         
+         .. api-member::
+            :name: ``vertical``
+         
+      
+      
+      .. api-member::
+         :name: [``messagePaneVisible``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows or hides the message display pane.
+      
+      
+      .. api-member::
+         :name: [``sortOrder``]
+         :type: (`string`)
+         :annotation: 
+         
+         Sorts the list of messages. ``sortType`` must also be given.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``none``
+         
+         .. api-member::
+            :name: ``ascending``
+         
+         .. api-member::
+            :name: ``descending``
+         
+      
+      
+      .. api-member::
+         :name: [``sortType``]
+         :type: (`string`)
+         :annotation: 
+         
+         Sorts the list of messages. ``sortOrder`` must also be given.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``none``
+         
+         .. api-member::
+            :name: ``date``
+         
+         .. api-member::
+            :name: ``subject``
+         
+         .. api-member::
+            :name: ``author``
+         
+         .. api-member::
+            :name: ``id``
+         
+         .. api-member::
+            :name: ``thread``
+         
+         .. api-member::
+            :name: ``priority``
+         
+         .. api-member::
+            :name: ``status``
+         
+         .. api-member::
+            :name: ``size``
+         
+         .. api-member::
+            :name: ``flagged``
+         
+         .. api-member::
+            :name: ``unread``
+         
+         .. api-member::
+            :name: ``recipient``
+         
+         .. api-member::
+            :name: ``location``
+         
+         .. api-member::
+            :name: ``tags``
+         
+         .. api-member::
+            :name: ``junkStatus``
+         
+         .. api-member::
+            :name: ``attachments``
+         
+         .. api-member::
+            :name: ``account``
+         
+         .. api-member::
+            :name: ``custom``
+         
+         .. api-member::
+            :name: ``received``
+         
+         .. api-member::
+            :name: ``correspondent``
+         
+      
+   
 
 .. _mailTabs.getSelectedMessages:
 
 getSelectedMessages([tabId])
 ----------------------------
 
+.. api-section-annotation-hack:: 
+
 Lists the selected messages in the current folder. A messages permission is required to do this.
 
-- [``tabId``] (integer) Defaults to the active tab of the current window.
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer)
+      :annotation: 
+      
+      Defaults to the active tab of the current window.
+   
 
-- :ref:`messages.MessageList`
+.. api-header::
+   :label: Return type (`Promise`_)
 
-.. note::
+   
+   .. api-member::
+      :name: 
+      :type: :ref:`messages.MessageList`
+      :annotation: 
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-  The permission ``messagesRead`` is required to use ``getSelectedMessages``.
+.. api-header::
+   :label: Required permissions
+
+   - ``messagesRead``
 
 .. _mailTabs.setQuickFilter:
 
 setQuickFilter([tabId], properties)
 -----------------------------------
 
+.. api-section-annotation-hack:: 
+
 Sets the Quick Filter user interface based on the options specified.
 
-- [``tabId``] (integer) Defaults to the active tab of the current window.
-- ``properties`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``attachment``] (boolean) Shows only messages with attachments.
-  - [``contact``] (boolean) Shows only messages from people in the address book.
-  - [``flagged``] (boolean) Shows only flagged messages.
-  - [``show``] (boolean) Shows or hides the Quick Filter bar.
-  - [``tags``] (boolean or :ref:`messages.TagsDetail`) Shows only messages with tags on them.
-  - [``text``] (:ref:`mailTabs.QuickFilterTextDetail`) Shows only messages matching the supplied text.
-  - [``unread``] (boolean) Shows only unread messages.
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer)
+      :annotation: 
+      
+      Defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``properties``
+      :type: (object)
+      :annotation: 
+      
+      .. api-member::
+         :name: [``attachment``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows only messages with attachments.
+      
+      
+      .. api-member::
+         :name: [``contact``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows only messages from people in the address book.
+      
+      
+      .. api-member::
+         :name: [``flagged``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows only flagged messages.
+      
+      
+      .. api-member::
+         :name: [``show``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows or hides the Quick Filter bar.
+      
+      
+      .. api-member::
+         :name: [``tags``]
+         :type: (boolean or :ref:`messages.TagsDetail`)
+         :annotation: 
+         
+         Shows only messages with tags on them.
+      
+      
+      .. api-member::
+         :name: [``text``]
+         :type: (:ref:`mailTabs.QuickFilterTextDetail`)
+         :annotation: 
+         
+         Shows only messages matching the supplied text.
+      
+      
+      .. api-member::
+         :name: [``unread``]
+         :type: (boolean)
+         :annotation: 
+         
+         Shows only unread messages.
+      
+   
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -135,28 +372,62 @@ Events
 onDisplayedFolderChanged(tab, displayedFolder)
 ----------------------------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when the displayed folder changes in any mail tab.
 
-- ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
-- ``displayedFolder`` (:ref:`folders.MailFolder`)
+.. api-header::
+   :label: Parameters for event listeners
 
-.. note::
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Changed in TB 76, previously just the tab's ID]
+   
+   
+   .. api-member::
+      :name: ``displayedFolder``
+      :type: (:ref:`folders.MailFolder`)
+      :annotation: 
+   
 
-  The permission ``accountsRead`` is required to use ``onDisplayedFolderChanged``.
+.. api-header::
+   :label: Required permissions
+
+   - ``accountsRead``
 
 .. _mailTabs.onSelectedMessagesChanged:
 
 onSelectedMessagesChanged(tab, selectedMessages)
 ------------------------------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when the selected messages change in any mail tab.
 
-- ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
-- ``selectedMessages`` (:ref:`messages.MessageList`)
+.. api-header::
+   :label: Parameters for event listeners
 
-.. note::
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Changed in TB 76, previously just the tab's ID]
+   
+   
+   .. api-member::
+      :name: ``selectedMessages``
+      :type: (:ref:`messages.MessageList`)
+      :annotation: 
+   
 
-  The permission ``messagesRead`` is required to use ``onSelectedMessagesChanged``.
+.. api-header::
+   :label: Required permissions
+
+   - ``messagesRead``
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -166,68 +437,202 @@ Types
 MailTab
 -------
 
-object:
+.. api-section-annotation-hack:: 
 
-- ``active`` (boolean)
-- ``displayedFolder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
-- ``folderPaneVisible`` (boolean)
-- ``id`` (integer)
-- ``layout`` (`string <enum_layout_28_>`_)
-- ``messagePaneVisible`` (boolean)
-- ``sortOrder`` (`string <enum_sortOrder_30_>`_)
-- ``sortType`` (`string <enum_sortType_31_>`_)
-- ``windowId`` (integer)
+.. api-header::
+   :label: object
 
-.. _enum_layout_28:
-
-Values for layout:
-
-- ``standard``
-- ``wide``
-- ``vertical``
-
-.. _enum_sortOrder_30:
-
-Values for sortOrder:
-
-- ``none``
-- ``ascending``
-- ``descending``
-
-.. _enum_sortType_31:
-
-Values for sortType:
-
-- ``none``
-- ``date``
-- ``subject``
-- ``author``
-- ``id``
-- ``thread``
-- ``priority``
-- ``status``
-- ``size``
-- ``flagged``
-- ``unread``
-- ``recipient``
-- ``location``
-- ``tags``
-- ``junkStatus``
-- ``attachments``
-- ``account``
-- ``custom``
-- ``received``
-- ``correspondent``
+   
+   .. api-member::
+      :name: ``active``
+      :type: (boolean)
+      :annotation: 
+   
+   
+   .. api-member::
+      :name: ``displayedFolder``
+      :type: (:ref:`folders.MailFolder`)
+      :annotation: 
+      
+      The ``accountsRead`` permission is required.
+   
+   
+   .. api-member::
+      :name: ``folderPaneVisible``
+      :type: (boolean)
+      :annotation: 
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (integer)
+      :annotation: 
+   
+   
+   .. api-member::
+      :name: ``layout``
+      :type: (`string`)
+      :annotation: 
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``standard``
+      
+      .. api-member::
+         :name: ``wide``
+      
+      .. api-member::
+         :name: ``vertical``
+      
+   
+   
+   .. api-member::
+      :name: ``messagePaneVisible``
+      :type: (boolean)
+      :annotation: 
+   
+   
+   .. api-member::
+      :name: ``sortOrder``
+      :type: (`string`)
+      :annotation: 
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``none``
+      
+      .. api-member::
+         :name: ``ascending``
+      
+      .. api-member::
+         :name: ``descending``
+      
+   
+   
+   .. api-member::
+      :name: ``sortType``
+      :type: (`string`)
+      :annotation: 
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``none``
+      
+      .. api-member::
+         :name: ``date``
+      
+      .. api-member::
+         :name: ``subject``
+      
+      .. api-member::
+         :name: ``author``
+      
+      .. api-member::
+         :name: ``id``
+      
+      .. api-member::
+         :name: ``thread``
+      
+      .. api-member::
+         :name: ``priority``
+      
+      .. api-member::
+         :name: ``status``
+      
+      .. api-member::
+         :name: ``size``
+      
+      .. api-member::
+         :name: ``flagged``
+      
+      .. api-member::
+         :name: ``unread``
+      
+      .. api-member::
+         :name: ``recipient``
+      
+      .. api-member::
+         :name: ``location``
+      
+      .. api-member::
+         :name: ``tags``
+      
+      .. api-member::
+         :name: ``junkStatus``
+      
+      .. api-member::
+         :name: ``attachments``
+      
+      .. api-member::
+         :name: ``account``
+      
+      .. api-member::
+         :name: ``custom``
+      
+      .. api-member::
+         :name: ``received``
+      
+      .. api-member::
+         :name: ``correspondent``
+      
+   
+   
+   .. api-member::
+      :name: ``windowId``
+      :type: (integer)
+      :annotation: 
+   
 
 .. _mailTabs.QuickFilterTextDetail:
 
 QuickFilterTextDetail
 ---------------------
 
-object:
+.. api-section-annotation-hack:: 
 
-- ``text`` (string) String to match against the ``recipients``, ``author``, ``subject``, or ``body``.
-- [``author``] (boolean) Shows messages where ``text`` matches the author.
-- [``body``] (boolean) Shows messages where ``text`` matches the message body.
-- [``recipients``] (boolean) Shows messages where ``text`` matches the recipients.
-- [``subject``] (boolean) Shows messages where ``text`` matches the subject.
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``text``
+      :type: (string)
+      :annotation: 
+      
+      String to match against the ``recipients``, ``author``, ``subject``, or ``body``.
+   
+   
+   .. api-member::
+      :name: [``author``]
+      :type: (boolean)
+      :annotation: 
+      
+      Shows messages where ``text`` matches the author.
+   
+   
+   .. api-member::
+      :name: [``body``]
+      :type: (boolean)
+      :annotation: 
+      
+      Shows messages where ``text`` matches the message body.
+   
+   
+   .. api-member::
+      :name: [``recipients``]
+      :type: (boolean)
+      :annotation: 
+      
+      Shows messages where ``text`` matches the recipients.
+   
+   
+   .. api-member::
+      :name: [``subject``]
+      :type: (boolean)
+      :annotation: 
+      
+      Shows messages where ``text`` matches the subject.
+   

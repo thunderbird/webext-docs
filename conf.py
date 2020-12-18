@@ -42,7 +42,9 @@ versionwarning_older_message = 'This is the API documentation for Thunderbird {t
 extensions = [
     # ... other extensions here
     'versionwarning.extension',
-    #'sphinx_toolbox.confval',
+    'apiheader',
+    'apimember',
+    'apisectionannotationhack',
 ]
 
 def setup(app):

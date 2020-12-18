@@ -7,14 +7,23 @@ The folders API first appeared in Thunderbird 68 (see `bug 1531591`__) as a part
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1531591
 
+.. rst-class:: api-main-section
+
 Permissions
 ===========
 
-- accountsFolders "Create, rename, or delete your mail account folders"
+.. api-member::
+   :name: ``accountsFolders``
+
+   Create, rename, or delete your mail account folders
+
+.. rst-class:: api-permission-info
 
 .. note::
 
   The permission ``accountsFolders`` is required to use ``folders``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -24,31 +33,71 @@ Functions
 create(parentFolder, childName)
 -------------------------------
 
+.. api-section-annotation-hack:: 
+
 Creates a new subfolder of ``parentFolder``.
 
-- ``parentFolder`` (:ref:`folders.MailFolder`)
-- ``childName`` (string)
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``parentFolder``
+      :type: (:ref:`folders.MailFolder`)
+      :annotation: 
+   
+   
+   .. api-member::
+      :name: ``childName``
+      :type: (string)
+      :annotation: 
+   
 
 .. _folders.rename:
 
 rename(folder, newName)
 -----------------------
 
+.. api-section-annotation-hack:: 
+
 Renames a folder.
 
-- ``folder`` (:ref:`folders.MailFolder`)
-- ``newName`` (string)
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+      :annotation: 
+   
+   
+   .. api-member::
+      :name: ``newName``
+      :type: (string)
+      :annotation: 
+   
 
 .. _folders.delete:
 
 delete(folder)
 --------------
 
+.. api-section-annotation-hack:: 
+
 Deletes a folder.
 
-- ``folder`` (:ref:`folders.MailFolder`)
+.. api-header::
+   :label: Parameters
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+      :annotation: 
+   
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -58,25 +107,75 @@ Types
 MailFolder
 ----------
 
+.. api-section-annotation-hack:: 
+
 A folder object, as returned by the ``list`` and ``get`` methods. Use the accountId and path properties to refer to a folder.
 
-object:
+.. api-header::
+   :label: object
 
-- ``accountId`` (string) The account this folder belongs to.
-- ``path`` (string) Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
-- [``name``] (string) The human-friendly name of this folder.
-- [``subFolders``] (array of :ref:`folders.MailFolder`) *Added in Thunderbird 74*
-- [``type``] (`string <enum_type_10_>`_) The type of folder, for several common types.
-
-.. _enum_type_10:
-
-Values for type:
-
-- ``inbox``
-- ``drafts``
-- ``sent``
-- ``trash``
-- ``templates``
-- ``archives``
-- ``junk``
-- ``outbox``
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+      :annotation: 
+      
+      The account this folder belongs to.
+   
+   
+   .. api-member::
+      :name: ``path``
+      :type: (string)
+      :annotation: 
+      
+      Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
+   
+   
+   .. api-member::
+      :name: [``name``]
+      :type: (string)
+      :annotation: 
+      
+      The human-friendly name of this folder.
+   
+   
+   .. api-member::
+      :name: [``subFolders``]
+      :type: (array of :ref:`folders.MailFolder`)
+      :annotation: -- [Added in TB 74]
+   
+   
+   .. api-member::
+      :name: [``type``]
+      :type: (`string`)
+      :annotation: 
+      
+      The type of folder, for several common types.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``inbox``
+      
+      .. api-member::
+         :name: ``drafts``
+      
+      .. api-member::
+         :name: ``sent``
+      
+      .. api-member::
+         :name: ``trash``
+      
+      .. api-member::
+         :name: ``templates``
+      
+      .. api-member::
+         :name: ``archives``
+      
+      .. api-member::
+         :name: ``junk``
+      
+      .. api-member::
+         :name: ``outbox``
+      
+   

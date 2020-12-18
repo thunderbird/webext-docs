@@ -17,3 +17,152 @@
   }
 
 }
+
+.wy-nav-content {
+    max-width: 1000px;
+}
+
+
+/* RTD adds extra p */
+div.container > p,
+div.container > ul {
+	margin: 0 !important;
+}
+
+/* api main sections like Function, Types etc */
+.api-main-section h2 {
+	margin-top:2em;
+}
+.api-permission-info {
+	margin-top:2em;
+}
+
+/* api sections below the main sections,
+/* for example the individual function definitions */
+.api-main-section > .section {
+  background: #e7f2fa;
+  border-top: 3px solid #6ab0de;
+  margin-bottom:1ex;
+  display: inline flex;
+  align-items: center;  
+}
+.api-main-section > .section > span {
+    font-size: 80%;
+    font-weight: bold;
+    font-style: italic;
+    padding: 5px;
+    display: block;
+    color: #3782bb;
+}
+#functions > .section > span::after {
+    content: "func";
+    /*color: #6ab0de;*/
+}
+.api-main-section .section h3 {
+  padding: 6px;
+  margin:0;
+  font-size: 90%;
+  line-height: normal;  
+}
+#events > .section {
+  /*background: #ffedcc;*/
+  /*border-top: 3px solid #f0b37e;*/
+}
+#events > .section > span::after {
+    content: "event";
+    /*color: #f0b37e;*/
+}
+#types > .section {
+  /*background: #dbfaf4;*/
+  /*border-top: 3px solid #1abc9c;*/
+}
+#types > .section > span::after {
+    content: "type";
+    /*color: #1abc9c;*/
+}
+#properties > .section {
+  border-top: 3px solid #ccc;  
+  background: #f0f0f0;
+}
+#properties > .section > span::after {
+    content: "prop";
+    color: #888;
+}
+
+/* api section class embraces only the section title, */
+/* the rest of the section is inside the sectionbody */
+.api-section-annotation > p {
+  padding: 6px;
+  margin:0;
+  font-size: 80%;
+  font-style: italic;
+}
+.api-section-body {
+	margin-bottom:3em;
+	margin-left: 1em;  
+}
+
+/* styles for the api headers like "Parameters" */
+.api-header-node {
+	margin: 0 0 24px;
+}
+.api-header-section {
+  background: #f0f0f0;
+  margin-bottom:1ex;
+  display: inline flex;
+  align-items: center;  
+  border-left: 3px solid #ccc;  
+}
+.api-header-section div {
+  padding: 6px;
+}
+.api-header-section > div > a {
+  font-size: 95%;
+  font-style: italic;
+}
+.api-header-annotation {
+  margin-left:2em;
+}
+.api-header-annotation > p {
+  font-size: 80%;
+  font-style: italic;
+}
+
+/* member styles, elements below api headers*/
+.api-member-definition {
+  display: flex;
+  align-items: center;
+}
+.api-member-name, .api-member-type, .api-member-annotation {
+  margin-right: 0.5ex;
+}
+.api-member-annotation > p {
+  font-size: 80%;
+  font-style: italic;
+}
+.api-member-type > p {
+  font-size: 95%;
+  font-style: italic;
+}
+.api-member-node {
+  margin-bottom: 0.5ex;
+}
+/*.api-member-node ul,
+.api-member-node p {
+	margin-bottom: 0 !important;
+}*/
+.api-member-description > p {
+  font-size: 95%;
+}
+.api-member-description {
+  margin-left: 2em;
+  margin-bottom:1ex;
+}
+.api-member-description-only {
+  margin-bottom:1ex;  
+  margin-left: 1ex;
+}
+.api-member-description-only > .api-member-node {
+  margin-left:-1ex;  
+}
+
