@@ -90,7 +90,7 @@ div.container p {
 
 /* api section class embraces only the section title, */
 /* the rest of the section is inside the sectionbody */
-.api-section-annotation p {
+.api-section-annotation > p {
   padding: 6px;
   margin:0;
   font-size: 70%;
@@ -115,14 +115,14 @@ div.container p {
 .api-header-section div {
   padding: 6px;
 }
-.api-header-section div a{
+.api-header-section > div > a {
   font-size: 95%;
   font-style: italic;
 }
 .api-header-annotation {
   margin-left:2em;
 }
-.api-header-annotation p {
+.api-header-annotation > p {
   font-size: 80%;
   font-style: italic;
 }
@@ -135,11 +135,11 @@ div.container p {
 .api-member-name, .api-member-type, .api-member-annotation {
   margin-right: 0.5ex;
 }
-.api-member-annotation p {
+.api-member-annotation > p {
   font-size: 80%;
   font-style: italic;
 }
-.api-member-type p {
+.api-member-type > p {
   font-size: 95%;
   font-style: italic;
 }
@@ -150,7 +150,7 @@ div.container p {
 .api-member-node p {
 	margin-bottom: 0 !important;
 }
-.api-member-description p {
+.api-member-description > p {
   font-size: 95%;
 }
 .api-member-description {
