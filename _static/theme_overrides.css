@@ -23,6 +23,11 @@
 }
 
 
+/* RTD adds extra p */
+div.container p {
+	margin: 0 !important;
+}
+
 /* api main sections like Function, Types etc */
 .api-main-section h2 {
 	margin-top:2em;
@@ -95,11 +100,6 @@
 	margin-bottom:3em;
 	margin-left: 1em;  
 }
-/* RTD adds extra p */
-div.container p {
-	margin: 0 !important;
-}
-
 
 /* styles for the api headers like "Parameters" */
 .api-header-node {
@@ -119,10 +119,12 @@ div.container p {
   font-size: 95%;
   font-style: italic;
 }
+.api-header-annotation {
+  margin-left:2em;
+}
 .api-header-annotation p {
   font-size: 80%;
   font-style: italic;
-  margin-left:2em;
 }
 
 /* member styles, elements below api headers*/
@@ -150,6 +152,8 @@ div.container p {
 }
 .api-member-description p {
   font-size: 95%;
+}
+.api-member-description {
   margin-left: 2em;
   margin-bottom:1ex;
 }
