@@ -17,11 +17,19 @@
   }
 
 }
-
-.wy-nav-content {
-    max-width: 1000px;
-}
-
+span.permission {
+  background-color:#e74c3c;
+  color: #fcfcfc;
+/*  color:#fff; */
+  box-sizing:border-box;
+  white-space:nowrap;
+  max-width:100%;
+  border:1px solid #e1e4e5;
+  font-size:75%;
+  padding:0 5px;
+  font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+  overflow-x:auto  
+  }
 
 /* RTD adds extra p */
 div.container > p,

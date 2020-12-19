@@ -16,13 +16,15 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
   Registering a message display script through ``manifest.json`` is not possible at this point.
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``messagesModify``
+   :name: :permission:`messagesModify`
 
    Read and modify your email messages as they are displayed to you
 
@@ -30,7 +32,7 @@ Permissions
 
 .. note::
 
-  The permission ``messagesModify`` is required to use ``messageDisplayScripts``.
+  The permission :permission:`messagesModify` is required to use ``messageDisplayScripts``.
 
 .. rst-class:: api-main-section
 
@@ -53,7 +55,6 @@ Register a message display script programmatically
    .. api-member::
       :name: ``messageDisplayScriptOptions``
       :type: (:ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -91,7 +92,6 @@ Details of a message display script registered programmatically
    .. api-member::
       :name: [``css``]
       :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`)
-      :annotation: 
       
       The list of CSS files to inject
    
@@ -99,7 +99,6 @@ Details of a message display script registered programmatically
    .. api-member::
       :name: [``js``]
       :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`)
-      :annotation: 
       
       The list of JavaScript files to inject
    
@@ -127,7 +126,6 @@ Specify code, either by pointing to a file or by providing the code directly. On
    .. api-member::
       :name: ``code``
       :type: (string)
-      :annotation: 
       
       Some JavaScript code to register.
    
@@ -135,7 +133,6 @@ Specify code, either by pointing to a file or by providing the code directly. On
    .. api-member::
       :name: ``file``
       :type: (string)
-      :annotation: 
       
       A URL starting at the extension's manifest.json and pointing to a JavaScript file to register.
    

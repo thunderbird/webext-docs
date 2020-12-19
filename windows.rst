@@ -8,6 +8,8 @@ windows
   window types like composer or address books that cannot contain webpage tabs.  Make sure your
   code interacts with windows appropriately, depending on their type.
 
+.. role:: permission
+
 Use the ``browser.windows`` API to interact with Thunderbird. You can use this API to create, modify, and rearrange windows.
 
 .. rst-class:: api-main-section
@@ -31,13 +33,11 @@ Gets details about a window.
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: [``getInfo``]
       :type: (:ref:`windows.GetInfo`)
-      :annotation: 
    
 
 .. api-header::
@@ -45,9 +45,7 @@ Gets details about a window.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`windows.Window`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -68,7 +66,6 @@ Gets the current window.
    .. api-member::
       :name: [``getInfo``]
       :type: (:ref:`windows.GetInfo`)
-      :annotation: 
    
 
 .. api-header::
@@ -76,9 +73,7 @@ Gets the current window.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`windows.Window`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -99,7 +94,6 @@ Gets the window that was most recently focused — typically the window 'on top'
    .. api-member::
       :name: [``getInfo``]
       :type: (:ref:`windows.GetInfo`)
-      :annotation: 
    
 
 .. api-header::
@@ -107,9 +101,7 @@ Gets the window that was most recently focused — typically the window 'on top'
 
    
    .. api-member::
-      :name: 
       :type: :ref:`windows.Window`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -130,7 +122,6 @@ Gets all windows.
    .. api-member::
       :name: [``getInfo``]
       :type: (:ref:`windows.GetInfo`)
-      :annotation: 
    
 
 .. api-header::
@@ -138,9 +129,7 @@ Gets all windows.
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`windows.Window`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -161,12 +150,10 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
    .. api-member::
       :name: [``createData``]
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``allowScriptsToClose``]
          :type: (boolean)
-         :annotation: 
          
          Allow scripts to close the window.
       
@@ -174,7 +161,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``focused``]
          :type: (boolean) **Unsupported.**
-         :annotation: 
          
          If true, opens an active window. If false, opens an inactive window.
       
@@ -182,7 +168,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``height``]
          :type: (integer)
-         :annotation: 
          
          The height in pixels of the new window, including the frame. If not specified defaults to a natural height.
       
@@ -190,7 +175,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``incognito``]
          :type: (boolean)
-         :annotation: 
          
          Whether the new window should be an incognito window.
       
@@ -198,7 +182,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``left``]
          :type: (integer)
-         :annotation: 
          
          The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
       
@@ -206,7 +189,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``state``]
          :type: (:ref:`windows.WindowState`)
-         :annotation: 
          
          The initial state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
       
@@ -214,7 +196,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``tabId``]
          :type: (integer)
-         :annotation: 
          
          The id of the tab for which you want to adopt to the new window.
       
@@ -222,7 +203,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``titlePreface``]
          :type: (string)
-         :annotation: 
          
          A string to add to the beginning of the window title.
       
@@ -230,7 +210,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``top``]
          :type: (integer)
-         :annotation: 
          
          The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
       
@@ -238,7 +217,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``type``]
          :type: (:ref:`windows.CreateType`)
-         :annotation: 
          
          Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
       
@@ -246,7 +224,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``url``]
          :type: (string or array of string)
-         :annotation: 
          
          A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
       
@@ -254,7 +231,6 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       .. api-member::
          :name: [``width``]
          :type: (integer)
-         :annotation: 
          
          The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
       
@@ -265,9 +241,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
 
    
    .. api-member::
-      :name: 
       :type: :ref:`windows.Window`
-      :annotation: 
       
       Contains details about the created window.
    
@@ -290,18 +264,15 @@ Updates the properties of a window. Specify only the properties that you want to
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``updateInfo``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``drawAttention``]
          :type: (boolean)
-         :annotation: 
          
          If true, causes the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus. Set to false to cancel a previous draw attention request.
       
@@ -309,7 +280,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``focused``]
          :type: (boolean)
-         :annotation: 
          
          If true, brings the window to the front. If false, brings the next window in the z-order to the front.
       
@@ -317,7 +287,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``height``]
          :type: (integer)
-         :annotation: 
          
          The height to resize the window to in pixels. This value is ignored for panels.
       
@@ -325,7 +294,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``left``]
          :type: (integer)
-         :annotation: 
          
          The offset from the left edge of the screen to move the window to in pixels. This value is ignored for panels.
       
@@ -333,7 +301,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``state``]
          :type: (:ref:`windows.WindowState`)
-         :annotation: 
          
          The new state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
       
@@ -341,7 +308,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``titlePreface``]
          :type: (string)
-         :annotation: 
          
          A string to add to the beginning of the window title.
       
@@ -349,7 +315,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``top``]
          :type: (integer)
-         :annotation: 
          
          The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
       
@@ -357,7 +322,6 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``width``]
          :type: (integer)
-         :annotation: 
          
          The width to resize the window to in pixels. This value is ignored for panels.
       
@@ -368,9 +332,7 @@ Updates the properties of a window. Specify only the properties that you want to
 
    
    .. api-member::
-      :name: 
       :type: :ref:`windows.Window`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -391,7 +353,6 @@ Removes (closes) a window, and all the tabs inside it.
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      :annotation: 
    
 
 .. _windows.openDefaultBrowser:
@@ -410,7 +371,6 @@ Opens the provided URL in the default system browser.
    .. api-member::
       :name: ``url``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -434,7 +394,6 @@ Fired when a window is created.
    .. api-member::
       :name: ``window``
       :type: (:ref:`windows.Window`)
-      :annotation: 
       
       Details of the window that was created.
    
@@ -455,7 +414,6 @@ Fired when a window is removed (closed).
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      :annotation: 
       
       ID of the removed window.
    
@@ -476,7 +434,6 @@ Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      :annotation: 
       
       ID of the newly focused window.
    
@@ -516,7 +473,6 @@ Specifies what type of browser window to create. The 'panel' and 'detached_panel
          
          .. api-member::
             :name: ``detached_panel``
-         
    
 
 .. _windows.GetInfo:
@@ -535,15 +491,13 @@ Specifies properties used to filter the :ref:`windows.Window` returned and to de
    .. api-member::
       :name: [``populate``]
       :type: (boolean)
-      :annotation: 
       
-      If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``tabs`` permission.
+      If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the :permission:`tabs` permission.
    
    
    .. api-member::
       :name: [``windowTypes``]
       :type: (array of :ref:`windows.WindowType`)
-      :annotation: 
       
       If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions.
    
@@ -562,7 +516,6 @@ Window
    .. api-member::
       :name: ``alwaysOnTop``
       :type: (boolean)
-      :annotation: 
       
       Whether the window is set to be always on top.
    
@@ -570,7 +523,6 @@ Window
    .. api-member::
       :name: ``focused``
       :type: (boolean)
-      :annotation: 
       
       Whether the window is currently the focused window.
    
@@ -578,7 +530,6 @@ Window
    .. api-member::
       :name: ``incognito``
       :type: (boolean)
-      :annotation: 
       
       Whether the window is incognito.
    
@@ -586,7 +537,6 @@ Window
    .. api-member::
       :name: [``height``]
       :type: (integer)
-      :annotation: 
       
       The height of the window, including the frame, in pixels.
    
@@ -594,7 +544,6 @@ Window
    .. api-member::
       :name: [``id``]
       :type: (integer)
-      :annotation: 
       
       The ID of the window. Window IDs are unique within a session.
    
@@ -602,7 +551,6 @@ Window
    .. api-member::
       :name: [``left``]
       :type: (integer)
-      :annotation: 
       
       The offset of the window from the left edge of the screen in pixels.
    
@@ -610,7 +558,6 @@ Window
    .. api-member::
       :name: [``state``]
       :type: (:ref:`windows.WindowState`)
-      :annotation: 
       
       The state of this browser window.
    
@@ -618,7 +565,6 @@ Window
    .. api-member::
       :name: [``tabs``]
       :type: (array of :ref:`tabs.Tab`)
-      :annotation: 
       
       Array of :ref:`tabs.Tab` objects representing the current tabs in the window.
    
@@ -626,7 +572,6 @@ Window
    .. api-member::
       :name: [``title``]
       :type: (string)
-      :annotation: 
       
       The title of the window. Read-only.
    
@@ -634,7 +579,6 @@ Window
    .. api-member::
       :name: [``top``]
       :type: (integer)
-      :annotation: 
       
       The offset of the window from the top edge of the screen in pixels.
    
@@ -642,7 +586,6 @@ Window
    .. api-member::
       :name: [``type``]
       :type: (:ref:`windows.WindowType`)
-      :annotation: 
       
       The type of browser window this is.
    
@@ -650,7 +593,6 @@ Window
    .. api-member::
       :name: [``width``]
       :type: (integer)
-      :annotation: 
       
       The width of the window, including the frame, in pixels.
    
@@ -688,7 +630,6 @@ The state of this window.
          
          .. api-member::
             :name: ``docked``
-         
    
 
 .. _windows.WindowType:
@@ -736,7 +677,6 @@ The type of window this is. Under some circumstances a Window may not be assigne
          .. api-member::
             :name: ``messageDisplay``
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
-         
    
 
 .. rst-class:: api-main-section

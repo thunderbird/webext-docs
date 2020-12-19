@@ -15,17 +15,20 @@ The messages API first appeared in Thunderbird 66.
   Some functions in this API potentially return *a lot* of messages. Be careful what you wish for!
   See :doc:`how-to/messageLists` for more information.
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``messagesMove``
+   :name: :permission:`messagesMove`
 
    Move, copy, or delete your email messages
+
 .. api-member::
-   :name: ``messagesRead``
+   :name: :permission:`messagesRead`
 
    Read your email messages and mark or tag them
 
@@ -33,7 +36,7 @@ Permissions
 
 .. note::
 
-  The permission ``messagesRead`` is required to use ``messages``.
+  The permission :permission:`messagesRead` is required to use ``messages``.
 
 .. rst-class:: api-main-section
 
@@ -56,7 +59,6 @@ Gets all messages in a folder.
    .. api-member::
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
    
 
 .. api-header::
@@ -64,9 +66,7 @@ Gets all messages in a folder.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`messages.MessageList`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -74,7 +74,7 @@ Gets all messages in a folder.
 .. api-header::
    :label: Required permissions
 
-   - ``accountsRead``
+   - :permission:`accountsRead`
 
 .. _messages.continueList:
 
@@ -92,7 +92,6 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
    .. api-member::
       :name: ``messageListId``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -100,9 +99,7 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
 
    
    .. api-member::
-      :name: 
       :type: :ref:`messages.MessageList`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -123,7 +120,6 @@ Returns a specified message.
    .. api-member::
       :name: ``messageId``
       :type: (integer)
-      :annotation: 
    
 
 .. api-header::
@@ -131,9 +127,7 @@ Returns a specified message.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`messages.MessageHeader`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -154,7 +148,6 @@ Returns a specified message, including all headers and MIME parts.
    .. api-member::
       :name: ``messageId``
       :type: (integer)
-      :annotation: 
    
 
 .. api-header::
@@ -162,9 +155,7 @@ Returns a specified message, including all headers and MIME parts.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`messages.MessagePart`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -185,7 +176,6 @@ Returns the unmodified source of a message.
    .. api-member::
       :name: ``messageId``
       :type: (integer)
-      :annotation: 
    
 
 .. api-header::
@@ -193,9 +183,7 @@ Returns the unmodified source of a message.
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -216,12 +204,10 @@ Gets all messages that have the specified properties, or all messages if no prop
    .. api-member::
       :name: ``queryInfo``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``author``]
          :type: (string)
-         :annotation: 
          
          Returns only messages with this value matching the author.
       
@@ -229,7 +215,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``body``]
          :type: (string)
-         :annotation: 
          
          Returns only messages with this value in the body of the mail.
       
@@ -237,7 +222,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``flagged``]
          :type: (boolean)
-         :annotation: 
          
          Returns only flagged (or unflagged if false) messages.
       
@@ -245,15 +229,13 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``folder``]
          :type: (:ref:`folders.MailFolder`)
-         :annotation: 
          
-         Returns only messages from the specified folder. The ``accountsRead`` permission is required.
+         Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
       
       
       .. api-member::
          :name: [``fromDate``]
          :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
-         :annotation: 
          
          Returns only messages with a date after this value.
       
@@ -261,7 +243,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``fromMe``]
          :type: (boolean)
-         :annotation: 
          
          Returns only messages with the author matching any configured identity.
       
@@ -269,7 +250,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``fullText``]
          :type: (string)
-         :annotation: 
          
          Returns only messages with this value somewhere in the mail (subject, body or author).
       
@@ -277,7 +257,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``recipients``]
          :type: (string)
-         :annotation: 
          
          Returns only messages with this value matching one or more recipients.
       
@@ -285,7 +264,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``subject``]
          :type: (string)
-         :annotation: 
          
          Returns only messages with this value matching the subject.
       
@@ -301,7 +279,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``toDate``]
          :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
-         :annotation: 
          
          Returns only messages with a date before this value.
       
@@ -309,7 +286,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``toMe``]
          :type: (boolean)
-         :annotation: 
          
          Returns only messages with one or more recipients matching any configured identity.
       
@@ -317,7 +293,6 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``unread``]
          :type: (boolean)
-         :annotation: 
          
          Returns only unread (or read if false) messages.
       
@@ -328,9 +303,7 @@ Gets all messages that have the specified properties, or all messages if no prop
 
    
    .. api-member::
-      :name: 
       :type: :ref:`messages.MessageList`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -351,18 +324,15 @@ Marks or unmarks a message as read, flagged, or tagged.
    .. api-member::
       :name: ``messageId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``newProperties``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``flagged``]
          :type: (boolean)
-         :annotation: 
          
          Marks the message as flagged or unflagged.
       
@@ -378,7 +348,6 @@ Marks or unmarks a message as read, flagged, or tagged.
       .. api-member::
          :name: [``read``]
          :type: (boolean)
-         :annotation: 
          
          Marks the message as read or unread.
       
@@ -386,7 +355,6 @@ Marks or unmarks a message as read, flagged, or tagged.
       .. api-member::
          :name: [``tags``]
          :type: (array of string)
-         :annotation: 
          
          Sets the tags on the message. For a list of available tags, call the listTags method.
       
@@ -408,7 +376,6 @@ Moves messages to a specified folder.
    .. api-member::
       :name: ``messageIds``
       :type: (array of integer)
-      :annotation: 
       
       The IDs of the messages to move.
    
@@ -416,7 +383,6 @@ Moves messages to a specified folder.
    .. api-member::
       :name: ``destination``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
       
       The folder to move the messages to.
    
@@ -424,8 +390,8 @@ Moves messages to a specified folder.
 .. api-header::
    :label: Required permissions
 
-   - ``accountsRead``
-   - ``messagesMove``
+   - :permission:`accountsRead`
+   - :permission:`messagesMove`
 
 .. _messages.copy:
 
@@ -443,7 +409,6 @@ Copies messages to a specified folder.
    .. api-member::
       :name: ``messageIds``
       :type: (array of integer)
-      :annotation: 
       
       The IDs of the messages to copy.
    
@@ -451,7 +416,6 @@ Copies messages to a specified folder.
    .. api-member::
       :name: ``destination``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
       
       The folder to copy the messages to.
    
@@ -459,8 +423,8 @@ Copies messages to a specified folder.
 .. api-header::
    :label: Required permissions
 
-   - ``accountsRead``
-   - ``messagesMove``
+   - :permission:`accountsRead`
+   - :permission:`messagesMove`
 
 .. _messages.delete:
 
@@ -478,7 +442,6 @@ Deletes messages, or moves them to the trash folder.
    .. api-member::
       :name: ``messageIds``
       :type: (array of integer)
-      :annotation: 
       
       The IDs of the messages to delete.
    
@@ -486,7 +449,6 @@ Deletes messages, or moves them to the trash folder.
    .. api-member::
       :name: [``skipTrash``]
       :type: (boolean)
-      :annotation: 
       
       If true, the message will be permanently deleted without warning the user. If false or not specified, it will be moved to the trash folder.
    
@@ -494,7 +456,7 @@ Deletes messages, or moves them to the trash folder.
 .. api-header::
    :label: Required permissions
 
-   - ``messagesMove``
+   - :permission:`messagesMove`
 
 .. _messages.archive:
 
@@ -512,7 +474,6 @@ Archives messages using the current settings.
    .. api-member::
       :name: ``messageIds``
       :type: (array of integer)
-      :annotation: 
       
       The IDs of the messages to archive.
    
@@ -520,7 +481,7 @@ Archives messages using the current settings.
 .. api-header::
    :label: Required permissions
 
-   - ``messagesMove``
+   - :permission:`messagesMove`
 
 .. _messages.listTags:
 
@@ -536,9 +497,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`messages.MessageTag`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -564,19 +523,17 @@ Fired when a new message is received, and has been through junk classification a
    .. api-member::
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``messages``
       :type: (:ref:`messages.MessageList`)
-      :annotation: 
    
 
 .. api-header::
    :label: Required permissions
 
-   - ``accountsRead``
+   - :permission:`accountsRead`
 
 .. rst-class:: api-main-section
 
@@ -597,45 +554,38 @@ MessageHeader
    .. api-member::
       :name: ``author``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``bccList``
       :type: (array of string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``ccList``
       :type: (array of string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``date``
       :type: (date)
-      :annotation: 
    
    
    .. api-member::
       :name: ``flagged``
       :type: (boolean)
-      :annotation: 
    
    
    .. api-member::
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
       
-      The ``accountsRead`` permission is required.
+      The :permission:`accountsRead` permission is required for this property to be included.
    
    
    .. api-member::
       :name: ``id``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
@@ -653,25 +603,21 @@ MessageHeader
    .. api-member::
       :name: ``read``
       :type: (boolean)
-      :annotation: 
    
    
    .. api-member::
       :name: ``recipients``
       :type: (array of string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``subject``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``tags``
       :type: (array of string)
-      :annotation: 
    
 
 .. _messages.MessageList:
@@ -690,13 +636,11 @@ See :doc:`how-to/messageLists` for more information.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``messages``
       :type: (array of :ref:`messages.MessageHeader`)
-      :annotation: 
    
 
 .. _messages.MessagePart:
@@ -715,7 +659,6 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``body``]
       :type: (string)
-      :annotation: 
       
       The content of the part
    
@@ -723,13 +666,11 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``contentType``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``headers``]
       :type: (object)
-      :annotation: 
       
       An object of part headers, with the header name as key, and an array of header values as value
    
@@ -737,7 +678,6 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``name``]
       :type: (string)
-      :annotation: 
       
       Name of the part, if it is a file
    
@@ -745,13 +685,11 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``partName``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``parts``]
       :type: (array of :ref:`messages.MessagePart`)
-      :annotation: 
       
       Any sub-parts of this part
    
@@ -759,7 +697,6 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``size``]
       :type: (integer)
-      :annotation: 
    
 
 .. _messages.MessageTag:
@@ -776,7 +713,6 @@ MessageTag
    .. api-member::
       :name: ``color``
       :type: (string)
-      :annotation: 
       
       Tag color
    
@@ -784,7 +720,6 @@ MessageTag
    .. api-member::
       :name: ``key``
       :type: (string)
-      :annotation: 
       
       Distinct tag identifier – use this string when referring to a tag
    
@@ -792,7 +727,6 @@ MessageTag
    .. api-member::
       :name: ``ordinal``
       :type: (string)
-      :annotation: 
       
       Custom sort string (usually empty)
    
@@ -800,7 +734,6 @@ MessageTag
    .. api-member::
       :name: ``tag``
       :type: (string)
-      :annotation: 
       
       Human-readable tag name
    
@@ -821,7 +754,6 @@ Used for filtering messages by tag in various methods. Note that functions using
    .. api-member::
       :name: ``mode``
       :type: (`string`)
-      :annotation: 
       
       Whether all of the tag filters must apply, or any of them.
       
@@ -832,13 +764,11 @@ Used for filtering messages by tag in various methods. Note that functions using
       
       .. api-member::
          :name: ``any``
-      
    
    
    .. api-member::
       :name: ``tags``
       :type: (object)
-      :annotation: 
       
       Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    

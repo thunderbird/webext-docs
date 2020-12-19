@@ -8,13 +8,15 @@ The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``addressBooks``
+   :name: :permission:`addressBooks`
 
    Read and modify your address books and contacts
 
@@ -22,7 +24,7 @@ Permissions
 
 .. note::
 
-  The permission ``addressBooks`` is required to use ``mailingLists``.
+  The permission :permission:`addressBooks` is required to use ``mailingLists``.
 
 .. rst-class:: api-main-section
 
@@ -45,7 +47,6 @@ Gets all the mailing lists in the address book with id ``parentId``.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -53,9 +54,7 @@ Gets all the mailing lists in the address book with id ``parentId``.
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`mailingLists.MailingListNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -76,7 +75,6 @@ Gets a single mailing list.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -84,9 +82,7 @@ Gets a single mailing list.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`mailingLists.MailingListNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -107,30 +103,25 @@ Creates a new mailing list in the address book with id ``parentId``.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``properties``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``name``
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``description``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``nickName``]
          :type: (string)
-         :annotation: 
       
    
 
@@ -139,9 +130,7 @@ Creates a new mailing list in the address book with id ``parentId``.
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
       
       The ID of the new mailing list.
    
@@ -164,30 +153,25 @@ Edits the properties of a mailing list.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``properties``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``name``
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``description``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``nickName``]
          :type: (string)
-         :annotation: 
       
    
 
@@ -207,7 +191,6 @@ Removes the mailing list.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. _mailingLists.addMember:
@@ -226,13 +209,11 @@ Adds a contact to the mailing list with id ``id``. If the contact and mailing li
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``contactId``
       :type: (string)
-      :annotation: 
    
 
 .. _mailingLists.listMembers:
@@ -251,7 +232,6 @@ Gets all contacts that are members of the mailing list with id ``id``.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -259,9 +239,7 @@ Gets all contacts that are members of the mailing list with id ``id``.
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`contacts.ContactNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -282,13 +260,11 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``contactId``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -312,7 +288,6 @@ Fired when a mailing list is created.
    .. api-member::
       :name: ``node``
       :type: (:ref:`mailingLists.MailingListNode`)
-      :annotation: 
    
 
 .. _mailingLists.onUpdated:
@@ -331,7 +306,6 @@ Fired when a mailing list is changed.
    .. api-member::
       :name: ``node``
       :type: (:ref:`mailingLists.MailingListNode`)
-      :annotation: 
    
 
 .. _mailingLists.onDeleted:
@@ -350,13 +324,11 @@ Fired when a mailing list is deleted.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. _mailingLists.onMemberAdded:
@@ -375,7 +347,6 @@ Fired when a contact is added to the mailing list.
    .. api-member::
       :name: ``node``
       :type: (:ref:`contacts.ContactNode`)
-      :annotation: 
    
 
 .. _mailingLists.onMemberRemoved:
@@ -394,13 +365,11 @@ Fired when a contact is removed from the mailing list.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -424,13 +393,11 @@ A node representing a mailing list.
    .. api-member::
       :name: ``description``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
       
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
    
@@ -438,19 +405,16 @@ A node representing a mailing list.
    .. api-member::
       :name: ``name``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``nickName``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
-      :annotation: 
       
       Always set to ``mailingList``.
    
@@ -458,7 +422,6 @@ A node representing a mailing list.
    .. api-member::
       :name: [``contacts``]
       :type: (array of :ref:`contacts.ContactNode`)
-      :annotation: 
       
       A list of contacts held by this node's address book or mailing list.
    
@@ -466,7 +429,6 @@ A node representing a mailing list.
    .. api-member::
       :name: [``parentId``]
       :type: (string)
-      :annotation: 
       
       The ``id`` of the parent object.
    
@@ -474,7 +436,6 @@ A node representing a mailing list.
    .. api-member::
       :name: [``readOnly``]
       :type: (boolean)
-      :annotation: 
       
       Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
    

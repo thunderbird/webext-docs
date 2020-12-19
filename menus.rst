@@ -9,6 +9,8 @@ Note that the similar ``contextMenus`` API will not be added to Thunderbird.
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1503421
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus
 
+.. role:: permission
+
 Use the browser.menus API to add items to the browser's menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
 
 .. rst-class:: api-main-section
@@ -17,15 +19,16 @@ Permissions
 ===========
 
 .. api-member::
-   :name: ``menus``
+   :name: :permission:`menus`
+
 .. api-member::
-   :name: ``menus.overrideContext``
+   :name: :permission:`menus.overrideContext`
 
 .. rst-class:: api-permission-info
 
 .. note::
 
-  The permission ``menus`` is required to use ``menus``.
+  The permission :permission:`menus` is required to use ``menus``.
 
 .. rst-class:: api-main-section
 
@@ -48,12 +51,10 @@ Creates a new context menu item. Note that if an error occurs during creation, y
    .. api-member::
       :name: ``createProperties``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``checked``]
          :type: (boolean)
-         :annotation: 
          
          The initial state of a checkbox or radio item: true for selected and false for unselected. Only one radio item can be selected at a time in a given group of radio items.
       
@@ -61,7 +62,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``command``]
          :type: (string)
-         :annotation: 
          
          Specifies a command to issue for the context click.  Currently supports internal command _execute_browser_action.
       
@@ -69,7 +69,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``contexts``]
          :type: (array of :ref:`menus.ContextType`)
-         :annotation: 
          
          List of contexts this menu item will appear in. Defaults to ['page'] if not specified.
       
@@ -77,7 +76,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``documentUrlPatterns``]
          :type: (array of string)
-         :annotation: 
          
          Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see `Match Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`_.
       
@@ -85,7 +83,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``enabled``]
          :type: (boolean)
-         :annotation: 
          
          Whether this context menu item is enabled or disabled. Defaults to true.
       
@@ -93,13 +90,11 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``icons``]
          :type: (object)
-         :annotation: 
       
       
       .. api-member::
          :name: [``id``]
          :type: (string)
-         :annotation: 
          
          The unique ID to assign to this item. Mandatory for event pages. Cannot be the same as another ID for this extension.
       
@@ -107,7 +102,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``onclick``]
          :type: (function)
-         :annotation: 
          
          A function that will be called back when the menu item is clicked. Event pages cannot use this.
       
@@ -115,7 +109,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``parentId``]
          :type: (integer or string)
-         :annotation: 
          
          The ID of a parent menu item; this makes the item a child of a previously added item.
       
@@ -123,7 +116,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``targetUrlPatterns``]
          :type: (array of string)
-         :annotation: 
          
          Similar to documentUrlPatterns, but lets you filter based on the src attribute of img/audio/video tags and the href of anchor tags.
       
@@ -131,7 +123,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``title``]
          :type: (string)
-         :annotation: 
          
          The text to be displayed in the item; this is *required* unless ``type`` is 'separator'. When the context is 'selection', you can use ``%s`` within the string to show the selected text. For example, if this parameter's value is "Translate '%s' to Pig Latin" and the user selects the word "cool", the context menu item for the selection is "Translate 'cool' to Pig Latin". To specify an access key for the new menu entry, include a ``&`` before the desired letter in the title. For example "&Help".
       
@@ -139,7 +130,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``type``]
          :type: (:ref:`menus.ItemType`)
-         :annotation: 
          
          The type of menu item. Defaults to 'normal' if not specified.
       
@@ -147,7 +137,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``viewTypes``]
          :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
-         :annotation: 
          
          List of view types where the menu item will be shown. Defaults to any view, including those without a viewType.
       
@@ -155,7 +144,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       .. api-member::
          :name: [``visible``]
          :type: (boolean)
-         :annotation: 
          
          Whether the item is visible in the menu.
       
@@ -164,7 +152,6 @@ Creates a new context menu item. Note that if an error occurs during creation, y
    .. api-member::
       :name: [``callback``]
       :type: (function)
-      :annotation: 
       
       Called when the item has been created in the browser. If there were any problems creating the item, details will be available in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_.
    
@@ -174,9 +161,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 
    
    .. api-member::
-      :name: 
       :type: integer or string
-      :annotation: 
       
       The ID of the newly created item.
    
@@ -199,7 +184,6 @@ Updates a previously created context menu item.
    .. api-member::
       :name: ``id``
       :type: (integer or string)
-      :annotation: 
       
       The ID of the item to update.
    
@@ -207,50 +191,42 @@ Updates a previously created context menu item.
    .. api-member::
       :name: ``updateProperties``
       :type: (object)
-      :annotation: 
       
       The properties to update. Accepts the same values as the create function.
       
       .. api-member::
          :name: [``checked``]
          :type: (boolean)
-         :annotation: 
       
       
       .. api-member::
          :name: [``contexts``]
          :type: (array of :ref:`menus.ContextType`)
-         :annotation: 
       
       
       .. api-member::
          :name: [``documentUrlPatterns``]
          :type: (array of string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``enabled``]
          :type: (boolean)
-         :annotation: 
       
       
       .. api-member::
          :name: [``icons``]
          :type: (object)
-         :annotation: 
       
       
       .. api-member::
          :name: [``onclick``]
          :type: (function)
-         :annotation: 
       
       
       .. api-member::
          :name: [``parentId``]
          :type: (integer or string)
-         :annotation: 
          
          Note: You cannot change an item to be a child of one of its own descendants.
       
@@ -258,31 +234,26 @@ Updates a previously created context menu item.
       .. api-member::
          :name: [``targetUrlPatterns``]
          :type: (array of string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``title``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``type``]
          :type: (:ref:`menus.ItemType`)
-         :annotation: 
       
       
       .. api-member::
          :name: [``viewTypes``]
          :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
-         :annotation: 
       
       
       .. api-member::
          :name: [``visible``]
          :type: (boolean)
-         :annotation: 
          
          Whether the item is visible in the menu.
       
@@ -304,7 +275,6 @@ Removes a context menu item.
    .. api-member::
       :name: ``menuItemId``
       :type: (integer or string)
-      :annotation: 
       
       The ID of the context menu item to remove.
    
@@ -334,12 +304,10 @@ Show the matching menu items from this extension instead of the default menu. Th
    .. api-member::
       :name: ``contextOptions``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``context``]
          :type: (`string`)
-         :annotation: 
          
          ContextType to override, to allow menu items from other extensions in the menu. Currently only 'tab' is supported. showDefaults cannot be used with this option.
          
@@ -347,13 +315,11 @@ Show the matching menu items from this extension instead of the default menu. Th
          
          .. api-member::
             :name: ``tab``
-         
       
       
       .. api-member::
          :name: [``showDefaults``]
          :type: (boolean)
-         :annotation: 
          
          Whether to also include default menu items in the menu.
       
@@ -361,16 +327,15 @@ Show the matching menu items from this extension instead of the default menu. Th
       .. api-member::
          :name: [``tabId``]
          :type: (integer)
-         :annotation: 
          
-         Required when context is 'tab'. Requires 'tabs' permission.
+         Required when context is 'tab'. Requires the :permission:`tabs` permission.
       
    
 
 .. api-header::
    :label: Required permissions
 
-   - ``menus.overrideContext``
+   - :permission:`menus.overrideContext`
 
 .. _menus.refresh:
 
@@ -402,7 +367,6 @@ Fired when a context menu item is clicked.
    .. api-member::
       :name: ``info``
       :type: (:ref:`menus.OnClickData`)
-      :annotation: 
       
       Information about the item clicked and the context where the click happened.
    
@@ -410,7 +374,6 @@ Fired when a context menu item is clicked.
    .. api-member::
       :name: [``tab``]
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
       
       The details of the tab where the click took place. If the click did not take place in a tab, this parameter will be missing.
    
@@ -431,14 +394,12 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
    .. api-member::
       :name: ``info``
       :type: (object)
-      :annotation: 
       
       Information about the context of the menu action and the created menu items. For more information about each property, see OnClickData. The following properties are only set if the extension has host permissions for the given context: linkUrl, linkText, srcUrl, pageUrl, frameUrl, selectionText.
       
       .. api-member::
          :name: ``contexts``
          :type: (array of :ref:`menus.ContextType`)
-         :annotation: 
          
          A list of all contexts that apply to the menu.
       
@@ -446,13 +407,11 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: ``editable``
          :type: (boolean)
-         :annotation: 
       
       
       .. api-member::
          :name: ``menuIds``
          :type: (array of None)
-         :annotation: 
          
          A list of IDs of the menu items that were shown.
       
@@ -460,62 +419,52 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``frameUrl``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``linkText``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``linkUrl``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``mediaType``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``pageUrl``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``selectionText``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``srcUrl``]
          :type: (string)
-         :annotation: 
       
       
       .. api-member::
          :name: [``targetElementId``]
          :type: (integer)
-         :annotation: 
       
       
       .. api-member::
          :name: [``viewType``]
          :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
-         :annotation: 
       
    
    
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
       
       The details of the tab where the menu was opened.
    
@@ -598,7 +547,6 @@ The different contexts a menu can appear in. Specifying ``all`` is equivalent to
          .. api-member::
             :name: ``compose_attachments``
             :annotation: -- [Added in TB 83, backported to TB 78.5.0]
-         
    
 
 .. _menus.ItemType:
@@ -631,7 +579,6 @@ The type of menu item.
          
          .. api-member::
             :name: ``separator``
-         
    
 
 .. _menus.OnClickData:
@@ -650,7 +597,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: ``editable``
       :type: (boolean)
-      :annotation: 
       
       A flag indicating whether the element is editable (text input, textarea, etc.).
    
@@ -658,7 +604,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: ``menuItemId``
       :type: (integer or string)
-      :annotation: 
       
       The ID of the menu item that was clicked.
    
@@ -666,7 +611,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: ``modifiers``
       :type: (array of `string`)
-      :annotation: 
       
       An array of keyboard modifiers that were held while the menu item was clicked.
       
@@ -686,13 +630,11 @@ Information sent when a context menu item is clicked.
       
       .. api-member::
          :name: ``MacCtrl``
-      
    
    
    .. api-member::
       :name: [``attachments``]
       :type: (array of :ref:`compose.ComposeAttachment`)
-      :annotation: 
       
       The selected attachments of a message being composed.
    
@@ -700,7 +642,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``button``]
       :type: (integer)
-      :annotation: 
       
       An integer value of button by which menu item was clicked.
    
@@ -708,7 +649,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``checked``]
       :type: (boolean)
-      :annotation: 
       
       A flag indicating the state of a checkbox or radio item after it is clicked.
    
@@ -716,15 +656,13 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``displayedFolder``]
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
       
-      The displayed folder, if the context menu was opened in the message list. The ``accountsRead`` permission is required.
+      The displayed folder, if the context menu was opened in the message list. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``frameId``]
       :type: (integer)
-      :annotation: 
       
       The id of the frame of the element where the context menu was clicked.
    
@@ -732,7 +670,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``frameUrl``]
       :type: (string)
-      :annotation: 
       
       The URL of the frame of the element where the context menu was clicked, if it was in a frame.
    
@@ -740,7 +677,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``linkText``]
       :type: (string)
-      :annotation: 
       
       If the element is a link, the text of that link.
    
@@ -748,7 +684,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``linkUrl``]
       :type: (string)
-      :annotation: 
       
       If the element is a link, the URL it points to.
    
@@ -756,7 +691,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``mediaType``]
       :type: (string)
-      :annotation: 
       
       One of 'image', 'video', or 'audio' if the context menu was activated on one of these types of elements.
    
@@ -764,7 +698,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``pageUrl``]
       :type: (string)
-      :annotation: 
       
       The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu.
    
@@ -772,7 +705,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``parentMenuItemId``]
       :type: (integer or string)
-      :annotation: 
       
       The parent ID, if any, for the item clicked.
    
@@ -780,23 +712,20 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``selectedFolder``]
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
       
-      The selected folder, if the context menu was opened in the folder pane. The ``accountsRead`` permission is required.
+      The selected folder, if the context menu was opened in the folder pane. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``selectedMessages``]
       :type: (:ref:`messages.MessageList`)
-      :annotation: 
       
-      The selected messages, if the context menu was opened in the message list. The ``messagesRead`` permission is required.
+      The selected messages, if the context menu was opened in the message list. The :permission:`messagesRead` permission is required.
    
    
    .. api-member::
       :name: [``selectionText``]
       :type: (string)
-      :annotation: 
       
       The text for the context selection, if any.
    
@@ -804,7 +733,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``srcUrl``]
       :type: (string)
-      :annotation: 
       
       Will be present for elements with a 'src' URL.
    
@@ -812,7 +740,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``targetElementId``]
       :type: (integer)
-      :annotation: 
       
       An identifier of the clicked element, if any. Use menus.getTargetElement in the page to find the corresponding element.
    
@@ -820,7 +747,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``viewType``]
       :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
-      :annotation: 
       
       The type of view where the menu is clicked. May be unset if the menu is not associated with a view.
    
@@ -828,7 +754,6 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``wasChecked``]
       :type: (boolean)
-      :annotation: 
       
       A flag indicating the state of a checkbox or radio item before it was clicked.
    

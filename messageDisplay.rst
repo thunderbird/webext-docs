@@ -11,11 +11,13 @@ tab, which has limited functionality compared to tabs from the main window.
 More functions are planned for this API for adding to the user interface, as well as a message
 display action (similar to :doc:`browserAction` and :doc:`composeAction`).
 
+.. role:: permission
+
 .. rst-class:: api-permission-info
 
 .. note::
 
-  The permission ``messagesRead`` is required to use ``messageDisplay``.
+  The permission :permission:`messagesRead` is required to use ``messageDisplay``.
 
 .. rst-class:: api-main-section
 
@@ -38,7 +40,6 @@ Gets the currently displayed message in the specified tab. It returns null if no
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
 
 .. api-header::
@@ -46,9 +47,7 @@ Gets the currently displayed message in the specified tab. It returns null if no
 
    
    .. api-member::
-      :name: 
       :type: :ref:`messages.MessageHeader`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -69,7 +68,6 @@ Gets an array of the currently displayed messages in the specified tab. The arra
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
 
 .. api-header::
@@ -77,9 +75,7 @@ Gets an array of the currently displayed messages in the specified tab. The arra
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`messages.MessageHeader`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -105,7 +101,6 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
       
       *Changed in TB 76: previously just the tab's ID*
    
@@ -113,7 +108,6 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    .. api-member::
       :name: ``message``
       :type: (:ref:`messages.MessageHeader`)
-      :annotation: 
    
 
 .. _messageDisplay.onMessagesDisplayed:
@@ -132,11 +126,9 @@ Fired when either a single message is displayed or when multiple messages are di
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``messages``
       :type: (array of :ref:`messages.MessageHeader`)
-      :annotation: 
    
