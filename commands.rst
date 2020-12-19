@@ -6,6 +6,8 @@ The commands API first appeared in Thunderbird 66. It's more or less the same as
 
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/commands
 
+.. role:: permission
+
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example, an action to open the browser action or send a command to the xtension.
 
 .. rst-class:: api-main-section
@@ -16,7 +18,6 @@ Manifest file properties
 .. api-member::
    :name: [``commands``]
    :type: (object)
-   :annotation: 
 
 .. rst-class:: api-permission-info
 
@@ -45,14 +46,12 @@ Update the details of an already defined command.
    .. api-member::
       :name: ``detail``
       :type: (object)
-      :annotation: 
       
       The new description for the command.
       
       .. api-member::
          :name: ``name``
          :type: (string)
-         :annotation: 
          
          The name of the command.
       
@@ -60,7 +59,6 @@ Update the details of an already defined command.
       .. api-member::
          :name: [``description``]
          :type: (string)
-         :annotation: 
          
          The new description for the command.
       
@@ -68,7 +66,6 @@ Update the details of an already defined command.
       .. api-member::
          :name: [``shortcut``]
          :type: (string)
-         :annotation: 
          
          An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_  to set a new shortcut key. If the string does not match this format, the function throws an error.
       
@@ -90,7 +87,6 @@ Reset a command's details to what is specified in the manifest.
    .. api-member::
       :name: ``name``
       :type: (string)
-      :annotation: 
       
       The name of the command.
    
@@ -109,9 +105,7 @@ Returns all the registered extension commands for this extension and their short
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`commands.Command`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -137,7 +131,6 @@ Fired when a registered command is activated using a keyboard shortcut.
    .. api-member::
       :name: ``command``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -159,7 +152,6 @@ Command
    .. api-member::
       :name: [``description``]
       :type: (string)
-      :annotation: 
       
       The Extension Command description
    
@@ -167,7 +159,6 @@ Command
    .. api-member::
       :name: [``name``]
       :type: (string)
-      :annotation: 
       
       The name of the Extension Command
    
@@ -175,7 +166,6 @@ Command
    .. api-member::
       :name: [``shortcut``]
       :type: (string)
-      :annotation: 
       
       The shortcut active for this command, or blank if not active.
    

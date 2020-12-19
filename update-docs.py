@@ -54,6 +54,8 @@ def replace_code(string):
         "</codeblock>": "\n\n",
         "<var>": "``",
         "</var>": "``",
+        "<permission>":":permission:`",
+        "</permission>":"`",        
         "&mdash;": u"—",
         "\n": "\n\n",
     }
@@ -123,9 +125,9 @@ def format_changes(obj, inline = False):
     if "changed" in obj:
         for k, v in obj['changed'].items():
             if inline:
-                lines.append("*Changed in TB " + k + ": " + v + "*")
+                lines.append("*Changed in TB " + k + ": " + replace_code(v) + "*")
             else:
-                lines.extend(api_member(name="Thunderbird " + k, description=[v]))
+                lines.extend(api_member(name="Thunderbird " + k, description=[replace_code(v)]))
     return lines
 
 def get_api_member_parts(name, value):
@@ -184,16 +186,15 @@ def format_enum(name, value):
     # enums have been moved inline and are no longer referenced
     #enum_lines.extend(["Values for ``%s``:" % name, ""])
     #enum_lines.extend(reference("enum_%s_%d" % (name, unique_id)))
-    enum_lines.extend(["Supported values:", ""])
+    enum_lines.append("Supported values:")
 
-    for enum_value in value.get("enum"):
-        enum_lines.append(".. api-member::")
-        enum_lines.append("   :name: ``" + enum_value + "``")
+    for enum_value in value.get("enum"):       
+        enum_annotation = None
         if "enumChanges" in value:
             changes = value.get("enumChanges")
             if enum_value in changes:
-                enum_lines.append("   :annotation: " + format_addition(changes.get(enum_value)))
-        enum_lines.append("")
+                enum_annotation = format_addition(changes.get(enum_value))
+        enum_lines.extend(api_member(name="``" + enum_value + "``", annotation=enum_annotation))
 
     return enum_lines
     
@@ -222,13 +223,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
         ])
     else:
         indent = "   "
-        content.extend([
-            "",
-            ".. api-member::",
-            "   :name: " + parts['name'],
-            "   :type: " + parts['type'],
-            "   :annotation: " + parts['annotation'],
-        ])    
+        content.extend(api_member(name=parts['name'], type=parts['type'], annotation=parts['annotation']))
 
     nested_content = []
     if obj.get("type") == "object" and "properties" in obj:
@@ -292,7 +287,7 @@ def format_permissions(obj, use_info_box=True):
             text = "  A manifest entry named ``%s`` is required to use ``%s``." % (permission, name)
             manifest_entries.append(permission)
         else:
-            text = "  The permission ``%s`` is required to use ``%s``." % (permission, name)
+            text = "  The permission :permission:`%s` is required to use ``%s``." % (permission, name)
             permission_entries.append(permission)
     else:
         permissions = ""
@@ -304,7 +299,7 @@ def format_permissions(obj, use_info_box=True):
                     permissions += " and "
                 else:
                     permissions += ", "
-            permissions += "``%s``" % permission
+            permissions += ":permission:`%s`" % permission
         text = "  The permissions %s are required to use ``%s``." % (permissions, name)
 
     if use_info_box:
@@ -320,8 +315,8 @@ def format_permissions(obj, use_info_box=True):
     else:
         content = []
         for i in range(0, len(permission_entries)):
-            content.append("- ``%s``" % permission_entries[i])
-        lines.extend(api_entry("Required permissions", content))
+            content.append("- :permission:`%s`" % permission_entries[i])
+        lines.extend(api_header("Required permissions", content))
 
     return lines
 
@@ -354,7 +349,7 @@ def header_3(string, label=None, info=""):
         "",
     ]
 
-def api_member(name=None, type=None, annotation=None, description=None):
+def api_member(name=None, type=None, annotation=None, description=[]):
     lines = [
         "",
         ".. api-member::",
@@ -365,13 +360,13 @@ def api_member(name=None, type=None, annotation=None, description=None):
         lines.append("   :type: " + type)
     if annotation:
         lines.append("   :annotation: " + annotation)
-    if description:
+    if description and len(description)>0:
         lines.append("")
         for line in description:
             lines.append("   " + line)
     return lines
 
-def api_entry(label, content = [], annotation=None):
+def api_header(label, content = [], annotation=None):
     lines = [
         "",
         ".. api-header::",
@@ -410,6 +405,11 @@ def format_namespace(namespace, manifest_namespace=None):
     else:
         lines = header_1(current_namespace_name)
 
+    lines.extend([
+        "",
+        ".. role:: permission",
+        ""]);
+    
     if "description" in namespace:
         lines.append(replace_code(namespace["description"]))
         lines.append("")
@@ -437,7 +437,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
                 
             if "changed" in function:
-                lines.extend(api_entry("API changes", format_changes(function)))
+                lines.extend(api_header("API changes", format_changes(function)))
 
             if len(function.get("parameters", [])) > 0:
                 content = []
@@ -452,14 +452,14 @@ def format_namespace(namespace, manifest_namespace=None):
                         #unique_id += 1
                 
                 if len(content) > 0:
-                    lines.extend(api_entry("Parameters", content))
+                    lines.extend(api_header("Parameters", content))
 
             if "returns" in function:
                 content = []
                 content.extend(format_object("", function["returns"]))
                 content.append("")
                 content.append(".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise")
-                lines.extend(api_entry("Return type (`Promise`_)", content))
+                lines.extend(api_header("Return type (`Promise`_)", content))
 
             lines.extend(format_permissions(function, use_info_box=False))
             #lines.extend(enum_lines)
@@ -480,16 +480,16 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
             if "changed" in event:
-                lines.extend(api_entry("API changes", format_changes(event)))
+                lines.extend(api_header("API changes", format_changes(event)))
 
             if len(event.get("parameters", [])):
                 content = []
                 for param in event["parameters"]:
                     content.extend(format_object(param["name"], param))
-                lines.extend(api_entry("Parameters for event listeners", content))
+                lines.extend(api_header("Parameters for event listeners", content))
 
             if "returns" in event:
-                lines.extend(api_entry("Expected return value of event listeners", format_object("", event["returns"])))
+                lines.extend(api_header("Expected return value of event listeners", format_object("", event["returns"])))
 
             lines.extend(format_permissions(event, use_info_box=False))
 
@@ -533,7 +533,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 type_lines.append("")
 
             if "changed" in type_:
-                lines.extend(api_entry("API changes", format_changes(type_)))
+                lines.extend(api_header("API changes", format_changes(type_)))
 
             if "type" in type_:
                 if (type_["type"] == "object" and
@@ -561,9 +561,9 @@ def format_namespace(namespace, manifest_namespace=None):
                             if description:
                                 content[-1] += " %s" % description
 
-                    type_lines.extend(api_entry("object", content))
+                    type_lines.extend(api_header("object", content))
                 else:
-                    type_lines.extend(api_entry(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
+                    type_lines.extend(api_header(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
                     
                 type_lines.append("")
                 #enum_lines.extend(format_enum(type_["id"], type_))
@@ -575,7 +575,7 @@ def format_namespace(namespace, manifest_namespace=None):
                         first = False
                     else:
                         type_lines.extend(["", "OR", ""])
-                    type_lines.extend(api_entry(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True)))
+                    type_lines.extend(api_header(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True)))
                     #enum_lines.extend(format_enum(type_["id"], choice))
 
             type_lines.append("")
@@ -642,11 +642,8 @@ def format_manifest_namespace(manifest):
         ]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
-                    permission_lines.append(".. api-member::")
-                    permission_lines.append("   :name: ``" + value + "``")
-                    if value in permission_strings:
-                        permission_lines.append("")
-                        permission_lines.append("   " + permission_strings[value])               
+                    description = [permission_strings[value]] if value in permission_strings else None
+                    permission_lines.extend(api_member(name=":permission:`" + value + "`", description=description))
 
     if len(permission_lines) > 0:
         permission_lines.append("")

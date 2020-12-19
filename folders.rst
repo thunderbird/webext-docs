@@ -7,13 +7,15 @@ The folders API first appeared in Thunderbird 68 (see `bug 1531591`__) as a part
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1531591
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``accountsFolders``
+   :name: :permission:`accountsFolders`
 
    Create, rename, or delete your mail account folders
 
@@ -21,7 +23,7 @@ Permissions
 
 .. note::
 
-  The permission ``accountsFolders`` is required to use ``folders``.
+  The permission :permission:`accountsFolders` is required to use ``folders``.
 
 .. rst-class:: api-main-section
 
@@ -44,13 +46,11 @@ Creates a new subfolder of ``parentFolder``.
    .. api-member::
       :name: ``parentFolder``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``childName``
       :type: (string)
-      :annotation: 
    
 
 .. _folders.rename:
@@ -69,13 +69,11 @@ Renames a folder.
    .. api-member::
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``newName``
       :type: (string)
-      :annotation: 
    
 
 .. _folders.delete:
@@ -94,7 +92,6 @@ Deletes a folder.
    .. api-member::
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -118,7 +115,6 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      :annotation: 
       
       The account this folder belongs to.
    
@@ -126,7 +122,6 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
    .. api-member::
       :name: ``path``
       :type: (string)
-      :annotation: 
       
       Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
    
@@ -134,7 +129,6 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
    .. api-member::
       :name: [``name``]
       :type: (string)
-      :annotation: 
       
       The human-friendly name of this folder.
    
@@ -148,7 +142,6 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
    .. api-member::
       :name: [``type``]
       :type: (`string`)
-      :annotation: 
       
       The type of folder, for several common types.
       
@@ -177,5 +170,4 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       
       .. api-member::
          :name: ``outbox``
-      
    

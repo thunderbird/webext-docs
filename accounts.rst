@@ -6,13 +6,15 @@ The accounts API first appeared in Thunderbird 66 (see `bug 1488176`__).
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1488176
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``accountsRead``
+   :name: :permission:`accountsRead`
 
    See your mail accounts and their folders
 
@@ -20,7 +22,7 @@ Permissions
 
 .. note::
 
-  The permission ``accountsRead`` is required to use ``accounts``.
+  The permission :permission:`accountsRead` is required to use ``accounts``.
 
 .. rst-class:: api-main-section
 
@@ -41,9 +43,7 @@ Returns all mail accounts.
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`accounts.MailAccount`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -64,7 +64,6 @@ Returns details of the requested account, or null if it doesn't exist.
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -72,9 +71,7 @@ Returns details of the requested account, or null if it doesn't exist.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`accounts.MailAccount`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -95,13 +92,11 @@ Sets the default identity for an account.
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``identityId``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -123,7 +118,6 @@ MailAccount
    .. api-member::
       :name: ``folders``
       :type: (array of :ref:`folders.MailFolder`)
-      :annotation: 
       
       The folders for this account.
    
@@ -131,7 +125,6 @@ MailAccount
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
       
       A unique identifier for this account.
    
@@ -147,7 +140,6 @@ MailAccount
    .. api-member::
       :name: ``name``
       :type: (string)
-      :annotation: 
       
       The human-friendly name of this account.
    
@@ -155,7 +147,6 @@ MailAccount
    .. api-member::
       :name: ``type``
       :type: (string)
-      :annotation: 
       
       What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``.
    
@@ -174,7 +165,6 @@ MailIdentity
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      :annotation: 
       
       The id of the :ref:`accounts.MailAccount` this identity belongs to.
    
@@ -182,7 +172,6 @@ MailIdentity
    .. api-member::
       :name: ``email``
       :type: (string)
-      :annotation: 
       
       The user's email address as used when messages are sent from this identity.
    
@@ -190,7 +179,6 @@ MailIdentity
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
       
       A unique identifier for this identity.
    
@@ -198,7 +186,6 @@ MailIdentity
    .. api-member::
       :name: ``label``
       :type: (string)
-      :annotation: 
       
       A user-defined label for this identity.
    
@@ -206,7 +193,6 @@ MailIdentity
    .. api-member::
       :name: ``name``
       :type: (string)
-      :annotation: 
       
       The user's name as used when messages are sent from this identity.
    
@@ -214,7 +200,6 @@ MailIdentity
    .. api-member::
       :name: ``organization``
       :type: (string)
-      :annotation: 
       
       The organization associated with this identity.
    
@@ -222,7 +207,6 @@ MailIdentity
    .. api-member::
       :name: ``replyTo``
       :type: (string)
-      :annotation: 
       
       The reply-to email address associated with this identity.
    

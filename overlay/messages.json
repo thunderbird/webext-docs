@@ -126,7 +126,7 @@
           },
           "folder": {
             "$ref": "folders.MailFolder",
-            "description": "The ``accountsRead`` permission is required."
+            "description": "The <permission>accountsRead</permission> permission is required for this property to be included."
           },
           "tags": {
             "type": "array",

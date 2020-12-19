@@ -10,6 +10,8 @@ Many of our `sample extensions`__ use a browserAction.
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction
 __ https://github.com/thundernest/sample-extensions
 
+.. role:: permission
+
 Use toolbar actions to put icons in the mail window toolbar. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 .. rst-class:: api-main-section
@@ -20,18 +22,15 @@ Manifest file properties
 .. api-member::
    :name: [``browser_action``]
    :type: (object)
-   :annotation: 
    
    .. api-member::
       :name: [``browser_style``]
       :type: (boolean)
-      :annotation: 
    
    
    .. api-member::
       :name: [``default_area``]
       :type: (string)
-      :annotation: 
       
       Currently unused.
    
@@ -39,25 +38,21 @@ Manifest file properties
    .. api-member::
       :name: [``default_icon``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``default_popup``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``default_title``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``theme_icons``]
       :type: (array of :ref:`browserAction.ThemeIcons`)
-      :annotation: 
       
       Specifies icons to use for dark and light themes
    
@@ -89,12 +84,10 @@ Sets the title of the toolbar action. This shows up in the tooltip.
    .. api-member::
       :name: ``details``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``title``
          :type: (string or null)
-         :annotation: 
          
          The string the toolbar action should display when moused over.
       
@@ -116,7 +109,6 @@ Gets the title of the toolbar action.
    .. api-member::
       :name: ``details``
       :type: (:ref:`browserAction.Details`)
-      :annotation: 
    
 
 .. api-header::
@@ -124,9 +116,7 @@ Gets the title of the toolbar action.
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -147,12 +137,10 @@ Sets the icon for the toolbar action. The icon can be specified either as the pa
    .. api-member::
       :name: ``details``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``imageData``]
          :type: (:ref:`browserAction.ImageDataType` or object)
-         :annotation: 
          
          Either an ImageData object or a dictionary {size -> ImageData} representing icon to be set. If the icon is specified as a dictionary, the actual image to be used is chosen depending on screen's pixel density. If the number of image pixels that fit into one screen space unit equals ``scale``, then image with size ``scale`` * 19 will be selected. Initially only scales 1 and 2 will be supported. At least one image must be specified. Note that 'details.imageData = foo' is equivalent to 'details.imageData = {'19': foo}'
       
@@ -160,7 +148,6 @@ Sets the icon for the toolbar action. The icon can be specified either as the pa
       .. api-member::
          :name: [``path``]
          :type: (string or object)
-         :annotation: 
          
          Either a relative image path or a dictionary {size -> relative image path} pointing to icon to be set. If the icon is specified as a dictionary, the actual image to be used is chosen depending on screen's pixel density. If the number of image pixels that fit into one screen space unit equals ``scale``, then image with size ``scale`` * 19 will be selected. Initially only scales 1 and 2 will be supported. At least one image must be specified. Note that 'details.path = foo' is equivalent to 'details.imageData = {'19': foo}'
       
@@ -182,12 +169,10 @@ Sets the html document to be opened as a popup when the user clicks on the toolb
    .. api-member::
       :name: ``details``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``popup``
          :type: (string or null)
-         :annotation: 
          
          The html file to show in a popup.  If set to the empty string (''), no popup is shown.
       
@@ -209,7 +194,6 @@ Gets the html document set as the popup for this toolbar action.
    .. api-member::
       :name: ``details``
       :type: (:ref:`browserAction.Details`)
-      :annotation: 
    
 
 .. api-header::
@@ -217,9 +201,7 @@ Gets the html document set as the popup for this toolbar action.
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -240,12 +222,10 @@ Sets the badge text for the toolbar action. The badge is displayed on top of the
    .. api-member::
       :name: ``details``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``text``
          :type: (string or null)
-         :annotation: 
          
          Any number of characters can be passed, but only about four can fit in the space.
       
@@ -267,7 +247,6 @@ Gets the badge text of the toolbar action. If no tab nor window is specified, th
    .. api-member::
       :name: ``details``
       :type: (:ref:`browserAction.Details`)
-      :annotation: 
    
 
 .. api-header::
@@ -275,9 +254,7 @@ Gets the badge text of the toolbar action. If no tab nor window is specified, th
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -298,12 +275,10 @@ Sets the background color for the badge.
    .. api-member::
       :name: ``details``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``color``
          :type: (string or :ref:`browserAction.ColorArray` or null)
-         :annotation: 
          
          An array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is ``[255, 0, 0, 255]``. Can also be a string with a CSS value, with opaque red being ``#FF0000`` or ``#F00``.
       
@@ -325,7 +300,6 @@ Gets the background color of the toolbar action.
    .. api-member::
       :name: ``details``
       :type: (:ref:`browserAction.Details`)
-      :annotation: 
    
 
 .. api-header::
@@ -333,9 +307,7 @@ Gets the background color of the toolbar action.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`browserAction.ColorArray`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -356,7 +328,6 @@ Enables the toolbar action for a tab. By default, toolbar actions are enabled.
    .. api-member::
       :name: [``tabId``]
       :type: (integer)
-      :annotation: 
       
       The id of the tab for which you want to modify the toolbar action.
    
@@ -377,7 +348,6 @@ Disables the toolbar action for a tab.
    .. api-member::
       :name: [``tabId``]
       :type: (integer)
-      :annotation: 
       
       The id of the tab for which you want to modify the toolbar action.
    
@@ -398,7 +368,6 @@ Checks whether the toolbar action is enabled.
    .. api-member::
       :name: ``details``
       :type: (:ref:`browserAction.Details`)
-      :annotation: 
    
 
 .. _browserAction.openPopup:
@@ -473,7 +442,6 @@ Specifies to which tab or window the value should be set, or from which one it s
    .. api-member::
       :name: [``tabId``]
       :type: (integer)
-      :annotation: 
       
       When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
    
@@ -481,7 +449,6 @@ Specifies to which tab or window the value should be set, or from which one it s
    .. api-member::
       :name: [``windowId``]
       :type: (integer)
-      :annotation: 
       
       When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
    
@@ -514,7 +481,6 @@ Information sent when a browser action is clicked.
    .. api-member::
       :name: ``modifiers``
       :type: (array of `string`)
-      :annotation: 
       
       An array of keyboard modifiers that were held while the menu item was clicked.
       
@@ -534,13 +500,11 @@ Information sent when a browser action is clicked.
       
       .. api-member::
          :name: ``MacCtrl``
-      
    
    
    .. api-member::
       :name: [``button``]
       :type: (integer)
-      :annotation: 
       
       An integer value of button by which menu item was clicked.
    
@@ -568,7 +532,6 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``dark``
       :type: (string)
-      :annotation: 
       
       A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified).
    
@@ -576,7 +539,6 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``light``
       :type: (string)
-      :annotation: 
       
       A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme).
    
@@ -584,7 +546,6 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``size``
       :type: (integer)
-      :annotation: 
       
       The size of the two icons in pixels, for example ``16`` or ``32``.
    

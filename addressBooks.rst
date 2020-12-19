@@ -8,13 +8,15 @@ The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``addressBooks``
+   :name: :permission:`addressBooks`
 
    Read and modify your address books and contacts
 
@@ -22,7 +24,7 @@ Permissions
 
 .. note::
 
-  The permission ``addressBooks`` is required to use ``addressBooks``.
+  The permission :permission:`addressBooks` is required to use ``addressBooks``.
 
 .. rst-class:: api-main-section
 
@@ -63,7 +65,6 @@ Gets a list of the user's address books, optionally including all contacts and m
    .. api-member::
       :name: [``complete``]
       :type: (boolean)
-      :annotation: 
       
       If set to true, results will include contacts and mailing lists for each address book.
    
@@ -73,9 +74,7 @@ Gets a list of the user's address books, optionally including all contacts and m
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`addressBooks.AddressBookNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -96,13 +95,11 @@ Gets a single address book, optionally including all contacts and mailing lists.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``complete``]
       :type: (boolean)
-      :annotation: 
       
       If set to true, results will include contacts and mailing lists for this address book.
    
@@ -112,9 +109,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`addressBooks.AddressBookNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -135,12 +130,10 @@ Creates a new, empty address book.
    .. api-member::
       :name: ``properties``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``name``
          :type: (string)
-         :annotation: 
       
    
 
@@ -149,9 +142,7 @@ Creates a new, empty address book.
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
       
       The ID of the new address book.
    
@@ -174,18 +165,15 @@ Renames an address book.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``properties``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``name``
          :type: (string)
-         :annotation: 
       
    
 
@@ -205,7 +193,6 @@ Removes an address book, and all associated contacts and mailing lists.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -229,7 +216,6 @@ Fired when an address book is created.
    .. api-member::
       :name: ``node``
       :type: (:ref:`addressBooks.AddressBookNode`)
-      :annotation: 
    
 
 .. _addressBooks.onUpdated:
@@ -248,7 +234,6 @@ Fired when an address book is renamed.
    .. api-member::
       :name: ``node``
       :type: (:ref:`addressBooks.AddressBookNode`)
-      :annotation: 
    
 
 .. _addressBooks.onDeleted:
@@ -267,7 +252,6 @@ Fired when an addressBook is deleted.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -291,7 +275,6 @@ A node representing an address book.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
       
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
    
@@ -299,13 +282,11 @@ A node representing an address book.
    .. api-member::
       :name: ``name``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
-      :annotation: 
       
       Always set to ``addressBook``.
    
@@ -313,7 +294,6 @@ A node representing an address book.
    .. api-member::
       :name: [``contacts``]
       :type: (array of :ref:`contacts.ContactNode`)
-      :annotation: 
       
       A list of contacts held by this node's address book or mailing list.
    
@@ -321,7 +301,6 @@ A node representing an address book.
    .. api-member::
       :name: [``mailingLists``]
       :type: (array of :ref:`mailingLists.MailingListNode`)
-      :annotation: 
       
       A list of mailingLists in this node's address book.
    
@@ -329,7 +308,6 @@ A node representing an address book.
    .. api-member::
       :name: [``parentId``]
       :type: (string)
-      :annotation: 
       
       The ``id`` of the parent object.
    
@@ -337,7 +315,6 @@ A node representing an address book.
    .. api-member::
       :name: [``readOnly``]
       :type: (boolean)
-      :annotation: 
       
       Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
    
@@ -369,5 +346,4 @@ Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, 
          
          .. api-member::
             :name: ``mailingList``
-         
    

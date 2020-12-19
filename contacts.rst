@@ -9,13 +9,15 @@ The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``addressBooks``
+   :name: :permission:`addressBooks`
 
    Read and modify your address books and contacts
 
@@ -23,7 +25,7 @@ Permissions
 
 .. note::
 
-  The permission ``addressBooks`` is required to use ``contacts``.
+  The permission :permission:`addressBooks` is required to use ``contacts``.
 
 .. rst-class:: api-main-section
 
@@ -46,7 +48,6 @@ Gets all the contacts in the address book with the id ``parentId``.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -54,9 +55,7 @@ Gets all the contacts in the address book with the id ``parentId``.
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`contacts.ContactNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -77,7 +76,6 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
    .. api-member::
       :name: [``parentId``]
       :type: (string)
-      :annotation: 
       
       The ID of the address book to search. If not specified, all address books are searched.
    
@@ -85,7 +83,6 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
    .. api-member::
       :name: ``searchString``
       :type: (string)
-      :annotation: 
       
       One or more space-separated terms to search for.
    
@@ -95,9 +92,7 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
 
    
    .. api-member::
-      :name: 
       :type: array of :ref:`contacts.ContactNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -118,7 +113,6 @@ Gets a single contact.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
@@ -126,9 +120,7 @@ Gets a single contact.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`contacts.ContactNode`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -149,13 +141,11 @@ Adds a new contact to the address book with the id ``parentId``.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``id``]
       :type: (string)
-      :annotation: 
       
       Assigns the contact an id. If an existing contact has this id, an exception is thrown.
    
@@ -163,7 +153,6 @@ Adds a new contact to the address book with the id ``parentId``.
    .. api-member::
       :name: ``properties``
       :type: (:ref:`contacts.ContactProperties`)
-      :annotation: 
    
 
 .. api-header::
@@ -171,9 +160,7 @@ Adds a new contact to the address book with the id ``parentId``.
 
    
    .. api-member::
-      :name: 
       :type: string
-      :annotation: 
       
       The ID of the new contact.
    
@@ -196,13 +183,11 @@ Edits the properties of a contact. To remove a property, specify it as ``null``.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``properties``
       :type: (:ref:`contacts.ContactProperties`)
-      :annotation: 
    
 
 .. _contacts.delete:
@@ -221,7 +206,6 @@ Removes a contact from the address book. The contact is also removed from any ma
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -245,13 +229,11 @@ Fired when a contact is created.
    .. api-member::
       :name: ``node``
       :type: (:ref:`contacts.ContactNode`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. _contacts.onUpdated:
@@ -270,7 +252,6 @@ Fired when a contact is changed.
    .. api-member::
       :name: ``node``
       :type: (:ref:`contacts.ContactNode`)
-      :annotation: 
    
 
 .. _contacts.onDeleted:
@@ -289,13 +270,11 @@ Fired when a contact is removed from an address book.
    .. api-member::
       :name: ``parentId``
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -319,7 +298,6 @@ A node representing a contact in an address book.
    .. api-member::
       :name: ``id``
       :type: (string)
-      :annotation: 
       
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
    
@@ -327,13 +305,11 @@ A node representing a contact in an address book.
    .. api-member::
       :name: ``properties``
       :type: (:ref:`contacts.ContactProperties`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
-      :annotation: 
       
       Always set to ``contact``.
    
@@ -341,7 +317,6 @@ A node representing a contact in an address book.
    .. api-member::
       :name: [``parentId``]
       :type: (string)
-      :annotation: 
       
       The ``id`` of the parent object.
    
@@ -349,7 +324,6 @@ A node representing a contact in an address book.
    .. api-member::
       :name: [``readOnly``]
       :type: (boolean)
-      :annotation: 
       
       Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
    

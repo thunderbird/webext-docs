@@ -6,13 +6,15 @@ This message composition window API first appeared in Thunderbird 67 (see `bug 1
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
 
+.. role:: permission
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
 .. api-member::
-   :name: ``compose``
+   :name: :permission:`compose`
 
    Read and modify your email messages as you compose and send them
 
@@ -37,7 +39,6 @@ Open a compose window for a new message.
    .. api-member::
       :name: [``details``]
       :type: (:ref:`compose.ComposeDetails`)
-      :annotation: 
    
 
 .. api-header::
@@ -45,7 +46,6 @@ Open a compose window for a new message.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`tabs.Tab`
       :annotation: -- [Added in TB 77]
    
@@ -68,7 +68,6 @@ Open a compose window and load a given message in reply mode.
    .. api-member::
       :name: ``messageId``
       :type: (integer)
-      :annotation: 
       
       The message to reply to, as retrieved using other APIs.
    
@@ -76,7 +75,6 @@ Open a compose window and load a given message in reply mode.
    .. api-member::
       :name: [``replyType``]
       :type: (`string`)
-      :annotation: 
       
       Supported values:
       
@@ -88,7 +86,6 @@ Open a compose window and load a given message in reply mode.
       
       .. api-member::
          :name: ``replyToAll``
-      
    
    
    .. api-member::
@@ -102,7 +99,6 @@ Open a compose window and load a given message in reply mode.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`tabs.Tab`
       :annotation: -- [Added in TB 77]
    
@@ -125,7 +121,6 @@ Open a compose window and load a given message in forward mode.
    .. api-member::
       :name: ``messageId``
       :type: (integer)
-      :annotation: 
       
       The message to forward, as retrieved using other APIs.
    
@@ -133,7 +128,6 @@ Open a compose window and load a given message in forward mode.
    .. api-member::
       :name: [``forwardType``]
       :type: (`string`)
-      :annotation: 
       
       Supported values:
       
@@ -142,13 +136,11 @@ Open a compose window and load a given message in forward mode.
       
       .. api-member::
          :name: ``forwardAsAttachment``
-      
    
    
    .. api-member::
       :name: [``details``]
       :type: (:ref:`compose.ComposeDetails`)
-      :annotation: 
    
 
 .. api-header::
@@ -156,7 +148,6 @@ Open a compose window and load a given message in forward mode.
 
    
    .. api-member::
-      :name: 
       :type: :ref:`tabs.Tab`
       :annotation: -- [Added in TB 77]
    
@@ -179,7 +170,6 @@ Fetches the current state of a compose window. Currently only a limited amount o
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
 
 .. api-header::
@@ -187,9 +177,7 @@ Fetches the current state of a compose window. Currently only a limited amount o
 
    
    .. api-member::
-      :name: 
       :type: :ref:`compose.ComposeDetails`
-      :annotation: 
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -197,7 +185,7 @@ Fetches the current state of a compose window. Currently only a limited amount o
 .. api-header::
    :label: Required permissions
 
-   - ``compose``
+   - :permission:`compose`
 
 .. _compose.setComposeDetails:
 
@@ -215,19 +203,17 @@ Updates the compose window. Specify only fields that you want to change. Current
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``details``
       :type: (:ref:`compose.ComposeDetails`)
-      :annotation: 
    
 
 .. api-header::
    :label: Required permissions
 
-   - ``compose``
+   - :permission:`compose`
 
 .. _compose.listAttachments:
 
@@ -245,7 +231,6 @@ Lists all of the attachments of the message being composed in the specified tab.
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
 
 .. _compose.addAttachment:
@@ -264,24 +249,20 @@ Adds an attachment to the message being composed in the specified tab.
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``data``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: ``file``
          :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-         :annotation: 
       
       
       .. api-member::
          :name: [``name``]
          :type: (string)
-         :annotation: 
          
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
@@ -303,30 +284,25 @@ Renames and/or replaces the contents of an attachment to the message being compo
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``attachmentId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``data``
       :type: (object)
-      :annotation: 
       
       .. api-member::
          :name: [``file``]
          :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-         :annotation: 
       
       
       .. api-member::
          :name: [``name``]
          :type: (string)
-         :annotation: 
          
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
@@ -348,13 +324,11 @@ Removes an attachment from the message being composed in the specified tab.
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      :annotation: 
    
    
    .. api-member::
       :name: ``attachmentId``
       :type: (integer)
-      :annotation: 
    
 
 .. rst-class:: api-main-section
@@ -384,7 +358,6 @@ Fired when a message is about to be sent from the compose window.
    .. api-member::
       :name: ``details``
       :type: (:ref:`compose.ComposeDetails`)
-      :annotation: 
       
       The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
    
@@ -394,14 +367,11 @@ Fired when a message is about to be sent from the compose window.
 
    
    .. api-member::
-      :name: 
       :type: object
-      :annotation: 
       
       .. api-member::
          :name: [``cancel``]
          :type: (boolean)
-         :annotation: 
          
          Cancels the send.
       
@@ -409,7 +379,6 @@ Fired when a message is about to be sent from the compose window.
       .. api-member::
          :name: [``details``]
          :type: (:ref:`compose.ComposeDetails`)
-         :annotation: 
          
          Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
       
@@ -418,7 +387,7 @@ Fired when a message is about to be sent from the compose window.
 .. api-header::
    :label: Required permissions
 
-   - ``compose``
+   - :permission:`compose`
 
 .. _compose.onAttachmentAdded:
 
@@ -436,13 +405,11 @@ Fired when an attachment is added to a message being composed.
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``attachment``
       :type: (:ref:`compose.ComposeAttachment`)
-      :annotation: 
    
 
 .. _compose.onAttachmentRemoved:
@@ -461,13 +428,11 @@ Fired when an attachment is removed from a message being composed.
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``attachmentId``
       :type: (integer)
-      :annotation: 
    
 
 .. _compose.onIdentityChanged:
@@ -486,19 +451,17 @@ Fired when the user changes the identity that will be used to send a message bei
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: 
    
    
    .. api-member::
       :name: ``identityId``
       :type: (string)
-      :annotation: 
    
 
 .. api-header::
    :label: Required permissions
 
-   - ``accountsRead``
+   - :permission:`accountsRead`
 
 .. rst-class:: api-main-section
 
@@ -521,7 +484,6 @@ Represents an attachment in a message being composed.
    .. api-member::
       :name: ``id``
       :type: (integer)
-      :annotation: 
       
       A unique identifier for this attachment.
    
@@ -529,7 +491,6 @@ Represents an attachment in a message being composed.
    .. api-member::
       :name: ``name``
       :type: (string)
-      :annotation: 
       
       The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
    
@@ -567,19 +528,16 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``bcc``]
       :type: (:ref:`compose.ComposeRecipientList`)
-      :annotation: 
    
    
    .. api-member::
       :name: [``body``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``cc``]
       :type: (:ref:`compose.ComposeRecipientList`)
-      :annotation: 
    
    
    .. api-member::
@@ -593,7 +551,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (string)
       :annotation: -- [Added in TB 76]
       
-      The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission ``accountsRead`` is required to include the ``identityId``.
+      The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
    
    
    .. api-member::
@@ -617,19 +575,16 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``replyTo``]
       :type: (:ref:`compose.ComposeRecipientList`)
-      :annotation: 
    
    
    .. api-member::
       :name: [``subject``]
       :type: (string)
-      :annotation: 
    
    
    .. api-member::
       :name: [``to``]
       :type: (:ref:`compose.ComposeRecipientList`)
-      :annotation: 
    
 
 .. _compose.ComposeRecipient:
@@ -663,7 +618,6 @@ OR
          .. api-member::
             :name: ``id``
             :type: (string)
-            :annotation: 
             
             The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
          
@@ -671,7 +625,6 @@ OR
          .. api-member::
             :name: ``type``
             :type: (`string`)
-            :annotation: 
             
             Which sort of object this ID is for.
             
@@ -682,7 +635,6 @@ OR
             
             .. api-member::
                :name: ``mailingList``
-            
          
    
 
