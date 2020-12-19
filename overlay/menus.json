@@ -1,0 +1,21 @@
+[
+  {
+    "namespace": "menus",
+    "types": [
+      {
+        "id": "OnClickData",
+        "properties": {
+          "displayedFolder": {
+            "description": "The displayed folder, if the context menu was opened in the message list. The ``accountsRead`` permission is required."
+          },
+          "selectedFolder": {
+            "description": "The selected folder, if the context menu was opened in the folder pane. The ``accountsRead`` permission is required."
+          },
+          "selectedMessages" : {
+            "description": "The selected messages, if the context menu was opened in the message list. The ``messagesRead`` permission is required."
+          }
+        }
+      }
+    ]
+  }
+]

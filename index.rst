@@ -133,6 +133,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   mailTabs
   menus
   messageDisplay
+  messageDisplayAction
   messages
   tabs
   windows
@@ -144,13 +145,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   how-to/eventListeners
   how-to/messageLists
   how-to/experiments
-
-.. toctree::
-  :glob:
-  :hidden:
-  :caption: Changes to APIs
-
-  changes/*
 
 Where To Get Help
 =================

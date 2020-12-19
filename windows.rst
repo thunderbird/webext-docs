@@ -88,7 +88,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
 - [``createData``] (object)
 
   - [``allowScriptsToClose``] (boolean) Allow scripts to close the window.
-  - [``focused``] (boolean) If true, opens an active window. If false, opens an inactive window.
+  - [``focused``] (boolean) **Unsupported.** If true, opens an active window. If false, opens an inactive window.
   - [``height``] (integer) The height in pixels of the new window, including the frame. If not specified defaults to a natural height.
   - [``incognito``] (boolean) Whether the new window should be an incognito window.
   - [``left``] (integer) The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
@@ -263,6 +263,6 @@ Values for WindowType:
 - ``panel``
 - ``app``
 - ``devtools``
-- ``addressBook`` *added in Thunderbird 68.1.1*
-- ``messageCompose`` *added in Thunderbird 68.1.1*
-- ``messageDisplay`` *added in Thunderbird 68.1.1*
+- ``addressBook`` *Added in Thunderbird 70, backported to 68.1.1*
+- ``messageCompose`` *Added in Thunderbird 70, backported to 68.1.1*
+- ``messageDisplay`` *Added in Thunderbird 70, backported to 68.1.1*
