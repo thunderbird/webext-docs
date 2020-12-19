@@ -29,7 +29,7 @@ def merge_objects(a, b):
                 continue
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
-            if e not in b:
+            if e not in b or e in ["description"]:
                 b[e] = f
                 continue
             if e not in ["namespace", "name", "id", "$extend"]:
@@ -111,7 +111,9 @@ def format_member(name, value):
     else:
         type_string = "%s"
 
-    if value.get("deprecated"):
+    if "unsupported" in value:
+        type_string += " **Unsupported.**"
+    elif "deprecated" in value:
         type_string += " **Deprecated.**"
 
     if "type" in value or "$ref" in value:
@@ -128,7 +130,6 @@ def format_member(name, value):
 
     if "added" in value or "changed" in value:
         parts.append(format_addition(value))
-    
     return " ".join(parts)
 
 
@@ -143,6 +144,11 @@ def format_enum(name, value):
         "",
     ]
     for enum_value in value.get("enum"):
+        if "enumChanges" in value:
+            changes = value.get("enumChanges")
+            if enum_value in changes:
+                enum_lines.append("- ``%s`` %s" % (enum_value, format_addition(changes.get(enum_value))))
+                continue
         enum_lines.append("- ``%s``" % enum_value)
     enum_lines.append("")
     return enum_lines
@@ -292,7 +298,7 @@ def format_namespace(namespace, manifest_namespace=None):
             ))
             enum_lines = []
 
-            if "added" in function:
+            if "added" in function or "changed" in function:
                 lines.append(format_addition(function))
                 lines.append("")
 
@@ -389,7 +395,12 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
 
             if "type" in type_:
-                lines.append(get_type(type_, type_["id"]))
+                if (type_["type"] == "object" and
+                        "isInstanceOf" not in type_ and
+                        ("properties" in type_ or "functions" in type_)):
+                    lines.append("object")
+                else:
+                    lines.append(get_type(type_, type_["id"]))
                 lines.append("")
                 enum_lines.extend(format_enum(type_["id"], type_))
 
@@ -418,8 +429,15 @@ def format_namespace(namespace, manifest_namespace=None):
                         lines.extend(format_object(key, value))
                         enum_lines.extend(format_enum(key, value))
                         unique_id += 1
-                lines.append("")
 
+            if "functions" in type_:
+                for function in sorted(type_["functions"], key=lambda f: f["name"]):
+                    lines.append("- ``%s(%s)``" % (function["name"], format_params(function)))
+                    description = function.get("description", "")
+                    if description:
+                        lines[-1] += " %s" % description
+
+            lines.append("")
             lines.extend(enum_lines)
 
     index = 0
@@ -460,7 +478,12 @@ def format_manifest_namespace(manifest):
         if type_.get("$extend", None) == "WebExtensionManifest":
             for [name, value] in type_["properties"].items():
                 property_lines.extend(format_object(name, value))
-        if type_.get("$extend", None) in ["OptionalPermission", "Permission"]:
+        if type_.get("$extend", None) in [
+            "OptionalPermission",
+            "OptionalPermissionNoPrompt",
+            "Permission",
+            "PermissionNoPrompt"
+        ]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
                     if value in permission_strings:
@@ -516,7 +539,8 @@ if __name__ == "__main__":
             content = fp_input.read()
             content = re.sub(r"(^|\n)//.*", "", content)
             document = json.loads(content)
-
+        print("Reading file: " + filename + ".json")
+        
         if os.path.exists(os.path.join(OVERLAY_DIR, filename + ".json")):
             with open(os.path.join(OVERLAY_DIR, filename + ".json")) as fp_overlay:
                 overlay = json.load(fp_overlay)
@@ -527,15 +551,10 @@ if __name__ == "__main__":
         for namespace in document:
             if namespace["namespace"] == "manifest":
                 manifest_namespace = format_manifest_namespace(namespace)
+
+        for namespace in document:
+            if namespace["namespace"] == "manifest":
                 continue
 
-            with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
-                fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))
-                manifest_namespace = None
-
-        if manifest_namespace is not None:
-            namespace = {
-                "namespace": filename
-            }
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
                 fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))

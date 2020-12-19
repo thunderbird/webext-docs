@@ -49,7 +49,7 @@ Creates a new tab.
 
   - [``active``] (boolean) Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to ``true``.
   - [``index``] (integer) The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
-  - [``selected``] (boolean) **Deprecated.** Whether the tab should become the selected tab in the window. Defaults to ``true``
+  - [``selected``] (boolean) **Unsupported.** Whether the tab should become the selected tab in the window. Defaults to ``true``
   - [``url``] (string) The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
   - [``windowId``] (integer) The window to create the new tab in. Defaults to the current window.
 
@@ -302,7 +302,7 @@ object
 - ``active`` (boolean) Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
 - ``highlighted`` (boolean) Whether the tab is highlighted. Works as an alias of active
 - ``index`` (integer) The zero-based index of the tab within its window.
-- ``selected`` (boolean) **Deprecated.** Whether the tab is selected.
+- ``selected`` (boolean) **Unsupported.** Whether the tab is selected.
 - [``favIconUrl``] (string) The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
 - [``height``] (integer) The height of the tab in pixels.
 - [``id``] (integer) The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
