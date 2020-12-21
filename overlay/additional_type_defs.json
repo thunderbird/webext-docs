@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ThemeIcons",
+    "type": "object",
+    "description": "Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.",
+    "properties": {
+      "dark": {
+        "type": "string",
+        "description": "A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no <code>default_icon</code> is specified)."
+      },
+      "light": {
+        "type": "string",
+        "description": "A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme)."
+      },
+      "size": {
+        "type": "integer",
+        "description": "The size of the two icons in pixels, for example <code>16</code> or <code>32</code>."
+      }
+    }
+  },
+  {
+    "id": "extensionTypes.ExtensionFileOrCode",
+    "name":"ExtensionFileOrCode",
+    "type": "object",
+    "description": "Specify code, either by pointing to a file or by providing the code directly. Only one of the two is allowed.",
+    "properties": {
+      "file": {
+        "type": "string",
+        "description": "A URL starting at the extension's manifest.json and pointing to a JavaScript file to register."
+      },
+      "code": {
+        "type": "string",
+        "description": "Some JavaScript code to register."
+      }
+    }
+  } 
+]

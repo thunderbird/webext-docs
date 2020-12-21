@@ -1,6 +1,60 @@
 [
   {
     "namespace": "windows",
+    "functions": [
+      {
+        "name": "get",
+        "parameters": [
+          {
+            "name": "getInfo",
+            "properties": {
+              "populate": {
+                "description": "If true, the :ref:`windows.Window` object will have a <var>tabs</var> property that contains a list of the :ref:`tabs.Tab` objects. The <code>Tab</code> objects only contain the <code>url</code>, <code>title</code> and <code>favIconUrl</code> properties if the extension's manifest file includes the <permission>tabs</permission> permission."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "getCurrent",
+        "parameters": [
+          {
+            "name": "getInfo",
+            "properties": {
+              "populate": {
+                "description": "If true, the :ref:`windows.Window` object will have a <var>tabs</var> property that contains a list of the :ref:`tabs.Tab` objects. The <code>Tab</code> objects only contain the <code>url</code>, <code>title</code> and <code>favIconUrl</code> properties if the extension's manifest file includes the <permission>tabs</permission> permission."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "getLastFocused",
+        "parameters": [
+          {
+            "name": "getInfo",
+            "properties": {
+              "populate": {
+                "description": "If true, the :ref:`windows.Window` object will have a <var>tabs</var> property that contains a list of the :ref:`tabs.Tab` objects. The <code>Tab</code> objects only contain the <code>url</code>, <code>title</code> and <code>favIconUrl</code> properties if the extension's manifest file includes the <permission>tabs</permission> permission."
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "getAll",
+        "parameters": [
+          {
+            "name": "getInfo",
+            "properties": {
+              "populate": {
+                "description": "If true, each :ref:`windows.Window` object will have a <var>tabs</var> property that contains a list of the :ref:`tabs.Tab` objects for that window. The <code>Tab</code> objects only contain the <code>url</code>, <code>title</code> and <code>favIconUrl</code> properties if the extension's manifest file includes the <permission>tabs</permission> permission."
+              }
+            }
+          }
+        ]
+      }
+    ],
     "types": [
       {
         "id": "WindowType",

@@ -1,0 +1,53 @@
+[
+  {
+    "namespace": "tabs",
+    "types": [
+      {
+        "id": "Tab",
+        "properties": {
+          "url": {"type": "string", "optional": true, "permissions": ["tabs"], "description": "The URL the tab is displaying. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission."},
+          "title": {"type": "string", "optional": true, "permissions": ["tabs"], "description": "The title of the tab. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission."},
+          "favIconUrl": {"type": "string", "optional": true, "permissions": ["tabs"], "description": "The URL of the tab's favicon. This property is only present if the extension's manifest includes the <permission>tabs</permission> permission. It may also be an empty string if the tab is loading."}
+        }
+      },
+      {
+        "id": "UpdateFilter",
+        "properties": {
+          "urls": {
+            "description": "A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the <permission>tabs</permission> or  <permission>activeTab</permission> permission."
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "duplicate",
+        "parameters": [
+          {
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "tab",
+                "description": "Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain <code>url</code>, <code>title</code> and <code>favIconUrl</code> if the <permission>tabs</permission> permission has not been requested."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "update",
+        "parameters": [
+          {
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "tab",
+                "description": "Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain <code>url</code>, <code>title</code> and <code>favIconUrl</code> if the <permission>tabs</permission> permission has not been requested."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

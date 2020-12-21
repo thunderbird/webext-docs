@@ -15,15 +15,30 @@ The messages API first appeared in Thunderbird 66.
   Some functions in this API potentially return *a lot* of messages. Be careful what you wish for!
   See :doc:`how-to/messageLists` for more information.
 
+.. role:: permission
+
+.. rst-class:: api-main-section
+
 Permissions
 ===========
 
-- messagesMove "Move, copy, or delete your email messages"
-- messagesRead "Read your email messages and mark or tag them"
+.. api-member::
+   :name: :permission:`messagesMove`
+
+   Move, copy, or delete your email messages
+
+.. api-member::
+   :name: :permission:`messagesRead`
+
+   Read your email messages and mark or tag them
+
+.. rst-class:: api-permission-info
 
 .. note::
 
-  The permission ``messagesRead`` is required to use ``messages``.
+   The permission :permission:`messagesRead` is required to use ``messages``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -33,182 +48,493 @@ Functions
 list(folder)
 ------------
 
+.. api-section-annotation-hack:: 
+
 Gets all messages in a folder.
 
-- ``folder`` (:ref:`folders.MailFolder`)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
 
-- :ref:`messages.MessageList`
+.. api-header::
+   :label: Return type (`Promise`_)
 
-.. note::
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-  The permission ``accountsRead`` is required to use ``list``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
 
 .. _messages.continueList:
 
 continueList(messageListId)
 ---------------------------
 
+.. api-section-annotation-hack:: 
+
 Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
 
-- ``messageListId`` (string)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
 
-- :ref:`messages.MessageList`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.get:
 
 get(messageId)
 --------------
 
+.. api-section-annotation-hack:: 
+
 Returns a specified message.
 
-- ``messageId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
 
-- :ref:`messages.MessageHeader`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageHeader`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.getFull:
 
 getFull(messageId)
 ------------------
 
+.. api-section-annotation-hack:: 
+
 Returns a specified message, including all headers and MIME parts.
 
-- ``messageId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
 
-- :ref:`messages.MessagePart`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessagePart`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.getRaw:
 
 getRaw(messageId)
 -----------------
 
-*Added in Thunderbird 68.7*
+.. api-section-annotation-hack:: -- [Added in TB 68.7]
 
 Returns the unmodified source of a message.
 
-- ``messageId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
 
-- string
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.query:
 
 query(queryInfo)
 ----------------
 
-*Added in Thunderbird 68.2*
+.. api-section-annotation-hack:: -- [Added in TB 68.2]
 
 Gets all messages that have the specified properties, or all messages if no properties are specified.
 
-- ``queryInfo`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``author``] (string) Returns only messages with this value matching the author.
-  - [``body``] (string) Returns only messages with this value in the body of the mail.
-  - [``flagged``] (boolean) Returns only flagged (or unflagged if false) messages.
-  - [``folder``] (:ref:`folders.MailFolder`) Returns only messages from the specified folder. The ``accountsRead`` permission is required.
-  - [``fromDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date after this value.
-  - [``fromMe``] (boolean) Returns only messages with the author matching any configured identity.
-  - [``fullText``] (string) Returns only messages with this value somewhere in the mail (subject, body or author).
-  - [``recipients``] (string) Returns only messages with this value matching one or more recipients.
-  - [``subject``] (string) Returns only messages with this value matching the subject.
-  - [``toDate``] (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_) Returns only messages with a date before this value.
-  - [``toMe``] (boolean) Returns only messages with one or more recipients matching any configured identity.
-  - [``unread``] (boolean) Returns only unread (or read if false) messages.
+   
+   .. api-member::
+      :name: ``queryInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``author``]
+         :type: (string)
+         
+         Returns only messages with this value matching the author.
+      
+      
+      .. api-member::
+         :name: [``body``]
+         :type: (string)
+         
+         Returns only messages with this value in the body of the mail.
+      
+      
+      .. api-member::
+         :name: [``flagged``]
+         :type: (boolean)
+         
+         Returns only flagged (or unflagged if false) messages.
+      
+      
+      .. api-member::
+         :name: [``folder``]
+         :type: (:ref:`folders.MailFolder`)
+         
+         Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
+      
+      
+      .. api-member::
+         :name: [``fromDate``]
+         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
+         
+         Returns only messages with a date after this value.
+      
+      
+      .. api-member::
+         :name: [``fromMe``]
+         :type: (boolean)
+         
+         Returns only messages with the author matching any configured identity.
+      
+      
+      .. api-member::
+         :name: [``fullText``]
+         :type: (string)
+         
+         Returns only messages with this value somewhere in the mail (subject, body or author).
+      
+      
+      .. api-member::
+         :name: [``recipients``]
+         :type: (string)
+         
+         Returns only messages with this value matching one or more recipients.
+      
+      
+      .. api-member::
+         :name: [``subject``]
+         :type: (string)
+         
+         Returns only messages with this value matching the subject.
+      
+      
+      .. api-member::
+         :name: [``toDate``]
+         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
+         
+         Returns only messages with a date before this value.
+      
+      
+      .. api-member::
+         :name: [``toMe``]
+         :type: (boolean)
+         
+         Returns only messages with one or more recipients matching any configured identity.
+      
+      
+      .. api-member::
+         :name: [``unread``]
+         :type: (boolean)
+         
+         Returns only unread (or read if false) messages.
+      
+   
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- :ref:`messages.MessageList`
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.update:
 
 update(messageId, newProperties)
 --------------------------------
 
+.. api-section-annotation-hack:: 
+
 Marks or unmarks a message as read, flagged, or tagged.
 
-- ``messageId`` (integer)
-- ``newProperties`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``flagged``] (boolean) Marks the message as flagged or unflagged.
-  - [``junk``] (boolean) Marks the message as junk or not junk. *Added in Thunderbird 68.7*
-  - [``read``] (boolean) Marks the message as read or unread.
-  - [``tags``] (array of string) Sets the tags on the message. For a list of available tags, call the listTags method.
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``newProperties``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``flagged``]
+         :type: (boolean)
+         
+         Marks the message as flagged or unflagged.
+      
+      
+      .. api-member::
+         :name: [``junk``]
+         :type: (boolean)
+         :annotation: -- [Added in TB 68.7]
+         
+         Marks the message as junk or not junk.
+      
+      
+      .. api-member::
+         :name: [``read``]
+         :type: (boolean)
+         
+         Marks the message as read or unread.
+      
+      
+      .. api-member::
+         :name: [``tags``]
+         :type: (array of string)
+         
+         Sets the tags on the message. For a list of available tags, call the listTags method.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.move:
 
 move(messageIds, destination)
 -----------------------------
 
+.. api-section-annotation-hack:: 
+
 Moves messages to a specified folder.
 
-- ``messageIds`` (array of integer) The IDs of the messages to move.
-- ``destination`` (:ref:`folders.MailFolder`) The folder to move the messages to.
+.. api-header::
+   :label: Parameters
 
-.. note::
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to move.
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The folder to move the messages to.
+   
 
-  The permissions ``accountsRead`` and ``messagesMove`` are required to use ``move``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+   - :permission:`messagesMove`
 
 .. _messages.copy:
 
 copy(messageIds, destination)
 -----------------------------
 
+.. api-section-annotation-hack:: 
+
 Copies messages to a specified folder.
 
-- ``messageIds`` (array of integer) The IDs of the messages to copy.
-- ``destination`` (:ref:`folders.MailFolder`) The folder to copy the messages to.
+.. api-header::
+   :label: Parameters
 
-.. note::
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to copy.
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The folder to copy the messages to.
+   
 
-  The permissions ``accountsRead`` and ``messagesMove`` are required to use ``copy``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+   - :permission:`messagesMove`
 
 .. _messages.delete:
 
 delete(messageIds, [skipTrash])
 -------------------------------
 
+.. api-section-annotation-hack:: 
+
 Deletes messages, or moves them to the trash folder.
 
-- ``messageIds`` (array of integer) The IDs of the messages to delete.
-- [``skipTrash``] (boolean) If true, the message will be permanently deleted without warning the user. If false or not specified, it will be moved to the trash folder.
+.. api-header::
+   :label: Parameters
 
-.. note::
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to delete.
+   
+   
+   .. api-member::
+      :name: [``skipTrash``]
+      :type: (boolean)
+      
+      If true, the message will be permanently deleted without warning the user. If false or not specified, it will be moved to the trash folder.
+   
 
-  The permission ``messagesMove`` is required to use ``delete``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesMove`
 
 .. _messages.archive:
 
 archive(messageIds)
 -------------------
 
+.. api-section-annotation-hack:: 
+
 Archives messages using the current settings.
 
-- ``messageIds`` (array of integer) The IDs of the messages to archive.
+.. api-header::
+   :label: Parameters
 
-.. note::
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to archive.
+   
 
-  The permission ``messagesMove`` is required to use ``archive``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesMove`
 
 .. _messages.listTags:
 
 listTags()
 ----------
 
+.. api-section-annotation-hack:: 
+
 Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- array of :ref:`messages.MessageTag`
+   
+   .. api-member::
+      :type: array of :ref:`messages.MessageTag`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -218,57 +544,183 @@ Types
 MessageHeader
 -------------
 
-object
+.. api-section-annotation-hack:: 
 
-- ``author`` (string)
-- ``bccList`` (array of string)
-- ``ccList`` (array of string)
-- ``date`` (date)
-- ``flagged`` (boolean)
-- ``folder`` (:ref:`folders.MailFolder`) The ``accountsRead`` permission is required.
-- ``id`` (integer)
-- ``read`` (boolean)
-- ``recipients`` (array of string)
-- ``subject`` (string)
-- ``tags`` (array of string)
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``author``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``bccList``
+      :type: (array of string)
+   
+   
+   .. api-member::
+      :name: ``ccList``
+      :type: (array of string)
+   
+   
+   .. api-member::
+      :name: ``date``
+      :type: (date)
+   
+   
+   .. api-member::
+      :name: ``flagged``
+      :type: (boolean)
+   
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The :permission:`accountsRead` permission is required.
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``read``
+      :type: (boolean)
+   
+   
+   .. api-member::
+      :name: ``recipients``
+      :type: (array of string)
+   
+   
+   .. api-member::
+      :name: ``subject``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``tags``
+      :type: (array of string)
+   
 
 .. _messages.MessageList:
 
 MessageList
 -----------
 
+.. api-section-annotation-hack:: 
+
 See :doc:`how-to/messageLists` for more information.
 
-object
+.. api-header::
+   :label: object
 
-- ``id`` (string)
-- ``messages`` (array of :ref:`messages.MessageHeader`)
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``messages``
+      :type: (array of :ref:`messages.MessageHeader`)
+   
 
 .. _messages.MessagePart:
 
 MessagePart
 -----------
 
+.. api-section-annotation-hack:: 
+
 Represents an email message "part", which could be the whole message
 
-object
+.. api-header::
+   :label: object
 
-- [``body``] (string) The content of the part
-- [``contentType``] (string)
-- [``headers``] (object) An object of part headers, with the header name as key, and an array of header values as value
-- [``name``] (string) Name of the part, if it is a file
-- [``partName``] (string)
-- [``parts``] (array of :ref:`messages.MessagePart`) Any sub-parts of this part
-- [``size``] (integer)
+   
+   .. api-member::
+      :name: [``body``]
+      :type: (string)
+      
+      The content of the part
+   
+   
+   .. api-member::
+      :name: [``contentType``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``headers``]
+      :type: (object)
+      
+      An object of part headers, with the header name as key, and an array of header values as value
+   
+   
+   .. api-member::
+      :name: [``name``]
+      :type: (string)
+      
+      Name of the part, if it is a file
+   
+   
+   .. api-member::
+      :name: [``partName``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``parts``]
+      :type: (array of :ref:`messages.MessagePart`)
+      
+      Any sub-parts of this part
+   
+   
+   .. api-member::
+      :name: [``size``]
+      :type: (integer)
+   
 
 .. _messages.MessageTag:
 
 MessageTag
 ----------
 
-object
+.. api-section-annotation-hack:: 
 
-- ``color`` (string) Tag color
-- ``key`` (string) Distinct tag identifier – use this string when referring to a tag
-- ``ordinal`` (string) Custom sort string (usually empty)
-- ``tag`` (string) Human-readable tag name
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``color``
+      :type: (string)
+      
+      Tag color
+   
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Distinct tag identifier – use this string when referring to a tag
+   
+   
+   .. api-member::
+      :name: ``ordinal``
+      :type: (string)
+      
+      Custom sort string (usually empty)
+   
+   
+   .. api-member::
+      :name: ``tag``
+      :type: (string)
+      
+      Human-readable tag name
+   

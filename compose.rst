@@ -6,6 +6,10 @@ This message composition window API first appeared in Thunderbird 67 (see `bug 1
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
 
+.. role:: permission
+
+.. rst-class:: api-main-section
+
 Functions
 =========
 
@@ -14,41 +18,88 @@ Functions
 beginNew([details])
 -------------------
 
-- [``details``] (:ref:`compose.ComposeParams`)
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``details``]
+      :type: (:ref:`compose.ComposeParams`)
+   
 
 .. _compose.beginReply:
 
 beginReply(messageId, [replyType])
 ----------------------------------
 
-- ``messageId`` (integer) The message to reply to, as retrieved using other APIs.
-- [``replyType``] (`string <enum_replyType_3_>`_)
+.. api-section-annotation-hack:: 
 
-.. _enum_replyType_3:
+.. api-header::
+   :label: Parameters
 
-Values for replyType:
-
-- ``replyToSender``
-- ``replyToList``
-- ``replyToAll``
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+      
+      The message to reply to, as retrieved using other APIs.
+   
+   
+   .. api-member::
+      :name: [``replyType``]
+      :type: (`string`)
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``replyToSender``
+      
+      .. api-member::
+         :name: ``replyToList``
+      
+      .. api-member::
+         :name: ``replyToAll``
+   
 
 .. _compose.beginForward:
 
 beginForward(messageId, [forwardType], [details])
 -------------------------------------------------
 
-- ``messageId`` (integer) The message to forward, as retrieved using other APIs.
-- [``forwardType``] (`string <enum_forwardType_5_>`_)
-- [``details``] (:ref:`compose.ComposeParams`)
+.. api-section-annotation-hack:: 
 
-.. _enum_forwardType_5:
+.. api-header::
+   :label: Parameters
 
-Values for forwardType:
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+      
+      The message to forward, as retrieved using other APIs.
+   
+   
+   .. api-member::
+      :name: [``forwardType``]
+      :type: (`string`)
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``forwardInline``
+      
+      .. api-member::
+         :name: ``forwardAsAttachment``
+   
+   
+   .. api-member::
+      :name: [``details``]
+      :type: (:ref:`compose.ComposeParams`)
+   
 
-- ``forwardInline``
-- ``forwardAsAttachment``
-
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -58,32 +109,89 @@ Types
 ComposeParams
 -------------
 
-object
+.. api-section-annotation-hack:: 
 
-- [``bcc``] (array of :ref:`compose.ComposeRecipient`)
-- [``body``] (string)
-- [``cc``] (array of :ref:`compose.ComposeRecipient`)
-- [``replyTo``] (string)
-- [``subject``] (string)
-- [``to``] (array of :ref:`compose.ComposeRecipient`)
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``bcc``]
+      :type: (array of :ref:`compose.ComposeRecipient`)
+   
+   
+   .. api-member::
+      :name: [``body``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``cc``]
+      :type: (array of :ref:`compose.ComposeRecipient`)
+   
+   
+   .. api-member::
+      :name: [``replyTo``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``subject``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``to``]
+      :type: (array of :ref:`compose.ComposeRecipient`)
+   
 
 .. _compose.ComposeRecipient:
 
 ComposeRecipient
 ----------------
 
-string: A name and email address in the format "Name <email@example.com>", or just an email address.
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         A name and email address in the format "Name <email@example.com>", or just an email address.
+   
 
 OR
 
-object: 
+.. api-header::
+   :label: object
 
-  - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_14_>`_) Which sort of object this ID is for.
-
-.. _enum_type_14:
-
-Values for type:
-
-- ``contact``
-- ``mailingList``
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         .. api-member::
+            :name: ``id``
+            :type: (string)
+            
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+         
+         
+         .. api-member::
+            :name: ``type``
+            :type: (`string`)
+            
+            Which sort of object this ID is for.
+            
+            Supported values:
+            
+            .. api-member::
+               :name: ``contact``
+            
+            .. api-member::
+               :name: ``mailingList``
+         
+   
