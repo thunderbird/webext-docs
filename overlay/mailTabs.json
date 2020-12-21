@@ -13,10 +13,25 @@
       },
       {
         "name": "getSelectedMessages",
+        "description": "Lists the selected messages in the current folder.",
+        "permissions": ["messagesRead"],
         "returns": {
           "$ref": "messages.MessageList"
         }
-      }
+      },
+      {
+        "name": "update",
+        "parameters": [
+          {
+            "name": "updateProperties",
+            "properties": {
+              "displayedFolder": {
+                "description": "Sets the folder displayed in the tab. The <permission>messagesRead</permission> permission is required to do this."
+              }
+            }
+          }
+        ]
+      }      
     ],
     "events": [
       {
@@ -95,7 +110,7 @@
           },
           "displayedFolder": {
             "$ref": "folders.MailFolder",
-            "description": "The ``accountsRead`` permission is required."
+            "description": "The <permission>accountsRead</permission> permission is required."
           }
         }
       }
