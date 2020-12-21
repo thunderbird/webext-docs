@@ -23,7 +23,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`accountsFolders` is required to use ``folders``.
+   The permission :permission:`accountsFolders` is required to use ``folders``.
 
 .. rst-class:: api-main-section
 
@@ -53,6 +53,11 @@ Creates a new subfolder of ``parentFolder``.
       :type: (string)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsFolders`
+
 .. _folders.rename:
 
 rename(folder, newName)
@@ -76,6 +81,11 @@ Renames a folder.
       :type: (string)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsFolders`
+
 .. _folders.delete:
 
 delete(folder)
@@ -93,6 +103,11 @@ Deletes a folder.
       :name: ``folder``
       :type: (:ref:`folders.MailFolder`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsFolders`
 
 .. rst-class:: api-main-section
 

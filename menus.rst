@@ -28,7 +28,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`menus` is required to use ``menus``.
+   The permission :permission:`menus` is required to use ``menus``.
 
 .. rst-class:: api-main-section
 
@@ -168,6 +168,11 @@ Creates a new context menu item. Note that if an error occurs during creation, y
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.update:
 
 update(id, updateProperties)
@@ -259,6 +264,11 @@ Updates a previously created context menu item.
       
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.remove:
 
 remove(menuItemId)
@@ -279,6 +289,11 @@ Removes a context menu item.
       The ID of the context menu item to remove.
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.removeAll:
 
 removeAll()
@@ -287,6 +302,11 @@ removeAll()
 .. api-section-annotation-hack:: 
 
 Removes all context menu items added by this extension.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
 
 .. _menus.overrideContext:
 
@@ -335,6 +355,7 @@ Show the matching menu items from this extension instead of the default menu. Th
 .. api-header::
    :label: Required permissions
 
+   - :permission:`menus`
    - :permission:`menus.overrideContext`
 
 .. _menus.refresh:
@@ -345,6 +366,11 @@ refresh()
 .. api-section-annotation-hack:: 
 
 Updates the extension items in the shown menu, including changes that have been made since the menu was shown. Has no effect if the menu is hidden. Rebuilding a shown menu is an expensive operation, only invoke this method when necessary.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
 
 .. rst-class:: api-main-section
 
@@ -377,6 +403,11 @@ Fired when a context menu item is clicked.
       
       The details of the tab where the click took place. If the click did not take place in a tab, this parameter will be missing.
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
 
 .. _menus.onShown:
 
@@ -469,6 +500,11 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       The details of the tab where the menu was opened.
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.onHidden:
 
 onHidden()
@@ -477,6 +513,11 @@ onHidden()
 .. api-section-annotation-hack:: 
 
 Fired when a menu is hidden. This event is only fired if onShown has fired before.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
 
 .. rst-class:: api-main-section
 

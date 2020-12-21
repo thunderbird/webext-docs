@@ -24,7 +24,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`addressBooks` is required to use ``mailingLists``.
+   The permission :permission:`addressBooks` is required to use ``mailingLists``.
 
 .. rst-class:: api-main-section
 
@@ -59,6 +59,11 @@ Gets all the mailing lists in the address book with id ``parentId``.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _mailingLists.get:
 
 get(id)
@@ -86,6 +91,11 @@ Gets a single mailing list.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.create:
 
@@ -137,6 +147,11 @@ Creates a new mailing list in the address book with id ``parentId``.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _mailingLists.update:
 
 update(id, properties)
@@ -175,6 +190,11 @@ Edits the properties of a mailing list.
       
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _mailingLists.delete:
 
 delete(id)
@@ -192,6 +212,11 @@ Removes the mailing list.
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.addMember:
 
@@ -215,6 +240,11 @@ Adds a contact to the mailing list with id ``id``. If the contact and mailing li
       :name: ``contactId``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.listMembers:
 
@@ -244,6 +274,11 @@ Gets all contacts that are members of the mailing list with id ``id``.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _mailingLists.removeMember:
 
 removeMember(id, contactId)
@@ -266,6 +301,11 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
       :name: ``contactId``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. rst-class:: api-main-section
 
@@ -290,6 +330,11 @@ Fired when a mailing list is created.
       :type: (:ref:`mailingLists.MailingListNode`)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _mailingLists.onUpdated:
 
 onUpdated(node)
@@ -307,6 +352,11 @@ Fired when a mailing list is changed.
       :name: ``node``
       :type: (:ref:`mailingLists.MailingListNode`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.onDeleted:
 
@@ -331,6 +381,11 @@ Fired when a mailing list is deleted.
       :type: (string)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _mailingLists.onMemberAdded:
 
 onMemberAdded(node)
@@ -348,6 +403,11 @@ Fired when a contact is added to the mailing list.
       :name: ``node``
       :type: (:ref:`contacts.ContactNode`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.onMemberRemoved:
 
@@ -371,6 +431,11 @@ Fired when a contact is removed from the mailing list.
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. rst-class:: api-main-section
 

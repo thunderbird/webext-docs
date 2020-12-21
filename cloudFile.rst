@@ -72,7 +72,7 @@ Manifest file properties
 
 .. note::
 
-  A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
+   A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
 
 .. rst-class:: api-main-section
 

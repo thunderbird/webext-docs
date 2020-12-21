@@ -17,7 +17,7 @@ display action (similar to :doc:`browserAction` and :doc:`composeAction`).
 
 .. note::
 
-  The permission :permission:`messagesRead` is required to use ``messageDisplay``.
+   The permission :permission:`messagesRead` is required to use ``messageDisplay``.
 
 .. rst-class:: api-main-section
 
@@ -52,6 +52,11 @@ Gets the currently displayed message in the specified tab. It returns null if no
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messageDisplay.getDisplayedMessages:
 
 getDisplayedMessages(tabId)
@@ -79,6 +84,11 @@ Gets an array of the currently displayed messages in the specified tab. The arra
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. rst-class:: api-main-section
 
@@ -110,6 +120,11 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
       :type: (:ref:`messages.MessageHeader`)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messageDisplay.onMessagesDisplayed:
 
 onMessagesDisplayed(tab, messages)
@@ -132,3 +147,8 @@ Fired when either a single message is displayed or when multiple messages are di
       :name: ``messages``
       :type: (array of :ref:`messages.MessageHeader`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`

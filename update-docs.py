@@ -270,54 +270,71 @@ def format_params(function, callback=None):
     return ", ".join(params)
 
 
-def format_permissions(obj, use_info_box=True):
-    if "permissions" not in obj:
-        return []
-
-    lines = []
-    manifest_entries = []
-    permission_entries = []
-    text = ""
-    
+def format_permissions(obj, namespace_obj = None):
     name = obj.get("namespace", obj.get("name"))
-    if len(obj["permissions"]) == 1:
-        permission = obj["permissions"][0]
-        if permission.startswith("manifest:"):
-            permission = permission[9:]
-            text = "  A manifest entry named ``%s`` is required to use ``%s``." % (permission, name)
-            manifest_entries.append(permission)
-        else:
-            text = "  The permission :permission:`%s` is required to use ``%s``." % (permission, name)
-            permission_entries.append(permission)
-    else:
-        permissions = ""
+    entries = {
+        "manifest" : {
+            "single" : "A manifest entry named %s is required to use ``%s``.",
+            "multiple" : "The manifest entrys %s and %s are required to use ``%s``.",
+            "entries" : [],
+            },
+        "permissions" : {
+            "single" : "The permission %s is required to use ``%s``.",
+            "multiple" : "The permissions %s and %s are required to use ``%s``.",
+            "entries" : []
+            },
+    }
+    
+    # read the global permissions first (if provided)
+    if namespace_obj and "permissions" in namespace_obj:
+        for i in range(0, len(namespace_obj["permissions"])):
+            permission = namespace_obj["permissions"][i]
+            if permission.startswith("manifest:"):
+                continue
+            else:
+                entries['permissions']['entries'].append(":permission:`%s`" % permission)
+
+    if obj and "permissions" in obj:
         for i in range(0, len(obj["permissions"])):
             permission = obj["permissions"][i]
-            permission_entries.append(permission)           
-            if i > 0:
-                if i + 1 == len(obj["permissions"]):
-                    permissions += " and "
-                else:
-                    permissions += ", "
-            permissions += ":permission:`%s`" % permission
-        text = "  The permissions %s are required to use ``%s``." % (permissions, name)
+            if permission.startswith("manifest:"):
+                entries['manifest']['entries'].append("``%s``" % permission[9:])
+            else:
+                entries['permissions']['entries'].append(":permission:`%s`" % permission)
 
-    if use_info_box:
-        lines.extend([
-            "",
-            ".. rst-class:: api-permission-info",
-            "",
-            ".. note::",
-            "",
-            text,
-            "",
-        ])        
-    else:
+    
+    lines = []
+    # if a namespace_obj is provided, we only print a list of required permissions
+    # including the permission required by the namespace itself
+    # manifest entries are ignored
+    if namespace_obj:
         content = []
-        for i in range(0, len(permission_entries)):
-            content.append("- :permission:`%s`" % permission_entries[i])
-        lines.extend(api_header("Required permissions", content))
-
+        for permission in entries['permissions']['entries']:
+            content.append("- %s" % permission)
+        if len(content)>0:
+            lines.extend(api_header("Required permissions", content))
+    else:
+        for entrytype in ['manifest', 'permissions']:
+            entry = entries[entrytype]
+            text = ""
+            if len(entry['entries']) == 0:
+                continue
+            elif len(entry['entries']) == 1:
+                text = entry['single'] % (entry['entries'][0], name)
+            else:
+                last = entry['entries'].pop()
+                text = entry['multiple'] % (", ".join(entry['entries']), last, name)
+                
+            lines.extend([
+                "",
+                ".. rst-class:: api-permission-info",
+                "",
+                ".. note::",
+                "",
+                "   " + text,
+                "",
+            ])        
+        
     return lines
 
 
@@ -461,7 +478,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 content.append(".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise")
                 lines.extend(api_header("Return type (`Promise`_)", content))
 
-            lines.extend(format_permissions(function, use_info_box=False))
+            lines.extend(format_permissions(function, namespace))
             #lines.extend(enum_lines)
             
 
@@ -491,7 +508,7 @@ def format_namespace(namespace, manifest_namespace=None):
             if "returns" in event:
                 lines.extend(api_header("Expected return value of event listeners", format_object("", event["returns"])))
 
-            lines.extend(format_permissions(event, use_info_box=False))
+            lines.extend(format_permissions(event, namespace))
 
     # loop over own type defs and additional type defs   
     for run in range(2):

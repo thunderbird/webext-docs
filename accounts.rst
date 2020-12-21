@@ -22,7 +22,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`accountsRead` is required to use ``accounts``.
+   The permission :permission:`accountsRead` is required to use ``accounts``.
 
 .. rst-class:: api-main-section
 
@@ -47,6 +47,11 @@ Returns all mail accounts.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
 
 .. _accounts.get:
 
@@ -76,6 +81,11 @@ Returns details of the requested account, or null if it doesn't exist.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
 .. _accounts.setDefaultIdentity:
 
 setDefaultIdentity(accountId, identityId)
@@ -98,6 +108,11 @@ Sets the default identity for an account.
       :name: ``identityId``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
 
 .. rst-class:: api-main-section
 

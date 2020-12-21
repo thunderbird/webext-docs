@@ -59,7 +59,7 @@ Manifest file properties
 
 .. note::
 
-  A manifest entry named ``message_display_action`` is required to use ``messageDisplayAction``.
+   A manifest entry named ``message_display_action`` is required to use ``messageDisplayAction``.
 
 .. rst-class:: api-main-section
 
