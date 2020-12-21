@@ -23,7 +23,7 @@ Manifest file properties
 
 .. note::
 
-  A manifest entry named ``commands`` is required to use ``commands``.
+   A manifest entry named ``commands`` is required to use ``commands``.
 
 .. rst-class:: api-main-section
 

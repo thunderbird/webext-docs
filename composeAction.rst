@@ -66,7 +66,7 @@ Manifest file properties
 
 .. note::
 
-  A manifest entry named ``compose_action`` is required to use ``composeAction``.
+   A manifest entry named ``compose_action`` is required to use ``composeAction``.
 
 .. rst-class:: api-main-section
 

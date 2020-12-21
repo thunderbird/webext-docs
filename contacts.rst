@@ -25,7 +25,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`addressBooks` is required to use ``contacts``.
+   The permission :permission:`addressBooks` is required to use ``contacts``.
 
 .. rst-class:: api-main-section
 
@@ -59,6 +59,11 @@ Gets all the contacts in the address book with the id ``parentId``.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _contacts.quickSearch:
 
@@ -97,6 +102,11 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.get:
 
 get(id)
@@ -124,6 +134,11 @@ Gets a single contact.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _contacts.create:
 
@@ -167,6 +182,11 @@ Adds a new contact to the address book with the id ``parentId``.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.update:
 
 update(id, properties)
@@ -190,6 +210,11 @@ Edits the properties of a contact. To remove a property, specify it as ``null``.
       :type: (:ref:`contacts.ContactProperties`)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.delete:
 
 delete(id)
@@ -207,6 +232,11 @@ Removes a contact from the address book. The contact is also removed from any ma
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. rst-class:: api-main-section
 
@@ -236,6 +266,11 @@ Fired when a contact is created.
       :type: (string)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.onUpdated:
 
 onUpdated(node)
@@ -253,6 +288,11 @@ Fired when a contact is changed.
       :name: ``node``
       :type: (:ref:`contacts.ContactNode`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _contacts.onDeleted:
 
@@ -276,6 +316,11 @@ Fired when a contact is removed from an address book.
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. rst-class:: api-main-section
 

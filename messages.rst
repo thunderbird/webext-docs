@@ -36,7 +36,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`messagesRead` is required to use ``messages``.
+   The permission :permission:`messagesRead` is required to use ``messages``.
 
 .. rst-class:: api-main-section
 
@@ -74,6 +74,7 @@ Gets all messages in a folder.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`accountsRead`
 
 .. _messages.continueList:
@@ -104,6 +105,11 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.get:
 
 get(messageId)
@@ -131,6 +137,11 @@ Returns a specified message.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.getFull:
 
@@ -160,6 +171,11 @@ Returns a specified message, including all headers and MIME parts.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.getRaw:
 
 getRaw(messageId)
@@ -187,6 +203,11 @@ Returns the unmodified source of a message.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messages.query:
 
@@ -308,6 +329,11 @@ Gets all messages that have the specified properties, or all messages if no prop
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.update:
 
 update(messageId, newProperties)
@@ -360,6 +386,11 @@ Marks or unmarks a message as read, flagged, or tagged.
       
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.move:
 
 move(messageIds, destination)
@@ -390,6 +421,7 @@ Moves messages to a specified folder.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`accountsRead`
    - :permission:`messagesMove`
 
@@ -423,6 +455,7 @@ Copies messages to a specified folder.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`accountsRead`
    - :permission:`messagesMove`
 
@@ -456,6 +489,7 @@ Deletes messages, or moves them to the trash folder.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesMove`
 
 .. _messages.archive:
@@ -481,6 +515,7 @@ Archives messages using the current settings.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesMove`
 
 .. _messages.listTags:
@@ -501,6 +536,11 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. rst-class:: api-main-section
 
@@ -533,6 +573,7 @@ Fired when a new message is received, and has been through junk classification a
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`accountsRead`
 
 .. rst-class:: api-main-section

@@ -1,4 +1,4 @@
 _build
 chrome_settings_overrides.rst
-conf.py
-overlay/*.rst
+__pycache__
+versionwarning-data.json

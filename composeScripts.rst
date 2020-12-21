@@ -31,7 +31,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`compose` is required to use ``composeScripts``.
+   The permission :permission:`compose` is required to use ``composeScripts``.
 
 .. rst-class:: api-main-section
 
@@ -55,6 +55,11 @@ Register a compose script programmatically
       :name: ``composeScriptOptions``
       :type: (:ref:`composeScripts.RegisteredComposeScriptOptions`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
 
 .. rst-class:: api-main-section
 

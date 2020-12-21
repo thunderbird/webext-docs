@@ -32,7 +32,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`messagesModify` is required to use ``messageDisplayScripts``.
+   The permission :permission:`messagesModify` is required to use ``messageDisplayScripts``.
 
 .. rst-class:: api-main-section
 
@@ -56,6 +56,11 @@ Register a message display script programmatically
       :name: ``messageDisplayScriptOptions``
       :type: (:ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesModify`
 
 .. rst-class:: api-main-section
 

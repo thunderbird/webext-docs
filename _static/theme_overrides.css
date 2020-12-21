@@ -124,7 +124,7 @@ div.container > ul {
 .api-header-section div {
   padding: 6px;
 }
-.api-header-section > div > a {
+.api-header-section > div  a {
   font-size: 95%;
   font-style: italic;
 }

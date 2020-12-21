@@ -61,7 +61,7 @@ Manifest file properties
 
 .. note::
 
-  A manifest entry named ``browser_action`` is required to use ``browserAction``.
+   A manifest entry named ``browser_action`` is required to use ``browserAction``.
 
 .. rst-class:: api-main-section
 

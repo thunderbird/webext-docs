@@ -24,7 +24,7 @@ Permissions
 
 .. note::
 
-  The permission :permission:`addressBooks` is required to use ``addressBooks``.
+   The permission :permission:`addressBooks` is required to use ``addressBooks``.
 
 .. rst-class:: api-main-section
 
@@ -40,6 +40,11 @@ openUI()
 
 Opens the address book user interface.
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _addressBooks.closeUI:
 
 closeUI()
@@ -48,6 +53,11 @@ closeUI()
 .. api-section-annotation-hack:: 
 
 Closes the address book user interface.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _addressBooks.list:
 
@@ -78,6 +88,11 @@ Gets a list of the user's address books, optionally including all contacts and m
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _addressBooks.get:
 
@@ -114,6 +129,11 @@ Gets a single address book, optionally including all contacts and mailing lists.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _addressBooks.create:
 
 create(properties)
@@ -149,6 +169,11 @@ Creates a new, empty address book.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _addressBooks.update:
 
 update(id, properties)
@@ -177,6 +202,11 @@ Renames an address book.
       
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _addressBooks.delete:
 
 delete(id)
@@ -194,6 +224,11 @@ Removes an address book, and all associated contacts and mailing lists.
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. rst-class:: api-main-section
 
@@ -218,6 +253,11 @@ Fired when an address book is created.
       :type: (:ref:`addressBooks.AddressBookNode`)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _addressBooks.onUpdated:
 
 onUpdated(node)
@@ -236,6 +276,11 @@ Fired when an address book is renamed.
       :type: (:ref:`addressBooks.AddressBookNode`)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _addressBooks.onDeleted:
 
 onDeleted(id)
@@ -253,6 +298,11 @@ Fired when an addressBook is deleted.
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. rst-class:: api-main-section
 
