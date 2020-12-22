@@ -1,3 +1,5 @@
+.. _cloudFile_api:
+
 =========
 cloudFile
 =========
@@ -13,27 +15,68 @@ The `DropBox Uploader`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/dropbox
 
+.. role:: permission
+
+.. rst-class:: api-main-section
+
 Manifest file properties
 ========================
 
-- [``cloud_file``] (object)
+.. api-member::
+   :name: [``cloud_file``]
+   :type: (object)
+   
+   .. api-member::
+      :name: ``management_url``
+      :type: (string)
+      
+      A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      Name of the cloud file service.
+   
+   
+   .. api-member::
+      :name: [``data_format``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 71, backported to TB 68.2.1]
+      
+      Determines the format of the ``data`` argument in ``onFileUpload``.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``ArrayBuffer``
+      
+      .. api-member::
+         :name: ``File``
+   
+   
+   .. api-member::
+      :name: [``new_account_url``]
+      :type: (string) **Deprecated.**
+      
+      This property was never used.
+   
+   
+   .. api-member::
+      :name: [``service_url``]
+      :type: (string)
+      
+      URL to the web page of the cloud file service.
+   
 
-  - ``management_url`` (string) A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.
-  - ``name`` (string) Name of the cloud file service.
-  - [``data_format``] (`string <enum_data_format_3_>`_) Determines the format of the ``data`` argument in ``onFileUpload``. *Added in Thunderbird 71, backported to 68.2.1*
-  - [``new_account_url``] (string) **Deprecated.** This property was never used.
-  - [``service_url``] (string) URL to the web page of the cloud file service.
-
-.. _enum_data_format_3:
-
-Values for data_format:
-
-- ``ArrayBuffer``
-- ``File``
+.. rst-class:: api-permission-info
 
 .. note::
 
-  A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
+   A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -43,46 +86,121 @@ Functions
 getAccount(accountId)
 ---------------------
 
+.. api-section-annotation-hack:: 
+
 Retrieve information about a single cloud file account
 
-- ``accountId`` (string) Unique identifier of the account
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+      
+      Unique identifier of the account
+   
 
-- :ref:`cloudFile.CloudFileAccount`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`cloudFile.CloudFileAccount`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _cloudFile.getAllAccounts:
 
 getAllAccounts()
 ----------------
 
+.. api-section-annotation-hack:: 
+
 Retrieve all cloud file accounts for the current add-on
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- array of :ref:`cloudFile.CloudFileAccount`
+   
+   .. api-member::
+      :type: array of :ref:`cloudFile.CloudFileAccount`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _cloudFile.updateAccount:
 
 updateAccount(accountId, updateProperties)
 ------------------------------------------
 
+.. api-section-annotation-hack:: 
+
 Update a cloud file account
 
-- ``accountId`` (string) Unique identifier of the account
-- ``updateProperties`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``configured``] (boolean) If true, the account is configured and ready to use. Only configured accounts are offered to the user.
-  - [``managementUrl``] (string) A page for configuring accounts, to be displayed in the preferences UI.
-  - [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
-  - [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
-  - [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+      
+      Unique identifier of the account
+   
+   
+   .. api-member::
+      :name: ``updateProperties``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``configured``]
+         :type: (boolean)
+         
+         If true, the account is configured and ready to use. Only configured accounts are offered to the user.
+      
+      
+      .. api-member::
+         :name: [``managementUrl``]
+         :type: (string)
+         
+         A page for configuring accounts, to be displayed in the preferences UI.
+      
+      
+      .. api-member::
+         :name: [``spaceRemaining``]
+         :type: (integer)
+         
+         The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+      
+      
+      .. api-member::
+         :name: [``spaceUsed``]
+         :type: (integer)
+         
+         The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+      
+      
+      .. api-member::
+         :name: [``uploadSizeLimit``]
+         :type: (integer)
+         
+         The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+      
+   
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- :ref:`cloudFile.CloudFileAccount`
+   
+   .. api-member::
+      :type: :ref:`cloudFile.CloudFileAccount`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -92,53 +210,143 @@ Events
 onFileUpload(account, fileInfo)
 -------------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a file should be uploaded to the cloud file provider
 
-- ``account`` (:ref:`cloudFile.CloudFileAccount`) The created account
-- ``fileInfo`` (:ref:`cloudFile.CloudFile`) The file to upload
+.. api-header::
+   :label: Parameters for event listeners
 
-Event listeners should return:
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The created account
+   
+   
+   .. api-member::
+      :name: ``fileInfo``
+      :type: (:ref:`cloudFile.CloudFile`)
+      
+      The file to upload
+   
 
-- object
+.. api-header::
+   :label: Expected return value of event listeners
 
-  - [``aborted``] (boolean) Set this to true if the file upload was aborted
-  - [``url``] (string) The URL where the uploaded file can be accessed
+   
+   .. api-member::
+      :type: object
+      
+      .. api-member::
+         :name: [``aborted``]
+         :type: (boolean)
+         
+         Set this to true if the file upload was aborted
+      
+      
+      .. api-member::
+         :name: [``url``]
+         :type: (string)
+         
+         The URL where the uploaded file can be accessed
+      
+   
 
 .. _cloudFile.onFileUploadAbort:
 
 onFileUploadAbort(account, fileId)
 ----------------------------------
 
-- ``account`` (:ref:`cloudFile.CloudFileAccount`) The created account
-- ``fileId`` (integer) An identifier for this file
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The created account
+   
+   
+   .. api-member::
+      :name: ``fileId``
+      :type: (integer)
+      
+      An identifier for this file
+   
 
 .. _cloudFile.onFileDeleted:
 
 onFileDeleted(account, fileId)
 ------------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a file previously uploaded should be deleted
 
-- ``account`` (:ref:`cloudFile.CloudFileAccount`) The created account
-- ``fileId`` (integer) An identifier for this file
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The created account
+   
+   
+   .. api-member::
+      :name: ``fileId``
+      :type: (integer)
+      
+      An identifier for this file
+   
 
 .. _cloudFile.onAccountAdded:
 
 onAccountAdded(account)
 -----------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a cloud file account of this add-on was created
 
-- ``account`` (:ref:`cloudFile.CloudFileAccount`) The created account
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The created account
+   
 
 .. _cloudFile.onAccountDeleted:
 
 onAccountDeleted(accountId)
 ---------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a cloud file account of this add-on was deleted
 
-- ``accountId`` (string) The id of the removed account
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+      
+      The id of the removed account
+   
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -148,27 +356,91 @@ Types
 CloudFile
 ---------
 
+.. api-section-annotation-hack:: 
+
 Information about a cloud file
 
-object:
+.. api-header::
+   :label: object
 
-- ``data`` (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_ or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-- ``id`` (integer) An identifier for this file
-- ``name`` (string) Filename of the file to be transferred
+   
+   .. api-member::
+      :name: ``data``
+      :type: (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_ or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (integer)
+      
+      An identifier for this file
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      Filename of the file to be transferred
+   
 
 .. _cloudFile.CloudFileAccount:
 
 CloudFileAccount
 ----------------
 
+.. api-section-annotation-hack:: 
+
 Information about a cloud file account
 
-object:
+.. api-header::
+   :label: object
 
-- ``configured`` (boolean) If true, the account is configured and ready to use. Only configured accounts are offered to the user.
-- ``id`` (string) Unique identifier of the account
-- ``managementUrl`` (string) A page for configuring accounts, to be displayed in the preferences UI.
-- ``name`` (string) A user-friendly name for this account.
-- [``spaceRemaining``] (integer) The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
-- [``spaceUsed``] (integer) The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
-- [``uploadSizeLimit``] (integer) The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+   
+   .. api-member::
+      :name: ``configured``
+      :type: (boolean)
+      
+      If true, the account is configured and ready to use. Only configured accounts are offered to the user.
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+      
+      Unique identifier of the account
+   
+   
+   .. api-member::
+      :name: ``managementUrl``
+      :type: (string)
+      
+      A page for configuring accounts, to be displayed in the preferences UI.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      A user-friendly name for this account.
+   
+   
+   .. api-member::
+      :name: [``spaceRemaining``]
+      :type: (integer)
+      
+      The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+   
+   
+   .. api-member::
+      :name: [``spaceUsed``]
+      :type: (integer)
+      
+      The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+   
+   
+   .. api-member::
+      :name: [``uploadSizeLimit``]
+      :type: (integer)
+      
+      The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+   

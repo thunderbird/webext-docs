@@ -42,7 +42,6 @@
     "functions": [
       {
         "name": "beginNew",
-        "changed": "77: return value added",
         "parameters": [
           {
             "name": "messageId",
@@ -50,19 +49,19 @@
           }
         ],
         "returns": {
+          "added": "77",
           "$ref": "tabs.Tab"
         }
       },
       {
         "name": "beginForward",
-        "changed": "77: return value added",
         "returns": {
+          "added": "77",
           "$ref": "tabs.Tab"
         }
       },
       {
         "name": "beginReply",
-        "changed": "77: return value added",
         "parameters": [
           {
             "name": "details",
@@ -70,6 +69,7 @@
           }
         ],
         "returns": {
+          "added": "77",
           "$ref": "tabs.Tab"
         }
       },

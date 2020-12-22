@@ -4,15 +4,21 @@
     "functions": [
       {
         "name": "executeScript",
-        "changed": "77: with the \"compose\" permission, this now works in the document of email messages during composition."
+        "changed": {
+          "77" : "with the <permission>compose</permission> permission, this now works in the document of email messages during composition."
+        }
       },
       {
         "name": "insertCSS",
-        "changed": "77: with the \"compose\" permission, this now works in the document of email messages during composition."
+        "changed": {
+          "77" : "with the <permission>compose</permission> permission, this now works in the document of email messages during composition."
+        }
       },
       {
         "name": "removeCSS",
-        "changed": "77: with the \"compose\" permission, this now works in the document of email messages during composition."
+        "changed": {
+          "77" : "with the <permission>compose</permission> permission, this now works in the document of email messages during composition."
+        }
       },
       {
         "name": "connect",
