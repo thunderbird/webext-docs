@@ -505,9 +505,4 @@ A node representing a mailing list.
       :type: (boolean)
       
       Indicates if the object is read-only.
-      
-      .. container:: api-member-inline-changes
-      
-         :Changes in TB 85: It actually works now and returns ``true`` for read-only address books.
-      
    

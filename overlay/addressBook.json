@@ -1,21 +1,12 @@
 [
   {
     "namespace": "addressBooks",
-    "types": [
-      {
-        "name" : "AddressBookNode",
-        "properties": {
-          "readOnly": {
-            "changed": {
-              "85" : "It actually works now and returns ``true`` for read-only address books."
-            }
-          }
-        }
-      }
-    ],
     "functions": [
       {
         "name": "list",
+        "changed": {
+              "85" : "Read-only address books are now returned as well as read-write books."
+        },
         "returns": {
           "type": "array",
           "items": {
@@ -52,6 +43,9 @@
       },
       {
         "name": "quickSearch",
+        "changed": {
+              "85" : "Read-only address books are now returned as well as read-write books."
+        },
         "returns": {
           "type": "array",
           "items": {
@@ -88,16 +82,6 @@
       {
         "id": "PropertyChange",
         "added": 83
-      },
-      {
-        "name" : "ContactNode",
-        "properties": {
-          "readOnly": {
-            "changed": {
-              "85" : "It actually works now and returns ``true`` for read-only address books."
-            }
-          }
-        }
       }
     ]
   },
@@ -135,18 +119,6 @@
           }
         }
       }
-    ],
-    "types": [
-      {
-        "name" : "MailingListNode",
-        "properties": {
-          "readOnly": {
-            "changed": {
-              "85" : "It actually works now and returns ``true`` for read-only address books."
-            }
-          }
-        }
-      }
-    ]    
+    ] 
   }
 ]

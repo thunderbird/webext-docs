@@ -71,6 +71,13 @@ list([complete])
 Gets a list of the user's address books, optionally including all contacts and mailing lists.
 
 .. api-header::
+   :label: Changes in Thunderbird 85
+
+   
+   .. api-member::
+      :name: Read-only address books are now returned as well as read-write books.
+
+.. api-header::
    :label: Parameters
 
    
@@ -369,11 +376,6 @@ A node representing an address book.
       :type: (boolean)
       
       Indicates if the object is read-only.
-      
-      .. container:: api-member-inline-changes
-      
-         :Changes in TB 85: It actually works now and returns ``true`` for read-only address books.
-      
    
 
 .. _addressBooks.NodeType:
