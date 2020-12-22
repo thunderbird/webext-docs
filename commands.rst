@@ -1,3 +1,5 @@
+.. _commands_api:
+
 ========
 commands
 ========

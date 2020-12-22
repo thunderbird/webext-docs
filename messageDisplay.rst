@@ -1,3 +1,5 @@
+.. _messageDisplay_api:
+
 ==============
 messageDisplay
 ==============

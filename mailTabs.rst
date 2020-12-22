@@ -1,3 +1,5 @@
+.. _mailTabs_api:
+
 ========
 mailTabs
 ========

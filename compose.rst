@@ -1,3 +1,5 @@
+.. _compose_api:
+
 =======
 compose
 =======

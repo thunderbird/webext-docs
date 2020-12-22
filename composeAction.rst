@@ -1,3 +1,5 @@
+.. _composeAction_api:
+
 =============
 composeAction
 =============
