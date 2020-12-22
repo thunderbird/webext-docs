@@ -67,6 +67,11 @@
           "organization": {
             "type": "string",
             "description": "The organization associated with this identity."
+          },
+          "composeHtml": {
+            "type": "boolean",
+            "description": "Wether the identity uses HTML as the default compose format.",
+            "added": "85"
           }
         }
       }
@@ -90,6 +95,14 @@
       {
         "name": "setDefaultIdentity",
         "added": "76"
+      },
+      {
+        "name": "getDefaultIdentity",
+        "added": "85"
+      },
+      {
+        "name": "getDefault",
+        "added": "85"
       }
     ]
   }

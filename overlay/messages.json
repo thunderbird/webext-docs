@@ -47,7 +47,10 @@
             "properties": {
               "tags": {
                 "added": "74"
-              }
+              },
+              "headerMessageId": {
+                "added": "85"
+              }          
             }
           }
         ]

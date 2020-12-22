@@ -1,6 +1,6 @@
-==========================
+================================
 Working with WebExtension Events
-==========================
+================================
 
 WebExtensions can react on events by attaching a listener. Consider the :ref:`menus.onClicked` event of the menus API:
 

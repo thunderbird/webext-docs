@@ -1,3 +1,5 @@
+.. _compose_api:
+
 =======
 compose
 =======
@@ -6,10 +8,19 @@ This message composition window API first appeared in Thunderbird 67 (see `bug 1
 
 __ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
 
+.. role:: permission
+
+.. rst-class:: api-main-section
+
 Permissions
 ===========
 
-- compose "Read and modify your email messages as you compose and send them"
+.. api-member::
+   :name: :permission:`compose`
+
+   Read and modify your email messages as you compose and send them
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -19,150 +30,320 @@ Functions
 beginNew([messageId], [details])
 --------------------------------
 
-*Changed in Thunderbird 77: return value added*
+.. api-section-annotation-hack:: 
 
-- [``messageId``] (integer) If specified, the message or template to edit as a new message. *Added in Thunderbird 84*
-- [``details``] (:ref:`compose.ComposeDetails`)
+Open a new message compose window. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Parameters
 
-- :ref:`tabs.Tab`
+   
+   .. api-member::
+      :name: [``messageId``]
+      :type: (integer)
+      :annotation: -- [Added in TB 84]
+      
+      If specified, the message or template to edit as a new message.
+   
+   
+   .. api-member::
+      :name: [``details``]
+      :type: (:ref:`compose.ComposeDetails`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      :annotation: -- [Added in TB 77]
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _compose.beginReply:
 
 beginReply(messageId, [replyType], [details])
 ---------------------------------------------
 
-*Changed in Thunderbird 77: return value added*
+.. api-section-annotation-hack:: 
 
-- ``messageId`` (integer) The message to reply to, as retrieved using other APIs.
-- [``replyType``] (`string <enum_replyType_4_>`_)
-- [``details``] (:ref:`compose.ComposeDetails`) *Added in Thunderbird 76*
+Open a new message compose window replying to a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Parameters
 
-- :ref:`tabs.Tab`
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+      
+      The message to reply to, as retrieved using other APIs.
+   
+   
+   .. api-member::
+      :name: [``replyType``]
+      :type: (`string`)
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``replyToSender``
+      
+      .. api-member::
+         :name: ``replyToList``
+      
+      .. api-member::
+         :name: ``replyToAll``
+   
+   
+   .. api-member::
+      :name: [``details``]
+      :type: (:ref:`compose.ComposeDetails`)
+      :annotation: -- [Added in TB 76]
+   
 
-.. _enum_replyType_4:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-Values for replyType:
-
-- ``replyToSender``
-- ``replyToList``
-- ``replyToAll``
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      :annotation: -- [Added in TB 77]
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _compose.beginForward:
 
 beginForward(messageId, [forwardType], [details])
 -------------------------------------------------
 
-*Changed in Thunderbird 77: return value added*
+.. api-section-annotation-hack:: 
 
-- ``messageId`` (integer) The message to forward, as retrieved using other APIs.
-- [``forwardType``] (`string <enum_forwardType_7_>`_)
-- [``details``] (:ref:`compose.ComposeDetails`)
+Open a new message compose window forwarding a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Parameters
 
-- :ref:`tabs.Tab`
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+      
+      The message to forward, as retrieved using other APIs.
+   
+   
+   .. api-member::
+      :name: [``forwardType``]
+      :type: (`string`)
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``forwardInline``
+      
+      .. api-member::
+         :name: ``forwardAsAttachment``
+   
+   
+   .. api-member::
+      :name: [``details``]
+      :type: (:ref:`compose.ComposeDetails`)
+   
 
-.. _enum_forwardType_7:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-Values for forwardType:
-
-- ``forwardInline``
-- ``forwardAsAttachment``
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      :annotation: -- [Added in TB 77]
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _compose.getComposeDetails:
 
 getComposeDetails(tabId)
 ------------------------
 
-*Added in Thunderbird 74*
+.. api-section-annotation-hack:: -- [Added in TB 74]
 
 Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.
 
-- ``tabId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
 
-- :ref:`compose.ComposeDetails`
+.. api-header::
+   :label: Return type (`Promise`_)
 
-.. note::
+   
+   .. api-member::
+      :type: :ref:`compose.ComposeDetails`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-  The permission ``compose`` is required to use ``getComposeDetails``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
 
 .. _compose.setComposeDetails:
 
 setComposeDetails(tabId, details)
 ---------------------------------
 
-*Added in Thunderbird 74*
+.. api-section-annotation-hack:: -- [Added in TB 74]
 
-Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented.
+Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented. It is not possible to change the compose format.
 
-- ``tabId`` (integer)
-- ``details`` (:ref:`compose.ComposeDetails`)
+.. api-header::
+   :label: Parameters
 
-.. note::
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``details``
+      :type: (:ref:`compose.ComposeDetails`)
+      
+      The compose format of an already opened compose window cannot be changed. Setting ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` will fail if the compose format of the compose window does not match. Use :ref:`compose.getComposeDetails` to get the current compose format.
+   
 
-  The permission ``compose`` is required to use ``setComposeDetails``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
 
 .. _compose.listAttachments:
 
 listAttachments(tabId)
 ----------------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Lists all of the attachments of the message being composed in the specified tab.
 
-- ``tabId`` (integer)
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
 
 .. _compose.addAttachment:
 
 addAttachment(tabId, data)
 --------------------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Adds an attachment to the message being composed in the specified tab.
 
-- ``tabId`` (integer)
-- ``data`` (object)
+.. api-header::
+   :label: Parameters
 
-  - ``file`` (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-  - [``name``] (string) The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``data``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``file``
+         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      
+      
+      .. api-member::
+         :name: [``name``]
+         :type: (string)
+         
+         The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
+      
+   
 
 .. _compose.updateAttachment:
 
 updateAttachment(tabId, attachmentId, data)
 -------------------------------------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Renames and/or replaces the contents of an attachment to the message being composed in the specified tab.
 
-- ``tabId`` (integer)
-- ``attachmentId`` (integer)
-- ``data`` (object)
+.. api-header::
+   :label: Parameters
 
-  - [``file``] (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-  - [``name``] (string) The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``attachmentId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``data``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``file``]
+         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      
+      
+      .. api-member::
+         :name: [``name``]
+         :type: (string)
+         
+         The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
+      
+   
 
 .. _compose.removeAttachment:
 
 removeAttachment(tabId, attachmentId)
 -------------------------------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Removes an attachment from the message being composed in the specified tab.
 
-- ``tabId`` (integer)
-- ``attachmentId`` (integer)
+.. api-header::
+   :label: Parameters
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``attachmentId``
+      :type: (integer)
+   
+
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -172,63 +353,129 @@ Events
 onBeforeSend(tab, details)
 --------------------------
 
-*Added in Thunderbird 74*
+.. api-section-annotation-hack:: -- [Added in TB 74]
 
 Fired when a message is about to be sent from the compose window.
 
-- ``tab`` (:ref:`tabs.Tab`) *Added in Thunderbird 74.0b2*
-- ``details`` (:ref:`compose.ComposeDetails`) The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
+.. api-header::
+   :label: Parameters for event listeners
 
-Event listeners should return:
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 74.0b2]
+   
+   
+   .. api-member::
+      :name: ``details``
+      :type: (:ref:`compose.ComposeDetails`)
+      
+      The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
+   
 
-- object
+.. api-header::
+   :label: Expected return value of event listeners
 
-  - [``cancel``] (boolean) Cancels the send.
-  - [``details``] (:ref:`compose.ComposeDetails`) Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
+   
+   .. api-member::
+      :type: object
+      
+      .. api-member::
+         :name: [``cancel``]
+         :type: (boolean)
+         
+         Cancels the send.
+      
+      
+      .. api-member::
+         :name: [``details``]
+         :type: (:ref:`compose.ComposeDetails`)
+         
+         Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
+      
+   
 
-.. note::
+.. api-header::
+   :label: Required permissions
 
-  The permission ``compose`` is required to use ``onBeforeSend``.
+   - :permission:`compose`
 
 .. _compose.onAttachmentAdded:
 
 onAttachmentAdded(tab, attachment)
 ----------------------------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Fired when an attachment is added to a message being composed.
 
-- ``tab`` (:ref:`tabs.Tab`)
-- ``attachment`` (:ref:`compose.ComposeAttachment`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``attachment``
+      :type: (:ref:`compose.ComposeAttachment`)
+   
 
 .. _compose.onAttachmentRemoved:
 
 onAttachmentRemoved(tab, attachmentId)
 --------------------------------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Fired when an attachment is removed from a message being composed.
 
-- ``tab`` (:ref:`tabs.Tab`)
-- ``attachmentId`` (integer)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``attachmentId``
+      :type: (integer)
+   
 
 .. _compose.onIdentityChanged:
 
 onIdentityChanged(tab, identityId)
 ----------------------------------
 
-*Added in Thunderbird 78.0b2*
+.. api-section-annotation-hack:: -- [Added in TB 78.0b2]
 
 Fired when the user changes the identity that will be used to send a message being composed.
 
-- ``tab`` (:ref:`tabs.Tab`)
-- ``identityId`` (string)
+.. api-header::
+   :label: Parameters for event listeners
 
-.. note::
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``identityId``
+      :type: (string)
+   
 
-  The permission ``accountsRead`` is required to use ``onIdentityChanged``.
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -238,69 +485,190 @@ Types
 ComposeAttachment
 -----------------
 
-*Added in Thunderbird 78*
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Represents an attachment in a message being composed.
 
-object:
+.. api-header::
+   :label: object
 
-- ``id`` (integer) A unique identifier for this attachment.
-- ``name`` (string) The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
-- ``size`` (integer) The size in bytes of this attachment. *Added in Thunderbird 83*
-- ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
+   
+   .. api-member::
+      :name: ``id``
+      :type: (integer)
+      
+      A unique identifier for this attachment.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+   
+   
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+      :annotation: -- [Added in TB 83]
+      
+      The size in bytes of this attachment.
+   
+   - ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
 
 .. _compose.ComposeDetails:
 
 ComposeDetails
 --------------
 
+.. api-section-annotation-hack:: 
+
 Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.
 
-object:
+.. api-header::
+   :label: object
 
-- [``attachments``] (array of object) Attachments to add to the message. Only used in the begin* functions. *Added in Thunderbird 82*
-- [``bcc``] (:ref:`compose.ComposeRecipientList`)
-- [``body``] (string)
-- [``cc``] (:ref:`compose.ComposeRecipientList`)
-- [``followupTo``] (:ref:`compose.ComposeRecipientList`) *Added in Thunderbird 74*
-- [``identityId``] (string) The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission ``accountsRead`` is required to include the ``identityId``. *Added in Thunderbird 76*
-- [``isPlainText``] (boolean) *Added in Thunderbird 75*
-- [``newsgroups``] (string or array of string) *Added in Thunderbird 74*
-- [``plainTextBody``] (string) *Added in Thunderbird 75*
-- [``replyTo``] (:ref:`compose.ComposeRecipientList`)
-- [``subject``] (string)
-- [``to``] (:ref:`compose.ComposeRecipientList`)
+   
+   .. api-member::
+      :name: [``attachments``]
+      :type: (array of object)
+      :annotation: -- [Added in TB 82]
+      
+      Attachments to add to the message. Only used in the begin* functions.
+   
+   
+   .. api-member::
+      :name: [``bcc``]
+      :type: (:ref:`compose.ComposeRecipientList`)
+   
+   
+   .. api-member::
+      :name: [``body``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``cc``]
+      :type: (:ref:`compose.ComposeRecipientList`)
+   
+   
+   .. api-member::
+      :name: [``followupTo``]
+      :type: (:ref:`compose.ComposeRecipientList`)
+      :annotation: -- [Added in TB 74]
+   
+   
+   .. api-member::
+      :name: [``identityId``]
+      :type: (string)
+      :annotation: -- [Added in TB 76]
+      
+      The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission ``accountsRead`` is required to include the ``identityId``.
+   
+   
+   .. api-member::
+      :name: [``isPlainText``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 75]
+   
+   
+   .. api-member::
+      :name: [``newsgroups``]
+      :type: (string or array of string)
+      :annotation: -- [Added in TB 74]
+   
+   
+   .. api-member::
+      :name: [``plainTextBody``]
+      :type: (string)
+      :annotation: -- [Added in TB 75]
+   
+   
+   .. api-member::
+      :name: [``replyTo``]
+      :type: (:ref:`compose.ComposeRecipientList`)
+   
+   
+   .. api-member::
+      :name: [``subject``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``to``]
+      :type: (:ref:`compose.ComposeRecipientList`)
+   
 
 .. _compose.ComposeRecipient:
 
 ComposeRecipient
 ----------------
 
-string: A name and email address in the format "Name <email@example.com>", or just an email address.
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         A name and email address in the format "Name <email@example.com>", or just an email address.
+   
 
 OR
 
-object: 
+.. api-header::
+   :label: object
 
-  - ``id`` (string) The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
-  - ``type`` (`string <enum_type_42_>`_) Which sort of object this ID is for.
-
-.. _enum_type_42:
-
-Values for type:
-
-- ``contact``
-- ``mailingList``
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         .. api-member::
+            :name: ``id``
+            :type: (string)
+            
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+         
+         
+         .. api-member::
+            :name: ``type``
+            :type: (`string`)
+            
+            Which sort of object this ID is for.
+            
+            Supported values:
+            
+            .. api-member::
+               :name: ``contact``
+            
+            .. api-member::
+               :name: ``mailingList``
+         
+   
 
 .. _compose.ComposeRecipientList:
 
 ComposeRecipientList
 --------------------
 
-*Added in Thunderbird 74*
+.. api-section-annotation-hack:: -- [Added in TB 74]
 
-string: A name and email address in the format "Name <email@example.com>", or just an email address.
+.. api-header::
+   :label: string
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         A name and email address in the format "Name <email@example.com>", or just an email address.
+   
 
 OR
 
-array of :ref:`compose.ComposeRecipient`: 
+.. api-header::
+   :label: array of :ref:`compose.ComposeRecipient`

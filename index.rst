@@ -202,7 +202,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. |dns-Description| replace:: Enables an extension to resolve domain names.
 .. |downloads-Description| replace:: Enables extensions to save files to disk.
 .. |extension-Description| replace:: Utilities related to an extension. Gets URLs to resources packages with an extension. Gets the Window object for some of the extension's pages. Get the values for various settings.
-.. |experiments-Description| replace::
 .. |i18n-Description| replace:: Functions to internationalize an extension. It can be used to get localized strings from locale files packaged with an extension and to find out Thunderbird's current language.
 .. |identity-Description| replace:: Use the identity API to get an OAuth2 authorization code or access token, which an extension can then use to access user data from a service that supports OAuth2 access (such as Google or Facebook).
 .. |idle-Description| replace:: Find out when the user's system is idle, locked, or active.

@@ -1,3 +1,5 @@
+.. _messageDisplay_api:
+
 ==============
 messageDisplay
 ==============
@@ -11,9 +13,15 @@ tab, which has limited functionality compared to tabs from the main window.
 More functions are planned for this API for adding to the user interface, as well as a message
 display action (similar to :doc:`browserAction` and :doc:`composeAction`).
 
+.. role:: permission
+
+.. rst-class:: api-permission-info
+
 .. note::
 
-  The permission ``messagesRead`` is required to use ``messageDisplay``.
+   The permission :permission:`messagesRead` is required to use ``messageDisplay``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -23,30 +31,68 @@ Functions
 getDisplayedMessage(tabId)
 --------------------------
 
+.. api-section-annotation-hack:: 
+
 Gets the currently displayed message in the specified tab. It returns null if no messages are selected, or if multiple messages are selected.
 
-- ``tabId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
 
-- :ref:`messages.MessageHeader`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageHeader`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messageDisplay.getDisplayedMessages:
 
 getDisplayedMessages(tabId)
 ---------------------------
 
-*Added in Thunderbird 81*
+.. api-section-annotation-hack:: -- [Added in TB 81]
 
 Gets an array of the currently displayed messages in the specified tab. The array is empty if no messages are displayed.
 
-- ``tabId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
 
-- array of :ref:`messages.MessageHeader`
+.. api-header::
+   :label: Return type (`Promise`_)
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :type: array of :ref:`messages.MessageHeader`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -56,19 +102,58 @@ Events
 onMessageDisplayed(tab, message)
 --------------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.
 
-- ``tab`` (:ref:`tabs.Tab`) *Changed in Thunderbird 76, previously just the tab's ID*
-- ``message`` (:ref:`messages.MessageHeader`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      
+      .. container:: api-member-inline-changes
+      
+         :Changes in TB 76: previously just the tab's ID
+      
+   
+   
+   .. api-member::
+      :name: ``message``
+      :type: (:ref:`messages.MessageHeader`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _messageDisplay.onMessagesDisplayed:
 
 onMessagesDisplayed(tab, messages)
 ----------------------------------
 
-*Added in Thunderbird 81*
+.. api-section-annotation-hack:: -- [Added in TB 81]
 
 Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
 
-- ``tab`` (:ref:`tabs.Tab`)
-- ``messages`` (array of :ref:`messages.MessageHeader`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``messages``
+      :type: (array of :ref:`messages.MessageHeader`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
