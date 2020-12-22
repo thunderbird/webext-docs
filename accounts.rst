@@ -1,3 +1,5 @@
+.. _accounts_api:
+
 ========
 accounts
 ========

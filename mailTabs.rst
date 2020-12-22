@@ -1,3 +1,5 @@
+.. _mailTabs_api:
+
 ========
 mailTabs
 ========
@@ -356,7 +358,10 @@ Fired when the displayed folder changes in any mail tab.
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
       
-      *Changed in TB 76: previously just the tab's ID*
+      .. container:: api-member-inline-changes
+      
+         :Changes in TB 76: previously just the tab's ID
+      
    
    
    .. api-member::
@@ -386,7 +391,10 @@ Fired when the selected messages change in any mail tab.
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
       
-      *Changed in TB 76: previously just the tab's ID*
+      .. container:: api-member-inline-changes
+      
+         :Changes in TB 76: previously just the tab's ID
+      
    
    
    .. api-member::

@@ -1,3 +1,5 @@
+.. _composeScripts_api:
+
 ==============
 composeScripts
 ==============

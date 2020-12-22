@@ -1,3 +1,5 @@
+.. _addressBooks_api:
+
 ============
 addressBooks
 ============

@@ -1,3 +1,5 @@
+.. _messageDisplayAction_api:
+
 ====================
 messageDisplayAction
 ====================

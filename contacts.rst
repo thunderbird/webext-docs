@@ -1,3 +1,5 @@
+.. _contacts_api:
+
 ========
 contacts
 ========

@@ -1,3 +1,5 @@
+.. _cloudFile_api:
+
 =========
 cloudFile
 =========

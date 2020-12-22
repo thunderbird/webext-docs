@@ -1,3 +1,5 @@
+.. _menus_api:
+
 =====
 menus
 =====

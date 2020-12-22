@@ -1,3 +1,5 @@
+.. _browserAction_api:
+
 =============
 browserAction
 =============

@@ -1,3 +1,5 @@
+.. _tabs_api:
+
 ====
 tabs
 ====
@@ -538,13 +540,11 @@ executeScript([tabId], details)
 Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 .. api-header::
-   :label: API changes
+   :label: Changes in Thunderbird 77
 
    
    .. api-member::
-      :name: Thunderbird 77
-   
-      With the :permission:`compose` permission, this now works in the document of email messages during composition.
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters
@@ -586,13 +586,11 @@ insertCSS([tabId], details)
 Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 .. api-header::
-   :label: API changes
+   :label: Changes in Thunderbird 77
 
    
    .. api-member::
-      :name: Thunderbird 77
-   
-      With the :permission:`compose` permission, this now works in the document of email messages during composition.
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters
@@ -622,13 +620,11 @@ removeCSS([tabId], details)
 Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
 
 .. api-header::
-   :label: API changes
+   :label: Changes in Thunderbird 77
 
    
    .. api-member::
-      :name: Thunderbird 77
-   
-      With the :permission:`compose` permission, this now works in the document of email messages during composition.
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters

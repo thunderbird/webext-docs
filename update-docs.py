@@ -125,9 +125,13 @@ def format_changes(obj, inline = False):
     if "changed" in obj:
         for k, v in obj['changed'].items():
             if inline:
-                lines.append("*Changed in TB " + k + ": " + replace_code(v) + "*")
+                lines.extend([
+                    ".. container:: api-member-inline-changes",
+                    "",
+                    "   :Changes in TB " + k + ": " + replace_code(v),
+                    ""])
             else:
-                lines.extend(api_member(name="Thunderbird " + k, description=[replace_code(v)]))
+                lines.extend(api_header("Changes in Thunderbird " + k, api_member(name=replace_code(v))))
     return lines
 
 def get_api_member_parts(name, value):
@@ -413,14 +417,20 @@ def reference(label):
 def format_namespace(namespace, manifest_namespace=None):
     global unique_id, additional_type_used
 
+    lines = []
+    lines.extend([
+        "",
+        ".. _%s_api:" % current_namespace_name,
+        ""]);
+
     #unique_id = 1
     preamble = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
-            lines = map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines())
+            lines.extend(map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines()))
             lines.append("")
     else:
-        lines = header_1(current_namespace_name)
+        lines.extend(header_1(current_namespace_name))
 
     lines.extend([
         "",
@@ -454,7 +464,7 @@ def format_namespace(namespace, manifest_namespace=None):
                 lines.append("")
                 
             if "changed" in function:
-                lines.extend(api_header("API changes", format_changes(function)))
+                lines.extend(format_changes(function))
 
             if len(function.get("parameters", [])) > 0:
                 content = []

@@ -1,3 +1,5 @@
+.. _mailingLists_api:
+
 ============
 mailingLists
 ============
