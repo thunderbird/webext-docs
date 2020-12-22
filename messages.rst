@@ -253,7 +253,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``folder``]
          :type: (:ref:`folders.MailFolder`)
          
-         Returns only messages from the specified folder. The ``accountsRead`` permission is required.
+         Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
       
       
       .. api-member::

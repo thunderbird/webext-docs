@@ -350,7 +350,7 @@ Show the matching menu items from this extension instead of the default menu. Th
          :name: [``tabId``]
          :type: (integer)
          
-         Required when context is 'tab'. Requires 'tabs' permission.
+         Required when context is 'tab'. Requires the :permission:`tabs` permission.
       
    
 
@@ -539,7 +539,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying 'all' is equivalent to the combination of all other contexts except for 'tab'.
+The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts except for ``tab``.
 
 .. api-header::
    :label: `string`
@@ -707,7 +707,7 @@ Information sent when a context menu item is clicked.
       :name: [``displayedFolder``]
       :type: (:ref:`folders.MailFolder`)
       
-      The displayed folder, if the context menu was opened in the message list. The ``accountsRead`` permission is required.
+      The displayed folder, if the context menu was opened in the message list. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
@@ -721,7 +721,7 @@ Information sent when a context menu item is clicked.
       :name: [``frameUrl``]
       :type: (string)
       
-       The URL of the frame of the element where the context menu was clicked, if it was in a frame.
+      The URL of the frame of the element where the context menu was clicked, if it was in a frame.
    
    
    .. api-member::
@@ -763,14 +763,14 @@ Information sent when a context menu item is clicked.
       :name: [``selectedFolder``]
       :type: (:ref:`folders.MailFolder`)
       
-      The selected folder, if the context menu was opened in the folder pane. The ``accountsRead`` permission is required.
+      The selected folder, if the context menu was opened in the folder pane. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``selectedMessages``]
       :type: (:ref:`messages.MessageList`)
       
-      The selected messages, if the context menu was opened in the message list. The ``messagesRead`` permission is required.
+      The selected messages, if the context menu was opened in the message list. The :permission:`messagesRead` permission is required.
    
    
    .. api-member::

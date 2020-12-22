@@ -123,23 +123,7 @@ Gets all windows.
    
    .. api-member::
       :name: [``getInfo``]
-      :type: (object)
-      
-      Specifies properties used to filter the :ref:`windows.Window` returned and to determine whether they should contain a list of the :ref:`tabs.Tab` objects.
-      
-      .. api-member::
-         :name: [``populate``]
-         :type: (boolean)
-         
-         If true, each :ref:`windows.Window` object will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects for that window. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
-      
-      
-      .. api-member::
-         :name: [``windowTypes``]
-         :type: (array of :ref:`windows.WindowType`)
-         
-         If set, the :ref:`windows.Window` returned will be filtered based on its type.
-      
+      :type: (:ref:`windows.GetInfo`)
    
 
 .. api-header::
@@ -500,7 +484,7 @@ GetInfo
 
 .. api-section-annotation-hack:: 
 
-Specifies whether the :ref:`windows.Window` returned should contain a list of the :ref:`tabs.Tab` objects.
+Specifies properties used to filter the :ref:`windows.Window` returned and to determine whether they should contain a list of the :ref:`tabs.Tab` objects.
 
 .. api-header::
    :label: object
@@ -510,14 +494,14 @@ Specifies whether the :ref:`windows.Window` returned should contain a list of th
       :name: [``populate``]
       :type: (boolean)
       
-      If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the ``"tabs"`` permission.
+      If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the :permission:`tabs` permission.
    
    
    .. api-member::
       :name: [``windowTypes``]
-      :type: (array of :ref:`windows.WindowType`) **Deprecated.**
+      :type: (array of :ref:`windows.WindowType`)
       
-      ``windowTypes`` is deprecated and ignored on Thunderbird.
+      If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions.
    
 
 .. _windows.Window:
@@ -657,7 +641,7 @@ WindowType
 
 .. api-section-annotation-hack:: 
 
-The type of window this is. Under some circumstances a Window may not be assigned type property.
+The type of window this is. Under some circumstances a Window may not be assigned a type property.
 
 .. api-header::
    :label: `string`

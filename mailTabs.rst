@@ -104,7 +104,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``displayedFolder``]
          :type: (:ref:`folders.MailFolder`)
          
-         Sets the folder displayed in the tab. The extension must have an accounts permission to do this.
+         Sets the folder displayed in the tab. The extension must have the :permission:`accountsRead` permission to do this.
       
       
       .. api-member::
@@ -234,7 +234,7 @@ getSelectedMessages([tabId])
 
 .. api-section-annotation-hack:: 
 
-Lists the selected messages in the current folder. A messages permission is required to do this.
+Lists the selected messages in the current folder.
 
 .. api-header::
    :label: Parameters

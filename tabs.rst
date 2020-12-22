@@ -266,7 +266,7 @@ Duplicates a tab.
    .. api-member::
       :type: :ref:`tabs.Tab`
       
-      Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
+      Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the :permission:`tabs` permission has not been requested.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -422,7 +422,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
    .. api-member::
       :type: :ref:`tabs.Tab`
       
-      Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the ``"tabs"`` permission has not been requested.
+      Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the :permission:`tabs` permission has not been requested.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -434,7 +434,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: 
 
-Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal (window.type === "normal") windows.
+Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal windows (``window.type === "normal"``).
 
 .. api-header::
    :label: Parameters
@@ -943,7 +943,7 @@ Tab
       :name: [``favIconUrl``]
       :type: (string)
       
-      The URL of the tab's favicon. This property is only present if the extension's manifest includes the ``"tabs"`` permission. It may also be an empty string if the tab is loading.
+      The URL of the tab's favicon. This property is only present if the extension's manifest includes the :permission:`tabs` permission. It may also be an empty string if the tab is loading.
    
    
    .. api-member::
@@ -978,14 +978,14 @@ Tab
       :name: [``title``]
       :type: (string)
       
-      The title of the tab. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
+      The title of the tab. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
    
    
    .. api-member::
       :name: [``url``]
       :type: (string)
       
-      The URL the tab is displaying. This property is only present if the extension's manifest includes the ``"tabs"`` permission.
+      The URL the tab is displaying. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
    
    
    .. api-member::
@@ -1057,7 +1057,7 @@ An object describing filters to apply to tabs.onUpdated events.
       :name: [``urls``]
       :type: (array of string)
       
-      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the ``"tabs"`` or  ``"activeTab"`` permission.
+      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the :permission:`tabs` or  :permission:`activeTab` permission.
    
    
    .. api-member::

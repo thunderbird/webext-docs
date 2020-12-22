@@ -297,7 +297,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the toolbar action. If no tab nor window is specified is specified, the global badge text is returned.
+Gets the badge text of the toolbar action. If no tab nor window is specified, the global badge text is returned.
 
 .. api-header::
    :label: Parameters
@@ -479,6 +479,8 @@ ColorArray
 ----------
 
 .. api-section-annotation-hack:: 
+
+An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is ``[255, 0, 0, 255]``.
 
 .. api-header::
    :label: array of integer
