@@ -263,12 +263,18 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 Where To Get Help
 =================
 
-- `developer.thunderbird.net`__ for information about building Thunderbird, and creating extensions.
-- `Add-ons message board`__ for Thunderbird add-on developers to ask questions and share knowledge.
-- `Bugzilla`__ for bug reports and feature requests.
-- `developer.mozilla.org`__ for Firefox WebExtensions, on which Thunderbird's are based.
+Read
+ - `developer.thunderbird.net`__ for information about building Thunderbird, and creating extensions.
+ - `developer.mozilla.org`__ for Firefox WebExtensions, on which Thunderbird's are based.
+Write/Interact
+ - (chat) `Add-ons message board`__ for Thunderbird add-on developers to ask questions and share knowledge.
+ - `Bugzilla`__ for bug reports and feature requests.
+Clone
+ - `mailExtension samples`__ to cherry-pick in your own projects.
 
-__ https://developer.thunderbird.net/
+
+__ https://developer.thunderbird.net/add-ons/mailextensions
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 __ https://thunderbird.topicbox.com/groups/addons
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+__ https://github.com/thundernest/sample-extensions
