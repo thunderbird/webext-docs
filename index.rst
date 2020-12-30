@@ -10,7 +10,10 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
 For any problems or feature requests please `file a bug`__.
 
+For any questions/documentation got to the `Where To Get Help`__ section.
+
 __ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
+__ #where-to-get-help
 
 .. note::
 
