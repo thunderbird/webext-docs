@@ -510,7 +510,7 @@ Represents an attachment in a message being composed.
    .. api-member::
       :name: ``size``
       :type: (integer)
-      :annotation: -- [Added in TB 83]
+      :annotation: -- [Added in TB 83, backported to TB 78.5.0]
       
       The size in bytes of this attachment.
    
@@ -532,7 +532,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``attachments``]
       :type: (array of object)
-      :annotation: -- [Added in TB 82]
+      :annotation: -- [Added in TB 82, backported to TB 78.4]
       
       Attachments to add to the message. Only used in the begin* functions.
    

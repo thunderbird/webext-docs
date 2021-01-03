@@ -83,7 +83,7 @@ Gets the tab that this script call is being made from. May be undefined if calle
 connect(tabId, [connectInfo])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4]
 
 Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`_ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_.
 
@@ -132,7 +132,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
 sendMessage(tabId, message, [options])
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4]
 
 Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back.  The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`_ event is fired in each content script running in the specified tab for the current extension.
 
@@ -544,7 +544,7 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
 
    
    .. api-member::
-      :name: with the :permission:`compose` permission, this now works in the document of email messages during composition.
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters
@@ -590,7 +590,7 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
 
    
    .. api-member::
-      :name: with the :permission:`compose` permission, this now works in the document of email messages during composition.
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters
@@ -624,7 +624,7 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
 
    
    .. api-member::
-      :name: with the :permission:`compose` permission, this now works in the document of email messages during composition.
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
 
 .. api-header::
    :label: Parameters

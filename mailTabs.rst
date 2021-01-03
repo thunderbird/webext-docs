@@ -432,7 +432,7 @@ MailTab
       :name: ``displayedFolder``
       :type: (:ref:`folders.MailFolder`)
       
-      The ``accountsRead`` permission is required.
+      The :permission:`accountsRead` permission is required for this property to be included.
    
    
    .. api-member::

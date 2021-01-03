@@ -64,7 +64,7 @@ Gets the currently displayed message in the specified tab. It returns null if no
 getDisplayedMessages(tabId)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 81]
+.. api-section-annotation-hack:: -- [Added in TB 81, backported to TB 78.4]
 
 Gets an array of the currently displayed messages in the specified tab. The array is empty if no messages are displayed.
 
@@ -135,7 +135,7 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
 onMessagesDisplayed(tab, messages)
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 81]
+.. api-section-annotation-hack:: -- [Added in TB 81, backported to TB 78.4]
 
 Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
 

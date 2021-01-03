@@ -595,7 +595,7 @@ The different contexts a menu can appear in. Specifying ``all`` is equivalent to
          
          .. api-member::
             :name: ``compose_attachments``
-            :annotation: -- [Added in TB 83]
+            :annotation: -- [Added in TB 83, backported to TB 78.5.0]
    
 
 .. _menus.ItemType:
