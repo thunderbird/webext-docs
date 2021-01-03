@@ -11,6 +11,7 @@
       {
         "name": "getDisplayedMessages",
         "added": "81",
+        "backported": "78.4",
         "returns": {
           "type": "array",
           "items": {
@@ -33,7 +34,8 @@
       },
       {
         "name": "onMessagesDisplayed",
-        "added": "81"
+        "added": "81",
+        "backported": "78.4"
       }
     ]
   }

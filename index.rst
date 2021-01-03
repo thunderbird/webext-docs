@@ -26,7 +26,7 @@ __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
   but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
 
 Thunderbird APIs
-=================
+================
 
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
@@ -102,7 +102,7 @@ The documentation for these APIs is generated automatically from the schema docu
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/
 
 Firefox APIs
-=================
+============
 
 As Thunderbird is based on Firefox, many of its WebExtension APIs can be used in Thunderbird
 as well. The APIs listed in the following table are known to work with Thunderbird.
@@ -176,7 +176,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. _dns: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/dns
 .. _downloads: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads
 .. _extension: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension
-.. _experiments: https://firefox-source-docs.mozilla.org/toolkit/components/extensions/webextensions/basics.html#webextensions-experiments
 .. _i18n: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/i18n
 .. _identity: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity
 .. _idle: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/idle

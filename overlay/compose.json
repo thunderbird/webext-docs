@@ -25,7 +25,8 @@
             "added": "75"
           },
           "attachments": {
-            "added": "82"
+            "added": "82",
+            "backported": "78.4"
           }
         }
       },
@@ -34,7 +35,8 @@
         "added": "78",
         "properties": {
           "size": {
-            "added": "83"
+            "added": "83",
+            "backported": "78.5.0"
           }
         }
       }
