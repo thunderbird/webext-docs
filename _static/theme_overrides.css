@@ -17,10 +17,19 @@
   }
 
 }
-
-.wy-nav-content {
-    max-width: 1000px;
-}
+span.permission {
+  background-color:#e74c3c;
+  color: #fcfcfc;
+/*  color:#fff; */
+  box-sizing:border-box;
+  white-space:nowrap;
+  max-width:100%;
+  border:1px solid #e1e4e5;
+  font-size:75%;
+  padding:0 5px;
+  font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+  overflow-x:auto  
+  }
 
 
 /* RTD adds extra p */
@@ -101,6 +110,10 @@ div.container > ul {
 	margin-bottom:3em;
 	margin-left: 1em;  
 }
+.api-section-body a {
+  font-size: 95%;
+  font-style: italic;
+}
 
 /* styles for the api headers like "Parameters" */
 .api-header-node {
@@ -116,10 +129,6 @@ div.container > ul {
 .api-header-section div {
   padding: 6px;
 }
-.api-header-section > div > a {
-  font-size: 95%;
-  font-style: italic;
-}
 .api-header-annotation {
   margin-left:2em;
 }
@@ -131,27 +140,15 @@ div.container > ul {
 /* member styles, elements below api headers*/
 .api-member-definition {
   display: flex;
-  align-items: center;
+  align-items: text-top;
 }
 .api-member-name, .api-member-type, .api-member-annotation {
   margin-right: 0.5ex;
 }
-.api-member-annotation > p {
-  font-size: 80%;
-  font-style: italic;
-}
-.api-member-type > p {
-  font-size: 95%;
-  font-style: italic;
-}
 .api-member-node {
   margin-bottom: 0.5ex;
 }
-/*.api-member-node ul,
-.api-member-node p {
-	margin-bottom: 0 !important;
-}*/
-.api-member-description > p {
+.api-member-description p {
   font-size: 95%;
 }
 .api-member-description {
@@ -165,4 +162,25 @@ div.container > ul {
 .api-member-description-only > .api-member-node {
   margin-left:-1ex;  
 }
+.api-member-annotation > p {
+  font-size: 80%;
+  font-style: italic;
+}
+.api-member-type > p {
+  font-size: 95%;
+  font-style: italic;
+}
 
+
+.api-member-inline-changes dl,
+.api-member-inline-changes dd,
+.api-member-inline-changes dd > p {
+  margin:0 !important;
+  padding: 0 !important;
+}
+.api-member-inline-changes dt {
+  font-size: 95%;
+  line-height:24px;
+  margin:0 !important;
+  padding: 0 1ex 0 0 !important;
+}
