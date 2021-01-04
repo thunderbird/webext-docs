@@ -1,0 +1,21 @@
+[
+  {
+    "namespace": "commands",
+    "functions": [
+      {
+        "name": "update",
+        "parameters": [
+          {
+            "name": "detail",
+            "description": "",
+            "properties": {
+              "shortcut": {
+                "description": "An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_  to set a new shortcut key. If the string does not match this format, the function throws an error."
+              }
+            }
+          }
+        ]        
+      }
+    ]
+  }
+]
