@@ -436,22 +436,6 @@ Checks whether the toolbar action is enabled.
       :type: (:ref:`composeAction.Details`)
    
 
-.. _composeAction.openPopup:
-
-openPopup()
------------
-
-.. api-section-annotation-hack:: 
-
-Opens the extension popup window in the active window.
-
-.. _composeAction.isEnabled :
-
-isEnabled ()
-------------
-
-.. api-section-annotation-hack:: 
-
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -461,6 +445,15 @@ isEnabled ()
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _composeAction.openPopup:
+
+openPopup()
+-----------
+
+.. api-section-annotation-hack:: 
+
+Opens the extension popup window in the active window.
 
 .. rst-class:: api-main-section
 

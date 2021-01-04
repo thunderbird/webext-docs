@@ -41,7 +41,7 @@
     ],
     "functions": [
       {
-        "name": "isEnabled ",
+        "name": "isEnabled",
         "returns": {
           "type": "boolean"
         }

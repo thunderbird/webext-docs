@@ -429,22 +429,6 @@ Checks whether the toolbar action is enabled.
       :type: (:ref:`messageDisplayAction.Details`)
    
 
-.. _messageDisplayAction.openPopup:
-
-openPopup()
------------
-
-.. api-section-annotation-hack:: 
-
-Opens the extension popup window in the active window.
-
-.. _messageDisplayAction.isEnabled :
-
-isEnabled ()
-------------
-
-.. api-section-annotation-hack:: 
-
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -454,6 +438,15 @@ isEnabled ()
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _messageDisplayAction.openPopup:
+
+openPopup()
+-----------
+
+.. api-section-annotation-hack:: 
+
+Opens the extension popup window in the active window.
 
 .. rst-class:: api-main-section
 
