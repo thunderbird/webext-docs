@@ -276,7 +276,7 @@ Where To Get Help And More Information
 ======================================
 
 `Thunderbird add-on developer documentation`__
-  Find information about creating and updating extensions for Thunderbird. Includes getting-started-tutorials and collections of helpful articles and guides.
+  Find information about creating and updating extensions for Thunderbird. Includes getting-started-tutorials and a collection of helpful articles and guides.
   
 `Thunderbird add-on developer community`__
   Learn how to get in touch with other add-on developers, to ask questions and to share knowledge.
