@@ -49,7 +49,7 @@ Update the details of an already defined command.
       :name: ``detail``
       :type: (object)
       
-      The new description for the command.
+      
       
       .. api-member::
          :name: ``name``
