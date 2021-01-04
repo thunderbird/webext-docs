@@ -7,6 +7,14 @@
         "added": "74.0b2"
       }
     ],
+    "functions": [
+      {
+        "name": "isEnabled",
+        "returns": {
+          "type": "boolean"
+        }
+      }
+    ],
     "events": [
       {
         "name": "onClicked",
