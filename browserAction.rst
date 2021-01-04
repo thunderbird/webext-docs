@@ -440,6 +440,23 @@ openPopup()
 
 Opens the extension popup window in the active window.
 
+.. _browserAction.isEnabled :
+
+isEnabled ()
+------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: boolean
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. rst-class:: api-main-section
 
 Events

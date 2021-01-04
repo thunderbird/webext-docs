@@ -41,6 +41,12 @@
     ],
     "functions": [
       {
+        "name": "isEnabled ",
+        "returns": {
+          "type": "boolean"
+        }
+      },
+      {
         "name": "setLabel",
         "added": "84.0b3"
       },
