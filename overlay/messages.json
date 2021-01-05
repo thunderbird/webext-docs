@@ -38,7 +38,17 @@
         "added": "68.2",
         "returns": {
           "$ref": "MessageList"
-        }
+        },
+        "parameters": [
+          {
+            "name": "queryInfo",
+            "properties": {
+              "folder": {
+                "description": "Returns only messages from the specified folder. The <permission>accountsRead</permission> permission is required."
+              }
+            }
+          }
+        ]        
       },
       {
         "name": "listTags",
@@ -107,7 +117,7 @@
           },
           "folder": {
             "$ref": "folders.MailFolder",
-            "description": "The ``accountsRead`` permission is required."
+            "description": "The <permission>accountsRead</permission> permission is required."
           },
           "tags": {
             "type": "array",

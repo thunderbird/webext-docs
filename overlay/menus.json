@@ -1,0 +1,36 @@
+[
+  {
+    "namespace": "menus",
+    "functions": [
+      {
+        "name": "overrideContext",
+        "parameters": [
+          {
+            "name": "contextOptions",
+            "properties": {
+              "tabId": {
+                "description": "Required when context is 'tab'. Requires <permission>tabs</permission> permission."
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "types": [
+      {
+        "id": "OnClickData",
+        "properties": {
+          "displayedFolder": {
+            "description": "The displayed folder, if the context menu was opened in the message list. The <permission>accountsRead</permission> permission is required."
+          },
+          "selectedFolder": {
+            "description": "The selected folder, if the context menu was opened in the folder pane. The <permission>accountsRead</permission> permission is required."
+          },
+          "selectedMessages" : {
+            "description": "The selected messages, if the context menu was opened in the message list. The <permission>messagesRead</permission> permission is required."
+          }
+        }
+      }
+    ]
+  }
+]

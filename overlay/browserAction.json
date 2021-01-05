@@ -1,0 +1,11 @@
+[
+  {
+    "namespace": "browserAction",
+    "types": [
+      {
+        "id": "ColorArray",
+        "description": "An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is ``[255, 0, 0, 255]``."
+      }
+    ]
+  }
+]

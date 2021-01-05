@@ -1,3 +1,5 @@
+.. _messageDisplay_api:
+
 ==============
 messageDisplay
 ==============
@@ -11,9 +13,15 @@ tab, which has limited functionality compared to tabs from the main window.
 More functions are planned for this API for adding to the user interface, as well as a message
 display action (similar to :doc:`browserAction` and :doc:`composeAction`).
 
+.. role:: permission
+
+.. rst-class:: api-permission-info
+
 .. note::
 
-  The permission ``messagesRead`` is required to use ``messageDisplay``.
+   The permission :permission:`messagesRead` is required to use ``messageDisplay``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -23,15 +31,35 @@ Functions
 getDisplayedMessage(tabId)
 --------------------------
 
+.. api-section-annotation-hack:: 
+
 Gets the currently displayed message in the specified tab, or null if no message is displayed.
 
-- ``tabId`` (integer)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
 
-- :ref:`messages.MessageHeader`
+.. api-header::
+   :label: Return type (`Promise`_)
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :type: :ref:`messages.MessageHeader`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -41,7 +69,25 @@ Events
 onMessageDisplayed(tabId, message)
 ----------------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.
 
-- ``tabId`` (integer)
-- ``message`` (:ref:`messages.MessageHeader`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``message``
+      :type: (:ref:`messages.MessageHeader`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`

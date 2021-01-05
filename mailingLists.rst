@@ -1,3 +1,5 @@
+.. _mailingLists_api:
+
 ============
 mailingLists
 ============
@@ -8,9 +10,25 @@ The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
+.. role:: permission
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+.. api-member::
+   :name: :permission:`addressBooks`
+
+   Read and modify your address books and contacts
+
+.. rst-class:: api-permission-info
+
 .. note::
 
-  The permission ``addressBooks`` is required to use ``mailingLists``.
+   The permission :permission:`addressBooks` is required to use ``mailingLists``.
+
+.. rst-class:: api-main-section
 
 Functions
 =========
@@ -20,102 +38,278 @@ Functions
 list(parentId)
 --------------
 
+.. api-section-annotation-hack:: 
+
 Gets all the mailing lists in the address book with id ``parentId``.
 
-- ``parentId`` (string)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``parentId``
+      :type: (string)
+   
 
-- array of :ref:`mailingLists.MailingListNode`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`mailingLists.MailingListNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.get:
 
 get(id)
 -------
 
+.. api-section-annotation-hack:: 
+
 Gets a single mailing list.
 
-- ``id`` (string)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
 
-- :ref:`mailingLists.MailingListNode`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailingLists.MailingListNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.create:
 
 create(parentId, properties)
 ----------------------------
 
+.. api-section-annotation-hack:: 
+
 Creates a new mailing list in the address book with id ``parentId``.
 
-- ``parentId`` (string)
-- ``properties`` (object)
+.. api-header::
+   :label: Parameters
 
-  - ``name`` (string)
-  - [``description``] (string)
-  - [``nickName``] (string)
+   
+   .. api-member::
+      :name: ``parentId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``properties``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+      
+      
+      .. api-member::
+         :name: [``description``]
+         :type: (string)
+      
+      
+      .. api-member::
+         :name: [``nickName``]
+         :type: (string)
+      
+   
 
-Returns a `Promise`_ fulfilled with:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-- string The ID of the new mailing list.
+   
+   .. api-member::
+      :type: string
+      
+      The ID of the new mailing list.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.update:
 
 update(id, properties)
 ----------------------
 
+.. api-section-annotation-hack:: 
+
 Edits the properties of a mailing list.
 
-- ``id`` (string)
-- ``properties`` (object)
+.. api-header::
+   :label: Parameters
 
-  - ``name`` (string)
-  - [``description``] (string)
-  - [``nickName``] (string)
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``properties``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+      
+      
+      .. api-member::
+         :name: [``description``]
+         :type: (string)
+      
+      
+      .. api-member::
+         :name: [``nickName``]
+         :type: (string)
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.delete:
 
 delete(id)
 ----------
 
+.. api-section-annotation-hack:: 
+
 Removes the mailing list.
 
-- ``id`` (string)
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.addMember:
 
 addMember(id, contactId)
 ------------------------
 
+.. api-section-annotation-hack:: 
+
 Adds a contact to the mailing list with id ``id``. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.
 
-- ``id`` (string)
-- ``contactId`` (string)
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``contactId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.listMembers:
 
 listMembers(id)
 ---------------
 
+.. api-section-annotation-hack:: 
+
 Gets all contacts that are members of the mailing list with id ``id``.
 
-- ``id`` (string)
+.. api-header::
+   :label: Parameters
 
-Returns a `Promise`_ fulfilled with:
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
 
-- array of :ref:`contacts.ContactNode`
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`contacts.ContactNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.removeMember:
 
 removeMember(id, contactId)
 ---------------------------
 
+.. api-section-annotation-hack:: 
+
 Removes a contact from the mailing list with id ``id``. This does not delete the contact from the address book.
 
-- ``id`` (string)
-- ``contactId`` (string)
+.. api-header::
+   :label: Parameters
 
-.. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``contactId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. rst-class:: api-main-section
 
 Events
 ======
@@ -125,47 +319,127 @@ Events
 onCreated(node)
 ---------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a mailing list is created.
 
-- ``node`` (:ref:`mailingLists.MailingListNode`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``node``
+      :type: (:ref:`mailingLists.MailingListNode`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.onUpdated:
 
 onUpdated(node)
 ---------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a mailing list is changed.
 
-- ``node`` (:ref:`mailingLists.MailingListNode`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``node``
+      :type: (:ref:`mailingLists.MailingListNode`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.onDeleted:
 
 onDeleted(parentId, id)
 -----------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a mailing list is deleted.
 
-- ``parentId`` (string)
-- ``id`` (string)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``parentId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.onMemberAdded:
 
 onMemberAdded(node)
 -------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a contact is added to the mailing list.
 
-- ``node`` (:ref:`contacts.ContactNode`)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``node``
+      :type: (:ref:`contacts.ContactNode`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
 
 .. _mailingLists.onMemberRemoved:
 
 onMemberRemoved(parentId, id)
 -----------------------------
 
+.. api-section-annotation-hack:: 
+
 Fired when a contact is removed from the mailing list.
 
-- ``parentId`` (string)
-- ``id`` (string)
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``parentId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. rst-class:: api-main-section
 
 Types
 =====
@@ -175,15 +449,60 @@ Types
 MailingListNode
 ---------------
 
+.. api-section-annotation-hack:: 
+
 A node representing a mailing list.
 
-object
+.. api-header::
+   :label: object
 
-- ``description`` (string)
-- ``id`` (string) The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
-- ``name`` (string)
-- ``nickName`` (string)
-- ``type`` (:ref:`addressBooks.NodeType`) Always set to ``mailingList``.
-- [``contacts``] (array of :ref:`contacts.ContactNode`) A list of contacts held by this node's address book or mailing list.
-- [``parentId``] (string) The ``id`` of the parent object.
-- [``readOnly``] (boolean) Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
+   
+   .. api-member::
+      :name: ``description``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+      
+      The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``nickName``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``type``
+      :type: (:ref:`addressBooks.NodeType`)
+      
+      Always set to ``mailingList``.
+   
+   
+   .. api-member::
+      :name: [``contacts``]
+      :type: (array of :ref:`contacts.ContactNode`)
+      
+      A list of contacts held by this node's address book or mailing list.
+   
+   
+   .. api-member::
+      :name: [``parentId``]
+      :type: (string)
+      
+      The ``id`` of the parent object.
+   
+   
+   .. api-member::
+      :name: [``readOnly``]
+      :type: (boolean)
+      
+      Indicates if the object is read-only. Currently this returns false in all cases, as read-only address books are ignored by the API.
+   
