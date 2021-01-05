@@ -1,6 +1,6 @@
-=============================================
+==========================================
 Thunderbird WebExtension API Documentation
-=============================================
+==========================================
 
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
 highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN documentation on the subject`__.
@@ -8,7 +8,12 @@ highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN d
 __ https://developer.thunderbird.net/add-ons/mailextensions
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
-.. note::
+.. hint::
+
+  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
+  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
+
+.. important::
 
   WebExtension APIs are asynchronous, that is, they return a `Promise`__ object which resolves when
   ready. See `Using Promises`__ for more information about Promises.
@@ -16,13 +21,23 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
-.. note::
 
-  In Thunderbird, all WebExtension API can be accessed through the *browser.\** namespace, as with Firefox,
-  but also through the  *messenger.\** namespace, which is a better fit for Thunderbird.
+This documentation includes the following topics:
 
-Thunderbird APIs
-================
+ * `Thunderbird WebExtension APIs`_
+ * `Firefox WebExtension APIs`_
+ * :ref:`HowToGuide`
+ * `Where To Get Help And More Information`_
+
+For any problems or feature requests please `file a bug`__.
+
+__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
+
+
+
+
+Thunderbird WebExtension APIs
+=============================
 
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
@@ -91,8 +106,8 @@ The documentation for these APIs is generated automatically from the schema docu
 
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/
 
-Firefox APIs
-============
+Firefox WebExtension APIs
+=========================
 
 As Thunderbird is based on Firefox, many of its WebExtension APIs can be used in Thunderbird
 as well. The APIs listed in the following table are known to work with Thunderbird.
@@ -138,23 +153,36 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   tabs
   windows
   
+.. _HowToGuide:
+
 .. toctree::
   :maxdepth: 1
-  :caption: How To
+  :caption: How To Guides
 
   how-to/eventListeners
   how-to/messageLists
   how-to/experiments
 
-Where To Get Help
-=================
+Where To Get Help And More Information
+======================================
 
-- `developer.thunderbird.net`__ for information about building Thunderbird, and creating extensions.
-- `Add-ons message board`__ for Thunderbird add-on developers to ask questions and share knowledge.
-- `Bugzilla`__ for bug reports and feature requests.
-- `developer.mozilla.org`__ for Firefox WebExtensions, on which Thunderbird's are based.
+`Thunderbird add-on developer documentation`__
+  Find information about creating and updating extensions for Thunderbird. Includes getting-started-tutorials and a collection of helpful articles and guides.
+  
+`Thunderbird add-on developer community`__
+  Learn how to get in touch with other add-on developers, to ask questions and to share knowledge.
+  
+`Thunderbird sample extensions`__ 
+  A collection of MailExtensions, showing how to use Thunderbird WebExtension APIs.
+  
+`MDN sample extensions`__
+  A collection of WebExtensions, showing how to use WebExtension APIs. They probably won't work directly in Thunderbird, but they may provide hints on how to use some of the WebExtension APIs that Thunderbird inherited from Firefox.
 
-__ https://developer.thunderbird.net/
-__ https://thunderbird.topicbox.com/groups/addons
-__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
+`MDN WebExtension documentation`__
+  Find general information about the WebExtensions API cross-browser technology used by Firefox and many Chromium-based browsers. Not all information listed there apply to Thunderbird.
+
+__ https://developer.thunderbird.net/add-ons/
+__ https://developer.thunderbird.net/add-ons/community
+__ https://github.com/thundernest/sample-extensions
+__ https://github.com/mdn/webextensions-examples
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
