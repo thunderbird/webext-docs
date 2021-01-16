@@ -41,6 +41,11 @@ Manifest file properties
    
    
    .. api-member::
+      :name: [``default_label``]
+      :type: (string)
+   
+   
+   .. api-member::
       :name: [``default_popup``]
       :type: (string)
    
@@ -75,7 +80,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the toolbar action. This shows up in the tooltip.
+Sets the title of the toolbar action. This shows up in the tooltip and the label. Defaults to the add-on name.
 
 .. api-header::
    :label: Parameters
@@ -89,7 +94,7 @@ Sets the title of the toolbar action. This shows up in the tooltip.
          :name: ``title``
          :type: (string or null)
          
-         The string the toolbar action should display when moused over.
+         The string the toolbar action should display as its label and when moused over.
       
    
 
@@ -101,6 +106,64 @@ getTitle(details)
 .. api-section-annotation-hack:: 
 
 Gets the title of the toolbar action.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (:ref:`messageDisplayAction.Details`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _messageDisplayAction.setLabel:
+
+setLabel(details, [callback])
+-----------------------------
+
+.. api-section-annotation-hack:: 
+
+Sets the label of the toolbar action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``label``
+         :type: (string or null)
+         
+         The string the toolbar action should use as label. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+      
+   
+   
+   .. api-member::
+      :name: [``callback``]
+      :type: (function)
+   
+
+.. _messageDisplayAction.getLabel:
+
+getLabel(details)
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Gets the label of the toolbar action.
 
 .. api-header::
    :label: Parameters
