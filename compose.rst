@@ -27,16 +27,24 @@ Functions
 
 .. _compose.beginNew:
 
-beginNew([details])
--------------------
+beginNew([messageId], [details])
+--------------------------------
 
 .. api-section-annotation-hack:: 
 
-Open a compose window for a new message.
+Open a new message compose window. If the provided ComposeDetails object does not provide 'body', 'plainTextBody' or 'isPlainText', the default compose format of the used/default identity is used.
 
 .. api-header::
    :label: Parameters
 
+   
+   .. api-member::
+      :name: [``messageId``]
+      :type: (integer)
+      :annotation: -- [Added in TB 78.7]
+      
+      If specified, the message or template to edit as a new message.
+   
    
    .. api-member::
       :name: [``details``]
@@ -61,7 +69,7 @@ beginReply(messageId, [replyType], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a compose window and load a given message in reply mode.
+Open a new message compose window replying to a given message. If the provided ComposeDetails object does not provide 'body', 'plainTextBody' or 'isPlainText', the default compose format of the used/default identity is used.
 
 .. api-header::
    :label: Parameters
@@ -114,7 +122,7 @@ beginForward(messageId, [forwardType], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a compose window and load a given message in forward mode.
+Open a new message compose window forwarding a given message. If the provided ComposeDetails object does not provide 'body', 'plainTextBody' or 'isPlainText', the default compose format of the used/default identity is used.
 
 .. api-header::
    :label: Parameters
@@ -196,7 +204,7 @@ setComposeDetails(tabId, details)
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented.
+Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented. It is not possible to change the compose format.
 
 .. api-header::
    :label: Parameters

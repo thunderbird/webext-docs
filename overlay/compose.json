@@ -45,7 +45,12 @@
     "functions": [
       {
         "name": "beginNew",
-        "description": "Open a compose window for a new message.",
+        "parameters": [
+          {
+            "name": "messageId",
+            "added": "78.7"
+          }
+        ],
         "returns": {
           "added": "77",
           "$ref": "tabs.Tab"
@@ -53,7 +58,6 @@
       },
       {
         "name": "beginForward",
-        "description": "Open a compose window and load a given message in forward mode.",
         "returns": {
           "added": "77",
           "$ref": "tabs.Tab"
@@ -61,7 +65,6 @@
       },
       {
         "name": "beginReply",
-        "description": "Open a compose window and load a given message in reply mode.",
         "parameters": [
           {
             "name": "details",

@@ -90,6 +90,14 @@
       {
         "name": "setDefaultIdentity",
         "added": "76"
+      },
+      {
+        "name": "getDefault",
+        "added": "78.7"
+      },
+      {
+        "name": "getDefaultIdentity",
+        "added": "78.7"
       }
     ]
   }

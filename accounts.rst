@@ -88,6 +88,20 @@ Returns details of the requested account, or null if it doesn't exist.
 
    - :permission:`accountsRead`
 
+.. _accounts.getDefault:
+
+getDefault()
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 78.7]
+
+Returns the default account, or null if it is not defined.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
 .. _accounts.setDefaultIdentity:
 
 setDefaultIdentity(accountId, identityId)
@@ -108,6 +122,29 @@ Sets the default identity for an account.
    
    .. api-member::
       :name: ``identityId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _accounts.getDefaultIdentity:
+
+getDefaultIdentity(accountId)
+-----------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 78.7]
+
+Returns the default identity for an account, or null if it is not defined.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``accountId``
       :type: (string)
    
 

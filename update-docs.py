@@ -34,6 +34,11 @@ def merge_objects(a, b):
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
             if e not in b or e in ["description"]:
+                if (e in b and e in ["description"]):
+                    print("Replacing Description")
+                    print("  comm-central: " + b[e])
+                    print("  overlay file: " + f)
+                    print("")
                 b[e] = f
                 continue
             if e not in ["namespace", "name", "id", "$extend"]:

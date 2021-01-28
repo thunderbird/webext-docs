@@ -2,6 +2,16 @@
 Changes in Thunderbird 78
 =========================
 
+accounts
+========
+
+* These functions have been added:
+
+  * :ref:`accounts.getDefault`
+  * :ref:`accounts.getDefaultIdentity`
+  
+  *This change was made in Thunderbird 78.7.*  
+  
 compose
 =======
 
@@ -23,6 +33,10 @@ compose
 * A new event, :ref:`compose.onIdentityChanged` was added.
 
   *This change was made in Thunderbird 78 beta 2.*
+  
+* The :ref:`compose.beginNew` function accepts a messageId to use the given message as a template.
+
+  *This change was made in Thunderbird 78.7.*
 
 identity
 ========
