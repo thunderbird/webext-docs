@@ -1,18 +1,27 @@
 [
   {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "WebExtensionManifest",
+        "properties": {
+          "message_display_action": {
+            "properties": {
+              "default_label": {
+                "added" : "78.6.1"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
     "namespace": "messageDisplayAction",
     "types": [
       {
         "id": "OnClickData",
         "added": "74.0b2"
-      }
-    ],
-    "functions": [
-      {
-        "name": "isEnabled",
-        "returns": {
-          "type": "boolean"
-        }
       }
     ],
     "events": [
@@ -28,6 +37,22 @@
             "added": "74.0b2"
           }
         ]
+      }
+    ],
+    "functions": [
+      {
+        "name": "isEnabled",
+        "returns": {
+          "type": "boolean"
+        }
+      },
+      {
+        "name": "setLabel",
+        "added": "78.6.1"
+      },
+      {
+        "name": "getLabel",
+        "added": "78.6.1"
       }
     ]
   }

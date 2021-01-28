@@ -43,6 +43,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_label``]
       :type: (string)
+      :annotation: -- [Added in TB 78.6.1]
    
    
    .. api-member::
@@ -131,7 +132,7 @@ Gets the title of the toolbar action.
 setLabel(details, [callback])
 -----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 78.6.1]
 
 Sets the label of the toolbar action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
@@ -161,7 +162,7 @@ Sets the label of the toolbar action, defaults to its title. Can be set to an em
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 78.6.1]
 
 Gets the label of the toolbar action.
 

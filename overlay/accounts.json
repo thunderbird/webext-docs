@@ -92,11 +92,13 @@
         "added": "76"
       },
       {
-        "name": "getDefault",
+        "name": "getDefaultIdentity",
+
         "added": "78.7"
       },
       {
-        "name": "getDefaultIdentity",
+        "name": "getDefault",
+
         "added": "78.7"
       }
     ]
