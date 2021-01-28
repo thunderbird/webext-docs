@@ -34,6 +34,11 @@ def merge_objects(a, b):
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
             if e not in b or e in ["description"]:
+                if (e in b and e in ["description"]):
+                    print("Replacing Description")
+                    print("  comm-central: " + b[e])
+                    print("  overlay file: " + f)
+                    print("")
                 b[e] = f
                 continue
             if e not in ["namespace", "name", "id", "$extend"]:
@@ -639,7 +644,7 @@ def format_namespace(namespace, manifest_namespace=None):
     return "\n".join(lines).encode("utf-8")
 
 
-def format_manifest_namespace(manifest):
+def format_manifest_namespace(manifest, namespace):
     global unique_id
     #unique_id = 1
 
@@ -669,8 +674,9 @@ def format_manifest_namespace(manifest):
         ]:
             for choice in type_["choices"]:
                 for value in choice["enum"]:
-                    description = [permission_strings[value]] if value in permission_strings else None
-                    permission_lines.extend(api_member(name=":permission:`" + value + "`", description=description))
+                    if "ignore_permissions" not in namespace or value not in namespace["ignore_permissions"]:
+                        description = [permission_strings[value]] if value in permission_strings else None
+                        permission_lines.extend(api_member(name=":permission:`" + value + "`", description=description))
 
     if len(permission_lines) > 0:
         permission_lines.append("")
@@ -753,7 +759,7 @@ if __name__ == "__main__":
             current_namespace_name = namespace["namespace"]
 
             if "manifest" in namespaces:
-                manifest_namespace = format_manifest_namespace(namespaces["manifest"])
+                manifest_namespace = format_manifest_namespace(namespaces["manifest"], namespace)
                 
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
                 fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))

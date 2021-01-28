@@ -41,7 +41,7 @@ Open a new message compose window. If the provided ComposeDetails object does no
    .. api-member::
       :name: [``messageId``]
       :type: (integer)
-      :annotation: -- [Added in TB 84]
+      :annotation: -- [Added in TB 84, backported to TB 78.7]
       
       If specified, the message or template to edit as a new message.
    

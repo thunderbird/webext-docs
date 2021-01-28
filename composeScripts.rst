@@ -19,16 +19,6 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
 .. role:: permission
 
-.. rst-class:: api-main-section
-
-Permissions
-===========
-
-.. api-member::
-   :name: :permission:`messagesModify`
-
-   Read and modify your email messages as they are displayed to you
-
 .. rst-class:: api-permission-info
 
 .. note::

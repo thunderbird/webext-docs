@@ -93,7 +93,7 @@ Returns details of the requested account, or null if it doesn't exist.
 getDefault()
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 85]
+.. api-section-annotation-hack:: -- [Added in TB 85, backported to TB 78.7]
 
 Returns the default account, or null if it is not defined.
 
@@ -135,7 +135,7 @@ Sets the default identity for an account.
 getDefaultIdentity(accountId)
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 85]
+.. api-section-annotation-hack:: -- [Added in TB 85, backported to TB 78.7]
 
 Returns the default identity for an account, or null if it is not defined.
 

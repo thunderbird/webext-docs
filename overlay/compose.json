@@ -47,7 +47,8 @@
         "parameters": [
           {
             "name": "messageId",
-            "added": 84
+            "added": 84,
+            "backported": "78.7"
           }
         ],
         "returns": {

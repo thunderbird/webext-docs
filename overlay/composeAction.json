@@ -8,7 +8,8 @@
           "compose_action": {
             "properties": {
               "default_label": {
-                "added" : "84.0b3"
+                "added": "84.0b3",
+                "backported": "78.6.1"
               }
             }
           }
@@ -48,11 +49,13 @@
       },
       {
         "name": "setLabel",
-        "added": "84.0b3"
+        "added": "84.0b3",
+        "backported": "78.6.1"
       },
       {
         "name": "getLabel",
-        "added": "84.0b3"
+        "added": "84.0b3",
+        "backported": "78.6.1"
       }
     ]    
   }
