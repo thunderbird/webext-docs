@@ -67,6 +67,12 @@
           "organization": {
             "type": "string",
             "description": "The organization associated with this identity."
+          },
+          "composeHtml": {
+            "type": "boolean",
+            "description": "Wether the identity uses HTML as the default compose format.",
+            "added": "85",
+            "backported": "78.7.0"
           }
         }
       }
