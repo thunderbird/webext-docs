@@ -5,14 +5,12 @@ Changes in Thunderbird 81
 messageDisplay
 ==============
 
-* The following API has been added to allow access to details of multiple-selection of email. Previously only a single selection function was available.
+* The :ref:`messageDisplay.getDisplayedMessages` function has been added to allow access to details of multiple-selection of email. Previously only a single selection function was available.
 
-  * :ref:`messageDisplay.getDisplayedMessages`
+  *This change has been backported to Thunderbird 78.4.0.*
 
-  These events have been added:
+* The :ref:`messageDisplay.onMessagesDisplayed` event has been added.
 
-  * :ref:`messageDisplay.onMessagesDisplayed`
+  *This change has been backported to Thunderbird 78.4.0.*
 
-  See the documentation on those functions and events for more information.
-
-  *These changes have been backported to Thunderbird 78.4.0.*
+See the documentation on those functions and events for more information.

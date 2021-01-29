@@ -23,7 +23,7 @@ compose
 * A new event, :ref:`compose.onIdentityChanged` was added.
 
   *This change was made in Thunderbird 78 beta 2.*
-  
+
 identity
 ========
 
