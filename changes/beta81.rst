@@ -14,3 +14,5 @@ messageDisplay
   * :ref:`messageDisplay.onMessagesDisplayed`
 
   See the documentation on those functions and events for more information.
+
+  *These changes have been backported to Thunderbird 78.4.0.*

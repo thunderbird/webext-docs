@@ -8,17 +8,23 @@ compose
 * Attachments can now be specified in the :ref:`beginNew <compose.beginNew>`,
   :ref:`beginReply <compose.beginReply>`, and :ref:`beginForward <compose.beginForward>` functions.
 
+  *This change has been backported to Thunderbird 78.4.0.*
+
 tabs
 ====
 
 * The :ref:`connect <tabs.connect>` and :ref:`sendMessage <tabs.sendMessage>` functions now work as
   they do in Firefox.
 
+  *This change has been backported to Thunderbird 78.4.0.*
+
 messageDisplayScripts/tabs
 ==========================
 
 * Content script functions can now operate on a message display "tab" in the same way they do on a
   content tab in Thunderbird or Firefox. This requires the new "messagesModify" permission.
+
+  *This change has been backported to Thunderbird 78.4.0.*
 
   Here are some basic examples. See `the MDN documentation`__ for a more in-depth explanation.
 
@@ -53,7 +59,11 @@ messageDisplayScripts/tabs
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
 
 * Scripts can also be registered to run automatically on messages being displayed, using the new
-  :doc:`/messageDisplayScripts` API. Again, this works just like the contentScripts API:
+  :doc:`/messageDisplayScripts` API. 
+  
+  *This change has been backported to Thunderbird 78.4.0.*
+  
+  Again, this works just like the contentScripts API:
 
   .. code-block:: javascript
 
