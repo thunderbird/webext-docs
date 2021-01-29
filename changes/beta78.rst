@@ -12,6 +12,19 @@ accounts
   
   *This change was made in Thunderbird 78.7.*  
   
+browserAction, composeAction, messageDisplayAction
+==================================================
+
+* Labels of action buttons can now be set independently from the title/tooltip. Empty strings are
+  supported as well and enforce an icon-only mode (which is the only mode supported by Firefox).
+  The label can be set via the new manifest key ''default_label''. Additionally, the following
+  functions have been added:
+  
+  * :ref:`browserAction.getLabel`, :ref:`composeAction.getLabel`, :ref:`messageDisplayAction.getLabel`,
+  * :ref:`browserAction.setLabel`, :ref:`composeAction.setLabel`, :ref:`messageDisplayAction.setLabel`,
+  
+  *This change was made in Thunderbird 78.6.1.*
+
 compose
 =======
 
