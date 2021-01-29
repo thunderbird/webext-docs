@@ -99,12 +99,12 @@
       {
         "name": "getDefaultIdentity",
         "added": "85",
-        "backported": "78.7"
+        "backported": "78.7.0"
       },
       {
         "name": "getDefault",
         "added": "85",
-        "backported": "78.7"
+        "backported": "78.7.0"
       }
     ]
   }

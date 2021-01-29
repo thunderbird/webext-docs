@@ -26,9 +26,7 @@ tabs
 windows
 =======
 
-* The following function has been added:
- 
-  * :ref:`windows.openDefaultBrowser`
+* The :ref:`windows.openDefaultBrowser` function has been added. 
 
 browserAction
 ==================================================

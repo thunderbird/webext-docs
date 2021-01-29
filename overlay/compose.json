@@ -26,7 +26,7 @@
           },
           "attachments": {
             "added": "82",
-            "backported": "78.4"
+            "backported": "78.4.0"
           }
         }
       },
@@ -47,8 +47,8 @@
         "parameters": [
           {
             "name": "messageId",
-            "added": 84,
-            "backported": "78.7"
+            "added": "84",
+            "backported": "78.7.0"
           }
         ],
         "returns": {

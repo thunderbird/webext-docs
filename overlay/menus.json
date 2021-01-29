@@ -6,7 +6,7 @@
         "id": "ContextType",
         "enumChanges": {
           "compose_attachments": {
-            "added": 83,
+            "added": "83",
             "backported": "78.5.0"
           }
         }
@@ -15,7 +15,7 @@
         "id": "OnClickData",
         "properties": {
           "attachments": {
-            "added": 83
+            "added": "83"
           }
         }
       }
@@ -28,7 +28,7 @@
             "name": "info",
             "properties": {
               "attachments": {
-                "added": 83
+                "added": "83"
               }
             }
           }
