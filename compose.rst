@@ -41,7 +41,7 @@ Open a new message compose window. If the provided ComposeDetails object does no
    .. api-member::
       :name: [``messageId``]
       :type: (integer)
-      :annotation: -- [Added in TB 84, backported to TB 78.7]
+      :annotation: -- [Added in TB 84, backported to TB 78.7.0]
       
       If specified, the message or template to edit as a new message.
    
@@ -532,7 +532,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``attachments``]
       :type: (array of object)
-      :annotation: -- [Added in TB 82, backported to TB 78.4]
+      :annotation: -- [Added in TB 82, backported to TB 78.4.0]
       
       Attachments to add to the message. Only used in the begin* functions.
    

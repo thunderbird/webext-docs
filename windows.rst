@@ -362,7 +362,7 @@ Removes (closes) a window, and all the tabs inside it.
 openDefaultBrowser(url)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84, backported to TB 78.6]
+.. api-section-annotation-hack:: -- [Added in TB 84, backported to TB 78.6.0]
 
 Opens the provided URL in the default system browser.
 
