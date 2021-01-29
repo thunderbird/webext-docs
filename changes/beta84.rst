@@ -13,7 +13,7 @@ compose
   
 * Using :ref:`beginForward <compose.beginForward>` function with a ``forwardInline`` type and
   ``details`` argument specified has been fixed.
-
+  
   *This change has been backported to Thunderbird 78.7.0.*
   
 
