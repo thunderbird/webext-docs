@@ -11,7 +11,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manife
 
 .. role:: permission
 
-The theme API allows customizing of visual elements of the browser.
+The theme API allows customizing of visual elements of Thunderbird.
 
 .. rst-class:: api-main-section
 
@@ -175,18 +175,44 @@ ThemeColor
 
 .. api-section-annotation-hack:: 
 
+Defines a color value.
+
 .. api-header::
    :label: string
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__ or a hexadecimal representation. For example ``crimson`` or  ``#dc143c``.
+   
 
 OR
 
 .. api-header::
    :label: array of integer
 
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         An RGB array of 3 integers. For example ``[220, 20, 60]`` for the color *crimson*.
+   
+
 OR
 
 .. api-header::
    :label: array of number
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         An RGBA array of 3 integers and a fractional (a float between 0 and 1). For example ``[220, 20, 60, 0.5]`` for the color *crimson* with 50% opacity.
+   
 
 .. _theme.ThemeExperiment:
 
@@ -194,6 +220,8 @@ ThemeExperiment
 ---------------
 
 .. api-section-annotation-hack:: 
+
+Defines additional color, image and property keys to be used in :ref:`theme.ThemeType`, extending the theme-able areas of Thunderbird.
 
 .. api-header::
    :label: object
@@ -258,6 +286,8 @@ ThemeType
 ---------
 
 .. api-section-annotation-hack:: 
+
+Contains the color, image and property settings of a theme.
 
 .. api-header::
    :label: object
@@ -567,7 +597,7 @@ ThemeType
          :name: [``additional_backgrounds``]
          :type: (array of string)
          
-         Additional images added on the header area and displayed behind the 'theme_frame' image.
+         URLs of additional images added to the header area and displayed behind the 'theme_frame' image.
       
       
       .. api-member::
@@ -579,7 +609,7 @@ ThemeType
          :name: [``theme_frame``]
          :type: (string)
          
-         Foreground image on the header area.
+         URL of a foreground image on the header area.
       
    
    
