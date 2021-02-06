@@ -80,6 +80,8 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 +-------------------------------+------------------------------------------------------------+
 | :doc:`tabs`                   | |tabs-Description|                                         |
 +-------------------------------+------------------------------------------------------------+
+| :doc:`theme`                  | |theme-Description|                                        |
++-------------------------------+------------------------------------------------------------+
 | :doc:`windows`                | |windows-Description|                                      |
 +-------------------------------+------------------------------------------------------------+
   
@@ -93,6 +95,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |composeScripts-Description| replace:: Functionally is the same as the contentScripts API except that it works on the document of email messages during composition.
 .. |contacts-Description| replace:: Enables an extension to access, modify, create and delete contacts in Thunderbird address books.
 .. |folders-Description| replace:: Enables an extension to access, modify, create and delete mail account folders.
+.. |theme-Description| replace:: The theme API can be used to create static or dynamic Thunderbird themes. Theme experiments are supported.
 .. |mailingLists-Description| replace:: Enables an extension to access, modify, create and delete mailing lists in Thunderbird address books.
 .. |mailTabs-Description| replace:: Enables an extension to interact with Thunderbird's main window.
 .. |menus-Description| replace:: Enables an extension to add (context-) menu entries to Thunderbird menus.
@@ -169,10 +172,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 +-----------------------------+------------------------------------------------------------+
 | `storage`_                  | |storage-Description|                                      |
 +-----------------------------+------------------------------------------------------------+
-| `theme`_                    | |theme-Description|                                        |
-+-----------------------------+------------------------------------------------------------+
-| `theme_experiment`_         | |theme_experiment-Description|                             |
-+-----------------------------+------------------------------------------------------------+
 | `userScripts`_              | |userScripts-Description|                                  |
 +-----------------------------+------------------------------------------------------------+
 | `webNavigation`_            | |webNavigation-Description|                                |
@@ -199,8 +198,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. _proxy: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/proxy
 .. _runtime: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime
 .. _storage: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/storage
-.. _theme: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/theme
-.. _theme_experiment: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme_experiment
 .. _userScripts: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/userScripts
 .. _webNavigation: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webNavigation
 .. _webRequest: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/webRequest
@@ -224,12 +221,9 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. |proxy-Description| replace:: Enables an extension to proxy web requests. Use the *proxy.onRequest* event listener to intercept web requests, and return an object that describes whether and how to proxy them.
 .. |runtime-Description| replace:: This module provides information about the extension and the environment it's running in. It also provides messaging APIs to communicate between different parts of the extension, communicate with other extensions and communicate with native applications.
 .. |storage-Description| replace:: Enables extensions to store and retrieve data, and listen for changes to stored items.
-.. |theme-Description| replace:: Enables extensions to update the theme, thus creating a dynamic theme.
-.. |theme_experiment-Description| replace:: Using this manifest key enables the definition of experimental theme key properties for the Thunderbird interface. These experiments are a precursor to proposing new theme features for inclusion in Thunderbird.
 .. |userScripts-Description| replace:: Use this API to register user scripts, third-party scripts designed to manipulate webpages or provide new features. Registering a user script instructs the browser to attach the script to pages that match the URL patterns specified during registration. In Thunderbird, user scripts can only be used in web pages loaded into tabs. This API offers similar capabilities to contentScripts but with features suited to handling third-party scripts.
 .. |webNavigation-Description| replace:: Add event listeners for the various stages of a navigation. A navigation consists of a frame in the browser transitioning from one URL to another, usually (but not always) in response to a user action like clicking a link.
 .. |webRequest-Description| replace:: Add event listeners for the various stages of making an HTTP request, which includes websocket requests on ws:// and wss://. The event listener receives detailed information about the request and can modify or cancel the request.
-
 
 .. toctree::
   :hidden:
@@ -252,6 +246,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   messageDisplayAction
   messageDisplayScripts
   messages
+  theme
   tabs
   windows
 
@@ -277,7 +272,7 @@ Where To Get Help And More Information
 
 `Thunderbird add-on developer documentation`__
   Find information about creating and updating extensions for Thunderbird. Includes getting-started-tutorials and a collection of helpful articles and guides.
-  
+
 `Thunderbird add-on developer community`__
   Learn how to get in touch with other add-on developers, to ask questions and to share knowledge.
   

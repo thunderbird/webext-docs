@@ -31,7 +31,7 @@
         }
       },
       {
-        "name": "ComposeAttachment",
+        "id": "ComposeAttachment",
         "added": "78",
         "properties": {
           "size": {
