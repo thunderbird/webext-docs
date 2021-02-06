@@ -33,12 +33,22 @@ def merge_objects(a, b):
                 continue
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():
-            if e not in b or e in ["description"]:
+            # allow new entries or overrides of descriptions
+            if e not in b or e in ["description", "$ref", "type"]:
                 if (e in b and e in ["description"]):
                     print("Replacing Description")
                     print("  comm-central: " + b[e])
                     print("  overlay file: " + f)
                     print("")
+                
+                # allow to replace a $ref by a type
+                if e == "type" and "$ref" in b:
+                    del b["$ref"]
+
+                # allow to replace a type by a ref
+                if e == "$ref" and "type" in b:
+                    del b["type"]
+                
                 b[e] = f
                 continue
             if e not in ["namespace", "name", "id", "$extend"]:
@@ -57,6 +67,10 @@ def replace_code(string):
         "</code>": "``",
         "<codeblock>": " ::\n\n",
         "</codeblock>": "\n\n",
+        "<literalinclude>": "\n\n.. literalinclude:: ",
+        "</literalinclude>": "\n\n",
+        "<lang>": "\n  :language: ",
+        "</lang>": "",
         "<var>": "``",
         "</var>": "``",
         "<permission>":":permission:`",
@@ -112,7 +126,10 @@ def link_ref(ref):
             url = "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/%s/%s"
             url = url % (moz_namespace[:-1], name)
             return "`%s <%s>`_" % (name, url)
-    if "." in ref or current_namespace_name is None:
+    if "manifest." in ref:
+        # manifest types are not global and need to be prepended by the current namespace
+        return ":ref:`%s.%s`" % (current_namespace_name, ref.replace("manifest.",""))
+    elif "." in ref or current_namespace_name is None:
         return ":ref:`%s`" % ref
     else:
         return ":ref:`%s.%s`" % (current_namespace_name, ref)
@@ -172,7 +189,7 @@ def get_api_member_parts(name, value):
 
     if "description" in value:
         parts['description'].append("")
-        parts['description'].append(replace_code(value["description"]))
+        parts['description'].extend(replace_code(value["description"]).split("\n"))
     
     if "changed" in value:
         parts['description'].append("")
@@ -197,13 +214,16 @@ def format_enum(name, value):
     #enum_lines.extend(reference("enum_%s_%d" % (name, unique_id)))
     enum_lines.append("Supported values:")
 
+    enum_changes = value.get("enumChanges", None)
     for enum_value in value.get("enum"):       
         enum_annotation = None
-        if "enumChanges" in value:
-            changes = value.get("enumChanges")
-            if enum_value in changes:
-                enum_annotation = format_addition(changes.get(enum_value))
-        enum_lines.extend(api_member(name="``" + enum_value + "``", annotation=enum_annotation))
+        enum_description = []
+        if enum_changes and enum_value in enum_changes:
+            enum_change = enum_changes.get(enum_value)
+            enum_annotation = format_addition(enum_change)
+            if "description" in enum_change:
+                enum_description.extend(enum_change.get("description").split("\n"))
+        enum_lines.extend(api_member(name="``" + enum_value + "``", annotation=enum_annotation, description=enum_description))
 
     return enum_lines
     
@@ -419,7 +439,7 @@ def reference(label):
     ]
 
 
-def format_namespace(namespace, manifest_namespace=None):
+def format_namespace(manifest, namespace):
     global unique_id, additional_type_used
 
     lines = []
@@ -443,11 +463,11 @@ def format_namespace(namespace, manifest_namespace=None):
         ""]);
     
     if "description" in namespace:
-        lines.append(replace_code(namespace["description"]))
+        lines.extend(replace_code(namespace["description"]).split("\n"))
         lines.append("")
 
-    if manifest_namespace is not None:
-        lines.extend(manifest_namespace)
+    if manifest is not None:
+        lines.extend(format_manifest_namespace(manifest, namespace))
 
     lines.extend(format_permissions(namespace))
 
@@ -465,7 +485,7 @@ def format_namespace(namespace, manifest_namespace=None):
             #enum_lines = []
 
             if "description" in function:
-                lines.append(replace_code(function["description"]))
+                lines.extend(replace_code(function["description"]).split("\n"))
                 lines.append("")
                 
             if "changed" in function:
@@ -508,7 +528,7 @@ def format_namespace(namespace, manifest_namespace=None):
             ))
 
             if "description" in event:
-                lines.append(replace_code(event["description"]))
+                lines.extend(replace_code(event["description"]).split("\n"))
                 lines.append("")
 
             if "changed" in event:
@@ -561,7 +581,7 @@ def format_namespace(namespace, manifest_namespace=None):
             ))
 
             if "description" in type_:
-                type_lines.append(replace_code(type_["description"]))
+                type_lines.extend(replace_code(type_["description"]).split("\n"))
                 type_lines.append("")
 
             if "changed" in type_:
@@ -623,11 +643,8 @@ def format_namespace(namespace, manifest_namespace=None):
 
         for key in sorted(namespace["properties"].iterkeys()):
             lines.extend(header_3(key, label="%s.%s" % (current_namespace_name, key)))
-            lines.extend([
-                namespace["properties"][key].get("description"),
-                "",
-            ])
-
+            lines.extend(namespace["properties"][key].get("description").split("\n"))
+            lines.append("")
 
     index = 0
     previous = ""
@@ -664,7 +681,7 @@ def format_manifest_namespace(manifest, namespace):
 
     for type_ in manifest["types"]:
         if type_.get("$extend", None) == "WebExtensionManifest":
-            for [name, value] in type_["properties"].items():
+            for [name, value] in sorted(type_["properties"].items(), key=lambda t: t[0] if "sort" not in t[1] else t[1]["sort"]):
                 property_lines.extend(format_object(name, value))
         if type_.get("$extend", None) in [
             "OptionalPermission",
@@ -675,7 +692,11 @@ def format_manifest_namespace(manifest, namespace):
             for choice in type_["choices"]:
                 for value in choice["enum"]:
                     if "ignore_permissions" not in namespace or value not in namespace["ignore_permissions"]:
-                        description = [permission_strings[value]] if value in permission_strings else None
+                        description = None
+                        if "permissions" in manifest and value in manifest["permissions"] and "description" in manifest["permissions"][value]:
+                            description = [manifest["permissions"][value]["description"]]
+                        elif value in permission_strings:
+                            description = [permission_strings[value]]
                         permission_lines.extend(api_member(name=":permission:`" + value + "`", description=description))
 
     if len(permission_lines) > 0:
@@ -742,7 +763,6 @@ if __name__ == "__main__":
                 merge_objects(overlay, document)
                 # print(json.dumps(document, indent=2))
 
-        manifest_namespace = None
         # get all namespaces defined in the current file
         namespaces = {}
         for namespace in document:
@@ -757,9 +777,23 @@ if __name__ == "__main__":
 
             additional_type_used = []
             current_namespace_name = namespace["namespace"]
+            manifest = namespaces.get("manifest", None)
 
-            if "manifest" in namespaces:
-                manifest_namespace = format_manifest_namespace(namespaces["manifest"], namespace)
-                
+            # Import selected manifest types into the namespace (used in theme)
+            # I decided to select which types should be import, as sometimes
+            # importing all types is not desired.
+            if manifest:
+                manifestTypes = manifest.get("types", None);
+                namespaceTypes = namespace.get("types", None)
+                if manifestTypes and namespaceTypes:
+                    manifestTypeDict = {}
+                    for manifestType in manifestTypes:
+                            if "id" in manifestType:
+                                manifestTypeDict[manifestType["id"]] = manifestType
+                    
+                    for index, item in enumerate(namespaceTypes):                        
+                        if "$import_from_manifest" in item:
+                            namespaceTypes[index] = manifestTypeDict[item["$import_from_manifest"]]
+
             with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
-                fp_output.write(format_namespace(namespace, manifest_namespace=manifest_namespace))
+                fp_output.write(format_namespace(manifest, namespace))
