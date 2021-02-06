@@ -11,7 +11,7 @@
       {
         "name": "getDisplayedMessages",
         "added": "81",
-        "backported": "78.4",
+        "backported": "78.4.0",
         "returns": {
           "type": "array",
           "items": {
@@ -28,14 +28,14 @@
             "name": "tab",
             "changed": {
               "76": "previously just the tab's ID"
-              }
+            }
           }
         ]
       },
       {
         "name": "onMessagesDisplayed",
         "added": "81",
-        "backported": "78.4"
+        "backported": "78.4.0"
       }
     ]
   }

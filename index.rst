@@ -251,6 +251,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   theme
   tabs
   windows
+
 .. _HowToGuide:
 
 .. toctree::
