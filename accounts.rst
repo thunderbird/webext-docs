@@ -226,7 +226,7 @@ MailIdentity
    .. api-member::
       :name: ``composeHtml``
       :type: (boolean)
-      :annotation: -- [Added in TB 85]
+      :annotation: -- [Added in TB 85, backported to TB 78.7.0]
       
       Wether the identity uses HTML as the default compose format.
    
