@@ -564,11 +564,17 @@ Information sent when a message display action is clicked.
       .. api-member::
          :name: ``Command``
       
+         Only available on macOS.
+      
       .. api-member::
          :name: ``Ctrl``
       
+         Not available on macOS.
+      
       .. api-member::
          :name: ``MacCtrl``
+      
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
    
    
    .. api-member::
