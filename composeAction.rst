@@ -50,7 +50,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_label``]
       :type: (string)
-      :annotation: -- [Added in TB 78.6.1]
+      :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
    
    
    .. api-member::
@@ -139,7 +139,7 @@ Gets the title of the toolbar action.
 setLabel(details, [callback])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 78.6.1]
+.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
 Sets the label of the toolbar action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
@@ -169,7 +169,7 @@ Sets the label of the toolbar action, defaults to its title. Can be set to an em
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 78.6.1]
+.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
 Gets the label of the toolbar action.
 
@@ -576,11 +576,17 @@ Information sent when a compose action is clicked.
       .. api-member::
          :name: ``Command``
       
+         Only available on macOS.
+      
       .. api-member::
          :name: ``Ctrl``
       
+         Not available on macOS.
+      
       .. api-member::
          :name: ``MacCtrl``
+      
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
    
    
    .. api-member::

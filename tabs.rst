@@ -83,7 +83,7 @@ Gets the tab that this script call is being made from. May be undefined if calle
 connect(tabId, [connectInfo])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4]
+.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
 
 Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`_ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_.
 
@@ -132,7 +132,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
 sendMessage(tabId, message, [options])
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4]
+.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
 
 Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back.  The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`_ event is fired in each content script running in the specified tab for the current extension.
 
