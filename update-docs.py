@@ -65,7 +65,7 @@ def replace_code(string):
         "</b>": "**",
         "<code>": "``",
         "</code>": "``",
-        "<codeblock>": " ::\n\n",
+        "<codeblock>": "\n\n::\n\n  ",
         "</codeblock>": "\n\n",
         "<literalinclude>": "\n\n.. literalinclude:: ",
         "</literalinclude>": "\n\n",
@@ -77,6 +77,7 @@ def replace_code(string):
         "</permission>":"`",        
         "&mdash;": u"—",
         "\n": "\n\n",
+        "<li>": "\n* ",
     }
     for [s, r] in replacements.items():
         string = string.replace(s, r)
@@ -258,6 +259,8 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     if obj.get("type") == "object" and "properties" in obj:
         items = sorted(obj["properties"].items())
         for [key, value] in items:
+            if value.get("ignore", False):
+                continue
             if not value.get("optional", False):
                 nested_content.extend(format_object(key, value))
                 #nested_content.append("  - %s" % get_api_member_parts(key, value))
@@ -265,6 +268,8 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
                 #unique_id += 1
 
         for [key, value] in items:
+            if value.get("ignore", False):
+                continue
             if value.get("optional", False):
                 nested_content.extend(format_object(key, value))
                 #nested_content.append("  - %s" % get_api_member_parts(key, value))
