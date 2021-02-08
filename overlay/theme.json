@@ -49,24 +49,36 @@
       {
         "id": "ThemeType",
         "properties": {
-          "colors": {
+          "images": {
             "properties": {
-              "sidebar_highlight_border": {
-                "added": "86",
-                "backported": "78.7.1" 
+              "headerURL": {
+                "ignore" : true
               }
             }
           },
-          "images": {
+          "colors": {
             "properties": {
-              "additional_backgrounds": {
-                "items": { "type": "string" }
+              "accentcolor": {
+                "ignore" : true
               },
-              "headerURL": {
-                "type": "string"
+              "bookmark_text": {
+                "ignore" : true
               },
-              "theme_frame": {
-                "type": "string"
+              "ntp_background": {
+                "ignore" : true
+              },
+              "ntp_text": {
+                "ignore" : true
+              },
+              "textcolor": {
+                "ignore" : true
+              },
+              "toolbar_field_separator": {
+                "ignore" : true
+              },
+              "sidebar_highlight_border": {
+                "added": "86",
+                "backported": "78.7.1"
               }
             }
           }
@@ -85,6 +97,19 @@
       },
       {
         "$import_from_manifest": "ThemeType"
+      },
+      {
+        "id" : "ImageDataOrExtensionURL",
+        "choices": [
+          {
+            "type": "string",
+            "description": "A relative URL for an image bundled with the extension. For example ``images/background.png``. The following image formats are supported: <li>JPEG <li>PNG <li>APNG <li>SVG (animated SVG is supported from Thunderbird 59) <li>GIF (animated GIF isn’t supported)"
+          },
+          {
+            "type": "string",
+            "description": "A data URL using a base64 encoded representation of a PNG or JPG image. For example: <codeblock>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==</codeblock>"
+          }
+        ]
       },
       {
         "id": "ThemeUpdateInfo",
