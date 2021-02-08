@@ -175,6 +175,8 @@ ImageDataOrExtensionURL
 
 .. api-section-annotation-hack:: 
 
+Defines an image resource.
+
 .. api-header::
    :label: string
 
