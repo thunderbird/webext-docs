@@ -168,6 +168,55 @@ Fired when a new theme has been applied
 Types
 =====
 
+.. _theme.ImageDataOrExtensionURL:
+
+ImageDataOrExtensionURL
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Defines an image resource.
+
+.. api-header::
+   :label: string
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         A relative URL for an image bundled with the extension. For example ``images/background.png``. The following image formats are supported: 
+         
+         * JPEG 
+         
+         * PNG 
+         
+         * APNG 
+         
+         * SVG (animated SVG is supported from Thunderbird 59) 
+         
+         * GIF (animated GIF isn’t supported)
+   
+
+OR
+
+.. api-header::
+   :label: string
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         A data URL using a base64 encoded representation of a PNG or JPG image. For example: 
+         
+         ::
+         
+           data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHElEQVQI12P4//8/w38GIAXDIBKE0DHxgljNBAAO9TXL0Y4OHwAAAABJRU5ErkJggg==
+         
+         
+   
+
 .. _theme.ThemeColor:
 
 ThemeColor
@@ -185,7 +234,15 @@ Defines a color value.
    
       .. container:: api-member-description-only
          
-         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__ or a hexadecimal representation. For example ``crimson`` or  ``#dc143c``.
+         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
+         
+         * ``crimson`` 
+         
+         * ``#dc143c`` 
+         
+         * ``rgb(220, 20, 60)`` (or ``rgba(220, 20, 60, 0.5)`` to set 50% opacity) 
+         
+         * ``hsl(348, 83%, 47%)`` (or ``hsla(348, 83%, 47%, 0.5)`` to set 50% opacity)
    
 
 OR
@@ -297,17 +354,7 @@ Contains the color, image and property settings of a theme.
       :name: [``colors``]
       :type: (object)
       
-      .. api-member::
-         :name: [``accentcolor``]
-         :type: (:ref:`theme.ThemeColor`) **Deprecated.**
-      
-      
-      .. api-member::
-         :name: [``bookmark_text``]
-         :type: (:ref:`theme.ThemeColor`)
-         
-         Not used in Thunderbird.
-      
+      Object with one or more key-value pairs to map color values to theme color keys. The following built-in theme color keys are supported:
       
       .. api-member::
          :name: [``button_background_active``]
@@ -341,7 +388,7 @@ Contains the color, image and property settings of a theme.
          :name: [``icons``]
          :type: (:ref:`theme.ThemeColor`)
          
-         The color of the toolbar icons.
+         The color of the toolbar icons. Defaults to the color specified by ``toolbar_text``.
       
       
       .. api-member::
@@ -349,20 +396,6 @@ Contains the color, image and property settings of a theme.
          :type: (:ref:`theme.ThemeColor`)
          
          The color of the toolbar icons in attention state such as the chat icon whith new messages.
-      
-      
-      .. api-member::
-         :name: [``ntp_background``]
-         :type: (:ref:`theme.ThemeColor`)
-         
-         Not used in Thunderbird.
-      
-      
-      .. api-member::
-         :name: [``ntp_text``]
-         :type: (:ref:`theme.ThemeColor`)
-         
-         Not used in Thunderbird.
       
       
       .. api-member::
@@ -475,26 +508,21 @@ Contains the color, image and property settings of a theme.
          :name: [``tab_selected``]
          :type: (:ref:`theme.ThemeColor`)
          
-         Background color of the selected tab.
+         Background color of the selected tab. Defaults to the color specified by ``toolbar``.
       
       
       .. api-member::
          :name: [``tab_text``]
          :type: (:ref:`theme.ThemeColor`)
          
-         The text color for the selected tab.
-      
-      
-      .. api-member::
-         :name: [``textcolor``]
-         :type: (:ref:`theme.ThemeColor`) **Deprecated.**
+         The text color for the selected tab.  Defaults to the color specified by ``toolbar_text``.
       
       
       .. api-member::
          :name: [``toolbar``]
          :type: (:ref:`theme.ThemeColor`)
          
-         The background color of the toolbars.
+         The background color of the toolbars. Also used as default value for ``tab_selected``.
       
       
       .. api-member::
@@ -547,13 +575,6 @@ Contains the color, image and property settings of a theme.
       
       
       .. api-member::
-         :name: [``toolbar_field_separator``]
-         :type: (:ref:`theme.ThemeColor`)
-         
-         Not used in Thunderbird.
-      
-      
-      .. api-member::
          :name: [``toolbar_field_text``]
          :type: (:ref:`theme.ThemeColor`)
          
@@ -571,7 +592,7 @@ Contains the color, image and property settings of a theme.
          :name: [``toolbar_text``]
          :type: (:ref:`theme.ThemeColor`)
          
-         This color property is an alias of 'bookmark_text'.
+         The text color in the main Thunderbird toolbar. Also used as default value for ``icons`` and ``tab_text``.
       
       
       .. api-member::
@@ -593,29 +614,28 @@ Contains the color, image and property settings of a theme.
       :name: [``images``]
       :type: (object)
       
+      Object with one or more key-value pairs to map images to theme image keys. The following built-in theme image keys are supported:
+      
       .. api-member::
          :name: [``additional_backgrounds``]
-         :type: (array of string)
+         :type: (array of :ref:`theme.ImageDataOrExtensionURL`)
          
-         URLs of additional images added to the header area and displayed behind the 'theme_frame' image.
-      
-      
-      .. api-member::
-         :name: [``headerURL``]
-         :type: (string) **Deprecated.**
+         Additional images added to the header area and displayed behind the 'theme_frame' image.
       
       
       .. api-member::
          :name: [``theme_frame``]
-         :type: (string)
+         :type: (:ref:`theme.ImageDataOrExtensionURL`)
          
-         URL of a foreground image on the header area.
+         Foreground image on the header area.
       
    
    
    .. api-member::
       :name: [``properties``]
       :type: (object)
+      
+      Object with one or more key-value pairs to map property values to theme property keys. The following built-in theme property keys are supported:
       
       .. api-member::
          :name: [``additional_backgrounds_alignment``]
