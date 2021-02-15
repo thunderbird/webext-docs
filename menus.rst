@@ -475,6 +475,20 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       
       
       .. api-member::
+         :name: [``selectedFolder``]
+         :type: (:ref:`folders.MailFolder`)
+         
+         The selected folder, if the context menu was opened in the folder pane. The :permission:`accountsRead` permission is required.
+      
+      
+      .. api-member::
+         :name: [``selectedMessages``]
+         :type: (:ref:`messages.MessageList`)
+         
+         The selected messages, if the context menu was opened in the message list. The :permission:`messagesRead` permission is required.
+      
+      
+      .. api-member::
          :name: [``selectionText``]
          :type: (string)
       
