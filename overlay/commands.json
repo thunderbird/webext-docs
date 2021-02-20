@@ -1,6 +1,63 @@
 [
+ {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "WebExtensionManifest",
+        "properties": {
+          "commands": {
+            "description" : "Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: \n * ``_execute_browser_action``\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>"
+          }
+        }
+      }
+    ]
+  },
   {
     "namespace": "commands",
+    "types": [
+     {
+        "id": "KeyName",
+        "type": "string",
+        "description": "Definition of the shortcut, for example ``Alt+F5``. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_."
+      },
+      {
+        "id" : "CommandsShortcut",
+        "type": "object",
+        "properties" : {
+          "suggested_key": {
+            "type": "object",
+            "optional": true,
+            "properties": {
+              "default": {
+                "$ref": "KeyName",
+                "description": "Default key combination.",
+                "optional": true
+              },
+              "mac": {
+                "$ref": "KeyName",
+                "description": "Key combination on Mac.",
+                "optional": true
+              },
+              "linux": {
+                "$ref": "KeyName",
+                "description": "Key combination on Linux.",
+                "optional": true
+              },
+              "windows": {
+                "$ref": "KeyName",
+                "description": "Key combination on Windows.",
+                "optional": true
+              }
+            }
+          },
+          "description": {
+            "type": "string",
+            "preprocess": "localize",
+            "optional": true
+          }
+        }
+      }
+    ],
     "functions": [
       {
         "name": "update",
@@ -10,7 +67,7 @@
             "description": "",
             "properties": {
               "shortcut": {
-                "description": "An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_  to set a new shortcut key. If the string does not match this format, the function throws an error."
+                "description": "An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_  to set a new shortcut key. If the string does not match this format, the function throws an error."
               }
             }
           }

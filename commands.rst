@@ -20,6 +20,17 @@ Manifest file properties
 .. api-member::
    :name: [``commands``]
    :type: (object)
+   
+   Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: 
+   
+    * ``_execute_browser_action``
+   
+   Example: 
+   
+   .. literalinclude:: includes/commands/manifest.json
+     :language: JSON
+   
+   
 
 .. rst-class:: api-permission-info
 
@@ -69,7 +80,7 @@ Update the details of an already defined command.
          :name: [``shortcut``]
          :type: (string)
          
-         An empty string to clear the shortcut, or a string matching the format of the `commands manifest.json key <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands>`_  to set a new shortcut key. If the string does not match this format, the function throws an error.
+         An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_  to set a new shortcut key. If the string does not match this format, the function throws an error.
       
    
 
@@ -171,3 +182,64 @@ Command
       
       The shortcut active for this command, or blank if not active.
    
+
+.. _commands.CommandsShortcut:
+
+CommandsShortcut
+----------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``description``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``suggested_key``]
+      :type: (object)
+      
+      .. api-member::
+         :name: [``default``]
+         :type: (:ref:`commands.KeyName`)
+         
+         Default key combination.
+      
+      
+      .. api-member::
+         :name: [``linux``]
+         :type: (:ref:`commands.KeyName`)
+         
+         Key combination on Linux.
+      
+      
+      .. api-member::
+         :name: [``mac``]
+         :type: (:ref:`commands.KeyName`)
+         
+         Key combination on Mac.
+      
+      
+      .. api-member::
+         :name: [``windows``]
+         :type: (:ref:`commands.KeyName`)
+         
+         Key combination on Windows.
+      
+   
+
+.. _commands.KeyName:
+
+KeyName
+-------
+
+.. api-section-annotation-hack:: 
+
+Definition of the shortcut, for example ``Alt+F5``. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_.
+
+.. api-header::
+   :label: string
