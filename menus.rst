@@ -418,7 +418,7 @@ onShown(info, tab)
 
 .. api-section-annotation-hack:: 
 
-Fired when a menu is shown. The extension can add, modify or remove menu items and call menus.refresh() to update the menu.
+Fired when a menu is shown. The extension can add, modify or remove menu items and call ``menus.refresh()`` to update the menu.
 
 .. api-header::
    :label: Parameters for event listeners
@@ -428,7 +428,9 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       :name: ``info``
       :type: (object)
       
-      Information about the context of the menu action and the created menu items. For more information about each property, see OnClickData. The following properties are only set if the extension has host permissions for the given context: linkUrl, linkText, srcUrl, pageUrl, frameUrl, selectionText.
+      Information about the context of the menu action and the created menu items. For more information about each property, see :ref:`menus.OnClickData`.
+      
+      Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs. 
       
       .. api-member::
          :name: ``contexts``
@@ -452,16 +454,22 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``frameUrl``]
          :type: (string)
+         
+         Host permission is required.
       
       
       .. api-member::
          :name: [``linkText``]
          :type: (string)
+         
+         Host permission is required.
       
       
       .. api-member::
          :name: [``linkUrl``]
          :type: (string)
+         
+         Host permission is required.
       
       
       .. api-member::
@@ -472,6 +480,8 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``pageUrl``]
          :type: (string)
+         
+         Host permission is required.
       
       
       .. api-member::
@@ -491,11 +501,15 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``selectionText``]
          :type: (string)
+         
+         Host permission is required.
       
       
       .. api-member::
          :name: [``srcUrl``]
          :type: (string)
+         
+         Host permission is required.
       
       
       .. api-member::
