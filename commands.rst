@@ -21,12 +21,20 @@ Manifest file properties
    :name: [``commands``]
    :type: (object)
    
-   Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the built-in special shortcuts ``_execute_browser_action``, ``_execute_compose_action`` or ``_execute_message_display_action``. Example: 
+   Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: 
+   
+    * ``_execute_browser_action`` 
+   
+    *  ``_execute_compose_action`` 
+   
+    * ``_execute_message_display_action``
+   
+   Example: 
    
    .. literalinclude:: includes/commands/manifest.json
      :language: JSON
    
-   .
+   
 
 .. rst-class:: api-permission-info
 
