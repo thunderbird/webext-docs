@@ -428,7 +428,7 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       :name: ``info``
       :type: (object)
       
-      Information about the context of the menu action and the created menu items. For more information about each property, see OnClickData. The following properties are only set if the extension has host permissions for the given context: linkUrl, linkText, srcUrl, pageUrl, frameUrl, selectionText.
+      Information about the context of the menu action and the created menu items. For more information about each property, see OnClickData. Some properties are only set if the extension has host permissions for the given context. The message display tab receives host permission through the :permission:`messagesRead` permission, the compose window through the :permission:`compose`.
       
       .. api-member::
          :name: ``contexts``
@@ -458,16 +458,22 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``frameUrl``]
          :type: (string)
+         
+         Host permission is needed for ``frameUrl`` to be included.
       
       
       .. api-member::
          :name: [``linkText``]
          :type: (string)
+         
+         Host permission is needed for ``linkText`` to be included.
       
       
       .. api-member::
          :name: [``linkUrl``]
          :type: (string)
+         
+         Host permission is needed for ``linkUrl`` to be included.
       
       
       .. api-member::
@@ -478,6 +484,8 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``pageUrl``]
          :type: (string)
+         
+         Host permission is needed for ``pageUrl`` to be included.
       
       
       .. api-member::
@@ -497,11 +505,15 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       .. api-member::
          :name: [``selectionText``]
          :type: (string)
+         
+         Host permission is needed for ``selectionText`` to be included.
       
       
       .. api-member::
          :name: [``srcUrl``]
          :type: (string)
+         
+         Host permission is needed for ``srcUrl`` to be included.
       
       
       .. api-member::
