@@ -13,7 +13,7 @@ WebExtensions can react on events by attaching a listener. Consider the :ref:`me
   
   messenger.menus.onClicked.addListener(menuListener);
   
-Using a more modern syntax:
+Alternative implementation using an anonymous arrow function:
 
 .. code-block:: javascript
  
