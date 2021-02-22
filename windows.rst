@@ -484,7 +484,7 @@ GetInfo
 
 .. api-section-annotation-hack:: 
 
-Specifies properties used to filter the :ref:`windows.Window` returned and to determine whether they should contain a list of the :ref:`tabs.Tab` objects.
+Specifies additional requirements for the returned windows.
 
 .. api-header::
    :label: object
@@ -494,7 +494,7 @@ Specifies properties used to filter the :ref:`windows.Window` returned and to de
       :name: [``populate``]
       :type: (boolean)
       
-      If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains a list of the :ref:`tabs.Tab` objects. The ``Tab`` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the :permission:`tabs` permission.
+      If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains an array of :ref:`tabs.Tab` objects representing the tabs inside the window. The :ref:`tabs.Tab` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the :permission:`tabs` permission.
    
    
    .. api-member::
@@ -568,7 +568,7 @@ Window
       :name: [``tabs``]
       :type: (array of :ref:`tabs.Tab`)
       
-      Array of :ref:`tabs.Tab` objects representing the current tabs in the window.
+      Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused` and the optional :ref:`windows.GetInfo` parameter has ``populate`` set to ``true``.
    
    
    .. api-member::
@@ -641,7 +641,7 @@ WindowType
 
 .. api-section-annotation-hack:: 
 
-The type of window this is. Under some circumstances a Window may not be assigned a type property.
+The type of a window. Under some circumstances a Window may not be assigned a type property.
 
 .. api-header::
    :label: `string`
