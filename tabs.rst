@@ -181,7 +181,7 @@ create(createProperties)
 
 .. api-section-annotation-hack:: 
 
-Creates a new tab.
+Creates a new tab or switches to a tab with the given URL, if it exists already.
 
 .. api-header::
    :label: Parameters
@@ -1101,7 +1101,7 @@ WindowType
 
 .. api-section-annotation-hack:: 
 
-The type of window.
+The type of a window. Under some circumstances a Window may not be assigned a type property.
 
 .. api-header::
    :label: `string`
@@ -1127,6 +1127,15 @@ The type of window.
          
          .. api-member::
             :name: ``devtools``
+         
+         .. api-member::
+            :name: ``addressBook``
+         
+         .. api-member::
+            :name: ``messageCompose``
+         
+         .. api-member::
+            :name: ``messageDisplay``
    
 
 .. rst-class:: api-main-section
