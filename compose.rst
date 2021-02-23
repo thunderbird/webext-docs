@@ -355,7 +355,7 @@ onBeforeSend(tab, details)
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Fired when a message is about to be sent from the compose window.
+Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for event listeners
