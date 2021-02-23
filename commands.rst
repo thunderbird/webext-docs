@@ -135,7 +135,7 @@ onCommand(command)
 
 .. api-section-annotation-hack:: 
 
-Fired when a registered command is activated using a keyboard shortcut.
+Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for event listeners
