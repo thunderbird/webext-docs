@@ -455,6 +455,8 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
          :name: [``attachments``]
          :type: (array of :ref:`compose.ComposeAttachment`)
          :annotation: -- [Added in TB 83]
+         
+         The selected attachments of a message being composed. The :permission:`compose` permission is required.
       
       
       .. api-member::
@@ -714,7 +716,7 @@ Information sent when a context menu item is clicked.
       :type: (array of :ref:`compose.ComposeAttachment`)
       :annotation: -- [Added in TB 83]
       
-      The selected attachments of a message being composed.
+      The selected attachments of a message being composed. The :permission:`compose` permission is required.
    
    
    .. api-member::
