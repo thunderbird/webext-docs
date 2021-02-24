@@ -707,7 +707,7 @@ Information sent when a context menu item is clicked.
       :name: [``attachments``]
       :type: (array of :ref:`compose.ComposeAttachment`)
       
-      The selected attachments of a message being composed.
+      The selected attachments of a message being composed. The :permission:`compose` permission is required.
    
    
    .. api-member::
