@@ -32,8 +32,13 @@ def merge_objects(a, b):
                 b.append(c)
                 continue
     elif isinstance(a, dict):
-        for [e, f] in a.iteritems():
-            # allow new entries or overrides of descriptions
+        for [e, f] in a.iteritems():           
+            # merge existing dicts and lists (former restrictions are a subset)
+            if e in b and (isinstance(f, list) or isinstance(f, dict)): # and e not in ["namespace", "name", "id", "$extend"]
+                merge_objects(f, b[e])
+                continue
+
+            # allow new entries or overrides of descriptions and types
             if e not in b or e in ["description", "$ref", "type"]:
                 if (e in b and e in ["description"]):
                     print("Replacing Description")
@@ -51,8 +56,7 @@ def merge_objects(a, b):
                 
                 b[e] = f
                 continue
-            if e not in ["namespace", "name", "id", "$extend"]:
-                merge_objects(f, b[e])
+                
     else:
         print "Unexpected item:", a
 
