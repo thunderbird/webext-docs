@@ -598,6 +598,28 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``to``]
       :type: (:ref:`compose.ComposeRecipientList`)
    
+   
+   .. api-member::
+      :name: [``type``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 88]
+      
+      Read-only. The type of the message being composed, depending on how the compose window was opened by the user.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``draft``
+      
+      .. api-member::
+         :name: ``new``
+      
+      .. api-member::
+         :name: ``reply``
+      
+      .. api-member::
+         :name: ``forward``
+   
 
 .. _compose.ComposeRecipient:
 

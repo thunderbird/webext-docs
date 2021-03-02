@@ -8,6 +8,9 @@
           "compose_attachments": {
             "added": "83",
             "backported": "78.5.0"
+          },
+          "tools_menu": {
+            "added": "88"
           }
         }
       },

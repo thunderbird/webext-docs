@@ -386,7 +386,7 @@ onClicked(info, [tab])
 
 .. api-section-annotation-hack:: 
 
-Fired when a context menu item is clicked.
+Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for event listeners
@@ -569,7 +569,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts except for ``tab``.
+The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts excluding ``tab`` and ``tools_menu``.
 
 .. api-header::
    :label: `string`
@@ -626,6 +626,10 @@ The different contexts a menu can appear in. Specifying ``all`` is equivalent to
          .. api-member::
             :name: ``compose_attachments``
             :annotation: -- [Added in TB 83, backported to TB 78.5.0]
+         
+         .. api-member::
+            :name: ``tools_menu``
+            :annotation: -- [Added in TB 88]
    
 
 .. _menus.ItemType:
