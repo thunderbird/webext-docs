@@ -696,6 +696,7 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``selectedAccount``]
       :type: (:ref:`accounts.MailAccount`)
+      :annotation: -- [Added in TB 88]
       
       The selected account, if the context menu was opened on an account entry in the folder pane. The :permission:`accountsRead` permission is required.
    
@@ -786,6 +787,7 @@ Some properties are only included if the extension has host permission for the g
    .. api-member::
       :name: [``attachments``]
       :type: (array of :ref:`compose.ComposeAttachment`)
+      :annotation: -- [Added in TB 83]
    
    
    .. api-member::
@@ -829,6 +831,7 @@ Some properties are only included if the extension has host permission for the g
    .. api-member::
       :name: [``selectedAccount``]
       :type: (:ref:`accounts.MailAccount`)
+      :annotation: -- [Added in TB 88]
    
    
    .. api-member::
