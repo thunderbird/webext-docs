@@ -426,109 +426,9 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
    
    .. api-member::
       :name: ``info``
-      :type: (object)
+      :type: (:ref:`menus.OnShowData`)
       
-      Information about the context of the menu action and the created menu items. For more information about each property, see :ref:`menus.OnClickData`.
-      
-      Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs. 
-      
-      .. api-member::
-         :name: ``contexts``
-         :type: (array of :ref:`menus.ContextType`)
-         
-         A list of all contexts that apply to the menu.
-      
-      
-      .. api-member::
-         :name: ``editable``
-         :type: (boolean)
-      
-      
-      .. api-member::
-         :name: ``menuIds``
-         :type: (array of None)
-         
-         A list of IDs of the menu items that were shown.
-      
-      
-      .. api-member::
-         :name: [``attachments``]
-         :type: (array of :ref:`compose.ComposeAttachment`)
-         :annotation: -- [Added in TB 83]
-         
-         The selected attachments of a message being composed. The :permission:`compose` permission is required.
-      
-      
-      .. api-member::
-         :name: [``frameUrl``]
-         :type: (string)
-         
-         Host permission is required.
-      
-      
-      .. api-member::
-         :name: [``linkText``]
-         :type: (string)
-         
-         Host permission is required.
-      
-      
-      .. api-member::
-         :name: [``linkUrl``]
-         :type: (string)
-         
-         Host permission is required.
-      
-      
-      .. api-member::
-         :name: [``mediaType``]
-         :type: (string)
-      
-      
-      .. api-member::
-         :name: [``pageUrl``]
-         :type: (string)
-         
-         Host permission is required.
-      
-      
-      .. api-member::
-         :name: [``selectedFolder``]
-         :type: (:ref:`folders.MailFolder`)
-         
-         The selected folder, if the context menu was opened in the folder pane. The :permission:`accountsRead` permission is required.
-      
-      
-      .. api-member::
-         :name: [``selectedMessages``]
-         :type: (:ref:`messages.MessageList`)
-         
-         The selected messages, if the context menu was opened in the message list. The :permission:`messagesRead` permission is required.
-      
-      
-      .. api-member::
-         :name: [``selectionText``]
-         :type: (string)
-         
-         Host permission is required.
-      
-      
-      .. api-member::
-         :name: [``srcUrl``]
-         :type: (string)
-         
-         Host permission is required.
-      
-      
-      .. api-member::
-         :name: [``targetElementId``]
-         :type: (integer)
-      
-      
-      .. api-member::
-         :name: [``viewType``]
-         :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
-      
+      Information about the context of the menu action and the created menu items.
    
    
    .. api-member::
@@ -794,6 +694,13 @@ Information sent when a context menu item is clicked.
    
    
    .. api-member::
+      :name: [``selectedAccount``]
+      :type: (:ref:`accounts.MailAccount`)
+      
+      The selected account, if the context menu was opened on an account entry in the folder pane. The :permission:`accountsRead` permission is required.
+   
+   
+   .. api-member::
       :name: [``selectedFolder``]
       :type: (:ref:`folders.MailFolder`)
       
@@ -840,6 +747,122 @@ Information sent when a context menu item is clicked.
       :type: (boolean)
       
       A flag indicating the state of a checkbox or radio item before it was clicked.
+   
+
+.. _menus.OnShowData:
+
+OnShowData
+----------
+
+.. api-section-annotation-hack:: 
+
+Information sent when a context menu is being shown. For more information about each property, see :ref:`menus.OnClickData`. 
+
+Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``contexts``
+      :type: (array of :ref:`menus.ContextType`)
+      
+      A list of all contexts that apply to the menu.
+   
+   
+   .. api-member::
+      :name: ``editable``
+      :type: (boolean)
+   
+   
+   .. api-member::
+      :name: ``menuIds``
+      :type: (array of None)
+      
+      A list of IDs of the menu items that were shown.
+   
+   
+   .. api-member::
+      :name: [``attachments``]
+      :type: (array of :ref:`compose.ComposeAttachment`)
+   
+   
+   .. api-member::
+      :name: [``displayedFolder``]
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: [``frameUrl``]
+      :type: (string)
+      
+      Host permission is required.
+   
+   
+   .. api-member::
+      :name: [``linkText``]
+      :type: (string)
+      
+      Host permission is required.
+   
+   
+   .. api-member::
+      :name: [``linkUrl``]
+      :type: (string)
+      
+      Host permission is required.
+   
+   
+   .. api-member::
+      :name: [``mediaType``]
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``pageUrl``]
+      :type: (string)
+      
+      Host permission is required.
+   
+   
+   .. api-member::
+      :name: [``selectedAccount``]
+      :type: (:ref:`accounts.MailAccount`)
+   
+   
+   .. api-member::
+      :name: [``selectedFolder``]
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: [``selectedMessages``]
+      :type: (:ref:`messages.MessageList`)
+   
+   
+   .. api-member::
+      :name: [``selectionText``]
+      :type: (string)
+      
+      Host permission is required.
+   
+   
+   .. api-member::
+      :name: [``srcUrl``]
+      :type: (string)
+      
+      Host permission is required.
+   
+   
+   .. api-member::
+      :name: [``targetElementId``]
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: [``viewType``]
+      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
    
 
 .. rst-class:: api-main-section
