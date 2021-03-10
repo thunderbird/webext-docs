@@ -112,6 +112,8 @@ def get_type(obj, name):
 
 def link_ref(ref):
     global additional_type_used
+    if ref == "extensionTypes.File":
+        return "`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_"
     if ref == "extensionTypes.Date":
         return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_"
     if ref == "runtime.Port":
@@ -159,6 +161,12 @@ def format_changes(obj, inline = False):
                     ""])
             else:
                 lines.extend(api_header("Changes in Thunderbird " + k, api_member(name=replace_code(v))))
+    return lines
+
+def format_hints(obj):
+    lines = []
+    if "hints" in obj:
+        lines.extend(replace_code(obj['hints']).split("\n"))
     return lines
 
 def get_api_member_parts(name, value):
@@ -524,6 +532,11 @@ def format_namespace(manifest, namespace):
 
             lines.extend(format_permissions(function, namespace))
             #lines.extend(enum_lines)
+            
+            if "hints" in function:
+                lines.extend(format_hints(function))
+
+
             
 
     if "events" in namespace:

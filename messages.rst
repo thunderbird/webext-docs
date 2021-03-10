@@ -230,6 +230,16 @@ Lists all of the attachments of a message.
    
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`messages.Attachment`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`messagesRead`
@@ -258,9 +268,24 @@ Gets the content of an attachment as a DOM ``File`` object.
    
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`messagesRead`
+
+The most simple way to get the content of an attachment is to use the ``text()`` method of the ``File`` object:
+
+.. literalinclude:: includes/messages/file.js
+  :language: JavaScript
 
 .. _messages.query:
 

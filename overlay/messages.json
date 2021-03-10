@@ -36,11 +36,21 @@
       },
       {
         "name": "listAttachments",
-        "added": "88"
+        "added": "88",
+        "returns": {
+          "type": "array",
+            "items": {
+              "$ref": "Attachment"
+            }
+        }
       },
       {
         "name": "getAttachmentFile",
-        "added": "88"
+        "added": "88",
+        "hints": "The most simple way to get the content of an attachment is to use the ``text()`` method of the ``File`` object:<literalinclude>includes/messages/file.js<lang>JavaScript</lang></literalinclude>",
+        "returns": {
+          "$ref": "extensionTypes.File"
+        }
       },
       {
         "name": "query",
