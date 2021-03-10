@@ -15,3 +15,8 @@ menus
 * The :ref:`menus.onShowData` and :ref:`menus.onClickData` now include a ``selectedAccount`` property, if the menu was opened on a root folder in the folder pane, representing an account.
 
 
+messages
+========
+
+* The :ref:`messages_api` API now supports :ref:`messages.listAttachments` and :ref:`messages.getAttachmentFile` methods to work with message attachments.
+
