@@ -752,6 +752,14 @@ MessageHeader
    
    
    .. api-member::
+      :name: ``headerMessageId``
+      :type: (string)
+      :annotation: -- [Added in TB 85]
+      
+      The message-id header of the message.
+   
+   
+   .. api-member::
       :name: ``id``
       :type: (integer)
    

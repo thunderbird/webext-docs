@@ -164,6 +164,11 @@
             "minimum": 0,
             "maximum": 100,
             "added": "74"
+          },
+          "headerMessageId": {
+            "type": "string",
+            "description": "The message-id header of the message.",
+            "added": "85"
           }
         }
       },
