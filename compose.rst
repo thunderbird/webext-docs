@@ -559,6 +559,14 @@ Used by various functions to represent the state of a message being composed. No
    
    
    .. api-member::
+      :name: [``from``]
+      :type: (:ref:`compose.ComposeRecipient`)
+      :annotation: -- [Added in TB 88]
+      
+      *Caution*: Setting a value for `from` does not change the used identity, it overrides the FROM header. Many e-mail servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid e-mail address.
+   
+   
+   .. api-member::
       :name: [``identityId``]
       :type: (string)
       :annotation: -- [Added in TB 76]
@@ -680,15 +688,7 @@ ComposeRecipientList
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
 .. api-header::
-   :label: string
-
-   
-   .. container:: api-member-node
-   
-      .. container:: api-member-description-only
-         
-         A name and email address in the format "Name <email@example.com>", or just an email address.
-   
+   :label: :ref:`compose.ComposeRecipient`
 
 OR
 

@@ -211,6 +211,57 @@ Returns the unmodified source of a message.
 
    - :permission:`messagesRead`
 
+.. _messages.listAttachments:
+
+listAttachments(messageId)
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 88]
+
+Lists all of the attachments of a message.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.getAttachmentFile:
+
+getAttachmentFile(messageId, partName)
+--------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 88]
+
+Gets the content of an attachment as a DOM ``File`` object.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partName``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.query:
 
 query(queryInfo)
@@ -590,6 +641,47 @@ Fired when a new message is received, and has been through junk classification a
 
 Types
 =====
+
+.. _messages.Attachment:
+
+Attachment
+----------
+
+.. api-section-annotation-hack:: 
+
+Represents an attachment in a message.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``contentType``
+      :type: (string)
+      
+      The content type of the attachment.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+   
+   
+   .. api-member::
+      :name: ``partName``
+      :type: (string)
+      
+      Identifies the MIME part of the message associated with this attachment.
+   
+   
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+      
+      The size in bytes of this attachment.
+   
 
 .. _messages.MessageHeader:
 

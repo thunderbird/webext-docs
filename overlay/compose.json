@@ -27,6 +27,9 @@
           "type": {
             "added": "88"
           },
+          "from": {
+            "added": "88"
+          },
           "attachments": {
             "added": "82",
             "backported": "78.4.0"

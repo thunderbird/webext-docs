@@ -35,6 +35,14 @@
         }
       },
       {
+        "name": "listAttachments",
+        "added": "88"
+      },
+      {
+        "name": "getAttachmentFile",
+        "added": "88"
+      },
+      {
         "name": "query",
         "added": "69",
         "backported": "68.2",
