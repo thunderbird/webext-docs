@@ -386,7 +386,7 @@ onClicked(info, [tab])
 
 .. api-section-annotation-hack:: 
 
-Fired when a context menu item is clicked.
+Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for event listeners
