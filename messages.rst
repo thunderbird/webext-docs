@@ -185,7 +185,7 @@ getRaw(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message.
+Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__.
 
 .. api-header::
    :label: Parameters
