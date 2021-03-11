@@ -129,8 +129,8 @@ Gets the title of the toolbar action.
 
 .. _messageDisplayAction.setLabel:
 
-setLabel(details, [callback])
------------------------------
+setLabel(details)
+-----------------
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
@@ -150,11 +150,6 @@ Sets the label of the toolbar action, defaults to its title. Can be set to an em
          
          The string the toolbar action should use as label. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
       
-   
-   
-   .. api-member::
-      :name: [``callback``]
-      :type: (function)
    
 
 .. _messageDisplayAction.getLabel:
