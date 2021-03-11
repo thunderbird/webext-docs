@@ -561,7 +561,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts except for ``tab``.
+The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts except for ``tab``. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
