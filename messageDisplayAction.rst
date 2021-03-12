@@ -12,7 +12,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
-Use a messageDisplayAction to put an icons in the mail window toolbar. In addition to its icon, a messageDisplayAction can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
+Use a messageDisplayAction to put an icons in the mail window toolbar. In addition to its icon, a messageDisplayAction can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
