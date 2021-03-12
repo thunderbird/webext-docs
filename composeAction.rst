@@ -11,7 +11,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
-Use toolbar actions to put icons in the message composition toolbars. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup.
+Use a composeAction to put an icon in the message composition toolbars. In addition to its icon, a composeAction can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
@@ -385,7 +385,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the toolbar action for a tab. By default, toolbar actions are enabled.
+Enables the composeAction for a tab. By default, a composeAction is enabled.
 
 .. api-header::
    :label: Parameters
