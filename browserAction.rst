@@ -14,7 +14,7 @@ __ https://github.com/thundernest/sample-extensions
 
 .. role:: permission
 
-Use toolbar actions to put icons in the mail window toolbar. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
+Use a browserAction to put an icon in the mail window toolbar. In addition to its icon, a browserAction can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 .. rst-class:: api-main-section
 
@@ -380,7 +380,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the toolbar action for a tab. By default, toolbar actions are enabled.
+Enables the browserAction for a tab. By default, a browserAction is enabled.
 
 .. api-header::
    :label: Parameters
