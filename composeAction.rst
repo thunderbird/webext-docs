@@ -11,7 +11,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
-Use toolbar actions to put icons in the message composition toolbars. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup.
+Use a composeAction to put an icon in the message composition toolbars. In addition to its icon, a composeAction can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
@@ -82,7 +82,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the toolbar action. This shows up in the tooltip.
+Sets the title of the composeAction. This shows up in the tooltip.
 
 .. api-header::
    :label: Parameters
@@ -96,7 +96,7 @@ Sets the title of the toolbar action. This shows up in the tooltip.
          :name: ``title``
          :type: (string or null)
          
-         The string the toolbar action should display when moused over.
+         The string the composeAction should display when moused over.
       
    
 
@@ -107,7 +107,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the toolbar action.
+Gets the title of the composeAction.
 
 .. api-header::
    :label: Parameters
@@ -135,7 +135,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the toolbar action. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the composeAction. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -167,7 +167,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the toolbar action's icon.
+Sets the html document to be opened as a popup when the user clicks on the composeAction's icon.
 
 .. api-header::
    :label: Parameters
@@ -192,7 +192,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this toolbar action.
+Gets the html document set as the popup for this composeAction.
 
 .. api-header::
    :label: Parameters
@@ -220,7 +220,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the toolbar action. The badge is displayed on top of the icon.
+Sets the badge text for the composeAction. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -245,7 +245,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the toolbar action. If no tab nor window is specified is specified, the global badge text is returned.
+Gets the badge text of the composeAction. If no tab nor window is specified is specified, the global badge text is returned.
 
 .. api-header::
    :label: Parameters
@@ -298,7 +298,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the background color of the toolbar action.
+Gets the background color of the composeAction.
 
 .. api-header::
    :label: Parameters
@@ -326,7 +326,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the toolbar action for a tab. By default, toolbar actions are enabled.
+Enables the composeAction for a tab. By default, a composeAction is enabled.
 
 .. api-header::
    :label: Parameters
@@ -336,7 +336,7 @@ Enables the toolbar action for a tab. By default, toolbar actions are enabled.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the toolbar action.
+      The id of the tab for which you want to modify the composeAction.
    
 
 .. _composeAction.disable:
@@ -346,7 +346,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the toolbar action for a tab.
+Disables the composeAction for a tab.
 
 .. api-header::
    :label: Parameters
@@ -356,7 +356,7 @@ Disables the toolbar action for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the toolbar action.
+      The id of the tab for which you want to modify the composeAction.
    
 
 .. _composeAction.isEnabled:
@@ -366,7 +366,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the toolbar action is enabled.
+Checks whether the composeAction is enabled.
 
 .. api-header::
    :label: Parameters
@@ -398,7 +398,7 @@ onClicked()
 
 .. api-section-annotation-hack:: 
 
-Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.
+Fired when a composeAction icon is clicked.  This event will not fire if the composeAction has a popup.
 
 .. rst-class:: api-main-section
 
