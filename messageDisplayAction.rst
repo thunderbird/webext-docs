@@ -12,7 +12,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
-Use toolbar actions to put icons in the mail window toolbar. In addition to its icon, a toolbar action can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
+Use a messageDisplayAction to put an icons in the mail window toolbar. In addition to its icon, a messageDisplayAction can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 .. rst-class:: api-main-section
 
@@ -75,7 +75,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the toolbar action. This shows up in the tooltip.
+Sets the title of the messageDisplayAction. This shows up in the tooltip.
 
 .. api-header::
    :label: Parameters
@@ -89,7 +89,7 @@ Sets the title of the toolbar action. This shows up in the tooltip.
          :name: ``title``
          :type: (string or null)
          
-         The string the toolbar action should display when moused over.
+         The string the messageDisplayAction should display when moused over.
       
    
 
@@ -100,7 +100,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the toolbar action.
+Gets the title of the messageDisplayAction.
 
 .. api-header::
    :label: Parameters
@@ -128,7 +128,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the toolbar action. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the messageDisplayAction. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -160,7 +160,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the toolbar action's icon.
+Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.
 
 .. api-header::
    :label: Parameters
@@ -185,7 +185,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this toolbar action.
+Gets the html document set as the popup for this messageDisplayAction.
 
 .. api-header::
    :label: Parameters
@@ -213,7 +213,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the toolbar action. The badge is displayed on top of the icon.
+Sets the badge text for the messageDisplayAction. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -238,7 +238,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the toolbar action. If no tab nor window is specified is specified, the global badge text is returned.
+Gets the badge text of the messageDisplayAction. If no tab nor window is specified is specified, the global badge text is returned.
 
 .. api-header::
    :label: Parameters
@@ -291,7 +291,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the background color of the toolbar action.
+Gets the background color of the messageDisplayAction.
 
 .. api-header::
    :label: Parameters
@@ -319,7 +319,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the toolbar action for a tab. By default, toolbar actions are enabled.
+Enables the messageDisplayAction for a tab. By default, messageDisplayActions are enabled.
 
 .. api-header::
    :label: Parameters
@@ -329,7 +329,7 @@ Enables the toolbar action for a tab. By default, toolbar actions are enabled.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the toolbar action.
+      The id of the tab for which you want to modify the messageDisplayAction.
    
 
 .. _messageDisplayAction.disable:
@@ -339,7 +339,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the toolbar action for a tab.
+Disables the messageDisplayAction for a tab.
 
 .. api-header::
    :label: Parameters
@@ -349,7 +349,7 @@ Disables the toolbar action for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the toolbar action.
+      The id of the tab for which you want to modify the messageDisplayAction.
    
 
 .. _messageDisplayAction.isEnabled:
@@ -359,7 +359,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the toolbar action is enabled.
+Checks whether the messageDisplayAction is enabled.
 
 .. api-header::
    :label: Parameters
@@ -391,7 +391,7 @@ onClicked(tabId)
 
 .. api-section-annotation-hack:: 
 
-Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup.
+Fired when a messageDisplayAction icon is clicked.  This event will not fire if the messageDisplayAction has a popup.
 
 .. api-header::
    :label: Parameters for event listeners
