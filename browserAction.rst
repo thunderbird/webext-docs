@@ -83,7 +83,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the toolbar action. This shows up in the tooltip and the label. Defaults to the add-on name.
+Sets the title of the browserAction. This shows up in the tooltip and the label. Defaults to the add-on name.
 
 .. api-header::
    :label: Parameters
@@ -97,7 +97,7 @@ Sets the title of the toolbar action. This shows up in the tooltip and the label
          :name: ``title``
          :type: (string or null)
          
-         The string the toolbar action should display as its label and when moused over.
+         The string the browserAction should display as its label and when moused over.
       
    
 
@@ -108,7 +108,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the toolbar action.
+Gets the title of the browserAction.
 
 .. api-header::
    :label: Parameters
@@ -136,7 +136,7 @@ setLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Sets the label of the toolbar action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+Sets the label of the browserAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
 .. api-header::
    :label: Parameters
@@ -150,7 +150,7 @@ Sets the label of the toolbar action, defaults to its title. Can be set to an em
          :name: ``label``
          :type: (string or null)
          
-         The string the toolbar action should use as label. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+         The string the browserAction should use as label. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
       
    
 
@@ -161,7 +161,7 @@ getLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Gets the label of the toolbar action.
+Gets the label of the browserAction.
 
 .. api-header::
    :label: Parameters
@@ -189,7 +189,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the toolbar action. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the browserAction. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -221,7 +221,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the toolbar action's icon.
+Sets the html document to be opened as a popup when the user clicks on the browserAction's icon.
 
 .. api-header::
    :label: Parameters
@@ -246,7 +246,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this toolbar action.
+Gets the html document set as the popup for this browserAction.
 
 .. api-header::
    :label: Parameters
@@ -274,7 +274,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the toolbar action. The badge is displayed on top of the icon.
+Sets the badge text for the browserAction. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -299,7 +299,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the toolbar action. If no tab nor window is specified, the global badge text is returned.
+Gets the badge text of the browserAction. If no tab nor window is specified, the global badge text is returned.
 
 .. api-header::
    :label: Parameters
@@ -352,7 +352,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the background color of the toolbar action.
+Gets the background color of the browserAction.
 
 .. api-header::
    :label: Parameters
@@ -390,7 +390,7 @@ Enables the browserAction for a tab. By default, a browserAction is enabled.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the toolbar action.
+      The id of the tab for which you want to modify the browserAction.
    
 
 .. _browserAction.disable:
@@ -400,7 +400,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the toolbar action for a tab.
+Disables the browserAction for a tab.
 
 .. api-header::
    :label: Parameters
@@ -410,7 +410,7 @@ Disables the toolbar action for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the toolbar action.
+      The id of the tab for which you want to modify the browserAction.
    
 
 .. _browserAction.isEnabled:
@@ -420,7 +420,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the toolbar action is enabled.
+Checks whether the browserAction is enabled.
 
 .. api-header::
    :label: Parameters
@@ -462,7 +462,7 @@ onClicked(tab, [info])
 
 .. api-section-annotation-hack:: 
 
-Fired when a toolbar action icon is clicked.  This event will not fire if the toolbar action has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a browserAction icon is clicked.  This event will not fire if the browserAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for event listeners
