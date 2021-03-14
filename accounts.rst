@@ -98,6 +98,16 @@ getDefault()
 Returns the default account, or null if it is not defined.
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`accounts.MailAccount`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`accountsRead`
@@ -147,6 +157,16 @@ Returns the default identity for an account, or null if it is not defined.
       :name: ``accountId``
       :type: (string)
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`accounts.MailIdentity`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions

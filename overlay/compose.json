@@ -55,19 +55,31 @@
             "name": "messageId",
             "added": "84",
             "backported": "78.7.0"
+          },
+          {
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "return",
+                "added": "77"
+              }
+            ]
           }
-        ],
-        "returns": {
-          "added": "77",
-          "$ref": "tabs.Tab"
-        }
+        ]
       },
       {
         "name": "beginForward",
-        "returns": {
-          "added": "77",
-          "$ref": "tabs.Tab"
-        }
+        "parameters": [
+          {
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "return",
+                "added": "77"
+              }
+            ]
+          }
+        ]
       },
       {
         "name": "beginReply",
@@ -75,19 +87,21 @@
           {
             "name": "details",
             "added": "76"
+          },
+          {
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "return",
+                "added": "77"
+              }
+            ]
           }
-        ],
-        "returns": {
-          "added": "77",
-          "$ref": "tabs.Tab"
-        }
+        ]
       },
       {
         "name": "getComposeDetails",
-        "added": "74",
-        "returns": {
-          "$ref": "ComposeDetails"
-        }
+        "added": "74"
       },
       {
         "name": "setComposeDetails",

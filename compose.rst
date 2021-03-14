@@ -245,6 +245,16 @@ Lists all of the attachments of the message being composed in the specified tab.
       :type: (integer)
    
 
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`compose.ComposeAttachment`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _compose.addAttachment:
 
 addAttachment(tabId, data)
@@ -279,6 +289,16 @@ Adds an attachment to the message being composed in the specified tab.
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`compose.ComposeAttachment`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _compose.updateAttachment:
 
@@ -319,6 +339,16 @@ Renames and/or replaces the contents of an attachment to the message being compo
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`compose.ComposeAttachment`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _compose.removeAttachment:
 

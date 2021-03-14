@@ -6,25 +6,6 @@
         "name": "list",
         "changed": {
               "85" : "Read-only address books are now returned as well as read-write books."
-        },
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "AddressBookNode"
-          }
-        }
-      },
-      {
-        "name": "get",
-        "returns": {
-          "$ref": "AddressBookNode"
-        }
-      },
-      {
-        "name": "create",
-        "returns": {
-          "type": "string",
-          "description": "The ID of the new address book."
         }
       }
     ]
