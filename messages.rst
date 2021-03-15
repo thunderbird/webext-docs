@@ -715,6 +715,8 @@ MessageHeader
 
 .. api-section-annotation-hack:: 
 
+Basic information about a message.
+
 .. api-header::
    :label: object
 
@@ -727,11 +729,15 @@ MessageHeader
    .. api-member::
       :name: ``bccList``
       :type: (array of string)
+      
+      Not populated for news/nntp messages.
    
    
    .. api-member::
       :name: ``ccList``
       :type: (array of string)
+      
+      Not populated for news/nntp messages.
    
    
    .. api-member::
@@ -768,6 +774,8 @@ MessageHeader
       :name: ``junk``
       :type: (boolean)
       :annotation: -- [Added in TB 74]
+      
+      Not populated for news/nntp messages.
    
    
    .. api-member::
@@ -784,6 +792,8 @@ MessageHeader
    .. api-member::
       :name: ``recipients``
       :type: (array of string)
+      
+      Not populated for news/nntp messages.
    
    
    .. api-member::

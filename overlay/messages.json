@@ -108,147 +108,14 @@
         "id": "MessageHeader",
         "type": "object",
         "properties": {
-          "id": {
-            "type": "integer",
-            "minimum": 1
-          },
-          "date": {
-            "type": "date"
-          },
-          "read": {
-            "type": "boolean"
-          },
-          "flagged": {
-            "type": "boolean"
-          },
-          "ccList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "bccList": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "author": {
-            "type": "string"
-          },
-          "subject": {
-            "type": "string"
-          },
-          "recipients": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "folder": {
-            "$ref": "folders.MailFolder",
-            "description": "The <permission>accountsRead</permission> permission is required for this property to be included."
-          },
-          "tags": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "junk": {
-            "type": "boolean",
             "added": "74"
           },
           "junkScore": {
-            "type": "integer",
-            "minimum": 0,
-            "maximum": 100,
             "added": "74"
           },
           "headerMessageId": {
-            "type": "string",
-            "description": "The message-id header of the message.",
             "added": "85"
-          }
-        }
-      },
-      {
-        "id": "MessageList",
-        "type": "object",
-        "description": "See :doc:`how-to/messageLists` for more information.",
-        "properties": {
-          "id": {
-            "type": "string"
-          },
-          "messages": {
-            "type": "array",
-            "items": {
-              "$ref": "MessageHeader"
-            }
-          }
-        }
-      },
-      {
-        "id": "MessagePart",
-        "type": "object",
-        "description": "Represents an email message \"part\", which could be the whole message",
-        "properties": {
-          "body": {
-            "type": "string",
-            "description": "The content of the part",
-            "optional": true
-          },
-          "contentType": {
-            "type": "string",
-            "optional": true
-          },
-          "headers": {
-            "type": "object",
-            "description": "An object of part headers, with the header name as key, and an array of header values as value",
-            "optional": true
-          },
-          "name": {
-            "type": "string",
-            "description": "Name of the part, if it is a file",
-            "optional": true
-          },
-          "partName": {
-            "type": "string",
-            "optional": true
-          },
-          "parts": {
-            "type": "array",
-            "items": {
-              "$ref": "MessagePart"
-            },
-            "description": "Any sub-parts of this part",
-            "optional": true
-          },
-          "size": {
-            "type": "integer",
-            "optional": true
-          }
-        }
-      },
-      {
-        "id": "MessageTag",
-        "type": "object",
-        "properties": {
-          "key": {
-            "type": "string",
-            "description": "Distinct tag identifier – use this string when referring to a tag"
-          },
-          "tag": {
-            "type": "string",
-            "description": "Human-readable tag name"
-          },
-          "color": {
-            "type": "string",
-            "description": "Tag color"
-          },
-          "ordinal": {
-            "type": "string",
-            "description": "Custom sort string (usually empty)"
           }
         }
       }
