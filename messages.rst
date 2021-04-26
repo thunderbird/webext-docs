@@ -730,19 +730,19 @@ Basic information about a message.
       :name: ``bccList``
       :type: (array of string)
       
-      Not populated for news/nntp messages.
+      The Bcc recipients. Not populated for news/nntp messages.
    
    
    .. api-member::
       :name: ``ccList``
       :type: (array of string)
       
-      Not populated for news/nntp messages.
+      The Cc recipients. Not populated for news/nntp messages.
    
    
    .. api-member::
       :name: ``date``
-      :type: (date)
+      :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
    
    
    .. api-member::
@@ -793,7 +793,7 @@ Basic information about a message.
       :name: ``recipients``
       :type: (array of string)
       
-      Not populated for news/nntp messages.
+      The To recipients. Not populated for news/nntp messages.
    
    
    .. api-member::
@@ -820,13 +820,13 @@ See :doc:`how-to/messageLists` for more information.
 
    
    .. api-member::
-      :name: ``id``
-      :type: (string)
+      :name: ``messages``
+      :type: (array of :ref:`messages.MessageHeader`)
    
    
    .. api-member::
-      :name: ``messages``
-      :type: (array of :ref:`messages.MessageHeader`)
+      :name: [``id``]
+      :type: (string)
    
 
 .. _messages.MessagePart:

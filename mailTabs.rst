@@ -76,6 +76,55 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _mailTabs.get:
+
+get(tabId)
+----------
+
+.. api-section-annotation-hack:: 
+
+Get the properties of a mail tab.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+      
+      ID of the requested mail tab. Throws if the requested tab is not a mail tab.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _mailTabs.getCurrent:
+
+getCurrent()
+------------
+
+.. api-section-annotation-hack:: 
+
+Get the properties of the active mail tab, if the active tab is a mail tab. Returns undefined otherwise.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _mailTabs.update:
 
 update([tabId], updateProperties)
@@ -429,18 +478,6 @@ MailTab
    
    
    .. api-member::
-      :name: ``displayedFolder``
-      :type: (:ref:`folders.MailFolder`)
-      
-      The :permission:`accountsRead` permission is required for this property to be included.
-   
-   
-   .. api-member::
-      :name: ``folderPaneVisible``
-      :type: (boolean)
-   
-   
-   .. api-member::
       :name: ``id``
       :type: (integer)
    
@@ -462,12 +499,29 @@ MailTab
    
    
    .. api-member::
-      :name: ``messagePaneVisible``
+      :name: ``windowId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: [``displayedFolder``]
+      :type: (:ref:`folders.MailFolder`)
+      
+      The :permission:`accountsRead` permission is required for this property to be included.
+   
+   
+   .. api-member::
+      :name: [``folderPaneVisible``]
       :type: (boolean)
    
    
    .. api-member::
-      :name: ``sortOrder``
+      :name: [``messagePaneVisible``]
+      :type: (boolean)
+   
+   
+   .. api-member::
+      :name: [``sortOrder``]
       :type: (`string`)
       
       Supported values:
@@ -483,7 +537,7 @@ MailTab
    
    
    .. api-member::
-      :name: ``sortType``
+      :name: [``sortType``]
       :type: (`string`)
       
       Supported values:
@@ -547,11 +601,6 @@ MailTab
       
       .. api-member::
          :name: ``correspondent``
-   
-   
-   .. api-member::
-      :name: ``windowId``
-      :type: (integer)
    
 
 .. _mailTabs.QuickFilterTextDetail:

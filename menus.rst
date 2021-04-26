@@ -515,6 +515,14 @@ The different contexts a menu can appear in. Specifying ``all`` is equivalent to
             :name: ``browser_action``
          
          .. api-member::
+            :name: ``compose_action``
+            :annotation: -- [Added in TB 89]
+         
+         .. api-member::
+            :name: ``message_display_action``
+            :annotation: -- [Added in TB 89]
+         
+         .. api-member::
             :name: ``tab``
          
          .. api-member::
@@ -645,6 +653,34 @@ Information sent when a context menu item is clicked.
    
    
    .. api-member::
+      :name: [``fieldId``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 89]
+      
+      An identifier of the clicked Thunderbird UI element, if any.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``composeSubject``
+      
+      .. api-member::
+         :name: ``composeTo``
+      
+      .. api-member::
+         :name: ``composeCc``
+      
+      .. api-member::
+         :name: ``composeBcc``
+      
+      .. api-member::
+         :name: ``composeReplyTo``
+      
+      .. api-member::
+         :name: ``composeNewsgroupTo``
+   
+   
+   .. api-member::
       :name: [``frameId``]
       :type: (integer)
       
@@ -733,7 +769,7 @@ Information sent when a context menu item is clicked.
       :name: [``targetElementId``]
       :type: (integer)
       
-      An identifier of the clicked element, if any. Use menus.getTargetElement in the page to find the corresponding element.
+      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
    
    
    .. api-member::
@@ -793,6 +829,12 @@ Some properties are only included if the extension has host permission for the g
    .. api-member::
       :name: [``displayedFolder``]
       :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: [``fieldId``]
+      :type: (string)
+      :annotation: -- [Added in TB 89]
    
    
    .. api-member::

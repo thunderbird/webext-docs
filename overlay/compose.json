@@ -109,15 +109,27 @@
       },
       {
         "name": "listAttachments",
-        "added": "78"
+        "added": "78",
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "ComposeAttachment"
+          }
+        }
       },
       {
         "name": "addAttachment",
-        "added": "78"
+        "added": "78",
+        "returns": {
+          "$ref": "ComposeAttachment"
+        }
       },
       {
         "name": "updateAttachment",
-        "added": "78"
+        "added": "78",
+        "returns": {
+          "$ref": "ComposeAttachment"
+        }
       },
       {
         "name": "removeAttachment",

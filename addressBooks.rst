@@ -173,7 +173,7 @@ Creates a new, empty address book.
    .. api-member::
       :type: string
       
-      The ID of the new address book.
+      The id of the new address book.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise

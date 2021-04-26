@@ -91,7 +91,7 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
       :name: [``parentId``]
       :type: (string)
       
-      The ID of the address book to search. If not specified, all address books are searched.
+      The id of the address book to search. If not specified, all address books are searched.
    
    
    .. api-member::

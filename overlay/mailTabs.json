@@ -1,23 +1,6 @@
 [
   {
     "namespace": "mailTabs",
-    "functions": [
-      {
-        "name": "query",
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "MailTab"
-          }
-        }
-      },
-      {
-        "name": "getSelectedMessages",
-        "returns": {
-          "$ref": "messages.MessageList"
-        }
-      }
-    ],
     "events": [
       {
         "name": "onDisplayedFolderChanged",
@@ -40,74 +23,6 @@
             }
           }
         ]
-      }
-    ],
-    "types": [
-      {
-        "id": "MailTab",
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "windowId": {
-            "type": "integer"
-          },
-          "active": {
-            "type": "boolean"
-          },
-          "sortType": {
-            "type": "string",
-            "enum": [
-              "none",
-              "date",
-              "subject",
-              "author",
-              "id",
-              "thread",
-              "priority",
-              "status",
-              "size",
-              "flagged",
-              "unread",
-              "recipient",
-              "location",
-              "tags",
-              "junkStatus",
-              "attachments",
-              "account",
-              "custom",
-              "received",
-              "correspondent"
-            ]
-          },
-          "sortOrder": {
-            "type": "string",
-            "enum": [
-              "none",
-              "ascending",
-              "descending"
-            ]
-          },
-          "layout": {
-            "type": "string",
-            "enum": [
-              "standard",
-              "wide",
-              "vertical"
-            ]
-          },
-          "folderPaneVisible": {
-            "type": "boolean"
-          },
-          "messagePaneVisible": {
-            "type": "boolean"
-          },
-          "displayedFolder": {
-            "$ref": "folders.MailFolder",
-            "description": "The <permission>accountsRead</permission> permission is required for this property to be included."
-          }
-        }
       }
     ]
   }
