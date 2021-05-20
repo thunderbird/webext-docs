@@ -30,7 +30,7 @@ Manifest file properties
       :name: ``management_url``
       :type: (string)
       
-      A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: cloudFile, extension, i18n, runtime, storage, test.
+      A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: ``cloudFile``, ``extension``, ``i18n``, ``runtime``, ``storage``, ``test``.
    
    
    .. api-member::
@@ -38,6 +38,14 @@ Manifest file properties
       :type: (string)
       
       Name of the cloud file service.
+   
+   
+   .. api-member::
+      :name: [``browser_style``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 90]
+      
+      Enable browser styles. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::

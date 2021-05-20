@@ -797,6 +797,14 @@ Basic information about a message.
    
    
    .. api-member::
+      :name: ``size``
+      :type: (integer)
+      :annotation: -- [Added in TB 90]
+      
+      The total size of the message in bytes.
+   
+   
+   .. api-member::
       :name: ``subject``
       :type: (string)
    

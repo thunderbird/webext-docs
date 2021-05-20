@@ -26,6 +26,8 @@ Manifest file properties
    .. api-member::
       :name: [``browser_style``]
       :type: (boolean)
+      
+      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::
@@ -37,23 +39,31 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (string)
+      :type: (:ref:`messageDisplayAction.IconPathDictionary`)
+      
+      The icon for the messageDisplayAction.
    
    
    .. api-member::
       :name: [``default_label``]
       :type: (string)
       :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+      
+      The label of the messageDisplayAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
    
    
    .. api-member::
       :name: [``default_popup``]
       :type: (string)
+      
+      The html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.
    
    
    .. api-member::
       :name: [``default_title``]
       :type: (string)
+      
+      The title of the messageDisplayAction. This shows up in the tooltip and the label. Defaults to the add-on name.
    
    
    .. api-member::
@@ -199,16 +209,16 @@ Sets the icon for the messageDisplayAction. The icon can be specified either as 
       
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`messageDisplayAction.ImageDataType` or object)
+         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`)
          
-         Either an ImageData object or a dictionary ``{size -> ImageData}`` representing the icon to be set. If the icon is specified as a dictionary, the actual image to be used is chosen depending on screen's pixel density. If the number of image pixels that fit into one screen space unit equals ``scale``, then image with size ``scale`` * 19 will be selected. Initially only scales 1 and 2 will be supported. At least one image must be specified. Note that ``details.imageData = foo`` is equivalent to ``details.imageData = {'19': foo}``
+         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes.
       
       
       .. api-member::
          :name: [``path``]
-         :type: (string or object)
+         :type: (string or :ref:`messageDisplayAction.IconPathDictionary`)
          
-         Either a relative image path or a dictionary ``{size -> relative image path}`` pointing to icon to be set. If the icon is specified as a dictionary, the actual image to be used is chosen depending on screen's pixel density. If the number of image pixels that fit into one screen space unit equals ``scale``, then image with size ``scale`` * 19 will be selected. Initially only scales 1 and 2 will be supported. At least one image must be specified. Note that ``details.path = foo`` is equivalent to ``details.path = {'19': foo}``
+         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
       
    
 
@@ -522,6 +532,18 @@ Specifies to which tab or window the value should be set, or from which one it s
       When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
    
 
+.. _messageDisplayAction.ImageDataDictionary:
+
+ImageDataDictionary
+-------------------
+
+.. api-section-annotation-hack:: 
+
+A ``{size: ImageDataType}`` dictionary representing the icon to be set. The actual :ref:`messageDisplayAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`messageDisplayAction.ImageDataType` must be specified.
+
+.. api-header::
+   :label: object
+
 .. _messageDisplayAction.ImageDataType:
 
 ImageDataType
@@ -590,6 +612,18 @@ External Types
 ==============
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
+
+.. _messageDisplayAction.IconPathDictionary:
+
+IconPathDictionary
+------------------
+
+.. api-section-annotation-hack:: 
+
+A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+
+.. literalinclude:: includes/IconPath.json
+  :language: JSON
 
 .. _messageDisplayAction.ThemeIcons:
 

@@ -108,14 +108,17 @@
         "id": "MessageHeader",
         "type": "object",
         "properties": {
+          "headerMessageId": {
+            "added": "85"
+          },
           "junk": {
             "added": "74"
           },
           "junkScore": {
             "added": "74"
           },
-          "headerMessageId": {
-            "added": "85"
+          "size": {
+            "added": "90"
           }
         }
       }

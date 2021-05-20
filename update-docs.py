@@ -119,7 +119,7 @@ def link_ref(ref):
     if ref == "runtime.Port":
         return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_"
     if ref == "IconPath":
-        return "string"
+        ref = "IconPathDictionary"
 
     for additional_type in additional_type_defs:
         if additional_type['id'] == ref:
