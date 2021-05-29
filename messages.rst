@@ -706,6 +706,14 @@ Represents an attachment in a message.
       :type: (integer)
       
       The size in bytes of this attachment.
+      
+      
+   .. api-member::
+      :name: ``url``
+      :type: (string)
+      :annotation: -- [Added in TB 91]
+      
+      The URL of this attachment as referenced by Thunderbid.
    
 
 .. _messages.MessageHeader:
