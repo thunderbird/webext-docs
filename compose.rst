@@ -20,6 +20,11 @@ Permissions
 
    Read and modify your email messages as you compose and send them
 
+.. api-member::
+   :name: :permission:`compose.send`
+
+   Send composed email messages on your behalf
+
 .. rst-class:: api-main-section
 
 Functions
@@ -373,6 +378,90 @@ Removes an attachment from the message being composed in the specified tab.
       :type: (integer)
    
 
+.. _compose.sendMessage:
+
+sendMessage(tabId, [options])
+-----------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 90]
+
+Sends the message currently being composed.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object)
+      
+      .. api-member::
+         :name: ``mode``
+         :type: (`string`)
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``default``
+         
+         .. api-member::
+            :name: ``sendNow``
+         
+         .. api-member::
+            :name: ``sendLater``
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: boolean
+      
+      Returns ``true`` on success, ``false`` otherwise.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose.send`
+
+.. _compose.getComposeState:
+
+getComposeState(tabId)
+----------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 90]
+
+Returns information about the current state of the message composer.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`compose.ComposeState`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. rst-class:: api-main-section
 
 Events
@@ -504,6 +593,29 @@ Fired when the user changes the identity that will be used to send a message bei
    :label: Required permissions
 
    - :permission:`accountsRead`
+
+.. _compose.onComposeStateChanged:
+
+onComposeStateChanged(tab, state)
+---------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 90]
+
+Fired when the state of the message composer changed.
+
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``state``
+      :type: (:ref:`compose.ComposeState`)
+   
 
 .. rst-class:: api-main-section
 
@@ -653,6 +765,10 @@ Used by various functions to represent the state of a message being composed. No
          :name: ``new``
       
       .. api-member::
+         :name: ``redirect``
+         :annotation: -- [Added in TB 90]
+      
+      .. api-member::
          :name: ``reply``
       
       .. api-member::
@@ -724,3 +840,30 @@ OR
 
 .. api-header::
    :label: array of :ref:`compose.ComposeRecipient`
+
+.. _compose.ComposeState:
+
+ComposeState
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 90]
+
+Represent the state of the message composer.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``canSendLater``
+      :type: (boolean)
+      
+      The message can be send later.
+   
+   
+   .. api-member::
+      :name: ``canSendNow``
+      :type: (boolean)
+      
+      The message can be send now.
+   

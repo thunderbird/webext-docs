@@ -25,7 +25,12 @@
             "added": "75"
           },
           "type": {
-            "added": "88"
+            "added": "88",
+            "enumChanges": {
+              "redirect": {
+                "added": "90"
+              }
+            }
           },
           "from": {
             "added": "88"
@@ -45,6 +50,10 @@
             "backported": "78.5.0"
           }
         }
+      },
+      {
+        "id": "ComposeState",
+        "added": "90"
       }
     ],
     "functions": [
@@ -134,6 +143,14 @@
       {
         "name": "removeAttachment",
         "added": "78"
+      },
+      {
+        "name": "sendMessage",
+        "added": "90"
+      },
+      {
+        "name": "getComposeState",
+        "added": "90"
       }
     ],
     "events": [
@@ -158,6 +175,10 @@
       {
         "name": "onIdentityChanged",
         "added": "78.0b2"
+      },
+      {
+        "name": "onComposeStateChanged",
+        "added": "90"
       }
     ]
   }
