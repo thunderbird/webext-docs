@@ -185,7 +185,10 @@ getRaw(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__.
+Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__. A binary string contains the raw data and its representation does not depend on an encoding format, it is a series of characters whose code point value does not exceed 255. If the encoding is known, a binary string can be converted. For UTF-8, the following conversion function can be used:  
+
+.. literalinclude:: includes/messages/rawToUtf8.js
+  :language: JavaScript
 
 .. api-header::
    :label: Parameters
