@@ -4,6 +4,6 @@ function decodeBinaryString(binaryString, inputEncoding = "utf-8") {
     for (let i = 0; i < binaryString.length; i++) {
         bufferView[i] = binaryString.charCodeAt(i);
     }
-    let utf8decoder = new TextDecoder(inputEncoding);
-    return utf8decoder.decode(buffer);
+    let decoder = new TextDecoder(inputEncoding);
+    return decoder.decode(buffer);
 }

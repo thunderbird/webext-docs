@@ -190,7 +190,7 @@ Returns the unmodified source of a message as a `binary string <https://develope
 .. literalinclude:: includes/messages/decodeBinaryString.js
   :language: JavaScript
 
-The supported values for inputEncoding are listed on `MDN <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__
+The supported values for ``inputEncoding`` are listed on `MDN <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__.
 
 .. api-header::
    :label: Parameters
