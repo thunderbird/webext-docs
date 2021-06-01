@@ -28,7 +28,7 @@
       },
       {
         "name": "getRaw",
-        "description" : "Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__. A binary string contains the raw data and its representation does not depend on an encoding format, it is a simple series of 8-bit characters. If the encoding is known, the binary string can be converted to a readable string. For 8-Bit based encodings, the following conversion function can be used:  <literalinclude>includes/messages/decodeBinaryString.js<lang>JavaScript</lang></literalinclude>\nThe supported values for ``inputEncoding`` are listed on `MDN <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__.",
+        "description" : "Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__. A binary string contains the raw data and its representation does not depend on an encoding format, it is a simple series of 8-bit characters. If the encoding is known, the binary string can be converted to a readable string. For 8-bit based encodings, the following conversion function can be used:  <literalinclude>includes/messages/decodeBinaryString.js<lang>JavaScript</lang></literalinclude>\nThe supported values for ``inputEncoding`` are listed on `MDN <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__.",
         "added": "72",
         "backported": "68.7",
         "returns": {
