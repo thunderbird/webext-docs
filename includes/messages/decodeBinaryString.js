@@ -1,8 +1,12 @@
+/**
+ * Decodes a binary string using the given encoding format and returns a
+ * JavaScript string. Produces mangled output if used with anything but a binary
+ * input string.
+ */
 function decodeBinaryString(binaryString, inputEncoding = "utf-8") {
-    const buffer = new ArrayBuffer(binaryString.length);
-    const bufferView = new Uint8Array(buffer);
+    const buffer = new Uint8Array(binaryString.length);
     for (let i = 0; i < binaryString.length; i++) {
-        bufferView[i] = binaryString.charCodeAt(i);
+        buffer[i] = binaryString.charCodeAt(i) & 0xFF;
     }
     let decoder = new TextDecoder(inputEncoding);
     return decoder.decode(buffer);
