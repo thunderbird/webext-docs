@@ -10,11 +10,11 @@ Each page is an object with two properties: ``id``, and ``messages``. To get the
 
 .. code-block:: javascript
 
-  let page = await browser.messages.list(folder);
+  let page = await messenger.messages.list(folder);
   // Do something with page.messages.
 
   while (page.id) {
-    page = await browser.messages.continueList(page.id);
+    page = await messenger.messages.continueList(page.id);
     // Do something with page.messages.
   }
 
@@ -23,15 +23,22 @@ You could also wrap this code in a generator for ease-of-use:
 .. code-block:: javascript
 
   async function* listMessages(folder) {
-    let page = await browser.messages.list(folder);
+    let page = await messenger.messages.list(folder);
     for (let message of page.messages) {
       yield message;
     }
 
     while (page.id) {
-      page = await browser.messages.continueList(page.id);
+      page = await messenger.messages.continueList(page.id);
       for (let message of page.messages) {
         yield message;
       }
     }
   }
+
+  let messages = listMessages(folder);
+  for await (let message of messages) {
+    // Do something with the message.
+    let full = await messenger.messages.getFull(message.id);    
+  }
+
