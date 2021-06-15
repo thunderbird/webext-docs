@@ -96,6 +96,45 @@ Returns details of the requested identity, or null if it doesn't exist.
 
    - :permission:`accountsRead`
 
+.. _identities.create:
+
+create(accountId, details)
+--------------------------
+
+.. api-section-annotation-hack:: 
+
+Create a new identity in the specified account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``details``
+      :type: (:ref:`identities.MailIdentity`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`identities.MailIdentity`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsIdentities`
+
 .. _identities.delete:
 
 delete(identityId)
@@ -159,73 +198,6 @@ Updates the details of an identity.
    - :permission:`accountsRead`
    - :permission:`accountsIdentities`
 
-.. _identities.create:
-
-create(accountId, details)
---------------------------
-
-.. api-section-annotation-hack:: 
-
-Create a new identity in the specified account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: ``details``
-      :type: (:ref:`identities.MailIdentity`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`identities.MailIdentity`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsIdentities`
-
-.. _identities.setDefault:
-
-setDefault(accountId, identityId)
----------------------------------
-
-.. api-section-annotation-hack:: 
-
-Sets the default identity for the requested account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: ``identityId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
 .. _identities.getDefault:
 
 getDefault(accountId)
@@ -253,6 +225,34 @@ Returns the default identity for the requested account, or null if it is not def
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _identities.setDefault:
+
+setDefault(accountId, identityId)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Sets the default identity for the requested account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``identityId``
+      :type: (string)
+   
 
 .. api-header::
    :label: Required permissions
