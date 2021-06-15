@@ -163,7 +163,7 @@ Returns the default identity for an account, or null if it is not defined.
 
    
    .. api-member::
-      :type: :ref:`accounts.MailIdentity`
+      :type: :ref:`identities.MailIdentity`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -205,7 +205,7 @@ MailAccount
    
    .. api-member::
       :name: ``identities``
-      :type: (array of :ref:`accounts.MailIdentity`)
+      :type: (array of :ref:`identities.MailIdentity`)
       :annotation: -- [Added in TB 76]
       
       The identities associated with this account. The default identity is listed first, others in no particular order.
@@ -223,72 +223,4 @@ MailAccount
       :type: (string)
       
       What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``.
-   
-
-.. _accounts.MailIdentity:
-
-MailIdentity
-------------
-
-.. api-section-annotation-hack:: -- [Added in TB 76]
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (string)
-      
-      The id of the :ref:`accounts.MailAccount` this identity belongs to.
-   
-   
-   .. api-member::
-      :name: ``composeHtml``
-      :type: (boolean)
-      :annotation: -- [Added in TB 85, backported to TB 78.7.0]
-      
-      Wether the identity uses HTML as the default compose format.
-   
-   
-   .. api-member::
-      :name: ``email``
-      :type: (string)
-      
-      The user's email address as used when messages are sent from this identity.
-   
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-      
-      A unique identifier for this identity.
-   
-   
-   .. api-member::
-      :name: ``label``
-      :type: (string)
-      
-      A user-defined label for this identity.
-   
-   
-   .. api-member::
-      :name: ``name``
-      :type: (string)
-      
-      The user's name as used when messages are sent from this identity.
-   
-   
-   .. api-member::
-      :name: ``organization``
-      :type: (string)
-      
-      The organization associated with this identity.
-   
-   
-   .. api-member::
-      :name: ``replyTo``
-      :type: (string)
-      
-      The reply-to email address associated with this identity.
    

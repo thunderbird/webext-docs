@@ -10,7 +10,7 @@ The :ref:`addressBooks_api` and :ref:`contacts_api` APIs will now return read-on
 accounts
 ========
 
-* The ``composeHtml`` property has been added to the :ref:`accounts.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
+* The ``composeHtml`` property has been added to the :ref:`identities.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
 
   *This change has been backported to Thunderbird 78.7.0.*
 

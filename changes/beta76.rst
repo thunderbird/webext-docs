@@ -5,7 +5,7 @@ Changes in Thunderbird 76
 accounts
 ========
 
-* Thunderbird 76 introduces the :ref:`accounts.MailIdentity` type for interacting with mail
+* Thunderbird 76 introduces the :ref:`identities.MailIdentity` type for interacting with mail
   identities. Like the rest of the accounts API, it is mostly read-only as we believe that
   configuration of identities should only happen using the built-in UI.
 
