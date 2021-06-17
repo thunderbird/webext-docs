@@ -423,8 +423,6 @@ Sends the message currently being composed.
    
    .. api-member::
       :type: boolean
-      
-      Returns ``true`` on success, ``false`` otherwise.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -705,7 +703,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`compose.ComposeRecipient`)
       :annotation: -- [Added in TB 88]
       
-      *Caution*: Setting a value for `from` does not change the used identity, it overrides the FROM header. Many e-mail servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid e-mail address.
+      *Caution*: Setting a value for `from` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
    
    
    .. api-member::

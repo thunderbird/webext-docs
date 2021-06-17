@@ -1,0 +1,18 @@
+[
+  {
+    "namespace": "identities",
+    "types": [
+      {
+        "id": "MailIdentity",
+        "type": "object",
+        "added": "76",
+        "properties": {
+          "composeHtml": {
+            "added": "85",
+            "backported": "78.7.0"
+          }
+        }
+      }
+    ]
+  }
+]

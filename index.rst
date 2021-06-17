@@ -64,6 +64,8 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 +-------------------------------+------------------------------------------------------------+
 | :doc:`folders`                | |folders-Description|                                      |
 +-------------------------------+------------------------------------------------------------+
+| :doc:`identities`             | |identities-Description|                                   |
++-------------------------------+------------------------------------------------------------+
 | :doc:`mailingLists`           | |mailingLists-Description|                                 |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`mailTabs`               | |mailTabs-Description|                                     |
@@ -95,6 +97,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |composeScripts-Description| replace:: Functionally is the same as the contentScripts API except that it works on the document of email messages during composition.
 .. |contacts-Description| replace:: Enables an extension to access, modify, create and delete contacts in Thunderbird address books.
 .. |folders-Description| replace:: Enables an extension to access, modify, create and delete mail account folders.
+.. |identities-Description| replace:: Enables an extension to create, modify and delete mail account identities.
 .. |theme-Description| replace:: The theme API can be used to create static or dynamic Thunderbird themes. Theme experiments are supported.
 .. |mailingLists-Description| replace:: Enables an extension to access, modify, create and delete mailing lists in Thunderbird address books.
 .. |mailTabs-Description| replace:: Enables an extension to interact with Thunderbird's main window.
@@ -239,6 +242,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   composeScripts
   contacts
   folders
+  identities
   mailingLists
   mailTabs
   menus

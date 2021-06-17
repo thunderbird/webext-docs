@@ -313,7 +313,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``author``]
          :type: (string)
          
-         Returns only messages with this value matching the author.
+         Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: ``Name <user@domain.org>``). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
@@ -348,7 +348,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``fromMe``]
          :type: (boolean)
          
-         Returns only messages with the author matching any configured identity.
+         Returns only messages with the author's address matching any configured identity.
       
       
       .. api-member::
@@ -367,10 +367,17 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       
       .. api-member::
+         :name: [``includeSubFolders``]
+         :type: (boolean)
+         
+         Search the folder specified by ``queryInfo.folder`` recursively.
+      
+      
+      .. api-member::
          :name: [``recipients``]
          :type: (string)
          
-         Returns only messages with this value matching one or more recipients.
+         Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: ``Name <user@domain.org>``). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
@@ -385,7 +392,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (:ref:`messages.TagsDetail`)
          :annotation: -- [Added in TB 74]
          
-         Returns only messages with the specified tags. For a list of available tags, call the listTags method. Querying for messages that must *not* have a tag does not work.
+         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
       
       
       .. api-member::
@@ -399,7 +406,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``toMe``]
          :type: (boolean)
          
-         Returns only messages with one or more recipients matching any configured identity.
+         Returns only messages with at least one recipient address matching any configured identity.
       
       
       .. api-member::
