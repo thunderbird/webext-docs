@@ -10,6 +10,12 @@
           "composeHtml": {
             "added": "85",
             "backported": "78.7.0"
+          },
+          "signature": {
+            "added": "91"
+          },
+          "signatureIsPlainText": {
+            "added": "91"
           }
         }
       }

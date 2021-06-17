@@ -419,6 +419,7 @@ MailIdentity
    .. api-member::
       :name: [``signature``]
       :type: (string)
+      :annotation: -- [Added in TB 91]
       
       The signature of the identity.
    
@@ -426,6 +427,7 @@ MailIdentity
    .. api-member::
       :name: [``signatureIsPlainText``]
       :type: (boolean)
+      :annotation: -- [Added in TB 91]
       
       If the signature should be interpreted as plain text or as HTML.
    

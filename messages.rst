@@ -369,6 +369,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``includeSubFolders``]
          :type: (boolean)
+         :annotation: -- [Added in TB 91]
          
          Search the folder specified by ``queryInfo.folder`` recursively.
       

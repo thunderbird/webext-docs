@@ -67,6 +67,9 @@
               "tags": {
                 "added": "74"
               },
+              "includeSubFolders": {
+                "added": "91"
+              },
               "headerMessageId": {
                 "added": "85"
               }          
