@@ -9,7 +9,7 @@ See the MDN documentation for a more in-depth explanation and :doc:`/changes/bet
 See also :ref:`executeScript <tabs.executeScript>`, :ref:`insertCSS <tabs.insertCSS>`,
 :ref:`removeCSS <tabs.removeCSS>`, and :doc:`messageDisplayScripts`.
 
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts
 
 .. note::
 
