@@ -12,7 +12,7 @@ explanation and :doc:`/changes/esr78.04.0` for examples.
 See also :ref:`executeScript <tabs.executeScript>`, :ref:`insertCSS <tabs.insertCSS>`,
 :ref:`removeCSS <tabs.removeCSS>`, and :doc:`composeScripts`.
 
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts
 
 .. note::
 
