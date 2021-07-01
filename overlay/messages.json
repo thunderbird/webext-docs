@@ -105,6 +105,22 @@
       {
         "name": "onNewMailReceived",
         "added": "75"
+      },
+      {
+        "name": "onUpdated",
+        "added": "91"
+      },
+      {
+        "name": "onMoved",
+        "added": "91"
+      },
+      {
+        "name": "onCopied",
+        "added": "91"
+      },
+      {
+        "name": "onDeleted",
+        "added": "91"
       }
     ],
     "types": [

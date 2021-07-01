@@ -440,7 +440,7 @@ update(messageId, newProperties)
 
 .. api-section-annotation-hack:: 
 
-Marks or unmarks a message as read, flagged, or tagged.
+Marks or unmarks a message as junk, read, flagged, or tagged.
 
 .. api-header::
    :label: Parameters
@@ -453,36 +453,7 @@ Marks or unmarks a message as read, flagged, or tagged.
    
    .. api-member::
       :name: ``newProperties``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``flagged``]
-         :type: (boolean)
-         
-         Marks the message as flagged or unflagged.
-      
-      
-      .. api-member::
-         :name: [``junk``]
-         :type: (boolean)
-         :annotation: -- [Added in TB 73, backported to TB 68.7]
-         
-         Marks the message as junk or not junk.
-      
-      
-      .. api-member::
-         :name: [``read``]
-         :type: (boolean)
-         
-         Marks the message as read or unread.
-      
-      
-      .. api-member::
-         :name: [``tags``]
-         :type: (array of string)
-         
-         Sets the tags on the message. For a list of available tags, call the listTags method.
-      
+      :type: (:ref:`messages.MessageChangeProperties`)
    
 
 .. api-header::
@@ -646,6 +617,116 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 Events
 ======
 
+.. _messages.onUpdated:
+
+onUpdated(message, changedProperties)
+-------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when one or more properties of a message have been updated.
+
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``message``
+      :type: (:ref:`messages.MessageHeader`)
+   
+   
+   .. api-member::
+      :name: ``changedProperties``
+      :type: (:ref:`messages.MessageChangeProperties`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.onMoved:
+
+onMoved(srcMessages, destMessages)
+----------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when messages have been moved.
+
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``srcMessages``
+      :type: (:ref:`messages.MessageList`)
+   
+   
+   .. api-member::
+      :name: ``destMessages``
+      :type: (:ref:`messages.MessageList`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+
+.. _messages.onCopied:
+
+onCopied(srcMessages, destMessages)
+-----------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when messages have been copied.
+
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``srcMessages``
+      :type: (:ref:`messages.MessageList`)
+   
+   
+   .. api-member::
+      :name: ``destMessages``
+      :type: (:ref:`messages.MessageList`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+
+.. _messages.onDeleted:
+
+onDeleted(messages)
+-------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when messages have been permanently deleted.
+
+.. api-header::
+   :label: Parameters for event listeners
+
+   
+   .. api-member::
+      :name: ``messages``
+      :type: (:ref:`messages.MessageList`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+
 .. _messages.onNewMailReceived:
 
 onNewMailReceived(folder, messages)
@@ -719,6 +800,47 @@ Represents an attachment in a message.
       :type: (integer)
       
       The size in bytes of this attachment.
+   
+
+.. _messages.MessageChangeProperties:
+
+MessageChangeProperties
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Message properties that can be updated by the :ref:`messages.update` and that are monitored by :ref:`messages.onUpdated`.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``flagged``]
+      :type: (boolean)
+      
+      Message is flagged.
+   
+   
+   .. api-member::
+      :name: [``junk``]
+      :type: (boolean)
+      
+      Message is junk.
+   
+   
+   .. api-member::
+      :name: [``read``]
+      :type: (boolean)
+      
+      Message is read.
+   
+   
+   .. api-member::
+      :name: [``tags``]
+      :type: (array of string)
+      
+      Tags associated with this message. For a list of available tags, call the listTags method.
    
 
 .. _messages.MessageHeader:
