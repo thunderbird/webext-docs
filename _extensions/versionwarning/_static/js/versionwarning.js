@@ -99,13 +99,8 @@ function checkVersion(config) {
         success: function (versions) {
             // TODO: fetch more versions if there are more pages (next)
             highest_version = getHighestVersion(versions["results"]);
-            if (true
-//                semver.valid(semver.coerce(running_version.slug)) && semver.valid(semver.coerce(highest_version.slug)) &&
-//                semver.lt(semver.coerce(running_version.slug), semver.coerce(highest_version.slug))
-            ) {
-                console.debug("Highest version: " + highest_version.slug);
-                injectVersionWarningBanner(running_version, highest_version, config, versions["results"]);
-            }
+            console.debug("Highest version: " + highest_version.slug);
+            injectVersionWarningBanner(running_version, highest_version, config, versions["results"]);
         },
         error: function () {
             console.error("Error loading Read the Docs active versions.");

@@ -1,7 +1,13 @@
 {
-	"results": [
-		{"slug":"68"},
-		{"slug":"78"},
-		{"slug":"latest"},
-	]
+  "results": [
+    {
+      "slug": "68"
+    },
+    {
+      "slug": "78"
+    },
+    {
+      "slug": "latest"
+    }
+  ]
 }
