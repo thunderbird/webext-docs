@@ -88,7 +88,7 @@ function checkVersion(config) {
     $.ajax({
         url: config.meta.api_url + "version/",
         // Used when working locally for development
-        // crossDomain: true,
+        crossDomain: true,
         // xhrFields: {
         //     withCredentials: true,
         // },
