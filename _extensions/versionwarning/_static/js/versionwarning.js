@@ -86,7 +86,9 @@ function checkVersion(config) {
     };
 
     $.ajax({
-        url: config.meta.api_url + "version/",
+        //config.meta.api_url + "version/",
+        // Access of API is broken by CORS, so request from same site.
+        url: "https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
         // Used when working locally for development
         // crossDomain: true,
         // xhrFields: {
@@ -125,9 +127,7 @@ function init() {
             if (banner) {
                 console.debug("There is already a banner added. No checking versions.")
             } else {
-                //checkVersion(config);
-                injectVersionWarningBanner(config.version, {slug:"78"}, config, [{slug:"68"},{slug:"78"},{slug:"latest"}]);
-
+                checkVersion(config);
             }
         },
         error: function() {
