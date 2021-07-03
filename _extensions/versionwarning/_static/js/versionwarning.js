@@ -84,7 +84,6 @@ function checkVersion(config) {
         active: "true"
         // format: "jsonp",
     };
-    console.log(config.meta.api_url + "version/");
 
     $.ajax({
         url: config.meta.api_url + "version/",
@@ -126,7 +125,9 @@ function init() {
             if (banner) {
                 console.debug("There is already a banner added. No checking versions.")
             } else {
-                checkVersion(config);
+                //checkVersion(config);
+                injectVersionWarningBanner(config.version, {slug:"78"}, config, [{slug:"68"},{slug:"78"},{slug:"latest"}]);
+
             }
         },
         error: function() {
