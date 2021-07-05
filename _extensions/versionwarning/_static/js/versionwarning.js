@@ -85,8 +85,11 @@ function checkVersion(config) {
         // format: "jsonp",
     };
 
-    $.ajax({
-        url: config.meta.api_url + "version/",//"https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
+    $.ajax({        
+        // Access of API is broken by CORS
+        // https://readthedocs.org/api/v2/version/?project__slug=thunderbird-webextension-apis&active=true
+        //url: config.meta.api_url + "version/",
+        url: "https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
         // Used when working locally for development
         // crossDomain: true,
         // xhrFields: {
