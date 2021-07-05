@@ -86,9 +86,7 @@ function checkVersion(config) {
     };
 
     $.ajax({
-        //config.meta.api_url + "version/",
-        // Access of API is broken by CORS, so request from same site.
-        url: "https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
+        url: config.meta.api_url + "version/",//"https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
         // Used when working locally for development
         // crossDomain: true,
         // xhrFields: {
