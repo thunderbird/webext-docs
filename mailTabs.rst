@@ -524,6 +524,8 @@ MailTab
       :name: [``sortOrder``]
       :type: (`string`)
       
+      Note: ``sortType`` and ``sortOrder`` depend on each other, so both should be present, or neither.
+      
       Supported values:
       
       .. api-member::
@@ -539,6 +541,8 @@ MailTab
    .. api-member::
       :name: [``sortType``]
       :type: (`string`)
+      
+      Note: ``sortType`` and ``sortOrder`` depend on each other, so both should be present, or neither.
       
       Supported values:
       

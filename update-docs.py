@@ -682,6 +682,14 @@ def format_namespace(manifest, namespace):
 
     return "\n".join(lines).encode("utf-8")
 
+def map_permission_to_key(permission):
+    mapping = {
+        "accountsRead": "accountsRead2",
+        "messagesMove": "messagesMove2",
+    }
+    if permission in mapping:
+        return mapping[permission]
+    return permission
 
 def format_manifest_namespace(manifest, namespace):
     global unique_id
@@ -717,8 +725,8 @@ def format_manifest_namespace(manifest, namespace):
                         description = None
                         if "permissions" in manifest and value in manifest["permissions"] and "description" in manifest["permissions"][value]:
                             description = [manifest["permissions"][value]["description"]]
-                        elif value in permission_strings:
-                            description = [permission_strings[value]]
+                        elif map_permission_to_key(value) in permission_strings:
+                            description = [permission_strings[map_permission_to_key(value)]]
                         permission_lines.extend(api_member(name=":permission:`" + value + "`", description=description))
 
     if len(permission_lines) > 0:

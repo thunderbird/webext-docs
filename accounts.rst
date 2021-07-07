@@ -18,7 +18,7 @@ Permissions
 .. api-member::
    :name: :permission:`accountsRead`
 
-   See your mail accounts and their folders
+   See your mail accounts, their identities and their folders
 
 .. rst-class:: api-permission-info
 

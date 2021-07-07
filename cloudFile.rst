@@ -215,8 +215,8 @@ Events
 
 .. _cloudFile.onFileUpload:
 
-onFileUpload(account, fileInfo)
--------------------------------
+onFileUpload(account, fileInfo, tab)
+------------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -238,6 +238,14 @@ Fired when a file should be uploaded to the cloud file provider
       :type: (:ref:`cloudFile.CloudFile`)
       
       The file to upload
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 91]
+      
+      The tab where the upload was initiated. Currently only available for the message composer.
    
 
 .. api-header::
@@ -264,8 +272,8 @@ Fired when a file should be uploaded to the cloud file provider
 
 .. _cloudFile.onFileUploadAbort:
 
-onFileUploadAbort(account, fileId)
-----------------------------------
+onFileUploadAbort(account, fileId, tab)
+---------------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -286,11 +294,19 @@ onFileUploadAbort(account, fileId)
       
       An identifier for this file
    
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 91]
+      
+      The tab where the upload was initiated. Currently only available for the message composer.
+   
 
 .. _cloudFile.onFileDeleted:
 
-onFileDeleted(account, fileId)
-------------------------------
+onFileDeleted(account, fileId, tab)
+-----------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -312,6 +328,14 @@ Fired when a file previously uploaded should be deleted
       :type: (integer)
       
       An identifier for this file
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 91]
+      
+      The tab where the upload was initiated. Currently only available for the message composer.
    
 
 .. _cloudFile.onAccountAdded:

@@ -2,6 +2,14 @@
 Changes in Thunderbird 91
 =========================
 
+cloudFile API
+=============
+
+* added the ``tab`` parameter to :ref:`cloudFile.onFileDeleted`
+* added the ``tab`` parameter to :ref:`cloudFile.onFileUpload`
+* added the ``tab`` parameter to :ref:`cloudFile.onFileUploadAbort`
+
+
 identities API
 ==============
 
@@ -19,3 +27,4 @@ messages
 * added :ref:`messages.onMoved`
 * added :ref:`messages.onCopied`
 * added :ref:`messages.onDeleted`
+* added the :permission:`messagesDelete` permission to guard :ref:`messages.delete`

@@ -27,12 +27,17 @@ Permissions
 .. api-member::
    :name: :permission:`messagesMove`
 
-   Move, copy, or delete your email messages
+   Copy or move your email messages (including moving them to the trash folder)
 
 .. api-member::
    :name: :permission:`messagesRead`
 
    Read your email messages and mark or tag them
+
+.. api-member::
+   :name: :permission:`messagesDelete`
+
+   Permanently delete your email messages
 
 .. rst-class:: api-permission-info
 
@@ -536,7 +541,12 @@ delete(messageIds, [skipTrash])
 
 .. api-section-annotation-hack:: 
 
-Deletes messages, or moves them to the trash folder.
+Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). The ``skipTrash`` parameter allows immediate permanent deletion, bypassing the trash folder.
+
+**Note**: Consider using :ref:`messages.move` to manually move messages to the account's trash folder, instead of requesting the overly powerful permission to actually delete messages. The account's trash folder can be extracted as follows: 
+
+.. literalinclude:: includes/messages/getTrash.js
+  :language: JavaScript
 
 .. api-header::
    :label: Parameters
@@ -553,14 +563,14 @@ Deletes messages, or moves them to the trash folder.
       :name: [``skipTrash``]
       :type: (boolean)
       
-      If true, the message will be permanently deleted without warning the user. If false or not specified, it will be moved to the trash folder.
+      If true, the message will be deleted permanently, regardless of the account's deletion behavior settings.
    
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`messagesRead`
-   - :permission:`messagesMove`
+   - :permission:`messagesDelete`
 
 .. _messages.archive:
 
