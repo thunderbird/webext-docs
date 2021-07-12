@@ -21,12 +21,6 @@ Permissions
 
    Create, rename, or delete your mail account folders
 
-.. rst-class:: api-permission-info
-
-.. note::
-
-   The permission :permission:`accountsFolders` is required to use ``folders``.
-
 .. rst-class:: api-main-section
 
 Functions
@@ -34,20 +28,20 @@ Functions
 
 .. _folders.create:
 
-create(parentFolder, childName)
--------------------------------
+create(parentFolderOrAccount, childName)
+----------------------------------------
 
 .. api-section-annotation-hack:: 
 
-Creates a new subfolder of ``parentFolder``.
+Creates a new subfolder in the specified folder or at the root of the specified account.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``parentFolder``
-      :type: (:ref:`folders.MailFolder`)
+      :name: ``parentFolderOrAccount``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
    
    
    .. api-member::
@@ -111,6 +105,86 @@ Deletes a folder.
 
    - :permission:`accountsFolders`
 
+.. _folders.getParentFolders:
+
+getParentFolders(folder, [includeSubFolders])
+---------------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Get all parent folders as a flat ordered array. The first array entry is the direct parent.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: [``includeSubFolders``]
+      :type: (boolean)
+      
+      Specifies whether the returned :ref:`folders.MailFolder` object for each parent folder should include its nested subfolders . Defaults to ``false``.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getSubFolders:
+
+getSubFolders(folderOrAccount, [includeSubFolders])
+---------------------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Get the subfolders of the specified folder or account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folderOrAccount``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+   
+   .. api-member::
+      :name: [``includeSubFolders``]
+      :type: (boolean)
+      
+      Specifies whether the returned :ref:`folders.MailFolder` object for each direct subfolder should also include all its nested subfolders . Defaults to ``true``.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
 .. rst-class:: api-main-section
 
 Types
@@ -123,7 +197,7 @@ MailFolder
 
 .. api-section-annotation-hack:: 
 
-A folder object, as returned by the ``list`` and ``get`` methods. Use the accountId and path properties to refer to a folder.
+An object describing a mail folder, as returned for example by the :ref:`folders.getParentFolders` or :ref:`folders.getSubFolders` methods, or part of a :ref:`accounts.MailAccount` object, which is returned for example by the :ref:`accounts.list` and :ref:`accounts.get` methods. The ``subFolders`` property is only included if requested.
 
 .. api-header::
    :label: object
@@ -140,7 +214,7 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       :name: ``path``
       :type: (string)
       
-      Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is.
+      Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is. Use :ref:`folders.getParentFolders` or :ref:`folders.getSubFolders` to obtain hierarchy information.
    
    
    .. api-member::
@@ -154,6 +228,8 @@ A folder object, as returned by the ``list`` and ``get`` methods. Use the accoun
       :name: [``subFolders``]
       :type: (array of :ref:`folders.MailFolder`)
       :annotation: -- [Added in TB 74]
+      
+      Subfolders are only included if requested.
    
    
    .. api-member::

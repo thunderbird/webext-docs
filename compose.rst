@@ -260,6 +260,11 @@ Lists all of the attachments of the message being composed in the specified tab.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
 .. _compose.addAttachment:
 
 addAttachment(tabId, data)
@@ -304,6 +309,11 @@ Adds an attachment to the message being composed in the specified tab.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
 
 .. _compose.updateAttachment:
 
@@ -355,6 +365,11 @@ Renames and/or replaces the contents of an attachment to the message being compo
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
 .. _compose.removeAttachment:
 
 removeAttachment(tabId, attachmentId)
@@ -377,6 +392,11 @@ Removes an attachment from the message being composed in the specified tab.
       :name: ``attachmentId``
       :type: (integer)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
 
 .. _compose.sendMessage:
 
@@ -541,6 +561,11 @@ Fired when an attachment is added to a message being composed.
       :type: (:ref:`compose.ComposeAttachment`)
    
 
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
 .. _compose.onAttachmentRemoved:
 
 onAttachmentRemoved(tab, attachmentId)
@@ -563,6 +588,11 @@ Fired when an attachment is removed from a message being composed.
       :name: ``attachmentId``
       :type: (integer)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
 
 .. _compose.onIdentityChanged:
 

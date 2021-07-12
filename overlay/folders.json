@@ -10,6 +10,16 @@
           }
         }
       }
-    ]
+    ],
+    "functions": [
+      {
+        "id": "getParentFolders",
+        "added": "91"
+      },
+      {
+        "id": "getSubFolders",
+        "added": "91"
+      }
+    ]    
   }
 ]

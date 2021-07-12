@@ -33,12 +33,24 @@ Functions
 
 .. _accounts.list:
 
-list()
-------
+list([includeFolders])
+----------------------
 
 .. api-section-annotation-hack:: 
 
 Returns all mail accounts.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``includeFolders``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 91]
+      
+      Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to ``true``.
+   
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -57,8 +69,8 @@ Returns all mail accounts.
 
 .. _accounts.get:
 
-get(accountId)
---------------
+get(accountId, [includeFolders])
+--------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -71,6 +83,14 @@ Returns details of the requested account, or null if it doesn't exist.
    .. api-member::
       :name: ``accountId``
       :type: (string)
+   
+   
+   .. api-member::
+      :name: [``includeFolders``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 91]
+      
+      Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.
    
 
 .. api-header::
@@ -90,12 +110,24 @@ Returns details of the requested account, or null if it doesn't exist.
 
 .. _accounts.getDefault:
 
-getDefault()
-------------
+getDefault([includeFolders])
+----------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 85, backported to TB 78.7.0]
 
 Returns the default account, or null if it is not defined.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``includeFolders``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 91]
+      
+      Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.
+   
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -185,16 +217,11 @@ MailAccount
 
 .. api-section-annotation-hack:: 
 
+An object describing a mail account, as returned for example by the :ref:`accounts.list` and :ref:`accounts.get` methods. The ``folders`` property is only included if requested.
+
 .. api-header::
    :label: object
 
-   
-   .. api-member::
-      :name: ``folders``
-      :type: (array of :ref:`folders.MailFolder`)
-      
-      The folders for this account.
-   
    
    .. api-member::
       :name: ``id``
@@ -223,4 +250,11 @@ MailAccount
       :type: (string)
       
       What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``.
+   
+   
+   .. api-member::
+      :name: [``folders``]
+      :type: (array of :ref:`folders.MailFolder`)
+      
+      The folders for this account are only included if requested.
    

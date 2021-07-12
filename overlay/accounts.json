@@ -25,7 +25,31 @@
       {
         "name": "getDefault",
         "added": "85",
-        "backported": "78.7.0"
+        "backported": "78.7.0",
+        "parameters":[
+          {
+            "name": "includeFolders",
+            "added": "91"
+          }
+        ]
+      },
+      {
+        "name": "get",
+        "parameters":[
+          {
+            "name": "includeFolders",
+            "added": "91"
+          }
+        ]
+      },
+      {
+        "name": "list",
+        "parameters":[
+          {
+            "name": "includeFolders",
+            "added": "91"
+          }
+        ]
       }
     ]
   }

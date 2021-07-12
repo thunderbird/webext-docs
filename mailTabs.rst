@@ -274,6 +274,23 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          .. api-member::
             :name: ``correspondent``
       
+      
+      .. api-member::
+         :name: [``viewType``]
+         :type: (`string`)
+         :annotation: -- [Added in TB 91]
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``normal``
+         
+         .. api-member::
+            :name: ``groupedByThread``
+         
+         .. api-member::
+            :name: ``groupedBySortType``
+      
    
 
 .. _mailTabs.getSelectedMessages:
@@ -605,6 +622,23 @@ MailTab
       
       .. api-member::
          :name: ``correspondent``
+   
+   
+   .. api-member::
+      :name: [``viewType``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 91]
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``normal``
+      
+      .. api-member::
+         :name: ``groupedByThread``
+      
+      .. api-member::
+         :name: ``groupedBySortType``
    
 
 .. _mailTabs.QuickFilterTextDetail:
