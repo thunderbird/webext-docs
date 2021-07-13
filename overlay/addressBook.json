@@ -101,5 +101,19 @@
         }
       }
     ]
-  }
+  },
+  {
+    "namespace": "addressBooks.provider",
+    "events": [
+      {
+        "name": "onSearchRequest",
+        "parameters": [
+          {
+            "name": "node",
+            "$ref": "addressBooks.AddressBookNode"
+          }
+        ]
+      }
+    ]
+  }  
 ]
