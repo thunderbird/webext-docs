@@ -17,36 +17,3 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False
 }
-
-# Add any paths that contain custom static files (such as style sheets) here,
-# relative to this directory. They are copied after the builtin static files,
-# so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
-
-# Configure headers
-versionwarning_body_selector = 'div[itemprop="articleBody"]'
-
-versionwarning_latest_type = 'warning'
-versionwarning_latest_title = 'Warning'   
-versionwarning_latest_message = 'This is the API documentation for pre-release versions of Thunderbird. See version {newest} for the current ESR of Thunderbird.'
-
-versionwarning_current_type = 'note'
-versionwarning_current_title = 'Note'   
-versionwarning_current_indexmessage = 'This is the API documentation for the current ESR of Thunderbird, version {this}. Other available versions are: {other}'
-
-versionwarning_older_type = 'warning'
-versionwarning_older_title = 'Warning'   
-versionwarning_older_message = 'This is the API documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
-
-
-extensions = [
-    # ... other extensions here
-    'versionwarning.extension',
-    'apiheader',
-    'apimember',
-    'apisectionannotationhack',
-]
-
-def setup(app):
-   #app.add_javascript("custom.js")
-   app.add_css_file('theme_overrides.css')
