@@ -510,7 +510,7 @@ A node representing a mailing list.
    .. api-member::
       :name: [``remote``]
       :type: (boolean)
-      :annotation: -- [Added in TB 92]
+      :annotation: -- [Added in TB 91]
       
       Indicates if the object came from a remote address book.
    

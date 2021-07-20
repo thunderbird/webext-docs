@@ -15,7 +15,7 @@
         "type": "object",
         "properties": {
           "remote": {
-            "added": "92"
+            "added": "91"
           }
         }
       }
@@ -38,7 +38,7 @@
         "description": "Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.",
         "changed": {
           "85" : "Read-only address books are now returned as well as read-write books.",
-          "92" : "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
+          "91" : "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
         },
         "parameters": [
           {
@@ -93,7 +93,7 @@
       {
         "id": "QueryInfo",
         "description": "Object defining a query for :ref:`contacts.quickSearch`.",
-        "added": "92",
+        "added": "91",
         "type": "object",
         "properties": {
           "searchString": {
@@ -170,7 +170,7 @@
         "type": "object",
         "properties": {
           "remote": {
-            "added": "92"
+            "added": "91"
           }
         }
       }

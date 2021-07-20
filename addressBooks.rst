@@ -381,7 +381,7 @@ A node representing an address book.
    .. api-member::
       :name: [``remote``]
       :type: (boolean)
-      :annotation: -- [Added in TB 92]
+      :annotation: -- [Added in TB 91]
       
       Indicates if the address book is accessed via remote look-up.
    

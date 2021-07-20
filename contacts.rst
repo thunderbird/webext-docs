@@ -77,7 +77,7 @@ quickSearch([parentId], queryInfo)
 Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.
 
 .. api-header::
-   :label: Changes in Thunderbird 92
+   :label: Changes in Thunderbird 91
 
    
    .. api-member::
@@ -431,7 +431,7 @@ A dictionary of changed properties. Keys are the property name that changed, val
 QueryInfo
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Object defining a query for :ref:`contacts.quickSearch`.
 
