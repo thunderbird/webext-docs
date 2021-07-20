@@ -69,12 +69,19 @@ Gets all the contacts in the address book with the id ``parentId``.
 
 .. _contacts.quickSearch:
 
-quickSearch([parentId], searchString)
--------------------------------------
+quickSearch([parentId], queryInfo)
+----------------------------------
 
 .. api-section-annotation-hack:: 
 
-Gets all contacts matching ``searchString`` in the address book with the id ``parentId``.
+Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.
+
+.. api-header::
+   :label: Changes in Thunderbird 91
+
+   
+   .. api-member::
+      :name: Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``.
 
 .. api-header::
    :label: Changes in Thunderbird 85
@@ -95,10 +102,8 @@ Gets all contacts matching ``searchString`` in the address book with the id ``pa
    
    
    .. api-member::
-      :name: ``searchString``
-      :type: (string)
-      
-      One or more space-separated terms to search for.
+      :name: ``queryInfo``
+      :type: (string or object or string or :ref:`contacts.QueryInfo`)
    
 
 .. api-header::
@@ -387,6 +392,13 @@ A node representing a contact in an address book.
       
       Indicates if the object is read-only.
    
+   
+   .. api-member::
+      :name: [``remote``]
+      :type: (boolean)
+      
+      Indicates if the object came from a remote address book.
+   
 
 .. _contacts.ContactProperties:
 
@@ -413,3 +425,51 @@ A dictionary of changed properties. Keys are the property name that changed, val
 
 .. api-header::
    :label: object
+
+.. _contacts.QueryInfo:
+
+QueryInfo
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Object defining a query for :ref:`contacts.quickSearch`.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``includeLocal``]
+      :type: (boolean)
+      
+      Whether to include results from local address books. Defaults to true.
+   
+   
+   .. api-member::
+      :name: [``includeReadOnly``]
+      :type: (boolean)
+      
+      Whether to include results from read-only address books. Defaults to true.
+   
+   
+   .. api-member::
+      :name: [``includeReadWrite``]
+      :type: (boolean)
+      
+      Whether to include results from read-write address books. Defaults to true.
+   
+   
+   .. api-member::
+      :name: [``includeRemote``]
+      :type: (boolean)
+      
+      Whether to include results from remote address books. Defaults to true.
+   
+   
+   .. api-member::
+      :name: [``searchString``]
+      :type: (string)
+      
+      One or more space-separated terms to search for.
+   

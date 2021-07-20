@@ -377,6 +377,14 @@ A node representing an address book.
       
       Indicates if the object is read-only.
    
+   
+   .. api-member::
+      :name: [``remote``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 91]
+      
+      Indicates if the address book is accessed via remote look-up.
+   
 
 .. _addressBooks.NodeType:
 

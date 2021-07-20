@@ -506,3 +506,11 @@ A node representing a mailing list.
       
       Indicates if the object is read-only.
    
+   
+   .. api-member::
+      :name: [``remote``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 91]
+      
+      Indicates if the object came from a remote address book.
+   
