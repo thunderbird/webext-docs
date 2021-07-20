@@ -33,6 +33,11 @@ def merge_objects(a, b):
                 continue
     elif isinstance(a, dict):
         for [e, f] in a.iteritems():           
+            # choices will be replaced completely as specified
+            if e in ["choices"]:
+                b[e] = f;
+                continue
+
             # merge existing dicts and lists (former restrictions are a subset)
             if e in b and (isinstance(f, list) or isinstance(f, dict)): # and e not in ["namespace", "name", "id", "$extend"]
                 merge_objects(f, b[e])
