@@ -30,6 +30,16 @@
         "added": "82",
         "backported": "78.4.0"
       }
+    ],
+    "types": [
+      {
+        "id": "Tab",
+        "properties": {
+          "type": {
+            "added": "92"
+          }
+        }
+      }
     ]
   }
 ]

@@ -982,6 +982,47 @@ Tab
    
    
    .. api-member::
+      :name: [``type``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 92]
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``addressBook``
+      
+      .. api-member::
+         :name: ``calendar``
+      
+      .. api-member::
+         :name: ``calendarEvent``
+      
+      .. api-member::
+         :name: ``calendarTask``
+      
+      .. api-member::
+         :name: ``chat``
+      
+      .. api-member::
+         :name: ``content``
+      
+      .. api-member::
+         :name: ``mail``
+      
+      .. api-member::
+         :name: ``messageCompose``
+      
+      .. api-member::
+         :name: ``messageDisplay``
+      
+      .. api-member::
+         :name: ``special``
+      
+      .. api-member::
+         :name: ``tasks``
+   
+   
+   .. api-member::
       :name: [``url``]
       :type: (string)
       

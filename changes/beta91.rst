@@ -40,7 +40,7 @@ identities API
 mailTabs
 ========
 
-* the :ref:`mailTabs.MailTab` object now includes a ``viewType`` property, supporting the values ``normal``, ``groupedByThread`` and ``groupedBySortType``
+* the :ref:`mailTabs.MailTab` object now includes a ``viewType`` property, supporting the values ``ungrouped``, ``groupedByThread`` and ``groupedBySortType``
 * the :ref:`mailTabs.update` function allows to set the new ``viewType`` property
 
 

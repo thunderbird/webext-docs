@@ -9,7 +9,11 @@
             "added": "74"
           }
         }
-      }
+      },
+      {
+        "id": "MailFolderInfo",
+        "added": "92"
+      }      
     ],
     "functions": [
       {
@@ -19,7 +23,45 @@
       {
         "id": "getSubFolders",
         "added": "91"
+      },
+      {
+        "id": "getFolderInfo",
+        "added": "92"
+      },
+      {
+        "name": "move",
+        "added": "92"
+      },
+      {
+        "name": "copy",
+        "added": "92"
+      }      
+    ],
+    "events": [
+      {
+        "name": "onCreated",
+        "added": "92"
+      },
+      {
+        "name": "onRenamed",
+        "added": "92"
+      },
+      {
+        "name": "onMoved",
+        "added": "92"
+      },
+      {
+        "name": "onCopied",
+        "added": "92"
+      },
+      {
+        "name": "onDeleted",
+        "added": "92"
+      },
+      {
+        "name": "onFolderInfoChanged",
+        "added": "92"
       }
-    ]    
+    ]     
   }
 ]
