@@ -2,19 +2,6 @@
 Changes in Thunderbird 92
 =========================
 
-addressbooks API
-================
-
-* added ``remote`` property to :ref:`addressbooks.AddressBookNode`
-
-
-contacts API
-============
-
-* added ``remote`` property to :ref:`contacts.ContactNode`
-* second parameter to :ref:`contacts.quickSearch` can now be a qeuryInfo object instead of just a string, to define mored detailes query parameters
-
-
 folders API
 ===========
 
@@ -29,11 +16,6 @@ folders API
 * added :ref:`folders.onDeleted` event
 * added :ref:`folders.onFolderInfoChanged` event
 
-
-mailingLists API
-================
-
-* added ``remote`` property to :ref:`mailingLists.MailingListNode`
 
 tabs API
 ========

@@ -8,6 +8,12 @@ accounts API
 * :ref:`accounts.list`, :ref:`accounts.get` and :ref:`accounts.getDefault` now have an optional parameter ``includeFolders`` to specify if the returned :ref:`accounts.MailAccount` objects should populate the ``folders`` property. Defaults to ``true``.
 
 
+addressbooks API
+================
+
+* added ``remote`` property to :ref:`addressbooks.AddressBookNode`
+
+
 cloudFile API
 =============
 
@@ -20,6 +26,13 @@ compose API
 ===========
 
 * all attachment related functions and events now also require the :permission:`compose` permission.
+
+
+contacts API
+============
+
+* added ``remote`` property to :ref:`contacts.ContactNode`
+* second parameter to :ref:`contacts.quickSearch` can now be a qeuryInfo object instead of just a string, to define mored detailes query parameters
 
 
 folders API
@@ -35,6 +48,12 @@ identities API
 
 * added :ref:`identities_api` API (including create/delete/update functions and onCreated/onDeleted/onUpdated events)
 * added ``signature`` and ``signatureIsPlainText`` to :ref:`identities.MailIdentity`
+
+
+mailingLists API
+================
+
+* added ``remote`` property to :ref:`mailingLists.MailingListNode`
 
 
 mailTabs
