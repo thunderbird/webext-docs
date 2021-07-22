@@ -657,8 +657,8 @@ Fired when one or more properties of a message have been updated.
 
 .. _messages.onMoved:
 
-onMoved(srcMessages, destMessages)
-----------------------------------
+onMoved(originalMessages, movedMessages)
+----------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
@@ -669,12 +669,12 @@ Fired when messages have been moved.
 
    
    .. api-member::
-      :name: ``srcMessages``
+      :name: ``originalMessages``
       :type: (:ref:`messages.MessageList`)
    
    
    .. api-member::
-      :name: ``destMessages``
+      :name: ``movedMessages``
       :type: (:ref:`messages.MessageList`)
    
 
@@ -686,8 +686,8 @@ Fired when messages have been moved.
 
 .. _messages.onCopied:
 
-onCopied(srcMessages, destMessages)
------------------------------------
+onCopied(originalMessages, copiedMessages)
+------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
@@ -698,12 +698,12 @@ Fired when messages have been copied.
 
    
    .. api-member::
-      :name: ``srcMessages``
+      :name: ``originalMessages``
       :type: (:ref:`messages.MessageList`)
    
    
    .. api-member::
-      :name: ``destMessages``
+      :name: ``copiedMessages``
       :type: (:ref:`messages.MessageList`)
    
 
