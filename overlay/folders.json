@@ -12,7 +12,7 @@
       },
       {
         "id": "MailFolderInfo",
-        "added": "92"
+        "added": "91"
       }      
     ],
     "functions": [
@@ -26,41 +26,41 @@
       },
       {
         "id": "getFolderInfo",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "move",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "copy",
-        "added": "92"
+        "added": "91"
       }      
     ],
     "events": [
       {
         "name": "onCreated",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "onRenamed",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "onMoved",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "onCopied",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "onDeleted",
-        "added": "92"
+        "added": "91"
       },
       {
         "name": "onFolderInfoChanged",
-        "added": "92"
+        "added": "91"
       }
     ]     
   }

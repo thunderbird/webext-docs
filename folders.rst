@@ -115,7 +115,7 @@ Renames a folder.
 move(sourceFolder, destination)
 -------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
 
@@ -154,7 +154,7 @@ Moves the given ``sourceFolder`` into the given ``destination``. Throws if the d
 copy(sourceFolder, destination)
 -------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Copies the given ``sourceFolder`` into the given ``destination``.  Throws if the destination already contains a folder with the name of the source folder.
 
@@ -218,7 +218,7 @@ Deletes a folder.
 getFolderInfo(folder)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Get additional information about a mail folder.
 
@@ -336,7 +336,7 @@ Events
 onCreated(createdFolder)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been created.
 
@@ -359,7 +359,7 @@ Fired when a folder has been created.
 onRenamed(originalFolder, renamedFolder)
 ----------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been renamed.
 
@@ -387,7 +387,7 @@ Fired when a folder has been renamed.
 onMoved(originalFolder, movedFolder)
 ------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been moved.
 
@@ -415,7 +415,7 @@ Fired when a folder has been moved.
 onCopied(originalFolder, copiedFolder)
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been copied.
 
@@ -443,7 +443,7 @@ Fired when a folder has been copied.
 onDeleted(deletedFolder)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been deleted.
 
@@ -466,7 +466,7 @@ Fired when a folder has been deleted.
 onFolderInfoChanged(folder, folderInfo)
 ---------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
 
@@ -574,7 +574,7 @@ An object describing a mail folder, as returned for example by the :ref:`folders
 MailFolderInfo
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 92]
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 An object containing additional information about a mail folder.
 

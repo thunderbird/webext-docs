@@ -38,10 +38,19 @@ contacts API
 folders API
 ===========
 
+* :ref:`folders.delete` now requires the :permission:`messagesDelete` permission
 * added new function :ref:`folders.getParentFolders` to get information about the current hierarchy level and parent folders
 * added new function :ref:`folders.getSubFolders` to get information about subfolders
 * the :ref:`folders.create` function can now create folders in the root of an account, by specifying an account instead of a folder as first parameter
-
+* added :ref:`folders.move` function
+* added :ref:`folders.copy` function
+* added :ref:`folders.getFolderInfo` function and :ref:`folders.MailFolderInfo` type to obtain additional folder information like ``totalMessageCounts`` or ``unreadMessageCounts``
+* added :ref:`folders.onCreated` event
+* added :ref:`folders.onRenamed` event
+* added :ref:`folders.onMoved` event
+* added :ref:`folders.onCopied` event
+* added :ref:`folders.onDeleted` event
+* added :ref:`folders.onFolderInfoChanged` event
 
 identities API
 ==============
