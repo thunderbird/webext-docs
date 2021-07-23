@@ -62,11 +62,17 @@ messenger.addressBooks.onSearchRequest.addListener(async (ab, searchString) => {
 }, {
  dirName: "ACME employees",
  isSecure: true,
- UID: "00e1d9af-a846-4ef5-a6ac-15e8926bf6d3",
 });
 ```
 
 Note: This event may change in future releases of Thunderbird.
+
+TODO: Move this
+Parameters of `addListener()`:
+`extraParameters` contains an object with:
+* `addressBookName`: The name of the address book that the end user will see.
+* `isSecure`: True, if you use encrypted protocols like HTTPS, or no server. False, if you use HTTP or other unencrypted protocols.
+* `id`: (Optional) The UID of the address book. If you add several listeners, that allows you to identify which address book the search event came from. If not passed, an UID will be generated for you.
 
 .. api-header::
    :label: Parameters for event listeners
