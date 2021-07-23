@@ -4,14 +4,14 @@
 addressBooks.provider
 =====================
 
-You want to add an address book to Thunderbird. Before you start to code, please consider which API you need, because there are two completely different approaches to do add address books to Thunderbird. They each come from opposite directions.
+You want to add an address book to Thunderbird. Before you start to code, please consider which API you need, because there are two completely different approaches to add address books to Thunderbird. They each approach it from opposite directions.
 
 If your add-on wants to add and syncronize an address book with a server, and you want the contacts to be cached locally, so that the address book behaves like a built-in address book, you should not use `addressBooks.provider`, but you can simply use the `addressBooks` and `contacts` APIs:
 ```
 let myAddressBook = messenger.addressBooks.create({ name: 'Kontacts' });
 let newContact = messenger.contacts.create(myAddressBook, null, { displayName: 'Bugs Bunny' });
 ```
-and listen to modifications with `messenger.contacts.onUpdated()` etc.. This will create a local address book, just like the built-in address books of Thunderbird, let you push and updates the contacts, and notify you of changes that the user made, so that you can write them back to the server. In this case, you do not need `addressBooks.provider`.
+and then listen to modifications with `messenger.contacts.onUpdated()` etc. This will create a local address book, just like the built-in address books of Thunderbird, let you push and update the contacts, and even notify you of changes that the user made, so that you can write them back to the server. In this case, you do not need the `addressBooks.provider` API.
 
 However, in some exceptional cases, you do *not* want the contacts to be cached locally, or you want to re-implement the storage. This API exists for these cases. So far, only the API for search-only address books is implemented.
 
@@ -45,13 +45,15 @@ onSearchRequest(node, [searchString], [query])
 
 .. api-section-annotation-hack:: 
 
-Creates a read-only addressbook that fires this event when searching for a contact, and your code can determine the contacts that should be shown as a result of that search.
+Use this API when you want to allow the user to search a third-party address book, but you do not want to cache the entire address book locally.
 
-When the user types a name or address in the mail composer's "To:" field, or similar fields like the calendar meeting attendees, this event will fire and allow you to make a query on a server or third party local datasource, and return the matching contacts in that third party source. These contacts will then be displayed as autocomplete result in the dropdown of the email field.
+Adding a `SearchRequest` listener creates a read-only address book that fires this event when the user searches for a contact, and your code can determine the contacts that should be shown as a result of that search.
 
-This API will also create a type of address book similar to LDAP address books, which appears in the address book window. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this same event, and the results that you return here will be displayed as contact cards in the address book.
+When the user types a name in the mail composer's "To:" field, or similar fields like the calendar meeting attendees, this event will fire and allow you to make a query on a server, or third-party local datasource, and return the matching contacts in that third-party source. These contacts will then be displayed as autocomplete result in the dropdown of the email field.
 
-When you register this event, the address book will be created internally. The name that you pass here in `extraParameters` is what the user will see as name of the address book. If need be, you can register several times, to create multiple address books.
+This API will also create a type of address book in the address book window, similar to LDAP address books. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this same event, and the results that you return here will be displayed as contact cards in the address book.
+
+When you register this event, the address book will be created internally. The name that you pass in `extraParameters` is what the user will see as name of the address book. You can register several listeners, to create multiple address books.
 
 Sample implementation:
 ```
