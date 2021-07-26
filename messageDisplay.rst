@@ -117,7 +117,7 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -160,7 +160,7 @@ Fired when either a single message is displayed or when multiple messages are di
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

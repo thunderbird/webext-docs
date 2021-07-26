@@ -264,7 +264,7 @@ Fired when an address book is created.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -297,7 +297,7 @@ Fired when an address book is renamed.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -330,7 +330,7 @@ Fired when an addressBook is deleted.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

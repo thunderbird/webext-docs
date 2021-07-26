@@ -163,7 +163,7 @@ Fired when a new theme has been applied
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

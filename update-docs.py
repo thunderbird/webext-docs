@@ -578,12 +578,12 @@ def format_namespace(manifest, namespace):
                 content = []
                 for param in event["parameters"]:
                     content.extend(format_object(param["name"], param))
-                lines.extend(api_header("Parameters passed to the registered listener function", content))
+                lines.extend(api_header("Parameters passed to the listener function", content))
 
 
             
             if "returns" in event:
-                lines.extend(api_header("Expected return value of event listeners", format_object("", event["returns"])))
+                lines.extend(api_header("Expected return value of the listener function", format_object("", event["returns"])))
 
             lines.extend(format_permissions(event, namespace))
 

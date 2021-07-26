@@ -677,7 +677,7 @@ Fired when a tab is created. Note that the tab's URL may not be set at the time 
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -714,7 +714,7 @@ Fired when a tab is updated.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -777,7 +777,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -825,7 +825,7 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -867,7 +867,7 @@ Fired when a tab is detached from a window, for example because it is being move
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -910,7 +910,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -953,7 +953,7 @@ Fired when a tab is closed.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

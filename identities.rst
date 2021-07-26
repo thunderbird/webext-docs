@@ -284,7 +284,7 @@ Fired when a new identity has been created and added to an account. The event al
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -322,7 +322,7 @@ Fired when an identity has been removed from an account.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -355,7 +355,7 @@ Fired when one or more properties of an identity have been modified. The returne
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

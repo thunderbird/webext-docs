@@ -334,7 +334,7 @@ Fired when a mailing list is created.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -367,7 +367,7 @@ Fired when a mailing list is changed.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -400,7 +400,7 @@ Fired when a mailing list is deleted.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -438,7 +438,7 @@ Fired when a contact is added to the mailing list.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -471,7 +471,7 @@ Fired when a contact is removed from the mailing list.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

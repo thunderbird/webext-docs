@@ -75,7 +75,7 @@ Creates a read-only addressbook that fires this event when searching for a conta
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

@@ -505,7 +505,7 @@ Fired when a message is about to be sent from the compose window. This is a user
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -522,7 +522,7 @@ Fired when a message is about to be sent from the compose window. This is a user
    
 
 .. api-header::
-   :label: Expected return value of event listeners
+   :label: Expected return value of the listener function
 
    
    .. api-member::
@@ -568,7 +568,7 @@ Fired when an attachment is added to a message being composed.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -606,7 +606,7 @@ Fired when an attachment is removed from a message being composed.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -644,7 +644,7 @@ Fired when the user changes the identity that will be used to send a message bei
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -682,7 +682,7 @@ Fired when the state of the message composer changed.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

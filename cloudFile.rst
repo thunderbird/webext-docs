@@ -233,7 +233,7 @@ Fired when a file should be uploaded to the cloud file provider
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -259,7 +259,7 @@ Fired when a file should be uploaded to the cloud file provider
    
 
 .. api-header::
-   :label: Expected return value of event listeners
+   :label: Expected return value of the listener function
 
    
    .. api-member::
@@ -298,7 +298,7 @@ onFileUploadAbort
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -343,7 +343,7 @@ Fired when a file previously uploaded should be deleted
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -388,7 +388,7 @@ Fired when a cloud file account of this add-on was created
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -418,7 +418,7 @@ Fired when a cloud file account of this add-on was deleted
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

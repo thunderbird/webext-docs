@@ -485,7 +485,7 @@ Fired when a browserAction icon is clicked.  This event will not fire if the bro
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

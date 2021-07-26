@@ -399,7 +399,7 @@ Fired when a context menu item is clicked. This is a user input event handler. F
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -441,7 +441,7 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

@@ -483,7 +483,7 @@ Fired when a messageDisplayAction icon is clicked.  This event will not fire if 
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

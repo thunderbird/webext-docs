@@ -427,7 +427,7 @@ Fired when the displayed folder changes in any mail tab.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -470,7 +470,7 @@ Fired when the selected messages change in any mail tab.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

@@ -400,7 +400,7 @@ Fired when a window is created.
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -430,7 +430,7 @@ Fired when a window is removed (closed).
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -460,7 +460,7 @@ Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID
    
 
 .. api-header::
-   :label: Parameters passed to the registered listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
