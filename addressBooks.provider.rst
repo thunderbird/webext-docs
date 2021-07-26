@@ -31,39 +31,22 @@ Events
 
 .. _addressBooks.provider.onSearchRequest:
 
-onSearchRequest(node, [searchString], [query])
-----------------------------------------------
+onSearchRequest
+---------------
 
 .. api-section-annotation-hack:: 
 
 Creates a read-only addressbook that fires this event when searching for a contact. Note: This event may change in future releases of Thunderbird.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.addressBooks.provider.onSearchRequest.addListener(listener, parameters)
 
    
    .. api-member::
-      :name: ``node``
-      :type: (:ref:`addressBooks.AddressBookNode`)
-   
-   
-   .. api-member::
-      :name: [``searchString``]
-      :type: (string)
+      :name: ``listener(node, searchString, query)``
       
-      The search text that the user entered. Not available when invoked from the advanced address book search dialog.
+      A function that will be called when this event occurs.
    
-   
-   .. api-member::
-      :name: [``query``]
-      :type: (string)
-      
-      The boolean query expression corresponding to the search. Note: This parameter may change in future releases of Thunderbird.
-   
-
-.. api-header::
-   :label: Parameters for listener registration
-
    
    .. api-member::
       :name: ``parameters``
@@ -89,6 +72,29 @@ Creates a read-only addressbook that fires this event when searching for a conta
          
          Whether the address book is searched securely.
       
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
+
+   
+   .. api-member::
+      :name: ``node``
+      :type: (:ref:`addressBooks.AddressBookNode`)
+   
+   
+   .. api-member::
+      :name: [``searchString``]
+      :type: (string)
+      
+      The search text that the user entered. Not available when invoked from the advanced address book search dialog.
+   
+   
+   .. api-member::
+      :name: [``query``]
+      :type: (string)
+      
+      The boolean query expression corresponding to the search. Note: This parameter may change in future releases of Thunderbird.
    
 
 .. api-header::

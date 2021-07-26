@@ -259,15 +259,25 @@ Events
 
 .. _contacts.onCreated:
 
-onCreated(node, id)
--------------------
+onCreated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a contact is created.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.contacts.onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node, id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -287,15 +297,25 @@ Fired when a contact is created.
 
 .. _contacts.onUpdated:
 
-onUpdated(node, changedProperties)
-----------------------------------
+onUpdated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a contact is changed.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.contacts.onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node, changedProperties)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -316,15 +336,25 @@ Fired when a contact is changed.
 
 .. _contacts.onDeleted:
 
-onDeleted(parentId, id)
------------------------
+onDeleted
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a contact is removed from an address book.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.contacts.onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(parentId, id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::

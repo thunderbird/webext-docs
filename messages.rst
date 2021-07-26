@@ -629,15 +629,25 @@ Events
 
 .. _messages.onUpdated:
 
-onUpdated(message, changedProperties)
--------------------------------------
+onUpdated
+---------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when one or more properties of a message have been updated.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messages.onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(message, changedProperties)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -657,15 +667,25 @@ Fired when one or more properties of a message have been updated.
 
 .. _messages.onMoved:
 
-onMoved(originalMessages, movedMessages)
-----------------------------------------
+onMoved
+-------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when messages have been moved.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messages.onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalMessages, movedMessages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -686,15 +706,25 @@ Fired when messages have been moved.
 
 .. _messages.onCopied:
 
-onCopied(originalMessages, copiedMessages)
-------------------------------------------
+onCopied
+--------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when messages have been copied.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messages.onCopied.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalMessages, copiedMessages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -715,15 +745,25 @@ Fired when messages have been copied.
 
 .. _messages.onDeleted:
 
-onDeleted(messages)
--------------------
+onDeleted
+---------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when messages have been permanently deleted.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messages.onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(messages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -739,15 +779,25 @@ Fired when messages have been permanently deleted.
 
 .. _messages.onNewMailReceived:
 
-onNewMailReceived(folder, messages)
------------------------------------
+onNewMailReceived
+-----------------
 
 .. api-section-annotation-hack:: -- [Added in TB 75]
 
 Fired when a new message is received, and has been through junk classification and message filters.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messages.onNewMailReceived.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(folder, messages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::

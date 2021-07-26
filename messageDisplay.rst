@@ -99,15 +99,25 @@ Events
 
 .. _messageDisplay.onMessageDisplayed:
 
-onMessageDisplayed(tab, message)
---------------------------------
+onMessageDisplayed
+------------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messageDisplay.onMessageDisplayed.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, message)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -132,15 +142,25 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
 
 .. _messageDisplay.onMessagesDisplayed:
 
-onMessagesDisplayed(tab, messages)
-----------------------------------
+onMessagesDisplayed
+-------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 81, backported to TB 78.4.0]
 
 Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messageDisplay.onMessagesDisplayed.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, messages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::

@@ -465,15 +465,25 @@ Events
 
 .. _messageDisplayAction.onClicked:
 
-onClicked(tab, [info])
-----------------------
+onClicked
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a messageDisplayAction icon is clicked.  This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.messageDisplayAction.onClicked.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, info)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::

@@ -215,15 +215,25 @@ Events
 
 .. _cloudFile.onFileUpload:
 
-onFileUpload(account, fileInfo, tab)
-------------------------------------
+onFileUpload
+------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a file should be uploaded to the cloud file provider
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.cloudFile.onFileUpload.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account, fileInfo, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -272,13 +282,23 @@ Fired when a file should be uploaded to the cloud file provider
 
 .. _cloudFile.onFileUploadAbort:
 
-onFileUploadAbort(account, fileId, tab)
----------------------------------------
+onFileUploadAbort
+-----------------
 
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.cloudFile.onFileUploadAbort.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account, fileId, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -305,15 +325,25 @@ onFileUploadAbort(account, fileId, tab)
 
 .. _cloudFile.onFileDeleted:
 
-onFileDeleted(account, fileId, tab)
------------------------------------
+onFileDeleted
+-------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a file previously uploaded should be deleted
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.cloudFile.onFileDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account, fileId, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -340,15 +370,25 @@ Fired when a file previously uploaded should be deleted
 
 .. _cloudFile.onAccountAdded:
 
-onAccountAdded(account)
------------------------
+onAccountAdded
+--------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a cloud file account of this add-on was created
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.cloudFile.onAccountAdded.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -360,15 +400,25 @@ Fired when a cloud file account of this add-on was created
 
 .. _cloudFile.onAccountDeleted:
 
-onAccountDeleted(accountId)
----------------------------
+onAccountDeleted
+----------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a cloud file account of this add-on was deleted
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.cloudFile.onAccountDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(accountId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::

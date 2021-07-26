@@ -382,15 +382,25 @@ Events
 
 .. _windows.onCreated:
 
-onCreated(window)
------------------
+onCreated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a window is created.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.windows.onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(window)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -402,15 +412,25 @@ Fired when a window is created.
 
 .. _windows.onRemoved:
 
-onRemoved(windowId)
--------------------
+onRemoved
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a window is removed (closed).
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.windows.onRemoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(windowId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
@@ -422,15 +442,25 @@ Fired when a window is removed (closed).
 
 .. _windows.onFocusChanged:
 
-onFocusChanged(windowId)
-------------------------
+onFocusChanged
+--------------
 
 .. api-section-annotation-hack:: 
 
 Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`) if all browser windows have lost focus. Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
 
 .. api-header::
-   :label: Parameters for listener callback
+   :label: Parameters for messenger.windows.onFocusChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(windowId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the registered listener function
 
    
    .. api-member::
