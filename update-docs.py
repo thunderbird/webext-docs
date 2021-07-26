@@ -178,14 +178,17 @@ def get_api_member_parts(name, value):
         "enum" : [],
     }
 
-    if name:
+    # The return element is using a fake "_returns" name to get here.
+    type_string = "%s"
+    if name == "_returns":
+        if value.get("optional", False):
+            type_string = "[%s]"
+    elif name:
         type_string = "(%s)"
         if value.get("optional", False):
             parts['name'] = "[``%s``]" % name
         else:
             parts['name'] = "``%s``" % name
-    else:
-        type_string = "%s"
 
     if "unsupported" in value:
         type_string += " **Unsupported.**"
@@ -244,7 +247,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
-    parts =  get_api_member_parts(name, obj)
+    parts = get_api_member_parts(name, obj)
   
     #enum_only:        fake header + enum
     #description_only: fake header + description + enum + nested
@@ -525,7 +528,7 @@ def format_namespace(manifest, namespace):
 
             if "returns" in function:
                 content = []
-                content.extend(format_object("", function["returns"]))
+                content.extend(format_object("_returns", function["returns"]))
                 content.append("")
                 content.append(".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise")
                 lines.extend(api_header("Return type (`Promise`_)", content))
