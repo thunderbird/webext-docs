@@ -487,15 +487,25 @@ Events
 
 .. _compose.onBeforeSend:
 
-onBeforeSend(tab, details)
---------------------------
+onBeforeSend
+------------
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
 Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.compose.onBeforeSend.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, details)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -512,7 +522,7 @@ Fired when a message is about to be sent from the compose window. This is a user
    
 
 .. api-header::
-   :label: Expected return value of event listeners
+   :label: Expected return value of the listener function
 
    
    .. api-member::
@@ -540,15 +550,25 @@ Fired when a message is about to be sent from the compose window. This is a user
 
 .. _compose.onAttachmentAdded:
 
-onAttachmentAdded(tab, attachment)
-----------------------------------
+onAttachmentAdded
+-----------------
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
 Fired when an attachment is added to a message being composed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.compose.onAttachmentAdded.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, attachment)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -568,15 +588,25 @@ Fired when an attachment is added to a message being composed.
 
 .. _compose.onAttachmentRemoved:
 
-onAttachmentRemoved(tab, attachmentId)
---------------------------------------
+onAttachmentRemoved
+-------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
 Fired when an attachment is removed from a message being composed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.compose.onAttachmentRemoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, attachmentId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -596,15 +626,25 @@ Fired when an attachment is removed from a message being composed.
 
 .. _compose.onIdentityChanged:
 
-onIdentityChanged(tab, identityId)
-----------------------------------
+onIdentityChanged
+-----------------
 
 .. api-section-annotation-hack:: -- [Added in TB 78.0b2]
 
 Fired when the user changes the identity that will be used to send a message being composed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.compose.onIdentityChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, identityId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -624,15 +664,25 @@ Fired when the user changes the identity that will be used to send a message bei
 
 .. _compose.onComposeStateChanged:
 
-onComposeStateChanged(tab, state)
----------------------------------
+onComposeStateChanged
+---------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 90]
 
 Fired when the state of the message composer changed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.compose.onComposeStateChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, state)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

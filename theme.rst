@@ -145,15 +145,25 @@ Events
 
 .. _theme.onUpdated:
 
-onUpdated(updateInfo)
----------------------
+onUpdated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a new theme has been applied
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.theme.onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(updateInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

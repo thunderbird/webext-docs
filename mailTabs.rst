@@ -283,7 +283,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          Supported values:
          
          .. api-member::
-            :name: ``ungrouped``
+            :name: ``normal``
          
          .. api-member::
             :name: ``groupedByThread``
@@ -409,15 +409,25 @@ Events
 
 .. _mailTabs.onDisplayedFolderChanged:
 
-onDisplayedFolderChanged(tab, displayedFolder)
-----------------------------------------------
+onDisplayedFolderChanged
+------------------------
 
 .. api-section-annotation-hack:: 
 
 Fired when the displayed folder changes in any mail tab.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailTabs.onDisplayedFolderChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, displayedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -442,15 +452,25 @@ Fired when the displayed folder changes in any mail tab.
 
 .. _mailTabs.onSelectedMessagesChanged:
 
-onSelectedMessagesChanged(tab, selectedMessages)
-------------------------------------------------
+onSelectedMessagesChanged
+-------------------------
 
 .. api-section-annotation-hack:: 
 
 Fired when the selected messages change in any mail tab.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailTabs.onSelectedMessagesChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, selectedMessages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -632,7 +652,7 @@ MailTab
       Supported values:
       
       .. api-member::
-         :name: ``ungrouped``
+         :name: ``normal``
       
       .. api-member::
          :name: ``groupedByThread``

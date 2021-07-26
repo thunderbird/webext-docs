@@ -246,15 +246,25 @@ Events
 
 .. _addressBooks.onCreated:
 
-onCreated(node)
----------------
+onCreated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when an address book is created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.addressBooks.onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -269,15 +279,25 @@ Fired when an address book is created.
 
 .. _addressBooks.onUpdated:
 
-onUpdated(node)
----------------
+onUpdated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when an address book is renamed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.addressBooks.onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -292,15 +312,25 @@ Fired when an address book is renamed.
 
 .. _addressBooks.onDeleted:
 
-onDeleted(id)
--------------
+onDeleted
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when an addressBook is deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.addressBooks.onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

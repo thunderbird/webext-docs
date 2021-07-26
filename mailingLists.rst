@@ -316,15 +316,25 @@ Events
 
 .. _mailingLists.onCreated:
 
-onCreated(node)
----------------
+onCreated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a mailing list is created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailingLists.onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -339,15 +349,25 @@ Fired when a mailing list is created.
 
 .. _mailingLists.onUpdated:
 
-onUpdated(node)
----------------
+onUpdated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a mailing list is changed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailingLists.onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -362,15 +382,25 @@ Fired when a mailing list is changed.
 
 .. _mailingLists.onDeleted:
 
-onDeleted(parentId, id)
------------------------
+onDeleted
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a mailing list is deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailingLists.onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(parentId, id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -390,15 +420,25 @@ Fired when a mailing list is deleted.
 
 .. _mailingLists.onMemberAdded:
 
-onMemberAdded(node)
--------------------
+onMemberAdded
+-------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a contact is added to the mailing list.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailingLists.onMemberAdded.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -413,15 +453,25 @@ Fired when a contact is added to the mailing list.
 
 .. _mailingLists.onMemberRemoved:
 
-onMemberRemoved(parentId, id)
------------------------------
+onMemberRemoved
+---------------
 
 .. api-section-annotation-hack:: 
 
 Fired when a contact is removed from the mailing list.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.mailingLists.onMemberRemoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(parentId, id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

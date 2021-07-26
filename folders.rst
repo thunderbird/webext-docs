@@ -333,15 +333,25 @@ Events
 
 .. _folders.onCreated:
 
-onCreated(createdFolder)
-------------------------
+onCreated
+---------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.folders.onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(createdFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -356,15 +366,25 @@ Fired when a folder has been created.
 
 .. _folders.onRenamed:
 
-onRenamed(originalFolder, renamedFolder)
-----------------------------------------
+onRenamed
+---------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been renamed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.folders.onRenamed.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, renamedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -384,15 +404,25 @@ Fired when a folder has been renamed.
 
 .. _folders.onMoved:
 
-onMoved(originalFolder, movedFolder)
-------------------------------------
+onMoved
+-------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been moved.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.folders.onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, movedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -412,15 +442,25 @@ Fired when a folder has been moved.
 
 .. _folders.onCopied:
 
-onCopied(originalFolder, copiedFolder)
---------------------------------------
+onCopied
+--------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been copied.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.folders.onCopied.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, copiedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -440,15 +480,25 @@ Fired when a folder has been copied.
 
 .. _folders.onDeleted:
 
-onDeleted(deletedFolder)
-------------------------
+onDeleted
+---------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a folder has been deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.folders.onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(deletedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -463,15 +513,25 @@ Fired when a folder has been deleted.
 
 .. _folders.onFolderInfoChanged:
 
-onFolderInfoChanged(folder, folderInfo)
----------------------------------------
+onFolderInfoChanged
+-------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for messenger.folders.onFolderInfoChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(folder, folderInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
