@@ -4,17 +4,6 @@
 addressBooks.provider
 =====================
 
-You want to add an address book to Thunderbird. Before you start to code, please consider which API you need, because there are two completely different approaches to add address books to Thunderbird. They each approach it from opposite directions.
-
-If your add-on wants to add and syncronize an address book with a server, and you want the contacts to be cached locally, so that the address book behaves like a built-in address book, you should not use `addressBooks.provider`, but you can simply use the `addressBooks` and `contacts` APIs:
-```
-let myAddressBook = messenger.addressBooks.create({ name: 'Kontacts' });
-let newContact = messenger.contacts.create(myAddressBook, null, { displayName: 'Bugs Bunny' });
-```
-and then listen to modifications with `messenger.contacts.onUpdated()` etc. This will create a local address book, just like the built-in address books of Thunderbird, let you push and update the contacts, and even notify you of changes that the user made, so that you can write them back to the server. In this case, you do not need the `addressBooks.provider` API.
-
-However, in some exceptional cases, you do *not* want the contacts to be cached locally, or you want to re-implement the storage. This API exists for these cases. So far, only the API for search-only address books is implemented.
-
 .. role:: permission
 
 .. rst-class:: api-main-section
