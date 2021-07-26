@@ -637,7 +637,7 @@ onUpdated(message, changedProperties)
 Fired when one or more properties of a message have been updated.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -665,7 +665,7 @@ onMoved(originalMessages, movedMessages)
 Fired when messages have been moved.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -694,7 +694,7 @@ onCopied(originalMessages, copiedMessages)
 Fired when messages have been copied.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -723,7 +723,7 @@ onDeleted(messages)
 Fired when messages have been permanently deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -747,7 +747,7 @@ onNewMailReceived(folder, messages)
 Fired when a new message is received, and has been through junk classification and message filters.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

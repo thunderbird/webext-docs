@@ -107,7 +107,7 @@ onMessageDisplayed(tab, message)
 Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -140,7 +140,7 @@ onMessagesDisplayed(tab, messages)
 Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

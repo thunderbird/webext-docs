@@ -480,7 +480,7 @@ onClicked(tab, [info])
 Fired when a composeAction icon is clicked.  This event will not fire if the composeAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

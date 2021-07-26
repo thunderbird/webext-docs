@@ -153,7 +153,7 @@ onUpdated(updateInfo)
 Fired when a new theme has been applied
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

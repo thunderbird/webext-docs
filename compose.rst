@@ -495,7 +495,7 @@ onBeforeSend(tab, details)
 Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -548,7 +548,7 @@ onAttachmentAdded(tab, attachment)
 Fired when an attachment is added to a message being composed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -576,7 +576,7 @@ onAttachmentRemoved(tab, attachmentId)
 Fired when an attachment is removed from a message being composed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -604,7 +604,7 @@ onIdentityChanged(tab, identityId)
 Fired when the user changes the identity that will be used to send a message being composed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -632,7 +632,7 @@ onComposeStateChanged(tab, state)
 Fired when the state of the message composer changed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

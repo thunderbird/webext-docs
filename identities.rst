@@ -274,7 +274,7 @@ onCreated(identityId, identity)
 Fired when a new identity has been created and added to an account. The event also fires for default identities that are created when a new account is added.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -302,7 +302,7 @@ onDeleted(identityId)
 Fired when an identity has been removed from an account.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -325,7 +325,7 @@ onUpdated(identityId, changedValues)
 Fired when one or more properties of an identity have been modified. The returned :ref:`identities.MailIdentity` includes only the changed values.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

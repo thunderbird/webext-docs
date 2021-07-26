@@ -341,7 +341,7 @@ onCreated(createdFolder)
 Fired when a folder has been created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -364,7 +364,7 @@ onRenamed(originalFolder, renamedFolder)
 Fired when a folder has been renamed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -392,7 +392,7 @@ onMoved(originalFolder, movedFolder)
 Fired when a folder has been moved.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -420,7 +420,7 @@ onCopied(originalFolder, copiedFolder)
 Fired when a folder has been copied.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -448,7 +448,7 @@ onDeleted(deletedFolder)
 Fired when a folder has been deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -471,7 +471,7 @@ onFolderInfoChanged(folder, folderInfo)
 Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

@@ -182,7 +182,8 @@ def get_api_member_parts(name, value):
     type_string = "%s"
     if name == "_returns":
         if value.get("optional", False):
-            type_string = "[%s]"
+            # type_string = "[%s]" activate not yet
+            type_string = "%s"
     elif name:
         type_string = "(%s)"
         if value.get("optional", False):
@@ -563,8 +564,14 @@ def format_namespace(manifest, namespace):
                 content = []
                 for param in event["parameters"]:
                     content.extend(format_object(param["name"], param))
-                lines.extend(api_header("Parameters for event listeners", content))
+                lines.extend(api_header("Parameters for listener callback", content))
 
+            if len(event.get("extraParameters", [])):
+                content = []
+                for param in event["extraParameters"]:
+                    content.extend(format_object(param["name"], param))
+                lines.extend(api_header("Parameters for listener registration", content))
+            
             if "returns" in event:
                 lines.extend(api_header("Expected return value of event listeners", format_object("", event["returns"])))
 

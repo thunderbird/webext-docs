@@ -417,7 +417,7 @@ onDisplayedFolderChanged(tab, displayedFolder)
 Fired when the displayed folder changes in any mail tab.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -450,7 +450,7 @@ onSelectedMessagesChanged(tab, selectedMessages)
 Fired when the selected messages change in any mail tab.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

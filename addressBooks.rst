@@ -254,7 +254,7 @@ onCreated(node)
 Fired when an address book is created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -277,7 +277,7 @@ onUpdated(node)
 Fired when an address book is renamed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -300,7 +300,7 @@ onDeleted(id)
 Fired when an addressBook is deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

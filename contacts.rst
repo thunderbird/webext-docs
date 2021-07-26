@@ -267,7 +267,7 @@ onCreated(node, id)
 Fired when a contact is created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -295,7 +295,7 @@ onUpdated(node, changedProperties)
 Fired when a contact is changed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -324,7 +324,7 @@ onDeleted(parentId, id)
 Fired when a contact is removed from an address book.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

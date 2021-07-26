@@ -223,7 +223,7 @@ onFileUpload(account, fileInfo, tab)
 Fired when a file should be uploaded to the cloud file provider
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -278,7 +278,7 @@ onFileUploadAbort(account, fileId, tab)
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -313,7 +313,7 @@ onFileDeleted(account, fileId, tab)
 Fired when a file previously uploaded should be deleted
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -348,7 +348,7 @@ onAccountAdded(account)
 Fired when a cloud file account of this add-on was created
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -368,7 +368,7 @@ onAccountDeleted(accountId)
 Fired when a cloud file account of this add-on was deleted
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

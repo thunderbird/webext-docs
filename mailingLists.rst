@@ -324,7 +324,7 @@ onCreated(node)
 Fired when a mailing list is created.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -347,7 +347,7 @@ onUpdated(node)
 Fired when a mailing list is changed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -370,7 +370,7 @@ onDeleted(parentId, id)
 Fired when a mailing list is deleted.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -398,7 +398,7 @@ onMemberAdded(node)
 Fired when a contact is added to the mailing list.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -421,7 +421,7 @@ onMemberRemoved(parentId, id)
 Fired when a contact is removed from the mailing list.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

@@ -659,7 +659,7 @@ onCreated(tab)
 Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -679,7 +679,7 @@ onUpdated(tabId, changeInfo, tab)
 Fired when a tab is updated.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -722,6 +722,17 @@ Fired when a tab is updated.
       Gives the state of the tab that was updated.
    
 
+.. api-header::
+   :label: Parameters for listener registration
+
+   
+   .. api-member::
+      :name: [``filter``]
+      :type: (:ref:`tabs.UpdateFilter`)
+      
+      A set of filters that restricts the events that will be sent to this listener.
+   
+
 .. _tabs.onMoved:
 
 onMoved(tabId, moveInfo)
@@ -732,7 +743,7 @@ onMoved(tabId, moveInfo)
 Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -770,7 +781,7 @@ onActivated(activeInfo)
 Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -802,7 +813,7 @@ onDetached(tabId, detachInfo)
 Fired when a tab is detached from a window, for example because it is being moved between windows.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -835,7 +846,7 @@ onAttached(tabId, attachInfo)
 Fired when a tab is attached to a window, for example because it was moved between windows.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -868,7 +879,7 @@ onRemoved(tabId, removeInfo)
 Fired when a tab is closed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::

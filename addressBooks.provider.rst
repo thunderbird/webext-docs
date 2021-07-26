@@ -39,7 +39,7 @@ onSearchRequest(node, [searchString], [query])
 Creates a read-only addressbook that fires this event when searching for a contact. Note: This event may change in future releases of Thunderbird.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for listener callback
 
    
    .. api-member::
@@ -59,6 +59,36 @@ Creates a read-only addressbook that fires this event when searching for a conta
       :type: (string)
       
       The boolean query expression corresponding to the search. Note: This parameter may change in future releases of Thunderbird.
+   
+
+.. api-header::
+   :label: Parameters for listener registration
+
+   
+   .. api-member::
+      :name: ``parameters``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``addressBookName``]
+         :type: (string)
+         
+         The initial name of the address book.
+      
+      
+      .. api-member::
+         :name: [``id``]
+         :type: (string)
+         
+         The id of the address book.
+      
+      
+      .. api-member::
+         :name: [``isSecure``]
+         :type: (boolean)
+         
+         Whether the address book is searched securely.
+      
    
 
 .. api-header::
