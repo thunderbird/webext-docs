@@ -29,6 +29,29 @@
         "name": "sendMessage",
         "added": "82",
         "backported": "78.4.0"
+      },
+      {
+        "name": "query",
+        "parameters": [
+          {
+            "name": "queryInfo",
+            "properties": {
+              "type": {
+                "added": "91"
+              }
+            }
+          }
+        ]
+      }      
+    ],
+    "types": [
+      {
+        "id": "Tab",
+        "properties": {
+          "type": {
+            "added": "91"
+          }
+        }
       }
     ]
   }

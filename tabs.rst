@@ -345,6 +345,14 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       
       
       .. api-member::
+         :name: [``type``]
+         :type: (string)
+         :annotation: -- [Added in TB 91]
+         
+         Match tabs against the given Tab.type (see :ref:`tabs.Tab`). Ignored if ``queryInfo.mailTab`` is specified.
+      
+      
+      .. api-member::
          :name: [``url``]
          :type: (string or array of string)
          
@@ -1056,6 +1064,47 @@ Tab
       :type: (string)
       
       The title of the tab. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
+   
+   
+   .. api-member::
+      :name: [``type``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 91]
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``addressBook``
+      
+      .. api-member::
+         :name: ``calendar``
+      
+      .. api-member::
+         :name: ``calendarEvent``
+      
+      .. api-member::
+         :name: ``calendarTask``
+      
+      .. api-member::
+         :name: ``chat``
+      
+      .. api-member::
+         :name: ``content``
+      
+      .. api-member::
+         :name: ``mail``
+      
+      .. api-member::
+         :name: ``messageCompose``
+      
+      .. api-member::
+         :name: ``messageDisplay``
+      
+      .. api-member::
+         :name: ``special``
+      
+      .. api-member::
+         :name: ``tasks``
    
    
    .. api-member::
