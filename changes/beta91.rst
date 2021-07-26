@@ -83,3 +83,9 @@ messages
 * added :ref:`messages.onCopied`
 * added :ref:`messages.onDeleted`
 * added the :permission:`messagesDelete` permission to guard :ref:`messages.delete`
+
+tabs API
+========
+
+* added ``type`` property to :ref:`tabs.Tab`, supporting ``addressBook``, ``calendar``, ``calendarEvent``, ``calendarTask``, ``chat``, ``content``, ``mail``, ``messageCompose``, ``messageDisplay``, ``special`` and ``tasks``
+* added ``type`` as supported property of the ``queryInfo`` parameter of :ref:`tabs.query`

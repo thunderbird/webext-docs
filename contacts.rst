@@ -103,7 +103,7 @@ Gets all contacts matching ``queryInfo`` in the address book with the id ``paren
    
    .. api-member::
       :name: ``queryInfo``
-      :type: (string or object or string or :ref:`contacts.QueryInfo`)
+      :type: (string or :ref:`contacts.QueryInfo`)
    
 
 .. api-header::
