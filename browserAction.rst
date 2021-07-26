@@ -34,9 +34,17 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_area``]
-      :type: (string)
+      :type: (`string`)
       
-      Currently unused.
+      Defines the location the browserAction will appear. The default location is ``maintoolbar``.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``maintoolbar``
+      
+      .. api-member::
+         :name: ``tabstoolbar``
    
    
    .. api-member::
@@ -475,7 +483,7 @@ onClicked
 Fired when a browserAction icon is clicked.  This event will not fire if the browserAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for messenger.browserAction.onClicked.addListener(listener)
+   :label: Parameters for browserAction.onClicked.addListener(listener)
 
    
    .. api-member::

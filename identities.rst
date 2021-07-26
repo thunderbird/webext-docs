@@ -274,7 +274,7 @@ onCreated
 Fired when a new identity has been created and added to an account. The event also fires for default identities that are created when a new account is added.
 
 .. api-header::
-   :label: Parameters for messenger.identities.onCreated.addListener(listener)
+   :label: Parameters for identities.onCreated.addListener(listener)
 
    
    .. api-member::
@@ -312,7 +312,7 @@ onDeleted
 Fired when an identity has been removed from an account.
 
 .. api-header::
-   :label: Parameters for messenger.identities.onDeleted.addListener(listener)
+   :label: Parameters for identities.onDeleted.addListener(listener)
 
    
    .. api-member::
@@ -345,7 +345,7 @@ onUpdated
 Fired when one or more properties of an identity have been modified. The returned :ref:`identities.MailIdentity` includes only the changed values.
 
 .. api-header::
-   :label: Parameters for messenger.identities.onUpdated.addListener(listener)
+   :label: Parameters for identities.onUpdated.addListener(listener)
 
    
    .. api-member::

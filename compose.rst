@@ -495,7 +495,7 @@ onBeforeSend
 Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for messenger.compose.onBeforeSend.addListener(listener)
+   :label: Parameters for compose.onBeforeSend.addListener(listener)
 
    
    .. api-member::
@@ -558,7 +558,7 @@ onAttachmentAdded
 Fired when an attachment is added to a message being composed.
 
 .. api-header::
-   :label: Parameters for messenger.compose.onAttachmentAdded.addListener(listener)
+   :label: Parameters for compose.onAttachmentAdded.addListener(listener)
 
    
    .. api-member::
@@ -596,7 +596,7 @@ onAttachmentRemoved
 Fired when an attachment is removed from a message being composed.
 
 .. api-header::
-   :label: Parameters for messenger.compose.onAttachmentRemoved.addListener(listener)
+   :label: Parameters for compose.onAttachmentRemoved.addListener(listener)
 
    
    .. api-member::
@@ -634,7 +634,7 @@ onIdentityChanged
 Fired when the user changes the identity that will be used to send a message being composed.
 
 .. api-header::
-   :label: Parameters for messenger.compose.onIdentityChanged.addListener(listener)
+   :label: Parameters for compose.onIdentityChanged.addListener(listener)
 
    
    .. api-member::
@@ -672,7 +672,7 @@ onComposeStateChanged
 Fired when the state of the message composer changed.
 
 .. api-header::
-   :label: Parameters for messenger.compose.onComposeStateChanged.addListener(listener)
+   :label: Parameters for compose.onComposeStateChanged.addListener(listener)
 
    
    .. api-member::
