@@ -637,7 +637,7 @@ onUpdated
 Fired when one or more properties of a message have been updated.
 
 .. api-header::
-   :label: Parameters for messenger.messages.onUpdated.addListener(listener)
+   :label: Parameters for messages.onUpdated.addListener(listener)
 
    
    .. api-member::
@@ -675,7 +675,7 @@ onMoved
 Fired when messages have been moved.
 
 .. api-header::
-   :label: Parameters for messenger.messages.onMoved.addListener(listener)
+   :label: Parameters for messages.onMoved.addListener(listener)
 
    
    .. api-member::
@@ -714,7 +714,7 @@ onCopied
 Fired when messages have been copied.
 
 .. api-header::
-   :label: Parameters for messenger.messages.onCopied.addListener(listener)
+   :label: Parameters for messages.onCopied.addListener(listener)
 
    
    .. api-member::
@@ -753,7 +753,7 @@ onDeleted
 Fired when messages have been permanently deleted.
 
 .. api-header::
-   :label: Parameters for messenger.messages.onDeleted.addListener(listener)
+   :label: Parameters for messages.onDeleted.addListener(listener)
 
    
    .. api-member::
@@ -787,7 +787,7 @@ onNewMailReceived
 Fired when a new message is received, and has been through junk classification and message filters.
 
 .. api-header::
-   :label: Parameters for messenger.messages.onNewMailReceived.addListener(listener)
+   :label: Parameters for messages.onNewMailReceived.addListener(listener)
 
    
    .. api-member::

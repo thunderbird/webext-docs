@@ -341,7 +341,7 @@ onCreated
 Fired when a folder has been created.
 
 .. api-header::
-   :label: Parameters for messenger.folders.onCreated.addListener(listener)
+   :label: Parameters for folders.onCreated.addListener(listener)
 
    
    .. api-member::
@@ -374,7 +374,7 @@ onRenamed
 Fired when a folder has been renamed.
 
 .. api-header::
-   :label: Parameters for messenger.folders.onRenamed.addListener(listener)
+   :label: Parameters for folders.onRenamed.addListener(listener)
 
    
    .. api-member::
@@ -412,7 +412,7 @@ onMoved
 Fired when a folder has been moved.
 
 .. api-header::
-   :label: Parameters for messenger.folders.onMoved.addListener(listener)
+   :label: Parameters for folders.onMoved.addListener(listener)
 
    
    .. api-member::
@@ -450,7 +450,7 @@ onCopied
 Fired when a folder has been copied.
 
 .. api-header::
-   :label: Parameters for messenger.folders.onCopied.addListener(listener)
+   :label: Parameters for folders.onCopied.addListener(listener)
 
    
    .. api-member::
@@ -488,7 +488,7 @@ onDeleted
 Fired when a folder has been deleted.
 
 .. api-header::
-   :label: Parameters for messenger.folders.onDeleted.addListener(listener)
+   :label: Parameters for folders.onDeleted.addListener(listener)
 
    
    .. api-member::
@@ -521,7 +521,7 @@ onFolderInfoChanged
 Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
 
 .. api-header::
-   :label: Parameters for messenger.folders.onFolderInfoChanged.addListener(listener)
+   :label: Parameters for folders.onFolderInfoChanged.addListener(listener)
 
    
    .. api-member::

@@ -254,7 +254,7 @@ onCreated
 Fired when an address book is created.
 
 .. api-header::
-   :label: Parameters for messenger.addressBooks.onCreated.addListener(listener)
+   :label: Parameters for addressBooks.onCreated.addListener(listener)
 
    
    .. api-member::
@@ -287,7 +287,7 @@ onUpdated
 Fired when an address book is renamed.
 
 .. api-header::
-   :label: Parameters for messenger.addressBooks.onUpdated.addListener(listener)
+   :label: Parameters for addressBooks.onUpdated.addListener(listener)
 
    
    .. api-member::
@@ -320,7 +320,7 @@ onDeleted
 Fired when an addressBook is deleted.
 
 .. api-header::
-   :label: Parameters for messenger.addressBooks.onDeleted.addListener(listener)
+   :label: Parameters for addressBooks.onDeleted.addListener(listener)
 
    
    .. api-member::

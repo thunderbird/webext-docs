@@ -267,7 +267,7 @@ onCreated
 Fired when a contact is created.
 
 .. api-header::
-   :label: Parameters for messenger.contacts.onCreated.addListener(listener)
+   :label: Parameters for contacts.onCreated.addListener(listener)
 
    
    .. api-member::
@@ -305,7 +305,7 @@ onUpdated
 Fired when a contact is changed.
 
 .. api-header::
-   :label: Parameters for messenger.contacts.onUpdated.addListener(listener)
+   :label: Parameters for contacts.onUpdated.addListener(listener)
 
    
    .. api-member::
@@ -344,7 +344,7 @@ onDeleted
 Fired when a contact is removed from an address book.
 
 .. api-header::
-   :label: Parameters for messenger.contacts.onDeleted.addListener(listener)
+   :label: Parameters for contacts.onDeleted.addListener(listener)
 
    
    .. api-member::
