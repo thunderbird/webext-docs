@@ -575,7 +575,7 @@ def format_namespace(manifest, namespace):
                 content.extend(format_object(param["name"], param))
             extraParams = list(map(lambda x : x['name'], event.get("extraParameters", [])))
             lines.extend(api_header(
-                "Parameters for %s.%s.addListener(%s)" % (current_namespace_name, event["name"], ", ".join(["listener"] + extraParams)),
+                "Parameters for %s.addListener(%s)" % (event["name"], ", ".join(["listener"] + extraParams)),
                 content
             ))
 

@@ -153,7 +153,7 @@ onUpdated
 Fired when a new theme has been applied
 
 .. api-header::
-   :label: Parameters for theme.onUpdated.addListener(listener)
+   :label: Parameters for onUpdated.addListener(listener)
 
    
    .. api-member::
