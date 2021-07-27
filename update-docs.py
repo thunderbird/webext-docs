@@ -183,14 +183,18 @@ def get_api_member_parts(name, value):
         "enum" : [],
     }
 
-    if name:
+    # The return element is using a fake "_returns" name to get here.
+    type_string = "%s"
+    if name == "_returns":
+        if value.get("optional", False):
+            # type_string = "[%s]" activate not yet
+            type_string = "%s"
+    elif name:
         type_string = "(%s)"
         if value.get("optional", False):
             parts['name'] = "[``%s``]" % name
         else:
             parts['name'] = "``%s``" % name
-    else:
-        type_string = "%s"
 
     if "unsupported" in value:
         type_string += " **Unsupported.**"
@@ -249,7 +253,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
-    parts =  get_api_member_parts(name, obj)
+    parts = get_api_member_parts(name, obj)
   
     #enum_only:        fake header + enum
     #description_only: fake header + description + enum + nested
@@ -530,7 +534,7 @@ def format_namespace(manifest, namespace):
 
             if "returns" in function:
                 content = []
-                content.extend(format_object("", function["returns"]))
+                content.extend(format_object("_returns", function["returns"]))
                 content.append("")
                 content.append(".. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise")
                 lines.extend(api_header("Return type (`Promise`_)", content))
@@ -549,7 +553,7 @@ def format_namespace(manifest, namespace):
         lines.extend(header_2("Events", "api-main-section"))
         for event in namespace["events"]:
             lines.extend(header_3(
-                "%s(%s)" % (event["name"], format_params(event)),
+                "%s" % (event["name"]), # , (%s)format_params(event)
                 label="%s.%s" % (current_namespace_name, event["name"]),
                 info=format_addition(event)
             ))
@@ -561,14 +565,30 @@ def format_namespace(manifest, namespace):
             if "changed" in event:
                 lines.extend(api_header("API changes", format_changes(event)))
 
+
+            listener = {
+                "name": "listener(%s)" % ", ".join(list(map(lambda x : x['name'], event.get("parameters", [])))),
+                "description": "A function that will be called when this event occurs."
+            }
+            content = []
+            for param in ([listener] + event.get("extraParameters", [])):
+                content.extend(format_object(param["name"], param))
+            extraParams = list(map(lambda x : x['name'], event.get("extraParameters", [])))
+            lines.extend(api_header(
+                "Parameters for messenger.%s.%s.addListener(%s)" % (current_namespace_name, event["name"], ", ".join(["listener"] + extraParams)),
+                content
+            ))
+
             if len(event.get("parameters", [])):
                 content = []
                 for param in event["parameters"]:
                     content.extend(format_object(param["name"], param))
-                lines.extend(api_header("Parameters for event listeners", content))
+                lines.extend(api_header("Parameters passed to the listener function", content))
 
+
+            
             if "returns" in event:
-                lines.extend(api_header("Expected return value of event listeners", format_object("", event["returns"])))
+                lines.extend(api_header("Expected return value of the listener function", format_object("", event["returns"])))
 
             lines.extend(format_permissions(event, namespace))
 

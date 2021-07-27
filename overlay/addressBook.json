@@ -186,7 +186,22 @@
             "name": "node",
             "$ref": "addressBooks.AddressBookNode"
           }
+        ],
+        "extraParameters": [
+          {
+            "name": "parameters",
+            "description": "Additional descriptions for the address book created by registering this listener",
+            "properties": {
+              "addressBookName": {
+                "description": "The name of the address book that the end user will see."
+              },
+              "id": {
+                "description": "The UID of the address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you."
+              }
+            }            
+          }
         ]
+
       }
     ]
   } 
