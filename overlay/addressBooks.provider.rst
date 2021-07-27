@@ -13,7 +13,7 @@ Consider an extension that synchronizes an address book with a server, which sho
 
 The extension can listen to modifications with :ref:`contacts.onUpdated` etc. to keep the local copy of the address book in sync with the server.
 
-However, in some exceptional cases, Thunderbird itself should **not** store or cache an address book and its contacts locally. In that case use the :ref:`addressBooks.provider_api` API to create the address book, which will redirect all access requests to the extension. Possible use cases:
+However, in some exceptional cases, Thunderbird itself should **not** store or cache an address book and its contacts. In that case use the :ref:`addressBooks.provider_api` API to create the address book, which will redirect all access requests to the extension. Possible use cases:
 
 * implement a custom storage
 * implement search-only address books querying a remote server

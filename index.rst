@@ -91,7 +91,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
   
 .. |accounts-Description| replace:: Enables an extension to access information of accounts and identities configured in Thunderbird's account manager.
 .. |addressBooks-Description| replace:: Enables an extension to access, modify, create and delete Thunderbird address books.
-.. |addressBooksProvider-Description| replace:: Allows to implement address books whose storage is not handled by Thunderbird but by the extension.
+.. |addressBooksProvider-Description| replace:: Allows to implement address books whose storage and entries are not handled by Thunderbird but by the extension.
 .. |browserAction-Description| replace:: Enables an extension to interact with a `browser action button`_. 
 .. |cloudFile-Description| replace:: Enables an extension to register a cloudFile provider, which can be used to upload large attachments to a server, instead of attaching them directly to the email.
 .. |commands-Description| replace:: The commands API adds keyboard shortcuts that can trigger actions in an extension.
