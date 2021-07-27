@@ -667,7 +667,7 @@ onCreated
 Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
-   :label: Parameters for tabs.onCreated.addListener(listener)
+   :label: Parameters for onCreated.addListener(listener)
 
    
    .. api-member::
@@ -697,7 +697,7 @@ onUpdated
 Fired when a tab is updated.
 
 .. api-header::
-   :label: Parameters for tabs.onUpdated.addListener(listener, filter)
+   :label: Parameters for onUpdated.addListener(listener, filter)
 
    
    .. api-member::
@@ -767,7 +767,7 @@ onMoved
 Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
 
 .. api-header::
-   :label: Parameters for tabs.onMoved.addListener(listener)
+   :label: Parameters for onMoved.addListener(listener)
 
    
    .. api-member::
@@ -815,7 +815,7 @@ onActivated
 Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
-   :label: Parameters for tabs.onActivated.addListener(listener)
+   :label: Parameters for onActivated.addListener(listener)
 
    
    .. api-member::
@@ -857,7 +857,7 @@ onDetached
 Fired when a tab is detached from a window, for example because it is being moved between windows.
 
 .. api-header::
-   :label: Parameters for tabs.onDetached.addListener(listener)
+   :label: Parameters for onDetached.addListener(listener)
 
    
    .. api-member::
@@ -900,7 +900,7 @@ onAttached
 Fired when a tab is attached to a window, for example because it was moved between windows.
 
 .. api-header::
-   :label: Parameters for tabs.onAttached.addListener(listener)
+   :label: Parameters for onAttached.addListener(listener)
 
    
    .. api-member::
@@ -943,7 +943,7 @@ onRemoved
 Fired when a tab is closed.
 
 .. api-header::
-   :label: Parameters for tabs.onRemoved.addListener(listener)
+   :label: Parameters for onRemoved.addListener(listener)
 
    
    .. api-member::

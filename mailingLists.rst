@@ -324,7 +324,7 @@ onCreated
 Fired when a mailing list is created.
 
 .. api-header::
-   :label: Parameters for mailingLists.onCreated.addListener(listener)
+   :label: Parameters for onCreated.addListener(listener)
 
    
    .. api-member::
@@ -357,7 +357,7 @@ onUpdated
 Fired when a mailing list is changed.
 
 .. api-header::
-   :label: Parameters for mailingLists.onUpdated.addListener(listener)
+   :label: Parameters for onUpdated.addListener(listener)
 
    
    .. api-member::
@@ -390,7 +390,7 @@ onDeleted
 Fired when a mailing list is deleted.
 
 .. api-header::
-   :label: Parameters for mailingLists.onDeleted.addListener(listener)
+   :label: Parameters for onDeleted.addListener(listener)
 
    
    .. api-member::
@@ -428,7 +428,7 @@ onMemberAdded
 Fired when a contact is added to the mailing list.
 
 .. api-header::
-   :label: Parameters for mailingLists.onMemberAdded.addListener(listener)
+   :label: Parameters for onMemberAdded.addListener(listener)
 
    
    .. api-member::
@@ -461,7 +461,7 @@ onMemberRemoved
 Fired when a contact is removed from the mailing list.
 
 .. api-header::
-   :label: Parameters for mailingLists.onMemberRemoved.addListener(listener)
+   :label: Parameters for onMemberRemoved.addListener(listener)
 
    
    .. api-member::

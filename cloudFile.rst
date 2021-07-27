@@ -223,7 +223,7 @@ onFileUpload
 Fired when a file should be uploaded to the cloud file provider
 
 .. api-header::
-   :label: Parameters for cloudFile.onFileUpload.addListener(listener)
+   :label: Parameters for onFileUpload.addListener(listener)
 
    
    .. api-member::
@@ -288,7 +288,7 @@ onFileUploadAbort
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: Parameters for cloudFile.onFileUploadAbort.addListener(listener)
+   :label: Parameters for onFileUploadAbort.addListener(listener)
 
    
    .. api-member::
@@ -333,7 +333,7 @@ onFileDeleted
 Fired when a file previously uploaded should be deleted
 
 .. api-header::
-   :label: Parameters for cloudFile.onFileDeleted.addListener(listener)
+   :label: Parameters for onFileDeleted.addListener(listener)
 
    
    .. api-member::
@@ -378,7 +378,7 @@ onAccountAdded
 Fired when a cloud file account of this add-on was created
 
 .. api-header::
-   :label: Parameters for cloudFile.onAccountAdded.addListener(listener)
+   :label: Parameters for onAccountAdded.addListener(listener)
 
    
    .. api-member::
@@ -408,7 +408,7 @@ onAccountDeleted
 Fired when a cloud file account of this add-on was deleted
 
 .. api-header::
-   :label: Parameters for cloudFile.onAccountDeleted.addListener(listener)
+   :label: Parameters for onAccountDeleted.addListener(listener)
 
    
    .. api-member::

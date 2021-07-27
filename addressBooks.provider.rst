@@ -39,7 +39,7 @@ onSearchRequest
 Creates a read-only addressbook that fires this event when searching for a contact. Note: This event may change in future releases of Thunderbird.
 
 .. api-header::
-   :label: Parameters for addressBooks.provider.onSearchRequest.addListener(listener, parameters)
+   :label: Parameters for onSearchRequest.addListener(listener, parameters)
 
    
    .. api-member::

@@ -389,7 +389,7 @@ onClicked
 Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for menus.onClicked.addListener(listener)
+   :label: Parameters for onClicked.addListener(listener)
 
    
    .. api-member::
@@ -431,7 +431,7 @@ onShown
 Fired when a menu is shown. The extension can add, modify or remove menu items and call ``menus.refresh()`` to update the menu.
 
 .. api-header::
-   :label: Parameters for menus.onShown.addListener(listener)
+   :label: Parameters for onShown.addListener(listener)
 
    
    .. api-member::
@@ -473,7 +473,7 @@ onHidden
 Fired when a menu is hidden. This event is only fired if onShown has fired before.
 
 .. api-header::
-   :label: Parameters for menus.onHidden.addListener(listener)
+   :label: Parameters for onHidden.addListener(listener)
 
    
    .. api-member::
