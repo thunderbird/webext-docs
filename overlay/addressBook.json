@@ -181,6 +181,7 @@
     "events": [
       {
         "name": "onSearchRequest",
+        "description" : "Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.\n\nThe event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's <code>To:</code> field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.\n\nExample: <literalinclude>includes/addressBooks/onSearchRequest.js<lang>JavaScript</lang></literalinclude>",
         "parameters": [
           {
             "name": "node",
@@ -190,18 +191,26 @@
         "extraParameters": [
           {
             "name": "parameters",
-            "description": "Additional descriptions for the address book created by registering this listener",
+            "description": "Descriptions for the address book created by registering this listener.",
             "properties": {
               "addressBookName": {
-                "description": "The name of the address book that the end user will see."
+                "description": "The name of the created address book."
               },
               "id": {
-                "description": "The UID of the address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you."
+                "description": "The UID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you."
+              },
+              "isSecure": {
+                "description": "Whether the address book search queries are using encrypted protocols like HTTPS."
               }
             }            
           }
-        ]
-
+        ],
+        "returns": {
+          "type": "array",
+          "items": {
+            "$ref": "contacts.ContactProperties"
+          }
+        }
       }
     ]
   } 

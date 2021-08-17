@@ -381,15 +381,25 @@ Events
 
 .. _menus.onClicked:
 
-onClicked(info, [tab])
-----------------------
+onClicked
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onClicked.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(info, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -413,15 +423,25 @@ Fired when a context menu item is clicked. This is a user input event handler. F
 
 .. _menus.onShown:
 
-onShown(info, tab)
-------------------
+onShown
+-------
 
 .. api-section-annotation-hack:: 
 
 Fired when a menu is shown. The extension can add, modify or remove menu items and call ``menus.refresh()`` to update the menu.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onShown.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(info, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -445,12 +465,22 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
 
 .. _menus.onHidden:
 
-onHidden()
-----------
+onHidden
+--------
 
 .. api-section-annotation-hack:: 
 
 Fired when a menu is hidden. This event is only fired if onShown has fired before.
+
+.. api-header::
+   :label: Parameters for onHidden.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener()``
+      
+      A function that will be called when this event occurs.
+   
 
 .. api-header::
    :label: Required permissions

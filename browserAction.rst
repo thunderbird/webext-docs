@@ -467,15 +467,25 @@ Events
 
 .. _browserAction.onClicked:
 
-onClicked(tab, [info])
-----------------------
+onClicked
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a browserAction icon is clicked.  This event will not fire if the browserAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onClicked.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, info)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

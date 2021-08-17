@@ -4,6 +4,17 @@
 addressBooks.provider
 =====================
 
+The :ref:`addressBooks.provider_api` API first appeared in Thunderbird 90. It allows to add address books, which are not stored or cached by Thunderbird itself, but are handled completely by the extension. Address books created by the :ref:`addressBooks.provider_api` API will forward all access requests to the WebExtension. Possible use cases:
+
+* implement a custom storage
+* implement search-only address books querying a remote server
+
+So far, only the API for search-only address books is implemented. 
+
+.. warning::
+
+  This API will change in future releases of Thunderbird.
+
 .. role:: permission
 
 .. rst-class:: api-main-section
@@ -29,44 +40,60 @@ Events
 
 .. _addressBooks.provider.onSearchRequest:
 
-onSearchRequest(node, [searchString], [query])
-----------------------------------------------
+onSearchRequest
+---------------
 
 .. api-section-annotation-hack:: 
 
-Use this API when you want to allow the user to search a third-party address book, but you do not want to cache the entire address book locally.
+Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
 
-Adding a `SearchRequest` listener creates a read-only address book that fires this event when the user searches for a contact, and your code can determine the contacts that should be shown as a result of that search.
+The event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's ``To:`` field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.
 
-When the user types a name in the mail composer's "To:" field, or similar fields like the calendar meeting attendees, this event will fire and allow you to make a query on a server, or third-party local datasource, and return the matching contacts in that third-party source. These contacts will then be displayed as autocomplete result in the dropdown of the email field.
+Example: 
 
-This API will also create a type of address book in the address book window, similar to LDAP address books. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this same event, and the results that you return here will be displayed as contact cards in the address book.
-
-When you register this event, the address book will be created internally. The name that you pass in `extraParameters` is what the user will see as name of the address book. You can register several listeners, to create multiple address books.
-
-Sample implementation:
-```
-messenger.addressBooks.onSearchRequest.addListener(async (ab, searchString) => {
-  let response = await fetch("https://people.example.com/?query=" + searchString);
-  // return [ { DisplayName: "Koyote", PrimaryEmail: "koyote@example.com" }, ... ];
-  return response.json.map(contact => { DisplayName: contact.name, PrimaryEmail: contact.email });
-}, {
- dirName: "ACME employees",
- isSecure: true,
-});
-```
-
-Note: This event may change in future releases of Thunderbird.
-
-TODO: Move this
-Parameters of `addListener()`:
-`extraParameters` contains an object with:
-* `addressBookName`: The name of the address book that the end user will see.
-* `isSecure`: True, if you use encrypted protocols like HTTPS, or no server. False, if you use HTTP or other unencrypted protocols.
-* `id`: (Optional) The UID of the address book. If you add several listeners, that allows you to identify which address book the search event came from. If not passed, an UID will be generated for you.
+.. literalinclude:: includes/addressBooks/onSearchRequest.js
+  :language: JavaScript
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onSearchRequest.addListener(listener, parameters)
+
+   
+   .. api-member::
+      :name: ``listener(node, searchString, query)``
+      
+      A function that will be called when this event occurs.
+   
+   
+   .. api-member::
+      :name: ``parameters``
+      :type: (object)
+      
+      Descriptions for the address book created by registering this listener.
+      
+      .. api-member::
+         :name: [``addressBookName``]
+         :type: (string)
+         
+         The name of the created address book.
+      
+      
+      .. api-member::
+         :name: [``id``]
+         :type: (string)
+         
+         The UID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you.
+      
+      
+      .. api-member::
+         :name: [``isSecure``]
+         :type: (boolean)
+         
+         Whether the address book search queries are using encrypted protocols like HTTPS.
+      
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -86,6 +113,14 @@ Parameters of `addListener()`:
       :type: (string)
       
       The boolean query expression corresponding to the search. Note: This parameter may change in future releases of Thunderbird.
+   
+
+.. api-header::
+   :label: Expected return value of the listener function
+
+   
+   .. api-member::
+      :type: array of :ref:`contacts.ContactProperties`
    
 
 .. api-header::

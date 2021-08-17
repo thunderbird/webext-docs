@@ -345,6 +345,13 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       
       
       .. api-member::
+         :name: [``type``]
+         :type: (string)
+         
+         Match tabs against the given Tab.type (see :ref:`tabs.Tab`). Ignored if ``queryInfo.mailTab`` is specified.
+      
+      
+      .. api-member::
          :name: [``url``]
          :type: (string or array of string)
          
@@ -651,15 +658,25 @@ Events
 
 .. _tabs.onCreated:
 
-onCreated(tab)
---------------
+onCreated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -671,15 +688,32 @@ Fired when a tab is created. Note that the tab's URL may not be set at the time 
 
 .. _tabs.onUpdated:
 
-onUpdated(tabId, changeInfo, tab)
----------------------------------
+onUpdated
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a tab is updated.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onUpdated.addListener(listener, filter)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, changeInfo, tab)``
+      
+      A function that will be called when this event occurs.
+   
+   
+   .. api-member::
+      :name: [``filter``]
+      :type: (:ref:`tabs.UpdateFilter`)
+      
+      A set of filters that restricts the events that will be sent to this listener.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -724,15 +758,25 @@ Fired when a tab is updated.
 
 .. _tabs.onMoved:
 
-onMoved(tabId, moveInfo)
-------------------------
+onMoved
+-------
 
 .. api-section-annotation-hack:: 
 
 Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, moveInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -762,15 +806,25 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
 
 .. _tabs.onActivated:
 
-onActivated(activeInfo)
------------------------
+onActivated
+-----------
 
 .. api-section-annotation-hack:: 
 
 Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onActivated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(activeInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -794,15 +848,25 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
 
 .. _tabs.onDetached:
 
-onDetached(tabId, detachInfo)
------------------------------
+onDetached
+----------
 
 .. api-section-annotation-hack:: 
 
 Fired when a tab is detached from a window, for example because it is being moved between windows.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onDetached.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, detachInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -827,15 +891,25 @@ Fired when a tab is detached from a window, for example because it is being move
 
 .. _tabs.onAttached:
 
-onAttached(tabId, attachInfo)
------------------------------
+onAttached
+----------
 
 .. api-section-annotation-hack:: 
 
 Fired when a tab is attached to a window, for example because it was moved between windows.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onAttached.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, attachInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
@@ -860,15 +934,25 @@ Fired when a tab is attached to a window, for example because it was moved betwe
 
 .. _tabs.onRemoved:
 
-onRemoved(tabId, removeInfo)
-----------------------------
+onRemoved
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a tab is closed.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onRemoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, removeInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::

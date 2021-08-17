@@ -253,7 +253,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
-    parts = get_api_member_parts(name, obj)
+    parts =  get_api_member_parts(name, obj)
   
     #enum_only:        fake header + enum
     #description_only: fake header + description + enum + nested
@@ -575,7 +575,7 @@ def format_namespace(manifest, namespace):
                 content.extend(format_object(param["name"], param))
             extraParams = list(map(lambda x : x['name'], event.get("extraParameters", [])))
             lines.extend(api_header(
-                "Parameters for messenger.%s.%s.addListener(%s)" % (current_namespace_name, event["name"], ", ".join(["listener"] + extraParams)),
+                "Parameters for %s.addListener(%s)" % (event["name"], ", ".join(["listener"] + extraParams)),
                 content
             ))
 
