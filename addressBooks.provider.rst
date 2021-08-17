@@ -93,39 +93,8 @@ Example:
    
 
 .. api-header::
-   :label: Parameters for onSearchRequest.addListener(listener, parameters)
+   :label: Parameters passed to the listener function
 
-   
-   .. api-member::
-      :name: ``listener(node, searchString, query)``
-      
-      A function that will be called when this event occurs.
-   
-   
-   .. api-member::
-      :name: ``parameters``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``addressBookName``]
-         :type: (string)
-         
-         The initial name of the address book.
-      
-      
-      .. api-member::
-         :name: [``id``]
-         :type: (string)
-         
-         The id of the address book.
-      
-      
-      .. api-member::
-         :name: [``isSecure``]
-         :type: (boolean)
-         
-         Whether the address book is searched securely.
-      
    
    .. api-member::
       :name: ``node``
