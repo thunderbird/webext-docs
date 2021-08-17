@@ -347,6 +347,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``type``]
          :type: (string)
+         :annotation: -- [Added in TB 91]
          
          Match tabs against the given Tab.type (see :ref:`tabs.Tab`). Ignored if ``queryInfo.mailTab`` is specified.
       
@@ -1068,7 +1069,7 @@ Tab
    .. api-member::
       :name: [``type``]
       :type: (`string`)
-      :annotation: -- [Added in TB 92]
+      :annotation: -- [Added in TB 91]
       
       Supported values:
       
