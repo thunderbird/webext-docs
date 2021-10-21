@@ -8,8 +8,16 @@
           "browser_action": {
             "properties": {
               "default_label": {
-                "added" : "84.0b3",
-                "backported" : "78.6.1"                
+                "added": "84.0b3",
+                "backported": "78.6.1"
+              },
+              "default_area": {
+                "enumChanges": {
+                  "tabstoolbar": {
+                    "added": "92",
+                    "backported": "91.0.2"
+                  }
+                }
               }
             }
           }
@@ -66,7 +74,7 @@
       {
         "name": "getLabel",
         "added": "84.0b3",
-        "backported" : "78.6.1"
+        "backported": "78.6.1"
       }
     ]
   }

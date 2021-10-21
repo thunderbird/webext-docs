@@ -45,6 +45,7 @@ Manifest file properties
       
       .. api-member::
          :name: ``tabstoolbar``
+         :annotation: -- [Added in TB 92, backported to TB 91.0.2]
    
    
    .. api-member::
