@@ -5,13 +5,19 @@ Changes in Thunderbird 91
 accounts API
 ============
 
-* :ref:`accounts.list`, :ref:`accounts.get` and :ref:`accounts.getDefault` now have an optional parameter ``includeFolders`` to specify if the returned :ref:`accounts.MailAccount` objects should populate the ``folders`` property. Defaults to ``true``.
+* :ref:`accounts.list`, :ref:`accounts.get` and :ref:`accounts.getDefault` now have an optional parameter ``includeFolders`` to specify if the returned :ref:`accounts.MailAccount` objects should populate the ``folders`` property. Defaults to ``true``
 
 
 addressbooks API
 ================
 
 * added ``remote`` property to :ref:`addressbooks.AddressBookNode`
+
+
+browserAction API
+=================
+
+* added support for the ``tabstoolbar`` location, usable in the ``default_area`` manifest key
 
 
 cloudFile API
@@ -25,7 +31,7 @@ cloudFile API
 compose API
 ===========
 
-* all attachment related functions and events now also require the :permission:`compose` permission.
+* all attachment related functions and events now also require the :permission:`compose` permission
 
 
 contacts API
