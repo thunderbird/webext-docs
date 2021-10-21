@@ -46,7 +46,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`composeAction.IconPathDictionary`)
+      :type: (:ref:`composeAction.IconPath`)
       
       The icon for the messageDisplayAction.
    
@@ -223,9 +223,9 @@ Sets the icon for the composeAction. The icon can be specified either as the pat
       
       .. api-member::
          :name: [``path``]
-         :type: (string or :ref:`composeAction.IconPathDictionary`)
+         :type: (string or :ref:`composeAction.IconPath`)
          
-         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
+         Either a relative image path defining a single icon used for all sizes or an IconPath dictionary defining dedicated icons for different sizes.
       
    
 
@@ -630,10 +630,10 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _composeAction.IconPathDictionary:
+.. _composeAction.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 

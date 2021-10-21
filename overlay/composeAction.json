@@ -73,6 +73,19 @@
         "name": "getLabel",
         "added": "84.0b3",
         "backported": "78.6.1"
+      },
+      {
+        "name": "setIcon",
+        "parameters": [
+          {
+            "name": "details",
+            "properties": {
+              "path": {
+                "description": "Either a relative image path defining a single icon used for all sizes or an IconPath dictionary defining dedicated icons for different sizes."
+              }
+            }
+          }
+        ]
       }
     ]
   }

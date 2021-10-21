@@ -123,8 +123,6 @@ def link_ref(ref):
         return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_"
     if ref == "runtime.Port":
         return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_"
-    if ref == "IconPath":
-        ref = "IconPathDictionary"
 
     for additional_type in additional_type_defs:
         if additional_type['id'] == ref:
