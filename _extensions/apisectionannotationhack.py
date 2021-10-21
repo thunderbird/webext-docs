@@ -27,7 +27,7 @@ def visit_node(self, node):
     pass
 
 def depart_node(self, node=None):
-    self.body.append("</div><div class='api-section-body'>")
+    self.body.append("</section><section class='api-section-body'>")
 
 class ApiMainSectionAnnotation(nodes.General, nodes.Element): 
     pass
