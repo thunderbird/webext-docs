@@ -10,6 +10,14 @@
               "default_label": {
                 "added" : "84.0b3",
                 "backported" : "78.6.1"                
+              },
+              "default_area": {
+                "enumChanges": {
+                  "tabstoolbar": {
+                    "added": "92",
+                    "backported": "91.0.2"
+                  }
+                }
               }
             }
           }
