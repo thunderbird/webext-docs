@@ -39,7 +39,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`messageDisplayAction.IconPath`)
+      :type: (:ref:`messageDisplayAction.IconPathDictionary`)
       
       The icon for the messageDisplayAction.
    
@@ -216,9 +216,9 @@ Sets the icon for the messageDisplayAction. The icon can be specified either as 
       
       .. api-member::
          :name: [``path``]
-         :type: (string or :ref:`messageDisplayAction.IconPath`)
+         :type: (string or :ref:`messageDisplayAction.IconPathDictionary`)
          
-         Either a relative image path defining a single icon used for all sizes or an IconPath dictionary defining dedicated icons for different sizes.
+         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
       
    
 
@@ -623,10 +623,10 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _messageDisplayAction.IconPath:
+.. _messageDisplayAction.IconPathDictionary:
 
-IconPath
---------
+IconPathDictionary
+------------------
 
 .. api-section-annotation-hack:: 
 
