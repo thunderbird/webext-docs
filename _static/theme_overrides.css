@@ -48,14 +48,14 @@ div.container > ul {
 
 /* api sections below the main sections,
 /* for example the individual function definitions */
-.api-main-section > section :not(.api-section-body) {
+.api-main-section > .section {
   background: #e7f2fa;
   border-top: 3px solid #6ab0de;
   margin-bottom:1ex;
   display: inline-flex;
   align-items: center;  
 }
-.api-main-section > section :not(.api-section-body) > span {
+.api-main-section > .section > span {
     font-size: 80%;
     font-weight: bold;
     font-style: italic;
@@ -63,11 +63,11 @@ div.container > ul {
     display: block;
     color: #3782bb;
 }
-#functions > section :not(.api-section-body) > span::after {
+#functions > .section > span::after {
     content: "func";
     /*color: #6ab0de;*/
 }
-.api-main-section section :not(.api-section-body) h3 {
+.api-main-section .section h3 {
   padding: 6px;
   margin:0;
   font-size: 90%;
