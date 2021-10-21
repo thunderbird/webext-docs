@@ -33,7 +33,7 @@ Manifest file properties
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the composeAction will appear by default. The default location is maintoolbar.
+      Defines the location the composeAction will appear. The default location is ``maintoolbar``.
       
       Supported values:
       

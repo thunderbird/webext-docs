@@ -34,9 +34,17 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_area``]
-      :type: (string)
+      :type: (`string`)
       
-      Currently unused.
+      Defines the location the browserAction will appear. The default location is ``maintoolbar``.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``maintoolbar``
+      
+      .. api-member::
+         :name: ``tabstoolbar``
    
    
    .. api-member::
