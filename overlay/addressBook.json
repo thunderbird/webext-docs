@@ -5,7 +5,7 @@
       {
         "name": "list",
         "changed": {
-              "85" : "Read-only address books are now returned as well as read-write books."
+          "85": "Read-only address books are now returned as well as read-write books."
         }
       }
     ],
@@ -25,20 +25,10 @@
     "namespace": "contacts",
     "functions": [
       {
-        "name": "list",
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "ContactNode"
-          }
-        }
-      },
-      {
         "name": "quickSearch",
-        "description": "Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.",
         "changed": {
-          "85" : "Read-only address books are now returned as well as read-write books.",
-          "91" : "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
+          "85": "Read-only address books are now returned as well as read-write books.",
+          "91": "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
         },
         "parameters": [
           {
@@ -46,32 +36,13 @@
             "choices": [
               {
                 "type": "string"
-              },        
+              },
               {
                 "$ref": "QueryInfo"
               }
-            ]            
+            ]
           }
-        ],          
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "ContactNode"
-          }
-        }
-      },
-      {
-        "name": "get",
-        "returns": {
-          "$ref": "ContactNode"
-        }
-      },
-      {
-        "name": "create",
-        "returns": {
-          "type": "string",
-          "description": "The ID of the new contact."
-        }
+        ]
       }
     ],
     "events": [
@@ -131,39 +102,6 @@
   },
   {
     "namespace": "mailingLists",
-    "functions": [
-      {
-        "name": "list",
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "MailingListNode"
-          }
-        }
-      },
-      {
-        "name": "get",
-        "returns": {
-          "$ref": "MailingListNode"
-        }
-      },
-      {
-        "name": "create",
-        "returns": {
-          "type": "string",
-          "description": "The ID of the new mailing list."
-        }
-      },
-      {
-        "name": "listMembers",
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "contacts.ContactNode"
-          }
-        }
-      }
-    ],
     "types": [
       {
         "id": "MailingListNode",
@@ -181,28 +119,10 @@
     "events": [
       {
         "name": "onSearchRequest",
-        "description" : "Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.\n\nThe event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's <code>To:</code> field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.\n\nExample: <literalinclude>includes/addressBooks/onSearchRequest.js<lang>JavaScript</lang></literalinclude>",
         "parameters": [
           {
             "name": "node",
             "$ref": "addressBooks.AddressBookNode"
-          }
-        ],
-        "extraParameters": [
-          {
-            "name": "parameters",
-            "description": "Descriptions for the address book created by registering this listener.",
-            "properties": {
-              "addressBookName": {
-                "description": "The name of the created address book."
-              },
-              "id": {
-                "description": "The UID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you."
-              },
-              "isSecure": {
-                "description": "Whether the address book search queries are using encrypted protocols like HTTPS."
-              }
-            }            
           }
         ],
         "returns": {
@@ -213,5 +133,5 @@
         }
       }
     ]
-  } 
+  }
 ]

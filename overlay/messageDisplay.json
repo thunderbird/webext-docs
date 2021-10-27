@@ -3,21 +3,12 @@
     "namespace": "messageDisplay",
     "functions": [
       {
-        "name": "getDisplayedMessage",
-        "returns": {
-          "$ref": "messages.MessageHeader"
-        }
+        "name": "getDisplayedMessage"
       },
       {
         "name": "getDisplayedMessages",
         "added": "81",
-        "backported": "78.4.0",
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "messages.MessageHeader"
-          }
-        }
+        "backported": "78.4.0"
       }
     ],
     "events": [

@@ -13,7 +13,7 @@
       {
         "id": "MailFolderInfo",
         "added": "91"
-      }      
+      }
     ],
     "functions": [
       {
@@ -35,7 +35,7 @@
       {
         "name": "copy",
         "added": "91"
-      }      
+      }
     ],
     "events": [
       {
@@ -62,6 +62,6 @@
         "name": "onFolderInfoChanged",
         "added": "91"
       }
-    ]     
+    ]
   }
 ]

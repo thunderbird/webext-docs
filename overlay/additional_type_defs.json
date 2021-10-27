@@ -20,11 +20,11 @@
   },
   {
     "id": "IconPathDictionary",
-    "description": "A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: <literalinclude>includes/IconPath.json<lang>JSON</lang></literalinclude>"    
+    "description": "A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: <literalinclude>includes/IconPath.json<lang>JSON</lang></literalinclude>"
   },
   {
     "id": "extensionTypes.ExtensionFileOrCode",
-    "name":"ExtensionFileOrCode",
+    "name": "ExtensionFileOrCode",
     "type": "object",
     "description": "Specify code, either by pointing to a file or by providing the code directly. Only one of the two is allowed.",
     "properties": {
@@ -37,5 +37,5 @@
         "description": "Some JavaScript code to register."
       }
     }
-  } 
+  }
 ]

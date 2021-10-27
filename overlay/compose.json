@@ -9,20 +9,30 @@
       {
         "id": "ComposeDetails",
         "properties": {
-          "identityId": {
-            "added": "76"
+          "attachments": {
+            "added": "82",
+            "backported": "78.4.0"
           },
           "followupTo": {
             "added": "74"
           },
-          "newsgroups": {
-            "added": "74"
+          "from": {
+            "added": "88"
+          },
+          "identityId": {
+            "added": "76"
           },
           "isPlainText": {
             "added": "75"
           },
+          "newsgroups": {
+            "added": "74"
+          },
           "plainTextBody": {
             "added": "75"
+          },
+          "relatedMessageId": {
+            "added": "95"
           },
           "type": {
             "added": "88",
@@ -31,13 +41,6 @@
                 "added": "90"
               }
             }
-          },
-          "from": {
-            "added": "88"
-          },
-          "attachments": {
-            "added": "82",
-            "backported": "78.4.0"
           }
         }
       },
@@ -118,27 +121,15 @@
       },
       {
         "name": "listAttachments",
-        "added": "78",
-        "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "ComposeAttachment"
-          }
-        }
+        "added": "78"
       },
       {
         "name": "addAttachment",
-        "added": "78",
-        "returns": {
-          "$ref": "ComposeAttachment"
-        }
+        "added": "78"
       },
       {
         "name": "updateAttachment",
-        "added": "78",
-        "returns": {
-          "$ref": "ComposeAttachment"
-        }
+        "added": "78"
       },
       {
         "name": "removeAttachment",

@@ -813,6 +813,14 @@ Used by various functions to represent the state of a message being composed. No
    
    
    .. api-member::
+      :name: [``relatedMessageId``]
+      :type: (integer)
+      :annotation: -- [Added in TB 95]
+      
+      The id of the original message (in case of draft, template, forward or reply). Read-only. Is ``null`` in all other cases or if the original message was opened from file.
+   
+   
+   .. api-member::
       :name: [``replyTo``]
       :type: (:ref:`compose.ComposeRecipientList`)
    
