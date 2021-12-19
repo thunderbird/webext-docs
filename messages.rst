@@ -317,7 +317,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``attachment``]
          :type: (boolean)
-         :annotation: -- [Added in TB 96]
+         :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
          If specified, returns only messages with or without attachments.
       

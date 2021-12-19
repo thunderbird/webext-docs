@@ -34,7 +34,8 @@
                 "added": "85"
               },
               "attachment": {
-                "added": "96"
+                "added": "96",
+                "backported": "91.4.1"                
               }
             }
           }

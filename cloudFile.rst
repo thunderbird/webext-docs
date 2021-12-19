@@ -283,7 +283,7 @@ Fired when a file should be uploaded to the cloud file provider.
       .. api-member::
          :name: [``templateInfo``]
          :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
-         :annotation: -- [Added in TB 96]
+         :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
          Information to override the default values used in the cloud file message template.
       
@@ -344,7 +344,7 @@ onFileUploadAbort
 onFileRename
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 96]
+.. api-section-annotation-hack:: -- [Added in TB 96, backported to TB 91.4.1]
 
 Fired when an already uploaded file should be renamed.
 
