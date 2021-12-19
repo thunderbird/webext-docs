@@ -38,6 +38,10 @@
           "attachments": {
             "added": "82",
             "backported": "78.4.0"
+          },
+          "relatedMessageId": {
+            "added": "95",
+            "backported": "91.3.1"
           }
         }
       },
