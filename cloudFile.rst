@@ -53,7 +53,7 @@ Manifest file properties
       :type: (`string`)
       :annotation: -- [Added in TB 71, backported to TB 68.2.1]
       
-      Determines the format of the ``data`` argument in ``onFileUpload``.
+      Determines the format of the ``data`` argument in ``onFileUpload``. Support for ArrayBuffer will be removed in Thunderbird 102.
       
       Supported values:
       
@@ -96,7 +96,7 @@ getAccount(accountId)
 
 .. api-section-annotation-hack:: 
 
-Retrieve information about a single cloud file account
+Retrieve information about a single cloud file account.
 
 .. api-header::
    :label: Parameters
@@ -106,7 +106,7 @@ Retrieve information about a single cloud file account
       :name: ``accountId``
       :type: (string)
       
-      Unique identifier of the account
+      Unique identifier of the account.
    
 
 .. api-header::
@@ -126,7 +126,7 @@ getAllAccounts()
 
 .. api-section-annotation-hack:: 
 
-Retrieve all cloud file accounts for the current add-on
+Retrieve all cloud file accounts for the current add-on.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -145,7 +145,7 @@ updateAccount(accountId, updateProperties)
 
 .. api-section-annotation-hack:: 
 
-Update a cloud file account
+Update a cloud file account.
 
 .. api-header::
    :label: Parameters
@@ -155,7 +155,7 @@ Update a cloud file account
       :name: ``accountId``
       :type: (string)
       
-      Unique identifier of the account
+      Unique identifier of the account.
    
    
    .. api-member::
@@ -220,7 +220,7 @@ onFileUpload
 
 .. api-section-annotation-hack:: 
 
-Fired when a file should be uploaded to the cloud file provider
+Fired when a file should be uploaded to the cloud file provider.
 
 .. api-header::
    :label: Parameters for onFileUpload.addListener(listener)
@@ -240,14 +240,14 @@ Fired when a file should be uploaded to the cloud file provider
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       
-      The created account
+      The account used for the file upload.
    
    
    .. api-member::
       :name: ``fileInfo``
       :type: (:ref:`cloudFile.CloudFile`)
       
-      The file to upload
+      The file to upload.
    
    
    .. api-member::
@@ -269,14 +269,30 @@ Fired when a file should be uploaded to the cloud file provider
          :name: [``aborted``]
          :type: (boolean)
          
-         Set this to true if the file upload was aborted
+         Set this to true if the file upload was aborted.
+      
+      
+      .. api-member::
+         :name: [``error``]
+         :type: (boolean or string)
+         :annotation: -- [Added in TB 96]
+         
+         Report an error to the user. Set it to true for showing a generic error message, or set it to a specific error message.
+      
+      
+      .. api-member::
+         :name: [``templateInfo``]
+         :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
+         :annotation: -- [Added in TB 96]
+         
+         Information to override the default values used in the cloud file message template.
       
       
       .. api-member::
          :name: [``url``]
          :type: (string)
          
-         The URL where the uploaded file can be accessed
+         The URL where the uploaded file can be accessed.
       
    
 
@@ -305,14 +321,14 @@ onFileUploadAbort
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       
-      The created account
+      The account used for the file upload.
    
    
    .. api-member::
       :name: ``fileId``
       :type: (integer)
       
-      An identifier for this file
+      An identifier for this file.
    
    
    .. api-member::
@@ -323,6 +339,79 @@ onFileUploadAbort
       The tab where the upload was initiated. Currently only available for the message composer.
    
 
+.. _cloudFile.onFileRename:
+
+onFileRename
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 96]
+
+Fired when an already uploaded file should be renamed.
+
+.. api-header::
+   :label: Parameters for onFileRename.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account, fileId, newName, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The account used for the file upload.
+   
+   
+   .. api-member::
+      :name: ``fileId``
+      :type: (integer)
+      
+      An identifier for the file which should be renamed.
+   
+   
+   .. api-member::
+      :name: ``newName``
+      :type: (string)
+      
+      The new name of the file.
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      
+      The tab where the rename was initiated. Currently only available for the message composer.
+   
+
+.. api-header::
+   :label: Expected return value of the listener function
+
+   
+   .. api-member::
+      :type: object
+      
+      .. api-member::
+         :name: [``error``]
+         :type: (boolean or string)
+         
+         Report an error to the user. Set it to true for showing a generic error message, or set it to a specific error message.
+      
+      
+      .. api-member::
+         :name: [``url``]
+         :type: (string)
+         
+         The URL where the renamed file can be accessed.
+      
+   
+
 .. _cloudFile.onFileDeleted:
 
 onFileDeleted
@@ -330,7 +419,7 @@ onFileDeleted
 
 .. api-section-annotation-hack:: 
 
-Fired when a file previously uploaded should be deleted
+Fired when a file previously uploaded should be deleted.
 
 .. api-header::
    :label: Parameters for onFileDeleted.addListener(listener)
@@ -350,14 +439,14 @@ Fired when a file previously uploaded should be deleted
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       
-      The created account
+      The account used for the file upload.
    
    
    .. api-member::
       :name: ``fileId``
       :type: (integer)
       
-      An identifier for this file
+      An identifier for this file.
    
    
    .. api-member::
@@ -375,7 +464,7 @@ onAccountAdded
 
 .. api-section-annotation-hack:: 
 
-Fired when a cloud file account of this add-on was created
+Fired when a cloud file account of this add-on was created.
 
 .. api-header::
    :label: Parameters for onAccountAdded.addListener(listener)
@@ -395,7 +484,7 @@ Fired when a cloud file account of this add-on was created
       :name: ``account``
       :type: (:ref:`cloudFile.CloudFileAccount`)
       
-      The created account
+      The created account.
    
 
 .. _cloudFile.onAccountDeleted:
@@ -405,7 +494,7 @@ onAccountDeleted
 
 .. api-section-annotation-hack:: 
 
-Fired when a cloud file account of this add-on was deleted
+Fired when a cloud file account of this add-on was deleted.
 
 .. api-header::
    :label: Parameters for onAccountDeleted.addListener(listener)
@@ -425,7 +514,7 @@ Fired when a cloud file account of this add-on was deleted
       :name: ``accountId``
       :type: (string)
       
-      The id of the removed account
+      The id of the removed account.
    
 
 .. rst-class:: api-main-section
@@ -440,7 +529,7 @@ CloudFile
 
 .. api-section-annotation-hack:: 
 
-Information about a cloud file
+Information about a cloud file.
 
 .. api-header::
    :label: object
@@ -455,14 +544,14 @@ Information about a cloud file
       :name: ``id``
       :type: (integer)
       
-      An identifier for this file
+      An identifier for this file.
    
    
    .. api-member::
       :name: ``name``
       :type: (string)
       
-      Filename of the file to be transferred
+      Filename of the file to be transferred.
    
 
 .. _cloudFile.CloudFileAccount:
@@ -472,7 +561,7 @@ CloudFileAccount
 
 .. api-section-annotation-hack:: 
 
-Information about a cloud file account
+Information about a cloud file account.
 
 .. api-header::
    :label: object
@@ -489,7 +578,7 @@ Information about a cloud file account
       :name: ``id``
       :type: (string)
       
-      Unique identifier of the account
+      Unique identifier of the account.
    
    
    .. api-member::
@@ -525,4 +614,38 @@ Information about a cloud file account
       :type: (integer)
       
       The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+   
+
+.. _cloudFile.CloudFileTemplateInfo:
+
+CloudFileTemplateInfo
+---------------------
+
+.. api-section-annotation-hack:: 
+
+Information to be used in the cloud file message template.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``service_icon``]
+      :type: (string)
+      
+      A URL pointing to an icon to represent the used cloud file service. Defaults to the icon of the provider add-on.
+   
+   
+   .. api-member::
+      :name: [``service_name``]
+      :type: (string)
+      
+      A name to represent the used cloud file service. Defaults to the associated cloud file account name.
+   
+   
+   .. api-member::
+      :name: [``service_url``]
+      :type: (string)
+      
+      An URL to the web page of the used cloud file service, attached the ``service_name``. Defaults to the ``service_url`` manifest entry. Set to an empty string in order to not create a link.
    

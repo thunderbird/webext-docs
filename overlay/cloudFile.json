@@ -24,13 +24,27 @@
     "namespace": "cloudFile",
     "events": [
       {
+        "name": "onFileRename",
+        "added": "96"
+      },
+      {
         "name": "onFileUpload",
         "parameters": [
           {
             "name": "tab",
             "added": "91"
           }
-        ]
+        ],
+        "returns": {
+          "properties": {
+            "error": {
+              "added": "96"
+            },
+            "templateInfo": {
+              "added": "96"
+            }
+          }
+        }
       },
       {
         "name": "onFileUploadAbort",

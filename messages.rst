@@ -315,6 +315,14 @@ Gets all messages that have the specified properties, or all messages if no prop
       :type: (object)
       
       .. api-member::
+         :name: [``attachment``]
+         :type: (boolean)
+         :annotation: -- [Added in TB 96]
+         
+         If specified, returns only messages with or without attachments.
+      
+      
+      .. api-member::
          :name: [``author``]
          :type: (string)
          
