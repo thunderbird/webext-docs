@@ -45,9 +45,9 @@ onSearchRequest
 
 .. api-section-annotation-hack:: 
 
-Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, the user will first see no contacts, but he can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
+Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
 
-The event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's ``To:`` field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.
+The event also fires for each registered listener (for each created read-only address book), when users type something into the mail composer's ``To:`` field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.
 
 Example: 
 
@@ -81,7 +81,7 @@ Example:
          :name: [``id``]
          :type: (string)
          
-         The UID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you.
+         The unique ID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.
       
       
       .. api-member::
