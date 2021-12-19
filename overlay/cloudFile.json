@@ -25,31 +25,39 @@
     "events": [
       {
         "name": "onFileUpload",
-        "parameters":[
-            {
-                "name": "tab",
-                "added": "91"
+        "parameters": [
+          {
+            "name": "tab",
+            "added": "91"
+          }
+        ],
+        "returns": {
+          "properties": {
+            "templateInfo": {
+              "added": "96",
+              "backported": "91.4.1"
             }
-        ]
+          }
+        }
       },
       {
         "name": "onFileUploadAbort",
-        "parameters":[
-            {
-                "name": "tab",
-                "added": "91"
-            }
+        "parameters": [
+          {
+            "name": "tab",
+            "added": "91"
+          }
         ]
       },
       {
         "name": "onFileDeleted",
-        "parameters":[
-            {
-                "name": "tab",
-                "added": "91"
-            }
+        "parameters": [
+          {
+            "name": "tab",
+            "added": "91"
+          }
         ]
       }
     ]
-  }  
+  }
 ]
