@@ -37,7 +37,9 @@ beginNew([messageId], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a new message compose window. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+Open a new message compose window.
+
+The compose format can be set preferably by ``details.isPlainText`` or by specifying only one of ``details.body`` and ``details.plainTextBody.``. Otherwise the default compose format of the used/default identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the used/default identity, using the appropriate ``body`` or ``plainTextBody`` value.
 
 .. api-header::
    :label: Parameters
@@ -74,7 +76,9 @@ beginReply(messageId, [replyType], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a new message compose window replying to a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+Open a new message compose window replying to a given message.
+
+The compose format can be set preferably by ``details.isPlainText`` or by specifying only one of ``details.body`` and ``details.plainTextBody.``. Otherwise the default compose format of the used/default identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the used/default identity, using the appropriate ``body`` or ``plainTextBody`` value.
 
 .. api-header::
    :label: Parameters
@@ -127,7 +131,9 @@ beginForward(messageId, [forwardType], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a new message compose window forwarding a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+Open a new message compose window forwarding a given message.
+
+The compose format can be set preferably by ``details.isPlainText`` or by specifying only one of ``details.body`` and ``details.plainTextBody.``. Otherwise the default compose format of the used/default identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the used/default identity, using the appropriate ``body`` or ``plainTextBody`` value.
 
 .. api-header::
    :label: Parameters
@@ -209,7 +215,9 @@ setComposeDetails(tabId, details)
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented. It is not possible to change the compose format.
+Updates the compose window. Specify only fields that you want to change. Currently only a limited amount of information can be set, more will be added in later versions.
+
+The compose format of an already opened compose window cannot be changed. Since Thunderbird 98 a specified but conflicting ``details.body`` or ``details.plainTextBody`` no longer causes an exception, but is simply ignored. This allows to specify both and let the compose window pick the correct value. Specifying a conflicting value for ``details.isPlaintext`` will be ignored as well. **Note:** In older versions of Thunderbird it was not allowed to specify a conflicting value for ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` and :ref:`getComposeDetails` had to be called first to get the current compose format.
 
 .. api-header::
    :label: Parameters
@@ -223,8 +231,6 @@ Updates the compose window. Specify only fields that you want to change. Current
    .. api-member::
       :name: ``details``
       :type: (:ref:`compose.ComposeDetails`)
-      
-      The compose format of an already opened compose window cannot be changed. Setting ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` will fail if the compose format of the compose window does not match. Use :ref:`compose.getComposeDetails` to get the current compose format.
    
 
 .. api-header::
@@ -766,7 +772,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (array of :ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`)
       :annotation: -- [Added in TB 82, backported to TB 78.4.0]
       
-      Attachments to add to the message. Only used in the begin* functions.
+      Only used in the begin* functions. Attachments to add to the message.
    
    
    .. api-member::
@@ -778,7 +784,7 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``body``]
       :type: (string)
       
-      The HTML content of the message. Ignored by ``setComposeDetails``, if used on a plain text composer. If only ``body`` is specified when used with ``beginNew``, ``beginReply`` and similar functions, an HTML message will be created. The recommended usage is to always specify both (``body`` and ``plainTextBody``) and use ``isPlainText`` to select the compose format, or use the users default compose format.
+      The HTML content of the message.
    
    
    .. api-member::
@@ -813,7 +819,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 75]
       
-      Wether the message is an HTML message or a plain text message. Can be used to specify the message format in ``beginNew``, ``beginReply`` and similar functions. It is however not possible to change the compose format with ``setComposeDetails``. Note: Using ``isPlainText`` together with a single but conflicting body type (e.g.: ``isPlainText`` = ``true`` and ``body`` is set but not ``plainTextBody``) will cause an exception. 
+      Wether the message is an HTML message or a plain text message.
    
    
    .. api-member::
@@ -827,7 +833,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (string)
       :annotation: -- [Added in TB 75]
       
-      The plain text content of the message. Ignored by ``setComposeDetails``, if used on an HTML composer. If only ``plainTextBody`` is specified when used with ``beginNew``, ``beginReply`` and similar functions, a plain text message will be created. The recommended usage is to always specify both (``body`` and ``plainTextBody``) and use ``isPlainText`` to select the compose format, or use the users default compose format.
+      The plain text content of the message.
    
    
    .. api-member::
