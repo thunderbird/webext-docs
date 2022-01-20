@@ -340,7 +340,7 @@ updateAttachment(tabId, attachmentId, attachment)
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
-Renames and/or replaces the contents of an attachment to the message being composed in the specified tab.
+Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an ``ExtensionError``.
 
 .. api-header::
    :label: Parameters
