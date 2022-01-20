@@ -70,7 +70,7 @@ Manifest file properties
       :name: [``theme_icons``]
       :type: (array of :ref:`messageDisplayAction.ThemeIcons`)
       
-      Specifies icons to use for dark and light themes
+      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. Note: The default theme uses the ``default_icon`` for light backgrounds (if specified).
    
 
 .. rst-class:: api-permission-info
