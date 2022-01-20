@@ -39,7 +39,7 @@ beginNew([messageId], [details])
 
 Open a new message compose window.
 
-The compose format can be set preferably by ``details.isPlainText`` or by specifying only one of ``details.body`` and ``details.plainTextBody.``. Otherwise the default compose format of the used/default identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the used/default identity, using the appropriate ``body`` or ``plainTextBody`` value.
+The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the (default) identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` raised an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the (default) identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 .. api-header::
    :label: Parameters
@@ -78,7 +78,7 @@ beginReply(messageId, [replyType], [details])
 
 Open a new message compose window replying to a given message.
 
-The compose format can be set preferably by ``details.isPlainText`` or by specifying only one of ``details.body`` and ``details.plainTextBody.``. Otherwise the default compose format of the used/default identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the used/default identity, using the appropriate ``body`` or ``plainTextBody`` value.
+The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the (default) identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` raised an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the (default) identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 .. api-header::
    :label: Parameters
@@ -133,7 +133,7 @@ beginForward(messageId, [forwardType], [details])
 
 Open a new message compose window forwarding a given message.
 
-The compose format can be set preferably by ``details.isPlainText`` or by specifying only one of ``details.body`` and ``details.plainTextBody.``. Otherwise the default compose format of the used/default identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the used/default identity, using the appropriate ``body`` or ``plainTextBody`` value.
+The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the (default) identity is used. **Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` raised an exception in older versions of Thunderbird. Since Thunderbird 98, this combination creates a compose window with the compose format of the (default) identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 .. api-header::
    :label: Parameters
@@ -215,9 +215,9 @@ setComposeDetails(tabId, details)
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Updates the compose window. Specify only fields that you want to change. Currently only a limited amount of information can be set, more will be added in later versions.
+Updates the compose window. Only fields that are to be changed should be specified. Currently only a limited amount of information can be set, more will be added in later versions.
 
-The compose format of an already opened compose window cannot be changed. Since Thunderbird 98 a specified but conflicting ``details.body`` or ``details.plainTextBody`` no longer causes an exception, but is simply ignored. This allows to specify both and let the compose window pick the correct value. Specifying a conflicting value for ``details.isPlaintext`` will be ignored as well. **Note:** In older versions of Thunderbird it was not allowed to specify a conflicting value for ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` and :ref:`getComposeDetails` had to be called first to get the current compose format.
+The compose format of an already opened compose window cannot be changed. Since Thunderbird 98, setting conflicting values ​​of ``details.body`` or ``details.plainTextBody`` no longer raises an exception, instead the compose window chooses the matching value and ignores the other. A conflicting value for ``details.isPlaintext`` is ignored as well.
 
 .. api-header::
    :label: Parameters
@@ -346,7 +346,7 @@ updateAttachment(tabId, attachmentId, attachment)
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
-Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an ``ExtensionError``.
+Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will raise an ``ExtensionError``.
 
 .. api-header::
    :label: Parameters
@@ -530,7 +530,7 @@ Fired when a message is about to be sent from the compose window. This is a user
       :name: ``details``
       :type: (:ref:`compose.ComposeDetails`)
       
-      The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
+      The current state of the compose window. This is functionally the same as calling the :ref:`compose.getComposeDetails` function.
    
 
 .. api-header::
@@ -551,7 +551,7 @@ Fired when a message is about to be sent from the compose window. This is a user
          :name: [``details``]
          :type: (:ref:`compose.ComposeDetails`)
          
-         Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
+         Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
       
    
 
