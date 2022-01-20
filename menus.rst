@@ -845,7 +845,7 @@ Some properties are only included if the extension has host permission for the g
    
    .. api-member::
       :name: ``menuIds``
-      :type: (array of None)
+      :type: (array of integer or string)
       
       A list of IDs of the menu items that were shown.
    
