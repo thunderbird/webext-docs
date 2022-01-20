@@ -52,7 +52,7 @@
             "added": "83",
             "backported": "78.5.0"
           },
-          "getFile": {
+          "getFile()": {
             "deprecated": true,
             "type" : "function",
             "description": "Use :ref:`getAttachmentFile` instead, for example in a backward-compatible drop-in `wrapper function <https://thunderbird.topicbox.com/groups/addons/T290381ad849307a1-Mda1465bd6388138d5a893ff8/request-to-deprecate-composeattachment-getfile>`__."

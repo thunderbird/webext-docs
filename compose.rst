@@ -720,7 +720,7 @@ Represents an attachment in a message being composed.
 
    
    .. api-member::
-      :name: ``getFile``
+      :name: ``getFile()``
       :type: (function) **Deprecated.**
       
       Use :ref:`getAttachmentFile` instead, for example in a backward-compatible drop-in `wrapper function <https://thunderbird.topicbox.com/groups/addons/T290381ad849307a1-Mda1465bd6388138d5a893ff8/request-to-deprecate-composeattachment-getfile>`__.
