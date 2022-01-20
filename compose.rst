@@ -265,10 +265,40 @@ Lists all of the attachments of the message being composed in the specified tab.
 
    - :permission:`compose`
 
+.. _compose.getAttachmentFile:
+
+getAttachmentFile(id)
+---------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 98]
+
+Gets the content of a :ref:`compose.ComposeAttachment` as a DOM ``File`` object.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (integer)
+      
+      The unique identifier for the attachment.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _compose.addAttachment:
 
-addAttachment(tabId, data)
---------------------------
+addAttachment(tabId, attachment)
+--------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
@@ -284,20 +314,8 @@ Adds an attachment to the message being composed in the specified tab.
    
    
    .. api-member::
-      :name: ``data``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``file``
-         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-      
-      
-      .. api-member::
-         :name: [``name``]
-         :type: (string)
-         
-         The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
-      
+      :name: ``attachment``
+      :type: (:ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`)
    
 
 .. api-header::
@@ -317,8 +335,8 @@ Adds an attachment to the message being composed in the specified tab.
 
 .. _compose.updateAttachment:
 
-updateAttachment(tabId, attachmentId, data)
--------------------------------------------
+updateAttachment(tabId, attachmentId, attachment)
+-------------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
@@ -339,20 +357,8 @@ Renames and/or replaces the contents of an attachment to the message being compo
    
    
    .. api-member::
-      :name: ``data``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``file``]
-         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
-      
-      
-      .. api-member::
-         :name: [``name``]
-         :type: (string)
-         
-         The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
-      
+      :name: ``attachment``
+      :type: (:ref:`compose.FileAttachment`)
    
 
 .. api-header::
@@ -721,20 +727,19 @@ Represents an attachment in a message being composed.
    
    
    .. api-member::
-      :name: ``name``
+      :name: [``name``]
       :type: (string)
       
-      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+      The name of this attachment, as displayed to the user.
    
    
    .. api-member::
-      :name: ``size``
+      :name: [``size``]
       :type: (integer)
       :annotation: -- [Added in TB 83, backported to TB 78.5.0]
       
-      The size in bytes of this attachment.
+      The size in bytes of this attachment. Read-only.
    
-   - ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
 
 .. _compose.ComposeDetails:
 
@@ -765,6 +770,8 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``body``]
       :type: (string)
+      
+      The HTML content of the message. Ignored by ``setComposeDetails``, if used on a plain text composer. If only ``body`` is specified when used with ``beginNew``, ``beginReply`` and similar functions, an HTML message will be created. The recommended usage is to always specify both (``body`` and ``plainTextBody``) and use ``isPlainText`` to select the compose format, or use the users default compose format.
    
    
    .. api-member::
@@ -783,7 +790,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`compose.ComposeRecipient`)
       :annotation: -- [Added in TB 88]
       
-      *Caution*: Setting a value for `from` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
+      *Caution*: Setting a value for ``from`` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
    
    
    .. api-member::
@@ -798,6 +805,8 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``isPlainText``]
       :type: (boolean)
       :annotation: -- [Added in TB 75]
+      
+      Wether the message is an HTML message or a plain text message. Can be used to specify the message format in ``beginNew``, ``beginReply`` and similar functions. It is however not possible to change the compose format with ``setComposeDetails``. Note: Using ``isPlainText`` together with a single but conflicting body type (e.g.: ``isPlainText`` = ``true`` and ``body`` is set but not ``plainTextBody``) will cause an exception. 
    
    
    .. api-member::
@@ -810,6 +819,8 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``plainTextBody``]
       :type: (string)
       :annotation: -- [Added in TB 75]
+      
+      The plain text content of the message. Ignored by ``setComposeDetails``, if used on an HTML composer. If only ``plainTextBody`` is specified when used with ``beginNew``, ``beginReply`` and similar functions, a plain text message will be created. The recommended usage is to always specify both (``body`` and ``plainTextBody``) and use ``isPlainText`` to select the compose format, or use the users default compose format.
    
    
    .. api-member::
@@ -952,4 +963,31 @@ Represent the state of the message composer.
       :type: (boolean)
       
       The message can be send now.
+   
+
+.. _compose.FileAttachment:
+
+FileAttachment
+--------------
+
+.. api-section-annotation-hack:: 
+
+Object used to add, update or rename an attachment in a message being composed.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``file``]
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      
+      The new content for the attachment.
+   
+   
+   .. api-member::
+      :name: [``name``]
+      :type: (string)
+      
+      The new name for the attachment, as displayed to the user. If not specified, the name of the provided ``file`` object is used.
    

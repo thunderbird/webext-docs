@@ -124,6 +124,10 @@
         "added": "78"
       },
       {
+        "name": "getAttachmentFile",
+        "added": "98"
+      },
+      {
         "name": "addAttachment",
         "added": "78"
       },

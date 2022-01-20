@@ -244,7 +244,7 @@ Lists all of the attachments of a message.
 
    
    .. api-member::
-      :type: array of :ref:`messages.Attachment`
+      :type: array of :ref:`messages.MessageAttachment`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -261,7 +261,7 @@ getAttachmentFile(messageId, partName)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Gets the content of an attachment as a DOM ``File`` object.
+Gets the content of a :ref:`messages.MessageAttachment` as a DOM ``File`` object.
 
 .. api-header::
    :label: Parameters
@@ -829,10 +829,10 @@ Fired when a new message is received, and has been through junk classification a
 Types
 =====
 
-.. _messages.Attachment:
+.. _messages.MessageAttachment:
 
-Attachment
-----------
+MessageAttachment
+-----------------
 
 .. api-section-annotation-hack:: 
 

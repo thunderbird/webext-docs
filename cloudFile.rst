@@ -45,7 +45,7 @@ Manifest file properties
       :type: (boolean)
       :annotation: -- [Added in TB 90]
       
-      Enable browser styles. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+      Enable browser styles in the ``management_url`` page. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::
@@ -73,9 +73,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``service_url``]
-      :type: (string)
+      :type: (string) **Deprecated.**
       
-      URL to the web page of the cloud file service.
+      This property is no longer used. The ``service_url`` property of the :ref:`cloudFile.CloudFileTemplateInfo` object returned by the :ref:`cloudFile.onFileUpload` event can be used to add a ``Learn more about`` link to the footer of the cloud file attachment element.
    
 
 .. rst-class:: api-permission-info
@@ -277,7 +277,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :type: (boolean or string)
          :annotation: -- [Added in TB 96]
          
-         Report an error to the user. Set it to true for showing a generic error message, or set it to a specific error message.
+         Report an error to the user. Set this to true for showing a generic error message, or set a specific error message.
       
       
       .. api-member::
@@ -285,7 +285,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
          :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
-         Information to override the default values used in the cloud file message template.
+         Defines information to be used in the cloud file entry added to the message.
       
       
       .. api-member::
@@ -346,7 +346,7 @@ onFileRename
 
 .. api-section-annotation-hack:: -- [Added in TB 96, backported to TB 91.4.1]
 
-Fired when an already uploaded file should be renamed.
+Fired when a previously uploaded file should be renamed.
 
 .. api-header::
    :label: Parameters for onFileRename.addListener(listener)
@@ -401,7 +401,7 @@ Fired when an already uploaded file should be renamed.
          :name: [``error``]
          :type: (boolean or string)
          
-         Report an error to the user. Set it to true for showing a generic error message, or set it to a specific error message.
+         Report an error to the user. Set this to true for showing a generic error message, or set a specific error message.
       
       
       .. api-member::
@@ -419,7 +419,7 @@ onFileDeleted
 
 .. api-section-annotation-hack:: 
 
-Fired when a file previously uploaded should be deleted.
+Fired when a previously uploaded file should be deleted.
 
 .. api-header::
    :label: Parameters for onFileDeleted.addListener(listener)
@@ -621,13 +621,56 @@ Information about a cloud file account.
 CloudFileTemplateInfo
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 97]
 
-Information to be used in the cloud file message template.
+Defines information to be used in the cloud file entry added to the message.
 
 .. api-header::
    :label: object
 
+   
+   .. api-member::
+      :name: [``download_expiry_date``]
+      :type: (object)
+      :annotation: -- [Added in TB 98]
+      
+      If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
+      
+      .. api-member::
+         :name: ``timestamp``
+         :type: (integer)
+         
+         The expiry date of the link as the number of milliseconds since the UNIX epoch.
+      
+      
+      .. api-member::
+         :name: [``format``]
+         :type: (object)
+         
+         A format options object as used by `Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__. Defaults to: 
+         
+         .. literalinclude:: includes/cloudFile/defaultDateFormat.js
+           :language: JavaScript
+         
+         
+      
+   
+   
+   .. api-member::
+      :name: [``download_limit``]
+      :type: (integer)
+      :annotation: -- [Added in TB 98]
+      
+      If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
+   
+   
+   .. api-member::
+      :name: [``download_password_protected``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 98]
+      
+      If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
+   
    
    .. api-member::
       :name: [``service_icon``]
@@ -647,5 +690,5 @@ Information to be used in the cloud file message template.
       :name: [``service_url``]
       :type: (string)
       
-      An URL to the web page of the used cloud file service, attached the ``service_name``. Defaults to the ``service_url`` manifest entry. Set to an empty string in order to not create a link.
+      A URL pointing to a web page of the used cloud file service. Will be used in a ``Learn more about`` link in the footer of the cloud file attachment element.
    
