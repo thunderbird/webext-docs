@@ -49,7 +49,7 @@ Gets the currently displayed message in the specified tab. It returns null if no
 
    
    .. api-member::
-      :type: :ref:`messages.MessageHeader`
+      :type: :ref:`messages.MessageHeader` or null
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
