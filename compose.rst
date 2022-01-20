@@ -217,7 +217,7 @@ setComposeDetails(tabId, details)
 
 Updates the compose window. Only fields that are to be changed should be specified. Currently only a limited amount of information can be set, more will be added in later versions.
 
-The compose format of an already opened compose window cannot be changed. Since Thunderbird 98, setting conflicting values ​​of ``details.body`` or ``details.plainTextBody`` no longer raises an exception, instead the compose window chooses the matching value and ignores the other. A conflicting value for ``details.isPlaintext`` is ignored as well.
+The compose format of an existing compose window cannot be changed. Since Thunderbird 98, setting conflicting values ​​for ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` no longer raises an exception, instead the compose window chooses the matching ``details.body`` or ``details.plainTextBody`` value and ignores the other.
 
 .. api-header::
    :label: Parameters
