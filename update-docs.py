@@ -102,7 +102,13 @@ def get_type(obj, name):
             return "`%s`" % (obj["type"])
         elif obj["type"] == "array":
             if "items" in obj:
-                return "array of %s" % get_type(obj["items"], name)
+                if "choices" in obj["items"]:
+                    choices = []
+                    for choice in obj["items"]["choices"]:
+                        choices.append(get_type(choice, name))
+                    return "array of %s" % " or ".join(choices)
+                else:
+                    return "array of %s" % get_type(obj["items"], name)
             else:
                 return "array"
         elif "isInstanceOf" in obj:

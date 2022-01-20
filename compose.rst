@@ -763,7 +763,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``attachments``]
-      :type: (array of object)
+      :type: (array of :ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`)
       :annotation: -- [Added in TB 82, backported to TB 78.4.0]
       
       Attachments to add to the message. Only used in the begin* functions.
