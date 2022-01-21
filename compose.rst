@@ -41,7 +41,7 @@ Open a new message compose window.
 
 **Note:** The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the selected identity is used.
 
-**Note:** Specifying ``details.body`` and ``details.plainText Body`` without also specifying ``details.PlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
+**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.PlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 **Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
@@ -84,7 +84,7 @@ Open a new message compose window replying to a given message.
 
 **Note:** The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the selected identity is used.
 
-**Note:** Specifying ``details.body`` and ``details.plainText Body`` without also specifying ``details.PlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
+**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.PlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 **Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
@@ -143,7 +143,7 @@ Open a new message compose window forwarding a given message.
 
 **Note:** The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the selected identity is used.
 
-**Note:** Specifying ``details.body`` and ``details.plainText Body`` without also specifying ``details.PlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
+**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.PlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 **Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
