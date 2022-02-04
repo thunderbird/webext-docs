@@ -72,6 +72,14 @@ Manifest file properties
    
    
    .. api-member::
+      :name: [``reuse_uploads``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 98]
+      
+      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known ``url`` and ``templateInfo`` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to false will always trigger the registered listener, providing the already known values through the ``relatedFileInfo`` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
+   
+   
+   .. api-member::
       :name: [``service_url``]
       :type: (string) **Deprecated.**
       
@@ -227,7 +235,7 @@ Fired when a file should be uploaded to the cloud file provider.
 
    
    .. api-member::
-      :name: ``listener(account, fileInfo, tab)``
+      :name: ``listener(account, fileInfo, tab, relatedFileInfo)``
       
       A function that will be called when this event occurs.
    
@@ -257,6 +265,14 @@ Fired when a file should be uploaded to the cloud file provider.
       
       The tab where the upload was initiated. Currently only available for the message composer.
    
+   
+   .. api-member::
+      :name: [``relatedFileInfo``]
+      :type: (:ref:`cloudFile.RelatedCloudFile`)
+      :annotation: -- [Added in TB 98]
+      
+      Information about an already uploaded file, which is related to this upload.
+   
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -285,7 +301,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
          :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
-         Defines information to be used in the cloud file entry added to the message.
+         Additional file information used in the cloud file entry added to the message.
       
       
       .. api-member::
@@ -691,4 +707,52 @@ Defines information to be used in the cloud file entry added to the message.
       :type: (string)
       
       A URL pointing to a web page of the used cloud file service. Will be used in a ``Learn more about`` link in the footer of the cloud file attachment element.
+   
+
+.. _cloudFile.RelatedCloudFile:
+
+RelatedCloudFile
+----------------
+
+.. api-section-annotation-hack:: 
+
+Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property ``reuse_uploads`` set to ``false``.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``dataChanged``
+      :type: (boolean)
+      
+      The content of the new upload differs from the related file.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      Filename of the related file.
+   
+   
+   .. api-member::
+      :name: [``id``]
+      :type: (integer)
+      
+      The identifier for the related file. In some circumstances, the id is unavailable.
+   
+   
+   .. api-member::
+      :name: [``templateInfo``]
+      :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
+      
+      Additional information of the related file, used in the cloud file entry added to the message.
+   
+   
+   .. api-member::
+      :name: [``url``]
+      :type: (string)
+      
+      The URL where the upload of the related file can be accessed.
    

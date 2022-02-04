@@ -207,6 +207,134 @@ Returns the default identity for an account, or null if it is not defined.
 
 .. rst-class:: api-main-section
 
+Events
+======
+
+.. _accounts.onCreated:
+
+onCreated
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 98]
+
+Fired when a new account has been created.
+
+.. api-header::
+   :label: Parameters for onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(id, account)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`accounts.MailAccount`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _accounts.onDeleted:
+
+onDeleted
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 98]
+
+Fired when an account has been removed.
+
+.. api-header::
+   :label: Parameters for onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _accounts.onUpdated:
+
+onUpdated
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 98]
+
+Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed ``defaultIdentity`` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
+
+.. api-header::
+   :label: Parameters for onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(id, changedValues)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``changedValues``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``defaultIdentity``
+         :type: (:ref:`identities.MailIdentity`)
+         
+         The default identity of this account.
+      
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+         
+         The human-friendly name of this account.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. rst-class:: api-main-section
+
 Types
 =====
 

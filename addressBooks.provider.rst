@@ -112,7 +112,7 @@ Example:
       :name: [``query``]
       :type: (string)
       
-      The boolean query expression corresponding to the search. Note: This parameter may change in future releases of Thunderbird.
+      The boolean query expression corresponding to the search. **Note:** This parameter may change in future releases of Thunderbird.
    
 
 .. api-header::

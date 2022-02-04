@@ -2,6 +2,17 @@
 Changes in Thunderbird 98
 =========================
 
+accounts API
+============
+
+* added :ref:`accounts.onCreated`, :ref:`accounts.onDeleted` and :ref:`accounts.onUpdated` events
+
+cloudFile API
+=============
+
+* added manifest property ``reuse_uploads``, to allow providers to disable automatic link reuse of already known cloud files: If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known ``url`` and ``templateInfo`` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to false will always trigger the registered listener, providing the already known values through the ``relatedFileInfo`` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
+* added the ``relatedFileInfo`` parameter of the :ref:`cloudFile.onFileUpload` event: Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property ``reuse_uploads`` set to ``false``.
+
 compose API
 ===========
 

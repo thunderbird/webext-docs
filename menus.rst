@@ -235,7 +235,7 @@ Updates a previously created context menu item.
          :name: [``parentId``]
          :type: (integer or string)
          
-         Note: You cannot change an item to be a child of one of its own descendants.
+         **Note:** You cannot change an item to be a child of one of its own descendants.
       
       
       .. api-member::
@@ -566,6 +566,12 @@ The different contexts a menu can appear in. Specifying ``all`` is equivalent to
             :annotation: -- [Added in TB 83, backported to TB 78.5.0]
          
          .. api-member::
+            :name: ``message_attachments``
+         
+         .. api-member::
+            :name: ``all_message_attachments``
+         
+         .. api-member::
             :name: ``tools_menu``
             :annotation: -- [Added in TB 88]
    
@@ -655,10 +661,10 @@ Information sent when a context menu item is clicked.
    
    .. api-member::
       :name: [``attachments``]
-      :type: (array of :ref:`compose.ComposeAttachment`)
+      :type: (array of :ref:`compose.ComposeAttachment` or :ref:`messages.MessageAttachment`)
       :annotation: -- [Added in TB 83]
       
-      The selected attachments of a message being composed. The :permission:`compose` permission is required.
+      The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.
    
    
    .. api-member::
@@ -823,9 +829,7 @@ OnShowData
 
 .. api-section-annotation-hack:: 
 
-Information sent when a context menu is being shown. For more information about each property, see :ref:`menus.OnClickData`. 
-
-Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
+Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
 
 .. api-header::
    :label: object
@@ -841,6 +845,8 @@ Some properties are only included if the extension has host permission for the g
    .. api-member::
       :name: ``editable``
       :type: (boolean)
+      
+      A flag indicating whether the element is editable (text input, textarea, etc.).
    
    
    .. api-member::
@@ -852,92 +858,130 @@ Some properties are only included if the extension has host permission for the g
    
    .. api-member::
       :name: [``attachments``]
-      :type: (array of :ref:`compose.ComposeAttachment`)
+      :type: (array of :ref:`compose.ComposeAttachment` or :ref:`messages.MessageAttachment`)
       :annotation: -- [Added in TB 83]
+      
+      The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.
    
    
    .. api-member::
       :name: [``displayedFolder``]
       :type: (:ref:`folders.MailFolder`)
+      
+      The displayed folder, if the context menu was opened in the message list. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``fieldId``]
-      :type: (string)
+      :type: (`string`)
       :annotation: -- [Added in TB 89]
+      
+      An identifier of the clicked Thunderbird UI element, if any.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``composeSubject``
+      
+      .. api-member::
+         :name: ``composeTo``
+      
+      .. api-member::
+         :name: ``composeCc``
+      
+      .. api-member::
+         :name: ``composeBcc``
+      
+      .. api-member::
+         :name: ``composeReplyTo``
+      
+      .. api-member::
+         :name: ``composeNewsgroupTo``
    
    
    .. api-member::
       :name: [``frameUrl``]
       :type: (string)
       
-      Host permission is required.
+      The URL of the frame of the element where the context menu was clicked, if it was in a frame. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``linkText``]
       :type: (string)
       
-      Host permission is required.
+      If the element is a link, the text of that link. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``linkUrl``]
       :type: (string)
       
-      Host permission is required.
+      If the element is a link, the URL it points to. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``mediaType``]
       :type: (string)
+      
+      One of 'image', 'video', or 'audio' if the context menu was activated on one of these types of elements.
    
    
    .. api-member::
       :name: [``pageUrl``]
       :type: (string)
       
-      Host permission is required.
+      The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``selectedAccount``]
       :type: (:ref:`accounts.MailAccount`)
       :annotation: -- [Added in TB 88]
+      
+      The selected account, if the context menu was opened on an account entry in the folder pane. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``selectedFolder``]
       :type: (:ref:`folders.MailFolder`)
+      
+      The selected folder, if the context menu was opened in the folder pane. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``selectedMessages``]
       :type: (:ref:`messages.MessageList`)
+      
+      The selected messages, if the context menu was opened in the message list. The :permission:`messagesRead` permission is required.
    
    
    .. api-member::
       :name: [``selectionText``]
       :type: (string)
       
-      Host permission is required.
+      The text for the context selection, if any. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``srcUrl``]
       :type: (string)
       
-      Host permission is required.
+      Will be present for elements with a 'src' URL. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``targetElementId``]
       :type: (integer)
+      
+      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
    
    
    .. api-member::
       :name: [``viewType``]
       :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
+      
+      The type of view where the menu is shown. May be unset if the menu is not associated with a view.
    
 
 .. rst-class:: api-main-section

@@ -77,7 +77,7 @@ Manifest file properties
       :name: [``theme_icons``]
       :type: (array of :ref:`composeAction.ThemeIcons`)
       
-      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. Note: The default theme uses the ``default_icon`` for light backgrounds (if specified).
+      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
    
 
 .. rst-class:: api-permission-info
@@ -477,7 +477,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when a composeAction icon is clicked.  This event will not fire if the composeAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a composeAction icon is clicked. This event will not fire if the composeAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)

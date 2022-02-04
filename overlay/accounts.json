@@ -51,6 +51,20 @@
           }
         ]
       }
+    ],
+    "events": [
+      {
+        "name": "onCreated",
+        "added": 98
+      },
+      {
+        "name": "onDeleted",
+        "added": 98
+      },
+      {
+        "name": "onUpdated",
+        "added": 98
+      }
     ]
   }
 ]

@@ -13,6 +13,9 @@
               "data_format": {
                 "added": "71",
                 "backported": "68.2.1"
+              },
+              "reuse_uploads": {
+                "added": "98"
               }
             }
           }
@@ -51,7 +54,11 @@
           {
             "name": "tab",
             "added": "91"
-          }
+          },
+          {
+            "name": "relatedFileInfo",
+            "added": "98"
+          }          
         ],
         "returns": {
           "properties": {

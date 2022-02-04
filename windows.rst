@@ -447,7 +447,7 @@ onFocusChanged
 
 .. api-section-annotation-hack:: 
 
-Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`) if all browser windows have lost focus. Note: On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
+Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`) if all browser windows have lost focus. **Note:** On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
 
 .. api-header::
    :label: Parameters for onFocusChanged.addListener(listener)

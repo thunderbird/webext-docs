@@ -41,7 +41,7 @@ Open a new message compose window.
 
 **Note:** The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the selected identity is used.
 
-**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
+**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 **Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
@@ -84,7 +84,7 @@ Open a new message compose window replying to a given message.
 
 **Note:** The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the selected identity is used.
 
-**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
+**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 **Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
@@ -143,7 +143,7 @@ Open a new message compose window forwarding a given message.
 
 **Note:** The compose format can be set by ``details.isPlainText`` or by specifying only one of ``details.body`` or ``details.plainTextBody``. Otherwise the default compose format of the selected identity is used.
 
-**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` raised an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
+**Note:** Specifying ``details.body`` and ``details.plainTextBody`` without also specifying ``details.isPlainText`` threw an exception in Thunderbird up to version 97. Since Thunderbird 98, this combination creates a compose window with the compose format of the selected identity, using the matching ``details.body`` or ``details.plainTextBody`` value.
 
 **Note:** If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
@@ -229,7 +229,7 @@ setComposeDetails(tabId, details)
 
 Updates the compose window. Only fields that are to be changed should be specified. Currently only a limited amount of information can be set, more will be added in later versions.
 
-**Note:** The compose format of an existing compose window cannot be changed. Since Thunderbird 98, setting conflicting values ​​for ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` no longer raises an exception, instead the compose window chooses the matching ``details.body`` or ``details.plainTextBody`` value and ignores the other.
+**Note:** The compose format of an existing compose window cannot be changed. Since Thunderbird 98, setting conflicting values for ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` no longer throw an exception, instead the compose window chooses the matching ``details.body`` or ``details.plainTextBody`` value and ignores the other.
 
 .. api-header::
    :label: Parameters
@@ -358,7 +358,7 @@ updateAttachment(tabId, attachmentId, attachment)
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
-Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will raise an ``ExtensionError``.
+Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an ``ExtensionError``.
 
 .. api-header::
    :label: Parameters
@@ -831,7 +831,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 75]
       
-      Wether the message is an HTML message or a plain text message.
+      Whether the message is an HTML message or a plain text message.
    
    
    .. api-member::
