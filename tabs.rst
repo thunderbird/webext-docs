@@ -700,7 +700,7 @@ getAsPDF(pageSettings, [tabId])
 
 .. api-section-annotation-hack:: 
 
-Returns the content of a tab as a PDF DOM ``File`` object. Supporting the following tab types: ``mail``,``messageDisplay``, ``addressBook`` and ``content``. The associated host permissions are required: :permission:`messagesRead`, :permission:`addressBooks` or :permission:`activeTab`.
+Returns the content of a tab as a PDF DOM ``File`` object. Supporting the following tab types: ``mail``, ``messageDisplay``, ``addressBook`` and ``content``. The associated host permissions are required: :permission:`messagesRead`, :permission:`addressBooks` or :permission:`activeTab`.
 
 .. api-header::
    :label: Parameters
