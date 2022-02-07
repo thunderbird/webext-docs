@@ -285,7 +285,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :name: [``aborted``]
          :type: (boolean)
          
-         Set this to true if the file upload was aborted by the user and a :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
+         Set this to true if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
       
       
       .. api-member::
