@@ -652,6 +652,84 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
       Details of the CSS text to remove.
    
 
+.. _tabs.print:
+
+print()
+-------
+
+.. api-section-annotation-hack:: 
+
+Prints the page in the active tab. Supporting the following tab types: ``mail``, ``messageDisplay``, ``addressBook`` and ``content``.
+
+.. _tabs.saveAsPDF:
+
+saveAsPDF(pageSettings)
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Saves page in the active tab as a PDF file. Supporting the following tab types: ``mail``, ``messageDisplay``, ``addressBook`` and ``content``.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``pageSettings``
+      :type: (:ref:`tabs.PageSettings`)
+      
+      The page settings used to save the PDF file.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+      
+      Save status: saved, replaced, canceled, not_saved, not_replaced.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _tabs.getAsPDF:
+
+getAsPDF(pageSettings, [tabId])
+-------------------------------
+
+.. api-section-annotation-hack:: 
+
+Returns the content of a tab as a PDF DOM ``File`` object. Supporting the following tab types: ``mail``/``messageDisplay`` (:permission:`messagesRead`), ``addressBook`` (:permission:`addressBooks`) and ``content`` (:permission:`activeTab`). The associated host permissions are required.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``pageSettings``
+      :type: (:ref:`tabs.PageSettings`)
+      
+      The page settings used to create the PDF file.
+   
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer)
+      
+      The ID of the tab to save as a PDF file. If not provided, the active tab will be used.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. rst-class:: api-main-section
 
 Events
@@ -984,6 +1062,180 @@ Fired when a tab is closed.
 
 Types
 =====
+
+.. _tabs.PageSettings:
+
+PageSettings
+------------
+
+.. api-section-annotation-hack:: 
+
+Defines the page settings to be used when saving a page as a pdf file.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``edgeBottom``]
+      :type: (number)
+      
+      The spacing between the bottom of the footers and the bottom edge of the paper (inches). Default: 0.
+   
+   
+   .. api-member::
+      :name: [``edgeLeft``]
+      :type: (number)
+      
+      The spacing between the left header/footer and the left edge of the paper (inches). Default: 0.
+   
+   
+   .. api-member::
+      :name: [``edgeRight``]
+      :type: (number)
+      
+      The spacing between the right header/footer and the right edge of the paper (inches). Default: 0.
+   
+   
+   .. api-member::
+      :name: [``edgeTop``]
+      :type: (number)
+      
+      The spacing between the top of the headers and the top edge of the paper (inches). Default: 0.
+   
+   
+   .. api-member::
+      :name: [``footerCenter``]
+      :type: (string)
+      
+      The text for the page's center footer. Default: ''.
+   
+   
+   .. api-member::
+      :name: [``footerLeft``]
+      :type: (string)
+      
+      The text for the page's left footer. Default: '&PT'.
+   
+   
+   .. api-member::
+      :name: [``footerRight``]
+      :type: (string)
+      
+      The text for the page's right footer. Default: '&D'.
+   
+   
+   .. api-member::
+      :name: [``headerCenter``]
+      :type: (string)
+      
+      The text for the page's center header. Default: ''.
+   
+   
+   .. api-member::
+      :name: [``headerLeft``]
+      :type: (string)
+      
+      The text for the page's left header. Default: '&T'.
+   
+   
+   .. api-member::
+      :name: [``headerRight``]
+      :type: (string)
+      
+      The text for the page's right header. Default: '&U'.
+   
+   
+   .. api-member::
+      :name: [``marginBottom``]
+      :type: (number)
+      
+      The margin between the page content and the bottom edge of the paper (inches). Default: 0.5.
+   
+   
+   .. api-member::
+      :name: [``marginLeft``]
+      :type: (number)
+      
+      The margin between the page content and the left edge of the paper (inches). Default: 0.5.
+   
+   
+   .. api-member::
+      :name: [``marginRight``]
+      :type: (number)
+      
+      The margin between the page content and the right edge of the paper (inches). Default: 0.5.
+   
+   
+   .. api-member::
+      :name: [``marginTop``]
+      :type: (number)
+      
+      The margin between the page content and the top edge of the paper (inches). Default: 0.5.
+   
+   
+   .. api-member::
+      :name: [``orientation``]
+      :type: (integer)
+      
+      The page content orientation: 0 = portrait, 1 = landscape. Default: 0.
+   
+   
+   .. api-member::
+      :name: [``paperHeight``]
+      :type: (number)
+      
+      The paper height in paper size units. Default: 11.0.
+   
+   
+   .. api-member::
+      :name: [``paperSizeUnit``]
+      :type: (integer)
+      
+      The page size unit: 0 = inches, 1 = millimeters. Default: 0.
+   
+   
+   .. api-member::
+      :name: [``paperWidth``]
+      :type: (number)
+      
+      The paper width in paper size units. Default: 8.5.
+   
+   
+   .. api-member::
+      :name: [``scaling``]
+      :type: (number)
+      
+      The page content scaling factor: 1.0 = 100% = normal size. Default: 1.0.
+   
+   
+   .. api-member::
+      :name: [``showBackgroundColors``]
+      :type: (boolean)
+      
+      Whether the page background colors should be shown. Default: false.
+   
+   
+   .. api-member::
+      :name: [``showBackgroundImages``]
+      :type: (boolean)
+      
+      Whether the page background images should be shown. Default: false.
+   
+   
+   .. api-member::
+      :name: [``shrinkToFit``]
+      :type: (boolean)
+      
+      Whether the page content should shrink to fit the page width (overrides scaling). Default: true.
+   
+   
+   .. api-member::
+      :name: [``toFileName``]
+      :type: (string)
+      
+      The name of the file. May include optional .pdf extension.
+   
 
 .. _tabs.Tab:
 
