@@ -714,6 +714,42 @@ Contains the color, image and property settings of a theme.
          .. api-member::
             :name: ``repeat-y``
       
+      
+      .. api-member::
+         :name: [``color_scheme``]
+         :type: (`string`)
+         
+         If set, overrides the general 'toolbar theme'.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``light``
+         
+         .. api-member::
+            :name: ``dark``
+         
+         .. api-member::
+            :name: ``auto``
+      
+      
+      .. api-member::
+         :name: [``content_color_scheme``]
+         :type: (`string`)
+         
+         If set, overrides the color scheme for the content area.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``light``
+         
+         .. api-member::
+            :name: ``dark``
+         
+         .. api-member::
+            :name: ``auto``
+      
    
 
 .. _theme.ThemeUpdateInfo:
