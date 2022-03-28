@@ -34,6 +34,9 @@
           "relatedMessageId": {
             "added": "95"
           },
+          "customHeaders": {
+            "added": "100"
+          },
           "type": {
             "added": "88",
             "enumChanges": {

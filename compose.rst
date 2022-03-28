@@ -805,6 +805,14 @@ Used by various functions to represent the state of a message being composed. No
    
    
    .. api-member::
+      :name: [``customHeaders``]
+      :type: (array of :ref:`compose.CustomHeader`)
+      :annotation: -- [Added in TB 100]
+      
+      Array of custom headers. Headers will be returned in ``Http-Header-Case`` (a.k.a. ``Train-Case``)
+   
+   
+   .. api-member::
       :name: [``followupTo``]
       :type: (:ref:`compose.ComposeRecipientList`)
       :annotation: -- [Added in TB 74]
@@ -988,6 +996,31 @@ Represent the state of the message composer.
       :type: (boolean)
       
       The message can be send now.
+   
+
+.. _compose.CustomHeader:
+
+CustomHeader
+------------
+
+.. api-section-annotation-hack:: 
+
+A custom header definition.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      Name of a custom header, must have a ``X-`` prefix.
+   
+   
+   .. api-member::
+      :name: ``value``
+      :type: (string)
    
 
 .. _compose.FileAttachment:
