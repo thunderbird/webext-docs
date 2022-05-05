@@ -38,7 +38,7 @@ list([includeFolders])
 
 .. api-section-annotation-hack:: 
 
-Returns all mail accounts.
+Returns all mail accounts. They will be returned in the same order as used in Thunderbird's folder pane.
 
 .. api-header::
    :label: Parameters

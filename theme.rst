@@ -405,7 +405,7 @@ Contains the color, image and property settings of a theme.
          :name: [``icons_attention``]
          :type: (:ref:`theme.ThemeColor`)
          
-         The color of the toolbar icons in attention state such as the chat icon whith new messages.
+         The color of the toolbar icons in attention state such as the chat icon with new messages.
       
       
       .. api-member::

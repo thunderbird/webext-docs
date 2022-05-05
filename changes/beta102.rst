@@ -1,0 +1,15 @@
+==========================
+Changes in Thunderbird 102
+==========================
+
+compose API
+===========
+* Added support for ``additionalFccFolder``, ``attachVCard``, ``deliveryFormat``, ``deliveryStatusNotification``, ``overrideDefaultFcc``, ``overrideDefaultFccFolder``, ``priority`` and ``returnReceipt`` in :ref:`compose.ComposeDetails`.
+
+folders API
+============
+* Subfolders are now being returned in the order used in Thunderbird's folder pane.
+
+messages API
+============
+* Added support for ``headersOnly`` to :ref:`messages.MessageHeader`.

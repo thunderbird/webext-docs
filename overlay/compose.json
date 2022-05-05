@@ -37,6 +37,30 @@
           "customHeaders": {
             "added": "100"
           },
+          "additionalFccFolder": {
+            "added": "102"
+          },
+          "attachVCard": {
+            "added": "102"
+          },
+          "deliveryFormat": {
+            "added": "102"
+          },
+          "deliveryStatusNotification": {
+            "added": "102"
+          },
+          "overrideDefaultFcc": {
+            "added": "102"
+          },
+          "overrideDefaultFccFolder": {
+            "added": "102"
+          },
+          "priority": {
+            "added": "102"
+          },
+          "returnReceipt": {
+            "added": "102"
+          },
           "type": {
             "added": "88",
             "enumChanges": {
@@ -57,7 +81,7 @@
           },
           "getFile()": {
             "deprecated": true,
-            "type" : "function",
+            "type": "function",
             "description": "Use :ref:`compose.getAttachmentFile` instead, for example in a backward-compatible drop-in `wrapper function <https://thunderbird.topicbox.com/groups/addons/T290381ad849307a1-Mda1465bd6388138d5a893ff8/request-to-deprecate-composeattachment-getfile>`__."
           }
         }

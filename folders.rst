@@ -593,7 +593,7 @@ An object describing a mail folder, as returned for example by the :ref:`folders
       :type: (array of :ref:`folders.MailFolder`)
       :annotation: -- [Added in TB 74]
       
-      Subfolders are only included if requested.
+      Subfolders are only included if requested. They will be returned in the same order as used in Thunderbird's folder pane.
    
    
    .. api-member::

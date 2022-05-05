@@ -181,7 +181,7 @@ create(createProperties)
 
 .. api-section-annotation-hack:: 
 
-Creates a new tab or switches to a tab with the given URL, if it exists already.
+Creates a new tab.
 
 .. api-header::
    :label: Parameters

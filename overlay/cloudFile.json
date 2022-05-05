@@ -10,10 +10,6 @@
               "browser_style": {
                 "added": "90"
               },
-              "data_format": {
-                "added": "71",
-                "backported": "68.2.1"
-              },
               "reuse_uploads": {
                 "added": "98"
               }

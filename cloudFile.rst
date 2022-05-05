@@ -50,18 +50,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``data_format``]
-      :type: (`string`)
-      :annotation: -- [Added in TB 71, backported to TB 68.2.1]
+      :type: (string) **Deprecated.**
       
-      Determines the format of the ``data`` argument in ``onFileUpload``. Support for ArrayBuffer will be removed in Thunderbird 102.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: ``ArrayBuffer``
-      
-      .. api-member::
-         :name: ``File``
+      This property is no longer used. The only supported data format for the ``data`` argument in ``onFileUpload`` is `File <https://developer.mozilla.org/docs/Web/API/File>`__.
    
    
    .. api-member::
@@ -553,7 +544,9 @@ Information about a cloud file.
    
    .. api-member::
       :name: ``data``
-      :type: (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`_ or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      
+      Contents of the file to be transferred.
    
    
    .. api-member::

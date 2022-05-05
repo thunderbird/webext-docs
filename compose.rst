@@ -780,6 +780,22 @@ Used by various functions to represent the state of a message being composed. No
 
    
    .. api-member::
+      :name: [``additionalFccFolder``]
+      :type: (:ref:`folders.MailFolder` or `string`)
+      :annotation: -- [Added in TB 102]
+      
+      An additional fcc folder which can be selected while composing the message, ``""`` if not used.
+   
+   
+   .. api-member::
+      :name: [``attachVCard``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 102]
+      
+      Wether or not the vCard of the used identity will be attached to the message during send. Note: If the value has not been modified, selecting a different identity will load the default value of the new identity.
+   
+   
+   .. api-member::
       :name: [``attachments``]
       :type: (array of :ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`)
       :annotation: -- [Added in TB 82, backported to TB 78.4.0]
@@ -809,7 +825,37 @@ Used by various functions to represent the state of a message being composed. No
       :type: (array of :ref:`compose.CustomHeader`)
       :annotation: -- [Added in TB 100]
       
-      Array of custom headers. Headers will be returned in ``Http-Header-Case`` (a.k.a. ``Train-Case``)
+      Array of custom headers. Headers will be returned in ``Http-Header-Case`` (a.k.a. ``Train-Case``). Set an empty array to clear all custom headers.
+   
+   
+   .. api-member::
+      :name: [``deliveryFormat``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 102]
+      
+      Defines the mime format of the send message (ignored on plain text messages). Defaults to ``auto``, which will send html messages as plain text, if they do not include any formatting, and as ``both`` otherwise (a multipart/mixed message).
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``auto``
+      
+      .. api-member::
+         :name: ``plaintext``
+      
+      .. api-member::
+         :name: ``html``
+      
+      .. api-member::
+         :name: ``both``
+   
+   
+   .. api-member::
+      :name: [``deliveryStatusNotification``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 102]
+      
+      Let the sender know when the recipient's server received the message. Not supported by all servers.
    
    
    .. api-member::
@@ -849,11 +895,52 @@ Used by various functions to represent the state of a message being composed. No
    
    
    .. api-member::
+      :name: [``overrideDefaultFcc``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 102]
+      
+      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting ``false`` will clear the override. Setting ``true`` will throw an exception, if ``overrideDefaultFccFolder`` is not set as well.
+   
+   
+   .. api-member::
+      :name: [``overrideDefaultFccFolder``]
+      :type: (:ref:`folders.MailFolder` or `string`)
+      :annotation: -- [Added in TB 102]
+      
+       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or ``""`` to not save a copy at all.
+   
+   
+   .. api-member::
       :name: [``plainTextBody``]
       :type: (string)
       :annotation: -- [Added in TB 75]
       
       The plain text content of the message.
+   
+   
+   .. api-member::
+      :name: [``priority``]
+      :type: (`string`)
+      :annotation: -- [Added in TB 102]
+      
+      The priority of the message.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``lowest``
+      
+      .. api-member::
+         :name: ``low``
+      
+      .. api-member::
+         :name: ``normal``
+      
+      .. api-member::
+         :name: ``high``
+      
+      .. api-member::
+         :name: ``highest``
    
    
    .. api-member::
@@ -867,6 +954,14 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``replyTo``]
       :type: (:ref:`compose.ComposeRecipientList`)
+   
+   
+   .. api-member::
+      :name: [``returnReceipt``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 102]
+      
+      Add the ``Disposition-Notification-To`` header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
    
    
    .. api-member::

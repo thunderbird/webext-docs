@@ -157,7 +157,7 @@ getFull(messageId)
 
 .. api-section-annotation-hack:: 
 
-Returns a specified message, including all headers and MIME parts.
+Returns a specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.
 
 .. api-header::
    :label: Parameters
@@ -190,7 +190,7 @@ getRaw(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
+Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
 
 To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main ``content-type`` header (example: `text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
 
@@ -966,6 +966,14 @@ Basic information about a message.
       :annotation: -- [Added in TB 85]
       
       The message-id header of the message.
+   
+   
+   .. api-member::
+      :name: ``headersOnly``
+      :type: (boolean)
+      :annotation: -- [Added in TB 102]
+      
+      Some account types (for example POP) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
    
    
    .. api-member::

@@ -33,7 +33,7 @@ getDisplayedMessage(tabId)
 
 .. api-section-annotation-hack:: 
 
-Gets the currently displayed message in the specified tab. It returns null if no messages are displayed, or if multiple messages are displayed.
+Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible). It returns null if no messages are displayed, or if multiple messages are displayed.
 
 .. api-header::
    :label: Parameters
@@ -66,7 +66,7 @@ getDisplayedMessages(tabId)
 
 .. api-section-annotation-hack:: -- [Added in TB 81, backported to TB 78.4.0]
 
-Gets an array of the currently displayed messages in the specified tab. The array is empty if no messages are displayed.
+Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible). The array is empty if no messages are displayed.
 
 .. api-header::
    :label: Parameters
