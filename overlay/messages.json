@@ -3,6 +3,18 @@
     "namespace": "messages",
     "functions": [
       {
+        "name": "createTag",
+        "added": "102"
+      },
+      {
+        "name": "updateTag",
+        "added": "102"
+      },
+      {
+        "name": "deleteTag",
+        "added": "102"
+      },
+      {
         "name": "getRaw",
         "added": "72",
         "backported": "68.7"

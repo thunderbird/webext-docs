@@ -13,3 +13,4 @@ folders API
 messages API
 ============
 * Added support for ``headersOnly`` to :ref:`messages.MessageHeader`.
+* Added :ref:`messages.createTag`, :ref:`messages.updateTag` and :ref:`messages.deleteTag`.

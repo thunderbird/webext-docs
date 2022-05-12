@@ -39,6 +39,11 @@ Permissions
 
    Permanently delete your email messages
 
+.. api-member::
+   :name: :permission:`messagesTags`
+
+   Create, modify and delete message tags
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -629,6 +634,103 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
    :label: Required permissions
 
    - :permission:`messagesRead`
+
+.. _messages.createTag:
+
+createTag(key, tag, color)
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Creates a new message tag. Tagging a message will store the tag's key in the user's message.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``tag``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``color``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
+
+.. _messages.updateTag:
+
+updateTag(key, updateProperties)
+--------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Updates a message tag.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``updateProperties``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``color``]
+         :type: (string)
+      
+      
+      .. api-member::
+         :name: [``tag``]
+         :type: (string)
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
+
+.. _messages.deleteTag:
+
+deleteTag(key)
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
 
 .. rst-class:: api-main-section
 
