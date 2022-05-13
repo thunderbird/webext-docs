@@ -7,6 +7,10 @@
         "added": "74"
       },
       {
+        "id": "ComposeDictionaries",
+        "added": "102"
+      },
+      {
         "id": "ComposeDetails",
         "properties": {
           "attachments": {
@@ -152,6 +156,14 @@
         "added": "74"
       },
       {
+        "name": "getActiveDictionaries",
+        "added": "102"
+      },
+      {
+        "name": "setActiveDictionaries",
+        "added": "102"
+      },
+      {
         "name": "listAttachments",
         "added": "78"
       },
@@ -190,6 +202,10 @@
             "added": "74.0b2"
           }
         ]
+      },
+      {
+        "name": "onActiveDictionariesChanged",
+        "added": "102"
       },
       {
         "name": "onAttachmentAdded",

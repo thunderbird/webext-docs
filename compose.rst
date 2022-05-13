@@ -250,6 +250,67 @@ Updates the compose window. Only fields that are to be changed should be specifi
 
    - :permission:`compose`
 
+.. _compose.getActiveDictionaries:
+
+getActiveDictionaries(tabId)
+----------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Returns a :ref:`ComposeDictionaries` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`compose.ComposeDictionaries`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
+.. _compose.setActiveDictionaries:
+
+setActiveDictionaries(tabId, activeDictionaries)
+------------------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Updates the active dictionaries. Throws if the ``activeDictionaries`` array contains unknown or invalid language identifiers.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``activeDictionaries``
+      :type: (array of string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
 .. _compose.listAttachments:
 
 listAttachments(tabId)
@@ -719,6 +780,39 @@ Fired when the state of the message composer changed.
       :type: (:ref:`compose.ComposeState`)
    
 
+.. _compose.onActiveDictionariesChanged:
+
+onActiveDictionariesChanged
+---------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Fired when one or more dictionaries have been activated or deactivated.
+
+.. api-header::
+   :label: Parameters for onActiveDictionariesChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, dictionaries)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``dictionaries``
+      :type: (:ref:`compose.ComposeDictionaries`)
+   
+
 .. rst-class:: api-main-section
 
 Types
@@ -999,6 +1093,18 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: ``forward``
    
+
+.. _compose.ComposeDictionaries:
+
+ComposeDictionaries
+-------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Object with language identifiers of all installed dictionaries as keys (for example ``en-US``) and a boolean value, indicating whether that dictionary is enabled for spellchecking or not.
+
+.. api-header::
+   :label: object
 
 .. _compose.ComposeRecipient:
 
