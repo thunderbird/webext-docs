@@ -92,6 +92,84 @@ Gets an array of the currently displayed messages in the specified tab (even if 
 
    - :permission:`messagesRead`
 
+.. _messageDisplay.open:
+
+open(openProperties)
+--------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Opens a message in a new tab or in a new window.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``openProperties``
+      :type: (object)
+      
+      Settings for opening the message. Exactly one of messageId or headerMessageId must be specified.
+      
+      .. api-member::
+         :name: [``active``]
+         :type: (boolean)
+         
+         Whether the new tab should become the active tab in the window. Only applicable to messages opened in tabs.
+      
+      
+      .. api-member::
+         :name: [``headerMessageId``]
+         :type: (string)
+         
+         The headerMessageId of a message to be opened. Will throw, if the provided ``headerMessageId`` is unknown or invalid.
+      
+      
+      .. api-member::
+         :name: [``location``]
+         :type: (`string`)
+         
+         Where to open the message. If not specified, the users preference is honoured.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``tab``
+         
+         .. api-member::
+            :name: ``window``
+      
+      
+      .. api-member::
+         :name: [``messageId``]
+         :type: (integer)
+         
+         The id of a message to be opened. Will throw, if the provided ``messageId`` is unknown or invalid.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. rst-class:: api-main-section
 
 Events

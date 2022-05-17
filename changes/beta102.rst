@@ -15,3 +15,7 @@ messages API
 ============
 * Added support for ``headersOnly`` to :ref:`messages.MessageHeader`.
 * Added :ref:`messages.createTag`, :ref:`messages.updateTag` and :ref:`messages.deleteTag`.
+
+messageDisplay API
+============
+* Added :ref:`messagesDisplay.open` to open messages in tabs or windows

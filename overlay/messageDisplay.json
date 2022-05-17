@@ -9,6 +9,10 @@
         "name": "getDisplayedMessages",
         "added": "81",
         "backported": "78.4.0"
+      },
+      {
+        "name": "open",
+        "added": "102"
       }
     ],
     "events": [

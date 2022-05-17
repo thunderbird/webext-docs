@@ -181,7 +181,7 @@ create(createProperties)
 
 .. api-section-annotation-hack:: 
 
-Creates a new tab.
+Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages.
 
 .. api-header::
    :label: Parameters
@@ -190,6 +190,8 @@ Creates a new tab.
    .. api-member::
       :name: ``createProperties``
       :type: (object)
+      
+      Properties for the new tab. Defaults to an empty tab, if no ``url`` is provided.
       
       .. api-member::
          :name: [``active``]
@@ -216,7 +218,7 @@ Creates a new tab.
          :name: [``url``]
          :type: (string)
          
-         The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+         The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension.
       
       
       .. api-member::
@@ -408,18 +410,20 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
       :name: ``updateProperties``
       :type: (object)
       
+      Properties which should to be updated.
+      
       .. api-member::
          :name: [``active``]
          :type: (boolean)
          
-         Whether the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`).
+         Set this to true, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect.
       
       
       .. api-member::
          :name: [``url``]
          :type: (string)
          
-         A URL to navigate the tab to.
+         A URL to navigate the tab to. Only applicable for ``content`` tabs and active ``mail`` tabs.
       
    
 
