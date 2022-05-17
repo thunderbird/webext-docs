@@ -17,5 +17,5 @@ messages API
 * Added :ref:`messages.createTag`, :ref:`messages.updateTag` and :ref:`messages.deleteTag`.
 
 messageDisplay API
-============
-* Added :ref:`messagesDisplay.open` to open messages in tabs or windows
+==================
+* Added :ref:`messageDisplay.open` to open messages in tabs or windows
