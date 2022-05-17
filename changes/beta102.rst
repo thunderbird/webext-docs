@@ -18,4 +18,4 @@ messages API
 
 messageDisplay API
 ==================
-* Added :ref:`messageDisplay.open` to open messages in tabs or windows
+* Added :ref:`messageDisplay.open` to open messages in tabs or windows.
