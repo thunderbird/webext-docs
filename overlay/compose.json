@@ -185,7 +185,22 @@
       },
       {
         "name": "sendMessage",
-        "added": "90"
+        "added": "90",
+        "parameters": [
+          {
+            "name": "callback",
+            "parameters": [
+              {
+                "name": "return",
+                "added": "102"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "saveMessage",
+        "added": "102"
       },
       {
         "name": "getComposeState",

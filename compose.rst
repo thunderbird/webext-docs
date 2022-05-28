@@ -21,6 +21,11 @@ Permissions
    Read and modify your email messages as you compose and send them
 
 .. api-member::
+   :name: :permission:`compose.save`
+
+   Save composed email messages as drafts or templates
+
+.. api-member::
    :name: :permission:`compose.send`
 
    Send composed email messages on your behalf
@@ -490,7 +495,7 @@ sendMessage(tabId, [options])
 
 .. api-section-annotation-hack:: -- [Added in TB 90]
 
-Sends the message currently being composed.
+Sends the message currently being composed. If the send mode is not specified or set to ``default``, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an :ref:`onBeforeSend` event or if there has been an error while sending the message to the outgoing mail server.
 
 .. api-header::
    :label: Parameters
@@ -527,7 +532,37 @@ Sends the message currently being composed.
 
    
    .. api-member::
-      :type: boolean
+      :type: object
+      :annotation: -- [Added in TB 102]
+      
+      .. api-member::
+         :name: ``messages``
+         :type: (array of :ref:`messages.MessageHeader`)
+         
+         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
+      
+      
+      .. api-member::
+         :name: ``mode``
+         :type: (`string`)
+         
+         The used send mode.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``sendNow``
+         
+         .. api-member::
+            :name: ``sendLater``
+      
+      
+      .. api-member::
+         :name: [``headerMessageId``]
+         :type: (string)
+         
+         The header messageId of the outgoing message. Only included for actually sent messages.
+      
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -536,6 +571,79 @@ Sends the message currently being composed.
    :label: Required permissions
 
    - :permission:`compose.send`
+
+.. _compose.saveMessage:
+
+saveMessage(tabId, [options])
+-----------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object)
+      
+      .. api-member::
+         :name: ``mode``
+         :type: (`string`)
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``draft``
+         
+         .. api-member::
+            :name: ``template``
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: object
+      
+      .. api-member::
+         :name: ``messages``
+         :type: (array of :ref:`messages.MessageHeader`)
+         
+         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
+      
+      
+      .. api-member::
+         :name: ``mode``
+         :type: (`string`)
+         
+         The used save mode.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``draft``
+         
+         .. api-member::
+            :name: ``template``
+      
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose.save`
 
 .. _compose.getComposeState:
 
@@ -927,7 +1035,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (`string`)
       :annotation: -- [Added in TB 102]
       
-      Defines the mime format of the send message (ignored on plain text messages). Defaults to ``auto``, which will send html messages as plain text, if they do not include any formatting, and as ``both`` otherwise (a multipart/mixed message).
+      Defines the mime format of the sent message (ignored on plain text messages). Defaults to ``auto``, which will send html messages as plain text, if they do not include any formatting, and as ``both`` otherwise (a multipart/mixed message).
       
       Supported values:
       
