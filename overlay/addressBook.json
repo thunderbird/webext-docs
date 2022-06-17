@@ -101,19 +101,22 @@
       {
         "id": "ContactProperties",
         "type": "object",
-        "description": "A set of individual properties for a particular contact and its vCard string.",
+        "description": "A set of individual properties for a particular contact, and its vCard string. Further information can be found in :ref:`howto_contacts`.",
         "properties": {
           "vCard": {
             "added": "102",
+            "type": "string",
             "description": "The contacts vCard string."
           },
           "<legacy properties>": {
             "deprecated": true,
-            "description": "A set of `properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__, which map to certain fields in the contacts vCard string."
+            "type": "string",
+            "description": "`Legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ point to certain fields in the contacts vCard string and provide direct read/write access."
           },
           "<custom properties>": {
             "deprecated": true,
-            "description": "Custom properties, not saved in the users vCard, and therfore not transfered to the users server, if the contact is stored in a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``."
+            "type": "string",
+            "description": "Custom properties are not saved in the users vCard. Therfore, they are not transfered to the users server, if the contact is stored in a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``."
           }
         }
       }      
