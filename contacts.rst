@@ -450,7 +450,7 @@ A set of individual properties for a particular contact and its vCard string.
    .. api-member::
       :name: ``<custom properties>``
       
-      Custom properties, not saved in the users vCard, and therfore not transfered to the users server, if the contact is stored in a remote CardDAV server. Names of custom properties may include a to z, A to Z, 1 to 9 and underscores.
+      Custom properties, not saved in the users vCard, and therfore not transfered to the users server, if the contact is stored in a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
    
    
    .. api-member::
