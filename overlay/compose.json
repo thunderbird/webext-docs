@@ -8,7 +8,12 @@
       },
       {
         "id": "ComposeDictionaries",
-        "added": "102"
+        "added": "102",
+        "properties": {
+          "<language identifier>": {
+            "type": "boolean"
+          }
+        }
       },
       {
         "id": "ComposeDetails",

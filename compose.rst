@@ -1214,6 +1214,12 @@ Object with language identifiers of all installed dictionaries as keys (for exam
 .. api-header::
    :label: object
 
+   
+   .. api-member::
+      :name: ``<language identifier>``
+      :type: (boolean)
+   
+
 .. _compose.ComposeRecipient:
 
 ComposeRecipient

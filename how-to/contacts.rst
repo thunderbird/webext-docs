@@ -10,7 +10,7 @@ The vCard is exposed in the ``vCard`` property and changing it will update the c
 
 .. important::
 
-  Accessing contact details through legacy properties is **deprecated** and write access will be removed in Thunderbird 114. Newly added fields in the address book UI (e.g. the ``Timezone`` information), are not accessible through a legacy property, but only through the vCard.
+  Accessing contact details through legacy properties is **deprecated** and write access will be removed in Thunderbird 114. Newly added fields in the address book UI (e.g. the ``Timezone`` information), are not accessible through legacy properties, but only through the vCard.
   
   When updating a contact and providing values for the ``vCard`` property as well as for legacy properties, the specified legacy properties are ignored.
 
@@ -18,7 +18,7 @@ The vCard is exposed in the ``vCard`` property and changing it will update the c
 Updating legacy properties
 ===========================
 
-A vCard can store multiple values for each type, so deleting the one which is currently exposed through a legacy property only deletes that single entry, not all entries. Consider a contact being updated and some of its legacy properties are cleared as follows:
+A vCard can store multiple values for each type and legacy properties point to the first entry of the associated type. Deleting the one which is currently exposed through a legacy property only deletes that single entry, not all entries. Consider a contact being updated and some of its legacy properties are cleared as follows:
 
 .. code-block:: javascript
 
@@ -27,7 +27,7 @@ A vCard can store multiple values for each type, so deleting the one which is cu
     "HomePhone" : null
   })
 
-If the vCard had multiple email addresses or multiple home numbers, each next entry will now be exposed through the associated legacy property. This becomes even more obvious, when setting ``SecondEmail`` on a contact which does not yet have any email entries:
+If the vCard had multiple email addresses or multiple home numbers, each next entry will now be exposed through the associated legacy property. This can lead to unexpected results, when setting ``SecondEmail`` on a contact which does not yet have any email entries:
 
 .. code-block:: javascript
 

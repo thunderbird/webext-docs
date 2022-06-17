@@ -441,12 +441,30 @@ ContactProperties
 
 .. api-section-annotation-hack:: 
 
-A set of individual properties for a particular contact and/or its vCard string in the ``vCard`` member. The individual properties may either be `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ or custom properties (name may use a to z, A to Z, 1 to 9 and underscores).
-
-**Note:** Using individual properties is deprecated, get/set the ``vCard`` member instead.
+A set of individual properties for a particular contact and its vCard string.
 
 .. api-header::
    :label: object
+
+   
+   .. api-member::
+      :name: ``<custom properties>``
+      
+      Custom properties, not saved in the users vCard, and therfore not transfered to the users server, if the contact is stored in a remote CardDAV server. Names of custom properties may include a to z, A to Z, 1 to 9 and underscores.
+   
+   
+   .. api-member::
+      :name: ``<legacy properties>``
+      
+      A set of `properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__, which map to certain fields in the contacts vCard string.
+   
+   
+   .. api-member::
+      :name: ``vCard``
+      :annotation: -- [Added in TB 102]
+      
+      The contacts vCard string.
+   
 
 .. _contacts.PropertyChange:
 
