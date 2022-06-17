@@ -10,7 +10,7 @@ The vCard is exposed in the ``vCard`` property and changing it will update the c
 
 .. important::
 
-  Accessing contact details through legacy properties is **deprecated** and write access will be removed in Thunderbird 114. Newly added fields in the addressbook UI (e.g. the ``Timezone`` information), are not accessible through a legacy property, but only through the vCard.
+  Accessing contact details through legacy properties is **deprecated** and write access will be removed in Thunderbird 114. Newly added fields in the address book UI (e.g. the ``Timezone`` information), are not accessible through a legacy property, but only through the vCard.
   
   When updating a contact and providing values for the ``vCard`` property as well as for legacy properties, the specified legacy properties are ignored.
 
@@ -44,7 +44,7 @@ The console output will include ``PrimaryEmail: user@inter.net``, but no value f
 Updating the vCard property
 ===========================
 
-Instead of parsing or manipulating the vCard string manualy, we recommend to use the same `library that Thunderbird itself is using <https://github.com/mozilla-comm/ical.js/releases>`__ for parseing. Add the ``ical.js`` file from the linked repository to your add-on and load it into your background. One way is to add it to the manifest as follows:
+Instead of parsing or manipulating the vCard string manually, we recommend to use the same `library that Thunderbird itself is using <https://github.com/mozilla-comm/ical.js/releases>`__ for parsing. Add the ``ical.js`` file from the linked repository to your add-on and load it into your background. One way is to add it to the manifest as follows:
 
 .. code-block:: json
 
