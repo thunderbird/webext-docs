@@ -1056,13 +1056,6 @@ Basic information about a message.
    
    
    .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-      
-      The :permission:`accountsRead` permission is required for this property to be included.
-   
-   
-   .. api-member::
       :name: ``headerMessageId``
       :type: (string)
       :annotation: -- [Added in TB 85]
@@ -1125,6 +1118,13 @@ Basic information about a message.
    .. api-member::
       :name: ``tags``
       :type: (array of string)
+   
+   
+   .. api-member::
+      :name: [``folder``]
+      :type: (:ref:`folders.MailFolder`)
+      
+      The :permission:`accountsRead` permission is required for this property to be included.
    
 
 .. _messages.MessageList:

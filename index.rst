@@ -42,7 +42,7 @@ Thunderbird WebExtension APIs
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
 +-------------------------------+------------------------------------------------------------+
-| Thunderbird API               | Description                                                |                   
+| Thunderbird API               | Description                                                |
 +===============================+====================+=======================================+
 | :doc:`accounts`               | |accounts-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
@@ -82,7 +82,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 +-------------------------------+------------------------------------------------------------+
 | :doc:`messages`               | |messages-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
-| :doc:`spacesToolbar`          | |spacesToolbar-Description|                                 |
+| :doc:`spacesToolbar`          | |spacesToolbar-Description|                                |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`tabs`                   | |tabs-Description|                                         |
 +-------------------------------+------------------------------------------------------------+
@@ -139,7 +139,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   it should work in Thunderbird as well. 
 
 +-----------------------------+------------------------------------------------------------+
-| Firefox API                 | Description                                                |                   
+| Firefox API                 | Description                                                |
 +=============================+====================+=======================================+
 | `browserSettings`_          | |browserSettings-Description|                              |
 +-----------------------------+------------------------------------------------------------+
@@ -268,6 +268,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   :maxdepth: 1
   :caption: How To Guides
 
+  how-to/contacts
   how-to/eventListeners
   how-to/messageLists
   how-to/experiments
