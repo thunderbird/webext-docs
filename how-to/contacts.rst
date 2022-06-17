@@ -2,9 +2,9 @@
 Working with vCard Contacts
 ===========================
 
-For a long time, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`contatcs.ContactProperties` and extensions could even store custom properties (which did not show up in the UI).
+For a long time, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`contacts.ContactProperties` and extensions could store additional custom properties (which did not show up in the UI).
 
-Since Thunderbird 102, contact details are stored as vCards and the former fixed properties are now referred to as legacy properties. Those legacy properties are mapped for read/write access to the best matching vCard property and are therefore still accessible through :ref:`contatcs.ContactProperties`. **This access method is deprecated and will be removed in Thunderbird 114**. Instead, the vCard itself should be accessed.
+Since Thunderbird 102, contact details are stored as vCards and the former fixed properties are now referred to as legacy properties. Those legacy properties are mapped for read/write access to the best matching vCard property and are therefore still accessible through :ref:`contacts.ContactProperties`. **This access method is deprecated and will be removed in Thunderbird 114**. Instead, the vCard itself should be accessed.
 
 .. important::
 
@@ -85,12 +85,12 @@ The ical library also supports manipulating the data on a higher level, using th
    *  vCard.removeProperty(emailEntry)
    */
 
-  let [user] = vCard.getAllProperties("email").filter(e => e.jCal[3] == "user@inter.net");
+  // Update an entry.
+  let user = vCard.getAllProperties("email").find(e => e.jCal[3] == "user@inter.net");
   if (user) {
-    // Update the entry, three options:
-    // 1. Manipulate the existing jCal entry (Array(4), [name, options, type, value]):
+    // Option 1: Manipulate the existing jCal entry (Array(4), [name, options, type, value])
     user.jCal[3] = "other@inter.net";
-    // 2. Remove the existing entry and add a new one (changes order of entries)
+    // Option 2: Remove the existing entry and add a new one (changes order of entries)
     vCard.removeProperty(user);
     vCard.addProperty(new ICAL.Property(["email", {}, "text", "other@inter.net"]);
   }

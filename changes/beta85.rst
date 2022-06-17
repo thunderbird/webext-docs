@@ -2,7 +2,7 @@
 Changes in Thunderbird 85
 =========================
 
-addressBooks & contatcs
+addressBooks & contacts
 =======================
 
 The :ref:`addressBooks_api` and :ref:`contacts_api` APIs will now return read-only address books. Add-ons that may update contacts and address books should check the ``readOnly`` flag of :ref:`addressBooks.AddressBookNode`.
