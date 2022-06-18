@@ -449,7 +449,7 @@ A set of individual properties for a particular contact, and its vCard string. F
    
    .. api-member::
       :name: ``<custom properties>``
-      :type: (string) **Deprecated.**
+      :type: (string)
       
       Custom properties are not saved in the users vCard. Therfore, they are not transfered to the users server, if the contact is stored in a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
    
