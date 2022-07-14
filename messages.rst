@@ -642,7 +642,7 @@ createTag(key, tag, color)
 
 .. api-section-annotation-hack:: -- [Added in TB 102]
 
-Creates a new message tag. Tagging a message will store the tag's key in the user's message.
+Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
 
 .. api-header::
    :label: Parameters
@@ -651,16 +651,22 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
    .. api-member::
       :name: ``key``
       :type: (string)
+      
+      Unique tag identifier (must use only alphanumeric characters).
    
    
    .. api-member::
       :name: ``tag``
       :type: (string)
+      
+      Human-readable tag name.
    
    
    .. api-member::
       :name: ``color``
       :type: (string)
+      
+      Tag color in hex format (i.e.: #000080 for navy blue)
    
 
 .. api-header::
@@ -685,6 +691,8 @@ Updates a message tag.
    .. api-member::
       :name: ``key``
       :type: (string)
+      
+      Unique tag identifier.
    
    
    .. api-member::
@@ -694,11 +702,15 @@ Updates a message tag.
       .. api-member::
          :name: [``color``]
          :type: (string)
+         
+         Tag color in hex format (i.e.: #000080 for navy blue).
       
       
       .. api-member::
          :name: [``tag``]
          :type: (string)
+         
+         Human-readable tag name.
       
    
 
@@ -1221,28 +1233,28 @@ MessageTag
       :name: ``color``
       :type: (string)
       
-      Tag color
+      Tag color.
    
    
    .. api-member::
       :name: ``key``
       :type: (string)
       
-      Distinct tag identifier – use this string when referring to a tag
+      Unique tag identifier.
    
    
    .. api-member::
       :name: ``ordinal``
       :type: (string)
       
-      Custom sort string (usually empty)
+      Custom sort string (usually empty).
    
    
    .. api-member::
       :name: ``tag``
       :type: (string)
       
-      Human-readable tag name
+      Human-readable tag name.
    
 
 .. _messages.TagsDetail:
