@@ -1,13 +1,19 @@
-messenger.addressBooks.onSearchRequest.addListener(async (node, searchString) => {
+messenger.addressBooks.provider.onSearchRequest.addListener(async (node, searchString, query) => {
     // Return an array of ContactProperties.
-    let response = await fetch("https://people.acme.com/?query=" + searchString);
-    return response.json.map(contact => (
-        { 
-            DisplayName: contact.name, 
-            PrimaryEmail: contact.email
-        }
-    ));
+    let results = [];
+    fetch("https://people.acme.com/?query=" + searchString)
+        .then(response => response.json())
+        .then(contacts => {
+            for (const contact of contacts) {
+                results.push({
+                    DisplayName: contact.name, 
+                    PrimaryEmail: contact.email
+                });
+            }
+            return { results: results, isCompleteResult: true }
+        });
+    
 }, {
-    dirName: "ACME employees",
+    addressBookName: "ACME employees",
     isSecure: true,
 });
