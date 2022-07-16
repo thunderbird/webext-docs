@@ -147,9 +147,17 @@
           }
         ],
         "returns": {
-          "type": "array",
-          "items": {
-            "$ref": "contacts.ContactProperties"
+          "type": "object",
+          "properties": {
+            "results": {
+              "type": "array",
+              "items": {
+                "$ref": "contacts.ContactProperties"
+              }
+            },
+            "isCompleteResult": {
+              "type": "boolean"
+            }
           }
         }
       }
