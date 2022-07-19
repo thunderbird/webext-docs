@@ -120,7 +120,17 @@ Example:
 
    
    .. api-member::
-      :type: array of :ref:`contacts.ContactProperties`
+      :type: object
+      
+      .. api-member::
+         :name: ``isCompleteResult``
+         :type: (boolean)
+      
+      
+      .. api-member::
+         :name: ``results``
+         :type: (array of :ref:`contacts.ContactProperties`)
+      
    
 
 .. api-header::
