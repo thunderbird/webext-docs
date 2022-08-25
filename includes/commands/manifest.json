@@ -8,7 +8,7 @@
   },
   "_execute_compose_action": {
     "suggested_key": {
-      "default": "Alt+F5",
+      "default": "Alt+F5"
     },
     "description": "Open the compose action popup"
   }
