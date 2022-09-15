@@ -1259,9 +1259,6 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
             :name: ``devtools``
          
          .. api-member::
-            :name: ``addressBook``
-         
-         .. api-member::
             :name: ``messageCompose``
          
          .. api-member::

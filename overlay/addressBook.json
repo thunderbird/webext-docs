@@ -101,7 +101,6 @@
       {
         "id": "ContactProperties",
         "type": "object",
-        "description": "A set of individual properties for a particular contact, and its vCard string. Further information can be found in :ref:`howto_contacts`.",
         "properties": {
           "vCard": {
             "added": "102",

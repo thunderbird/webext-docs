@@ -699,10 +699,6 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
             :name: ``devtools``
          
          .. api-member::
-            :name: ``addressBook``
-            :annotation: -- [Added in TB 70, backported to TB 68.1.1]
-         
-         .. api-member::
             :name: ``messageCompose``
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
          

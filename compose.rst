@@ -741,6 +741,147 @@ Fired when a message is about to be sent from the compose window. This is a user
 
    - :permission:`compose`
 
+.. _compose.onAfterSend:
+
+onAfterSend
+-----------
+
+.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.0]
+
+Fired when sending a message succeeded or failed.
+
+.. api-header::
+   :label: Parameters for onAfterSend.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, sendInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``sendInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``messages``
+         :type: (array of :ref:`messages.MessageHeader`)
+         
+         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
+      
+      
+      .. api-member::
+         :name: ``mode``
+         :type: (`string`)
+         
+         The used send mode.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``sendNow``
+         
+         .. api-member::
+            :name: ``sendLater``
+      
+      
+      .. api-member::
+         :name: [``error``]
+         :type: (string)
+         
+         An error description, if sending the message failed.
+      
+      
+      .. api-member::
+         :name: [``headerMessageId``]
+         :type: (string)
+         
+         The header messageId of the outgoing message. Only included for actually sent messages.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
+.. _compose.onAfterSave:
+
+onAfterSave
+-----------
+
+.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.0]
+
+Fired when saving a message as draft or template succeeded or failed.
+
+.. api-header::
+   :label: Parameters for onAfterSave.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, saveInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``saveInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``messages``
+         :type: (array of :ref:`messages.MessageHeader`)
+         
+         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
+      
+      
+      .. api-member::
+         :name: ``mode``
+         :type: (`string`)
+         
+         The used save mode.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: ``draft``
+         
+         .. api-member::
+            :name: ``template``
+      
+      
+      .. api-member::
+         :name: [``error``]
+         :type: (string)
+         
+         An error description, if saving the message failed.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
 .. _compose.onAttachmentAdded:
 
 onAttachmentAdded
