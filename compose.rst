@@ -746,7 +746,7 @@ Fired when a message is about to be sent from the compose window. This is a user
 onAfterSend
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 106]
+.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.0]
 
 Fired when sending a message succeeded or failed.
 
@@ -820,7 +820,7 @@ Fired when sending a message succeeded or failed.
 onAfterSave
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 106]
+.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.0]
 
 Fired when saving a message as draft or template succeeded or failed.
 
