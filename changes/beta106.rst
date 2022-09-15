@@ -22,9 +22,9 @@ mailTabs API
 
 messages API
 ============
-* Added the ``message`` member to the :ref:`messages:MessageAttachment` type, to provide access to attached messages.
-* Added the ``external`` member to the :ref:`messages:MessageHeader` type, to indicate if a message is an external message, not stored in a message folder (message attachments or messages opened from file).
-* Added the ``new`` member to the :ref:`messages:MessageHeader` type, to indicate if a message has been received recently and is marked as new.
+* Added the ``message`` member to the :ref:`messages.MessageAttachment` type, to provide access to attached messages.
+* Added the ``external`` member to the :ref:`messages.MessageHeader` type, to indicate if a message is an external message, not stored in a message folder (message attachments or messages opened from file).
+* Added the ``new`` member to the :ref:`messages.MessageHeader` type, to indicate if a message has been received recently and is marked as new.
 * Added :ref:`messages.import` to import messages into Thunderbird (currently only supported for local folders).
-* Renamed ``MessageChangeProperties`` to :ref:`messages:MessageProperties`, as it is now also used by :ref:`messages.import`, to define the properties of the imported message.
-* Added the ``new`` member to the :ref:`messages:MessageProperties` type (currently only supported by :ref:`messages.import`).
+* Renamed ``MessageChangeProperties`` to :ref:`messages.MessageProperties`, as it is now also used by :ref:`messages.import`, to define the properties of the imported message.
+* Added the ``new`` member to the :ref:`messages.MessageProperties` type (currently only supported by :ref:`messages.import`).
