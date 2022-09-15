@@ -129,6 +129,8 @@ def link_ref(ref):
         return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_"
     if ref == "runtime.Port":
         return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_"
+    if ref.startswith("manifest."):
+        ref = ref[9:]
     if ref == "IconPath" or ref.endswith(".IconPath"):
         ref = "IconPathDictionary"
 

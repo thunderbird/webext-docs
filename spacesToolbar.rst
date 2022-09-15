@@ -180,3 +180,37 @@ A ``{size: path}`` dictionary representing the icon to be set. The actual image 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+.. _spacesToolbar.ThemeIcons:
+
+ThemeIcons
+----------
+
+.. api-section-annotation-hack:: 
+
+Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``dark``
+      :type: (string)
+      
+      A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified).
+   
+   
+   .. api-member::
+      :name: ``light``
+      :type: (string)
+      
+      A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme).
+   
+   
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+      
+      The size of the two icons in pixels, for example ``16`` or ``32``.
+   
