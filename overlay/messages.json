@@ -29,6 +29,10 @@
         "hints": "The most simple way to get the content of an attachment is to use the ``text()`` method of the ``File`` object:<literalinclude>includes/messages/file.js<lang>JavaScript</lang></literalinclude>"
       },
       {
+        "name": "import",
+        "added": "106"
+      },
+      {
         "name": "query",
         "added": "69",
         "backported": "68.2",
@@ -104,11 +108,26 @@
           "junk": {
             "added": "74"
           },
+          "external": {
+            "added": "106"
+          },
+          "new": {
+            "added": "106"
+          },
           "junkScore": {
             "added": "74"
           },
           "size": {
             "added": "90"
+          }
+        }
+      },
+      {
+        "id": "MessageProperties",
+        "type": "object",
+        "properties": {
+          "new": {
+            "added": "106"
           }
         }
       }

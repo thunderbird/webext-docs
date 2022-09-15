@@ -64,7 +64,7 @@ Update the details of an already defined command.
       :name: ``detail``
       :type: (object)
       
-      
+      The new details for the command.
       
       .. api-member::
          :name: ``name``
@@ -77,7 +77,7 @@ Update the details of an already defined command.
          :name: [``description``]
          :type: (string)
          
-         The new description for the command.
+         The description for the command.
       
       
       .. api-member::
@@ -134,20 +134,38 @@ Events
 
 .. _commands.onCommand:
 
-onCommand(command)
-------------------
+onCommand
+---------
 
 .. api-section-annotation-hack:: 
 
 Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
-   :label: Parameters for event listeners
+   :label: Parameters for onCommand.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(command, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
       :name: ``command``
       :type: (string)
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 106]
+      
+      The details of the active tab while the command occurred.
    
 
 .. rst-class:: api-main-section

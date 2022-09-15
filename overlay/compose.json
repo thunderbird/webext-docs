@@ -224,6 +224,14 @@
         ]
       },
       {
+        "name": "onAfterSave",
+        "added": "106"
+      },
+      {
+        "name": "onAfterSend",
+        "added": "106"
+      },
+      {
         "name": "onActiveDictionariesChanged",
         "added": "102"
       },

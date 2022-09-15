@@ -25,6 +25,16 @@ Permissions
 ===========
 
 .. api-member::
+   :name: :permission:`messagesDelete`
+
+   Permanently delete your email messages
+
+.. api-member::
+   :name: :permission:`messagesImport`
+
+   Import messages into Thunderbird
+
+.. api-member::
    :name: :permission:`messagesMove`
 
    Copy or move your email messages (including moving them to the trash folder)
@@ -33,11 +43,6 @@ Permissions
    :name: :permission:`messagesRead`
 
    Read your email messages and mark or tag them
-
-.. api-member::
-   :name: :permission:`messagesDelete`
-
-   Permanently delete your email messages
 
 .. api-member::
    :name: :permission:`messagesTags`
@@ -233,7 +238,7 @@ listAttachments(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Lists all of the attachments of a message.
+Lists the attachments of a message.
 
 .. api-header::
    :label: Parameters
@@ -458,7 +463,7 @@ update(messageId, newProperties)
 
 .. api-section-annotation-hack:: 
 
-Marks or unmarks a message as junk, read, flagged, or tagged.
+Marks or unmarks a message as junk, read, flagged, or tagged. Updating external messages will throw an ``ExtensionError``.
 
 .. api-header::
    :label: Parameters
@@ -471,7 +476,7 @@ Marks or unmarks a message as junk, read, flagged, or tagged.
    
    .. api-member::
       :name: ``newProperties``
-      :type: (:ref:`messages.MessageChangeProperties`)
+      :type: (:ref:`messages.MessageProperties`)
    
 
 .. api-header::
@@ -486,7 +491,7 @@ move(messageIds, destination)
 
 .. api-section-annotation-hack:: 
 
-Moves messages to a specified folder.
+Moves messages to a specified folder. If the messages cannot be removed from the source folder, they will be copied instead of moved. Moving external messages will throw an ``ExtensionError``.
 
 .. api-header::
    :label: Parameters
@@ -554,7 +559,7 @@ delete(messageIds, [skipTrash])
 
 .. api-section-annotation-hack:: 
 
-Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). The ``skipTrash`` parameter allows immediate permanent deletion, bypassing the trash folder.
+Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an ``ExtensionError``. The ``skipTrash`` parameter allows immediate permanent deletion, bypassing the trash folder.
 
 **Note**: Consider using :ref:`messages.move` to manually move messages to the account's trash folder, instead of requesting the overly powerful permission to actually delete messages. The account's trash folder can be extracted as follows: 
 
@@ -585,6 +590,53 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
    - :permission:`messagesRead`
    - :permission:`messagesDelete`
 
+.. _messages.import:
+
+import(file, destination, [properties])
+---------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 106]
+
+Imports a message into a local Thunderbird folder. To import a message into an IMAP folder, add it to a local folder first and then move it to the IMAP folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``file``
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The folder to import the messages into.
+   
+   
+   .. api-member::
+      :name: [``properties``]
+      :type: (:ref:`messages.MessageProperties`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageHeader`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+   - :permission:`messagesImport`
+
 .. _messages.archive:
 
 archive(messageIds)
@@ -592,7 +644,7 @@ archive(messageIds)
 
 .. api-section-annotation-hack:: 
 
-Archives messages using the current settings.
+Archives messages using the current settings. Archiving external messages will throw an ``ExtensionError``.
 
 .. api-header::
    :label: Parameters
@@ -779,7 +831,7 @@ Fired when one or more properties of a message have been updated.
    
    .. api-member::
       :name: ``changedProperties``
-      :type: (:ref:`messages.MessageChangeProperties`)
+      :type: (:ref:`messages.MessageProperties`)
    
 
 .. api-header::
@@ -983,46 +1035,12 @@ Represents an attachment in a message.
       
       The size in bytes of this attachment.
    
-
-.. _messages.MessageChangeProperties:
-
-MessageChangeProperties
------------------------
-
-.. api-section-annotation-hack:: 
-
-Message properties that can be updated by the :ref:`messages.update` and that are monitored by :ref:`messages.onUpdated`.
-
-.. api-header::
-   :label: object
-
    
    .. api-member::
-      :name: [``flagged``]
-      :type: (boolean)
+      :name: [``message``]
+      :type: (:ref:`messages.MessageHeader`)
       
-      Message is flagged.
-   
-   
-   .. api-member::
-      :name: [``junk``]
-      :type: (boolean)
-      
-      Message is junk.
-   
-   
-   .. api-member::
-      :name: [``read``]
-      :type: (boolean)
-      
-      Message is read.
-   
-   
-   .. api-member::
-      :name: [``tags``]
-      :type: (array of string)
-      
-      Tags associated with this message. For a list of available tags, call the listTags method.
+      A MessageHeader, if this attachment is a message.
    
 
 .. _messages.MessageHeader:
@@ -1063,8 +1081,18 @@ Basic information about a message.
    
    
    .. api-member::
+      :name: ``external``
+      :type: (boolean)
+      :annotation: -- [Added in TB 106]
+      
+      Whether this message is a real message or an external message (opened from a file or from an attachment).
+   
+   
+   .. api-member::
       :name: ``flagged``
       :type: (boolean)
+      
+      Whether this message is flagged (a.k.a. 'starred').
    
    
    .. api-member::
@@ -1093,18 +1121,23 @@ Basic information about a message.
       :type: (boolean)
       :annotation: -- [Added in TB 74]
       
-      Not populated for news/nntp messages.
+      Whether the message has been marked as junk. Always ``false`` for news/nntp messages and external messages.
    
    
    .. api-member::
       :name: ``junkScore``
       :type: (integer)
       :annotation: -- [Added in TB 74]
+      
+      The junk score associated with the message. Always ``0`` for news/nntp messages and external messages.
    
    
    .. api-member::
-      :name: ``read``
+      :name: ``new``
       :type: (boolean)
+      :annotation: -- [Added in TB 106]
+      
+      Whether the message has been received recently and is marked as new.
    
    
    .. api-member::
@@ -1125,18 +1158,29 @@ Basic information about a message.
    .. api-member::
       :name: ``subject``
       :type: (string)
+      
+      The subject of the message.
    
    
    .. api-member::
       :name: ``tags``
       :type: (array of string)
+      
+      Tags associated with this message. For a list of available tags, call the listTags method.
    
    
    .. api-member::
       :name: [``folder``]
       :type: (:ref:`folders.MailFolder`)
       
-      The :permission:`accountsRead` permission is required for this property to be included.
+      The :permission:`accountsRead` permission is required for this property to be included. Not available for external or attached messages.
+   
+   
+   .. api-member::
+      :name: [``read``]
+      :type: (boolean)
+      
+      Whether the message has been marked as read. Not available for external or attached messages.
    
 
 .. _messages.MessageList:
@@ -1204,6 +1248,8 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``partName``]
       :type: (string)
+      
+      The identifier of this part, used in :ref:`messages.getAttachmentFile
    
    
    .. api-member::
@@ -1216,6 +1262,57 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``size``]
       :type: (integer)
+      
+      The size of this part. The size of ``message/*`` parts is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.
+   
+
+.. _messages.MessageProperties:
+
+MessageProperties
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Message properties used in :ref:`messages.update` and :ref:`messages.import`. They can also be monitored by :ref:`messages.onUpdated`.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``flagged``]
+      :type: (boolean)
+      
+      Whether the message is flagged (a.k.a 'starred').
+   
+   
+   .. api-member::
+      :name: [``junk``]
+      :type: (boolean)
+      
+      Whether the message is marked as junk. Only supported in :ref:`messages.update`
+   
+   
+   .. api-member::
+      :name: [``new``]
+      :type: (boolean)
+      :annotation: -- [Added in TB 106]
+      
+      Whether the message is marked as new. Only supported in :ref:`messages.import`
+   
+   
+   .. api-member::
+      :name: [``read``]
+      :type: (boolean)
+      
+      Whether the message is marked as read.
+   
+   
+   .. api-member::
+      :name: [``tags``]
+      :type: (array of string)
+      
+      Tags associated with this message. For a list of available tags, call the listTags method.
    
 
 .. _messages.MessageTag:

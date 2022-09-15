@@ -746,7 +746,7 @@ Fired when a message is about to be sent from the compose window. This is a user
 onAfterSend
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 106]
 
 Fired when sending a message succeeded or failed.
 
@@ -820,7 +820,7 @@ Fired when sending a message succeeded or failed.
 onAfterSave
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 106]
 
 Fired when saving a message as draft or template succeeded or failed.
 
@@ -1242,7 +1242,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting ``false`` will clear the override. Setting ``true`` will throw an exception, if ``overrideDefaultFccFolder`` is not set as well.
+      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting ``false`` will clear the override. Setting ``true`` will throw an ``ExtensionError``, if ``overrideDefaultFccFolder`` is not set as well.
    
    
    .. api-member::

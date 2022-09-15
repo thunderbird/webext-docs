@@ -154,6 +154,39 @@ Gets a single contact.
 
    - :permission:`addressBooks`
 
+.. _contacts.getPhoto:
+
+getPhoto(id)
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 106]
+
+Gets the photo associated with this contact, if any.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.create:
 
 create(parentId, [id], properties)
@@ -451,12 +484,12 @@ A set of individual properties for a particular contact, and its vCard string. F
       :name: ``<custom properties>``
       :type: (string)
       
-      Custom properties are not saved in the users vCard. Therfore, they are not transfered to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
+      Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
    
    
    .. api-member::
       :name: ``<legacy properties>``
-      :type: (string) **Deprecated.**
+      :type: (string)
       
       `Legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ point to certain fields in the contacts vCard string and provide direct read/write access.
    

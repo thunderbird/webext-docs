@@ -122,14 +122,14 @@ Opens a message in a new tab or in a new window.
          :name: [``headerMessageId``]
          :type: (string)
          
-         The headerMessageId of a message to be opened. Will throw, if the provided ``headerMessageId`` is unknown or invalid.
+         The headerMessageId of a message to be opened. Will throw an ``ExtensionError``, if the provided ``headerMessageId`` is unknown or invalid. Not supported for external messages.
       
       
       .. api-member::
          :name: [``location``]
          :type: (`string`)
          
-         Where to open the message. If not specified, the users preference is honoured.
+         Where to open the message. If not specified, the users preference is honoured. Ignored for external messages, which are always opened in a new window.
          
          Supported values:
          
@@ -144,7 +144,7 @@ Opens a message in a new tab or in a new window.
          :name: [``messageId``]
          :type: (integer)
          
-         The id of a message to be opened. Will throw, if the provided ``messageId`` is unknown or invalid.
+         The id of a message to be opened. Will throw an ``ExtensionError``, if the provided ``messageId`` is unknown or invalid.
       
       
       .. api-member::
