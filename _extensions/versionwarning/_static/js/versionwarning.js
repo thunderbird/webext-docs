@@ -66,7 +66,7 @@ function getHighestVersion(versions) {
         else if (!highest_version) {
             highest_version = version;
         }
-        else if (version.slug > highest_version.slug) {
+        else if (parseInt(version.slug, 10) > parseInt(highest_version.slug, 10)) {
             highest_version = version;
         }
     });
