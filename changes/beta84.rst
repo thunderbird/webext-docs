@@ -60,3 +60,9 @@ messageDisplayAction
 * The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
   *This change has been backported to Thunderbird 78.6.0.*
+
+=======================
+Fixes in Thunderbird 84
+=======================
+
+* `Bugzilla list of all fixed defects <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&list_id=16239985&component=Add-Ons%3A%20Extensions%20API&component=Add-Ons%3A%20General&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=84%20Branch&o2=equals>`__.
