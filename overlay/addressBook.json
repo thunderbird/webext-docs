@@ -47,6 +47,10 @@
       {
         "name": "getPhoto",
         "added": "106"
+      },
+      {
+        "name": "setPhoto",
+        "added": "107"
       }
     ],
     "events": [

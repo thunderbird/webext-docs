@@ -21,8 +21,6 @@ compose API
 * added support to use a :ref:`compose.ComposeAttachment` as the attachment in :ref:`compose.addAttachment` and in :ref:`compose.ComposeDetails`
 * modified the rules for ``body``, ``plainTextBody`` and ``isPlainText`` properties of :ref:`compose.ComposeDetails` in a backward compatible way - specifying both body types no longer causes an exception and it is now even suggested to always specify both and either let the API pick the users default compose mode, or use the ``isPlainText`` property as selector 
 
-=======================
-Fixes in Thunderbird 98
-=======================
+---
 
-* `Bugzilla list of all fixed defects <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&list_id=16239985&component=Add-Ons%3A%20Extensions%20API&component=Add-Ons%3A%20General&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=98%20Branch&o2=equals>`__.
+Bugzilla list of fixed WebExtension API defects in `Thunderbird 98 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=98%20Branch&o2=equals>`__.

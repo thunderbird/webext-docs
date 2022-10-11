@@ -187,6 +187,34 @@ Gets the photo associated with this contact, if any.
 
    - :permission:`addressBooks`
 
+.. _contacts.setPhoto:
+
+setPhoto(id, file)
+------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 107]
+
+Sets the photo associated with this contact.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``file``
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.create:
 
 create(parentId, [id], properties)
