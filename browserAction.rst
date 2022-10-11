@@ -78,6 +78,22 @@ Manifest file properties
    
    
    .. api-member::
+      :name: [``default_windows``]
+      :type: (array of `string`)
+      :annotation: -- [Added in TB 106, backported to TB 102.3.3]
+      
+      Defines the windows, the action should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``normal``
+      
+      .. api-member::
+         :name: ``messageDisplay``
+   
+   
+   .. api-member::
       :name: [``theme_icons``]
       :type: (array of :ref:`browserAction.ThemeIcons`)
       

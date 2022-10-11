@@ -24,6 +24,11 @@
             }
           }
         ]
+      },
+      {
+        "name": "setSelectedMessages",
+        "added": "106",
+        "backported": "102.3.3"
       }
     ],
     "events": [

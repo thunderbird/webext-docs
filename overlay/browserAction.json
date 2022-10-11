@@ -18,6 +18,10 @@
                     "backported": "91.0.2"
                   }
                 }
+              },
+              "default_windows": {
+                "added": "106",
+                "backported": "102.3.3"
               }
             }
           }

@@ -328,6 +328,39 @@ Lists the selected messages in the current folder.
 
    - :permission:`messagesRead`
 
+.. _mailTabs.setSelectedMessages:
+
+setSelectedMessages([tabId], messageIds)
+----------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.3]
+
+Selects one or multiple messages.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer)
+      
+      Defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages, which should be selected. The mailTab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+
 .. _mailTabs.setQuickFilter:
 
 setQuickFilter([tabId], properties)
