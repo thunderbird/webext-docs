@@ -132,7 +132,7 @@ def link_ref(ref):
     if ref.startswith("manifest."):
         ref = ref[9:]
     if ref == "IconPath" or ref.endswith(".IconPath"):
-        ref = "IconPathDictionary"
+        ref = "IconPath"
 
     for additional_type in additional_type_defs:
         if additional_type['id'] == ref:

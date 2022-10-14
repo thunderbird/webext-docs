@@ -124,9 +124,9 @@ ButtonProperties
    
    .. api-member::
       :name: [``defaultIcons``]
-      :type: (string or :ref:`spacesToolbar.IconPathDictionary`)
+      :type: (:ref:`spacesToolbar.IconPath`)
       
-      Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes. At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. Defaults to the extension icon, if set to an empty string.
+      The icon for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string.
    
    
    .. api-member::
@@ -169,17 +169,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _spacesToolbar.IconPathDictionary:
+.. _spacesToolbar.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a simple ``string``, setting the path of an icon to be used for all sizes, or an ``object`` defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
 
 .. _spacesToolbar.ThemeIcons:
 

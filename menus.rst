@@ -91,9 +91,9 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.IconPathDictionary`)
+         :type: (:ref:`menus.IconPath`)
          
-         One or more custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus. This property is an object with one property for each supplied icon: the property's name should include the icon's size in pixels, and path is relative to the icon from the extension's root directory. The application tries to choose a 16x16 pixel icon for a normal display or a 32x32 pixel icon for a high-density display.
+         Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
       
       
       .. api-member::
@@ -225,7 +225,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.IconPathDictionary`)
+         :type: (:ref:`menus.IconPath`)
       
       
       .. api-member::
@@ -993,17 +993,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _menus.IconPathDictionary:
+.. _menus.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a simple ``string``, setting the path of an icon to be used for all sizes, or an ``object`` defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
 
 .. rst-class:: api-main-section
 

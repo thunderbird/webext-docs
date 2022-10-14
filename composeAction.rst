@@ -46,9 +46,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`composeAction.IconPathDictionary`)
+      :type: (:ref:`composeAction.IconPath`)
       
-      The icon for the messageDisplayAction.
+      The icon for the composeAction.
    
    
    .. api-member::
@@ -218,14 +218,14 @@ Sets the icon for the composeAction. The icon can be specified either as the pat
          :name: [``imageData``]
          :type: (:ref:`composeAction.ImageDataType` or :ref:`composeAction.ImageDataDictionary`)
          
-         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes.
+         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes. At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified.
       
       
       .. api-member::
          :name: [``path``]
-         :type: (string or :ref:`composeAction.IconPathDictionary`)
+         :type: (:ref:`composeAction.IconPath`)
          
-         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
+         The icon for the composeAction.
       
    
 
@@ -630,17 +630,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _composeAction.IconPathDictionary:
+.. _composeAction.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a simple ``string``, setting the path of an icon to be used for all sizes, or an ``object`` defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
 
 .. _composeAction.ThemeIcons:
 
