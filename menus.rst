@@ -37,6 +37,41 @@ Permissions
 Functions
 =========
 
+.. _menus.getTargetElement:
+
+getTargetElement(targetElementId)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieve the element that was associated with a recent contextmenu event.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``targetElementId``
+      :type: (integer)
+      
+      The identifier of the clicked element, available as info.targetElementId in the menus.onShown, onClicked or onclick event.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.create:
 
 create(createProperties, [callback])

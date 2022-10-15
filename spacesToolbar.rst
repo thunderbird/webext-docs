@@ -124,7 +124,7 @@ ButtonProperties
    
    .. api-member::
       :name: [``defaultIcons``]
-      :type: (:ref:`spacesToolbar.IconPath`)
+      :type: (string or :ref:`spacesToolbar.IconPath`)
       
       The icon for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string.
    

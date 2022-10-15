@@ -358,8 +358,8 @@ Selects none, one or multiple messages.
 .. api-header::
    :label: Required permissions
 
-   - :permission:`messagesRead`
    - :permission:`accountsRead`
+   - :permission:`messagesRead`
 
 .. _mailTabs.setQuickFilter:
 

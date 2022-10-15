@@ -338,7 +338,7 @@ def format_permissions(obj, namespace_obj = None):
     entries = {
         "manifest" : {
             "single" : "A manifest entry named %s is required to use ``%s``.",
-            "multiple" : "The manifest entrys %s and %s are required to use ``%s``.",
+            "multiple" : "The manifest entries %s and %s are required to use ``%s``.",
             "entries" : [],
             },
         "permissions" : {
@@ -350,16 +350,20 @@ def format_permissions(obj, namespace_obj = None):
     
     # read the global permissions first (if provided)
     if namespace_obj and "permissions" in namespace_obj:
-        for i in range(0, len(namespace_obj["permissions"])):
-            permission = namespace_obj["permissions"][i]
+        permissions = list(dict.fromkeys(namespace_obj["permissions"]))
+        permissions.sort()
+        for i in range(0, len(permissions)):
+            permission = permissions[i]
             if permission.startswith("manifest:"):
                 continue
             else:
                 entries['permissions']['entries'].append(":permission:`%s`" % permission)
 
     if obj and "permissions" in obj:
-        for i in range(0, len(obj["permissions"])):
-            permission = obj["permissions"][i]
+        permissions = list(dict.fromkeys(obj["permissions"]))
+        permissions.sort()
+        for i in range(0, len(permissions)):
+            permission = permissions[i]
             if permission.startswith("manifest:"):
                 entries['manifest']['entries'].append("``%s``" % permission[9:])
             else:
@@ -802,7 +806,7 @@ if __name__ == "__main__":
         # Do all files.
         for filename in glob.glob(os.path.join(src_dir, "*.json")):
             filename = os.path.basename(filename)[:-5]
-            if filename not in ["menus_child"]:
+            if not filename.endswith("_child"):
                 files.append(filename)
     else:
         for filename in args.file:
@@ -813,12 +817,25 @@ if __name__ == "__main__":
         print "No files found"
 
     for filename in sorted(files):
+        # Is there a child implementation?
+        child = None
+        if os.path.exists(os.path.join(src_dir, filename + "_child.json")):
+            with open(os.path.join(src_dir, filename + "_child.json")) as fp_child:
+                print("Reading file: " + filename + "_child.json")
+                childString = fp_child.read()
+                childString = re.sub(r"(^|\n)//.*", "", childString)
+                child = json.loads(childString)
 
-        with open(os.path.join(src_dir, filename + ".json")) as fp_input:
+        with open(os.path.join(src_dir, filename + ".json")) as fp_parent:
             print("Reading file: " + filename + ".json")
-            content = fp_input.read()
-            content = re.sub(r"(^|\n)//.*", "", content)
-            document = json.loads(content)
+            parentString = fp_parent.read()
+            parentString = re.sub(r"(^|\n)//.*", "", parentString)
+            parent = json.loads(parentString)
+            if child is not None:
+                document = child
+                merge_objects(parent, document)
+            else:
+                document = parent
 
         if os.path.exists(os.path.join(OVERLAY_DIR, filename + ".json")):
             with open(os.path.join(OVERLAY_DIR, filename + ".json")) as fp_overlay:
