@@ -46,7 +46,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`composeAction.IconPathDictionary`)
+      :type: (string or :ref:`composeAction.IconPathDictionary`)
       
       The icon for the messageDisplayAction.
    

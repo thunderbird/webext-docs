@@ -37,6 +37,41 @@ Permissions
 Functions
 =========
 
+.. _menus.getTargetElement:
+
+getTargetElement(targetElementId)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieve the element that was associated with a recent contextmenu event.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``targetElementId``
+      :type: (integer)
+      
+      The identifier of the clicked element, available as info.targetElementId in the menus.onShown, onClicked or onclick event.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.create:
 
 create(createProperties, [callback])
@@ -807,7 +842,7 @@ Information sent when a context menu item is clicked.
       :name: [``targetElementId``]
       :type: (integer)
       
-      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
+      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
    
    
    .. api-member::
@@ -976,7 +1011,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :name: [``targetElementId``]
       :type: (integer)
       
-      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
+      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
    
    
    .. api-member::

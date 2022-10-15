@@ -39,7 +39,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`messageDisplayAction.IconPathDictionary`)
+      :type: (string or :ref:`messageDisplayAction.IconPathDictionary`)
       
       The icon for the messageDisplayAction.
    
