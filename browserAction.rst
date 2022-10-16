@@ -52,7 +52,7 @@ Manifest file properties
       :name: [``default_icon``]
       :type: (string or :ref:`browserAction.IconPathDictionary`)
       
-      The icon for the messageDisplayAction.
+      The icon for the browserAction.
    
    
    .. api-member::
