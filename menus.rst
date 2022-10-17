@@ -100,7 +100,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``command``]
          :type: (string)
          
-         Specifies a command to issue for the context click.  Currently supports internal commands ``_execute_browser_action``, ``_execute_compose_action`` and ``_execute_message_display_action``.
+         Specifies a command to issue for the context click. Currently supports internal commands ``_execute_browser_action``, ``_execute_compose_action`` and ``_execute_message_display_action``.
       
       
       .. api-member::

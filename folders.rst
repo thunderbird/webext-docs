@@ -156,7 +156,7 @@ copy(sourceFolder, destination)
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Copies the given ``sourceFolder`` into the given ``destination``.  Throws if the destination already contains a folder with the name of the source folder.
+Copies the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
