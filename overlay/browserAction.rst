@@ -2,7 +2,7 @@
 browserAction
 =============
 
-The browserAction APIs first appeared in Thunderbird 64. It is very similar to Firefox's `browserAction API`__.
+The browserAction API first appeared in Thunderbird 64. It is very similar to Firefox's `browserAction API`__.
 
 Many of our `sample extensions`__ use a browserAction.
 
