@@ -41,7 +41,7 @@ Manifest file properties
       :name: [``default_icon``]
       :type: (:ref:`messageDisplayAction.IconPath`)
       
-      The icon for the messageDisplayAction.
+      The paths to one or more icons for the messageDisplayAction.
    
    
    .. api-member::
@@ -267,14 +267,14 @@ Sets the icon for the messageDisplayAction. Either the **path** or the **imageDa
          :name: [``imageData``]
          :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`)
          
-         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes.
+         The image data for one or more icons for the composeAction.
       
       
       .. api-member::
          :name: [``path``]
          :type: (:ref:`messageDisplayAction.IconPath`)
          
-         The icon for the messageDisplayAction.
+         The paths to one or more icons for the messageDisplayAction.
       
       
       .. api-member::

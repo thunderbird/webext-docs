@@ -48,7 +48,7 @@ Manifest file properties
       :name: [``default_icon``]
       :type: (:ref:`composeAction.IconPath`)
       
-      The icon for the composeAction.
+      The paths to one or more icons for the composeAction.
    
    
    .. api-member::
@@ -274,14 +274,14 @@ Sets the icon for the composeAction. Either the **path** or the **imageData** pr
          :name: [``imageData``]
          :type: (:ref:`composeAction.ImageDataType` or :ref:`composeAction.ImageDataDictionary`)
          
-         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes. At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified.
+         The image data for one or more icons for the composeAction.
       
       
       .. api-member::
          :name: [``path``]
          :type: (:ref:`composeAction.IconPath`)
          
-         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
+         The paths to one or more icons for the composeAction.
       
       
       .. api-member::
