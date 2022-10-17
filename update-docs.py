@@ -16,6 +16,7 @@ current_namespace_name = None
 unique_id = 1
 additional_type_defs = {}
 additional_type_used = []
+own_type_defs = {}
 
 def merge_objects(a, b):
     if isinstance(a, list):
@@ -32,7 +33,7 @@ def merge_objects(a, b):
                 b.append(c)
                 continue
     elif isinstance(a, dict):
-        for [e, f] in a.iteritems():           
+        for [e, f] in a.iteritems():
             # choices will be replaced completely as specified
             if e in ["choices"]:
                 b[e] = f;
@@ -83,7 +84,7 @@ def replace_code(string):
         "<var>": "``",
         "</var>": "``",
         "<permission>":":permission:`",
-        "</permission>":"`",        
+        "</permission>":"`",
         "&mdash;": u"—",
         "\n": "\n\n",
         "<li>": "\n* ",
@@ -286,7 +287,12 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
 
     nested_content = []
     if obj.get("type") == "object" and "properties" in obj:
-        items = sorted(obj["properties"].items())
+        properties = obj["properties"]
+        # Merge potential $import
+        if "$import" in obj and obj["$import"] in own_type_defs and "properties" in own_type_defs[obj["$import"]]:
+            properties.update(own_type_defs[obj["$import"]]["properties"])
+
+        items = sorted(properties.items())
         for [key, value] in items:
             if value.get("ignore", False):
                 continue
@@ -306,7 +312,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
                 #unique_id += 1
 
     if print_enum_only:
-        content.extend([indent + sub for sub in parts['enum']])       
+        content.extend([indent + sub for sub in parts['enum']])
     else:
         content.extend([indent + sub for sub in parts['description']])
         content.extend([indent + sub for sub in parts['enum']])
@@ -330,6 +336,7 @@ def format_params(function, callback=None):
             params.append("[%s]" % param["name"])
         else:
             params.append(param["name"])
+    
     return ", ".join(params)
 
 
@@ -478,7 +485,7 @@ def reference(label):
 
 
 def format_namespace(manifest, namespace):
-    global unique_id, additional_type_used
+    global unique_id, additional_type_used, own_type_defs
 
     lines = []
     lines.extend([
@@ -508,6 +515,13 @@ def format_namespace(manifest, namespace):
         lines.extend(format_manifest_namespace(manifest, namespace))
 
     lines.extend(format_permissions(namespace))
+
+    # Store own type defs in a global var, so we can access them, when we need to
+    # eval an $import statement (we could also make the entire namespace obj avail
+    # to format_object).
+    if "types" in namespace:
+        for type_ in namespace['types']:
+            own_type_defs[type_["id"]] = type_
 
     if "functions" in namespace:
         lines.append("")
@@ -558,8 +572,6 @@ def format_namespace(manifest, namespace):
                 lines.extend(format_hints(function))
 
 
-            
-
     if "events" in namespace:
         lines.append("")
         lines.extend(header_2("Events", "api-main-section"))
@@ -604,7 +616,7 @@ def format_namespace(manifest, namespace):
 
             lines.extend(format_permissions(event, namespace))
 
-    # loop over own type defs and additional type defs   
+    # loop over own type defs and additional type defs
     for run in range(2):
         type_lines = []
         type_header = []
@@ -856,6 +868,7 @@ if __name__ == "__main__":
                 continue
 
             additional_type_used = []
+            own_type_defs = {}
             current_namespace_name = namespace["namespace"]
             manifest = namespaces.get("manifest", None)
 
@@ -871,7 +884,7 @@ if __name__ == "__main__":
                             if "id" in manifestType:
                                 manifestTypeDict[manifestType["id"]] = manifestType
                     
-                    for index, item in enumerate(namespaceTypes):                        
+                    for index, item in enumerate(namespaceTypes):
                         if "$import_from_manifest" in item:
                             namespaceTypes[index] = manifestTypeDict[item["$import_from_manifest"]]
 

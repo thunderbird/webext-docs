@@ -114,6 +114,20 @@ Sets the title of the composeAction. This shows up in the tooltip and the label.
          
          The string the composeAction should display as its label and when moused over.
       
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
+      
    
 
 .. _composeAction.getTitle:
@@ -166,6 +180,20 @@ Sets the label of the composeAction, defaults to its title. Can be set to an emp
          :type: (string or null)
          
          The string the composeAction should use as label. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
       
    
 
@@ -227,6 +255,20 @@ Sets the icon for the composeAction. The icon can be specified either as the pat
          
          Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
       
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
+      
    
 
 .. _composeAction.setPopup:
@@ -251,6 +293,20 @@ Sets the html document to be opened as a popup when the user clicks on the compo
          :type: (string or null)
          
          The html file to show in a popup.  If set to the empty string (''), no popup is shown.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
       
    
 
@@ -305,6 +361,20 @@ Sets the badge text for the composeAction. The badge is displayed on top of the 
          
          Any number of characters can be passed, but only about four can fit in the space.
       
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
+      
    
 
 .. _composeAction.getBadgeText:
@@ -357,6 +427,20 @@ Sets the background color for the badge.
          :type: (string or :ref:`composeAction.ColorArray` or null)
          
          An array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is ``[255, 0, 0, 255]``. Can also be a string with a CSS value, with opaque red being ``#FF0000`` or ``#F00``.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
       
    
 
