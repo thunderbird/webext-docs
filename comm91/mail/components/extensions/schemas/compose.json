@@ -1,0 +1,643 @@
+[
+  {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "OptionalPermission",
+        "choices": [
+          {
+            "type": "string",
+            "enum": [
+              "compose",
+              "compose.send"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "compose",
+    "types": [
+      {
+        "id": "ComposeRecipient",
+        "choices": [
+          {
+            "type": "string",
+            "description": "A name and email address in the format \"Name <email@example.com>\", or just an email address."
+          },
+          {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string",
+                "description": "The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs."
+              },
+              "type": {
+                "type": "string",
+                "description": "Which sort of object this ID is for.",
+                "enum": [
+                  "contact",
+                  "mailingList"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      {
+        "id": "ComposeRecipientList",
+        "choices": [
+          {
+            "$ref": "ComposeRecipient"
+          },
+          {
+            "type": "array",
+            "items": {
+              "$ref": "ComposeRecipient"
+            }
+          }
+        ]
+      },
+      {
+        "id": "ComposeState",
+        "type": "object",
+        "description": "Represent the state of the message composer.",
+        "properties": {
+          "canSendNow": {
+            "type": "boolean",
+            "description": "The message can be send now."
+          },
+          "canSendLater": {
+            "type": "boolean",
+            "description": "The message can be send later."
+          }
+        }
+      },
+      {
+        "id": "ComposeDetails",
+        "type": "object",
+        "description": "Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.",
+        "properties": {
+          "identityId": {
+            "type": "string",
+            "description": "The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission <permission>accountsRead</permission> is required to include the ``identityId``.",
+            "optional": true
+          },
+          "from": {
+            "$ref": "ComposeRecipient",
+            "description": "*Caution*: Setting a value for `from` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.",
+            "optional": true
+          },
+          "to": {
+            "$ref": "ComposeRecipientList",
+            "optional": true
+          },
+          "cc": {
+            "$ref": "ComposeRecipientList",
+            "optional": true
+          },
+          "bcc": {
+            "$ref": "ComposeRecipientList",
+            "optional": true
+          },
+          "replyTo": {
+            "$ref": "ComposeRecipientList",
+            "optional": true
+          },
+          "followupTo": {
+            "$ref": "ComposeRecipientList",
+            "optional": true
+          },
+          "newsgroups": {
+            "choices": [
+              {
+                "type": "string",
+                "description": "A newsgroup name."
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "description": "An array of newsgroup names."
+              }
+            ],
+            "optional": true
+          },
+          "relatedMessageId" : {
+            "description": "The id of the original message (in case of draft, template, forward or reply). Read-only. Is <code>null</code> in all other cases or if the original message was opened from file.",
+            "type": "integer",
+            "optional": true
+          },
+          "subject": {
+            "type": "string",
+            "optional": true
+          },
+          "type": {
+            "type": "string",
+            "description": "Read-only. The type of the message being composed, depending on how the compose window was opened by the user.",
+            "enum": [
+              "draft",
+              "new",
+              "redirect",
+              "reply",
+              "forward"
+            ],
+            "optional": true
+          },
+          "body": {
+            "type": "string",
+            "optional": true
+          },
+          "plainTextBody": {
+            "type": "string",
+            "optional": true
+          },
+          "isPlainText": {
+            "type": "boolean",
+            "optional": true
+          },
+          "attachments": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string",
+                  "description": "The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.",
+                  "optional": true
+                },
+                "file": {
+                  "type": "object",
+                  "isInstanceOf": "File",
+                  "additionalProperties": true
+                }
+              }
+            },
+            "description": "Attachments to add to the message. Only used in the begin* functions.",
+            "optional": true
+          }
+        }
+      },
+      {
+        "id": "ComposeAttachment",
+        "type": "object",
+        "description": "Represents an attachment in a message being composed.",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "description": "A unique identifier for this attachment."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file."
+          },
+          "size": {
+            "type": "integer",
+            "description": "The size in bytes of this attachment."
+          }
+        },
+        "functions": [
+          {
+            "name": "getFile",
+            "type": "function",
+            "description": "Retrieves the contents of the attachment as a DOM ``File`` object.",
+            "async": true,
+            "parameters": []
+          }
+        ]
+      }
+    ],
+    "events": [
+      {
+        "name": "onBeforeSend",
+        "type": "function",
+        "description": "Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.",
+        "permissions": [
+          "compose"
+        ],
+        "parameters": [
+          {
+            "name": "tab",
+            "$ref": "tabs.Tab"
+          },
+          {
+            "name": "details",
+            "$ref": "ComposeDetails",
+            "description": "The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function."
+          }
+        ],
+        "returns": {
+          "type": "object",
+          "properties": {
+            "cancel": {
+              "type": "boolean",
+              "optional": true,
+              "description": "Cancels the send."
+            },
+            "details": {
+              "$ref": "ComposeDetails",
+              "optional": true,
+              "description": "Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information."
+            }
+          }
+        }
+      },
+      {
+        "name": "onAttachmentAdded",
+        "type": "function",
+        "description": "Fired when an attachment is added to a message being composed.",
+        "permissions": [
+          "compose"
+        ],
+        "parameters": [
+          {
+            "name": "tab",
+            "$ref": "tabs.Tab"
+          },
+          {
+            "name": "attachment",
+            "$ref": "ComposeAttachment"
+          }
+        ]
+      },
+      {
+        "name": "onAttachmentRemoved",
+        "type": "function",
+        "description": "Fired when an attachment is removed from a message being composed.",
+        "permissions": [
+          "compose"
+        ],
+        "parameters": [
+          {
+            "name": "tab",
+            "$ref": "tabs.Tab"
+          },
+          {
+            "name": "attachmentId",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "name": "onIdentityChanged",
+        "type": "function",
+        "description": "Fired when the user changes the identity that will be used to send a message being composed.",
+        "permissions": [
+          "accountsRead"
+        ],
+        "parameters": [
+          {
+            "name": "tab",
+            "$ref": "tabs.Tab"
+          },
+          {
+            "name": "identityId",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "onComposeStateChanged",
+        "type": "function",
+        "description": "Fired when the state of the message composer changed.",
+        "parameters": [
+          {
+            "name": "tab",
+            "$ref": "tabs.Tab"
+          },
+          {
+            "name": "state",
+            "$ref": "ComposeState"
+          }
+        ]
+      }
+    ],
+    "functions": [
+      {
+        "name": "beginNew",
+        "type": "function",
+        "description": "Open a new message compose window. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "messageId",
+            "description": "If specified, the message or template to edit as a new message.",
+            "type": "integer",
+            "optional": true,
+            "minimum": 1
+          },
+          {
+            "name": "details",
+            "$ref": "ComposeDetails",
+            "optional": true
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "return",
+                "$ref": "tabs.Tab"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "beginReply",
+        "type": "function",
+        "description": "Open a new message compose window replying to a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "messageId",
+            "description": "The message to reply to, as retrieved using other APIs.",
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "replyType",
+            "type": "string",
+            "enum": [
+              "replyToSender",
+              "replyToList",
+              "replyToAll"
+            ],
+            "optional": true
+          },
+          {
+            "name": "details",
+            "$ref": "ComposeDetails",
+            "optional": true
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "return",
+                "$ref": "tabs.Tab"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "beginForward",
+        "type": "function",
+        "description": "Open a new message compose window forwarding a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "messageId",
+            "description": "The message to forward, as retrieved using other APIs.",
+            "type": "integer",
+            "minimum": 1
+          },
+          {
+            "name": "forwardType",
+            "type": "string",
+            "enum": [
+              "forwardInline",
+              "forwardAsAttachment"
+            ],
+            "optional": true
+          },
+          {
+            "name": "details",
+            "$ref": "ComposeDetails",
+            "optional": true
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "return",
+                "$ref": "tabs.Tab"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getComposeDetails",
+        "type": "function",
+        "async": "callback",
+        "description": "Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.",
+        "permissions": [
+          "compose"
+        ],
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "tabId",
+            "minimum": 0
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "ComposeDetails"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "setComposeDetails",
+        "type": "function",
+        "async": true,
+        "description": "Updates the compose window. Specify only fields that you want to change. Currently only the to/cc/bcc/replyTo/followupTo/newsgroups fields and the subject are implemented. It is not possible to change the compose format.",
+        "permissions": [
+          "compose"
+        ],
+        "parameters": [
+          {
+            "type": "integer",
+            "name": "tabId",
+            "minimum": 0
+          },
+          {
+            "name": "details",
+            "$ref": "ComposeDetails",
+            "description": "The compose format of an already opened compose window cannot be changed. Setting ``details.body``, ``details.plainTextBody`` or ``details.isPlaintext`` will fail if the compose format of the compose window does not match. Use :ref:`compose.getComposeDetails` to get the current compose format."
+          }
+        ]
+      },
+      {
+        "name": "listAttachments",
+        "type": "function",
+        "description": "Lists all of the attachments of the message being composed in the specified tab.",
+        "permissions": [
+          "compose"
+        ],
+        "async": true,
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "name": "addAttachment",
+        "type": "function",
+        "description": "Adds an attachment to the message being composed in the specified tab.",
+        "permissions": [
+          "compose"
+        ],
+        "async": true,
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          },
+          {
+            "name": "data",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.",
+                "optional": true
+              },
+              "file": {
+                "type": "object",
+                "isInstanceOf": "File",
+                "additionalProperties": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "updateAttachment",
+        "type": "function",
+        "description": "Renames and/or replaces the contents of an attachment to the message being composed in the specified tab.",
+        "permissions": [
+          "compose"
+        ],
+        "async": true,
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          },
+          {
+            "name": "attachmentId",
+            "type": "integer"
+          },
+          {
+            "name": "data",
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.",
+                "optional": true
+              },
+              "file": {
+                "type": "object",
+                "isInstanceOf": "File",
+                "additionalProperties": true,
+                "optional": true
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "removeAttachment",
+        "type": "function",
+        "description": "Removes an attachment from the message being composed in the specified tab.",
+        "permissions": [
+          "compose"
+        ],
+        "async": true,
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          },
+          {
+            "name": "attachmentId",
+            "type": "integer"
+          }
+        ]
+      },
+      {
+        "name": "sendMessage",
+        "permissions": [
+          "compose.send"
+        ],
+        "type": "function",
+        "description": "Sends the message currently being composed.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          },
+          {
+            "name": "options",
+            "type": "object",
+            "optional": true,
+            "properties": {
+              "mode": {
+                "type": "string",
+                "enum": [
+                  "default",
+                  "sendNow",
+                  "sendLater"
+                ]
+              }
+            }
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "description": "Returns false if the current state of the message composer prevented sending the message.",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "return",
+                "type": "boolean"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getComposeState",
+        "type": "function",
+        "description": "Returns information about the current state of the message composer.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "tabId",
+            "type": "integer"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "name": "return",
+                "$ref": "ComposeState"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,186 @@
+[
+  {
+    "namespace": "manifest",
+    "types": [
+      {
+        "$extend": "OptionalPermission",
+        "choices": [
+          {
+            "type": "string",
+            "enum": [
+              "accountsRead"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "accounts",
+    "permissions": [
+      "accountsRead"
+    ],
+    "types": [
+      {
+        "id": "MailAccount",
+        "description": "An object describing a mail account, as returned for example by the :ref:`accounts.list` and :ref:`accounts.get` methods. The ``folders`` property is only included if requested.",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "A unique identifier for this account."
+          },
+          "name": {
+            "type": "string",
+            "description": "The human-friendly name of this account."
+          },
+          "type": {
+            "type": "string",
+            "description": "What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``."
+          },
+          "folders": {
+            "type": "array",
+            "optional": true,
+            "description": "The folders for this account are only included if requested.",
+            "items": {
+              "$ref": "folders.MailFolder"
+            }
+          },
+          "identities": {
+            "type": "array",
+            "description": "The identities associated with this account. The default identity is listed first, others in no particular order.",
+            "items": {
+              "$ref": "identities.MailIdentity"
+            }
+          }
+        }
+      }
+    ],
+    "functions": [
+      {
+        "name": "list",
+        "type": "function",
+        "description": "Returns all mail accounts.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "includeFolders",
+            "description": "Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to ``true``.",
+            "optional": true,
+            "default": true,
+            "type": "boolean"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "type": "array",
+                "items": {
+                  "$ref": "accounts.MailAccount"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "get",
+        "type": "function",
+        "description": "Returns details of the requested account, or null if it doesn't exist.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "name": "includeFolders",
+            "description": "Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.",
+            "optional": true,
+            "default": true,
+            "type": "boolean"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "accounts.MailAccount",
+                "optional": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getDefault",
+        "type": "function",
+        "description": "Returns the default account, or null if it is not defined.",
+        "async": "callback",
+        "parameters": [
+          {
+            "name": "includeFolders",
+            "description": "Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.",
+            "optional": true,
+            "default": true,
+            "type": "boolean"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "accounts.MailAccount",
+                "optional": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "setDefaultIdentity",
+        "type": "function",
+        "description": "Sets the default identity for an account.",
+        "async": true,
+        "deprecated": "This will be removed. Use :ref:`identities.setDefault` instead.",
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "name": "identityId",
+            "type": "string"
+          }
+        ]
+      },
+      {
+        "name": "getDefaultIdentity",
+        "type": "function",
+        "description": "Returns the default identity for an account, or null if it is not defined.",
+        "async": "callback",
+        "deprecated": "This will be removed. Use :ref:`identities.getDefault` instead.",
+        "parameters": [
+          {
+            "name": "accountId",
+            "type": "string"
+          },
+          {
+            "type": "function",
+            "name": "callback",
+            "optional": true,
+            "parameters": [
+              {
+                "$ref": "identities.MailIdentity"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
