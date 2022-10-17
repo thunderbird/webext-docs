@@ -29,6 +29,9 @@
     "namespace": "browserAction",
     "types": [
       {
+        "$import_from_manifest": "ActionManifest"
+      },
+      {
         "id": "OnClickData",
         "added": "74.0b2",
         "properties": {
