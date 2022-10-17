@@ -134,7 +134,7 @@ sendMessage(tabId, message, [options])
 
 .. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
 
-Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back.  The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`_ event is fired in each content script running in the specified tab for the current extension.
+Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`_ event is fired in each content script running in the specified tab for the current extension.
 
 .. api-header::
    :label: Parameters
@@ -306,7 +306,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``highlighted``]
          :type: (boolean)
          
-         Whether the tabs are highlighted.  Works as an alias of active.
+         Whether the tabs are highlighted. Works as an alias of active.
       
       
       .. api-member::
@@ -1183,7 +1183,7 @@ An object describing filters to apply to tabs.onUpdated events.
       :name: [``urls``]
       :type: (array of string)
       
-      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out.  Filtering with urls requires the :permission:`tabs` or  :permission:`activeTab` permission.
+      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or  :permission:`activeTab` permission.
    
    
    .. api-member::

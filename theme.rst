@@ -525,7 +525,7 @@ Contains the color, image and property settings of a theme.
          :name: [``tab_text``]
          :type: (:ref:`theme.ThemeColor`)
          
-         The text color for the selected tab.  Defaults to the color specified by ``toolbar_text``.
+         The text color for the selected tab. Defaults to the color specified by ``toolbar_text``.
       
       
       .. api-member::
