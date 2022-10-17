@@ -98,7 +98,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the composeAction. This shows up in the tooltip and the label. Defaults to the add-on name.
+Sets the title of the composeAction. Is used as tooltip and as the label of the action button.
 
 .. api-header::
    :label: Parameters
@@ -112,7 +112,21 @@ Sets the title of the composeAction. This shows up in the tooltip and the label.
          :name: ``title``
          :type: (string or null)
          
-         The string the composeAction should display as its label and when moused over.
+         The string the composeAction should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value).
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Sets the title only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
       
    
 
@@ -131,7 +145,21 @@ Gets the title of the composeAction.
    
    .. api-member::
       :name: ``details``
-      :type: (:ref:`composeAction.Details`)
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
 .. api-header::
@@ -151,7 +179,7 @@ setLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Sets the label of the composeAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
 .. api-header::
    :label: Parameters
@@ -165,7 +193,21 @@ Sets the label of the composeAction, defaults to its title. Can be set to an emp
          :name: ``label``
          :type: (string or null)
          
-         The string the composeAction should use as label. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+         The string the composeAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Sets the label only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
       
    
 
@@ -184,7 +226,21 @@ Gets the label of the composeAction.
    
    .. api-member::
       :name: ``details``
-      :type: (:ref:`composeAction.Details`)
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Specifies for which tab the label should be retrieved. If no tab is specified, the global label is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
 .. api-header::
@@ -204,7 +260,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the composeAction. The icon can be specified either as the path to an image file or as the pixel data from a canvas element, or as dictionary of either one of those. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the composeAction. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -225,7 +281,21 @@ Sets the icon for the composeAction. The icon can be specified either as the pat
          :name: [``path``]
          :type: (:ref:`composeAction.IconPath`)
          
-         The icon for the composeAction.
+         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Sets the icon only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
       
    
 
@@ -250,7 +320,21 @@ Sets the html document to be opened as a popup when the user clicks on the compo
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup.  If set to the empty string (''), no popup is shown.
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value).
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Sets the popup only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
       
    
 
@@ -269,7 +353,21 @@ Gets the html document set as the popup for this composeAction.
    
    .. api-member::
       :name: ``details``
-      :type: (:ref:`composeAction.Details`)
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
 .. api-header::
@@ -303,7 +401,21 @@ Sets the badge text for the composeAction. The badge is displayed on top of the 
          :name: ``text``
          :type: (string or null)
          
-         Any number of characters can be passed, but only about four can fit in the space.
+         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to ``null`` or an empty string.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Sets the badge text only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
       
    
 
@@ -314,7 +426,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the composeAction. If no tab nor window is specified, the global badge text is returned.
+Gets the badge text of the composeAction.
 
 .. api-header::
    :label: Parameters
@@ -322,7 +434,21 @@ Gets the badge text of the composeAction. If no tab nor window is specified, the
    
    .. api-member::
       :name: ``details``
-      :type: (:ref:`composeAction.Details`)
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Specifies for which tab the badge text should be retrieved. If no tab is specified, the global label is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
 .. api-header::
@@ -356,7 +482,21 @@ Sets the background color for the badge.
          :name: ``color``
          :type: (string or :ref:`composeAction.ColorArray` or null)
          
-         An array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is ``[255, 0, 0, 255]``. Can also be a string with a CSS value, with opaque red being ``#FF0000`` or ``#F00``.
+         The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Sets the background color for the badge only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
       
    
 
@@ -367,7 +507,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the background color of the composeAction.
+Gets the badge background color of the composeAction.
 
 .. api-header::
    :label: Parameters
@@ -375,7 +515,21 @@ Gets the background color of the composeAction.
    
    .. api-member::
       :name: ``details``
-      :type: (:ref:`composeAction.Details`)
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global label is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
 .. api-header::
@@ -443,7 +597,21 @@ Checks whether the composeAction is enabled.
    
    .. api-member::
       :name: ``details``
-      :type: (:ref:`composeAction.Details`)
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer)
+         
+         Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
 .. api-header::
@@ -522,33 +690,6 @@ An array of four integers in the range [0,255] that make up the RGBA color. For 
 .. api-header::
    :label: array of integer
 
-.. _composeAction.Details:
-
-Details
--------
-
-.. api-section-annotation-hack:: 
-
-Specifies to which tab or window the value should be set, or from which one it should be retrieved. If no tab nor window is specified, the global value is set or retrieved.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer)
-      
-      When setting a value, it will be specific to the specified tab, and will automatically reset when the tab navigates. When getting, specifies the tab to get the value from; if there is no tab-specific value, the window one will be inherited.
-   
-   
-   .. api-member::
-      :name: [``windowId``]
-      :type: (integer)
-      
-      When setting a value, it will be specific to the specified window. When getting, specifies the window to get the value from; if there is no window-specific value, the global one will be inherited.
-   
-
 .. _composeAction.ImageDataDictionary:
 
 ImageDataDictionary
@@ -580,7 +721,7 @@ OnClickData
 
 .. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
-Information sent when a compose action is clicked.
+Information sent when a composeAction is clicked.
 
 .. api-header::
    :label: object
