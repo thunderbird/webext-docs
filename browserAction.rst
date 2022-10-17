@@ -116,7 +116,7 @@ Sets the title of the browserAction.
          :name: ``title``
          :type: (string or null)
          
-         The string the browserAction should display as its label and when moused over. If title is set to ``null``, the button will use the value of ``default_title`` defined in the manifest (or the add-on name, if not defined).
+         The string the browserAction should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value).
       
       
       .. api-member::
@@ -197,7 +197,7 @@ Sets the label of the browserAction.
          :name: ``label``
          :type: (string or null)
          
-         The string the browserAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used.
+         The string the browserAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
       
       
       .. api-member::
@@ -324,7 +324,7 @@ Sets the html document to be opened as a popup when the user clicks on the brows
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. If set to the empty string (''), no popup is shown.
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value).
       
       
       .. api-member::
@@ -405,7 +405,7 @@ Sets the badge text for the browserAction. The badge is displayed on top of the 
          :name: ``text``
          :type: (string or null)
          
-         Any number of characters can be passed, but only about four can fit in the space.
+         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to ``null`` or an empty string.
       
       
       .. api-member::
@@ -486,7 +486,7 @@ Sets the background color for the badge.
          :name: ``color``
          :type: (string or :ref:`browserAction.ColorArray` or null)
          
-         An array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is ``[255, 0, 0, 255]``. Can also be a string with a CSS value, with opaque red being ``#FF0000`` or ``#F00``.
+         The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string.
       
       
       .. api-member::
@@ -725,7 +725,7 @@ OnClickData
 
 .. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
-Information sent when a browser action is clicked.
+Information sent when a browserAction is clicked.
 
 .. api-header::
    :label: object
