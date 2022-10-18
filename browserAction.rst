@@ -653,6 +653,7 @@ ActionManifest
       
       .. api-member::
          :name: ``tabstoolbar``
+         :annotation: -- [Added in TB 92, backported to TB 91.0.2]
    
    
    .. api-member::
@@ -665,6 +666,7 @@ ActionManifest
    .. api-member::
       :name: [``default_label``]
       :type: (string)
+      :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
       
       The label of the action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
    

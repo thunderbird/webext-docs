@@ -3,21 +3,17 @@
     "namespace": "manifest",
     "types": [
       {
-        "$extend": "WebExtensionManifest",
+        "id": "ActionManifest",
         "properties": {
-          "browser_action": {
-            "properties": {
-              "default_label": {
-                "added": "84.0b3",
-                "backported": "78.6.1"
-              },
-              "default_area": {
-                "enumChanges": {
-                  "tabstoolbar": {
-                    "added": "92",
-                    "backported": "91.0.2"
-                  }
-                }
+          "default_label": {
+            "added": "84.0b3",
+            "backported": "78.6.1"
+          },
+          "default_area": {
+            "enumChanges": {
+              "tabstoolbar": {
+                "added": "92",
+                "backported": "91.0.2"
               }
             }
           }
