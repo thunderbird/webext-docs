@@ -25,8 +25,8 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     let title = config.banner.older_title;
     let type = config.banner.older_type
     if (running_version.slug == "latest-mv3") {
-        msg = (config.banner.latest_indexmessage && isIndex)
-            ? config.banner.latest_indexmessage
+        msg = (config.banner.latest_mv3_indexmessage && isIndex)
+            ? config.banner.latest_mv3_indexmessage
             : config.banner.latest_mv3_message;
         title = config.banner.latest_mv3_title;
         type = config.banner.latest_mv3_type
