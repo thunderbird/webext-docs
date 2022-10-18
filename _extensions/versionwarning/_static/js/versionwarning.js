@@ -101,6 +101,9 @@ function checkVersion(config) {
             // TODO: fetch more versions if there are more pages (next)
             highest_version = getHighestVersion(versions["results"]);
             console.debug("Highest version: " + highest_version.slug);
+            if (running_version.slug == "stable") {
+                running_version = highest_version
+            }
             injectVersionWarningBanner(running_version, highest_version, config, versions["results"]);
         },
         error: function () {
