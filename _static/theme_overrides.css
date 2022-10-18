@@ -22,6 +22,10 @@ div.version {
   display: none;
 }
 
+.icon-home::before {
+  content: ""
+}
+
 span.permission {
   background-color:#e74c3c;
   color: #fcfcfc;
