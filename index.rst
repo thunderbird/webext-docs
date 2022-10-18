@@ -46,11 +46,11 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 +===============================+====================+=======================================+
 | :doc:`accounts`               | |accounts-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
+| :doc:`action`                 | |action-Description|                                       |
++-------------------------------+------------------------------------------------------------+
 | :doc:`addressBooks`           | |addressBooks-Description|                                 |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`addressBooks.provider`  | |addressBooksProvider-Description|                         |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`browserAction`          | |browserAction-Description|                                |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`cloudFile`              | |cloudFile-Description|                                    |
 +-------------------------------+------------------------------------------------------------+
@@ -94,7 +94,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |accounts-Description| replace:: Enables an extension to access information of accounts and identities configured in Thunderbird's account manager.
 .. |addressBooks-Description| replace:: Enables an extension to access, modify, create and delete Thunderbird address books.
 .. |addressBooksProvider-Description| replace:: Allows to implement address books whose storage and entries are not handled by Thunderbird but by the extension.
-.. |browserAction-Description| replace:: Enables an extension to interact with a `browser action button`_. 
+.. |action-Description| replace:: Enables an extension to interact with an `action button`_ in Thunderbirds main mail window. 
 .. |cloudFile-Description| replace:: Enables an extension to register a cloudFile provider, which can be used to upload large attachments to a server, instead of attaching them directly to the email.
 .. |commands-Description| replace:: The commands API adds keyboard shortcuts that can trigger actions in an extension.
 .. |compose-Description| replace:: Enables an extension to open a new message compose window or react to events while the message is being composed.
@@ -115,7 +115,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |tabs-Description| replace:: Enables an extension to interact with Thunderbird's tab system. It allows to create, modify, and rearrange tabs and to communicate with scripts in tabs.
 .. |windows-Description| replace:: Enables an extension to interact with Thunderbird's windows which can contain webpage tabs and also with other window types like composer or address books that cannot contain webpage tabs. You can use this API to create, modify, and rearrange windows.
 
-.. _`browser action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#browser-action
+.. _`action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#browser-action
 .. _`compose action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#compose-action
 .. _`message display action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#message-display-action
 
@@ -239,9 +239,9 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   :caption: API Documentation
   
   accounts
+  action
   addressBooks
   addressBooks.provider
-  browserAction
   cloudFile
   commands
   compose

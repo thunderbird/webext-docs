@@ -22,9 +22,9 @@
     ]
   },
   {
-    "namespace": "browserAction",
+    "namespace": "action",
     "permissions": [
-      "manifest:browser_action"
+      "manifest:action"
     ],
     "types": [
       {
@@ -79,11 +79,5 @@
         "backported": "78.6.1"
       }
     ]
-  },
-  {
-    "namespace": "action",
-    "permissions": [
-      "manifest:action"
-    ]
-  }  
+  } 
 ]

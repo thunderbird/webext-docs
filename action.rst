@@ -122,7 +122,7 @@ Gets the title of the action.
 setLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
 Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
@@ -161,7 +161,7 @@ Sets the label of the action button. Can be used to set different values for the
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
 Gets the label of the action.
 
@@ -609,17 +609,104 @@ Fired when an action icon is clicked. This event will not fire if the action has
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 74.0b2]
    
    
    .. api-member::
       :name: [``info``]
       :type: (:ref:`action.OnClickData`)
+      :annotation: -- [Added in TB 74.0b2]
    
 
 .. rst-class:: api-main-section
 
 Types
 =====
+
+.. _action.ActionManifest:
+
+ActionManifest
+--------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``browser_style``]
+      :type: (boolean)
+      
+      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+   
+   
+   .. api-member::
+      :name: [``default_area``]
+      :type: (`string`)
+      
+      Defines the location the action will appear. The default location is ``maintoolbar``.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``maintoolbar``
+      
+      .. api-member::
+         :name: ``tabstoolbar``
+         :annotation: -- [Added in TB 92, backported to TB 91.0.2]
+   
+   
+   .. api-member::
+      :name: [``default_icon``]
+      :type: (:ref:`action.IconPath`)
+      
+      The paths to one or more icons for the action.
+   
+   
+   .. api-member::
+      :name: [``default_label``]
+      :type: (string)
+      :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+      
+      The label of the action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+   
+   
+   .. api-member::
+      :name: [``default_popup``]
+      :type: (string)
+      
+      The html document to be opened as a popup when the user clicks on the action's icon.
+   
+   
+   .. api-member::
+      :name: [``default_title``]
+      :type: (string)
+      
+      The title of the action. This shows up in the tooltip and the label. Defaults to the add-on name.
+   
+   
+   .. api-member::
+      :name: [``default_windows``]
+      :type: (array of `string`)
+      
+      Defines the windows, the action should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: ``normal``
+      
+      .. api-member::
+         :name: ``messageDisplay``
+   
+   
+   .. api-member::
+      :name: [``theme_icons``]
+      :type: (array of :ref:`action.ThemeIcons`)
+      
+      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
+   
 
 .. _action.ColorArray:
 
@@ -662,7 +749,7 @@ Pixel data for an image. Must be an ImageData object (for example, from a ``canv
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
 Information sent when an action is clicked.
 
@@ -687,11 +774,17 @@ Information sent when an action is clicked.
       .. api-member::
          :name: ``Command``
       
+         Only available on macOS.
+      
       .. api-member::
          :name: ``Ctrl``
       
+         Not available on macOS.
+      
       .. api-member::
          :name: ``MacCtrl``
+      
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
    
    
    .. api-member::
@@ -721,3 +814,37 @@ Either a simple ``string``, setting the path of an icon to be used for all sizes
   :language: JSON
 
 At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
+
+.. _action.ThemeIcons:
+
+ThemeIcons
+----------
+
+.. api-section-annotation-hack:: 
+
+Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``dark``
+      :type: (string)
+      
+      A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified).
+   
+   
+   .. api-member::
+      :name: ``light``
+      :type: (string)
+      
+      A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme).
+   
+   
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+      
+      The size of the two icons in pixels, for example ``16`` or ``32``.
+   
