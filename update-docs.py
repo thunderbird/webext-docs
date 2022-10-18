@@ -8,6 +8,7 @@ import argparse, glob, json, os, re
 
 DEST_DIR = os.path.dirname(__file__)
 OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
+MV = 2
 
 current_namespace = None
 
@@ -854,6 +855,21 @@ if __name__ == "__main__":
         # manifest local in this page 
         for namespace in document:
             if namespace["namespace"] == "manifest":
+                # overlay manifest
+                if "manifest" in overlays:
+                    merge_objects(overlays["manifest"], namespace)
+                
+                types = namespace.get("types", list())
+                for type in types:
+                    # limit to requested manifests version
+                    if "$extend" in type and "properties" in type and type["$extend"] == "WebExtensionManifest":
+                        properties = type["properties"]
+                        for property in properties:
+                            if "min_manifest_version" in properties[property] and properties[property]["min_manifest_version"] > MV:
+                                types.remove(type)
+                            if "max_manifest_version" in properties[property] and properties[property]["max_manifest_version"] < MV:
+                                types.remove(type)
+                
                 continue
 
             additional_type_used = []
@@ -863,6 +879,12 @@ if __name__ == "__main__":
             # import other namespaces
             if "$import" in namespace:
                 current_namespace = namespaces[namespace["$import"]].copy()
+                # m-c imports the entire action namespace into the browser_action
+                # namespace, which includes its min_manifest_version = 3, which is
+                # of course wrong
+                for key in ["min_manifest_version", "max_manifest_version"]:
+                    if key in current_namespace:
+                        del current_namespace[key]
                 current_namespace.update(namespace)
 
             # overlay namespace
@@ -874,13 +896,9 @@ if __name__ == "__main__":
                         current_namespace[entry] = list(overlays[namespace["namespace"]][entry])
 
             # Import selected manifest types into the namespace (used in theme)
-            # I decided to select which types should be import, as sometimes
+            # Decided to select which types should be imported, as sometimes
             # importing all types is not desired.
             if manifest:
-                # overlay manifest
-                if "manifest" in overlays:
-                    merge_objects(overlays["manifest"], manifest)
-
                 manifestTypes = manifest.get("types", None);
                 namespaceTypes = current_namespace.get("types", None)
                 if manifestTypes and namespaceTypes:
@@ -892,6 +910,12 @@ if __name__ == "__main__":
                     for index, item in enumerate(namespaceTypes):
                         if "$import_from_manifest" in item:
                             namespaceTypes[index] = manifestTypeDict[item["$import_from_manifest"]]
+
+            # limit to requested manifests version
+            if "min_manifest_version" in current_namespace and current_namespace["min_manifest_version"] > MV:
+                continue
+            if "max_manifest_version" in current_namespace and current_namespace["max_manifest_version"] < MV:
+                continue
 
             with open(os.path.join(DEST_DIR, current_namespace["namespace"] + ".rst"), "w") as fp_output:
                 fp_output.write(format_namespace(manifest, current_namespace))
