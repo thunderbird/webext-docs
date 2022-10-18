@@ -31,6 +31,11 @@ def setup(app):
     app.add_config_value('versionwarning_latest_title', 'Warning', 'html')
     app.add_config_value('versionwarning_latest_type', 'warning', 'html')
 
+    app.add_config_value('versionwarning_latest_mv3_message', '', 'html')
+    app.add_config_value('versionwarning_latest_mv3_indexmessage', '', 'html')
+    app.add_config_value('versionwarning_latest_mv3_title', 'Warning', 'html')
+    app.add_config_value('versionwarning_latest_mv3_type', 'danger', 'html')
+
     app.add_config_value('versionwarning_api_url', 'https://readthedocs.org/api/v2/', 'html')
     app.add_config_value('versionwarning_banner_html', banner_html, 'html')
     app.add_config_value('versionwarning_banner_id_div', 'version-warning-banner', 'html')

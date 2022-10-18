@@ -63,6 +63,10 @@ def generate_versionwarning_data_json(app, config=None, **kwargs):
             'latest_indexmessage': config.versionwarning_latest_indexmessage,
             'latest_title': config.versionwarning_latest_title,
             'latest_type': config.versionwarning_latest_type,
+            'latest_mv3_message': config.versionwarning_latest_mv3_message,
+            'latest_mv3_indexmessage': config.versionwarning_latest_mv3_indexmessage,
+            'latest_mv3_title': config.versionwarning_latest_mv3_title,
+            'latest_mv3_type': config.versionwarning_latest_mv3_type,
         },
         'project': {
             'slug': config.versionwarning_project_slug,

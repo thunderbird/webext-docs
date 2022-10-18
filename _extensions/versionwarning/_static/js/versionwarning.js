@@ -2,7 +2,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     console.debug("injectVersionWarningBanner");
     var current_url = window.location.pathname;
     var isIndex = current_url.endsWith(running_version.slug + "/") || current_url.endsWith(running_version.slug + "/index.html");
-    
+
     var others = [];
     $.each(versions, function (i, version) {
         if (version.slug != running_version.slug && version.slug != highest_version.slug) {
@@ -10,7 +10,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
             if (label.startsWith("latest")) {
                 label = "Latest"
             }
-            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" +label + "</a>");
+            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + label + "</a>");
         }
     });
     let other = others.pop();
@@ -18,26 +18,32 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     if (first) {
         other = first + " & " + other;
     }
-    
-    let msg = (config.banner.older_indexmessage && isIndex) 
-                        ? config.banner.older_indexmessage
-                        : config.banner.older_message;
-    let title =  config.banner.older_title;
+
+    let msg = (config.banner.older_indexmessage && isIndex)
+        ? config.banner.older_indexmessage
+        : config.banner.older_message;
+    let title = config.banner.older_title;
     let type = config.banner.older_type
-    if (running_version.slug.startsWith("latest")) {
-        msg = (config.banner.latest_indexmessage && isIndex) 
-                        ? config.banner.latest_indexmessage
-                        : config.banner.latest_message;
-        title =  config.banner.latest_title;
+    if (running_version.slug == "latest-mv3") {
+        msg = (config.banner.latest_mv3_indexmessage && isIndex)
+            ? config.banner.latest_mv3_indexmessage
+            : config.banner.latest_mv3_message;
+        title = config.banner.latest_mv3_title;
+        type = config.banner.latest_mv3_type
+    } else if (running_version.slug.startsWith("latest")) {
+        msg = (config.banner.latest_indexmessage && isIndex)
+            ? config.banner.latest_indexmessage
+            : config.banner.latest_message;
+        title = config.banner.latest_title;
         type = config.banner.latest_type
     } else if (running_version.slug == "stable" || running_version.slug == highest_version.slug) {
-        msg = (config.banner.current_indexmessage && isIndex) 
-                        ? config.banner.current_indexmessage
-                        : config.banner.current_message;
-        title =  config.banner.current_title;
+        msg = (config.banner.current_indexmessage && isIndex)
+            ? config.banner.current_indexmessage
+            : config.banner.current_message;
+        title = config.banner.current_title;
         type = config.banner.current_type
-    } 
-    
+    }
+
     if (msg) {
         var warning = $(
             config.banner.html
@@ -45,7 +51,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
                 .replace("{id_div}", config.banner.id_div)
                 .replace("{banner_title}", title)
                 .replace("{admonition_type}", type)
-                .replace("{newest}",  '<a href="' + current_url.replace(running_version.slug, highest_version.slug) + '">' + highest_version.slug + '</a>')
+                .replace("{newest}", '<a href="' + current_url.replace(running_version.slug, highest_version.slug) + '">' + highest_version.slug + '</a>')
                 .replace("{this}", running_version.slug)
                 .replace("{other}", other)
         );
@@ -85,7 +91,7 @@ function checkVersion(config) {
         // format: "jsonp",
     };
 
-    $.ajax({        
+    $.ajax({
         // Access of API is broken by CORS
         // https://readthedocs.org/api/v2/version/?project__slug=thunderbird-webextension-apis&active=true
         //url: config.meta.api_url + "version/",
@@ -117,7 +123,7 @@ function init() {
     base_url = base_url.replace('versionwarning.js', '');
     $.ajax({
         url: base_url + "../../_static/data/versionwarning-data.json",
-        success: function(config) {
+        success: function (config) {
             // Check if there is already a banner added statically
             var banner = document.getElementById(config.banner.id_div);
             if (banner) {
@@ -126,7 +132,7 @@ function init() {
                 checkVersion(config);
             }
         },
-        error: function() {
+        error: function () {
             console.error("Error loading versionwarning-data.json");
         },
     })
