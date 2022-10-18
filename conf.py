@@ -3,7 +3,7 @@ import sys, os
 # local extension folder
 sys.path.append(os.path.abspath('_extensions'))
 
-project = u'WebExtension API Documentation<br>for<br>Thunderbird Beta<br><br>Manifest v3'
+project = u'WebExtension API Documentation<br>for Thunderbird Beta<br><br>Manifest v3'
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
