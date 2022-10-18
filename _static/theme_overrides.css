@@ -26,9 +26,6 @@ div.version {
   content: ""
 }
 
-div.attention {
-  background-color:#e74c3c;
-}
 span.permission {
   background-color:#e74c3c;
   color: #fcfcfc;

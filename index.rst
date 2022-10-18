@@ -1,4 +1,4 @@
-.. attention::
+.. danger::
 
   This is the documentation for the upcoming Manifest v3 specification. It has not yet been finalized
   and will change in the future. Feel free to test and explore what changes will be needed for your 
