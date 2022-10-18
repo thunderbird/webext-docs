@@ -1,12 +1,11 @@
 .. danger::
 
-  This is the documentation for the upcoming Manifest v3 specification (a.k.a. MV3). It has not yet
-  been finalized and will change in the future. Feel free to test and explore what changes will be
-  needed for your extensions to run under Manifest v3, but do not release or distribute them yet. We
-  aim to finalize the specification with the release of Thunderbird 115.
+  This is the documentation for the upcoming Manifest v3 specification (a.k.a. MV3). It is not finalized
+  yet and will continue to change. Feel free to test and explore the required changes for your extensions
+  to run under Manifest v3, but do not release or distribute them yet. We aim to finalize the specification
+  with the release of Thunderbird 115.
   
-  Thunderbird does not yet have a dedicated support pages for converting from MV2 to MV3. The `Firefox
-  blog post about MV3 <https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/>`__
+  The `Firefox blog post about MV3 <https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/>`__
   has all the relevant information.
 
 ==========================================
