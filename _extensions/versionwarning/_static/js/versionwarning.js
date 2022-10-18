@@ -7,7 +7,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     $.each(versions, function (i, version) {
         if (version.slug != running_version.slug && version.slug != highest_version.slug) {
             let label = version.slug;
-            if (label == "latest") {
+            if (label.startsWith("latest")) {
                 label = "Latest"
             }
             others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" +label + "</a>");
@@ -24,13 +24,13 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
                         : config.banner.older_message;
     let title =  config.banner.older_title;
     let type = config.banner.older_type
-    if (running_version.slug == "latest") {
+    if (running_version.slug.startsWith("latest")) {
         msg = (config.banner.latest_indexmessage && isIndex) 
                         ? config.banner.latest_indexmessage
                         : config.banner.latest_message;
         title =  config.banner.latest_title;
         type = config.banner.latest_type
-    } else if (running_version.slug == highest_version.slug) {
+    } else if (running_version.slug == "stable" || running_version.slug == highest_version.slug) {
         msg = (config.banner.current_indexmessage && isIndex) 
                         ? config.banner.current_indexmessage
                         : config.banner.current_message;
@@ -89,7 +89,7 @@ function checkVersion(config) {
         // Access of API is broken by CORS
         // https://readthedocs.org/api/v2/version/?project__slug=thunderbird-webextension-apis&active=true
         //url: config.meta.api_url + "version/",
-        url: "https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
+        url: "https://webextension-api.thunderbird.net/en/stable/_static/versions.json",
         // Used when working locally for development
         // crossDomain: true,
         // xhrFields: {
@@ -101,9 +101,6 @@ function checkVersion(config) {
             // TODO: fetch more versions if there are more pages (next)
             highest_version = getHighestVersion(versions["results"]);
             console.debug("Highest version: " + highest_version.slug);
-            if (running_version.slug == "stable") {
-                running_version = highest_version
-            }
             injectVersionWarningBanner(running_version, highest_version, config, versions["results"]);
         },
         error: function () {
