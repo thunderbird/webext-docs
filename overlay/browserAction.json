@@ -79,11 +79,5 @@
         "backported": "78.6.1"
       }
     ]
-  },
-  {
-    "namespace": "action",
-    "permissions": [
-      "manifest:action"
-    ]
-  }  
+  }
 ]

@@ -888,12 +888,12 @@ if __name__ == "__main__":
                 current_namespace.update(namespace)
 
             # overlay namespace
-            if namespace["namespace"] in overlays:
-                for entry in overlays[namespace["namespace"]]:
+            if current_namespace["namespace"] in overlays:
+                for entry in overlays[current_namespace["namespace"]]:
                     if entry in ["types", "events", "functions"]:
-                        merge_objects(overlays[namespace["namespace"]][entry], current_namespace[entry])
+                        merge_objects(overlays[current_namespace["namespace"]][entry], current_namespace[entry])
                     elif entry in ["permissions", "ignore_permissions"]:
-                        current_namespace[entry] = list(overlays[namespace["namespace"]][entry])
+                        current_namespace[entry] = list(overlays[current_namespace["namespace"]][entry])
 
             # Import selected manifest types into the namespace (used in theme)
             # Decided to select which types should be imported, as sometimes
