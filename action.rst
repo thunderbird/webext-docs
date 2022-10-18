@@ -1,14 +1,15 @@
-.. _browserAction_api:
+.. _action_api:
 
-=============
-browserAction
-=============
+======
+action
+======
 
-The browserAction API first appeared in Thunderbird 64. It is very similar to Firefox's `browserAction API`__.
+The action API has been introduced with the switch to manifest V3 and has first appeared in Thunderbird 105.
+It is identical to the old ``browserAction`` API and very similar to Firefox's `action API`__.
 
-Many of our `sample extensions`__ use a browserAction.
+Many of our `sample extensions`__ use the action API.
 
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction
+__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/action
 __ https://github.com/thundernest/sample-extensions
 
 .. role:: permission
@@ -21,21 +22,21 @@ Manifest file properties
 ========================
 
 .. api-member::
-   :name: [``browser_action``]
-   :type: (:ref:`browserAction.ActionManifest`)
+   :name: [``action``]
+   :type: (:ref:`action.ActionManifest`)
 
 .. rst-class:: api-permission-info
 
 .. note::
 
-   A manifest entry named ``browser_action`` is required to use ``browserAction``.
+   A manifest entry named ``action`` is required to use ``action``.
 
 .. rst-class:: api-main-section
 
 Functions
 =========
 
-.. _browserAction.setTitle:
+.. _action.setTitle:
 
 setTitle(details)
 -----------------
@@ -74,7 +75,7 @@ Sets the title of the action. Is used as tooltip and as the label of the action 
       
    
 
-.. _browserAction.getTitle:
+.. _action.getTitle:
 
 getTitle(details)
 -----------------
@@ -116,12 +117,12 @@ Gets the title of the action.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _browserAction.setLabel:
+.. _action.setLabel:
 
 setLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+.. api-section-annotation-hack:: 
 
 Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
@@ -155,12 +156,12 @@ Sets the label of the action button. Can be used to set different values for the
       
    
 
-.. _browserAction.getLabel:
+.. _action.getLabel:
 
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+.. api-section-annotation-hack:: 
 
 Gets the label of the action.
 
@@ -197,7 +198,7 @@ Gets the label of the action.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _browserAction.setIcon:
+.. _action.setIcon:
 
 setIcon(details)
 ----------------
@@ -216,14 +217,14 @@ Sets the icon for the action. Either the **path** or the **imageData** property 
       
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`browserAction.ImageDataType` or :ref:`browserAction.ImageDataDictionary`)
+         :type: (:ref:`action.ImageDataType` or :ref:`action.ImageDataDictionary`)
          
          The image data for one or more icons for the action.
       
       
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`browserAction.IconPath`)
+         :type: (:ref:`action.IconPath`)
          
          The paths to one or more icons for the action.
       
@@ -243,7 +244,7 @@ Sets the icon for the action. Either the **path** or the **imageData** property 
       
    
 
-.. _browserAction.setPopup:
+.. _action.setPopup:
 
 setPopup(details)
 -----------------
@@ -282,7 +283,7 @@ Sets the html document to be opened as a popup when the user clicks on the actio
       
    
 
-.. _browserAction.getPopup:
+.. _action.getPopup:
 
 getPopup(details)
 -----------------
@@ -324,7 +325,7 @@ Gets the html document set as the popup for this action.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _browserAction.setBadgeText:
+.. _action.setBadgeText:
 
 setBadgeText(details)
 ---------------------
@@ -363,7 +364,7 @@ Sets the badge text for the action. The badge is displayed on top of the icon.
       
    
 
-.. _browserAction.getBadgeText:
+.. _action.getBadgeText:
 
 getBadgeText(details)
 ---------------------
@@ -405,7 +406,7 @@ Gets the badge text of the action.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _browserAction.setBadgeBackgroundColor:
+.. _action.setBadgeBackgroundColor:
 
 setBadgeBackgroundColor(details)
 --------------------------------
@@ -424,7 +425,7 @@ Sets the background color for the badge.
       
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`browserAction.ColorArray` or null)
+         :type: (string or :ref:`action.ColorArray` or null)
          
          The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string.
       
@@ -444,7 +445,7 @@ Sets the background color for the badge.
       
    
 
-.. _browserAction.getBadgeBackgroundColor:
+.. _action.getBadgeBackgroundColor:
 
 getBadgeBackgroundColor(details)
 --------------------------------
@@ -481,12 +482,12 @@ Gets the badge background color of the action.
 
    
    .. api-member::
-      :type: :ref:`browserAction.ColorArray`
+      :type: :ref:`action.ColorArray`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _browserAction.enable:
+.. _action.enable:
 
 enable([tabId])
 ---------------
@@ -506,7 +507,7 @@ Enables the action for a tab. By default, an action is enabled.
       The id of the tab for which you want to modify the action.
    
 
-.. _browserAction.disable:
+.. _action.disable:
 
 disable([tabId])
 ----------------
@@ -526,7 +527,7 @@ Disables the action for a tab.
       The id of the tab for which you want to modify the action.
    
 
-.. _browserAction.isEnabled:
+.. _action.isEnabled:
 
 isEnabled(details)
 ------------------
@@ -568,7 +569,7 @@ Checks whether the action is enabled.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _browserAction.openPopup:
+.. _action.openPopup:
 
 openPopup()
 -----------
@@ -582,7 +583,7 @@ Opens the extension popup window in the active window.
 Events
 ======
 
-.. _browserAction.onClicked:
+.. _action.onClicked:
 
 onClicked
 ---------
@@ -608,13 +609,11 @@ Fired when an action icon is clicked. This event will not fire if the action has
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: -- [Added in TB 74.0b2]
    
    
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`browserAction.OnClickData`)
-      :annotation: -- [Added in TB 74.0b2]
+      :type: (:ref:`action.OnClickData`)
    
 
 .. rst-class:: api-main-section
@@ -622,92 +621,7 @@ Fired when an action icon is clicked. This event will not fire if the action has
 Types
 =====
 
-.. _browserAction.ActionManifest:
-
-ActionManifest
---------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``browser_style``]
-      :type: (boolean)
-      
-      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
-   
-   
-   .. api-member::
-      :name: [``default_area``]
-      :type: (`string`)
-      
-      Defines the location the action will appear. The default location is ``maintoolbar``.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: ``maintoolbar``
-      
-      .. api-member::
-         :name: ``tabstoolbar``
-         :annotation: -- [Added in TB 92, backported to TB 91.0.2]
-   
-   
-   .. api-member::
-      :name: [``default_icon``]
-      :type: (:ref:`browserAction.IconPath`)
-      
-      The paths to one or more icons for the action.
-   
-   
-   .. api-member::
-      :name: [``default_label``]
-      :type: (string)
-      :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
-      
-      The label of the action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
-   
-   
-   .. api-member::
-      :name: [``default_popup``]
-      :type: (string)
-      
-      The html document to be opened as a popup when the user clicks on the action's icon.
-   
-   
-   .. api-member::
-      :name: [``default_title``]
-      :type: (string)
-      
-      The title of the action. This shows up in the tooltip and the label. Defaults to the add-on name.
-   
-   
-   .. api-member::
-      :name: [``default_windows``]
-      :type: (array of `string`)
-      
-      Defines the windows, the action should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: ``normal``
-      
-      .. api-member::
-         :name: ``messageDisplay``
-   
-   
-   .. api-member::
-      :name: [``theme_icons``]
-      :type: (array of :ref:`browserAction.ThemeIcons`)
-      
-      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
-   
-
-.. _browserAction.ColorArray:
+.. _action.ColorArray:
 
 ColorArray
 ----------
@@ -719,7 +633,7 @@ An array of four integers in the range [0,255] that make up the RGBA color. For 
 .. api-header::
    :label: array of integer
 
-.. _browserAction.ImageDataDictionary:
+.. _action.ImageDataDictionary:
 
 ImageDataDictionary
 -------------------
@@ -731,7 +645,7 @@ A ``{size: ImageDataType}`` dictionary representing the icon to be set. The actu
 .. api-header::
    :label: object
 
-.. _browserAction.ImageDataType:
+.. _action.ImageDataType:
 
 ImageDataType
 -------------
@@ -743,12 +657,12 @@ Pixel data for an image. Must be an ImageData object (for example, from a ``canv
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
 
-.. _browserAction.OnClickData:
+.. _action.OnClickData:
 
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 74.0b2]
+.. api-section-annotation-hack:: 
 
 Information sent when an action is clicked.
 
@@ -773,17 +687,11 @@ Information sent when an action is clicked.
       .. api-member::
          :name: ``Command``
       
-         Only available on macOS.
-      
       .. api-member::
          :name: ``Ctrl``
       
-         Not available on macOS.
-      
       .. api-member::
          :name: ``MacCtrl``
-      
-         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
    
    
    .. api-member::
@@ -800,7 +708,7 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _browserAction.IconPath:
+.. _action.IconPath:
 
 IconPath
 --------
@@ -813,37 +721,3 @@ Either a simple ``string``, setting the path of an icon to be used for all sizes
   :language: JSON
 
 At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
-
-.. _browserAction.ThemeIcons:
-
-ThemeIcons
-----------
-
-.. api-section-annotation-hack:: 
-
-Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``dark``
-      :type: (string)
-      
-      A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified).
-   
-   
-   .. api-member::
-      :name: ``light``
-      :type: (string)
-      
-      A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme).
-   
-   
-   .. api-member::
-      :name: ``size``
-      :type: (integer)
-      
-      The size of the two icons in pixels, for example ``16`` or ``32``.
-   
