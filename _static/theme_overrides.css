@@ -17,6 +17,15 @@
   }
 
 }
+
+div.version {
+  display: none;
+}
+
+.icon-home::before {
+  content: ""
+}
+
 span.permission {
   background-color:#e74c3c;
   color: #fcfcfc;
@@ -48,14 +57,14 @@ div.container > ul {
 
 /* api sections below the main sections,
 /* for example the individual function definitions */
-.api-main-section > .section {
+.api-main-section > section:not(.api-section-body) {
   background: #e7f2fa;
   border-top: 3px solid #6ab0de;
   margin-bottom:1ex;
   display: inline-flex;
   align-items: center;  
 }
-.api-main-section > .section > span {
+.api-main-section > section:not(.api-section-body)  > span {
     font-size: 80%;
     font-weight: bold;
     font-style: italic;
@@ -63,37 +72,37 @@ div.container > ul {
     display: block;
     color: #3782bb;
 }
-#functions > .section > span::after {
+#functions > section:not(.api-section-body) > span::after {
     content: "func";
     /*color: #6ab0de;*/
 }
-.api-main-section .section h3 {
+.api-main-section section h3 {
   padding: 6px;
   margin:0;
   font-size: 90%;
   line-height: normal;  
 }
-#events > .section {
+#events > section:not(.api-section-body) {
   /*background: #ffedcc;*/
   /*border-top: 3px solid #f0b37e;*/
 }
-#events > .section > span::after {
+#events > section:not(.api-section-body) > span::after {
     content: "event";
     /*color: #f0b37e;*/
 }
-#types > .section {
+#types > section:not(.api-section-body) {
   /*background: #dbfaf4;*/
   /*border-top: 3px solid #1abc9c;*/
 }
-#types > .section > span::after {
+#types > section:not(.api-section-body) > span::after {
     content: "type";
     /*color: #1abc9c;*/
 }
-#properties > .section {
+#properties > section:not(.api-section-body) {
   border-top: 3px solid #ccc;  
   background: #f0f0f0;
 }
-#properties > .section > span::after {
+#properties > section:not(.api-section-body) > span::after {
     content: "prop";
     color: #888;
 }
