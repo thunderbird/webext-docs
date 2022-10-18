@@ -9,7 +9,7 @@ import argparse, glob, json, os, re
 DEST_DIR = os.path.dirname(__file__)
 OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
 
-current_namespace_name = None
+current_namespace = None
 
 # enums have been moved inline and are no longer referenced
 # unique_id is no longer needed
@@ -32,7 +32,7 @@ def merge_objects(a, b):
                 b.append(c)
                 continue
     elif isinstance(a, dict):
-        for [e, f] in a.iteritems():           
+        for [e, f] in a.iteritems():
             # choices will be replaced completely as specified
             if e in ["choices"]:
                 b[e] = f;
@@ -138,7 +138,7 @@ def link_ref(ref):
         if additional_type['id'] == ref:
             if not ref in additional_type_used:
                 additional_type_used.append(ref)
-            return ":ref:`%s.%s`" % (current_namespace_name, ref)
+            return ":ref:`%s.%s`" % (current_namespace["namespace"], ref)
     
     for moz_namespace in ["extension.", "extensionTypes."]:
         if ref.startswith(moz_namespace):
@@ -148,11 +148,11 @@ def link_ref(ref):
             return "`%s <%s>`_" % (name, url)
     if "manifest." in ref:
         # manifest types are not global and need to be prepended by the current namespace
-        return ":ref:`%s.%s`" % (current_namespace_name, ref.replace("manifest.",""))
-    elif "." in ref or current_namespace_name is None:
+        return ":ref:`%s.%s`" % (current_namespace["namespace"], ref.replace("manifest.",""))
+    elif "." in ref or current_namespace["namespace"] is None:
         return ":ref:`%s`" % ref
     else:
-        return ":ref:`%s.%s`" % (current_namespace_name, ref)
+        return ":ref:`%s.%s`" % (current_namespace["namespace"], ref)
 
 
 def format_addition(obj):
@@ -338,12 +338,12 @@ def format_permissions(obj, namespace_obj = None):
     entries = {
         "manifest" : {
             "single" : "A manifest entry named %s is required to use ``%s``.",
-            "multiple" : "The manifest entries %s and %s are required to use ``%s``.",
+            "multiple" : "One of the manifest entries %s or %s is required to use ``%s``.",
             "entries" : [],
             },
         "permissions" : {
             "single" : "The permission %s is required to use ``%s``.",
-            "multiple" : "The permissions %s and %s are required to use ``%s``.",
+            "multiple" : "One of the permissions %s or %s is required to use ``%s``.",
             "entries" : []
             },
     }
@@ -483,17 +483,17 @@ def format_namespace(manifest, namespace):
     lines = []
     lines.extend([
         "",
-        ".. _%s_api:" % current_namespace_name,
+        ".. _%s_api:" % current_namespace["namespace"],
         ""]);
 
     #unique_id = 1
-    preamble = os.path.join(OVERLAY_DIR, current_namespace_name + ".rst")
+    preamble = os.path.join(OVERLAY_DIR, current_namespace["namespace"] + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
             lines.extend(map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines()))
             lines.append("")
     else:
-        lines.extend(header_1(current_namespace_name))
+        lines.extend(header_1(current_namespace["namespace"]))
 
     lines.extend([
         "",
@@ -516,7 +516,7 @@ def format_namespace(manifest, namespace):
             async = function.get("async")
             lines.extend(header_3(
                 "%s(%s)" % (function["name"], format_params(function, callback=async)),
-                label="%s.%s" % (current_namespace_name, function["name"]),
+                label="%s.%s" % (current_namespace["namespace"], function["name"]),
                 info=format_addition(function)
             ))
             # enums have been moved inline and are no longer referenced
@@ -566,7 +566,7 @@ def format_namespace(manifest, namespace):
         for event in namespace["events"]:
             lines.extend(header_3(
                 "%s" % (event["name"]), # , (%s)format_params(event)
-                label="%s.%s" % (current_namespace_name, event["name"]),
+                label="%s.%s" % (current_namespace["namespace"], event["name"]),
                 info=format_addition(event)
             ))
 
@@ -635,7 +635,7 @@ def format_namespace(manifest, namespace):
             #enum_lines = []
             type_lines.extend(header_3(
                 type_["name"] if "name" in type_ else type_["id"],
-                label="%s.%s" % (current_namespace_name, type_["id"]),
+                label="%s.%s" % (current_namespace["namespace"], type_["id"]),
                 info=format_addition(type_)
             ))
 
@@ -701,7 +701,7 @@ def format_namespace(manifest, namespace):
         lines.extend(header_2("Properties", "api-main-section"))
 
         for key in sorted(namespace["properties"].iterkeys()):
-            lines.extend(header_3(key, label="%s.%s" % (current_namespace_name, key)))
+            lines.extend(header_3(key, label="%s.%s" % (current_namespace["namespace"], key)))
             lines.extend(namespace["properties"][key].get("description").split("\n"))
             lines.append("")
 
@@ -837,11 +837,12 @@ if __name__ == "__main__":
             else:
                 document = parent
 
+        overlays = {}
         if os.path.exists(os.path.join(OVERLAY_DIR, filename + ".json")):
             with open(os.path.join(OVERLAY_DIR, filename + ".json")) as fp_overlay:
                 overlay = json.load(fp_overlay)
-                merge_objects(overlay, document)
-                # print(json.dumps(document, indent=2))
+                for namespace in overlay:
+                    overlays[namespace["namespace"]] = namespace 
 
         # get all namespaces defined in the current file
         namespaces = {}
@@ -856,24 +857,41 @@ if __name__ == "__main__":
                 continue
 
             additional_type_used = []
-            current_namespace_name = namespace["namespace"]
+            current_namespace = namespace.copy()
             manifest = namespaces.get("manifest", None)
+
+            # import other namespaces
+            if "$import" in namespace:
+                current_namespace = namespaces[namespace["$import"]].copy()
+                current_namespace.update(namespace)
+
+            # overlay namespace
+            if namespace["namespace"] in overlays:
+                for entry in overlays[namespace["namespace"]]:
+                    if entry in ["types", "events", "functions"]:
+                        merge_objects(overlays[namespace["namespace"]][entry], current_namespace[entry])
+                    elif entry in ["permissions", "ignore_permissions"]:
+                        current_namespace[entry] = list(overlays[namespace["namespace"]][entry])
 
             # Import selected manifest types into the namespace (used in theme)
             # I decided to select which types should be import, as sometimes
             # importing all types is not desired.
             if manifest:
+                # overlay manifest
+                if "manifest" in overlays:
+                    merge_objects(overlays["manifest"], manifest)
+
                 manifestTypes = manifest.get("types", None);
-                namespaceTypes = namespace.get("types", None)
+                namespaceTypes = current_namespace.get("types", None)
                 if manifestTypes and namespaceTypes:
                     manifestTypeDict = {}
                     for manifestType in manifestTypes:
                             if "id" in manifestType:
                                 manifestTypeDict[manifestType["id"]] = manifestType
                     
-                    for index, item in enumerate(namespaceTypes):                        
+                    for index, item in enumerate(namespaceTypes):
                         if "$import_from_manifest" in item:
                             namespaceTypes[index] = manifestTypeDict[item["$import_from_manifest"]]
 
-            with open(os.path.join(DEST_DIR, namespace["namespace"] + ".rst"), "w") as fp_output:
-                fp_output.write(format_namespace(manifest, namespace))
+            with open(os.path.join(DEST_DIR, current_namespace["namespace"] + ".rst"), "w") as fp_output:
+                fp_output.write(format_namespace(manifest, current_namespace))

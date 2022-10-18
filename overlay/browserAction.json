@@ -23,6 +23,9 @@
   },
   {
     "namespace": "browserAction",
+    "permissions": [
+      "manifest:browser_action"
+    ],
     "types": [
       {
         "$import_from_manifest": "ActionManifest"
@@ -76,5 +79,11 @@
         "backported": "78.6.1"
       }
     ]
-  }
+  },
+  {
+    "namespace": "action",
+    "permissions": [
+      "manifest:action"
+    ]
+  }  
 ]
