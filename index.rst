@@ -2,7 +2,7 @@
 
   This is the documentation for the upcoming Manifest v3 specification. It has not yet been finalized
   and will change in the future. Feel free to test and explore what changes will be needed for your 
-  extension to run under Manifest v3, but do not release or distribute them yet. We aim to finalize
+  extensions to run under Manifest v3, but do not release or distribute them yet. We aim to finalize
   the specification with the release of Thunderbird 115.
 
 ==========================================
