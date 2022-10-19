@@ -10,7 +10,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
-Use a composeAction to put an icon in the message composition toolbars. In addition to its icon, a composeAction can also have a tooltip, a badge, and a popup.
+Use a composeAction to put a button in the message composition toolbars. In addition to its icon, a composeAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
@@ -32,7 +32,7 @@ Manifest file properties
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the composeAction will appear. The default location is ``maintoolbar``.
+      Defines the location the composeAction button will appear. The default location is ``maintoolbar``.
       
       Supported values:
       
@@ -47,7 +47,7 @@ Manifest file properties
       :name: [``default_icon``]
       :type: (:ref:`composeAction.IconPath`)
       
-      The paths to one or more icons for the composeAction.
+      The paths to one or more icons for the composeAction button.
    
    
    .. api-member::
@@ -55,21 +55,21 @@ Manifest file properties
       :type: (string)
       :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
       
-      The label of the composeAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+      The label of the composeAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
    
    
    .. api-member::
       :name: [``default_popup``]
       :type: (string)
       
-      The html document to be opened as a popup when the user clicks on the composeAction's icon.
+      The html document to be opened as a popup when the user clicks on the composeAction button.
    
    
    .. api-member::
       :name: [``default_title``]
       :type: (string)
       
-      The title of the composeAction. This shows up in the tooltip and the label. Defaults to the add-on name.
+      The title of the composeAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
    
    
    .. api-member::
@@ -97,7 +97,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the composeAction. Is used as tooltip and as the label of the action button.
+Sets the title of the composeAction button. Is used as tooltip and as the label.
 
 .. api-header::
    :label: Parameters
@@ -111,7 +111,7 @@ Sets the title of the composeAction. Is used as tooltip and as the label of the 
          :name: ``title``
          :type: (string or null)
          
-         The string the composeAction should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value).
+         The string the composeAction button should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -136,7 +136,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the composeAction.
+Gets the title of the composeAction button.
 
 .. api-header::
    :label: Parameters
@@ -178,7 +178,7 @@ setLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
 .. api-header::
    :label: Parameters
@@ -192,7 +192,7 @@ Sets the label of the action button. Can be used to set different values for the
          :name: ``label``
          :type: (string or null)
          
-         The string the composeAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+         The string the composeAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
       
       
       .. api-member::
@@ -217,7 +217,7 @@ getLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Gets the label of the composeAction.
+Gets the label of the composeAction button.
 
 .. api-header::
    :label: Parameters
@@ -259,7 +259,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the composeAction. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the composeAction button. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -273,14 +273,14 @@ Sets the icon for the composeAction. Either the **path** or the **imageData** pr
          :name: [``imageData``]
          :type: (:ref:`composeAction.ImageDataType` or :ref:`composeAction.ImageDataDictionary`)
          
-         The image data for one or more icons for the composeAction.
+         The image data for one or more icons for the composeAction button.
       
       
       .. api-member::
          :name: [``path``]
          :type: (:ref:`composeAction.IconPath`)
          
-         The paths to one or more icons for the composeAction.
+         The paths to one or more icons for the composeAction button.
       
       
       .. api-member::
@@ -305,7 +305,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the composeAction's icon.
+Sets the html document to be opened as a popup when the user clicks on the composeAction button.
 
 .. api-header::
    :label: Parameters
@@ -319,7 +319,7 @@ Sets the html document to be opened as a popup when the user clicks on the compo
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value).
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (action will use the popup value defined in the manifest).
       
       
       .. api-member::
@@ -344,7 +344,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this composeAction.
+Gets the html document set as the popup for this composeAction button.
 
 .. api-header::
    :label: Parameters
@@ -386,7 +386,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the composeAction. The badge is displayed on top of the icon.
+Sets the badge text for the composeAction button. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -425,7 +425,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the composeAction.
+Gets the badge text of the composeAction button.
 
 .. api-header::
    :label: Parameters
@@ -506,7 +506,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge background color of the composeAction.
+Gets the badge background color of the composeAction button.
 
 .. api-header::
    :label: Parameters
@@ -548,7 +548,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the composeAction for a tab. By default, a composeAction is enabled.
+Enables the composeAction button for a tab. By default, a composeAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -558,7 +558,7 @@ Enables the composeAction for a tab. By default, a composeAction is enabled.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the composeAction.
+      The id of the tab for which you want to modify the composeAction button.
    
 
 .. _composeAction.disable:
@@ -568,7 +568,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the composeAction for a tab.
+Disables the composeAction button for a tab.
 
 .. api-header::
    :label: Parameters
@@ -578,7 +578,7 @@ Disables the composeAction for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the composeAction.
+      The id of the tab for which you want to modify the composeAction button.
    
 
 .. _composeAction.isEnabled:
@@ -588,7 +588,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the composeAction is enabled.
+Checks whether the composeAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -630,7 +630,7 @@ openPopup()
 
 .. api-section-annotation-hack:: 
 
-Opens the extension popup window in the active window.
+Opens the action's popup window in the active window.
 
 .. rst-class:: api-main-section
 
@@ -644,7 +644,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when a composeAction icon is clicked. This event will not fire if the composeAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a composeAction button is clicked. This event will not fire if the composeAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -720,7 +720,7 @@ OnClickData
 
 .. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
-Information sent when a composeAction is clicked.
+Information sent when a composeAction button is clicked.
 
 .. api-header::
    :label: object
