@@ -12,7 +12,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
-Use a messageDisplayAction to put an icon in the message display toolbar. In addition to its icon, a messageDisplayAction can also have a tooltip, a badge, and a popup.
+Use a messageDisplayAction to put a button in the message display toolbar. In addition to its icon, a messageDisplayAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
@@ -41,7 +41,7 @@ Manifest file properties
       :name: [``default_icon``]
       :type: (:ref:`messageDisplayAction.IconPath`)
       
-      The paths to one or more icons for the messageDisplayAction.
+      The paths to one or more icons for the messageDisplayAction button.
    
    
    .. api-member::
@@ -49,21 +49,21 @@ Manifest file properties
       :type: (string)
       :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
       
-      The label of the messageDisplayAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+      The label of the messageDisplayAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
    
    
    .. api-member::
       :name: [``default_popup``]
       :type: (string)
       
-      The html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.
+      The html document to be opened as a popup when the user clicks on the messageDisplayAction button.
    
    
    .. api-member::
       :name: [``default_title``]
       :type: (string)
       
-      The title of the messageDisplayAction. This shows up in the tooltip and the label. Defaults to the add-on name.
+      The title of the messageDisplayAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
    
    
    .. api-member::
@@ -91,7 +91,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the messageDisplayAction. Is used as tooltip and as the label of the action button.
+Sets the title of the messageDisplayAction button. Is used as tooltip and as the label.
 
 .. api-header::
    :label: Parameters
@@ -105,7 +105,7 @@ Sets the title of the messageDisplayAction. Is used as tooltip and as the label 
          :name: ``title``
          :type: (string or null)
          
-         The string the messageDisplayAction should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value).
+         The string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -130,7 +130,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the messageDisplayAction.
+Gets the title of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
@@ -172,7 +172,7 @@ setLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
 .. api-header::
    :label: Parameters
@@ -186,7 +186,7 @@ Sets the label of the action button. Can be used to set different values for the
          :name: ``label``
          :type: (string or null)
          
-         The string the messageDisplayAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+         The string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
       
       
       .. api-member::
@@ -211,7 +211,7 @@ getLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Gets the label of the messageDisplayAction.
+Gets the label of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
@@ -253,7 +253,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the messageDisplayAction. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the messageDisplayAction button. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -267,14 +267,14 @@ Sets the icon for the messageDisplayAction. Either the **path** or the **imageDa
          :name: [``imageData``]
          :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`)
          
-         The image data for one or more icons for the composeAction.
+         The image data for one or more icons for the composeAction button.
       
       
       .. api-member::
          :name: [``path``]
          :type: (:ref:`messageDisplayAction.IconPath`)
          
-         The paths to one or more icons for the messageDisplayAction.
+         The paths to one or more icons for the messageDisplayAction button.
       
       
       .. api-member::
@@ -299,7 +299,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.
+Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
@@ -313,7 +313,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value).
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (action will use the popup value defined in the manifest).
       
       
       .. api-member::
@@ -338,7 +338,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this messageDisplayAction.
+Gets the html document set as the popup for this messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
@@ -380,7 +380,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the messageDisplayAction. The badge is displayed on top of the icon.
+Sets the badge text for the messageDisplayAction button. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -419,7 +419,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the messageDisplayAction.
+Gets the badge text of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
@@ -500,7 +500,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge background color of the messageDisplayAction.
+Gets the badge background color of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
@@ -542,7 +542,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the messageDisplayAction for a tab. By default, a messageDisplayAction is enabled.
+Enables the messageDisplayAction button for a tab. By default, a messageDisplayAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -552,7 +552,7 @@ Enables the messageDisplayAction for a tab. By default, a messageDisplayAction i
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the messageDisplayAction.
+      The id of the tab for which you want to modify the messageDisplayAction button.
    
 
 .. _messageDisplayAction.disable:
@@ -562,7 +562,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the messageDisplayAction for a tab.
+Disables the messageDisplayAction button for a tab.
 
 .. api-header::
    :label: Parameters
@@ -572,7 +572,7 @@ Disables the messageDisplayAction for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the messageDisplayAction.
+      The id of the tab for which you want to modify the messageDisplayAction button.
    
 
 .. _messageDisplayAction.isEnabled:
@@ -582,7 +582,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the messageDisplayAction is enabled.
+Checks whether the messageDisplayAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -624,7 +624,7 @@ openPopup()
 
 .. api-section-annotation-hack:: 
 
-Opens the extension popup window in the active window.
+Opens the action's popup window in the active window.
 
 .. rst-class:: api-main-section
 
@@ -638,7 +638,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when a messageDisplayAction icon is clicked. This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a messageDisplayAction button is clicked. This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -714,7 +714,7 @@ OnClickData
 
 .. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
-Information sent when a messageDisplayAction is clicked.
+Information sent when a messageDisplayAction button is clicked.
 
 .. api-header::
    :label: object

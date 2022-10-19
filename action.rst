@@ -9,7 +9,7 @@ It is identical to the old ``browserAction`` API and very similar to Firefox's `
 
 .. role:: permission
 
-Use an action to put an icon in the mail window toolbar. In addition to its icon, an action can also have a tooltip, a badge, and a popup.
+Use an action to put a button in the mail window toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
@@ -38,7 +38,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the action. Is used as tooltip and as the label of the action button.
+Sets the title of the action button. Is used as tooltip and as the label.
 
 .. api-header::
    :label: Parameters
@@ -52,7 +52,7 @@ Sets the title of the action. Is used as tooltip and as the label of the action 
          :name: ``title``
          :type: (string or null)
          
-         The string the action should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value).
+         The string the action button should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -77,7 +77,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the action.
+Gets the title of the action button.
 
 .. api-header::
    :label: Parameters
@@ -133,7 +133,7 @@ Sets the label of the action button. Can be used to set different values for the
          :name: ``label``
          :type: (string or null)
          
-         The string the action should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+         The string the action button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
       
       
       .. api-member::
@@ -158,7 +158,7 @@ getLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Gets the label of the action.
+Gets the label of the action button.
 
 .. api-header::
    :label: Parameters
@@ -200,7 +200,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the action. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the action button. Either the **path** or the **imageData** property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -214,14 +214,14 @@ Sets the icon for the action. Either the **path** or the **imageData** property 
          :name: [``imageData``]
          :type: (:ref:`action.ImageDataType` or :ref:`action.ImageDataDictionary`)
          
-         The image data for one or more icons for the action.
+         The image data for one or more icons for the action button.
       
       
       .. api-member::
          :name: [``path``]
          :type: (:ref:`action.IconPath`)
          
-         The paths to one or more icons for the action.
+         The paths to one or more icons for the action button.
       
       
       .. api-member::
@@ -246,7 +246,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the action's icon.
+Sets the html document to be opened as a popup when the user clicks on the action button.
 
 .. api-header::
    :label: Parameters
@@ -260,7 +260,7 @@ Sets the html document to be opened as a popup when the user clicks on the actio
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value).
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (popup value defined the manifest will be used).
       
       
       .. api-member::
@@ -285,7 +285,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this action.
+Gets the html document set as the popup for this action button.
 
 .. api-header::
    :label: Parameters
@@ -327,7 +327,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the action. The badge is displayed on top of the icon.
+Sets the badge text for the action button. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -366,7 +366,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the action.
+Gets the badge text of the action button.
 
 .. api-header::
    :label: Parameters
@@ -447,7 +447,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge background color of the action.
+Gets the badge background color of the action button.
 
 .. api-header::
    :label: Parameters
@@ -489,7 +489,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the action for a tab. By default, an action is enabled.
+Enables the action button for a tab. By default, an action button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -499,7 +499,7 @@ Enables the action for a tab. By default, an action is enabled.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the action.
+      The id of the tab for which you want to modify the action button.
    
 
 .. _action.disable:
@@ -509,7 +509,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the action for a tab.
+Disables the action button for a tab.
 
 .. api-header::
    :label: Parameters
@@ -519,7 +519,7 @@ Disables the action for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the action.
+      The id of the tab for which you want to modify the action button.
    
 
 .. _action.isEnabled:
@@ -529,7 +529,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the action is enabled.
+Checks whether the action button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -571,7 +571,7 @@ openPopup()
 
 .. api-section-annotation-hack:: 
 
-Opens the extension popup window in the active window.
+Opens the action's popup window in the active window.
 
 .. rst-class:: api-main-section
 
@@ -585,7 +585,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when an action icon is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when an action button is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -640,7 +640,7 @@ ActionManifest
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the action will appear. The default location is ``maintoolbar``.
+      Defines the location the action button will appear. The default location is ``maintoolbar``.
       
       Supported values:
       
@@ -656,7 +656,7 @@ ActionManifest
       :name: [``default_icon``]
       :type: (:ref:`action.IconPath`)
       
-      The paths to one or more icons for the action.
+      The paths to one or more icons for the action button.
    
    
    .. api-member::
@@ -664,28 +664,28 @@ ActionManifest
       :type: (string)
       :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
       
-      The label of the action, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+      The label of the action button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
    
    
    .. api-member::
       :name: [``default_popup``]
       :type: (string)
       
-      The html document to be opened as a popup when the user clicks on the action's icon.
+      The html document to be opened as a popup when the user clicks on the action button.
    
    
    .. api-member::
       :name: [``default_title``]
       :type: (string)
       
-      The title of the action. This shows up in the tooltip and the label. Defaults to the add-on name.
+      The title of the action button. This shows up in the tooltip and the label. Defaults to the add-on name.
    
    
    .. api-member::
       :name: [``default_windows``]
       :type: (array of `string`)
       
-      Defines the windows, the action should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
+      Defines the windows, the action button should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
       
       Supported values:
       
@@ -746,7 +746,7 @@ OnClickData
 
 .. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
-Information sent when an action is clicked.
+Information sent when an action button is clicked.
 
 .. api-header::
    :label: object
