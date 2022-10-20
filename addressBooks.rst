@@ -12,6 +12,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -377,7 +379,7 @@ A node representing an address book.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       
-      Always set to ``addressBook``.
+      Always set to :value:`addressBook`.
    
    
    .. api-member::
@@ -423,7 +425,7 @@ NodeType
 
 .. api-section-annotation-hack:: 
 
-Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
+Indicates the type of a Node.
 
 .. api-header::
    :label: `string`

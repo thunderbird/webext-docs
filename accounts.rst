@@ -8,6 +8,8 @@ The accounts API first appeared in Thunderbird 66.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -47,7 +49,7 @@ Returns all mail accounts. They will be returned in the same order as used in Th
       :type: (boolean)
       :annotation: -- [Added in TB 91]
       
-      Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to ``true``.
+      Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to :value:`true`.
    
 
 .. api-header::
@@ -88,7 +90,7 @@ Returns details of the requested account, or null if it doesn't exist.
       :type: (boolean)
       :annotation: -- [Added in TB 91]
       
-      Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.
+      Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to :value:`true`.
    
 
 .. api-header::
@@ -124,7 +126,7 @@ Returns the default account, or null if it is not defined.
       :type: (boolean)
       :annotation: -- [Added in TB 91]
       
-      Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.
+      Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to :value:`true`.
    
 
 .. api-header::
@@ -375,7 +377,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
       :name: ``type``
       :type: (string)
       
-      What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``.
+      What sort of account this is, e.g. :value:`imap`, :value:`nntp`, or :value:`pop3`.
    
    
    .. api-member::

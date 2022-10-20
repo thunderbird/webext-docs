@@ -12,6 +12,8 @@ tab, which has limited functionality compared to tabs from the main window.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-permission-info
 
 .. note::

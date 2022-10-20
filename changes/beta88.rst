@@ -18,7 +18,7 @@ menus
 
 * added a ``tools_menu`` context to :ref:`menus.ContextType`
 * added a ``selectedAccount`` property to :ref:`menus.onShowData` and :ref:`menus.onClickData`, if the menu was opened on a root folder in the folder pane
-* fixed :ref:`menus.onClicked` to keep the user input status so :ref:`browserAction.openPopup` can be used
+* fixed :ref:`menus.onClicked` to keep the user input status so :ref:`action.openPopup` can be used
 
 
 messages

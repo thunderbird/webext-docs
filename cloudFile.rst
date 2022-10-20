@@ -13,6 +13,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/dropbox
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Manifest file properties
@@ -705,7 +707,7 @@ RelatedCloudFile
 
 .. api-section-annotation-hack:: 
 
-Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property ``reuse_uploads`` set to ``false``.
+Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property ``reuse_uploads`` set to :value:`false`.
 
 .. api-header::
    :label: object

@@ -17,6 +17,8 @@ So far, only the API for search-only address books is implemented.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions

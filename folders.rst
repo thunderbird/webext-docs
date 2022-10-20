@@ -9,6 +9,8 @@ The folders API first appeared in Thunderbird 68 as a part of the
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -266,7 +268,7 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
       :name: [``includeSubFolders``]
       :type: (boolean)
       
-      Specifies whether the returned :ref:`folders.MailFolder` object for each parent folder should include its nested subfolders . Defaults to ``false``.
+      Specifies whether the returned :ref:`folders.MailFolder` object for each parent folder should include its nested subfolders . Defaults to :value:`false`.
    
 
 .. api-header::
@@ -306,7 +308,7 @@ Get the subfolders of the specified folder or account.
       :name: [``includeSubFolders``]
       :type: (boolean)
       
-      Specifies whether the returned :ref:`folders.MailFolder` object for each direct subfolder should also include all its nested subfolders . Defaults to ``true``.
+      Specifies whether the returned :ref:`folders.MailFolder` object for each direct subfolder should also include all its nested subfolders . Defaults to :value:`true`.
    
 
 .. api-header::

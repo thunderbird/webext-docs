@@ -13,6 +13,8 @@ These buttons are shortcuts to open html pages in a new tab.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Functions
@@ -112,7 +114,7 @@ ButtonProperties
       :name: [``badgeBackgroundColor``]
       :type: (string or :ref:`spacesToolbar.ColorArray`)
       
-      Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is ``[255, 0, 0, 255]``. Can also be a string with an HTML color name (``red``) or a HEX color value (``#FF0000`` or ``#F00``). Reset when set to an empty string.
+      Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to an empty string.
    
    
    .. api-member::
@@ -147,7 +149,7 @@ ButtonProperties
       :name: [``url``]
       :type: (string)
       
-      The page url, loaded into a tab when the button is clicked. Supported are ``https://`` and ``http://`` links, as well as links to WebExtension pages.
+      The page url, loaded into a tab when the button is clicked. Supported are :value:`https://` and :value:`http://` links, as well as links to WebExtension pages.
    
 
 .. _spacesToolbar.ColorArray:
@@ -157,7 +159,7 @@ ColorArray
 
 .. api-section-annotation-hack:: 
 
-An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is ``[255, 0, 0, 255]``.
+An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
 .. api-header::
    :label: array of integer

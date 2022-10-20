@@ -12,6 +12,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: permission
 
+.. role:: value
+
 Use a messageDisplayAction to put a button in the message display toolbar. In addition to its icon, a messageDisplayAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
@@ -105,7 +107,7 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
          :name: ``title``
          :type: (string or null)
          
-         The string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (title defined the manifest will be used).
+         The string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -186,7 +188,7 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
          :name: ``label``
          :type: (string or null)
          
-         The string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+         The string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
       
       
       .. api-member::
@@ -313,7 +315,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (action will use the popup value defined in the manifest).
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (action will use the popup value defined in the manifest).
       
       
       .. api-member::
@@ -394,7 +396,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
          :name: ``text``
          :type: (string or null)
          
-         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to ``null`` or an empty string.
+         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
       
       
       .. api-member::
@@ -475,7 +477,7 @@ Sets the background color for the badge.
          :name: ``color``
          :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
          
-         The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string.
+         The color to use as background in the badge. Cleared by setting it to :value:`null` or an empty string.
       
       
       .. api-member::
@@ -678,7 +680,7 @@ ColorArray
 
 .. api-section-annotation-hack:: 
 
-An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is ``[255, 0, 0, 255]``.
+An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
 .. api-header::
    :label: array of integer

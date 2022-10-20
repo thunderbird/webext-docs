@@ -12,6 +12,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -533,7 +535,7 @@ A node representing a mailing list.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       
-      Always set to ``mailingList``.
+      Always set to :value:`mailingList`.
    
    
    .. api-member::
