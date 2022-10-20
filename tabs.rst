@@ -8,7 +8,7 @@ tabs
 
 .. role:: value
 
-The tabs API allows to create, modify and rearrange tabs.
+The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.
 
 .. rst-class:: api-main-section
 
@@ -425,7 +425,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
          :name: [``url``]
          :type: (string)
          
-         A URL to navigate the tab to. Only applicable for :value:`content` tabs and active :value:`mail</value tabs.
+         A URL to navigate the tab to. Only applicable for :value:`content` tabs and active :value:`mail` tabs.
       
    
 

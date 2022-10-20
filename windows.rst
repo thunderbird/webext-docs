@@ -14,7 +14,7 @@ windows
 
 .. role:: value
 
-The windows API allows to create, modify and rearrange windows.
+The windows API supports creating, modifying and interacting with Thunderbird windows.
 
 .. rst-class:: api-main-section
 

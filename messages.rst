@@ -1110,7 +1110,7 @@ Basic information about a message.
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Some account types (for example :value:`pop`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
+      Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
    
    
    .. api-member::
