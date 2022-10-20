@@ -7,7 +7,7 @@ project = u'WebExtension API Documentation for Thunderbird Beta<br><br>Manifest 
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'sphinx_rtd_theme2'
 html_theme_path = ['_themes']
 html_theme_options = {
     # Toc options
