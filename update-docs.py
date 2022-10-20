@@ -85,6 +85,8 @@ def replace_code(string):
         "</var>": "``",
         "<permission>":":permission:`",
         "</permission>":"`",
+        "<pre>":":prerole:`",
+        "</pre>":"`",
         "&mdash;": u"—",
         "\n": "\n\n",
         "<li>": "\n* ",
@@ -506,7 +508,12 @@ def format_namespace(manifest, namespace):
         "",
         ".. role:: permission",
         ""]);
-    
+
+    lines.extend([
+        "",
+        ".. role:: prerole",
+        ""]);
+
     if "description" in namespace:
         lines.extend(replace_code(namespace["description"]).split("\n"))
         lines.append("")
