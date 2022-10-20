@@ -17,6 +17,8 @@ __ https://github.com/thundernest/sample-extensions
 
 .. role:: permission
 
+.. role:: value
+
 Use an action to put a button in the mail window toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
@@ -60,7 +62,7 @@ Sets the title of the action button. Is used as tooltip and as the label.
          :name: ``title``
          :type: (string or null)
          
-         The string the action button should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (title defined the manifest will be used).
+         The string the action button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -141,7 +143,7 @@ Sets the label of the action button. Can be used to set different values for the
          :name: ``label``
          :type: (string or null)
          
-         The string the action button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+         The string the action button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
       
       
       .. api-member::
@@ -268,7 +270,7 @@ Sets the html document to be opened as a popup when the user clicks on the actio
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (popup value defined the manifest will be used).
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (popup value defined the manifest will be used).
       
       
       .. api-member::
@@ -349,7 +351,7 @@ Sets the badge text for the action button. The badge is displayed on top of the 
          :name: ``text``
          :type: (string or null)
          
-         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to ``null`` or an empty string.
+         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
       
       
       .. api-member::
@@ -430,7 +432,7 @@ Sets the background color for the badge.
          :name: ``color``
          :type: (string or :ref:`browserAction.ColorArray` or null)
          
-         The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string.
+         The color to use as background in the badge. Cleared by setting it to :value:`null` or an empty string.
       
       
       .. api-member::
@@ -648,7 +650,7 @@ ActionManifest
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the action button will appear. The default location is ``maintoolbar``.
+      Defines the location the action button will appear. The default location is :value:`maintoolbar`.
       
       Supported values:
       
@@ -693,7 +695,7 @@ ActionManifest
       :name: [``default_windows``]
       :type: (array of `string`)
       
-      Defines the windows, the action button should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
+      Defines the windows, the action button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
       
       Supported values:
       
@@ -718,7 +720,7 @@ ColorArray
 
 .. api-section-annotation-hack:: 
 
-An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is ``[255, 0, 0, 255]``.
+An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
 .. api-header::
    :label: array of integer

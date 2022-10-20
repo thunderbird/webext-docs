@@ -12,7 +12,9 @@ windows
 
 .. role:: permission
 
-Use the ``browser.windows`` API to interact with Thunderbird. You can use this API to create, modify, and rearrange windows.
+.. role:: value
+
+The windows API supports creating, modifying and interacting with Thunderbird windows.
 
 .. rst-class:: api-main-section
 
@@ -59,7 +61,7 @@ getCurrent([getInfo])
 
 .. api-section-annotation-hack:: 
 
-Gets the current window.
+Gets the active or topmost window.
 
 .. api-header::
    :label: Parameters
@@ -143,7 +145,7 @@ create([createData])
 
 .. api-section-annotation-hack:: 
 
-Creates (opens) a new browser with any optional sizing, position or default URL provided.
+Creates (opens) a new window with any optional sizing, position or default URL provided.
 
 .. api-header::
    :label: Parameters
@@ -157,7 +159,7 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``allowScriptsToClose``]
          :type: (boolean)
          
-         Allow scripts to close the window.
+         Allow scripts running inside the window to close the window by calling ``window.close()``.
       
       
       .. api-member::
@@ -176,23 +178,21 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
       
       .. api-member::
          :name: [``incognito``]
-         :type: (boolean)
-         
-         Whether the new window should be an incognito window.
+         :type: (boolean) **Unsupported.**
       
       
       .. api-member::
          :name: [``left``]
          :type: (integer)
          
-         The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
+         The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window.
       
       
       .. api-member::
          :name: [``state``]
          :type: (:ref:`windows.WindowState`)
          
-         The initial state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
+         The initial state of the window. The ``minimized``, ``maximized`` and ``fullscreen`` states cannot be combined with ``left``, ``top``, ``width`` or ``height``.
       
       
       .. api-member::
@@ -213,21 +213,21 @@ Creates (opens) a new browser with any optional sizing, position or default URL 
          :name: [``top``]
          :type: (integer)
          
-         The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window. This value is ignored for panels.
+         The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window.
       
       
       .. api-member::
          :name: [``type``]
          :type: (:ref:`windows.CreateType`)
          
-         Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
+         Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
       
       
       .. api-member::
          :name: [``url``]
          :type: (string or array of string)
          
-         A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
+         A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
       
       
       .. api-member::
@@ -276,7 +276,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``drawAttention``]
          :type: (boolean)
          
-         If true, causes the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus. Set to false to cancel a previous draw attention request.
+         If true, causes the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
       
       
       .. api-member::
@@ -290,7 +290,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``height``]
          :type: (integer)
          
-         The height to resize the window to in pixels. This value is ignored for panels.
+         The height to resize the window to in pixels.
       
       
       .. api-member::
@@ -304,7 +304,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``state``]
          :type: (:ref:`windows.WindowState`)
          
-         The new state of the window. The 'minimized', 'maximized' and 'fullscreen' states cannot be combined with 'left', 'top', 'width' or 'height'.
+         The new state of the window. The ``minimized``, ``maximized`` and ``fullscreen`` states cannot be combined with ``left``, ``top``, ``width`` or ``height``.
       
       
       .. api-member::
@@ -325,7 +325,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``width``]
          :type: (integer)
          
-         The width to resize the window to in pixels. This value is ignored for panels.
+         The width to resize the window to in pixels.
       
    
 
@@ -447,7 +447,7 @@ onFocusChanged
 
 .. api-section-annotation-hack:: 
 
-Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`) if all browser windows have lost focus. **Note:** On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one browser window to another.
+Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`, if all windows have lost focus. **Note:** On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one window to another.
 
 .. api-header::
    :label: Parameters for onFocusChanged.addListener(listener)
@@ -482,7 +482,7 @@ CreateType
 
 .. api-section-annotation-hack:: 
 
-Specifies what type of browser window to create. The 'panel' and 'detached_panel' types create a popup unless the '--enable-panels' flag is set.
+Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
 
 .. api-header::
    :label: `string`
@@ -563,7 +563,7 @@ Window
       :name: ``incognito``
       :type: (boolean)
       
-      Whether the window is incognito.
+      Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always :value:`false`.
    
    
    .. api-member::
@@ -591,14 +591,14 @@ Window
       :name: [``state``]
       :type: (:ref:`windows.WindowState`)
       
-      The state of this browser window.
+      The state of this window.
    
    
    .. api-member::
       :name: [``tabs``]
       :type: (array of :ref:`tabs.Tab`)
       
-      Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused` and the optional :ref:`windows.GetInfo` parameter has ``populate`` set to ``true``.
+      Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused`, and the optional :ref:`windows.GetInfo` parameter has its ``populate`` member set to :value:`true`.
    
    
    .. api-member::
@@ -619,7 +619,7 @@ Window
       :name: [``type``]
       :type: (:ref:`windows.WindowType`)
       
-      The type of browser window this is.
+      The type of window this is.
    
    
    .. api-member::
@@ -671,7 +671,7 @@ WindowType
 
 .. api-section-annotation-hack:: 
 
-The type of a window. Under some circumstances a Window may not be assigned a type property.
+The type of a window. Under some circumstances a window may not be assigned a type property.
 
 .. api-header::
    :label: `string`

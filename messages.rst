@@ -19,6 +19,8 @@ The messages API first appeared in Thunderbird 66.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -202,7 +204,7 @@ getRaw(messageId)
 
 Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
 
-To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main ``content-type`` header (example: `text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
+To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main ``content-type`` header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
 
 .. literalinclude:: includes/messages/decodeBinaryString.js
   :language: JavaScript
@@ -271,7 +273,7 @@ getAttachmentFile(messageId, partName)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Gets the content of a :ref:`messages.MessageAttachment` as a DOM ``File`` object.
+Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
 
 .. api-header::
    :label: Parameters
@@ -336,7 +338,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``author``]
          :type: (string)
          
-         Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: ``Name <user@domain.org>``). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
+         Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: :value:`Name <user@domain.org>`). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
@@ -401,7 +403,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``recipients``]
          :type: (string)
          
-         Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: ``Name <user@domain.org>``). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
+         Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: :value:`Name <user@domain.org>`). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
@@ -1092,7 +1094,7 @@ Basic information about a message.
       :name: ``flagged``
       :type: (boolean)
       
-      Whether this message is flagged (a.k.a. 'starred').
+      Whether this message is flagged (a.k.a. starred).
    
    
    .. api-member::
@@ -1108,7 +1110,7 @@ Basic information about a message.
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Some account types (for example POP) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
+      Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
    
    
    .. api-member::
@@ -1121,7 +1123,7 @@ Basic information about a message.
       :type: (boolean)
       :annotation: -- [Added in TB 74]
       
-      Whether the message has been marked as junk. Always ``false`` for news/nntp messages and external messages.
+      Whether the message has been marked as junk. Always :value:`false` for news/nntp messages and external messages.
    
    
    .. api-member::
@@ -1129,7 +1131,7 @@ Basic information about a message.
       :type: (integer)
       :annotation: -- [Added in TB 74]
       
-      The junk score associated with the message. Always ``0`` for news/nntp messages and external messages.
+      The junk score associated with the message. Always :value:`0` for news/nntp messages and external messages.
    
    
    .. api-member::
@@ -1249,7 +1251,7 @@ Represents an email message "part", which could be the whole message
       :name: [``partName``]
       :type: (string)
       
-      The identifier of this part, used in :ref:`messages.getAttachmentFile
+      The identifier of this part, used in :ref:`messages.getAttachmentFile`
    
    
    .. api-member::
@@ -1283,7 +1285,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       :name: [``flagged``]
       :type: (boolean)
       
-      Whether the message is flagged (a.k.a 'starred').
+      Whether the message is flagged (a.k.a starred).
    
    
    .. api-member::
@@ -1386,5 +1388,5 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       
-      Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+      Object keys are tags to filter on, values are :value:`true` if the message must have the tag, or :value:`false` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    
