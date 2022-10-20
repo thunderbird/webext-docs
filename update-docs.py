@@ -85,8 +85,8 @@ def replace_code(string):
         "</var>": "``",
         "<permission>":":permission:`",
         "</permission>":"`",
-        "<pre>":":prerole:`",
-        "</pre>":"`",
+        "<value>":":value:`",
+        "</value>":"`",
         "&mdash;": u"—",
         "\n": "\n\n",
         "<li>": "\n* ",
@@ -486,17 +486,17 @@ def format_namespace(manifest, namespace):
     lines = []
     lines.extend([
         "",
-        ".. _%s_api:" % current_namespace["namespace"],
+        ".. _%s_api:" % namespace["namespace"],
         ""]);
 
     #unique_id = 1
-    preamble = os.path.join(OVERLAY_DIR, current_namespace["namespace"] + ".rst")
+    preamble = os.path.join(OVERLAY_DIR, namespace["namespace"] + ".rst")
     if os.path.exists(preamble):
         with open(preamble) as fp_preamble:
             lines.extend(map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines()))
             lines.append("")
     else:
-        lines.extend(header_1(current_namespace["namespace"]))
+        lines.extend(header_1(namespace["namespace"]))
 
     lines.extend([
         "",
@@ -505,7 +505,7 @@ def format_namespace(manifest, namespace):
 
     lines.extend([
         "",
-        ".. role:: prerole",
+        ".. role:: value",
         ""]);
 
     if "description" in namespace:
@@ -524,7 +524,7 @@ def format_namespace(manifest, namespace):
             async = function.get("async")
             lines.extend(header_3(
                 "%s(%s)" % (function["name"], format_params(function, callback=async)),
-                label="%s.%s" % (current_namespace["namespace"], function["name"]),
+                label="%s.%s" % (namespace["namespace"], function["name"]),
                 info=format_addition(function)
             ))
             # enums have been moved inline and are no longer referenced
@@ -574,7 +574,7 @@ def format_namespace(manifest, namespace):
         for event in namespace["events"]:
             lines.extend(header_3(
                 "%s" % (event["name"]), # , (%s)format_params(event)
-                label="%s.%s" % (current_namespace["namespace"], event["name"]),
+                label="%s.%s" % (namespace["namespace"], event["name"]),
                 info=format_addition(event)
             ))
 
@@ -643,7 +643,7 @@ def format_namespace(manifest, namespace):
             #enum_lines = []
             type_lines.extend(header_3(
                 type_["name"] if "name" in type_ else type_["id"],
-                label="%s.%s" % (current_namespace["namespace"], type_["id"]),
+                label="%s.%s" % (namespace["namespace"], type_["id"]),
                 info=format_addition(type_)
             ))
 
@@ -709,7 +709,7 @@ def format_namespace(manifest, namespace):
         lines.extend(header_2("Properties", "api-main-section"))
 
         for key in sorted(namespace["properties"].iterkeys()):
-            lines.extend(header_3(key, label="%s.%s" % (current_namespace["namespace"], key)))
+            lines.extend(header_3(key, label="%s.%s" % (namespace["namespace"], key)))
             lines.extend(namespace["properties"][key].get("description").split("\n"))
             lines.append("")
 
