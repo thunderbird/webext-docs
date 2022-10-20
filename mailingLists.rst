@@ -4,7 +4,7 @@
 mailingLists
 ============
 
-The address books API, also including the :doc:`addressBooks` and :doc:`contacts` namespaces, first appeared in Thunderbird 64.
+The :doc:`addressBooks` API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
 The `Address Books`__ sample extension uses this API.
 
