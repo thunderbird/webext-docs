@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/dropbox
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Manifest file properties
@@ -49,7 +51,7 @@ Manifest file properties
       :name: [``data_format``]
       :type: (string) **Deprecated.**
       
-      This property is no longer used. The only supported data format for the ``data`` argument in ``onFileUpload`` is `File <https://developer.mozilla.org/docs/Web/API/File>`__.
+      This property is no longer used. The only supported data format for the ``data`` argument in :ref:`cloudFile.onFileUpload` is `File <https://developer.mozilla.org/docs/Web/API/File>`__.
    
    
    .. api-member::
@@ -71,14 +73,14 @@ Manifest file properties
       :name: [``service_url``]
       :type: (string) **Deprecated.**
       
-      This property is no longer used. The ``service_url`` property of the :ref:`cloudFile.CloudFileTemplateInfo` object returned by the :ref:`cloudFile.onFileUpload` event can be used to add a ``Learn more about`` link to the footer of the cloud file attachment element.
+      This property is no longer used. The ``service_url`` property of the :ref:`cloudFile.CloudFileTemplateInfo` object returned by the :ref:`cloudFile.onFileUpload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
    
 
 .. rst-class:: api-permission-info
 
 .. note::
 
-   A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
+   A manifest entry named :value:`cloud_file` is required to use ``cloudFile``.
 
 .. rst-class:: api-main-section
 
@@ -176,21 +178,21 @@ Update a cloud file account.
          :name: [``spaceRemaining``]
          :type: (integer)
          
-         The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+         The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``spaceUsed``]
          :type: (integer)
          
-         The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+         The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``uploadSizeLimit``]
          :type: (integer)
          
-         The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+         The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
       
    
 
@@ -605,21 +607,21 @@ Information about a cloud file account.
       :name: [``spaceRemaining``]
       :type: (integer)
       
-      The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+      The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``spaceUsed``]
       :type: (integer)
       
-      The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+      The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``uploadSizeLimit``]
       :type: (integer)
       
-      The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+      The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
    
 
 .. _cloudFile.CloudFileTemplateInfo:
@@ -696,7 +698,7 @@ Defines information to be used in the cloud file entry added to the message.
       :name: [``service_url``]
       :type: (string)
       
-      A URL pointing to a web page of the used cloud file service. Will be used in a ``Learn more about`` link in the footer of the cloud file attachment element.
+      A URL pointing to a web page of the used cloud file service. Will be used in a *Learn more about* link in the footer of the cloud file attachment element.
    
 
 .. _cloudFile.RelatedCloudFile:

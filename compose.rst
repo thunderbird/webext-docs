@@ -10,6 +10,8 @@ The compose API first appeared in Thunderbird 67. It allows to interact with the
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -111,13 +113,13 @@ Open a new message compose window replying to a given message.
       Supported values:
       
       .. api-member::
-         :name: ``replyToSender``
+         :name: :value:`replyToSender`
       
       .. api-member::
-         :name: ``replyToList``
+         :name: :value:`replyToList`
       
       .. api-member::
-         :name: ``replyToAll``
+         :name: :value:`replyToAll`
    
    
    .. api-member::
@@ -170,10 +172,10 @@ Open a new message compose window forwarding a given message.
       Supported values:
       
       .. api-member::
-         :name: ``forwardInline``
+         :name: :value:`forwardInline`
       
       .. api-member::
-         :name: ``forwardAsAttachment``
+         :name: :value:`forwardAsAttachment`
    
    
    .. api-member::
@@ -424,7 +426,7 @@ updateAttachment(tabId, attachmentId, attachment)
 
 .. api-section-annotation-hack:: -- [Added in TB 78]
 
-Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an ``ExtensionError``.
+Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an *ExtensionError*.
 
 .. api-header::
    :label: Parameters
@@ -517,13 +519,13 @@ Sends the message currently being composed. If the send mode is not specified or
          Supported values:
          
          .. api-member::
-            :name: ``default``
+            :name: :value:`default`
          
          .. api-member::
-            :name: ``sendNow``
+            :name: :value:`sendNow`
          
          .. api-member::
-            :name: ``sendLater``
+            :name: :value:`sendLater`
       
    
 
@@ -551,10 +553,10 @@ Sends the message currently being composed. If the send mode is not specified or
          Supported values:
          
          .. api-member::
-            :name: ``sendNow``
+            :name: :value:`sendNow`
          
          .. api-member::
-            :name: ``sendLater``
+            :name: :value:`sendLater`
       
       
       .. api-member::
@@ -601,10 +603,10 @@ Saves the message currently being composed as a draft or as a template. If the s
          Supported values:
          
          .. api-member::
-            :name: ``draft``
+            :name: :value:`draft`
          
          .. api-member::
-            :name: ``template``
+            :name: :value:`template`
       
    
 
@@ -631,10 +633,10 @@ Saves the message currently being composed as a draft or as a template. If the s
          Supported values:
          
          .. api-member::
-            :name: ``draft``
+            :name: :value:`draft`
          
          .. api-member::
-            :name: ``template``
+            :name: :value:`template`
       
    
    
@@ -789,10 +791,10 @@ Fired when sending a message succeeded or failed.
          Supported values:
          
          .. api-member::
-            :name: ``sendNow``
+            :name: :value:`sendNow`
          
          .. api-member::
-            :name: ``sendLater``
+            :name: :value:`sendLater`
       
       
       .. api-member::
@@ -863,10 +865,10 @@ Fired when saving a message as draft or template succeeded or failed.
          Supported values:
          
          .. api-member::
-            :name: ``draft``
+            :name: :value:`draft`
          
          .. api-member::
-            :name: ``template``
+            :name: :value:`template`
       
       
       .. api-member::
@@ -1127,7 +1129,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolder` or `string`)
       :annotation: -- [Added in TB 102]
       
-      An additional fcc folder which can be selected while composing the message, :value:`""` if not used.
+      An additional fcc folder which can be selected while composing the message, an empty string if not used.
    
    
    .. api-member::
@@ -1168,7 +1170,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (array of :ref:`compose.CustomHeader`)
       :annotation: -- [Added in TB 100]
       
-      Array of custom headers. Headers will be returned in ``Http-Header-Case`` (a.k.a. ``Train-Case``). Set an empty array to clear all custom headers.
+      Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
    
    
    .. api-member::
@@ -1181,16 +1183,16 @@ Used by various functions to represent the state of a message being composed. No
       Supported values:
       
       .. api-member::
-         :name: ``auto``
+         :name: :value:`auto`
       
       .. api-member::
-         :name: ``plaintext``
+         :name: :value:`plaintext`
       
       .. api-member::
-         :name: ``html``
+         :name: :value:`html`
       
       .. api-member::
-         :name: ``both``
+         :name: :value:`both`
    
    
    .. api-member::
@@ -1242,7 +1244,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an ``ExtensionError``, if ``overrideDefaultFccFolder`` is not set as well.
+      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if ``overrideDefaultFccFolder`` is not set as well.
    
    
    .. api-member::
@@ -1250,7 +1252,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolder` or `string`)
       :annotation: -- [Added in TB 102]
       
-       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or :value:`""` to not save a copy at all.
+       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all.
    
    
    .. api-member::
@@ -1271,19 +1273,19 @@ Used by various functions to represent the state of a message being composed. No
       Supported values:
       
       .. api-member::
-         :name: ``lowest``
+         :name: :value:`lowest`
       
       .. api-member::
-         :name: ``low``
+         :name: :value:`low`
       
       .. api-member::
-         :name: ``normal``
+         :name: :value:`normal`
       
       .. api-member::
-         :name: ``high``
+         :name: :value:`high`
       
       .. api-member::
-         :name: ``highest``
+         :name: :value:`highest`
    
    
    .. api-member::
@@ -1304,7 +1306,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Add the ``Disposition-Notification-To`` header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
+      Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
    
    
    .. api-member::
@@ -1327,20 +1329,20 @@ Used by various functions to represent the state of a message being composed. No
       Supported values:
       
       .. api-member::
-         :name: ``draft``
+         :name: :value:`draft`
       
       .. api-member::
-         :name: ``new``
+         :name: :value:`new`
       
       .. api-member::
-         :name: ``redirect``
+         :name: :value:`redirect`
          :annotation: -- [Added in TB 90]
       
       .. api-member::
-         :name: ``reply``
+         :name: :value:`reply`
       
       .. api-member::
-         :name: ``forward``
+         :name: :value:`forward`
    
 
 .. _compose.ComposeDictionaries:
@@ -1405,10 +1407,10 @@ OR
             Supported values:
             
             .. api-member::
-               :name: ``contact``
+               :name: :value:`contact`
             
             .. api-member::
-               :name: ``mailingList``
+               :name: :value:`mailingList`
          
    
 

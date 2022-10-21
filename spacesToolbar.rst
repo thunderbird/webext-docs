@@ -15,6 +15,8 @@ These buttons are shortcuts to open html pages in a new tab.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Functions
@@ -135,7 +137,7 @@ ButtonProperties
       :name: [``themeIcons``]
       :type: (array of :ref:`spacesToolbar.ThemeIcons`)
       
-      Specifies dark and light icons for the spaces toolbar button to be used with themes: The ``light`` icons will be used on dark backgrounds and vice versa. At least the set for ``16px`` icons should be specified. The set for ``32px`` icons will be used on screens with a very high pixel density, if specified.
+      Specifies dark and light icons for the spaces toolbar button to be used with themes: The ``light`` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified.
    
    
    .. api-member::
@@ -178,12 +180,12 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
-Either a simple ``string``, setting the path of an icon to be used for all sizes, or an ``object`` defining icons for different sizes. Example: 
+Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object* defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
 
-At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
+At least the *16px* icon should be specified. The *32px* icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
 
 .. _spacesToolbar.ThemeIcons:
 
@@ -216,5 +218,5 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
       :name: ``size``
       :type: (integer)
       
-      The size of the two icons in pixels, for example ``16`` or ``32``.
+      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
    

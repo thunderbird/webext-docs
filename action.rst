@@ -11,6 +11,8 @@ It is identical to the old ``browserAction`` API and very similar to Firefox's `
 
 .. role:: value
 
+.. role:: code
+
 Use an action to put a button in the mail window toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
@@ -26,7 +28,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named ``action`` is required to use ``action``.
+   A manifest entry named :value:`action` is required to use ``action``.
 
 .. rst-class:: api-main-section
 
@@ -647,10 +649,10 @@ ActionManifest
       Supported values:
       
       .. api-member::
-         :name: ``maintoolbar``
+         :name: :value:`maintoolbar`
       
       .. api-member::
-         :name: ``tabstoolbar``
+         :name: :value:`tabstoolbar`
          :annotation: -- [Added in TB 92, backported to TB 91.0.2]
    
    
@@ -692,10 +694,10 @@ ActionManifest
       Supported values:
       
       .. api-member::
-         :name: ``normal``
+         :name: :value:`normal`
       
       .. api-member::
-         :name: ``messageDisplay``
+         :name: :value:`messageDisplay`
    
    
    .. api-member::
@@ -724,7 +726,7 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-A ``{size: ImageDataType}`` dictionary representing the icon to be set. The actual :ref:`action.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`action.ImageDataType` must be specified.
+A :code:`{size: ImageDataType}` dictionary representing the icon to be set. The actual :ref:`action.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`action.ImageDataType` must be specified.
 
 .. api-header::
    :label: object
@@ -736,7 +738,7 @@ ImageDataType
 
 .. api-section-annotation-hack:: 
 
-Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
+Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
 
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
@@ -763,25 +765,25 @@ Information sent when an action button is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``Shift``
+         :name: :value:`Shift`
       
       .. api-member::
-         :name: ``Alt``
+         :name: :value:`Alt`
       
       .. api-member::
-         :name: ``Command``
+         :name: :value:`Command`
       
          Only available on macOS.
       
       .. api-member::
-         :name: ``Ctrl``
+         :name: :value:`Ctrl`
       
          Not available on macOS.
       
       .. api-member::
-         :name: ``MacCtrl``
+         :name: :value:`MacCtrl`
       
-         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the <value>dom.event.treat_ctrl_click_as_right_click.disabled</value> preference is not enabled and the <value>MacCtrl</value> modifier key is not forwarded to the API.
    
    
    .. api-member::
@@ -805,12 +807,12 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
-Either a simple ``string``, setting the path of an icon to be used for all sizes, or an ``object`` defining icons for different sizes. Example: 
+Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object* defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
 
-At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
+At least the *16px* icon should be specified. The *32px* icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
 
 .. _action.ThemeIcons:
 
@@ -843,5 +845,5 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
       :name: ``size``
       :type: (integer)
       
-      The size of the two icons in pixels, for example ``16`` or ``32``.
+      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
    

@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -513,7 +515,7 @@ A set of individual properties for a particular contact, and its vCard string. F
       :name: ``<custom properties>``
       :type: (string)
       
-      Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
+      Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include :value:`a-z`, :value:`A-Z`, :value:`1-9` and :value:`_`.
    
    
    .. api-member::
@@ -538,7 +540,7 @@ PropertyChange
 
 .. api-section-annotation-hack:: -- [Added in TB 83]
 
-A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or null.
+A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or :value:`null`.
 
 .. api-header::
    :label: object
