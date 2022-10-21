@@ -215,7 +215,7 @@
         "properties": {
           "tags": {
             "type": "object",
-            "description": "Object keys are tags to filter on, values are <code>true</code> if the message must have the tag, or <code>false</code> if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.",
+            "description": "Object keys are tags to filter on, values are <value>true</value> if the message must have the tag, or <value>false</value> if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.",
             "patternProperties": {
               ".*": {
                 "type": "boolean"
@@ -408,8 +408,8 @@
       {
         "name": "listAttachments",
         "type": "function",
-        "description": "Lists all of the attachments of a message.",
-        "async": true,
+        "description": "Lists the attachments of a message.",
+        "async": "callback",
         "parameters": [
           {
             "name": "messageId",
@@ -452,7 +452,7 @@
               "author": {
                 "type": "string",
                 "optional": true,
-                "description": "Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: ``Name <user@domain.org>``). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive."
+                "description": "Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: <value>Name <user@domain.org></value>). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive."
               },
               "body": {
                 "type": "string",
@@ -497,7 +497,7 @@
               "recipients": {
                 "type": "string",
                 "optional": true,
-                "description": "Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: ``Name <user@domain.org>``). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive."
+                "description": "Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: <value>Name <user@domain.org></value>). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive."
               },
               "subject": {
                 "type": "string",

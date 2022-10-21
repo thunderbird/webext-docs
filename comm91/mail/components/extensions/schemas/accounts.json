@@ -36,7 +36,7 @@
           },
           "type": {
             "type": "string",
-            "description": "What sort of account this is, e.g. ``imap``, ``nntp``, or ``pop3``."
+            "description": "What sort of account this is, e.g. <value>imap</value>, <value>nntp</value>, or <value>pop3</value>."
           },
           "folders": {
             "type": "array",
@@ -65,7 +65,7 @@
         "parameters": [
           {
             "name": "includeFolders",
-            "description": "Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to ``true``.",
+            "description": "Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to <value>true</value>.",
             "optional": true,
             "default": true,
             "type": "boolean"
@@ -97,7 +97,7 @@
           },
           {
             "name": "includeFolders",
-            "description": "Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.",
+            "description": "Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to <value>true</value>.",
             "optional": true,
             "default": true,
             "type": "boolean"
@@ -123,7 +123,7 @@
         "parameters": [
           {
             "name": "includeFolders",
-            "description": "Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to ``true``.",
+            "description": "Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to <value>true</value>.",
             "optional": true,
             "default": true,
             "type": "boolean"

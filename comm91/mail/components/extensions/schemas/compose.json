@@ -24,7 +24,7 @@
         "choices": [
           {
             "type": "string",
-            "description": "A name and email address in the format \"Name <email@example.com>\", or just an email address."
+            "description": "A name and email address in the format <value>Name <email@example.com></value>, or just an email address."
           },
           {
             "type": "object",
@@ -125,8 +125,8 @@
             ],
             "optional": true
           },
-          "relatedMessageId" : {
-            "description": "The id of the original message (in case of draft, template, forward or reply). Read-only. Is <code>null</code> in all other cases or if the original message was opened from file.",
+          "relatedMessageId": {
+            "description": "The id of the original message (in case of draft, template, forward or reply). Read-only. Is <value>null</value> in all other cases or if the original message was opened from file.",
             "type": "integer",
             "optional": true
           },
@@ -148,14 +148,17 @@
           },
           "body": {
             "type": "string",
+            "description": "The HTML content of the message.",
             "optional": true
           },
           "plainTextBody": {
             "type": "string",
+            "description": "The plain text content of the message.",
             "optional": true
           },
           "isPlainText": {
             "type": "boolean",
+            "description": "Whether the message is an HTML message or a plain text message.",
             "optional": true
           },
           "attachments": {
@@ -225,7 +228,7 @@
           {
             "name": "details",
             "$ref": "ComposeDetails",
-            "description": "The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function."
+            "description": "The current state of the compose window. This is functionally the same as calling the :ref:`compose.getComposeDetails` function."
           }
         ],
         "returns": {
@@ -239,7 +242,7 @@
             "details": {
               "$ref": "ComposeDetails",
               "optional": true,
-              "description": "Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information."
+              "description": "Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function."
             }
           }
         }

@@ -21,11 +21,11 @@
         "choices": [
           {
             "type": "string",
-            "description": "A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: <li>``crimson`` <li>``#dc143c`` <li>``rgb(220, 20, 60)`` (or ``rgba(220, 20, 60, 0.5)`` to set 50% opacity) <li>``hsl(348, 83%, 47%)`` (or ``hsla(348, 83%, 47%, 0.5)`` to set 50% opacity)"
+            "description": "A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: <li><value>crimson</value> <li><value>#dc143c</value> <li><value>rgb(220, 20, 60)</value> (or <value>rgba(220, 20, 60, 0.5)</value> to set 50% opacity) <li><value>hsl(348, 83%, 47%)</value> (or <value>hsla(348, 83%, 47%, 0.5)</value> to set 50% opacity)"
           },
           {
             "type": "array",
-            "description": "An RGB array of 3 integers. For example ``[220, 20, 60]`` for the color *crimson*.",
+            "description": "An RGB array of 3 integers. For example <value>[220, 20, 60]</value> for the color *crimson*.",
             "minItems": 3,
             "maxItems": 3,
             "items": {
@@ -36,7 +36,7 @@
           },
           {
             "type": "array",
-            "description": "An RGBA array of 3 integers and a fractional (a float between 0 and 1). For example ``[220, 20, 60, 0.5]`` for the color *crimson* with 50% opacity.",
+            "description": "An RGBA array of 3 integers and a fractional (a float between 0 and 1). For example <value>[220, 20, 60, 0.5]<value> for the color *crimson* with 50% opacity.",
             "minItems": 4,
             "maxItems": 4,
             "items": {
@@ -92,12 +92,12 @@
                 "items": { "$ref": "ImageDataOrExtensionURL" },
                 "maxItems": 15,
                 "optional": true,
-                "description": "Additional images added to the header area and displayed behind the 'theme_frame' image."
+                "description": "Additional images added to the header area and displayed behind the ``theme_frame`` image."
               },
               "headerURL": {
                 "$ref": "ImageDataOrExtensionURL",
                 "optional": true,
-                "deprecated": "Unsupported images property, use 'theme.images.theme_frame', this alias is ignored in Thunderbird >= 70."
+                "deprecated": "Unsupported images property, use ``theme.images.theme_frame``, this alias is ignored in Thunderbird >= 70."
               },
               "theme_frame": {
                 "$ref": "ImageDataOrExtensionURL",
@@ -120,7 +120,7 @@
               "accentcolor": {
                 "$ref": "ThemeColor",
                 "optional": true,
-                "deprecated": "Unsupported colors property, use 'theme.colors.frame', this alias is ignored in Thunderbird >= 70."
+                "deprecated": "Unsupported colors property, use ``theme.colors.frame``, this alias is ignored in Thunderbird >= 70."
               },
               "frame": {
                 "$ref": "ThemeColor",
@@ -135,7 +135,7 @@
               "textcolor": {
                 "$ref": "ThemeColor",
                 "optional": true,
-                "deprecated": "Unsupported color property, use 'theme.colors.tab_background_text', this alias is ignored in Thunderbird >= 70."
+                "deprecated": "Unsupported color property, use ``theme.colors.tab_background_text``, this alias is ignored in Thunderbird >= 70."
               },
               "tab_background_text": {
                 "$ref": "ThemeColor",
@@ -221,7 +221,7 @@
               "icons_attention": {
                 "$ref": "ThemeColor",
                 "optional": true,
-                "description": "The color of the toolbar icons in attention state such as the chat icon whith new messages."
+                "description": "The color of the toolbar icons in attention state such as the chat icon with new messages."
               },
               "button_background_hover": {
                "$ref": "ThemeColor",

@@ -17,6 +17,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/dropbox
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Manifest file properties
@@ -45,7 +47,7 @@ Manifest file properties
       :type: (boolean)
       :annotation: -- [Added in TB 90]
       
-      Enable browser styles. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+      Enable browser styles in the ``management_url`` page. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::
@@ -566,5 +568,5 @@ Information to be used in the cloud file message template.
       :name: [``service_url``]
       :type: (string)
       
-      An URL to the web page of the used cloud file service, attached the ``service_name``. Defaults to the ``service_url`` manifest entry. Set to an empty string in order to not create a link.
+      An URL to the web page of the used cloud file service. Used to attach a link to the ``service_name``. Defaults to the ``service_url`` manifest entry. Set to an empty string in order to not create a link.
    

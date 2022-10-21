@@ -29,7 +29,7 @@
   },
   {
     "namespace": "tabs",
-    "description": "Use the <code>browser.tabs</code> API to interact with the browser's tab system. You can use this API to create, modify, and rearrange tabs in the browser.",
+    "description": "The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.",
     "types": [
       {
         "id": "Tab",
@@ -39,7 +39,7 @@
             "type": "integer",
             "minimum": -1,
             "optional": true,
-            "description": "The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows."
+            "description": "The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows."
           },
           "index": {
             "type": "integer",
@@ -93,7 +93,7 @@
           "status": {
             "type": "string",
             "optional": true,
-            "description": "Either <em>loading</em> or <em>complete</em>."
+            "description": "Either <value>loading</value> or <value>complete</value>."
           },
           "width": {
             "type": "integer",
@@ -187,7 +187,7 @@
     "properties": {
       "TAB_ID_NONE": {
         "value": -1,
-        "description": "An ID which represents the absence of a browser tab."
+        "description": "An ID which represents the absence of a tab."
       }
     },
     "functions": [
@@ -249,7 +249,7 @@
                 "type": "integer",
                 "optional": true,
                 "minimum": 0,
-                "description": "Open a port to a specific frame identified by <code>frameId</code> instead of all frames in the tab."
+                "description": "Open a port to a specific frame identified by ``frameId`` instead of all frames in the tab."
               }
             },
             "optional": true
@@ -283,7 +283,7 @@
                 "type": "integer",
                 "optional": true,
                 "minimum": 0,
-                "description": "Send a message to a specific frame identified by <code>frameId</code> instead of all frames in the tab."
+                "description": "Send a message to a specific frame identified by ``frameId`` instead of all frames in the tab."
               }
             },
             "optional": true
@@ -327,19 +327,19 @@
               "url": {
                 "type": "string",
                 "optional": true,
-                "description": "The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page."
+                "description": "The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. <value>http://www.google.com</value>, not <value>www.google.com</value>). Relative URLs will be relative to the current page within the extension."
               },
               "active": {
                 "type": "boolean",
                 "optional": true,
-                "description": "Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to <var>true</var>."
+                "description": "Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to <value>true</value>."
               },
               "selected": {
-                "deprecated": "Please use <em>active</em>.",
+                "deprecated": "Please use ``createProperties.active``.",
                 "unsupported": true,
                 "type": "boolean",
                 "optional": true,
-                "description": "Whether the tab should become the selected tab in the window. Defaults to <var>true</var>"
+                "description": "Whether the tab should become the selected tab in the window. Defaults to <value>true</value>"
               }
             }
           },
@@ -378,7 +378,7 @@
               {
                 "name": "tab",
                 "optional": true,
-                "description": "Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain <code>url</code>, <code>title</code> and <code>favIconUrl</code> if the <permission>tabs</permission> permission has not been requested.",
+                "description": "Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the <permission>tabs</permission> permission has not been requested.",
                 "$ref": "Tab"
               }
             ]
@@ -480,7 +480,7 @@
       {
         "name": "update",
         "type": "function",
-        "description": "Modifies the properties of a tab. Properties that are not specified in <var>updateProperties</var> are not modified.",
+        "description": "Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.",
         "async": "callback",
         "parameters": [
           {
@@ -497,12 +497,12 @@
               "url": {
                 "type": "string",
                 "optional": true,
-                "description": "A URL to navigate the tab to."
+                "description": "A URL to navigate the tab to. Only applicable for <value>content</value> tabs and active <value>mail</value> tabs."
               },
               "active": {
                 "type": "boolean",
                 "optional": true,
-                "description": "Whether the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`)."
+                "description": "Set this to <value>true</value>, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect."
               }
             }
           },
@@ -515,7 +515,7 @@
                 "name": "tab",
                 "$ref": "Tab",
                 "optional": true,
-                "description": "Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain <code>url</code>, <code>title</code> and <code>favIconUrl</code> if the <permission>tabs</permission> permission has not been requested."
+                "description": "Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the <permission>tabs</permission> permission has not been requested."
               }
             ]
           }
@@ -548,7 +548,7 @@
               "index": {
                 "type": "integer",
                 "minimum": -1,
-                "description": "The position to move the window to. -1 will place the tab at the end of the window."
+                "description": "The position to move the window to. <value>-1</value> will place the tab at the end of the window."
               }
             }
           },
@@ -741,7 +741,7 @@
               "status": {
                 "type": "string",
                 "optional": true,
-                "description": "The status of the tab. Can be either <em>loading</em> or <em>complete</em>."
+                "description": "The status of the tab. Can be either <value>loading</value> or <value>complete</value>."
               },
               "url": {
                 "type": "string",
@@ -852,8 +852,15 @@
             "type": "object",
             "name": "removeInfo",
             "properties": {
-              "windowId": {"type": "integer", "minimum": 0, "description": "The window whose tab is closed." },
-              "isWindowClosing": {"type": "boolean", "description": "True when the tab is being closed because its window is being closed." }
+              "windowId": {
+                "type": "integer",
+                "minimum": 0,
+                "description": "The window whose tab is closed."
+              },
+              "isWindowClosing": {
+                "type": "boolean",
+                "description": "Is <value>true</value> when the tab is being closed because its window is being closed."
+              }
             }
           }
         ]

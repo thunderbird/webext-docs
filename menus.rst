@@ -4,16 +4,17 @@
 menus
 =====
 
-The menus API first appeared in Thunderbird 66 (see `bug 1503421`__).
+The menus API first appeared in Thunderbird 66.
 It is basically the same as the `Firefox menus API`__, but modified to suit Thunderbird.
 Note that the similar ``contextMenus`` API will not be added to Thunderbird.
 
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1503421
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus
 
 .. role:: permission
 
-Use the browser.menus API to add items to the browser's menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
+.. role:: value
+
+The menus API allows to add items to Thunderbirds menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
 
 .. rst-class:: api-main-section
 
@@ -36,6 +37,41 @@ Permissions
 
 Functions
 =========
+
+.. _menus.getTargetElement:
+
+getTargetElement(targetElementId)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieve the element that was associated with a recent contextmenu event.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``targetElementId``
+      :type: (integer)
+      
+      The identifier of the clicked element, available as info.targetElementId in the menus.onShown, onClicked or onclick event.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`_
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
 
 .. _menus.create:
 
@@ -65,14 +101,14 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``command``]
          :type: (string)
          
-         Specifies a command to issue for the context click. Currently supports internal command _execute_browser_action.
+         Specifies a command to issue for the context click. Currently supports internal command :value:`_execute_browser_action`.
       
       
       .. api-member::
          :name: [``contexts``]
          :type: (array of :ref:`menus.ContextType`)
          
-         List of contexts this menu item will appear in. Defaults to ['page'] if not specified.
+         List of contexts this menu item will appear in. Defaults to :value:`['page']` if not specified.
       
       
       .. api-member::
@@ -126,14 +162,14 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``title``]
          :type: (string)
          
-         The text to be displayed in the item; this is *required* unless ``type`` is 'separator'. When the context is 'selection', you can use ``%s`` within the string to show the selected text. For example, if this parameter's value is "Translate '%s' to Pig Latin" and the user selects the word "cool", the context menu item for the selection is "Translate 'cool' to Pig Latin". To specify an access key for the new menu entry, include a ``&`` before the desired letter in the title. For example "&Help".
+         The text to be displayed in the item; this is *required* unless ``type`` is :value:`separator`. When the context is :value:`selection`, you can use :value:`%s` within the string to show the selected text. For example, if this parameter's value is :value:`Translate '%s' to Latin` and the user selects the word :value:`cool`, the context menu item for the selection is :value:`Translate 'cool' to Latin`. To specify an access key for the new menu entry, include a :value:`&` before the desired letter in the title. For example :value:`&Help`.
       
       
       .. api-member::
          :name: [``type``]
          :type: (:ref:`menus.ItemType`)
          
-         The type of menu item. Defaults to 'normal' if not specified.
+         The type of menu item. Defaults to :value:`normal` if not specified.
       
       
       .. api-member::
@@ -235,7 +271,7 @@ Updates a previously created context menu item.
          :name: [``parentId``]
          :type: (integer or string)
          
-         Note: You cannot change an item to be a child of one of its own descendants.
+         **Note:** You cannot change an item to be a child of one of its own descendants.
       
       
       .. api-member::
@@ -317,7 +353,7 @@ overrideContext(contextOptions)
 
 .. api-section-annotation-hack:: 
 
-Show the matching menu items from this extension instead of the default menu. This should be called during a 'contextmenu' DOM event handler, and only applies to the menu that opens after this event.
+Show the matching menu items from this extension instead of the default menu. This should be called during a ``contextmenu`` DOM event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
@@ -331,7 +367,7 @@ Show the matching menu items from this extension instead of the default menu. Th
          :name: [``context``]
          :type: (`string`)
          
-         ContextType to override, to allow menu items from other extensions in the menu. Currently only 'tab' is supported. showDefaults cannot be used with this option.
+         ContextType to override, to allow menu items from other extensions in the menu. Currently only :value:`tab` is supported. ``contextOptions.showDefaults`` cannot be used with this option.
          
          Supported values:
          
@@ -350,7 +386,7 @@ Show the matching menu items from this extension instead of the default menu. Th
          :name: [``tabId``]
          :type: (integer)
          
-         Required when context is 'tab'. Requires the :permission:`tabs` permission.
+         Required when context is :value:`tab`. Requires the :permission:`tabs` permission.
       
    
 
@@ -499,7 +535,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying ``all`` is equivalent to the combination of all other contexts excluding ``tab`` and ``tools_menu``. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
+The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
@@ -792,7 +828,7 @@ Information sent when a context menu item is clicked.
       :name: [``srcUrl``]
       :type: (string)
       
-      Will be present for elements with a 'src' URL.
+      Will be present for elements with a ``src`` URL.
    
    
    .. api-member::
@@ -823,9 +859,7 @@ OnShowData
 
 .. api-section-annotation-hack:: 
 
-Information sent when a context menu is being shown. For more information about each property, see :ref:`menus.OnClickData`. 
-
-Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
+Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
 
 .. api-header::
    :label: object

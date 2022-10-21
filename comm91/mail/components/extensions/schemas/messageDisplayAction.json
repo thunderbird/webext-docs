@@ -13,19 +13,19 @@
             "properties": {
               "default_label": {
                 "type": "string",
-                "description": "The label of the messageDisplayAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.",
+                "description": "The label of the messageDisplayAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.",
                 "optional": true,
                 "preprocess": "localize"
               },
               "default_title": {
                 "type": "string",
-                "description": "The title of the messageDisplayAction. This shows up in the tooltip and the label. Defaults to the add-on name.",
+                "description": "The title of the messageDisplayAction button. This shows up in the tooltip and the label. Defaults to the add-on name.",
                 "optional": true,
                 "preprocess": "localize"
               },
               "default_icon": {
                 "$ref": "IconPath",
-                "description": "The icon for the messageDisplayAction.",
+                "description": "The paths to one or more icons for the messageDisplayAction button.",
                 "optional": true
               },
               "theme_icons": {
@@ -35,13 +35,13 @@
                 "items": {
                   "$ref": "ThemeIcons"
                 },
-                "description": "Specifies icons to use for dark and light themes"
+                "description": "Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified)."
               },
               "default_popup": {
                 "type": "string",
                 "format": "relativeUrl",
                 "optional": true,
-                "description": "The html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.",
+                "description": "The html document to be opened as a popup when the user clicks on the messageDisplayAction button.",
                 "preprocess": "localize"
               },
               "browser_style": {
@@ -64,14 +64,14 @@
   },
   {
     "namespace": "messageDisplayAction",
-    "description": "Use a messageDisplayAction to put an icon in the message display toolbar. In addition to its icon, a messageDisplayAction can also have a tooltip, a badge, and a popup.",
+    "description": "Use a messageDisplayAction to put a button in the message display toolbar. In addition to its icon, a messageDisplayAction button can also have a tooltip, a badge, and a popup.",
     "permissions": [
       "manifest:message_display_action"
     ],
     "types": [
       {
         "id": "ColorArray",
-        "description": "An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is <code>[255, 0, 0, 255]</code>.",
+        "description": "An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is <value>[255, 0, 0, 255]</value>.",
         "type": "array",
         "items": {
           "type": "integer",
@@ -89,7 +89,7 @@
           "type": "any"
         },
         "postprocess": "convertImageDataToURL",
-        "description": "Pixel data for an image. Must be an ImageData object (for example, from a <code>canvas</code> element)."
+        "description": "Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element)."
       },
       {
         "id": "ImageDataDictionary",
@@ -104,7 +104,7 @@
       {
         "id": "OnClickData",
         "type": "object",
-        "description": "Information sent when a messageDisplayAction is clicked.",
+        "description": "Information sent when a messageDisplayAction button is clicked.",
         "properties": {
           "modifiers": {
             "type": "array",
@@ -132,7 +132,7 @@
       {
         "name": "setTitle",
         "type": "function",
-        "description": "Sets the title of the messageDisplayAction.",
+        "description": "Sets the title of the messageDisplayAction button. Is used as tooltip and as the label.",
         "async": "callback",
         "parameters": [
           {
@@ -148,7 +148,7 @@
                     "type": "null"
                   }
                 ],
-                "description": "The string the messageDisplayAction should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value)."
+                "description": "The string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to <value>null</value> or an empty string (title defined the manifest will be used)."
               },
               "tabId": {
                 "type": "integer",
@@ -176,7 +176,7 @@
       {
         "name": "getTitle",
         "type": "function",
-        "description": "Gets the title of the messageDisplayAction.",
+        "description": "Gets the title of the messageDisplayAction button.",
         "async": "callback",
         "parameters": [
           {
@@ -213,7 +213,7 @@
       {
         "name": "setLabel",
         "type": "function",
-        "description": "Sets the label of the messageDisplayAction.",
+        "description": "Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.",
         "async": "callback",
         "parameters": [
           {
@@ -229,7 +229,7 @@
                     "type": "null"
                   }
                 ],
-                "description": "The string the messageDisplayAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``."
+                "description": "The string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to <value>null</value>."
               },
               "tabId": {
                 "type": "integer",
@@ -257,7 +257,7 @@
       {
         "name": "getLabel",
         "type": "function",
-        "description": "Gets the label of the messageDisplayAction.",
+        "description": "Gets the label of the messageDisplayAction button.",
         "async": "callback",
         "parameters": [
           {
@@ -294,7 +294,7 @@
       {
         "name": "setIcon",
         "type": "function",
-        "description": "Sets the icon for the messageDisplayAction. Either the <b>path</b> or the <b>imageData</b> property must be specified.",
+        "description": "Sets the icon for the messageDisplayAction button. Either the <b>path</b> or the <b>imageData</b> property must be specified.",
         "async": "callback",
         "parameters": [
           {
@@ -351,7 +351,7 @@
       {
         "name": "setPopup",
         "type": "function",
-        "description": "Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction's icon.",
+        "description": "Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction button.",
         "async": "callback",
         "parameters": [
           {
@@ -367,7 +367,7 @@
                     "type": "null"
                   }
                 ],
-                "description": "The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value)."
+                "description": "The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to <value>null</value> (action will use the popup value defined in the manifest)."
               },
               "tabId": {
                 "type": "integer",
@@ -395,7 +395,7 @@
       {
         "name": "getPopup",
         "type": "function",
-        "description": "Gets the html document set as the popup for this messageDisplayAction.",
+        "description": "Gets the html document set as the popup for this messageDisplayAction button.",
         "async": "callback",
         "parameters": [
           {
@@ -432,7 +432,7 @@
       {
         "name": "setBadgeText",
         "type": "function",
-        "description": "Sets the badge text for the messageDisplayAction. The badge is displayed on top of the icon.",
+        "description": "Sets the badge text for the messageDisplayAction button. The badge is displayed on top of the icon.",
         "async": "callback",
         "parameters": [
           {
@@ -448,7 +448,7 @@
                     "type": "null"
                   }
                 ],
-                "description": "Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to ``null`` or an empty string."
+                "description": "Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to <value>null</value> or an empty string."
               },
               "tabId": {
                 "type": "integer",
@@ -476,7 +476,7 @@
       {
         "name": "getBadgeText",
         "type": "function",
-        "description": "Gets the badge text of the messageDisplayAction.",
+        "description": "Gets the badge text of the messageDisplayAction button.",
         "async": "callback",
         "parameters": [
           {
@@ -532,7 +532,7 @@
                     "type": "null"
                   }
                 ],
-                "description": "The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string."
+                "description": "The color to use as background in the badge. Cleared by setting it to <value>null</value> or an empty string."
               },
               "tabId": {
                 "type": "integer",
@@ -560,7 +560,7 @@
       {
         "name": "getBadgeBackgroundColor",
         "type": "function",
-        "description": "Gets the badge background color of the messageDisplayAction.",
+        "description": "Gets the badge background color of the messageDisplayAction button.",
         "async": "callback",
         "parameters": [
           {
@@ -597,7 +597,7 @@
       {
         "name": "enable",
         "type": "function",
-        "description": "Enables the messageDisplayAction for a tab. By default, a messageDisplayAction is enabled.",
+        "description": "Enables the messageDisplayAction button for a tab. By default, a messageDisplayAction button is enabled.",
         "async": "callback",
         "parameters": [
           {
@@ -605,7 +605,7 @@
             "optional": true,
             "name": "tabId",
             "minimum": 0,
-            "description": "The id of the tab for which you want to modify the messageDisplayAction."
+            "description": "The id of the tab for which you want to modify the messageDisplayAction button."
           },
           {
             "type": "function",
@@ -618,7 +618,7 @@
       {
         "name": "disable",
         "type": "function",
-        "description": "Disables the messageDisplayAction for a tab.",
+        "description": "Disables the messageDisplayAction button for a tab.",
         "async": "callback",
         "parameters": [
           {
@@ -626,7 +626,7 @@
             "optional": true,
             "name": "tabId",
             "minimum": 0,
-            "description": "The id of the tab for which you want to modify the messageDisplayAction."
+            "description": "The id of the tab for which you want to modify the messageDisplayAction button."
           },
           {
             "type": "function",
@@ -639,7 +639,7 @@
       {
         "name": "isEnabled",
         "type": "function",
-        "description": "Checks whether the messageDisplayAction is enabled.",
+        "description": "Checks whether the messageDisplayAction button is enabled.",
         "async": "callback",
         "parameters": [
           {
@@ -659,7 +659,8 @@
                 "unsupported": true,
                 "description": "Will throw an error if used."
               }
-            }          },
+            }
+          },
           {
             "type": "function",
             "name": "callback",
@@ -676,7 +677,7 @@
         "name": "openPopup",
         "type": "function",
         "requireUserInput": true,
-        "description": "Opens the extension popup window in the active window.",
+        "description": "Opens the action's popup window in the active window.",
         "async": true,
         "parameters": []
       }
@@ -685,7 +686,7 @@
       {
         "name": "onClicked",
         "type": "function",
-        "description": "Fired when a messageDisplayAction icon is clicked. This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.",
+        "description": "Fired when a messageDisplayAction button is clicked. This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.",
         "parameters": [
           {
             "name": "tab",

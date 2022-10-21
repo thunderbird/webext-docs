@@ -4,11 +4,11 @@
 compose
 =======
 
-This message composition window API first appeared in Thunderbird 67 (see `bug 1503423`__).
-
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
+The compose API first appeared in Thunderbird 67. It allows to interact with the message composition window.
 
 .. role:: permission
+
+.. role:: value
 
 .. rst-class:: api-main-section
 
@@ -518,7 +518,7 @@ Fired when a message is about to be sent from the compose window. This is a user
       :name: ``details``
       :type: (:ref:`compose.ComposeDetails`)
       
-      The current state of the compose window. This is functionally the same as the :ref:`compose.getComposeDetails` function.
+      The current state of the compose window. This is functionally the same as calling the :ref:`compose.getComposeDetails` function.
    
 
 .. api-header::
@@ -539,7 +539,7 @@ Fired when a message is about to be sent from the compose window. This is a user
          :name: [``details``]
          :type: (:ref:`compose.ComposeDetails`)
          
-         Updates the compose window. See the :ref:`compose.setComposeDetails` function for more information.
+         Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
       
    
 
@@ -765,6 +765,8 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``body``]
       :type: (string)
+      
+      The HTML content of the message.
    
    
    .. api-member::
@@ -798,6 +800,8 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``isPlainText``]
       :type: (boolean)
       :annotation: -- [Added in TB 75]
+      
+      Whether the message is an HTML message or a plain text message.
    
    
    .. api-member::
@@ -810,6 +814,8 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``plainTextBody``]
       :type: (string)
       :annotation: -- [Added in TB 75]
+      
+      The plain text content of the message.
    
    
    .. api-member::
@@ -817,7 +823,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (integer)
       :annotation: -- [Added in TB 95, backported to TB 91.3.1]
       
-      The id of the original message (in case of draft, template, forward or reply). Read-only. Is ``null`` in all other cases or if the original message was opened from file.
+      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`null` in all other cases or if the original message was opened from file.
    
    
    .. api-member::
@@ -876,7 +882,7 @@ ComposeRecipient
    
       .. container:: api-member-description-only
          
-         A name and email address in the format "Name <email@example.com>", or just an email address.
+         A name and email address in the format :value:`Name <email@example.com>`, or just an email address.
    
 
 OR

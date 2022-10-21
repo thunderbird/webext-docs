@@ -4,14 +4,15 @@
 contacts
 ========
 
-The address books API, also including the :doc:`addressBooks` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
-The quickSearch function was added in Thunderbird 68.
+The :doc:`addressBooks` API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
 The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
+
+.. role:: value
 
 .. rst-class:: api-main-section
 
@@ -208,7 +209,7 @@ update(id, properties)
 
 .. api-section-annotation-hack:: 
 
-Edits the properties of a contact. To remove a property, specify it as ``null``.
+Edits the properties of a contact. To remove a property, specify it as :value:`null`.
 
 .. api-header::
    :label: Parameters
@@ -406,7 +407,7 @@ A node representing a contact in an address book.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       
-      Always set to ``contact``.
+      Always set to :value:`contact`.
    
    
    .. api-member::

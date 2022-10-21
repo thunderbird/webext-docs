@@ -1,7 +1,6 @@
 // Copyright (c) 2012 The Chromium Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
-
 [
   {
     "namespace": "manifest",
@@ -27,8 +26,10 @@
   },
   {
     "namespace": "menus",
-    "permissions": ["menus"],
-    "description": "Use the browser.menus API to add items to the browser's menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.",
+    "permissions": [
+      "menus"
+    ],
+    "description": "The menus API allows to add items to Thunderbirds menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.",
     "properties": {
       "ACTION_MENU_TOP_LEVEL_LIMIT": {
         "value": 6,
@@ -59,7 +60,7 @@
           "compose_attachments",
           "tools_menu"
         ],
-        "description": "The different contexts a menu can appear in. Specifying <code>all</code> is equivalent to the combination of all other contexts excluding <code>tab</code> and <code>tools_menu</code>. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net."
+        "description": "The different contexts a menu can appear in. Specifying <value>all</value> is equivalent to the combination of all other contexts excluding <value>tab</value> and <value>tools_menu</value>. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net."
       },
       {
         "id": "ItemType",
@@ -70,15 +71,19 @@
       {
         "id": "OnShowData",
         "type": "object",
-        "description": "Information sent when a context menu is being shown. For more information about each property, see :ref:`menus.OnClickData`. \nSome properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.",
+        "description": "Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.",
         "properties": {
           "menuIds": {
             "description": "A list of IDs of the menu items that were shown.",
             "type": "array",
             "items": {
               "choices": [
-                { "type": "integer" },
-                { "type": "string" }
+                {
+                  "type": "integer"
+                },
+                {
+                  "type": "string"
+                }
               ]
             }
           },
@@ -168,15 +173,23 @@
         "properties": {
           "menuItemId": {
             "choices": [
-              { "type": "integer" },
-              { "type": "string" }
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ],
             "description": "The ID of the menu item that was clicked."
           },
           "parentMenuItemId": {
             "choices": [
-              { "type": "integer" },
-              { "type": "string" }
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
             ],
             "optional": true,
             "description": "The parent ID, if any, for the item clicked."
@@ -204,7 +217,7 @@
           "srcUrl": {
             "type": "string",
             "optional": true,
-            "description": "Will be present for elements with a 'src' URL."
+            "description": "Will be present for elements with a ``src`` URL."
           },
           "pageUrl": {
             "type": "string",
@@ -316,7 +329,7 @@
               "type": {
                 "$ref": "ItemType",
                 "optional": true,
-                "description": "The type of menu item. Defaults to 'normal' if not specified."
+                "description": "The type of menu item. Defaults to <value>normal</value> if not specified."
               },
               "id": {
                 "type": "string",
@@ -333,7 +346,7 @@
               "title": {
                 "type": "string",
                 "optional": true,
-                "description": "The text to be displayed in the item; this is <em>required</em> unless <code>type</code> is 'separator'. When the context is 'selection', you can use <code>%s</code> within the string to show the selected text. For example, if this parameter's value is \"Translate '%s' to Pig Latin\" and the user selects the word \"cool\", the context menu item for the selection is \"Translate 'cool' to Pig Latin\". To specify an access key for the new menu entry, include a <code>&</code> before the desired letter in the title. For example \"&Help\"."
+                "description": "The text to be displayed in the item; this is <em>required</em> unless ``type`` is <value>separator</value>. When the context is <value>selection</value>, you can use <value>%s</value> within the string to show the selected text. For example, if this parameter's value is <value>Translate '%s' to Latin</value> and the user selects the word <value>cool</value>, the context menu item for the selection is <value>Translate 'cool' to Latin</value>. To specify an access key for the new menu entry, include a <value>&</value> before the desired letter in the title. For example <value>&Help</value>."
               },
               "checked": {
                 "type": "boolean",
@@ -347,7 +360,7 @@
                 },
                 "minItems": 1,
                 "optional": true,
-                "description": "List of contexts this menu item will appear in. Defaults to ['page'] if not specified."
+                "description": "List of contexts this menu item will appear in. Defaults to <value>['page']</value> if not specified."
               },
               "viewTypes": {
                 "type": "array",
@@ -376,7 +389,7 @@
                   {
                     "name": "tab",
                     "$ref": "tabs.Tab",
-                    "description": "The details of the tab where the click took place. Note: this parameter only present for extensions."
+                    "description": "The details of the tab where the click took place."
                   }
                 ]
               },
@@ -408,7 +421,7 @@
               "command": {
                 "type": "string",
                 "optional": true,
-                "description": "Specifies a command to issue for the context click. Currently supports internal command _execute_browser_action."
+                "description": "Specifies a command to issue for the context click. Currently supports internal command <value>_execute_browser_action</value>."
               }
             }
           },
@@ -501,7 +514,7 @@
                   { "type": "string" }
                 ],
                 "optional": true,
-                "description": "Note: You cannot change an item to be a child of one of its own descendants."
+                "description": "**Note:** You cannot change an item to be a child of one of its own descendants."
               },
               "documentUrlPatterns": {
                 "type": "array",
@@ -570,7 +583,7 @@
         "name": "overrideContext",
         "permissions": ["menus.overrideContext"],
         "type": "function",
-        "description": "Show the matching menu items from this extension instead of the default menu. This should be called during a 'contextmenu' DOM event handler, and only applies to the menu that opens after this event.",
+        "description": "Show the matching menu items from this extension instead of the default menu. This should be called during a ``contextmenu`` DOM event handler, and only applies to the menu that opens after this event.",
         "parameters": [
           {
             "name": "contextOptions",
@@ -586,13 +599,13 @@
                 "type": "string",
                 "enum": ["tab"],
                 "optional": true,
-                "description": "ContextType to override, to allow menu items from other extensions in the menu. Currently only 'tab' is supported. showDefaults cannot be used with this option."
+                "description": "ContextType to override, to allow menu items from other extensions in the menu. Currently only <value>tab</value> is supported. ``contextOptions.showDefaults`` cannot be used with this option."
               },
               "tabId": {
                 "type": "integer",
                 "minimum": 0,
                 "optional": true,
-                "description": "Required when context is 'tab'. Requires the <permission>tabs</permission> permission."
+                "description": "Required when context is <value>tab</value>. Requires the <permission>tabs</permission> permission."
               }
             }
           }

@@ -4,8 +4,7 @@
 browserAction
 =============
 
-The browserAction and :doc:`composeAction` APIs first appeared in Thunderbird 64.
-They are very similar to Firefox's `browserAction API`__.
+The browserAction API first appeared in Thunderbird 64. It is very similar to Firefox's `browserAction API`__.
 
 Many of our `sample extensions`__ use a browserAction.
 
@@ -13,6 +12,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 __ https://github.com/thundernest/sample-extensions
 
 .. role:: permission
+
+.. role:: value
 
 Use a browserAction to put an icon in the mail window toolbar. In addition to its icon, a browserAction can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
@@ -116,7 +117,7 @@ Sets the title of the browserAction.
          :name: ``title``
          :type: (string or null)
          
-         The string the browserAction should display as its label and when moused over. Cleared by setting it to ``null`` or an empty string (button will use the manifest value).
+         The string the browserAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -197,7 +198,7 @@ Sets the label of the browserAction.
          :name: ``label``
          :type: (string or null)
          
-         The string the browserAction should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to ``null``.
+         The string the browserAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
       
       
       .. api-member::
@@ -264,7 +265,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the browserAction. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the browserAction button. Either the ``path`` or the ``imageData`` property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -324,7 +325,7 @@ Sets the html document to be opened as a popup when the user clicks on the brows
          :name: ``popup``
          :type: (string or null)
          
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to ``null`` (button will use the manifest value).
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (popup value defined the manifest will be used).
       
       
       .. api-member::
@@ -405,7 +406,7 @@ Sets the badge text for the browserAction. The badge is displayed on top of the 
          :name: ``text``
          :type: (string or null)
          
-         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to ``null`` or an empty string.
+         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
       
       
       .. api-member::
@@ -486,7 +487,7 @@ Sets the background color for the badge.
          :name: ``color``
          :type: (string or :ref:`browserAction.ColorArray` or null)
          
-         The color to use as background in the badge. Cleared by setting it to ``null`` or an empty string.
+         The color to use as background in the badge. Cleared by setting it to :value:`null` or an empty string.
       
       
       .. api-member::
@@ -635,7 +636,7 @@ openPopup()
 
 .. api-section-annotation-hack:: 
 
-Opens the extension popup window in the active window.
+Opens the action's popup window in the active window.
 
 .. rst-class:: api-main-section
 
@@ -689,7 +690,7 @@ ColorArray
 
 .. api-section-annotation-hack:: 
 
-An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is ``[255, 0, 0, 255]``.
+An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
 .. api-header::
    :label: array of integer

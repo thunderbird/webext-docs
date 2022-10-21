@@ -38,8 +38,21 @@ span.permission {
   padding:0 5px;
   font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
   overflow-x:auto  
-  }
+}
 
+span.value {
+    background-color:inherit;
+    color:#665f5f;
+  /*  color:#fff; */
+    box-sizing:border-box;
+    white-space:nowrap;
+    max-width:100%;
+    border:1px solid #e1e4e5;
+    font-size:75%;
+    padding:0 5px;
+    font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+    overflow-x:auto  
+}
 
 /* RTD adds extra p */
 div.container > p,

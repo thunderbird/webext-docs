@@ -4,12 +4,14 @@
 theme
 =====
 
-The theme API was added in Thunderbird 86 and has been backported to Thunderbird 78.7.1 (see `bug 1684666`__). It’s more or less the same as the `Firefox theme API`__, but has been extended to better fit the needs of Thunderbird.
+The theme API was added in Thunderbird 78. It’s more or less the same as the `Firefox theme API`__, 
+but has been extended to better fit the needs of Thunderbird.
 
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1684666
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme
 
 .. role:: permission
+
+.. role:: value
 
 The theme API allows customizing of visual elements of Thunderbird.
 
@@ -246,13 +248,13 @@ Defines a color value.
          
          A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
          
-         * ``crimson`` 
+         * :value:`crimson` 
          
-         * ``#dc143c`` 
+         * :value:`#dc143c` 
          
-         * ``rgb(220, 20, 60)`` (or ``rgba(220, 20, 60, 0.5)`` to set 50% opacity) 
+         * :value:`rgb(220, 20, 60)` (or :value:`rgba(220, 20, 60, 0.5)` to set 50% opacity) 
          
-         * ``hsl(348, 83%, 47%)`` (or ``hsla(348, 83%, 47%, 0.5)`` to set 50% opacity)
+         * :value:`hsl(348, 83%, 47%)` (or :value:`hsla(348, 83%, 47%, 0.5)` to set 50% opacity)
    
 
 OR
@@ -265,7 +267,7 @@ OR
    
       .. container:: api-member-description-only
          
-         An RGB array of 3 integers. For example ``[220, 20, 60]`` for the color *crimson*.
+         An RGB array of 3 integers. For example :value:`[220, 20, 60]` for the color *crimson*.
    
 
 OR
@@ -278,7 +280,7 @@ OR
    
       .. container:: api-member-description-only
          
-         An RGBA array of 3 integers and a fractional (a float between 0 and 1). For example ``[220, 20, 60, 0.5]`` for the color *crimson* with 50% opacity.
+         An RGBA array of 3 integers and a fractional (a float between 0 and 1). For example :value:`[220, 20, 60, 0.5]:value:` for the color *crimson* with 50% opacity.
    
 
 .. _theme.ThemeExperiment:
@@ -405,7 +407,7 @@ Contains the color, image and property settings of a theme.
          :name: [``icons_attention``]
          :type: (:ref:`theme.ThemeColor`)
          
-         The color of the toolbar icons in attention state such as the chat icon whith new messages.
+         The color of the toolbar icons in attention state such as the chat icon with new messages.
       
       
       .. api-member::
@@ -630,7 +632,7 @@ Contains the color, image and property settings of a theme.
          :name: [``additional_backgrounds``]
          :type: (array of :ref:`theme.ImageDataOrExtensionURL`)
          
-         Additional images added to the header area and displayed behind the 'theme_frame' image.
+         Additional images added to the header area and displayed behind the ``theme_frame`` image.
       
       
       .. api-member::

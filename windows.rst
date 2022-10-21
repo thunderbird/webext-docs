@@ -12,6 +12,8 @@ windows
 
 .. role:: permission
 
+.. role:: value
+
 Use the ``browser.windows`` API to interact with Thunderbird. You can use this API to create, modify, and rearrange windows.
 
 .. rst-class:: api-main-section

@@ -57,3 +57,7 @@ experiments
   For more information on these functions see the `source code of the addressBooks APIs`__.
 
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/parent/ext-addressBook.js
+
+____
+
+Bugzilla list of fixed WebExtension API defects in `Thunderbird 76 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2076.0&o2=equals>`__.

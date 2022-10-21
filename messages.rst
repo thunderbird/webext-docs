@@ -19,6 +19,8 @@ The messages API first appeared in Thunderbird 66.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -228,7 +230,7 @@ listAttachments(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Lists all of the attachments of a message.
+Lists the attachments of a message.
 
 .. api-header::
    :label: Parameters
@@ -326,7 +328,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``author``]
          :type: (string)
          
-         Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: ``Name <user@domain.org>``). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
+         Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: :value:`Name <user@domain.org>`). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
@@ -391,7 +393,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :name: [``recipients``]
          :type: (string)
          
-         Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: ``Name <user@domain.org>``). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
+         Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: :value:`Name <user@domain.org>`). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
@@ -1167,5 +1169,5 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       
-      Object keys are tags to filter on, values are ``true`` if the message must have the tag, or ``false`` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+      Object keys are tags to filter on, values are :value:`true` if the message must have the tag, or :value:`false` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    
