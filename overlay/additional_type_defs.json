@@ -20,7 +20,7 @@
   },
   {
     "id": "IconPath",
-    "description": "Either a simple <em>string</em>, setting the path of an icon to be used for all sizes, or an <em>object<integer, string></em> defining icons for different sizes. Example: <literalinclude>includes/IconPath.json<lang>JSON</lang></literalinclude>At least the <em>16px</em> icon should be specified. The <em>32px</em> icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension."
+    "description": "Either a <em>string</em> to specify a relative path of a single icon to be used for all sizes, or a <em>dictionary object</em> to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a <em>name-value</em> pair with <em>value</em> being a relative path to an icon file, and <em>name</em> its size. Example: <literalinclude>includes/IconPath.json<lang>JSON</lang></literalinclude>See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this."
   },
   {
     "id": "extensionTypes.ExtensionFileOrCode",
