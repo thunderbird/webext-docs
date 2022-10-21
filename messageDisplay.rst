@@ -14,11 +14,13 @@ tab, which has limited functionality compared to tabs from the main window.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-permission-info
 
 .. note::
 
-   The permission :permission:`messagesRead` is required to use ``messageDisplay``.
+   The permission :permission:`messagesRead` is required to use ``messenger.messageDisplay.*``.
 
 .. rst-class:: api-main-section
 
@@ -133,17 +135,17 @@ Opens a message in a new tab or in a new window.
          Supported values:
          
          .. api-member::
-            :name: ``tab``
+            :name: :value:`tab`
          
          .. api-member::
-            :name: ``window``
+            :name: :value:`window`
       
       
       .. api-member::
          :name: [``messageId``]
          :type: (integer)
          
-         The id of a message to be opened. Will throw an ``ExtensionError``, if the provided ``messageId`` is unknown or invalid.
+         The id of a message to be opened. Will throw an *ExtensionError*, if the provided ``messageId`` is unknown or invalid.
       
       
       .. api-member::

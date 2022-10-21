@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -28,7 +30,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``contacts``.
+   The permission :permission:`addressBooks` is required to use ``messenger.contacts.*``.
 
 .. rst-class:: api-main-section
 
@@ -452,7 +454,7 @@ A set of individual properties for a particular contact, and its vCard string. F
       :name: ``<custom properties>``
       :type: (string)
       
-      Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
+      Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include :value:`a-z`, :value:`A-Z`, :value:`1-9` and :value:`_`.
    
    
    .. api-member::

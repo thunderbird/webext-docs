@@ -15,17 +15,19 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 
 .. note::
 
-  Registering a compose script through ``manifest.json`` is not possible at this point.
+  Registering a compose script in the *manifest.json* file is not possible at this point.
 
 .. role:: permission
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-permission-info
 
 .. note::
 
-   The permission :permission:`compose` is required to use ``composeScripts``.
+   The permission :permission:`compose` is required to use ``messenger.composeScripts.*``.
 
 .. rst-class:: api-main-section
 

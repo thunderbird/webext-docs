@@ -10,6 +10,8 @@ The accounts API first appeared in Thunderbird 66.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -24,7 +26,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`accountsRead` is required to use ``accounts``.
+   The permission :permission:`accountsRead` is required to use ``messenger.accounts.*``.
 
 .. rst-class:: api-main-section
 

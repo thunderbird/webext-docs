@@ -11,6 +11,8 @@ The folders API first appeared in Thunderbird 68 as a part of the
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -25,7 +27,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`accountsRead` is required to use ``folders``.
+   The permission :permission:`accountsRead` is required to use ``messenger.folders.*``.
 
 .. rst-class:: api-main-section
 
@@ -605,28 +607,28 @@ An object describing a mail folder, as returned for example by the :ref:`folders
       Supported values:
       
       .. api-member::
-         :name: ``inbox``
+         :name: :value:`inbox`
       
       .. api-member::
-         :name: ``drafts``
+         :name: :value:`drafts`
       
       .. api-member::
-         :name: ``sent``
+         :name: :value:`sent`
       
       .. api-member::
-         :name: ``trash``
+         :name: :value:`trash`
       
       .. api-member::
-         :name: ``templates``
+         :name: :value:`templates`
       
       .. api-member::
-         :name: ``archives``
+         :name: :value:`archives`
       
       .. api-member::
-         :name: ``junk``
+         :name: :value:`junk`
       
       .. api-member::
-         :name: ``outbox``
+         :name: :value:`outbox`
    
 
 .. _folders.MailFolderInfo:

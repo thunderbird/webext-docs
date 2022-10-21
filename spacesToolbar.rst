@@ -15,6 +15,8 @@ These buttons are shortcuts to open html pages in a new tab.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Functions
@@ -128,14 +130,14 @@ ButtonProperties
       :name: [``defaultIcons``]
       :type: (string or :ref:`spacesToolbar.IconPathDictionary`)
       
-      Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes. At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. Defaults to the extension icon, if set to an empty string.
+      Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes. At least the *16px* icon should be specified. The *32px* icon will be used on screens with a very high pixel density, if specified. Defaults to the extension icon, if set to an empty string.
    
    
    .. api-member::
       :name: [``themeIcons``]
       :type: (array of :ref:`spacesToolbar.ThemeIcons`)
       
-      Specifies dark and light icons for the spaces toolbar button to be used with themes: The ``light`` icons will be used on dark backgrounds and vice versa. At least the set for ``16px`` icons should be specified. The set for ``32px`` icons will be used on screens with a very high pixel density, if specified.
+      Specifies dark and light icons for the spaces toolbar button to be used with themes: The ``light`` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified.
    
    
    .. api-member::
@@ -178,7 +180,7 @@ IconPathDictionary
 
 .. api-section-annotation-hack:: 
 
-A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+An *object<integer, string>* with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
@@ -214,5 +216,5 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
       :name: ``size``
       :type: (integer)
       
-      The size of the two icons in pixels, for example ``16`` or ``32``.
+      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
    

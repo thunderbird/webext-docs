@@ -54,6 +54,19 @@ span.value {
     overflow-x:auto  
 }
 
+span.code {
+  background-color:#c5dbc5;
+  color:#065806;
+/*  color:#fff; */
+  box-sizing:border-box;
+  white-space:nowrap;
+  max-width:100%;
+  border:1px solid #065806;
+  font-size:75%;
+  padding:0 5px;
+  font-family:SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,Courier,monospace;
+  overflow-x:auto  
+}
 /* RTD adds extra p */
 div.container > p,
 div.container > ul {

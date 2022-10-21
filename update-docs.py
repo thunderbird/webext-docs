@@ -73,8 +73,8 @@ def replace_code(string):
         "</em>": "*",
         "<b>": "**",
         "</b>": "**",
-        "<code>": "``",
-        "</code>": "``",
+        "<code>":":code:`",
+        "</code>":"`",
         "<codeblock>": "\n\n::\n\n  ",
         "</codeblock>": "\n\n",
         "<literalinclude>": "\n\n.. literalinclude:: ",
@@ -256,7 +256,7 @@ def format_enum(name, value):
             enum_annotation = format_addition(enum_change)
             if "description" in enum_change:
                 enum_description.extend(enum_change.get("description").split("\n"))
-        enum_lines.extend(api_member(name="``" + enum_value + "``", annotation=enum_annotation, description=enum_description))
+        enum_lines.extend(api_member(name=":value:`" + enum_value + "`", annotation=enum_annotation, description=enum_description))
 
     return enum_lines
     
@@ -346,13 +346,13 @@ def format_permissions(obj, namespace_obj = None):
     name = obj.get("namespace", obj.get("name"))
     entries = {
         "manifest" : {
-            "single" : "A manifest entry named %s is required to use ``%s``.",
-            "multiple" : "One of the manifest entries %s or %s is required to use ``%s``.",
+            "single" : "A manifest entry named %s is required to use ``messenger.%s.*``.",
+            "multiple" : "One of the manifest entries %s or %s is required to use ``messenger.%s.*``.",
             "entries" : [],
             },
         "permissions" : {
-            "single" : "The permission %s is required to use ``%s``.",
-            "multiple" : "One of the permissions %s or %s is required to use ``%s``.",
+            "single" : "The permission %s is required to use ``messenger.%s.*``.",
+            "multiple" : "One of the permissions %s or %s is required to use ``messenger.%s.*``.",
             "entries" : []
             },
     }
@@ -374,7 +374,7 @@ def format_permissions(obj, namespace_obj = None):
         for i in range(0, len(permissions)):
             permission = permissions[i]
             if permission.startswith("manifest:"):
-                entries['manifest']['entries'].append("``%s``" % permission[9:])
+                entries['manifest']['entries'].append(":value:`%s`" % permission[9:])
             else:
                 entries['permissions']['entries'].append(":permission:`%s`" % permission)
 
@@ -512,6 +512,11 @@ def format_namespace(manifest, namespace):
     lines.extend([
         "",
         ".. role:: value",
+        ""]);
+
+    lines.extend([
+        "",
+        ".. role:: code",
         ""]);
 
     if "description" in namespace:

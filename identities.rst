@@ -11,6 +11,8 @@ The identities API first appeared in Thunderbird 91.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -25,7 +27,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`accountsRead` is required to use ``identities``.
+   The permission :permission:`accountsRead` is required to use ``messenger.identities.*``.
 
 .. rst-class:: api-main-section
 

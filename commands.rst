@@ -12,6 +12,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
 .. role:: value
 
+.. role:: code
+
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
 
 .. rst-class:: api-main-section
@@ -42,7 +44,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named ``commands`` is required to use ``commands``.
+   A manifest entry named :value:`commands` is required to use ``messenger.commands.*``.
 
 .. rst-class:: api-main-section
 
@@ -263,7 +265,7 @@ KeyName
 
 .. api-section-annotation-hack:: 
 
-Definition of the shortcut, for example ``Alt+F5``. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_.
+Definition of the shortcut, for example :value:`Alt+F5`. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_.
 
 .. api-header::
    :label: string

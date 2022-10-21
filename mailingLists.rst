@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -28,7 +30,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``mailingLists``.
+   The permission :permission:`addressBooks` is required to use ``messenger.mailingLists.*``.
 
 .. rst-class:: api-main-section
 

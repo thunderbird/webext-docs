@@ -15,6 +15,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/layout
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Functions
@@ -172,13 +174,13 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          Supported values:
          
          .. api-member::
-            :name: ``standard``
+            :name: :value:`standard`
          
          .. api-member::
-            :name: ``wide``
+            :name: :value:`wide`
          
          .. api-member::
-            :name: ``vertical``
+            :name: :value:`vertical`
       
       
       .. api-member::
@@ -197,13 +199,13 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          Supported values:
          
          .. api-member::
-            :name: ``none``
+            :name: :value:`none`
          
          .. api-member::
-            :name: ``ascending``
+            :name: :value:`ascending`
          
          .. api-member::
-            :name: ``descending``
+            :name: :value:`descending`
       
       
       .. api-member::
@@ -215,64 +217,64 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          Supported values:
          
          .. api-member::
-            :name: ``none``
+            :name: :value:`none`
          
          .. api-member::
-            :name: ``date``
+            :name: :value:`date`
          
          .. api-member::
-            :name: ``subject``
+            :name: :value:`subject`
          
          .. api-member::
-            :name: ``author``
+            :name: :value:`author`
          
          .. api-member::
-            :name: ``id``
+            :name: :value:`id`
          
          .. api-member::
-            :name: ``thread``
+            :name: :value:`thread`
          
          .. api-member::
-            :name: ``priority``
+            :name: :value:`priority`
          
          .. api-member::
-            :name: ``status``
+            :name: :value:`status`
          
          .. api-member::
-            :name: ``size``
+            :name: :value:`size`
          
          .. api-member::
-            :name: ``flagged``
+            :name: :value:`flagged`
          
          .. api-member::
-            :name: ``unread``
+            :name: :value:`unread`
          
          .. api-member::
-            :name: ``recipient``
+            :name: :value:`recipient`
          
          .. api-member::
-            :name: ``location``
+            :name: :value:`location`
          
          .. api-member::
-            :name: ``tags``
+            :name: :value:`tags`
          
          .. api-member::
-            :name: ``junkStatus``
+            :name: :value:`junkStatus`
          
          .. api-member::
-            :name: ``attachments``
+            :name: :value:`attachments`
          
          .. api-member::
-            :name: ``account``
+            :name: :value:`account`
          
          .. api-member::
-            :name: ``custom``
+            :name: :value:`custom`
          
          .. api-member::
-            :name: ``received``
+            :name: :value:`received`
          
          .. api-member::
-            :name: ``correspondent``
+            :name: :value:`correspondent`
       
       
       .. api-member::
@@ -283,13 +285,13 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          Supported values:
          
          .. api-member::
-            :name: ``ungrouped``
+            :name: :value:`ungrouped`
          
          .. api-member::
-            :name: ``groupedByThread``
+            :name: :value:`groupedByThread`
          
          .. api-member::
-            :name: ``groupedBySortType``
+            :name: :value:`groupedBySortType`
       
    
 
@@ -559,13 +561,13 @@ MailTab
       Supported values:
       
       .. api-member::
-         :name: ``standard``
+         :name: :value:`standard`
       
       .. api-member::
-         :name: ``wide``
+         :name: :value:`wide`
       
       .. api-member::
-         :name: ``vertical``
+         :name: :value:`vertical`
    
    
    .. api-member::
@@ -599,13 +601,13 @@ MailTab
       Supported values:
       
       .. api-member::
-         :name: ``none``
+         :name: :value:`none`
       
       .. api-member::
-         :name: ``ascending``
+         :name: :value:`ascending`
       
       .. api-member::
-         :name: ``descending``
+         :name: :value:`descending`
    
    
    .. api-member::
@@ -617,64 +619,64 @@ MailTab
       Supported values:
       
       .. api-member::
-         :name: ``none``
+         :name: :value:`none`
       
       .. api-member::
-         :name: ``date``
+         :name: :value:`date`
       
       .. api-member::
-         :name: ``subject``
+         :name: :value:`subject`
       
       .. api-member::
-         :name: ``author``
+         :name: :value:`author`
       
       .. api-member::
-         :name: ``id``
+         :name: :value:`id`
       
       .. api-member::
-         :name: ``thread``
+         :name: :value:`thread`
       
       .. api-member::
-         :name: ``priority``
+         :name: :value:`priority`
       
       .. api-member::
-         :name: ``status``
+         :name: :value:`status`
       
       .. api-member::
-         :name: ``size``
+         :name: :value:`size`
       
       .. api-member::
-         :name: ``flagged``
+         :name: :value:`flagged`
       
       .. api-member::
-         :name: ``unread``
+         :name: :value:`unread`
       
       .. api-member::
-         :name: ``recipient``
+         :name: :value:`recipient`
       
       .. api-member::
-         :name: ``location``
+         :name: :value:`location`
       
       .. api-member::
-         :name: ``tags``
+         :name: :value:`tags`
       
       .. api-member::
-         :name: ``junkStatus``
+         :name: :value:`junkStatus`
       
       .. api-member::
-         :name: ``attachments``
+         :name: :value:`attachments`
       
       .. api-member::
-         :name: ``account``
+         :name: :value:`account`
       
       .. api-member::
-         :name: ``custom``
+         :name: :value:`custom`
       
       .. api-member::
-         :name: ``received``
+         :name: :value:`received`
       
       .. api-member::
-         :name: ``correspondent``
+         :name: :value:`correspondent`
    
    
    .. api-member::
@@ -685,13 +687,13 @@ MailTab
       Supported values:
       
       .. api-member::
-         :name: ``ungrouped``
+         :name: :value:`ungrouped`
       
       .. api-member::
-         :name: ``groupedByThread``
+         :name: :value:`groupedByThread`
       
       .. api-member::
-         :name: ``groupedBySortType``
+         :name: :value:`groupedBySortType`
    
 
 .. _mailTabs.QuickFilterTextDetail:

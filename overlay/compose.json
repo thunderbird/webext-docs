@@ -91,7 +91,7 @@
           "getFile()": {
             "deprecated": true,
             "type": "function",
-            "description": "Use :ref:`compose.getAttachmentFile` instead, for example in a backward-compatible drop-in `wrapper function <https://thunderbird.topicbox.com/groups/addons/T290381ad849307a1-Mda1465bd6388138d5a893ff8/request-to-deprecate-composeattachment-getfile>`__."
+            "description": "Use :ref:`compose.getAttachmentFile` instead, for example in a backward-compatible drop-in wrapper function: <literalinclude>includes/compose/getFile.js<lang>JavaScript</lang></literalinclude>"
           }
         }
       },

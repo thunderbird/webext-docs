@@ -15,11 +15,13 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 
 .. note::
 
-  Registering a message display script through ``manifest.json`` is not possible at this point.
+  Registering a message display script in the *manifest.json* file is not possible at this point.
 
 .. role:: permission
 
 .. role:: value
+
+.. role:: code
 
 .. rst-class:: api-main-section
 
@@ -35,7 +37,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`messagesModify` is required to use ``messageDisplayScripts``.
+   The permission :permission:`messagesModify` is required to use ``messenger.messageDisplayScripts.*``.
 
 .. rst-class:: api-main-section
 

@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -28,7 +30,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``addressBooks``.
+   The permission :permission:`addressBooks` is required to use ``messenger.addressBooks.*``.
 
 .. rst-class:: api-main-section
 
@@ -438,11 +440,11 @@ Indicates the type of a Node.
          Supported values:
          
          .. api-member::
-            :name: ``addressBook``
+            :name: :value:`addressBook`
          
          .. api-member::
-            :name: ``contact``
+            :name: :value:`contact`
          
          .. api-member::
-            :name: ``mailingList``
+            :name: :value:`mailingList`
    

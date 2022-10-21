@@ -19,6 +19,8 @@ __ https://github.com/thundernest/sample-extensions
 
 .. role:: value
 
+.. role:: code
+
 Use a browserAction to put a button in the mail window toolbar. In addition to its icon, a browserAction button can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 .. rst-class:: api-main-section
@@ -41,15 +43,15 @@ Manifest file properties
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the browserAction button will appear. The default location is ``maintoolbar``.
+      Defines the location the browserAction button will appear. The default location is :value:`maintoolbar`.
       
       Supported values:
       
       .. api-member::
-         :name: ``maintoolbar``
+         :name: :value:`maintoolbar`
       
       .. api-member::
-         :name: ``tabstoolbar``
+         :name: :value:`tabstoolbar`
          :annotation: -- [Added in TB 92, backported to TB 91.0.2]
    
    
@@ -87,15 +89,15 @@ Manifest file properties
       :type: (array of `string`)
       :annotation: -- [Added in TB 106, backported to TB 102.3.3]
       
-      Defines the windows, the browserAction should appear in. Defaults to showing it only in the ``normal`` Thunderbird window, but can also be shown in the ``messageDisplay`` window.
+      Defines the windows, the browserAction should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
       
       Supported values:
       
       .. api-member::
-         :name: ``normal``
+         :name: :value:`normal`
       
       .. api-member::
-         :name: ``messageDisplay``
+         :name: :value:`messageDisplay`
    
    
    .. api-member::
@@ -109,7 +111,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named ``browser_action`` is required to use ``browserAction``.
+   A manifest entry named :value:`browser_action` is required to use ``messenger.browserAction.*``.
 
 .. rst-class:: api-main-section
 
@@ -722,7 +724,7 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-A ``{size: ImageDataType}`` dictionary representing the icon to be set. The actual :ref:`browserAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`browserAction.ImageDataType` must be specified.
+An *object<integer, ImageDataType>* with one or more entries, each defining an icon size and the corresponding :ref:`browserAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.
 
 .. api-header::
    :label: object
@@ -734,7 +736,7 @@ ImageDataType
 
 .. api-section-annotation-hack:: 
 
-Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
+Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>` element).
 
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
@@ -761,25 +763,25 @@ Information sent when a browserAction button is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``Shift``
+         :name: :value:`Shift`
       
       .. api-member::
-         :name: ``Alt``
+         :name: :value:`Alt`
       
       .. api-member::
-         :name: ``Command``
+         :name: :value:`Command`
       
          Only available on macOS.
       
       .. api-member::
-         :name: ``Ctrl``
+         :name: :value:`Ctrl`
       
          Not available on macOS.
       
       .. api-member::
-         :name: ``MacCtrl``
+         :name: :value:`MacCtrl`
       
-         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the <value>dom.event.treat_ctrl_click_as_right_click.disabled</value> preference is not enabled and the <value>MacCtrl</value> modifier key is not forwarded to the API.
    
    
    .. api-member::
@@ -803,7 +805,7 @@ IconPathDictionary
 
 .. api-section-annotation-hack:: 
 
-A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+An *object<integer, string>* with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
@@ -839,5 +841,5 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
       :name: ``size``
       :type: (integer)
       
-      The size of the two icons in pixels, for example ``16`` or ``32``.
+      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
    

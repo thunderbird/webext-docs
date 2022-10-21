@@ -6,7 +6,7 @@
     "properties": {
       "dark": {
         "type": "string",
-        "description": "A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no <code>default_icon</code> is specified)."
+        "description": "A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified)."
       },
       "light": {
         "type": "string",
@@ -14,13 +14,13 @@
       },
       "size": {
         "type": "integer",
-        "description": "The size of the two icons in pixels, for example <code>16</code> or <code>32</code>."
+        "description": "The size of the two icons in pixels, for example <value>16</value> or <value>32</value>."
       }
     }
   },
   {
     "id": "IconPathDictionary",
-    "description": "A ``{size: path}`` dictionary representing the icon to be set. The actual image to be used is chosen depending on the screen's pixel density. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: <literalinclude>includes/IconPath.json<lang>JSON</lang></literalinclude>"
+    "description": "An <em>object<integer, string></em> with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: <literalinclude>includes/IconPath.json<lang>JSON</lang></literalinclude>"
   },
   {
     "id": "extensionTypes.ExtensionFileOrCode",

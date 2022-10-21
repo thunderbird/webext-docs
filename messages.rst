@@ -21,6 +21,8 @@ The messages API first appeared in Thunderbird 66.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -50,7 +52,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`messagesRead` is required to use ``messages``.
+   The permission :permission:`messagesRead` is required to use ``messenger.messages.*``.
 
 .. rst-class:: api-main-section
 
@@ -199,7 +201,7 @@ getRaw(messageId)
 
 Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
 
-To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main ``content-type`` header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
+To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`__ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
 
 .. literalinclude:: includes/messages/decodeBinaryString.js
   :language: JavaScript
@@ -299,7 +301,7 @@ Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://deve
 
    - :permission:`messagesRead`
 
-The most simple way to get the content of an attachment is to use the ``text()`` method of the ``File`` object:
+The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
 
 .. literalinclude:: includes/messages/file.js
   :language: JavaScript
@@ -1225,7 +1227,7 @@ Represents an email message "part", which could be the whole message
       :name: [``size``]
       :type: (integer)
       
-      The size of this part. The size of ``message/*`` parts is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.
+      The size of this part. The size of *message/** parts is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.
    
 
 .. _messages.MessageTag:
@@ -1289,10 +1291,10 @@ Used for filtering messages by tag in various methods. Note that functions using
       Supported values:
       
       .. api-member::
-         :name: ``all``
+         :name: :value:`all`
       
       .. api-member::
-         :name: ``any``
+         :name: :value:`any`
    
    
    .. api-member::
