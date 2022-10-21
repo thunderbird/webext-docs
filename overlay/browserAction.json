@@ -31,16 +31,6 @@
         "$import_from_manifest": "ActionManifest"
       },
       {
-        "id": "ImageDataDictionary",
-        "type": "object",
-        "description": "An <em>object<integer, ImageDataType></em> with one or more entries, each defining an icon size and the corresponding :ref:`browserAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.",
-        "patternProperties": {
-          "^[1-9]\\d*$": {
-            "$ref": "ImageDataType"
-          }
-        }
-      },
-      {
         "id": "OnClickData",
         "added": "74.0b2",
         "properties": {

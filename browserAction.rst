@@ -734,7 +734,12 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, ImageDataType>* with one or more entries, each defining an icon size and the corresponding :ref:`browserAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.
+A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an ImageData object, and *name* its size. Example: 
+
+.. literalinclude:: includes/ImageDataDictionary.json
+  :language: JavaScript
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. api-header::
    :label: object
@@ -815,12 +820,12 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
-Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object<integer, string>* defining icons for different sizes. Example: 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
 
-At least the *16px* icon should be specified. The *32px* icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. _browserAction.ThemeIcons:
 
