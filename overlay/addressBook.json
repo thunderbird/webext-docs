@@ -121,7 +121,7 @@
           },
           "<custom properties>": {
             "type": "string",
-            "description": "Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``."
+            "description": "Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include <value>a-z</value>, <value>A-Z</value>, <value>1-9</value> and <value>_</value>."
           }
         }
       }
