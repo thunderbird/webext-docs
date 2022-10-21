@@ -27,7 +27,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 
 .. note::
 
-   The permission :permission:`compose` is required to use ``composeScripts``.
+   The permission :permission:`compose` is required to use ``messenger.composeScripts.*``.
 
 .. rst-class:: api-main-section
 

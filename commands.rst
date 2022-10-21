@@ -44,7 +44,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named :value:`commands` is required to use ``commands``.
+   A manifest entry named :value:`commands` is required to use ``messenger.commands.*``.
 
 .. rst-class:: api-main-section
 
