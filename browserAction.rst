@@ -210,7 +210,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the action button. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the action button. Either the ``path`` or the ``imageData`` property must be specified.
 
 .. api-header::
    :label: Parameters

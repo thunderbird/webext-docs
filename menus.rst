@@ -843,7 +843,7 @@ Information sent when a context menu item is clicked.
       :name: [``targetElementId``]
       :type: (integer)
       
-      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
+      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
    
    
    .. api-member::
@@ -1012,7 +1012,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :name: [``targetElementId``]
       :type: (integer)
       
-      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
+      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
    
    
    .. api-member::
