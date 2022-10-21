@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -452,7 +454,7 @@ PropertyChange
 
 .. api-section-annotation-hack:: -- [Added in TB 83]
 
-A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or null.
+A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or :value:`null`.
 
 .. api-header::
    :label: object

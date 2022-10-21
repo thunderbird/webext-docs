@@ -14,6 +14,8 @@ windows
 
 .. role:: value
 
+.. role:: code
+
 The windows API supports creating, modifying and interacting with Thunderbird windows.
 
 .. rst-class:: api-main-section
@@ -159,7 +161,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :name: [``allowScriptsToClose``]
          :type: (boolean)
          
-         Allow scripts running inside the window to close the window by calling ``window.close()``.
+         Allow scripts running inside the window to close the window by calling :code:`window.close()`.
       
       
       .. api-member::
@@ -178,7 +180,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       
       .. api-member::
          :name: [``incognito``]
-         :type: (boolean)
+         :type: (boolean) **Unsupported.**
          
          Whether the new window should be an incognito window.
       
@@ -497,16 +499,16 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          Supported values:
          
          .. api-member::
-            :name: ``normal``
+            :name: :value:`normal`
          
          .. api-member::
-            :name: ``popup``
+            :name: :value:`popup`
          
          .. api-member::
-            :name: ``panel``
+            :name: :value:`panel`
          
          .. api-member::
-            :name: ``detached_panel``
+            :name: :value:`detached_panel`
    
 
 .. _windows.GetInfo:
@@ -651,19 +653,19 @@ The state of this window.
          Supported values:
          
          .. api-member::
-            :name: ``normal``
+            :name: :value:`normal`
          
          .. api-member::
-            :name: ``minimized``
+            :name: :value:`minimized`
          
          .. api-member::
-            :name: ``maximized``
+            :name: :value:`maximized`
          
          .. api-member::
-            :name: ``fullscreen``
+            :name: :value:`fullscreen`
          
          .. api-member::
-            :name: ``docked``
+            :name: :value:`docked`
    
 
 .. _windows.WindowType:
@@ -686,30 +688,30 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          Supported values:
          
          .. api-member::
-            :name: ``normal``
+            :name: :value:`normal`
          
          .. api-member::
-            :name: ``popup``
+            :name: :value:`popup`
          
          .. api-member::
-            :name: ``panel``
+            :name: :value:`panel`
          
          .. api-member::
-            :name: ``app``
+            :name: :value:`app`
          
          .. api-member::
-            :name: ``devtools``
+            :name: :value:`devtools`
          
          .. api-member::
-            :name: ``addressBook``
+            :name: :value:`addressBook`
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
          
          .. api-member::
-            :name: ``messageCompose``
+            :name: :value:`messageCompose`
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
          
          .. api-member::
-            :name: ``messageDisplay``
+            :name: :value:`messageDisplay`
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
    
 

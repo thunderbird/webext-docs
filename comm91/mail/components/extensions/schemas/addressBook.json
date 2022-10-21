@@ -364,7 +364,7 @@
       {
         "id": "PropertyChange",
         "type": "object",
-        "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or null.",
+        "description": "A dictionary of changed properties. Keys are the property name that changed, values are an object containing ``oldValue`` and ``newValue``. Values can be either a string or <value>null</value>.",
         "patternProperties": {
           "^\\w+$": {
             "type": "object",

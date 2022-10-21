@@ -14,6 +14,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/br
 
 .. role:: value
 
+.. role:: code
+
 Use a messageDisplayAction to put a button in the message display toolbar. In addition to its icon, a messageDisplayAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
@@ -79,7 +81,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named ``message_display_action`` is required to use ``messageDisplayAction``.
+   A manifest entry named :value:`message_display_action` is required to use ``messageDisplayAction``.
 
 .. rst-class:: api-main-section
 
@@ -255,7 +257,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the messageDisplayAction button. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the messageDisplayAction button. Either the ``path`` or the ``imageData`` property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -731,23 +733,23 @@ Information sent when a messageDisplayAction button is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``Shift``
+         :name: :value:`Shift`
       
       .. api-member::
-         :name: ``Alt``
+         :name: :value:`Alt`
       
       .. api-member::
-         :name: ``Command``
+         :name: :value:`Command`
       
          Only available on macOS.
       
       .. api-member::
-         :name: ``Ctrl``
+         :name: :value:`Ctrl`
       
          Not available on macOS.
       
       .. api-member::
-         :name: ``MacCtrl``
+         :name: :value:`MacCtrl`
       
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
    
@@ -809,5 +811,5 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
       :name: ``size``
       :type: (integer)
       
-      The size of the two icons in pixels, for example ``16`` or ``32``.
+      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
    

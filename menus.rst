@@ -14,6 +14,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/me
 
 .. role:: value
 
+.. role:: code
+
 The menus API allows to add items to Thunderbirds menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
 
 .. rst-class:: api-main-section
@@ -372,7 +374,7 @@ Show the matching menu items from this extension instead of the default menu. Th
          Supported values:
          
          .. api-member::
-            :name: ``tab``
+            :name: :value:`tab`
       
       
       .. api-member::
@@ -548,61 +550,61 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          Supported values:
          
          .. api-member::
-            :name: ``all``
+            :name: :value:`all`
          
          .. api-member::
-            :name: ``page``
+            :name: :value:`page`
          
          .. api-member::
-            :name: ``frame``
+            :name: :value:`frame`
          
          .. api-member::
-            :name: ``selection``
+            :name: :value:`selection`
          
          .. api-member::
-            :name: ``link``
+            :name: :value:`link`
          
          .. api-member::
-            :name: ``editable``
+            :name: :value:`editable`
          
          .. api-member::
-            :name: ``password``
+            :name: :value:`password`
          
          .. api-member::
-            :name: ``image``
+            :name: :value:`image`
          
          .. api-member::
-            :name: ``video``
+            :name: :value:`video`
          
          .. api-member::
-            :name: ``audio``
+            :name: :value:`audio`
          
          .. api-member::
-            :name: ``browser_action``
+            :name: :value:`browser_action`
          
          .. api-member::
-            :name: ``compose_action``
+            :name: :value:`compose_action`
             :annotation: -- [Added in TB 89]
          
          .. api-member::
-            :name: ``message_display_action``
+            :name: :value:`message_display_action`
             :annotation: -- [Added in TB 89]
          
          .. api-member::
-            :name: ``tab``
+            :name: :value:`tab`
          
          .. api-member::
-            :name: ``message_list``
+            :name: :value:`message_list`
          
          .. api-member::
-            :name: ``folder_pane``
+            :name: :value:`folder_pane`
          
          .. api-member::
-            :name: ``compose_attachments``
+            :name: :value:`compose_attachments`
             :annotation: -- [Added in TB 83, backported to TB 78.5.0]
          
          .. api-member::
-            :name: ``tools_menu``
+            :name: :value:`tools_menu`
             :annotation: -- [Added in TB 88]
    
 
@@ -626,16 +628,16 @@ The type of menu item.
          Supported values:
          
          .. api-member::
-            :name: ``normal``
+            :name: :value:`normal`
          
          .. api-member::
-            :name: ``checkbox``
+            :name: :value:`checkbox`
          
          .. api-member::
-            :name: ``radio``
+            :name: :value:`radio`
          
          .. api-member::
-            :name: ``separator``
+            :name: :value:`separator`
    
 
 .. _menus.OnClickData:
@@ -674,19 +676,19 @@ Information sent when a context menu item is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``Shift``
+         :name: :value:`Shift`
       
       .. api-member::
-         :name: ``Alt``
+         :name: :value:`Alt`
       
       .. api-member::
-         :name: ``Command``
+         :name: :value:`Command`
       
       .. api-member::
-         :name: ``Ctrl``
+         :name: :value:`Ctrl`
       
       .. api-member::
-         :name: ``MacCtrl``
+         :name: :value:`MacCtrl`
    
    
    .. api-member::
@@ -728,22 +730,22 @@ Information sent when a context menu item is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``composeSubject``
+         :name: :value:`composeSubject`
       
       .. api-member::
-         :name: ``composeTo``
+         :name: :value:`composeTo`
       
       .. api-member::
-         :name: ``composeCc``
+         :name: :value:`composeCc`
       
       .. api-member::
-         :name: ``composeBcc``
+         :name: :value:`composeBcc`
       
       .. api-member::
-         :name: ``composeReplyTo``
+         :name: :value:`composeReplyTo`
       
       .. api-member::
-         :name: ``composeNewsgroupTo``
+         :name: :value:`composeNewsgroupTo`
    
    
    .. api-member::
@@ -778,7 +780,7 @@ Information sent when a context menu item is clicked.
       :name: [``mediaType``]
       :type: (string)
       
-      One of 'image', 'video', or 'audio' if the context menu was activated on one of these types of elements.
+      One of :value:`image`, :value:`video`, or :value:`audio` if the context menu was activated on one of these types of elements.
    
    
    .. api-member::
@@ -835,7 +837,7 @@ Information sent when a context menu item is clicked.
       :name: [``targetElementId``]
       :type: (integer)
       
-      An identifier of the clicked content element, if any. Use menus.getTargetElement in the page to find the corresponding element.
+      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
    
    
    .. api-member::

@@ -25,7 +25,13 @@
         "id": "WindowState",
         "type": "string",
         "description": "The state of this window.",
-        "enum": ["normal", "minimized", "maximized", "fullscreen", "docked"]
+        "enum": [
+          "normal",
+          "minimized",
+          "maximized",
+          "fullscreen",
+          "docked"
+        ]
       },
       {
         "id": "Window",
@@ -63,7 +69,9 @@
           },
           "tabs": {
             "type": "array",
-            "items": { "$ref": "tabs.Tab" },
+            "items": {
+              "$ref": "tabs.Tab"
+            },
             "optional": true,
             "description": "Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused`, and the optional :ref:`windows.GetInfo` parameter has its ``populate`` member set to <value>true</value>."
           },
@@ -115,7 +123,9 @@
           },
           "windowTypes": {
             "type": "array",
-            "items": { "$ref": "WindowType" },
+            "items": {
+              "$ref": "WindowType"
+            },
             "optional": true,
             "description": "If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions."
           }
@@ -225,7 +235,9 @@
               {
                 "name": "windows",
                 "type": "array",
-                "items": { "$ref": "Window" }
+                "items": {
+                  "$ref": "Window"
+                }
               }
             ]
           }
@@ -247,10 +259,16 @@
                 "description": "A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. <value>http://www.google.com</value>, not <value>www.google.com</value>). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.",
                 "optional": true,
                 "choices": [
-                  { "type": "string", "format": "relativeUrl" },
+                  {
+                    "type": "string",
+                    "format": "relativeUrl"
+                  },
                   {
                     "type": "array",
-                    "items": { "type": "string", "format": "relativeUrl" }
+                    "items": {
+                      "type": "string",
+                      "format": "relativeUrl"
+                    }
                   }
                 ]
               },
@@ -289,6 +307,7 @@
                 "description": "If true, opens an active window. If false, opens an inactive window."
               },
               "incognito": {
+                "unsupported": true,
                 "type": "boolean",
                 "optional": true,
                 "description": "Whether the new window should be an incognito window."

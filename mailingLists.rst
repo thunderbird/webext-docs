@@ -14,6 +14,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions

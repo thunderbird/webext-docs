@@ -15,6 +15,8 @@ __ https://github.com/thundernest/sample-extensions
 
 .. role:: value
 
+.. role:: code
+
 Use a browserAction to put an icon in the mail window toolbar. In addition to its icon, a browserAction can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 .. rst-class:: api-main-section
@@ -42,10 +44,10 @@ Manifest file properties
       Supported values:
       
       .. api-member::
-         :name: ``maintoolbar``
+         :name: :value:`maintoolbar`
       
       .. api-member::
-         :name: ``tabstoolbar``
+         :name: :value:`tabstoolbar`
          :annotation: -- [Added in TB 92, backported to TB 91.0.2]
    
    
@@ -89,7 +91,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named ``browser_action`` is required to use ``browserAction``.
+   A manifest entry named :value:`browser_action` is required to use ``browserAction``.
 
 .. rst-class:: api-main-section
 
@@ -741,23 +743,23 @@ Information sent when a browserAction is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``Shift``
+         :name: :value:`Shift`
       
       .. api-member::
-         :name: ``Alt``
+         :name: :value:`Alt`
       
       .. api-member::
-         :name: ``Command``
+         :name: :value:`Command`
       
          Only available on macOS.
       
       .. api-member::
-         :name: ``Ctrl``
+         :name: :value:`Ctrl`
       
          Not available on macOS.
       
       .. api-member::
-         :name: ``MacCtrl``
+         :name: :value:`MacCtrl`
       
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
    
@@ -819,5 +821,5 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
       :name: ``size``
       :type: (integer)
       
-      The size of the two icons in pixels, for example ``16`` or ``32``.
+      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
    

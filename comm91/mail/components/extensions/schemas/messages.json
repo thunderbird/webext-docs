@@ -420,7 +420,7 @@
       {
         "name": "getAttachmentFile",
         "type": "function",
-        "description": "Gets the content of an attachment as a DOM <code>File</code> object.",
+        "description": "Gets the content of an attachment as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.",
         "async": true,
         "parameters": [
           {

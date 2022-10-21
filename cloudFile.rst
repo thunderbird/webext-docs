@@ -18,6 +18,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/dropbox
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Manifest file properties
@@ -54,15 +56,15 @@ Manifest file properties
       :type: (`string`)
       :annotation: -- [Added in TB 71, backported to TB 68.2.1]
       
-      Determines the format of the ``data`` argument in ``onFileUpload``. Support for ArrayBuffer will be removed in Thunderbird 102.
+      Determines the format of the ``data`` argument in :ref:`cloudFile.onFileUpload`. Support for :value:`ArrayBuffer` will be removed in Thunderbird 102.
       
       Supported values:
       
       .. api-member::
-         :name: ``ArrayBuffer``
+         :name: :value:`ArrayBuffer`
       
       .. api-member::
-         :name: ``File``
+         :name: :value:`File`
    
    
    .. api-member::
@@ -83,7 +85,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named ``cloud_file`` is required to use ``cloudFile``.
+   A manifest entry named :value:`cloud_file` is required to use ``cloudFile``.
 
 .. rst-class:: api-main-section
 
@@ -181,21 +183,21 @@ Update a cloud file account.
          :name: [``spaceRemaining``]
          :type: (integer)
          
-         The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+         The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``spaceUsed``]
          :type: (integer)
          
-         The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+         The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``uploadSizeLimit``]
          :type: (integer)
          
-         The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+         The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
       
    
 
@@ -519,21 +521,21 @@ Information about a cloud file account.
       :name: [``spaceRemaining``]
       :type: (integer)
       
-      The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+      The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``spaceUsed``]
       :type: (integer)
       
-      The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+      The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``uploadSizeLimit``]
       :type: (integer)
       
-      The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+      The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
    
 
 .. _cloudFile.CloudFileTemplateInfo:

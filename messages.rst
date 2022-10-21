@@ -21,6 +21,8 @@ The messages API first appeared in Thunderbird 66.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -263,7 +265,7 @@ getAttachmentFile(messageId, partName)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Gets the content of an attachment as a DOM ``File`` object.
+Gets the content of an attachment as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
 
 .. api-header::
    :label: Parameters
@@ -1159,10 +1161,10 @@ Used for filtering messages by tag in various methods. Note that functions using
       Supported values:
       
       .. api-member::
-         :name: ``all``
+         :name: :value:`all`
       
       .. api-member::
-         :name: ``any``
+         :name: :value:`any`
    
    
    .. api-member::

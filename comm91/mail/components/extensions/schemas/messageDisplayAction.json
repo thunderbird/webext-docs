@@ -294,7 +294,7 @@
       {
         "name": "setIcon",
         "type": "function",
-        "description": "Sets the icon for the messageDisplayAction button. Either the <b>path</b> or the <b>imageData</b> property must be specified.",
+        "description": "Sets the icon for the messageDisplayAction button. Either the ``path`` or the ``imageData`` property must be specified.",
         "async": "callback",
         "parameters": [
           {

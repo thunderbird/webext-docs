@@ -21,6 +21,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-permission-info
 
 .. note::

@@ -88,7 +88,7 @@
       {
         "name": "get",
         "type": "function",
-        "description": "Returns details of the requested account, or null if it doesn't exist.",
+        "description": "Returns details of the requested account, or <value>null</value> if it doesn't exist.",
         "async": "callback",
         "parameters": [
           {
@@ -118,7 +118,7 @@
       {
         "name": "getDefault",
         "type": "function",
-        "description": "Returns the default account, or null if it is not defined.",
+        "description": "Returns the default account, or <value>null</value> if it is not defined.",
         "async": "callback",
         "parameters": [
           {
@@ -161,7 +161,7 @@
       {
         "name": "getDefaultIdentity",
         "type": "function",
-        "description": "Returns the default identity for an account, or null if it is not defined.",
+        "description": "Returns the default identity for an account, or <value>null</value> if it is not defined.",
         "async": "callback",
         "deprecated": "This will be removed. Use :ref:`identities.getDefault` instead.",
         "parameters": [

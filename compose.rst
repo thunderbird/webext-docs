@@ -10,6 +10,8 @@ The compose API first appeared in Thunderbird 67. It allows to interact with the
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -94,13 +96,13 @@ Open a new message compose window replying to a given message. If the provided C
       Supported values:
       
       .. api-member::
-         :name: ``replyToSender``
+         :name: :value:`replyToSender`
       
       .. api-member::
-         :name: ``replyToList``
+         :name: :value:`replyToList`
       
       .. api-member::
-         :name: ``replyToAll``
+         :name: :value:`replyToAll`
    
    
    .. api-member::
@@ -147,10 +149,10 @@ Open a new message compose window forwarding a given message. If the provided Co
       Supported values:
       
       .. api-member::
-         :name: ``forwardInline``
+         :name: :value:`forwardInline`
       
       .. api-member::
-         :name: ``forwardAsAttachment``
+         :name: :value:`forwardAsAttachment`
    
    
    .. api-member::
@@ -427,13 +429,13 @@ Sends the message currently being composed.
          Supported values:
          
          .. api-member::
-            :name: ``default``
+            :name: :value:`default`
          
          .. api-member::
-            :name: ``sendNow``
+            :name: :value:`sendNow`
          
          .. api-member::
-            :name: ``sendLater``
+            :name: :value:`sendLater`
       
    
 
@@ -785,7 +787,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`compose.ComposeRecipient`)
       :annotation: -- [Added in TB 88]
       
-      *Caution*: Setting a value for `from` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
+      *Caution*: Setting a value for ``from`` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
    
    
    .. api-member::
@@ -851,20 +853,20 @@ Used by various functions to represent the state of a message being composed. No
       Supported values:
       
       .. api-member::
-         :name: ``draft``
+         :name: :value:`draft`
       
       .. api-member::
-         :name: ``new``
+         :name: :value:`new`
       
       .. api-member::
-         :name: ``redirect``
+         :name: :value:`redirect`
          :annotation: -- [Added in TB 90]
       
       .. api-member::
-         :name: ``reply``
+         :name: :value:`reply`
       
       .. api-member::
-         :name: ``forward``
+         :name: :value:`forward`
    
 
 .. _compose.ComposeRecipient:
@@ -911,10 +913,10 @@ OR
             Supported values:
             
             .. api-member::
-               :name: ``contact``
+               :name: :value:`contact`
             
             .. api-member::
-               :name: ``mailingList``
+               :name: :value:`mailingList`
          
    
 

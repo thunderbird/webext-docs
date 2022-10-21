@@ -8,6 +8,8 @@ tabs
 
 .. role:: value
 
+.. role:: code
+
 The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.
 
 .. rst-class:: api-main-section
@@ -444,7 +446,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: 
 
-Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal windows (``window.type === "normal"``).
+Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal windows (:code:`window.type === "normal"`).
 
 .. api-header::
    :label: Parameters
@@ -1076,37 +1078,37 @@ Tab
       Supported values:
       
       .. api-member::
-         :name: ``addressBook``
+         :name: :value:`addressBook`
       
       .. api-member::
-         :name: ``calendar``
+         :name: :value:`calendar`
       
       .. api-member::
-         :name: ``calendarEvent``
+         :name: :value:`calendarEvent`
       
       .. api-member::
-         :name: ``calendarTask``
+         :name: :value:`calendarTask`
       
       .. api-member::
-         :name: ``chat``
+         :name: :value:`chat`
       
       .. api-member::
-         :name: ``content``
+         :name: :value:`content`
       
       .. api-member::
-         :name: ``mail``
+         :name: :value:`mail`
       
       .. api-member::
-         :name: ``messageCompose``
+         :name: :value:`messageCompose`
       
       .. api-member::
-         :name: ``messageDisplay``
+         :name: :value:`messageDisplay`
       
       .. api-member::
-         :name: ``special``
+         :name: :value:`special`
       
       .. api-member::
-         :name: ``tasks``
+         :name: :value:`tasks`
    
    
    .. api-member::
@@ -1150,10 +1152,10 @@ Whether the tabs have completed loading.
          Supported values:
          
          .. api-member::
-            :name: ``loading``
+            :name: :value:`loading`
          
          .. api-member::
-            :name: ``complete``
+            :name: :value:`complete`
    
 
 .. _tabs.UpdateFilter:
@@ -1213,13 +1215,13 @@ Event names supported in onUpdated.
          Supported values:
          
          .. api-member::
-            :name: ``favIconUrl``
+            :name: :value:`favIconUrl`
          
          .. api-member::
-            :name: ``status``
+            :name: :value:`status`
          
          .. api-member::
-            :name: ``title``
+            :name: :value:`title`
    
 
 .. _tabs.WindowType:
@@ -1242,28 +1244,28 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
          Supported values:
          
          .. api-member::
-            :name: ``normal``
+            :name: :value:`normal`
          
          .. api-member::
-            :name: ``popup``
+            :name: :value:`popup`
          
          .. api-member::
-            :name: ``panel``
+            :name: :value:`panel`
          
          .. api-member::
-            :name: ``app``
+            :name: :value:`app`
          
          .. api-member::
-            :name: ``devtools``
+            :name: :value:`devtools`
          
          .. api-member::
-            :name: ``addressBook``
+            :name: :value:`addressBook`
          
          .. api-member::
-            :name: ``messageCompose``
+            :name: :value:`messageCompose`
          
          .. api-member::
-            :name: ``messageDisplay``
+            :name: :value:`messageDisplay`
    
 
 .. rst-class:: api-main-section

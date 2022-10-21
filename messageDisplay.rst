@@ -14,6 +14,8 @@ tab, which has limited functionality compared to tabs from the main window.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -32,7 +34,7 @@ getDisplayedMessage(tabId)
 
 .. api-section-annotation-hack:: 
 
-Gets the currently displayed message in the specified tab. It returns null if no messages are displayed, or if multiple messages are displayed.
+Gets the currently displayed message in the specified tab. It returns :value:`null` if no messages are displayed, or if multiple messages are displayed.
 
 .. api-header::
    :label: Parameters

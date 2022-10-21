@@ -13,6 +13,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manife
 
 .. role:: value
 
+.. role:: code
+
 The theme API allows customizing of visual elements of Thunderbird.
 
 .. rst-class:: api-main-section
@@ -656,46 +658,46 @@ Contains the color, image and property settings of a theme.
          Supported values:
          
          .. api-member::
-            :name: ``bottom``
+            :name: :value:`bottom`
          
          .. api-member::
-            :name: ``center``
+            :name: :value:`center`
          
          .. api-member::
-            :name: ``left``
+            :name: :value:`left`
          
          .. api-member::
-            :name: ``right``
+            :name: :value:`right`
          
          .. api-member::
-            :name: ``top``
+            :name: :value:`top`
          
          .. api-member::
-            :name: ``center bottom``
+            :name: :value:`center bottom`
          
          .. api-member::
-            :name: ``center center``
+            :name: :value:`center center`
          
          .. api-member::
-            :name: ``center top``
+            :name: :value:`center top`
          
          .. api-member::
-            :name: ``left bottom``
+            :name: :value:`left bottom`
          
          .. api-member::
-            :name: ``left center``
+            :name: :value:`left center`
          
          .. api-member::
-            :name: ``left top``
+            :name: :value:`left top`
          
          .. api-member::
-            :name: ``right bottom``
+            :name: :value:`right bottom`
          
          .. api-member::
-            :name: ``right center``
+            :name: :value:`right center`
          
          .. api-member::
-            :name: ``right top``
+            :name: :value:`right top`
       
       
       .. api-member::
@@ -705,16 +707,16 @@ Contains the color, image and property settings of a theme.
          Supported values:
          
          .. api-member::
-            :name: ``no-repeat``
+            :name: :value:`no-repeat`
          
          .. api-member::
-            :name: ``repeat``
+            :name: :value:`repeat`
          
          .. api-member::
-            :name: ``repeat-x``
+            :name: :value:`repeat-x`
          
          .. api-member::
-            :name: ``repeat-y``
+            :name: :value:`repeat-y`
       
    
 
