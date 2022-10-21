@@ -1038,7 +1038,7 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
-Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object* defining icons for different sizes. Example: 
+Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object<integer, string>* defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON

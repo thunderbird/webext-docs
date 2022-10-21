@@ -694,7 +694,7 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-A :code:`{size: ImageDataType}` dictionary representing the icon to be set. The actual :ref:`messageDisplayAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`messageDisplayAction.ImageDataType` must be specified.
+An *object<integer, ImageDataType>* with one or more entries, each defining an icon size and the corresponding :ref:`messageDisplayAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.
 
 .. api-header::
    :label: object
@@ -775,7 +775,7 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
-Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object* defining icons for different sizes. Example: 
+Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object<integer, string>* defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
