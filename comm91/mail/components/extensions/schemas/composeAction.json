@@ -98,7 +98,7 @@
       {
         "id": "ImageDataDictionary",
         "type": "object",
-        "description": "A <code>{size: ImageDataType}</code> dictionary representing the icon to be set. The actual :ref:`composeAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`composeAction.ImageDataType` must be specified.",
+        "description": "An <em>object<integer, ImageDataType></em> with one or more entries, each defining an icon size and the corresponding :ref:`composeAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.",
         "patternProperties": {
           "^[1-9]\\d*$": {
             "$ref": "ImageDataType"
