@@ -27,7 +27,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`accountsRead` is required to use ``folders``.
+   The permission :permission:`accountsRead` is required to use ``messenger.folders.*``.
 
 .. rst-class:: api-main-section
 

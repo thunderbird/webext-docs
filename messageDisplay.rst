@@ -20,7 +20,7 @@ tab, which has limited functionality compared to tabs from the main window.
 
 .. note::
 
-   The permission :permission:`messagesRead` is required to use ``messageDisplay``.
+   The permission :permission:`messagesRead` is required to use ``messenger.messageDisplay.*``.
 
 .. rst-class:: api-main-section
 

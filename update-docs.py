@@ -331,13 +331,13 @@ def format_permissions(obj, namespace_obj = None):
     name = obj.get("namespace", obj.get("name"))
     entries = {
         "manifest" : {
-            "single" : "A manifest entry named %s is required to use ``%s``.",
-            "multiple" : "One of the manifest entries %s or %s is required to use ``%s``.",
+            "single" : "A manifest entry named %s is required to use ``messenger.%s.*``.",
+            "multiple" : "One of the manifest entries %s or %s is required to use ``messenger.%s.*``.",
             "entries" : [],
             },
         "permissions" : {
-            "single" : "The permission %s is required to use ``%s``.",
-            "multiple" : "One of the permissions %s or %s is required to use ``%s``.",
+            "single" : "The permission %s is required to use ``messenger.%s.*``.",
+            "multiple" : "One of the permissions %s or %s is required to use ``messenger.%s.*``.",
             "entries" : []
             },
     }

@@ -37,7 +37,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`messagesModify` is required to use ``messageDisplayScripts``.
+   The permission :permission:`messagesModify` is required to use ``messenger.messageDisplayScripts.*``.
 
 .. rst-class:: api-main-section
 

@@ -27,7 +27,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`accountsRead` is required to use ``identities``.
+   The permission :permission:`accountsRead` is required to use ``messenger.identities.*``.
 
 .. rst-class:: api-main-section
 

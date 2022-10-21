@@ -33,7 +33,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`menus` is required to use ``menus``.
+   The permission :permission:`menus` is required to use ``messenger.menus.*``.
 
 .. rst-class:: api-main-section
 

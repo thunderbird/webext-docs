@@ -30,7 +30,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``contacts``.
+   The permission :permission:`addressBooks` is required to use ``messenger.contacts.*``.
 
 .. rst-class:: api-main-section
 

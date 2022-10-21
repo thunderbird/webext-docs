@@ -85,7 +85,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named :value:`cloud_file` is required to use ``cloudFile``.
+   A manifest entry named :value:`cloud_file` is required to use ``messenger.cloudFile.*``.
 
 .. rst-class:: api-main-section
 

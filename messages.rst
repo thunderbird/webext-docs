@@ -47,7 +47,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`messagesRead` is required to use ``messages``.
+   The permission :permission:`messagesRead` is required to use ``messenger.messages.*``.
 
 .. rst-class:: api-main-section
 

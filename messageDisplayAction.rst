@@ -81,7 +81,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named :value:`message_display_action` is required to use ``messageDisplayAction``.
+   A manifest entry named :value:`message_display_action` is required to use ``messenger.messageDisplayAction.*``.
 
 .. rst-class:: api-main-section
 
