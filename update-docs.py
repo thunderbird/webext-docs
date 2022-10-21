@@ -90,6 +90,12 @@ def replace_code(string):
         "&mdash;": u"—",
         "\n": "\n\n",
         "<li>": "\n* ",
+        "|user-input-restrictions|": "`restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__",
+        "|File|": "`File <https://developer.mozilla.org/docs/Web/API/File>`__",
+        "|Canvas|": "`canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__",
+        "|ImageData|": "`ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__",
+        "|mdn-icon-size|": "`MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__",
+        "|mdn-browser-styles|": "`MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__"
     }
     for [s, r] in replacements.items():
         string = string.replace(s, r)
