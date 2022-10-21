@@ -13,6 +13,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manife
 
 .. role:: value
 
+.. role:: code
+
 The theme API allows customizing of visual elements of Thunderbird.
 
 .. rst-class:: api-main-section
@@ -197,7 +199,7 @@ Defines an image resource.
    
       .. container:: api-member-description-only
          
-         A relative URL for an image bundled with the extension. For example ``images/background.png``. The following image formats are supported: 
+         A relative URL for an image bundled with the extension. For example :value:`images/background.png`. The following image formats are supported: 
          
          * JPEG 
          
@@ -300,7 +302,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``colors``]
       :type: (object)
       
-      Object with one or more key-value pairs to map new theme color keys to internal Thunderbird CSS color variables. The example shown below maps the theme color key ``popup_affordance`` to the CSS color variable ``--arrowpanel-dimmed``. The new color key is usable as a color reference in :ref:`theme.ThemeType`. 
+      Object with one or more key-value pairs to map new theme color keys to internal Thunderbird CSS color variables. The example shown below maps the theme color key :value:`popup_affordance` to the CSS color variable `--arrowpanel-dimmed`. The new color key is usable as a color reference in :ref:`theme.ThemeType`. 
       
       .. literalinclude:: includes/theme/theme_experiment_color.json
         :language: JSON
@@ -336,12 +338,12 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``stylesheet``]
       :type: (string)
       
-      URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the ``--chat-button-color`` CSS color variable: 
+      URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the :value:`--chat-button-color` CSS color variable: 
       
       .. literalinclude:: includes/theme/theme_experiment_style.css
         :language: CSS
       
-      The following ``manifest.json`` file maps the ``--chat-button-color`` CSS color variable to the theme color key ``exp_chat_button`` and uses it to set a color for the chat button: 
+      The following *manifest.json* file maps the `--chat-button-color` CSS color variable to the theme color key :value:`exp_chat_button` and uses it to set a color for the chat button: 
       
       .. literalinclude:: includes/theme/theme_experiment_manifest.json
         :language: JSON
@@ -656,46 +658,46 @@ Contains the color, image and property settings of a theme.
          Supported values:
          
          .. api-member::
-            :name: ``bottom``
+            :name: :value:`bottom`
          
          .. api-member::
-            :name: ``center``
+            :name: :value:`center`
          
          .. api-member::
-            :name: ``left``
+            :name: :value:`left`
          
          .. api-member::
-            :name: ``right``
+            :name: :value:`right`
          
          .. api-member::
-            :name: ``top``
+            :name: :value:`top`
          
          .. api-member::
-            :name: ``center bottom``
+            :name: :value:`center bottom`
          
          .. api-member::
-            :name: ``center center``
+            :name: :value:`center center`
          
          .. api-member::
-            :name: ``center top``
+            :name: :value:`center top`
          
          .. api-member::
-            :name: ``left bottom``
+            :name: :value:`left bottom`
          
          .. api-member::
-            :name: ``left center``
+            :name: :value:`left center`
          
          .. api-member::
-            :name: ``left top``
+            :name: :value:`left top`
          
          .. api-member::
-            :name: ``right bottom``
+            :name: :value:`right bottom`
          
          .. api-member::
-            :name: ``right center``
+            :name: :value:`right center`
          
          .. api-member::
-            :name: ``right top``
+            :name: :value:`right top`
       
       
       .. api-member::
@@ -705,16 +707,16 @@ Contains the color, image and property settings of a theme.
          Supported values:
          
          .. api-member::
-            :name: ``no-repeat``
+            :name: :value:`no-repeat`
          
          .. api-member::
-            :name: ``repeat``
+            :name: :value:`repeat`
          
          .. api-member::
-            :name: ``repeat-x``
+            :name: :value:`repeat-x`
          
          .. api-member::
-            :name: ``repeat-y``
+            :name: :value:`repeat-y`
       
       
       .. api-member::
@@ -726,13 +728,13 @@ Contains the color, image and property settings of a theme.
          Supported values:
          
          .. api-member::
-            :name: ``light``
+            :name: :value:`light`
          
          .. api-member::
-            :name: ``dark``
+            :name: :value:`dark`
          
          .. api-member::
-            :name: ``auto``
+            :name: :value:`auto`
       
       
       .. api-member::
@@ -744,13 +746,13 @@ Contains the color, image and property settings of a theme.
          Supported values:
          
          .. api-member::
-            :name: ``light``
+            :name: :value:`light`
          
          .. api-member::
-            :name: ``dark``
+            :name: :value:`dark`
          
          .. api-member::
-            :name: ``auto``
+            :name: :value:`auto`
       
    
 

@@ -14,6 +14,8 @@ tab, which has limited functionality compared to tabs from the main window.
 
 .. role:: value
 
+.. role:: code
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -32,7 +34,7 @@ getDisplayedMessage(tabId)
 
 .. api-section-annotation-hack:: 
 
-Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible). It returns null if no messages are displayed, or if multiple messages are displayed.
+Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible). It returns :value:`null` if no messages are displayed, or if multiple messages are displayed.
 
 .. api-header::
    :label: Parameters
@@ -121,7 +123,7 @@ Opens a message in a new tab or in a new window.
          :name: [``headerMessageId``]
          :type: (string)
          
-         The headerMessageId of a message to be opened. Will throw an ``ExtensionError``, if the provided ``headerMessageId`` is unknown or invalid. Not supported for external messages.
+         The headerMessageId of a message to be opened. Will throw an *ExtensionError*, if the provided ``headerMessageId`` is unknown or invalid. Not supported for external messages.
       
       
       .. api-member::
@@ -133,17 +135,17 @@ Opens a message in a new tab or in a new window.
          Supported values:
          
          .. api-member::
-            :name: ``tab``
+            :name: :value:`tab`
          
          .. api-member::
-            :name: ``window``
+            :name: :value:`window`
       
       
       .. api-member::
          :name: [``messageId``]
          :type: (integer)
          
-         The id of a message to be opened. Will throw an ``ExtensionError``, if the provided ``messageId`` is unknown or invalid.
+         The id of a message to be opened. Will throw an *ExtensionError*, if the provided ``messageId`` is unknown or invalid.
       
       
       .. api-member::

@@ -6,13 +6,15 @@ menus
 
 The menus API first appeared in Thunderbird 66.
 It is basically the same as the `Firefox menus API`__, but modified to suit Thunderbird.
-Note that the similar ``contextMenus`` API will not be added to Thunderbird.
+Note that Thunderbird does not include the *contextMenus* alias for this API.
 
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus
 
 .. role:: permission
 
 .. role:: value
+
+.. role:: code
 
 The menus API allows to add items to Thunderbirds menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
 
@@ -45,7 +47,7 @@ getTargetElement(targetElementId)
 
 .. api-section-annotation-hack:: 
 
-Retrieve the element that was associated with a recent contextmenu event.
+Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
 
 .. api-header::
    :label: Parameters
@@ -355,7 +357,7 @@ overrideContext(contextOptions)
 
 .. api-section-annotation-hack:: 
 
-Show the matching menu items from this extension instead of the default menu. This should be called during a ``contextmenu`` DOM event handler, and only applies to the menu that opens after this event.
+Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
@@ -374,7 +376,7 @@ Show the matching menu items from this extension instead of the default menu. Th
          Supported values:
          
          .. api-member::
-            :name: ``tab``
+            :name: :value:`tab`
       
       
       .. api-member::
@@ -466,7 +468,7 @@ onShown
 
 .. api-section-annotation-hack:: 
 
-Fired when a menu is shown. The extension can add, modify or remove menu items and call ``menus.refresh()`` to update the menu.
+Fired when a menu is shown. The extension can add, modify or remove menu items and call :ref:`menus.refresh` to update the menu.
 
 .. api-header::
    :label: Parameters for onShown.addListener(listener)
@@ -550,67 +552,67 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          Supported values:
          
          .. api-member::
-            :name: ``all``
+            :name: :value:`all`
          
          .. api-member::
-            :name: ``page``
+            :name: :value:`page`
          
          .. api-member::
-            :name: ``frame``
+            :name: :value:`frame`
          
          .. api-member::
-            :name: ``selection``
+            :name: :value:`selection`
          
          .. api-member::
-            :name: ``link``
+            :name: :value:`link`
          
          .. api-member::
-            :name: ``editable``
+            :name: :value:`editable`
          
          .. api-member::
-            :name: ``password``
+            :name: :value:`password`
          
          .. api-member::
-            :name: ``image``
+            :name: :value:`image`
          
          .. api-member::
-            :name: ``video``
+            :name: :value:`video`
          
          .. api-member::
-            :name: ``audio``
+            :name: :value:`audio`
          
          .. api-member::
-            :name: ``browser_action``
+            :name: :value:`browser_action`
          
          .. api-member::
-            :name: ``compose_action``
+            :name: :value:`compose_action`
             :annotation: -- [Added in TB 89]
          
          .. api-member::
-            :name: ``message_display_action``
+            :name: :value:`message_display_action`
             :annotation: -- [Added in TB 89]
          
          .. api-member::
-            :name: ``tab``
+            :name: :value:`tab`
          
          .. api-member::
-            :name: ``message_list``
+            :name: :value:`message_list`
          
          .. api-member::
-            :name: ``folder_pane``
+            :name: :value:`folder_pane`
          
          .. api-member::
-            :name: ``compose_attachments``
+            :name: :value:`compose_attachments`
             :annotation: -- [Added in TB 83, backported to TB 78.5.0]
          
          .. api-member::
-            :name: ``message_attachments``
+            :name: :value:`message_attachments`
          
          .. api-member::
-            :name: ``all_message_attachments``
+            :name: :value:`all_message_attachments`
          
          .. api-member::
-            :name: ``tools_menu``
+            :name: :value:`tools_menu`
             :annotation: -- [Added in TB 88]
    
 
@@ -634,16 +636,16 @@ The type of menu item.
          Supported values:
          
          .. api-member::
-            :name: ``normal``
+            :name: :value:`normal`
          
          .. api-member::
-            :name: ``checkbox``
+            :name: :value:`checkbox`
          
          .. api-member::
-            :name: ``radio``
+            :name: :value:`radio`
          
          .. api-member::
-            :name: ``separator``
+            :name: :value:`separator`
    
 
 .. _menus.OnClickData:
@@ -682,19 +684,19 @@ Information sent when a context menu item is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``Shift``
+         :name: :value:`Shift`
       
       .. api-member::
-         :name: ``Alt``
+         :name: :value:`Alt`
       
       .. api-member::
-         :name: ``Command``
+         :name: :value:`Command`
       
       .. api-member::
-         :name: ``Ctrl``
+         :name: :value:`Ctrl`
       
       .. api-member::
-         :name: ``MacCtrl``
+         :name: :value:`MacCtrl`
    
    
    .. api-member::
@@ -736,22 +738,22 @@ Information sent when a context menu item is clicked.
       Supported values:
       
       .. api-member::
-         :name: ``composeSubject``
+         :name: :value:`composeSubject`
       
       .. api-member::
-         :name: ``composeTo``
+         :name: :value:`composeTo`
       
       .. api-member::
-         :name: ``composeCc``
+         :name: :value:`composeCc`
       
       .. api-member::
-         :name: ``composeBcc``
+         :name: :value:`composeBcc`
       
       .. api-member::
-         :name: ``composeReplyTo``
+         :name: :value:`composeReplyTo`
       
       .. api-member::
-         :name: ``composeNewsgroupTo``
+         :name: :value:`composeNewsgroupTo`
    
    
    .. api-member::
@@ -836,7 +838,7 @@ Information sent when a context menu item is clicked.
       :name: [``srcUrl``]
       :type: (string)
       
-      Will be present for elements with a ``src`` URL.
+      Will be present for elements with a *src* URL.
    
    
    .. api-member::
@@ -919,22 +921,22 @@ Information sent when a context menu is being shown. Some properties are only in
       Supported values:
       
       .. api-member::
-         :name: ``composeSubject``
+         :name: :value:`composeSubject`
       
       .. api-member::
-         :name: ``composeTo``
+         :name: :value:`composeTo`
       
       .. api-member::
-         :name: ``composeCc``
+         :name: :value:`composeCc`
       
       .. api-member::
-         :name: ``composeBcc``
+         :name: :value:`composeBcc`
       
       .. api-member::
-         :name: ``composeReplyTo``
+         :name: :value:`composeReplyTo`
       
       .. api-member::
-         :name: ``composeNewsgroupTo``
+         :name: :value:`composeNewsgroupTo`
    
    
    .. api-member::
@@ -1005,7 +1007,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :name: [``srcUrl``]
       :type: (string)
       
-      Will be present for elements with a ``src`` URL. **Note:** Host permission is required.
+      Will be present for elements with a *src* URL. **Note:** Host permission is required.
    
    
    .. api-member::
@@ -1036,12 +1038,12 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
-Either a simple ``string``, setting the path of an icon to be used for all sizes, or an ``object`` defining icons for different sizes. Example: 
+Either a simple *string*, setting the path of an icon to be used for all sizes, or an *object* defining icons for different sizes. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
 
-At least the ``16px`` icon should be specified. The ``32px`` icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
+At least the *16px* icon should be specified. The *32px* icon will be used on screens with a very high pixel density, if specified. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. All paths are relative to the root of the extension.
 
 .. rst-class:: api-main-section
 
