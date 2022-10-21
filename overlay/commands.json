@@ -6,7 +6,7 @@
         "$extend": "WebExtensionManifest",
         "properties": {
           "commands": {
-            "description": "Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: \n * <value>_execute_browser_action</value> \n *  <value>_execute_compose_action</value> \n * <value>_execute_message_display_action</value>\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>"
+            "description": "Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: \n * <value>_execute_browser_action</value> \n * <value>_execute_compose_action</value> \n * <value>_execute_message_display_action</value>\nExample: <literalinclude>includes/commands/manifest.json<lang>JSON</lang></literalinclude>"
           }
         }
       }
