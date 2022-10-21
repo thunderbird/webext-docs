@@ -418,7 +418,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
          :name: [``active``]
          :type: (boolean)
          
-         Set this to true, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect.
+         Set this to :value:`true`, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect.
       
       
       .. api-member::
@@ -975,7 +975,7 @@ Fired when a tab is closed.
          :name: ``isWindowClosing``
          :type: (boolean)
          
-         True when the tab is being closed because its window is being closed.
+         Is :value:`true` when the tab is being closed because its window is being closed.
       
       
       .. api-member::
