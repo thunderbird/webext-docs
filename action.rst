@@ -28,7 +28,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named :value:`action` is required to use ``action``.
+   A manifest entry named :value:`action` is required to use ``messenger.action.*``.
 
 .. rst-class:: api-main-section
 

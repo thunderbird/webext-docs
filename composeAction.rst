@@ -87,7 +87,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named :value:`compose_action` is required to use ``composeAction``.
+   A manifest entry named :value:`compose_action` is required to use ``messenger.composeAction.*``.
 
 .. rst-class:: api-main-section
 

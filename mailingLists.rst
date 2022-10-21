@@ -30,7 +30,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``mailingLists``.
+   The permission :permission:`addressBooks` is required to use ``messenger.mailingLists.*``.
 
 .. rst-class:: api-main-section
 

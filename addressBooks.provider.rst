@@ -35,7 +35,7 @@ Permissions
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``addressBooks.provider``.
+   The permission :permission:`addressBooks` is required to use ``messenger.addressBooks.provider.*``.
 
 .. rst-class:: api-main-section
 
