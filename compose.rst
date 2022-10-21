@@ -4,11 +4,11 @@
 compose
 =======
 
-This message composition window API first appeared in Thunderbird 67 (see `bug 1503423`__).
-
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1503423
+The compose API first appeared in Thunderbird 67. It allows to interact with the message composition window.
 
 .. role:: permission
+
+.. role:: value
 
 .. rst-class:: api-main-section
 
@@ -262,7 +262,7 @@ getActiveDictionaries(tabId)
 
 .. api-section-annotation-hack:: -- [Added in TB 102]
 
-Returns a :ref:`ComposeDictionaries` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+Returns a :ref:`compose.ComposeDictionaries` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
 
 .. api-header::
    :label: Parameters
@@ -356,7 +356,7 @@ getAttachmentFile(id)
 
 .. api-section-annotation-hack:: -- [Added in TB 98]
 
-Gets the content of a :ref:`compose.ComposeAttachment` as a DOM ``File`` object.
+Gets the content of a :ref:`compose.ComposeAttachment` as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
 
 .. api-header::
    :label: Parameters
@@ -495,7 +495,7 @@ sendMessage(tabId, [options])
 
 .. api-section-annotation-hack:: -- [Added in TB 90]
 
-Sends the message currently being composed. If the send mode is not specified or set to ``default``, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an :ref:`onBeforeSend` event or if there has been an error while sending the message to the outgoing mail server.
+Sends the message currently being composed. If the send mode is not specified or set to :value:`default`, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an :ref:`compose.onBeforeSend` event or if there has been an error while sending the message to the outgoing mail server.
 
 .. api-header::
    :label: Parameters
@@ -1127,7 +1127,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolder` or `string`)
       :annotation: -- [Added in TB 102]
       
-      An additional fcc folder which can be selected while composing the message, ``""`` if not used.
+      An additional fcc folder which can be selected while composing the message, :value:`""` if not used.
    
    
    .. api-member::
@@ -1176,7 +1176,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (`string`)
       :annotation: -- [Added in TB 102]
       
-      Defines the mime format of the sent message (ignored on plain text messages). Defaults to ``auto``, which will send html messages as plain text, if they do not include any formatting, and as ``both`` otherwise (a multipart/mixed message).
+      Defines the mime format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
       
       Supported values:
       
@@ -1242,7 +1242,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting ``false`` will clear the override. Setting ``true`` will throw an exception, if ``overrideDefaultFccFolder`` is not set as well.
+      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an ``ExtensionError``, if ``overrideDefaultFccFolder`` is not set as well.
    
    
    .. api-member::
@@ -1250,7 +1250,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolder` or `string`)
       :annotation: -- [Added in TB 102]
       
-       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or ``""`` to not save a copy at all.
+       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or :value:`""` to not save a copy at all.
    
    
    .. api-member::
@@ -1291,7 +1291,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (integer)
       :annotation: -- [Added in TB 95]
       
-      The id of the original message (in case of draft, template, forward or reply). Read-only. Is ``null`` in all other cases or if the original message was opened from file.
+      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`null` in all other cases or if the original message was opened from file.
    
    
    .. api-member::
@@ -1350,7 +1350,7 @@ ComposeDictionaries
 
 .. api-section-annotation-hack:: -- [Added in TB 102]
 
-Object with language identifiers of all installed dictionaries as keys (for example ``en-US``) and a boolean value, indicating whether that dictionary is enabled for spellchecking or not.
+Object with language identifiers of all installed dictionaries as keys (for example :value:`en-US`) and a boolean value, indicating whether that dictionary is enabled for spellchecking or not.
 
 .. api-header::
    :label: object
@@ -1376,7 +1376,7 @@ ComposeRecipient
    
       .. container:: api-member-description-only
          
-         A name and email address in the format "Name <email@example.com>", or just an email address.
+         A name and email address in the format :value:`Name <email@example.com>`, or just an email address.
    
 
 OR
@@ -1471,7 +1471,7 @@ A custom header definition.
       :name: ``name``
       :type: (string)
       
-      Name of a custom header, must have a ``X-`` prefix.
+      Name of a custom header, must have a :value:`X-` prefix.
    
    
    .. api-member::

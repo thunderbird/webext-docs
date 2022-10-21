@@ -31,9 +31,6 @@
           },
           "fieldId": {
             "added": "89"
-          },
-          "targetElementId": {
-            "description": "An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element."
           }
         }
       },
@@ -48,9 +45,6 @@
           },
           "fieldId": {
             "added": "89"
-          },
-          "targetElementId": {
-            "description": "An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element."
           }
         }
       }

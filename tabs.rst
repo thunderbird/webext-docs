@@ -6,7 +6,9 @@ tabs
 
 .. role:: permission
 
-Use the ``browser.tabs`` API to interact with the browser's tab system. You can use this API to create, modify, and rearrange tabs in the browser.
+.. role:: value
+
+The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.
 
 .. rst-class:: api-main-section
 
@@ -181,7 +183,7 @@ create(createProperties)
 
 .. api-section-annotation-hack:: 
 
-Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages.
+Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages. Only supported in :value:`normal` windows.
 
 .. api-header::
    :label: Parameters
@@ -197,7 +199,7 @@ Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages.
          :name: [``active``]
          :type: (boolean)
          
-         Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to ``true``.
+         Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to :value:`true`.
       
       
       .. api-member::
@@ -211,14 +213,14 @@ Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages.
          :name: [``selected``]
          :type: (boolean) **Unsupported.**
          
-         Whether the tab should become the selected tab in the window. Defaults to ``true``
+         Whether the tab should become the selected tab in the window. Defaults to :value:`true`
       
       
       .. api-member::
          :name: [``url``]
          :type: (string)
          
-         The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. 'http://www.google.com', not 'www.google.com'). Relative URLs will be relative to the current page within the extension.
+         The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the current page within the extension.
       
       
       .. api-member::
@@ -416,14 +418,14 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
          :name: [``active``]
          :type: (boolean)
          
-         Set this to true, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect.
+         Set this to :value:`true`, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect.
       
       
       .. api-member::
          :name: [``url``]
          :type: (string)
          
-         A URL to navigate the tab to. Only applicable for ``content`` tabs and active ``mail`` tabs.
+         A URL to navigate the tab to. Only applicable for :value:`content` tabs and active :value:`mail` tabs.
       
    
 
@@ -467,7 +469,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
          :name: ``index``
          :type: (integer)
          
-         The position to move the window to. -1 will place the tab at the end of the window.
+         The position to move the window to. :value:`-1` will place the tab at the end of the window.
       
       
       .. api-member::
@@ -743,7 +745,7 @@ Fired when a tab is updated.
          :name: [``status``]
          :type: (string)
          
-         The status of the tab. Can be either *loading* or *complete*.
+         The status of the tab. Can be either :value:`loading` or :value:`complete`.
       
       
       .. api-member::
@@ -973,7 +975,7 @@ Fired when a tab is closed.
          :name: ``isWindowClosing``
          :type: (boolean)
          
-         True when the tab is being closed because its window is being closed.
+         Is :value:`true` when the tab is being closed because its window is being closed.
       
       
       .. api-member::
@@ -1046,7 +1048,7 @@ Tab
       :name: [``id``]
       :type: (integer)
       
-      The ID of the tab. Tab IDs are unique within a browser session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
+      The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
    
    
    .. api-member::
@@ -1060,7 +1062,7 @@ Tab
       :name: [``status``]
       :type: (string)
       
-      Either *loading* or *complete*.
+      Either :value:`loading` or :value:`complete`.
    
    
    .. api-member::
@@ -1277,4 +1279,4 @@ TAB_ID_NONE
 
 .. api-section-annotation-hack:: 
 
-An ID which represents the absence of a browser tab.
+An ID which represents the absence of a tab.

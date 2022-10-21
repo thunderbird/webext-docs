@@ -4,14 +4,15 @@
 contacts
 ========
 
-The address books API, also including the :doc:`addressBooks` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
-The quickSearch function was added in Thunderbird 68.
+The :doc:`addressBooks` API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
 The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
+
+.. role:: value
 
 .. rst-class:: api-main-section
 
@@ -225,7 +226,7 @@ Updates a contact.
       :name: ``properties``
       :type: (:ref:`contacts.ContactProperties`)
       
-      An object with properties to update the specified contact. Individual properties are removed, if they are set to ``null``. If the provided object includes a ``vCard`` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead. 
+      An object with properties to update the specified contact. Individual properties are removed, if they are set to :value:`null`. If the provided object includes a ``vCard`` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead. 
    
 
 .. api-header::
@@ -410,7 +411,7 @@ A node representing a contact in an address book.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       
-      Always set to ``contact``.
+      Always set to :value:`contact`.
    
    
    .. api-member::
@@ -451,12 +452,12 @@ A set of individual properties for a particular contact, and its vCard string. F
       :name: ``<custom properties>``
       :type: (string)
       
-      Custom properties are not saved in the users vCard. Therfore, they are not transfered to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
+      Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``.
    
    
    .. api-member::
       :name: ``<legacy properties>``
-      :type: (string) **Deprecated.**
+      :type: (string)
       
       `Legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ point to certain fields in the contacts vCard string and provide direct read/write access.
    

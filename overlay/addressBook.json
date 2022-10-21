@@ -108,16 +108,15 @@
             "description": "The contacts vCard string."
           },
           "<legacy properties>": {
-            "deprecated": true,
             "type": "string",
             "description": "`Legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ point to certain fields in the contacts vCard string and provide direct read/write access."
           },
           "<custom properties>": {
             "type": "string",
-            "description": "Custom properties are not saved in the users vCard. Therfore, they are not transfered to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``."
+            "description": "Custom properties are not saved in the users vCard. Therefore, they are not transferred to the users server, if the contact is stored on a remote CardDAV server. Names of custom properties may include ``a-z``, ``A-Z``, ``1-9`` and ``_``."
           }
         }
-      }      
+      }
     ]
   },
   {

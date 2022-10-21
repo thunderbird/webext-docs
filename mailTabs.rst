@@ -4,9 +4,7 @@
 mailTabs
 ========
 
-The mailTabs API first appeared in Thunderbird 66 (see `bug 1499617`__).
-
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
+The mailTabs API first appeared in Thunderbird 66 and allows to interact with Thunderbirds main mail window.
 
 The `Filter`__  and `Layout`__ sample extensions use this API.
 
@@ -14,6 +12,8 @@ __ https://github.com/thundernest/sample-extensions/tree/master/filter
 __ https://github.com/thundernest/sample-extensions/tree/master/layout
 
 .. role:: permission
+
+.. role:: value
 
 .. rst-class:: api-main-section
 
@@ -335,7 +335,7 @@ setSelectedMessages([tabId], messageIds)
 
 .. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.3]
 
-Selects one or multiple messages.
+Selects none, one or multiple messages.
 
 .. api-header::
    :label: Parameters

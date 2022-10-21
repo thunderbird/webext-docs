@@ -10,7 +10,9 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 
 .. role:: permission
 
-Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example, an action to open the browser action or send a command to the xtension.
+.. role:: value
+
+Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
 
 .. rst-class:: api-main-section
 
@@ -64,7 +66,7 @@ Update the details of an already defined command.
       :name: ``detail``
       :type: (object)
       
-      
+      The new details for the command.
       
       .. api-member::
          :name: ``name``
@@ -77,7 +79,7 @@ Update the details of an already defined command.
          :name: [``description``]
          :type: (string)
          
-         The new description for the command.
+         The description for the command.
       
       
       .. api-member::
@@ -139,7 +141,7 @@ onCommand
 
 .. api-section-annotation-hack:: 
 
-Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply
+Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onCommand.addListener(listener)

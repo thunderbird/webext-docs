@@ -9,6 +9,8 @@ The identities API first appeared in Thunderbird 91.
 
 .. role:: permission
 
+.. role:: value
+
 .. rst-class:: api-main-section
 
 Permissions

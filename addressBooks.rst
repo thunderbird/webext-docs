@@ -4,13 +4,15 @@
 addressBooks
 ============
 
-The address books API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
+The :doc:`addressBooks` API, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
 
 The `Address Books`__ sample extension uses this API.
 
 __ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
+
+.. role:: value
 
 .. rst-class:: api-main-section
 
@@ -377,7 +379,7 @@ A node representing an address book.
       :name: ``type``
       :type: (:ref:`addressBooks.NodeType`)
       
-      Always set to ``addressBook``.
+      Always set to :value:`addressBook`.
    
    
    .. api-member::
@@ -423,7 +425,7 @@ NodeType
 
 .. api-section-annotation-hack:: 
 
-Indicates the type of a Node, which can be one of ``addressBook``, ``contact``, or ``mailingList``.
+Indicates the type of a Node.
 
 .. api-header::
    :label: `string`

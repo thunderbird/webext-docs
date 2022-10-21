@@ -85,8 +85,8 @@ def replace_code(string):
         "</var>": "``",
         "<permission>":":permission:`",
         "</permission>":"`",
-        "<pre>":":prerole:`",
-        "</pre>":"`",
+        "<value>":":value:`",
+        "</value>":"`",
         "&mdash;": u"—",
         "\n": "\n\n",
         "<li>": "\n* ",
@@ -347,12 +347,12 @@ def format_permissions(obj, namespace_obj = None):
     entries = {
         "manifest" : {
             "single" : "A manifest entry named %s is required to use ``%s``.",
-            "multiple" : "The manifest entries %s and %s are required to use ``%s``.",
+            "multiple" : "One of the manifest entries %s or %s is required to use ``%s``.",
             "entries" : [],
             },
         "permissions" : {
             "single" : "The permission %s is required to use ``%s``.",
-            "multiple" : "The permissions %s and %s are required to use ``%s``.",
+            "multiple" : "One of the permissions %s or %s is required to use ``%s``.",
             "entries" : []
             },
     }
@@ -511,7 +511,7 @@ def format_namespace(manifest, namespace):
 
     lines.extend([
         "",
-        ".. role:: prerole",
+        ".. role:: value",
         ""]);
 
     if "description" in namespace:

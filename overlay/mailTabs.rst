@@ -2,9 +2,7 @@
 mailTabs
 ========
 
-The mailTabs API first appeared in Thunderbird 66 (see `bug 1499617`__).
-
-__ https://bugzilla.mozilla.org/show_bug.cgi?id=1499617
+The mailTabs API first appeared in Thunderbird 66 and allows to interact with Thunderbirds main mail window.
 
 The `Filter`__  and `Layout`__ sample extensions use this API.
 
