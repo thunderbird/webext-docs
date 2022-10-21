@@ -129,9 +129,9 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.IconPathDictionary`)
+         :type: (:ref:`menus.IconPath`)
          
-         One or more custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus. This property is an object with one property for each supplied icon: the property's name should include the icon's size in pixels, and path is relative to the icon from the extension's root directory. The application tries to choose a 16x16 pixel icon for a normal display or a 32x32 pixel icon for a high-density display.
+         Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
       
       
       .. api-member::
@@ -263,7 +263,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.IconPathDictionary`)
+         :type: (:ref:`menus.IconPath`)
       
       
       .. api-member::
@@ -357,7 +357,7 @@ overrideContext(contextOptions)
 
 .. api-section-annotation-hack:: 
 
-Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>` event handler, and only applies to the menu that opens after this event.
+Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
@@ -1031,17 +1031,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _menus.IconPathDictionary:
+.. _menus.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, string>* with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. rst-class:: api-main-section
 

@@ -76,7 +76,7 @@ get(accountId, [includeFolders])
 
 .. api-section-annotation-hack:: 
 
-Returns details of the requested account, or null if it doesn't exist.
+Returns details of the requested account, or :value:`null` if it doesn't exist.
 
 .. api-header::
    :label: Parameters
@@ -117,7 +117,7 @@ getDefault([includeFolders])
 
 .. api-section-annotation-hack:: -- [Added in TB 85, backported to TB 78.7.0]
 
-Returns the default account, or null if it is not defined.
+Returns the default account, or :value:`null` if it is not defined.
 
 .. api-header::
    :label: Parameters
@@ -181,7 +181,7 @@ getDefaultIdentity(accountId)
 
 .. api-section-annotation-hack:: -- [Added in TB 85, backported to TB 78.7.0]
 
-Returns the default identity for an account, or null if it is not defined.
+Returns the default identity for an account, or :value:`null` if it is not defined.
 
 .. api-header::
    :label: Parameters

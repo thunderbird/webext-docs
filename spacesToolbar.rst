@@ -128,9 +128,9 @@ ButtonProperties
    
    .. api-member::
       :name: [``defaultIcons``]
-      :type: (string or :ref:`spacesToolbar.IconPathDictionary`)
+      :type: (string or :ref:`spacesToolbar.IconPath`)
       
-      Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes. At least the *16px* icon should be specified. The *32px* icon will be used on screens with a very high pixel density, if specified. Defaults to the extension icon, if set to an empty string.
+      The paths to one or more icons for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string.
    
    
    .. api-member::
@@ -173,17 +173,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _spacesToolbar.IconPathDictionary:
+.. _spacesToolbar.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, string>* with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. _spacesToolbar.ThemeIcons:
 

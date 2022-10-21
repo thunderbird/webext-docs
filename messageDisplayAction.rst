@@ -43,9 +43,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (string or :ref:`messageDisplayAction.IconPathDictionary`)
+      :type: (:ref:`messageDisplayAction.IconPath`)
       
-      The paths to one or more icons for the messageDisplayAction.
+      The paths to one or more icons for the messageDisplayAction button.
    
    
    .. api-member::
@@ -257,7 +257,7 @@ setIcon(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the messageDisplayAction button. Either the **path** or the **imageData** property must be specified.
+Sets the icon for the messageDisplayAction button. Either the ``path`` or the ``imageData`` property must be specified.
 
 .. api-header::
    :label: Parameters
@@ -271,14 +271,14 @@ Sets the icon for the messageDisplayAction button. Either the **path** or the **
          :name: [``imageData``]
          :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`)
          
-         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes.
+         The image data for one or more icons for the composeAction button.
       
       
       .. api-member::
          :name: [``path``]
-         :type: (string or :ref:`messageDisplayAction.IconPathDictionary`)
+         :type: (:ref:`messageDisplayAction.IconPath`)
          
-         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
+         The paths to one or more icons for the messageDisplayAction button.
       
       
       .. api-member::
@@ -694,7 +694,12 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, ImageDataType>* with one or more entries, each defining an icon size and the corresponding :ref:`messageDisplayAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.
+A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an ImageData object, and *name* its size. Example: 
+
+.. literalinclude:: includes/ImageDataDictionary.json
+  :language: JavaScript
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. api-header::
    :label: object
@@ -706,7 +711,7 @@ ImageDataType
 
 .. api-section-annotation-hack:: 
 
-Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>` element).
+Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
 
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
@@ -768,17 +773,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _messageDisplayAction.IconPathDictionary:
+.. _messageDisplayAction.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, string>* with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. _messageDisplayAction.ThemeIcons:
 

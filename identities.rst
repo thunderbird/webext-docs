@@ -74,7 +74,7 @@ get(identityId)
 
 .. api-section-annotation-hack:: 
 
-Returns details of the requested identity, or null if it doesn't exist.
+Returns details of the requested identity, or :value:`null` if it doesn't exist.
 
 .. api-header::
    :label: Parameters
@@ -209,7 +209,7 @@ getDefault(accountId)
 
 .. api-section-annotation-hack:: 
 
-Returns the default identity for the requested account, or null if it is not defined.
+Returns the default identity for the requested account, or :value:`null` if it is not defined.
 
 .. api-header::
    :label: Parameters

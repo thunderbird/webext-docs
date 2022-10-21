@@ -450,7 +450,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: 
 
-Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from windows with type :value:`normal`.
+Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from windows of type :value:`normal`.
 
 .. api-header::
    :label: Parameters

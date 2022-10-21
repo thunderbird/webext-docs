@@ -178,21 +178,21 @@ Update a cloud file account.
          :name: [``spaceRemaining``]
          :type: (integer)
          
-         The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+         The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``spaceUsed``]
          :type: (integer)
          
-         The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+         The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``uploadSizeLimit``]
          :type: (integer)
          
-         The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+         The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
       
    
 
@@ -607,21 +607,21 @@ Information about a cloud file account.
       :name: [``spaceRemaining``]
       :type: (integer)
       
-      The amount of remaining space on the cloud provider, in bytes. Set to -1 if unsupported.
+      The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``spaceUsed``]
       :type: (integer)
       
-      The amount of space already used on the cloud provider, in bytes. Set to -1 if unsupported.
+      The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``uploadSizeLimit``]
       :type: (integer)
       
-      The maximum size in bytes for a single file to upload. Set to -1 if unlimited.
+      The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
    
 
 .. _cloudFile.CloudFileTemplateInfo:
