@@ -736,7 +736,7 @@ Represents an attachment in a message being composed.
       
       The size in bytes of this attachment.
    
-   - ``getFile()`` Retrieves the contents of the attachment as a DOM ``File`` object.
+   - ``getFile()`` Retrieves the contents of the attachment as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
 
 .. _compose.ComposeDetails:
 

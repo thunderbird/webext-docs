@@ -199,7 +199,7 @@ Defines an image resource.
    
       .. container:: api-member-description-only
          
-         A relative URL for an image bundled with the extension. For example ``images/background.png``. The following image formats are supported: 
+         A relative URL for an image bundled with the extension. For example :value:`images/background.png`. The following image formats are supported: 
          
          * JPEG 
          
@@ -302,7 +302,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``colors``]
       :type: (object)
       
-      Object with one or more key-value pairs to map new theme color keys to internal Thunderbird CSS color variables. The example shown below maps the theme color key ``popup_affordance`` to the CSS color variable ``--arrowpanel-dimmed``. The new color key is usable as a color reference in :ref:`theme.ThemeType`. 
+      Object with one or more key-value pairs to map new theme color keys to internal Thunderbird CSS color variables. The example shown below maps the theme color key :value:`popup_affordance` to the CSS color variable `--arrowpanel-dimmed`. The new color key is usable as a color reference in :ref:`theme.ThemeType`. 
       
       .. literalinclude:: includes/theme/theme_experiment_color.json
         :language: JSON
@@ -338,12 +338,12 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``stylesheet``]
       :type: (string)
       
-      URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the ``--chat-button-color`` CSS color variable: 
+      URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the :value:`--chat-button-color` CSS color variable: 
       
       .. literalinclude:: includes/theme/theme_experiment_style.css
         :language: CSS
       
-      The following ``manifest.json`` file maps the ``--chat-button-color`` CSS color variable to the theme color key ``exp_chat_button`` and uses it to set a color for the chat button: 
+      The following *manifest.json* file maps the `--chat-button-color` CSS color variable to the theme color key :value:`exp_chat_button` and uses it to set a color for the chat button: 
       
       .. literalinclude:: includes/theme/theme_experiment_manifest.json
         :language: JSON

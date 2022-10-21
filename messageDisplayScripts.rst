@@ -15,7 +15,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 
 .. note::
 
-  Registering a message display script through ``manifest.json`` is not possible at this point.
+  Registering a message display script in the <em>manifest.json</em> file is not possible at this point.
 
 .. role:: permission
 

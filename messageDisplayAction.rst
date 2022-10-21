@@ -694,7 +694,7 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-A ``{size: ImageDataType}`` dictionary representing the icon to be set. The actual :ref:`messageDisplayAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`messageDisplayAction.ImageDataType` must be specified.
+A :code:`{size: ImageDataType}` dictionary representing the icon to be set. The actual :ref:`messageDisplayAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`messageDisplayAction.ImageDataType` must be specified.
 
 .. api-header::
    :label: object
@@ -706,7 +706,7 @@ ImageDataType
 
 .. api-section-annotation-hack:: 
 
-Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element).
+Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
 
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
@@ -751,7 +751,7 @@ Information sent when a messageDisplayAction button is clicked.
       .. api-member::
          :name: :value:`MacCtrl`
       
-         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the ``dom.event.treat_ctrl_click_as_right_click.disabled`` preference is not enabled and the ``MacCtrl`` modifier key is not forwarded to the API.
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the <value>dom.event.treat_ctrl_click_as_right_click.disabled</value> preference is not enabled and the <value>MacCtrl</value> modifier key is not forwarded to the API.
    
    
    .. api-member::

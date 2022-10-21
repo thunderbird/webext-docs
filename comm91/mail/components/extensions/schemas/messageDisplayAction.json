@@ -89,12 +89,12 @@
           "type": "any"
         },
         "postprocess": "convertImageDataToURL",
-        "description": "Pixel data for an image. Must be an ImageData object (for example, from a ``canvas`` element)."
+        "description": "Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element)."
       },
       {
         "id": "ImageDataDictionary",
         "type": "object",
-        "description": "A ``{size: ImageDataType}`` dictionary representing the icon to be set. The actual :ref:`messageDisplayAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`messageDisplayAction.ImageDataType` must be specified.",
+        "description": "A <code>{size: ImageDataType}</code> dictionary representing the icon to be set. The actual :ref:`messageDisplayAction.ImageDataType` to be used is chosen depending on the screen's pixel density. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information on this. At least one :ref:`messageDisplayAction.ImageDataType` must be specified.",
         "patternProperties": {
           "^[1-9]\\d*$": {
             "$ref": "ImageDataType"

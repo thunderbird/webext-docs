@@ -6,7 +6,7 @@ menus
 
 The menus API first appeared in Thunderbird 66.
 It is basically the same as the `Firefox menus API`__, but modified to suit Thunderbird.
-Note that the similar ``contextMenus`` API will not be added to Thunderbird.
+Note that Thunderbird does not include the <em>contextMenus</em> alias for this API.
 
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus
 
@@ -47,7 +47,7 @@ getTargetElement(targetElementId)
 
 .. api-section-annotation-hack:: 
 
-Retrieve the element that was associated with a recent contextmenu event.
+Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
 
 .. api-header::
    :label: Parameters
@@ -57,7 +57,7 @@ Retrieve the element that was associated with a recent contextmenu event.
       :name: ``targetElementId``
       :type: (integer)
       
-      The identifier of the clicked element, available as info.targetElementId in the menus.onShown, onClicked or onclick event.
+      The identifier of the clicked element, available as ``info.targetElementId`` in the :ref:`menus.onShown` and :ref:`menus.onClicked` events.
    
 
 .. api-header::
@@ -355,7 +355,7 @@ overrideContext(contextOptions)
 
 .. api-section-annotation-hack:: 
 
-Show the matching menu items from this extension instead of the default menu. This should be called during a ``contextmenu`` DOM event handler, and only applies to the menu that opens after this event.
+Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
@@ -466,7 +466,7 @@ onShown
 
 .. api-section-annotation-hack:: 
 
-Fired when a menu is shown. The extension can add, modify or remove menu items and call ``menus.refresh()`` to update the menu.
+Fired when a menu is shown. The extension can add, modify or remove menu items and call :ref:`menus.refresh` to update the menu.
 
 .. api-header::
    :label: Parameters for onShown.addListener(listener)

@@ -9,11 +9,11 @@
         "name": "getTargetElement",
         "type": "function",
         "allowedContexts": ["content", "devtools"],
-        "description": "Retrieve the element that was associated with a recent contextmenu event.",
+        "description": "Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.",
         "parameters": [
           {
             "type": "integer",
-            "description": "The identifier of the clicked element, available as info.targetElementId in the menus.onShown, onClicked or onclick event.",
+            "description": "The identifier of the clicked element, available as ``info.targetElementId`` in the :ref:`menus.onShown` and :ref:`menus.onClicked` events.",
             "name": "targetElementId"
           }
         ],
