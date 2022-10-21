@@ -25,11 +25,11 @@ Manifest file properties
    
    Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: 
    
-    * ``_execute_browser_action`` 
+    * :value:`_execute_browser_action` 
    
-    *  ``_execute_compose_action`` 
+    * :value:`_execute_compose_action` 
    
-    * ``_execute_message_display_action``
+    * :value:`_execute_message_display_action`
    
    Example: 
    
