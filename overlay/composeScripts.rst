@@ -13,4 +13,4 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 
 .. note::
 
-  Registering a compose script in the <em>manifest.json</em> file is not possible at this point.
+  Registering a compose script in the *manifest.json* file is not possible at this point.
