@@ -2,7 +2,7 @@
   {
     "namespace": "mailTabs",
     "types": [
-      {        
+      {
         "id": "MailTab",
         "properties": {
           "viewType": {

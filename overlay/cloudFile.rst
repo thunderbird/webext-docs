@@ -2,8 +2,7 @@
 cloudFile
 =========
 
-The cloudFile (a.k.a. fileLink) API first appeared in Thunderbird 64, and was uplifted to
-Thunderbird 60.4 ESR.
+The cloudFile (a.k.a. fileLink) API first appeared in Thunderbird 60. It allows to create a provider to store large attachments in the cloud instead of attaching them directly to the message.
 
 From Thunderbird 68.2.1 (Thunderbird 71 beta), an extension can choose to receive data for upload
 as a ``File`` object rather than as an ``ArrayBuffer``. You **should** specify which you want as

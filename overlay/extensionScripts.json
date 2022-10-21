@@ -1,6 +1,8 @@
 [
   {
     "namespace": "composeScripts",
-    "ignore_permissions": ["messagesModify"]
+    "ignore_permissions": [
+      "messagesModify"
+    ]
   }
 ]

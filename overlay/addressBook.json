@@ -5,7 +5,7 @@
       {
         "name": "list",
         "changed": {
-              "85" : "Read-only address books are now returned as well as read-write books."
+          "85": "Read-only address books are now returned as well as read-write books."
         }
       }
     ],
@@ -37,8 +37,8 @@
         "name": "quickSearch",
         "description": "Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.",
         "changed": {
-          "85" : "Read-only address books are now returned as well as read-write books.",
-          "91" : "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
+          "85": "Read-only address books are now returned as well as read-write books.",
+          "91": "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
         },
         "parameters": [
           {
@@ -46,11 +46,11 @@
             "choices": [
               {
                 "type": "string"
-              },        
+              },
               {
                 "$ref": "QueryInfo"
               }
-            ]            
+            ]
           }
         ],          
         "returns": {
@@ -181,7 +181,7 @@
     "events": [
       {
         "name": "onSearchRequest",
-        "description" : "Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.\n\nThe event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's <code>To:</code> field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.\n\nExample: <literalinclude>includes/addressBooks/onSearchRequest.js<lang>JavaScript</lang></literalinclude>",
+        "description" : "Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.\n\nThe event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's ``To:`` field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.\n\nExample: <literalinclude>includes/addressBooks/onSearchRequest.js<lang>JavaScript</lang></literalinclude>",
         "parameters": [
           {
             "name": "node",

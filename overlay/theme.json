@@ -11,29 +11,29 @@
         "$extend": "WebExtensionManifest",
         "properties": {
           "theme": {
-            "sort" : "1",
+            "sort": "1",
             "$ref": "ThemeType",
             "description": "Properties for a static theme. A static theme must not contain any other WebExtension logic. If additional logic is required, request the <permission>theme</permission> permission and load/update the theme dynamically. More information about themes can be found in the `theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__.",
             "optional": true
           },
           "dark_theme": {
-            "sort" : "2",
+            "sort": "2",
             "$ref": "ThemeType",
-            "description" : "Fallback properties for the dark system theme in a static theme.",
+            "description": "Fallback properties for the dark system theme in a static theme.",
             "optional": true
           },
           "theme_experiment": {
-            "sort" : "3",
+            "sort": "3",
             "description": "A theme experiment allows modifying the user interface of Thunderbird beyond what is currently possible using the built-in color, image and property keys of :ref:`theme.ThemeType`. These experiments are a precursor to proposing new theme features for inclusion in Thunderbird. Experimentation is done by mapping internal CSS color, image and property variables to new theme keys and using them in :ref:`theme.ThemeType` and by loading additional style sheets to add new CSS variables, extending the theme-able areas of Thunderbird. Can be used in static and dynamic themes."
           }
         }
       },
       {
-        "id" : "ThemeExperiment",
-        "properties" : {
-          "stylesheet" : {
-            "type" : "string",
-            "description": "URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the ``--chat-button-color`` CSS color variable: <literalinclude>includes/theme/theme_experiment_style.css<lang>CSS</lang></literalinclude>The following ``manifest.json`` file maps the ``--chat-button-color`` CSS color variable to the theme color key ``exp_chat_button`` and uses it to set a color for the chat button: <literalinclude>includes/theme/theme_experiment_manifest.json<lang>JSON</lang></literalinclude>"            
+        "id": "ThemeExperiment",
+        "properties": {
+          "stylesheet": {
+            "type": "string",
+            "description": "URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the ``--chat-button-color`` CSS color variable: <literalinclude>includes/theme/theme_experiment_style.css<lang>CSS</lang></literalinclude>The following ``manifest.json`` file maps the ``--chat-button-color`` CSS color variable to the theme color key ``exp_chat_button`` and uses it to set a color for the chat button: <literalinclude>includes/theme/theme_experiment_manifest.json<lang>JSON</lang></literalinclude>"
           },
           "images": {
             "description": "Object with one or more key-value pairs to map new theme image keys to internal Thunderbird CSS image variables. The new image key is usable as an image reference in :ref:`theme.ThemeType`. Example: <literalinclude>includes/theme/theme_experiment_image.json<lang>JSON</lang></literalinclude>"
@@ -43,7 +43,7 @@
           },
           "properties": {
             "description": "Object with one or more key-value pairs to map new theme property keys to internal Thunderbird CSS property variables. The new property key is usable as a property reference in :ref:`theme.ThemeType`. Example: <literalinclude>includes/theme/theme_experiment_property.json<lang>JSON</lang></literalinclude>"
-          }          
+          }
         }
       },
       {
@@ -52,29 +52,29 @@
           "images": {
             "properties": {
               "headerURL": {
-                "ignore" : true
+                "ignore": true
               }
             }
           },
           "colors": {
             "properties": {
               "accentcolor": {
-                "ignore" : true
+                "ignore": true
               },
               "bookmark_text": {
-                "ignore" : true
+                "ignore": true
               },
               "ntp_background": {
-                "ignore" : true
+                "ignore": true
               },
               "ntp_text": {
-                "ignore" : true
+                "ignore": true
               },
               "textcolor": {
-                "ignore" : true
+                "ignore": true
               },
               "toolbar_field_separator": {
-                "ignore" : true
+                "ignore": true
               },
               "sidebar_highlight_border": {
                 "added": "86",
@@ -99,7 +99,7 @@
         "$import_from_manifest": "ThemeType"
       },
       {
-        "id" : "ImageDataOrExtensionURL",
+        "id": "ImageDataOrExtensionURL",
         "description": "Defines an image resource.",
         "choices": [
           {
@@ -131,4 +131,3 @@
     ]
   }
 ]
-  

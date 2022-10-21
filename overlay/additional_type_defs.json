@@ -24,7 +24,7 @@
   },
   {
     "id": "extensionTypes.ExtensionFileOrCode",
-    "name":"ExtensionFileOrCode",
+    "name": "ExtensionFileOrCode",
     "type": "object",
     "description": "Specify code, either by pointing to a file or by providing the code directly. Only one of the two is allowed.",
     "properties": {
@@ -37,5 +37,5 @@
         "description": "Some JavaScript code to register."
       }
     }
-  } 
+  }
 ]
