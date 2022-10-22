@@ -44,7 +44,7 @@ Manifest file properties
       :type: (boolean)
       :annotation: -- [Added in TB 90]
       
-      Enable browser styles in the ``management_url`` page. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+      Enable browser styles in the ``management_url`` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`_ for more information.
    
    
    .. api-member::
