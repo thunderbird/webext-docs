@@ -1357,7 +1357,7 @@ ComposeDictionaries
 
 .. api-section-annotation-hack:: -- [Added in TB 102]
 
-Object with language identifiers of all installed dictionaries as keys (for example :value:`en-US`) and a boolean value, indicating whether that dictionary is enabled for spellchecking or not.
+A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
 
 .. api-header::
    :label: object

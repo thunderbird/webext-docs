@@ -1390,5 +1390,5 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       
-      Object keys are tags to filter on, values are :value:`true` if the message must have the tag, or :value:`false` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    
