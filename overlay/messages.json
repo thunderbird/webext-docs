@@ -47,7 +47,7 @@
       {
         "name": "getAttachmentFile",
         "added": "88",
-        "hints": "The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`_ method of the returned |File| object:<literalinclude>includes/messages/file.js<lang>JavaScript</lang></literalinclude>",
+        "hints": "The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned |File| object:<literalinclude>includes/messages/file.js<lang>JavaScript</lang></literalinclude>",
         "returns": {
           "$ref": "extensionTypes.File"
         }

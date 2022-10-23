@@ -194,9 +194,9 @@ getRaw(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`_, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
+Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
 
-To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`_ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`_): 
+To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`__ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
 
 .. literalinclude:: includes/messages/decodeBinaryString.js
   :language: JavaScript
@@ -286,7 +286,7 @@ Gets the content of an attachment as a `File <https://developer.mozilla.org/docs
 
    
    .. api-member::
-      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -296,7 +296,7 @@ Gets the content of an attachment as a `File <https://developer.mozilla.org/docs
 
    - :permission:`messagesRead`
 
-The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`_ method of the returned `File <https://developer.mozilla.org/docs/Web/API/File>`__ object:
+The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/docs/Web/API/File>`__ object:
 
 .. literalinclude:: includes/messages/file.js
   :language: JavaScript
@@ -356,7 +356,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``fromDate``]
-         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
+         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
          
          Returns only messages with a date after this value.
       
@@ -415,7 +415,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``toDate``]
-         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
+         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
          
          Returns only messages with a date before this value.
       
@@ -949,7 +949,7 @@ Basic information about a message.
    
    .. api-member::
       :name: ``date``
-      :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_)
+      :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
    
    
    .. api-member::
@@ -1077,7 +1077,7 @@ Represents an email message "part", which could be the whole message
       :name: [``headers``]
       :type: (object)
       
-      An object of part headers, with the header name as key, and an array of header values as value
+      A *dictionary object* of part headers as *key-value* pairs, with the header name as key, and an array of headers as value
    
    
    .. api-member::

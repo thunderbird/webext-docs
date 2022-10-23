@@ -26,7 +26,7 @@ Manifest file properties
    :name: [``theme``]
    :type: (:ref:`theme.ThemeType`)
    
-   Properties for a static theme. A static theme must not contain any other WebExtension logic. If additional logic is required, request the :permission:`theme` permission and load/update the theme dynamically. More information about themes can be found in the `theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`_.
+   Properties for a static theme. A static theme must not contain any other WebExtension logic. If additional logic is required, request the :permission:`theme` permission and load/update the theme dynamically. More information about themes can be found in the `theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__.
 
 .. api-member::
    :name: [``dark_theme``]
@@ -248,7 +248,7 @@ Defines a color value.
    
       .. container:: api-member-description-only
          
-         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`_, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
+         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
          
          * :value:`crimson` 
          

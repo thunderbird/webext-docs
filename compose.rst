@@ -291,7 +291,7 @@ Adds an attachment to the message being composed in the specified tab.
       
       .. api-member::
          :name: ``file``
-         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
       
       
       .. api-member::
@@ -346,7 +346,7 @@ Renames and/or replaces the contents of an attachment to the message being compo
       
       .. api-member::
          :name: [``file``]
-         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
       
       
       .. api-member::
@@ -494,7 +494,7 @@ onBeforeSend
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
+Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onBeforeSend.addListener(listener)

@@ -122,7 +122,7 @@ def get_type(obj, name):
     if "type" in obj:
         if obj.get("enum") is not None:
             # enums have been moved inline and are no longer referenced
-            #return "`%s <enum_%s_%d_>`_" % (obj["type"], name, unique_id)
+            #return "`%s <enum_%s_%d_>`__" % (obj["type"], name, unique_id)
             return "`%s`" % (obj["type"])
         elif obj["type"] == "array":
             if "items" in obj:
@@ -130,7 +130,7 @@ def get_type(obj, name):
             else:
                 return "array"
         elif "isInstanceOf" in obj:
-            return "`%s <https://developer.mozilla.org/en-US/docs/Web/API/%s>`_" % \
+            return "`%s <https://developer.mozilla.org/en-US/docs/Web/API/%s>`__" % \
                 (obj["isInstanceOf"], obj["isInstanceOf"])
         else:
             return obj["type"]
@@ -142,11 +142,11 @@ def get_type(obj, name):
 def link_ref(ref):
     global additional_type_used
     if ref == "extensionTypes.File":
-        return "`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_"
+        return "`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__"
     if ref == "extensionTypes.Date":
-        return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`_"
+        return "`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__"
     if ref == "runtime.Port":
-        return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_"
+        return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`__"
     if ref == "IconPath" or ref.endswith(".IconPath"):
         ref = "IconPath"
 
@@ -161,7 +161,7 @@ def link_ref(ref):
             name = ref[len(moz_namespace):]
             url = "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/%s/%s"
             url = url % (moz_namespace[:-1], name)
-            return "`%s <%s>`_" % (name, url)
+            return "`%s <%s>`__" % (name, url)
     if "manifest." in ref:
         # manifest types are not global and need to be prepended by the current namespace
         return ":ref:`%s.%s`" % (current_namespace_name, ref.replace("manifest.",""))

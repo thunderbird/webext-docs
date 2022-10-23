@@ -13,7 +13,7 @@
           "theme": {
             "sort": "1",
             "$ref": "ThemeType",
-            "description": "Properties for a static theme. A static theme must not contain any other WebExtension logic. If additional logic is required, request the <permission>theme</permission> permission and load/update the theme dynamically. More information about themes can be found in the `theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`_.",
+            "description": "Properties for a static theme. A static theme must not contain any other WebExtension logic. If additional logic is required, request the <permission>theme</permission> permission and load/update the theme dynamically. More information about themes can be found in the `theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__.",
             "optional": true
           },
           "dark_theme": {
