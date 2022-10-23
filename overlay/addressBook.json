@@ -35,24 +35,6 @@
       },
       {
         "name": "quickSearch",
-        "description": "Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.",
-        "changed": {
-          "85": "Read-only address books are now returned as well as read-write books.",
-          "91": "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
-        },
-        "parameters": [
-          {
-            "name": "queryInfo",
-            "choices": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "QueryInfo"
-              }
-            ]
-          }
-        ],          
         "returns": {
           "type": "array",
           "items": {
@@ -92,40 +74,7 @@
       },
       {
         "id": "QueryInfo",
-        "description": "Object defining a query for :ref:`contacts.quickSearch`.",
-        "added": "91",
-        "type": "object",
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "optional": true,
-            "description": "One or more space-separated terms to search for."
-          },
-          "includeLocal": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from local address books. Defaults to true."
-          },
-          "includeRemote": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from remote address books. Defaults to true."
-          },
-          "includeReadOnly": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from read-only address books. Defaults to true."
-          },
-          "includeReadWrite": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from read-write address books. Defaults to true."
-          }
-        }
+        "added": "91"
       }
     ]
   },
@@ -181,28 +130,10 @@
     "events": [
       {
         "name": "onSearchRequest",
-        "description" : "Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.\n\nThe event also fires for each registered listener (for each created read-only address book), when the user types something into the mail composer's <em>To:</em> field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.\n\nExample: <literalinclude>includes/addressBooks/onSearchRequest.js<lang>JavaScript</lang></literalinclude>",
         "parameters": [
           {
             "name": "node",
             "$ref": "addressBooks.AddressBookNode"
-          }
-        ],
-        "extraParameters": [
-          {
-            "name": "parameters",
-            "description": "Descriptions for the address book created by registering this listener.",
-            "properties": {
-              "addressBookName": {
-                "description": "The name of the created address book."
-              },
-              "id": {
-                "description": "The UID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a UID will be generated for you."
-              },
-              "isSecure": {
-                "description": "Whether the address book search queries are using encrypted protocols like HTTPS."
-              }
-            }            
           }
         ],
         "returns": {
