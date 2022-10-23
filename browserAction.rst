@@ -597,7 +597,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when an action button is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
+Fired when an action button is clicked. This event will not fire if the action has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -645,7 +645,7 @@ ActionManifest
       :name: [``browser_style``]
       :type: (boolean)
       
-      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`_ for more information.
+      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::
@@ -739,7 +739,7 @@ A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.
 .. literalinclude:: includes/ImageDataDictionary.json
   :language: JavaScript
 
-See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`_ for more information on this.
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. api-header::
    :label: object
@@ -754,7 +754,7 @@ ImageDataType
 Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
 
 .. api-header::
-   :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
+   :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
 
 .. _browserAction.OnClickData:
 
@@ -796,7 +796,7 @@ Information sent when an action button is clicked.
       .. api-member::
          :name: :value:`MacCtrl`
       
-         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the <value>dom.event.treat_ctrl_click_as_right_click.disabled</value> preference is not enabled and the <value>MacCtrl</value> modifier key is not forwarded to the API.
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
    
    
    .. api-member::

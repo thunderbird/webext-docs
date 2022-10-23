@@ -248,7 +248,7 @@ Defines a color value.
    
       .. container:: api-member-description-only
          
-         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`_, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
+         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
          
          * :value:`crimson` 
          

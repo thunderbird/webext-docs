@@ -47,7 +47,7 @@ getTargetElement(targetElementId)
 
 .. api-section-annotation-hack:: 
 
-Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`_ event.
+Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
 
 .. api-header::
    :label: Parameters
@@ -65,7 +65,7 @@ Retrieve the element that was associated with a recent `contextmenu <https://dev
 
    
    .. api-member::
-      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`_
+      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`__
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -82,7 +82,7 @@ create(createProperties, [callback])
 
 .. api-section-annotation-hack:: 
 
-Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_).
+Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__).
 
 .. api-header::
    :label: Parameters
@@ -117,7 +117,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``documentUrlPatterns``]
          :type: (array of string)
          
-         Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see `Match Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`_.
+         Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see `Match Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__.
       
       
       .. api-member::
@@ -178,7 +178,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``viewTypes``]
-         :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
+         :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__)
          
          List of view types where the menu item will be shown. Defaults to any view, including those without a viewType.
       
@@ -195,7 +195,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       :name: [``callback``]
       :type: (function)
       
-      Called when the item has been created in the browser. If there were any problems creating the item, details will be available in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_.
+      Called when the item has been created in the browser. If there were any problems creating the item, details will be available in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__.
    
 
 .. api-header::
@@ -295,7 +295,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``viewTypes``]
-         :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
+         :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__)
       
       
       .. api-member::
@@ -357,7 +357,7 @@ overrideContext(contextOptions)
 
 .. api-section-annotation-hack:: 
 
-Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`_ event handler, and only applies to the menu that opens after this event.
+Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
@@ -426,7 +426,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
+Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -539,7 +539,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`_ article on developer.thunderbird.net.
+The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
@@ -850,7 +850,7 @@ Information sent when a context menu item is clicked.
    
    .. api-member::
       :name: [``viewType``]
-      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
+      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__)
       
       The type of view where the menu is clicked. May be unset if the menu is not associated with a view.
    
@@ -1019,7 +1019,7 @@ Information sent when a context menu is being shown. Some properties are only in
    
    .. api-member::
       :name: [``viewType``]
-      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
+      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__)
       
       The type of view where the menu is shown. May be unset if the menu is not associated with a view.
    

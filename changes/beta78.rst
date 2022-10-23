@@ -26,7 +26,7 @@ compose
 identity
 ========
 
-* The `browser.identity <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity>`_
+* The `browser.identity <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity>`__
   namespace for OAuth handling was enabled.
 
 ____
