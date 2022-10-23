@@ -57,7 +57,7 @@ Retrieve the element that was associated with a recent `contextmenu <https://dev
       :name: ``targetElementId``
       :type: (integer)
       
-      The identifier of the clicked element, available as info.targetElementId in the menus.onShown, onClicked or onclick event.
+      The identifier of the clicked element, available as ``info.targetElementId`` in the :ref:`menus.onShown` and :ref:`menus.onClicked` events.
    
 
 .. api-header::
@@ -96,7 +96,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``checked``]
          :type: (boolean)
          
-         The initial state of a checkbox or radio item: true for selected and false for unselected. Only one radio item can be selected at a time in a given group of radio items.
+         The initial state of a checkbox or radio item: :value:`true` for selected and :value:`false` for unselected. Only one radio item can be selected at a time in a given group of radio items.
       
       
       .. api-member::

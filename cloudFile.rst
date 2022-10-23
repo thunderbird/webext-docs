@@ -66,7 +66,7 @@ Manifest file properties
       :type: (boolean)
       :annotation: -- [Added in TB 98]
       
-      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known ``url`` and ``templateInfo`` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to false will always trigger the registered listener, providing the already known values through the ``relatedFileInfo`` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
+      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known ``url`` and ``templateInfo`` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the ``relatedFileInfo`` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
    
    
    .. api-member::
@@ -275,7 +275,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :name: [``aborted``]
          :type: (boolean)
          
-         Set this to true if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
+         Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
       
       
       .. api-member::
@@ -283,7 +283,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :type: (boolean or string)
          :annotation: -- [Added in TB 96]
          
-         Report an error to the user. Set this to true for showing a generic error message, or set a specific error message.
+         Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
       
       
       .. api-member::
@@ -407,7 +407,7 @@ Fired when a previously uploaded file should be renamed.
          :name: [``error``]
          :type: (boolean or string)
          
-         Report an error to the user. Set this to true for showing a generic error message, or set a specific error message.
+         Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
       
       
       .. api-member::
