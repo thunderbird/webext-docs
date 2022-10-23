@@ -15,7 +15,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manife
 
 .. role:: code
 
-The Theme API allows for customization of Thunderbird's visual elements.
+The theme API allows for customization of Thunderbird's visual elements.
 
 .. rst-class:: api-main-section
 
