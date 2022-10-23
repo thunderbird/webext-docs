@@ -687,7 +687,7 @@ onBeforeSend
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
 
 .. api-header::
    :label: Parameters for onBeforeSend.addListener(listener)
@@ -1357,7 +1357,7 @@ ComposeDictionaries
 
 .. api-section-annotation-hack:: -- [Added in TB 102]
 
-Object with language identifiers of all installed dictionaries as keys (for example :value:`en-US`) and a boolean value, indicating whether that dictionary is enabled for spellchecking or not.
+A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
 
 .. api-header::
    :label: object

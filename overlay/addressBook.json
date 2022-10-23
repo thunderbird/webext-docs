@@ -23,28 +23,6 @@
   },
   {
     "namespace": "contacts",
-    "functions": [
-      {
-        "name": "quickSearch",
-        "changed": {
-          "85": "Read-only address books are now returned as well as read-write books.",
-          "91": "Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``."
-        },
-        "parameters": [
-          {
-            "name": "queryInfo",
-            "choices": [
-              {
-                "type": "string"
-              },
-              {
-                "$ref": "QueryInfo"
-              }
-            ]
-          }
-        ]
-      }
-    ],
     "events": [
       {
         "name": "onUpdated",
@@ -63,40 +41,7 @@
       },
       {
         "id": "QueryInfo",
-        "description": "Object defining a query for :ref:`contacts.quickSearch`.",
-        "added": "91",
-        "type": "object",
-        "properties": {
-          "searchString": {
-            "type": "string",
-            "optional": true,
-            "description": "One or more space-separated terms to search for."
-          },
-          "includeLocal": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from local address books. Defaults to true."
-          },
-          "includeRemote": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from remote address books. Defaults to true."
-          },
-          "includeReadOnly": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from read-only address books. Defaults to true."
-          },
-          "includeReadWrite": {
-            "type": "boolean",
-            "optional": true,
-            "default": true,
-            "description": "Whether to include results from read-write address books. Defaults to true."
-          }
-        }
+        "added": "91"
       },
       {
         "id": "ContactProperties",

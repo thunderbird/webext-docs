@@ -199,9 +199,9 @@ getRaw(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
+Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`_, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
 
-To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`__ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
+To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`_ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`_): 
 
 .. literalinclude:: includes/messages/decodeBinaryString.js
   :language: JavaScript
@@ -1301,5 +1301,5 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       
-      Object keys are tags to filter on, values are :value:`true` if the message must have the tag, or :value:`false` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    
