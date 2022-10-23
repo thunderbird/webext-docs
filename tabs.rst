@@ -89,7 +89,7 @@ connect(tabId, [connectInfo])
 
 .. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
 
-Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`_ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_.
+Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`__ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__.
 
 .. api-header::
    :label: Parameters
@@ -124,7 +124,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
 
    
    .. api-member::
-      :type: `Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_
+      :type: `Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`__
       
       A port that can be used to communicate with the content scripts running in the specified tab.
    
@@ -138,7 +138,7 @@ sendMessage(tabId, message, [options])
 
 .. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
 
-Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`_ event is fired in each content script running in the specified tab for the current extension.
+Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.
 
 .. api-header::
    :label: Parameters
@@ -173,7 +173,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
    .. api-member::
       :type: any
       
-      The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`_ will be set to the error message.
+      The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will be set to the error message.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -362,7 +362,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :name: [``url``]
          :type: (string or array of string)
          
-         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`_. Note that fragment identifiers are not matched.
+         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Note that fragment identifiers are not matched.
       
       
       .. api-member::
@@ -553,7 +553,7 @@ executeScript([tabId], details)
 
 .. api-section-annotation-hack:: 
 
-Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
+Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
 
 .. api-header::
    :label: Changes in Thunderbird 77
@@ -575,7 +575,7 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
    
    .. api-member::
       :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_)
+      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
       
       Details of the script to run.
    
@@ -599,7 +599,7 @@ insertCSS([tabId], details)
 
 .. api-section-annotation-hack:: 
 
-Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
+Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
 
 .. api-header::
    :label: Changes in Thunderbird 77
@@ -621,7 +621,7 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
    
    .. api-member::
       :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_)
+      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
       
       Details of the CSS text to insert.
    
@@ -633,7 +633,7 @@ removeCSS([tabId], details)
 
 .. api-section-annotation-hack:: 
 
-Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`_ section of the content scripts doc.
+Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
 
 .. api-header::
    :label: Changes in Thunderbird 77
@@ -655,7 +655,7 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
    
    .. api-member::
       :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`_)
+      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
       
       Details of the CSS text to remove.
    
@@ -1191,7 +1191,7 @@ An object describing filters to apply to tabs.onUpdated events.
       :name: [``urls``]
       :type: (array of string)
       
-      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or  :permission:`activeTab` permission.
+      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or :permission:`activeTab` permission.
    
    
    .. api-member::

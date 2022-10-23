@@ -376,7 +376,7 @@ Gets the content of a :ref:`compose.ComposeAttachment` as a `File <https://devel
 
    
    .. api-member::
-      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -687,7 +687,7 @@ onBeforeSend
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
+Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onBeforeSend.addListener(listener)
@@ -1501,7 +1501,7 @@ Object used to add, update or rename an attachment in a message being composed.
    
    .. api-member::
       :name: [``file``]
-      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
       
       The new content for the attachment.
    

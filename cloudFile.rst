@@ -44,7 +44,7 @@ Manifest file properties
       :type: (boolean)
       :annotation: -- [Added in TB 90]
       
-      Enable browser styles in the ``management_url`` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`_ for more information.
+      Enable browser styles in the ``management_url`` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::
@@ -543,7 +543,7 @@ Information about a cloud file.
    
    .. api-member::
       :name: ``data``
-      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`_)
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
       
       Contents of the file to be transferred.
    
