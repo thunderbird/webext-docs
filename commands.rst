@@ -88,7 +88,7 @@ Update the details of an already defined command.
          :name: [``shortcut``]
          :type: (string)
          
-         An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_  to set a new shortcut key. If the string does not match this format, the function throws an error.
+         An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__  to set a new shortcut key. If the string does not match this format, the function throws an error.
       
    
 
@@ -143,7 +143,7 @@ onCommand
 
 .. api-section-annotation-hack:: 
 
-Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
+Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onCommand.addListener(listener)
@@ -265,7 +265,7 @@ KeyName
 
 .. api-section-annotation-hack:: 
 
-Definition of a shortcut, for example :value:`Alt+F5`. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`_.
+Definition of a shortcut, for example :value:`Alt+F5`. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__.
 
 .. api-header::
    :label: string
