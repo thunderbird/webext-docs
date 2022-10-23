@@ -268,7 +268,7 @@ def format_enum(name, value):
             enum_change = enum_changes.get(enum_value)
             enum_annotation = format_addition(enum_change)
             if "description" in enum_change:
-                enum_description.extend(enum_change.get("description").split("\n"))
+                enum_description.extend(replace_code(enum_change.get("description")).split("\n"))
         enum_lines.extend(api_member(name=":value:`" + enum_value + "`", annotation=enum_annotation, description=enum_description))
 
     return enum_lines
@@ -696,7 +696,7 @@ def format_namespace(manifest, namespace):
                             content.append("- ``%s(%s)``" % (function["name"], format_params(function)))
                             description = function.get("description", "")
                             if description:
-                                content[-1] += " %s" % description
+                                content[-1] += " %s" % replace_code(description)
 
                     type_lines.extend(api_header("object", content))
                 else:
@@ -728,7 +728,7 @@ def format_namespace(manifest, namespace):
 
         for key in sorted(namespace["properties"].iterkeys()):
             lines.extend(header_3(key, label="%s.%s" % (current_namespace_name, key)))
-            lines.extend(namespace["properties"][key].get("description").split("\n"))
+            lines.extend(replace_code(namespace["properties"][key].get("description")).split("\n"))
             lines.append("")
 
     index = 0
