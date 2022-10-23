@@ -25,7 +25,7 @@ Manifest file properties
    :name: [``commands``]
    :type: (object)
    
-   Object defining one or more commands as key-value pairs, the key being the name of the command and the value being a :ref:`commands.CommandsShortcut`. The key may also be one of the following built-in special shortcuts: 
+   A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`commands.CommandsShortcut`. The *name* may also be one of the following built-in special shortcuts: 
    
     * :value:`_execute_browser_action` 
    

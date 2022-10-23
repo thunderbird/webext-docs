@@ -57,9 +57,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (string or :ref:`browserAction.IconPath`)
+      :type: (:ref:`browserAction.IconPath`)
       
-      The icon for the browserAction button.
+      One or more icons for the browserAction button.
    
    
    .. api-member::
