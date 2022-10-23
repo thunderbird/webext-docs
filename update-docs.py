@@ -89,7 +89,7 @@ def replace_code(string):
         "</value>":"`",
         "&mdash;": u"—",
         "\n": "\n\n",
-        "<li>": "\n* ",
+        "<li>": "\n\n* ",
 
         "|link-input-encoding|": "https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings",
         "|link-ui-elements|": "https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items",

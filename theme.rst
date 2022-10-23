@@ -200,10 +200,15 @@ Defines an image resource.
       .. container:: api-member-description-only
          
          A relative URL for an image bundled with the extension. For example :value:`images/background.png`. The following image formats are supported: 
+         
          * JPEG 
+         
          * PNG 
+         
          * APNG 
+         
          * SVG (animated SVG is supported from Thunderbird 59) 
+         
          * GIF (animated GIF isn’t supported)
    
 
@@ -244,9 +249,13 @@ Defines a color value.
       .. container:: api-member-description-only
          
          A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`_, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
+         
          * :value:`crimson` 
+         
          * :value:`#dc143c` 
+         
          * :value:`rgb(220, 20, 60)` (or :value:`rgba(220, 20, 60, 0.5)` to set 50% opacity) 
+         
          * :value:`hsl(348, 83%, 47%)` (or :value:`hsla(348, 83%, 47%, 0.5)` to set 50% opacity)
    
 
