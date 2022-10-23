@@ -1,5 +1,10 @@
 [
   {
+    "id": "ExtensionURL",
+    "type": "string",
+    "description": "A path relative to the root of the extension."
+  },
+  {
     "id": "ThemeIcons",
     "type": "object",
     "description": "Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.",

@@ -15,7 +15,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manife
 
 .. role:: code
 
-The theme API allows customizing of visual elements of Thunderbird.
+The Theme API allows for customization of Thunderbird's visual elements.
 
 .. rst-class:: api-main-section
 
@@ -200,15 +200,10 @@ Defines an image resource.
       .. container:: api-member-description-only
          
          A relative URL for an image bundled with the extension. For example :value:`images/background.png`. The following image formats are supported: 
-         
          * JPEG 
-         
          * PNG 
-         
          * APNG 
-         
          * SVG (animated SVG is supported from Thunderbird 59) 
-         
          * GIF (animated GIF isn’t supported)
    
 
@@ -248,14 +243,10 @@ Defines a color value.
    
       .. container:: api-member-description-only
          
-         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
-         
+         A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords>`_, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
          * :value:`crimson` 
-         
          * :value:`#dc143c` 
-         
          * :value:`rgb(220, 20, 60)` (or :value:`rgba(220, 20, 60, 0.5)` to set 50% opacity) 
-         
          * :value:`hsl(348, 83%, 47%)` (or :value:`hsla(348, 83%, 47%, 0.5)` to set 50% opacity)
    
 
@@ -302,7 +293,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``colors``]
       :type: (object)
       
-      Object with one or more key-value pairs to map new theme color keys to internal Thunderbird CSS color variables. The example shown below maps the theme color key :value:`popup_affordance` to the CSS color variable `--arrowpanel-dimmed`. The new color key is usable as a color reference in :ref:`theme.ThemeType`. 
+      A *dictionary object* with one or more *key-value* pairs to map new theme color keys to internal Thunderbird CSS color variables. The example shown below maps the theme color key :value:`popup_affordance` to the CSS color variable `--arrowpanel-dimmed`. The new color key is usable as a color reference in :ref:`theme.ThemeType`. 
       
       .. literalinclude:: includes/theme/theme_experiment_color.json
         :language: JSON
@@ -314,7 +305,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``images``]
       :type: (object)
       
-      Object with one or more key-value pairs to map new theme image keys to internal Thunderbird CSS image variables. The new image key is usable as an image reference in :ref:`theme.ThemeType`. Example: 
+      A *dictionary object* with one or more *key-value* pairs to map new theme image keys to internal Thunderbird CSS image variables. The new image key is usable as an image reference in :ref:`theme.ThemeType`. Example: 
       
       .. literalinclude:: includes/theme/theme_experiment_image.json
         :language: JSON
@@ -326,7 +317,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``properties``]
       :type: (object)
       
-      Object with one or more key-value pairs to map new theme property keys to internal Thunderbird CSS property variables. The new property key is usable as a property reference in :ref:`theme.ThemeType`. Example: 
+      A *dictionary object* with one or more *key-value* pairs to map new theme property keys to internal Thunderbird CSS property variables. The new property key is usable as a property reference in :ref:`theme.ThemeType`. Example: 
       
       .. literalinclude:: includes/theme/theme_experiment_property.json
         :language: JSON
@@ -336,7 +327,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
    
    .. api-member::
       :name: [``stylesheet``]
-      :type: (string)
+      :type: (:ref:`theme.ExtensionURL`)
       
       URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the :value:`--chat-button-color` CSS color variable: 
       
@@ -368,7 +359,7 @@ Contains the color, image and property settings of a theme.
       :name: [``colors``]
       :type: (object)
       
-      Object with one or more key-value pairs to map color values to theme color keys. The following built-in theme color keys are supported:
+      A *dictionary object* with one or more *key-value* pairs to map color values to theme color keys. The following built-in theme color keys are supported:
       
       .. api-member::
          :name: [``button_background_active``]
@@ -628,7 +619,7 @@ Contains the color, image and property settings of a theme.
       :name: [``images``]
       :type: (object)
       
-      Object with one or more key-value pairs to map images to theme image keys. The following built-in theme image keys are supported:
+      A *dictionary object* with one or more *key-value* pairs to map images to theme image keys. The following built-in theme image keys are supported:
       
       .. api-member::
          :name: [``additional_backgrounds``]
@@ -649,7 +640,7 @@ Contains the color, image and property settings of a theme.
       :name: [``properties``]
       :type: (object)
       
-      Object with one or more key-value pairs to map property values to theme property keys. The following built-in theme property keys are supported:
+      A *dictionary object* with one or more *key-value* pairs to map property values to theme property keys. The following built-in theme property keys are supported:
       
       .. api-member::
          :name: [``additional_backgrounds_alignment``]
@@ -782,3 +773,22 @@ Info provided in the onUpdated listener.
       
       The id of the window the theme has been applied to
    
+
+.. rst-class:: api-main-section
+
+External Types
+==============
+
+The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
+
+.. _theme.ExtensionURL:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
