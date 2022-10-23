@@ -88,7 +88,29 @@ def replace_code(string):
         "</value>":"`",
         "&mdash;": u"—",
         "\n": "\n\n",
-        "<li>": "\n* ",
+        "<li>": "\n\n* ",
+
+        "|link-input-encoding|": "https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings",
+        "|link-ui-elements|": "https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items",
+        "|link-mdn-icon-size|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes",
+        "|link-css-color-string|": "https://developer.mozilla.org/en-US/docs/Web/CSS/color_value#color_keywords",
+        "|link-mdn-browser-styles|": "https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles",
+        "|link-legacy-properties|":"https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334",
+        "|link-user-input-restrictions|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions",
+        "|link-content-type|": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type",
+        "|link-contextmenu-event|": "https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event",
+        "|link-binary-string|": "https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary",
+        "|link-content-scripts|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts",
+        "|link-commands-shortcuts|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values",
+        "|link-runtime-last-error|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError",
+        "|link-runtime-on-connect|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect",
+        "|link-runtime-on-message|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage",
+        "|link-match-patterns|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns",
+
+        "|DateTimeFormat|": "`Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__",
+        "|File|": "`File <https://developer.mozilla.org/docs/Web/API/File>`__",
+        "|Canvas|": "`canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__",
+        "|ImageData|": "`ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__",
     }
     for [s, r] in replacements.items():
         string = string.replace(s, r)
@@ -126,7 +148,7 @@ def link_ref(ref):
     if ref == "runtime.Port":
         return "`Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`_"
     if ref == "IconPath" or ref.endswith(".IconPath"):
-        ref = "IconPathDictionary"
+        ref = "IconPath"
 
     for additional_type in additional_type_defs:
         if additional_type['id'] == ref:
