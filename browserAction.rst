@@ -17,7 +17,7 @@ __ https://github.com/thundernest/sample-extensions
 
 .. role:: code
 
-Use a browserAction to put an icon in the mail window toolbar. In addition to its icon, a browserAction can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
+Use a browserAction to put a button in the mail window toolbar. In addition to its icon, a browserAction button can also have a tooltip, a badge, and a popup. This namespace is called browserAction for compatibility with browser WebExtensions.
 
 .. rst-class:: api-main-section
 
@@ -39,7 +39,7 @@ Manifest file properties
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the browserAction will appear. The default location is :value:`maintoolbar`.
+      Defines the location the browserAction button will appear. The default location is :value:`maintoolbar`.
       
       Supported values:
       
@@ -53,9 +53,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`browserAction.IconPathDictionary`)
+      :type: (:ref:`browserAction.IconPath`)
       
-      The icon for the browserAction.
+      One or more icons for the browserAction button.
    
    
    .. api-member::
@@ -63,28 +63,28 @@ Manifest file properties
       :type: (string)
       :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
       
-      The label of the browserAction, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+      The label of the browserAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
    
    
    .. api-member::
       :name: [``default_popup``]
       :type: (string)
       
-      The html document to be opened as a popup when the user clicks on the browserAction's icon.
+      The html document to be opened as a popup when the user clicks on the browserAction button.
    
    
    .. api-member::
       :name: [``default_title``]
       :type: (string)
       
-      The title of the browserAction. This shows up in the tooltip and the label. Defaults to the add-on name.
+      The title of the browserAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
    
    
    .. api-member::
       :name: [``theme_icons``]
       :type: (array of :ref:`browserAction.ThemeIcons`)
       
-      Specifies icons to use for dark and light themes
+      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
    
 
 .. rst-class:: api-permission-info
@@ -105,7 +105,7 @@ setTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the title of the browserAction.
+Sets the title of the browserAction button. Is used as tooltip and as the label of the browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -144,7 +144,7 @@ getTitle(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the title of the browserAction.
+Gets the title of the browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -186,7 +186,7 @@ setLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Sets the label of the browserAction.
+Sets the label of the browserAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
 .. api-header::
    :label: Parameters
@@ -225,7 +225,7 @@ getLabel(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
 
-Gets the label of the browserAction.
+Gets the label of the browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -281,14 +281,14 @@ Sets the icon for the browserAction button. Either the ``path`` or the ``imageDa
          :name: [``imageData``]
          :type: (:ref:`browserAction.ImageDataType` or :ref:`browserAction.ImageDataDictionary`)
          
-         Either an ImageDataType object defining a single icon used for all sizes or an ImageDataDictionary object defining dedicated icons for different sizes.
+         The image data for one or more icons for the browserAction button.
       
       
       .. api-member::
          :name: [``path``]
-         :type: (string or :ref:`browserAction.IconPathDictionary`)
+         :type: (:ref:`browserAction.IconPath`)
          
-         Either a relative image path defining a single icon used for all sizes or an IconPathDictionary object defining dedicated icons for different sizes.
+         The paths to one or more icons for the action button.
       
       
       .. api-member::
@@ -313,7 +313,7 @@ setPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the browserAction's icon.
+Sets the html document to be opened as a popup when the user clicks on the browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -352,7 +352,7 @@ getPopup(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the html document set as the popup for this browserAction.
+Gets the html document set as the popup for this browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -394,7 +394,7 @@ setBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Sets the badge text for the browserAction. The badge is displayed on top of the icon.
+Sets the badge text for the browserAction button. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
@@ -433,7 +433,7 @@ getBadgeText(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge text of the browserAction.
+Gets the badge text of the browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -514,7 +514,7 @@ getBadgeBackgroundColor(details)
 
 .. api-section-annotation-hack:: 
 
-Gets the badge background color of the browserAction.
+Gets the badge background color of the browserAction button.
 
 .. api-header::
    :label: Parameters
@@ -556,7 +556,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the browserAction for a tab. By default, a browserAction is enabled.
+Enables the browserAction button for a tab. By default, an browserAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -566,7 +566,7 @@ Enables the browserAction for a tab. By default, a browserAction is enabled.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the browserAction.
+      The id of the tab for which you want to modify the browserAction button.
    
 
 .. _browserAction.disable:
@@ -576,7 +576,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the browserAction for a tab.
+Disables the browserAction button for a tab.
 
 .. api-header::
    :label: Parameters
@@ -586,7 +586,7 @@ Disables the browserAction for a tab.
       :name: [``tabId``]
       :type: (integer)
       
-      The id of the tab for which you want to modify the browserAction.
+      The id of the tab for which you want to modify the browserAction button.
    
 
 .. _browserAction.isEnabled:
@@ -596,7 +596,7 @@ isEnabled(details)
 
 .. api-section-annotation-hack:: 
 
-Checks whether the browserAction is enabled.
+Checks whether the browserAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -638,7 +638,7 @@ openPopup()
 
 .. api-section-annotation-hack:: 
 
-Opens the action's popup window in the active window.
+Opens the browserAction's popup window in the active window.
 
 .. rst-class:: api-main-section
 
@@ -652,7 +652,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when a browserAction icon is clicked. This event will not fire if the browserAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when an browserAction button is clicked. This event will not fire if the browserAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -704,7 +704,12 @@ ImageDataDictionary
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, ImageDataType>* with one or more entries, each defining an icon size and the corresponding :ref:`browserAction.ImageDataType`. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one entry must be specified.
+A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size. Example: 
+
+.. literalinclude:: includes/ImageDataDictionary.json
+  :language: JavaScript
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`_ for more information on this.
 
 .. api-header::
    :label: object
@@ -716,7 +721,7 @@ ImageDataType
 
 .. api-section-annotation-hack:: 
 
-Pixel data for an image. Must be an ImageData object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
+Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
 
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`_
@@ -728,7 +733,7 @@ OnClickData
 
 .. api-section-annotation-hack:: -- [Added in TB 74.0b2]
 
-Information sent when a browserAction is clicked.
+Information sent when a browserAction button is clicked.
 
 .. api-header::
    :label: object
@@ -778,17 +783,19 @@ External Types
 
 The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
 
-.. _browserAction.IconPathDictionary:
+.. _browserAction.IconPath:
 
-IconPathDictionary
-------------------
+IconPath
+--------
 
 .. api-section-annotation-hack:: 
 
-An *object<integer, string>* with one or more entries, each defining an icon size and the relative location of the corresponding icon file. See the  `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. At least one icon must be specified. Example: 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. _browserAction.ThemeIcons:
 

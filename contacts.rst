@@ -80,20 +80,6 @@ quickSearch([parentId], queryInfo)
 Gets all contacts matching ``queryInfo`` in the address book with the id ``parentId``.
 
 .. api-header::
-   :label: Changes in Thunderbird 91
-
-   
-   .. api-member::
-      :name: Second parameter can be a :ref:`contacts.QueryInfo`. A single string is still supported and used as ``queryInfo.searchString``.
-
-.. api-header::
-   :label: Changes in Thunderbird 85
-
-   
-   .. api-member::
-      :name: Read-only address books are now returned as well as read-write books.
-
-.. api-header::
    :label: Parameters
 
    
@@ -107,6 +93,8 @@ Gets all contacts matching ``queryInfo`` in the address book with the id ``paren
    .. api-member::
       :name: ``queryInfo``
       :type: (string or :ref:`contacts.QueryInfo`)
+      
+      Either a *string* with one or more space-separated terms to search for, or a complex :ref:`contacts.QueryInfo` search query.
    
 
 .. api-header::
@@ -442,7 +430,7 @@ ContactProperties
 
 A set of properties for a particular contact. For a complete list of properties that Thunderbird uses, see https://hg.mozilla.org/comm-central/file/tip/mailnews/addrbook/public/nsIAbCard.idl
 
-It is also possible to store custom properties. The custom property name however may only use a to z, A to Z, 1 to 9 and underscores.
+It is also possible to store custom properties. The custom property name however may only use :value:`a-z`, :value:`A-Z`, :value:`1-9` and underscores.
 
 .. api-header::
    :label: object

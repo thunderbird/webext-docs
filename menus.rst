@@ -47,7 +47,7 @@ getTargetElement(targetElementId)
 
 .. api-section-annotation-hack:: 
 
-Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
+Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`_ event.
 
 .. api-header::
    :label: Parameters
@@ -96,7 +96,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``checked``]
          :type: (boolean)
          
-         The initial state of a checkbox or radio item: true for selected and false for unselected. Only one radio item can be selected at a time in a given group of radio items.
+         The initial state of a checkbox or radio item: :value:`true` for selected and :value:`false` for unselected. Only one radio item can be selected at a time in a given group of radio items.
       
       
       .. api-member::
@@ -129,7 +129,9 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``icons``]
-         :type: (object)
+         :type: (:ref:`menus.IconPath`)
+         
+         Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
       
       
       .. api-member::
@@ -261,7 +263,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``icons``]
-         :type: (object)
+         :type: (:ref:`menus.IconPath`)
       
       
       .. api-member::
@@ -355,7 +357,7 @@ overrideContext(contextOptions)
 
 .. api-section-annotation-hack:: 
 
-Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
+Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`_ event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
@@ -424,7 +426,7 @@ onClicked
 
 .. api-section-annotation-hack:: 
 
-Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
@@ -537,7 +539,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
+The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`_ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
@@ -830,7 +832,7 @@ Information sent when a context menu item is clicked.
       :name: [``srcUrl``]
       :type: (string)
       
-      Will be present for elements with a ``src`` URL.
+      Will be present for elements with a *src* URL.
    
    
    .. api-member::
@@ -877,6 +879,8 @@ Information sent when a context menu is being shown. Some properties are only in
    .. api-member::
       :name: ``editable``
       :type: (boolean)
+      
+      A flag indicating whether the element is editable (text input, textarea, etc.).
    
    
    .. api-member::
@@ -890,91 +894,150 @@ Information sent when a context menu is being shown. Some properties are only in
       :name: [``attachments``]
       :type: (array of :ref:`compose.ComposeAttachment`)
       :annotation: -- [Added in TB 83]
+      
+      The selected attachments in the compose window. The :permission:`compose` permission is required to return attachments of a message being composed
    
    
    .. api-member::
       :name: [``displayedFolder``]
       :type: (:ref:`folders.MailFolder`)
+      
+      The displayed folder, if the context menu was opened in the message list. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``fieldId``]
-      :type: (string)
+      :type: (`string`)
       :annotation: -- [Added in TB 89]
+      
+      An identifier of the clicked Thunderbird UI element, if any.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`composeSubject`
+      
+      .. api-member::
+         :name: :value:`composeTo`
+      
+      .. api-member::
+         :name: :value:`composeCc`
+      
+      .. api-member::
+         :name: :value:`composeBcc`
+      
+      .. api-member::
+         :name: :value:`composeReplyTo`
+      
+      .. api-member::
+         :name: :value:`composeNewsgroupTo`
    
    
    .. api-member::
       :name: [``frameUrl``]
       :type: (string)
       
-      Host permission is required.
+      The URL of the frame of the element where the context menu was clicked, if it was in a frame. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``linkText``]
       :type: (string)
       
-      Host permission is required.
+      If the element is a link, the text of that link. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``linkUrl``]
       :type: (string)
       
-      Host permission is required.
+      If the element is a link, the URL it points to. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``mediaType``]
       :type: (string)
+      
+      One of :value:`image`, :value:`video`, or :value:`audio` if the context menu was activated on one of these types of elements.
    
    
    .. api-member::
       :name: [``pageUrl``]
       :type: (string)
       
-      Host permission is required.
+      The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``selectedAccount``]
       :type: (:ref:`accounts.MailAccount`)
       :annotation: -- [Added in TB 88]
+      
+      The selected account, if the context menu was opened on an account entry in the folder pane. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``selectedFolder``]
       :type: (:ref:`folders.MailFolder`)
+      
+      The selected folder, if the context menu was opened in the folder pane. The :permission:`accountsRead` permission is required.
    
    
    .. api-member::
       :name: [``selectedMessages``]
       :type: (:ref:`messages.MessageList`)
+      
+      The selected messages, if the context menu was opened in the message list. The :permission:`messagesRead` permission is required.
    
    
    .. api-member::
       :name: [``selectionText``]
       :type: (string)
       
-      Host permission is required.
+      The text for the context selection, if any. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``srcUrl``]
       :type: (string)
       
-      Host permission is required.
+      Will be present for elements with a *src* URL. **Note:** Host permission is required.
    
    
    .. api-member::
       :name: [``targetElementId``]
       :type: (integer)
+      
+      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
    
    
    .. api-member::
       :name: [``viewType``]
       :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`_)
+      
+      The type of view where the menu is shown. May be unset if the menu is not associated with a view.
    
+
+.. rst-class:: api-main-section
+
+External Types
+==============
+
+The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
+
+.. _menus.IconPath:
+
+IconPath
+--------
+
+.. api-section-annotation-hack:: 
+
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
+
+.. literalinclude:: includes/IconPath.json
+  :language: JSON
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
 
 .. rst-class:: api-main-section
 

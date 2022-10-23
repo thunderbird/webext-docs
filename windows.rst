@@ -181,8 +181,6 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``incognito``]
          :type: (boolean) **Unsupported.**
-         
-         Whether the new window should be an incognito window.
       
       
       .. api-member::
@@ -567,7 +565,7 @@ Window
       :name: ``incognito``
       :type: (boolean)
       
-      Whether the window is incognito.
+      Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always :value:`false`.
    
    
    .. api-member::

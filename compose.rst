@@ -494,7 +494,7 @@ onBeforeSend
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`_ apply.
 
 .. api-header::
    :label: Parameters for onBeforeSend.addListener(listener)
@@ -723,20 +723,20 @@ Represents an attachment in a message being composed.
    
    
    .. api-member::
-      :name: ``name``
+      :name: [``name``]
       :type: (string)
       
-      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+      The name of this attachment, as displayed to the user.
    
    
    .. api-member::
-      :name: ``size``
+      :name: [``size``]
       :type: (integer)
       :annotation: -- [Added in TB 83, backported to TB 78.5.0]
       
-      The size in bytes of this attachment.
+      The size in bytes of this attachment. Read-only.
    
-   - ``getFile()`` Retrieves the contents of the attachment as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+   - ``getFile()`` Retrieves the contents of the attachment as a |File| object.
 
 .. _compose.ComposeDetails:
 

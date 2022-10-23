@@ -194,9 +194,9 @@ getRaw(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
+Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`_, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
 
-To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`__ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
+To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`_ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`_): 
 
 .. literalinclude:: includes/messages/decodeBinaryString.js
   :language: JavaScript
@@ -296,7 +296,7 @@ Gets the content of an attachment as a `File <https://developer.mozilla.org/docs
 
    - :permission:`messagesRead`
 
-The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
+The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`_ method of the returned `File <https://developer.mozilla.org/docs/Web/API/File>`__ object:
 
 .. literalinclude:: includes/messages/file.js
   :language: JavaScript
@@ -958,13 +958,6 @@ Basic information about a message.
    
    
    .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-      
-      The :permission:`accountsRead` permission is required for this property to be included.
-   
-   
-   .. api-member::
       :name: ``headerMessageId``
       :type: (string)
       :annotation: -- [Added in TB 85]
@@ -1014,11 +1007,22 @@ Basic information about a message.
    .. api-member::
       :name: ``subject``
       :type: (string)
+      
+      The subject of the message.
    
    
    .. api-member::
       :name: ``tags``
       :type: (array of string)
+      
+      Tags associated with this message. For a list of available tags, call the listTags method.
+   
+   
+   .. api-member::
+      :name: [``folder``]
+      :type: (:ref:`folders.MailFolder`)
+      
+      The :permission:`accountsRead` permission is required for this property to be included.
    
 
 .. _messages.MessageList:
@@ -1086,6 +1090,8 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``partName``]
       :type: (string)
+      
+      The identifier of this part, used in :ref:`messages.getAttachmentFile`
    
    
    .. api-member::
@@ -1098,6 +1104,8 @@ Represents an email message "part", which could be the whole message
    .. api-member::
       :name: [``size``]
       :type: (integer)
+      
+      The size of this part. The size of *message/** parts is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.
    
 
 .. _messages.MessageTag:
@@ -1115,28 +1123,28 @@ MessageTag
       :name: ``color``
       :type: (string)
       
-      Tag color
+      Tag color.
    
    
    .. api-member::
       :name: ``key``
       :type: (string)
       
-      Distinct tag identifier – use this string when referring to a tag
+      Unique tag identifier.
    
    
    .. api-member::
       :name: ``ordinal``
       :type: (string)
       
-      Custom sort string (usually empty)
+      Custom sort string (usually empty).
    
    
    .. api-member::
       :name: ``tag``
       :type: (string)
       
-      Human-readable tag name
+      Human-readable tag name.
    
 
 .. _messages.TagsDetail:
@@ -1171,5 +1179,5 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       
-      Object keys are tags to filter on, values are :value:`true` if the message must have the tag, or :value:`false` if it must not have the tag. For a list of available tags, call the :ref:`messages.listTags` method.
+      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    

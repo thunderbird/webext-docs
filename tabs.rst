@@ -195,6 +195,8 @@ Creates a new tab or switches to a tab with the given URL, if it exists already.
       :name: ``createProperties``
       :type: (object)
       
+      Properties for the new tab. Defaults to an empty tab, if no ``url`` is provided.
+      
       .. api-member::
          :name: [``active``]
          :type: (boolean)
@@ -412,11 +414,13 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
       :name: ``updateProperties``
       :type: (object)
       
+      Properties which should to be updated.
+      
       .. api-member::
          :name: [``active``]
          :type: (boolean)
          
-         Set this to :value:`true`, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to false has no effect.
+         Set this to :value:`true`, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
       
       
       .. api-member::
@@ -446,7 +450,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: 
 
-Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from normal windows (:code:`window.type === "normal"`).
+Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from windows of type :value:`normal`.
 
 .. api-header::
    :label: Parameters
@@ -1187,7 +1191,7 @@ An object describing filters to apply to tabs.onUpdated events.
       :name: [``urls``]
       :type: (array of string)
       
-      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or  :permission:`activeTab` permission.
+      A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or :permission:`activeTab` permission.
    
    
    .. api-member::

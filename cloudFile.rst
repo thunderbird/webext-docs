@@ -48,7 +48,7 @@ Manifest file properties
       :type: (boolean)
       :annotation: -- [Added in TB 90]
       
-      Enable browser styles in the ``management_url`` page. See the `MDN documentation <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+      Enable browser styles in the ``management_url`` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`_ for more information.
    
    
    .. api-member::
@@ -272,7 +272,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :name: [``aborted``]
          :type: (boolean)
          
-         Set this to true if the file upload was aborted.
+         Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
       
       
       .. api-member::
@@ -341,7 +341,7 @@ onFileDeleted
 
 .. api-section-annotation-hack:: 
 
-Fired when a file previously uploaded should be deleted.
+Fired when a previously uploaded file should be deleted.
 
 .. api-header::
    :label: Parameters for onFileDeleted.addListener(listener)
@@ -545,7 +545,7 @@ CloudFileTemplateInfo
 
 .. api-section-annotation-hack:: 
 
-Information to be used in the cloud file message template.
+Defines information to be used in the cloud file entry added to the message.
 
 .. api-header::
    :label: object
