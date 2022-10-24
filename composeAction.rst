@@ -115,7 +115,7 @@ Sets the title of the composeAction button. Is used as tooltip and as the label.
          :name: ``title``
          :type: (string or null)
          
-         The string the composeAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
+         A string the composeAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
       
       
       .. api-member::
@@ -196,7 +196,7 @@ Sets the label of the composeAction button. Can be used to set different values 
          :name: ``label``
          :type: (string or null)
          
-         The string the composeAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
+         A string the composeAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
       
       
       .. api-member::
