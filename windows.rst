@@ -278,7 +278,7 @@ Updates the properties of a window. Specify only the properties that you want to
          :name: [``drawAttention``]
          :type: (boolean)
          
-         Settings this to :value:`true` will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
+         Setting this to :value:`true` will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
       
       
       .. api-member::
