@@ -266,7 +266,7 @@ Fired when a contact is created.
 
    
    .. api-member::
-      :name: ``listener(node, id)``
+      :name: ``listener(node)``
       
       A function that will be called when this event occurs.
    
@@ -278,11 +278,6 @@ Fired when a contact is created.
    .. api-member::
       :name: ``node``
       :type: (:ref:`contacts.ContactNode`)
-   
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
    
 
 .. api-header::
