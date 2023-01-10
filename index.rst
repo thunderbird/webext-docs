@@ -34,7 +34,7 @@ __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 This documentation includes the following topics:
 
  * `Thunderbird WebExtension APIs`_
- * `Firefox WebExtension APIs`_
+ * `Firefox WebExtension APIs supported by Thunderbird`_
  * :ref:`HowToGuide`
  * `Where To Get Help And More Information`_
 
