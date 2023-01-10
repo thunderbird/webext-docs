@@ -133,8 +133,8 @@ The documentation for these APIs is generated automatically from the schema docu
 
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas/
 
-Firefox WebExtension APIs
-=========================
+Firefox WebExtension APIs supported by Thunderbird
+==================================================
 
 As Thunderbird is based on Firefox, many of its WebExtension APIs can be used in Thunderbird
 as well. The APIs listed in the following table are known to work with Thunderbird.
