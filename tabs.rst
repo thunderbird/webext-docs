@@ -672,7 +672,7 @@ onCreated
 
 .. api-section-annotation-hack:: 
 
-Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+Fired when a tab is created. Note that the tab's URL and title may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
