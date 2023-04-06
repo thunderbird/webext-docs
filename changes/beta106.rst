@@ -2,6 +2,10 @@
 Changes in Thunderbird 106
 ==========================
 
+action API
+=================
+* Introduced a ``default_windows`` manifest property, to allow a action buttons to be displayed in stand alone message windows.
+
 commands API
 ============
 * Added the ``tab`` parameter to :ref:`commands.onCommand`, to get information about the active tab, when a command occurs.
@@ -28,6 +32,10 @@ messages API
 * Renamed ``MessageChangeProperties`` to :ref:`messages.MessageProperties`, as it is now also used by :ref:`messages.import`, to define the properties of the imported message.
 * Added the ``new`` member to the :ref:`messages.MessageProperties` type (currently only supported by :ref:`messages.import`).
 
+messageDisplay API
+==================
+* Fixed :ref:`messageDisplay.onMessageDisplayed` to be triggered for external messages.
+
 ____
 
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 106 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=106%20Branch&o2=equals>`__.
+Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 106 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=106%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
