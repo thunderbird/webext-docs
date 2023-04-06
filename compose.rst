@@ -58,7 +58,7 @@ Open a new message compose window.
    
    .. api-member::
       :name: [``messageId``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 84, backported to TB 78.7.0]
       
       If specified, the message or template to edit as a new message.
@@ -66,7 +66,7 @@ Open a new message compose window.
    
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.ComposeDetails`, optional)
    
 
 .. api-header::
@@ -108,7 +108,7 @@ Open a new message compose window replying to a given message.
    
    .. api-member::
       :name: [``replyType``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       Supported values:
       
@@ -124,7 +124,7 @@ Open a new message compose window replying to a given message.
    
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.ComposeDetails`, optional)
       :annotation: -- [Added in TB 76]
    
 
@@ -167,7 +167,7 @@ Open a new message compose window forwarding a given message.
    
    .. api-member::
       :name: [``forwardType``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       Supported values:
       
@@ -180,7 +180,7 @@ Open a new message compose window forwarding a given message.
    
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.ComposeDetails`, optional)
    
 
 .. api-header::
@@ -512,7 +512,7 @@ Sends the message currently being composed. If the send mode is not specified or
    
    .. api-member::
       :name: [``options``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: ``mode``
@@ -563,7 +563,7 @@ Sends the message currently being composed. If the send mode is not specified or
       
       .. api-member::
          :name: [``headerMessageId``]
-         :type: (string)
+         :type: (string, optional)
          
          The header messageId of the outgoing message. Only included for actually sent messages.
       
@@ -596,7 +596,7 @@ Saves the message currently being composed as a draft or as a template. If the s
    
    .. api-member::
       :name: [``options``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: ``mode``
@@ -727,14 +727,14 @@ Fired when a message is about to be sent from the compose window. This is a user
       
       .. api-member::
          :name: [``cancel``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Cancels the send.
       
       
       .. api-member::
          :name: [``details``]
-         :type: (:ref:`compose.ComposeDetails`)
+         :type: (:ref:`compose.ComposeDetails`, optional)
          
          Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
       
@@ -801,14 +801,14 @@ Fired when sending a message succeeded or failed.
       
       .. api-member::
          :name: [``error``]
-         :type: (string)
+         :type: (string, optional)
          
          An error description, if sending the message failed.
       
       
       .. api-member::
          :name: [``headerMessageId``]
-         :type: (string)
+         :type: (string, optional)
          
          The header messageId of the outgoing message. Only included for actually sent messages.
       
@@ -875,7 +875,7 @@ Fired when saving a message as draft or template succeeded or failed.
       
       .. api-member::
          :name: [``error``]
-         :type: (string)
+         :type: (string, optional)
          
          An error description, if saving the message failed.
       
@@ -1105,14 +1105,14 @@ Represents an attachment in a message being composed.
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       The name of this attachment, as displayed to the user.
    
    
    .. api-member::
       :name: [``size``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 83, backported to TB 78.5.0]
       
       The size in bytes of this attachment. Read-only.
@@ -1133,7 +1133,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``additionalFccFolder``]
-      :type: (:ref:`folders.MailFolder` or `string`)
+      :type: (:ref:`folders.MailFolder` or `string`, optional)
       :annotation: -- [Added in TB 102]
       
       An additional fcc folder which can be selected while composing the message, an empty string if not used.
@@ -1141,7 +1141,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``attachVCard``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
       
       Wether or not the vCard of the used identity will be attached to the message during send. Note: If the value has not been modified, selecting a different identity will load the default value of the new identity.
@@ -1149,7 +1149,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``attachments``]
-      :type: (array of :ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`)
+      :type: (array of :ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`, optional)
       :annotation: -- [Added in TB 82, backported to TB 78.4.0]
       
       Only used in the begin* functions. Attachments to add to the message.
@@ -1157,24 +1157,24 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``bcc``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``body``]
-      :type: (string)
+      :type: (string, optional)
       
       The HTML content of the message.
    
    
    .. api-member::
       :name: [``cc``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``customHeaders``]
-      :type: (array of :ref:`compose.CustomHeader`)
+      :type: (array of :ref:`compose.CustomHeader`, optional)
       :annotation: -- [Added in TB 100]
       
       Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
@@ -1182,7 +1182,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``deliveryFormat``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 102]
       
       Defines the mime format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
@@ -1204,7 +1204,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``deliveryStatusNotification``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
       
       Let the sender know when the recipient's server received the message. Not supported by all servers.
@@ -1212,13 +1212,13 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``followupTo``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
       :annotation: -- [Added in TB 74]
    
    
    .. api-member::
       :name: [``from``]
-      :type: (:ref:`compose.ComposeRecipient`)
+      :type: (:ref:`compose.ComposeRecipient`, optional)
       :annotation: -- [Added in TB 88]
       
       *Caution*: Setting a value for ``from`` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
@@ -1226,7 +1226,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``identityId``]
-      :type: (string)
+      :type: (string, optional)
       :annotation: -- [Added in TB 76]
       
       The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
@@ -1234,7 +1234,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``isPlainText``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 75]
       
       Whether the message is an HTML message or a plain text message.
@@ -1242,13 +1242,13 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``newsgroups``]
-      :type: (string or array of string)
+      :type: (string or array of string, optional)
       :annotation: -- [Added in TB 74]
    
    
    .. api-member::
       :name: [``overrideDefaultFcc``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
       
       Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if ``overrideDefaultFccFolder`` is not set as well.
@@ -1256,7 +1256,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``overrideDefaultFccFolder``]
-      :type: (:ref:`folders.MailFolder` or `string`)
+      :type: (:ref:`folders.MailFolder` or `string`, optional)
       :annotation: -- [Added in TB 102]
       
        This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all.
@@ -1264,7 +1264,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``plainTextBody``]
-      :type: (string)
+      :type: (string, optional)
       :annotation: -- [Added in TB 75]
       
       The plain text content of the message.
@@ -1272,7 +1272,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``priority``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 102]
       
       The priority of the message.
@@ -1297,7 +1297,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``relatedMessageId``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 95]
       
       The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`null` in all other cases or if the original message was opened from file.
@@ -1305,12 +1305,12 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``replyTo``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``returnReceipt``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
       
       Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
@@ -1318,17 +1318,17 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``subject``]
-      :type: (string)
+      :type: (string, optional)
    
    
    .. api-member::
       :name: [``to``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``type``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 88]
       
       Read-only. The type of the message being composed, depending on how the compose window was opened by the user.
@@ -1503,14 +1503,14 @@ Object used to add, update or rename an attachment in a message being composed.
    
    .. api-member::
       :name: [``file``]
-      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
       
       The new content for the attachment.
    
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       The new name for the attachment, as displayed to the user. If not specified, the name of the provided ``file`` object is used.
    

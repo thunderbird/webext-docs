@@ -114,21 +114,21 @@ Opens a message in a new tab or in a new window.
       
       .. api-member::
          :name: [``active``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the new tab should become the active tab in the window. Only applicable to messages opened in tabs.
       
       
       .. api-member::
          :name: [``headerMessageId``]
-         :type: (string)
+         :type: (string, optional)
          
          The headerMessageId of a message to be opened. Will throw an *ExtensionError*, if the provided ``headerMessageId`` is unknown or invalid. Not supported for external messages.
       
       
       .. api-member::
          :name: [``location``]
-         :type: (`string`)
+         :type: (`string`, optional)
          
          Where to open the message. If not specified, the users preference is honoured.
          
@@ -143,14 +143,14 @@ Opens a message in a new tab or in a new window.
       
       .. api-member::
          :name: [``messageId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The id of a message to be opened. Will throw an *ExtensionError*, if the provided ``messageId`` is unknown or invalid.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.
       

@@ -23,7 +23,7 @@ Manifest file properties
 
 .. api-member::
    :name: [``commands``]
-   :type: (object)
+   :type: (object, optional)
    
    A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`commands.CommandsShortcut`. The *name* may also be one of the following built-in special shortcuts: 
    
@@ -79,14 +79,14 @@ Update the details of an already defined command.
       
       .. api-member::
          :name: [``description``]
-         :type: (string)
+         :type: (string, optional)
          
          The description for the command.
       
       
       .. api-member::
          :name: [``shortcut``]
-         :type: (string)
+         :type: (string, optional)
          
          An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__  to set a new shortcut key. If the string does not match this format, the function throws an error.
       
@@ -190,21 +190,21 @@ Command
    
    .. api-member::
       :name: [``description``]
-      :type: (string)
+      :type: (string, optional)
       
       The Extension Command description
    
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       The name of the Extension Command
    
    
    .. api-member::
       :name: [``shortcut``]
-      :type: (string)
+      :type: (string, optional)
       
       The shortcut active for this command, or blank if not active.
    
@@ -222,37 +222,37 @@ CommandsShortcut
    
    .. api-member::
       :name: [``description``]
-      :type: (string)
+      :type: (string, optional)
    
    
    .. api-member::
       :name: [``suggested_key``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: [``default``]
-         :type: (:ref:`commands.KeyName`)
+         :type: (:ref:`commands.KeyName`, optional)
          
          Default key combination.
       
       
       .. api-member::
          :name: [``linux``]
-         :type: (:ref:`commands.KeyName`)
+         :type: (:ref:`commands.KeyName`, optional)
          
          Key combination on Linux.
       
       
       .. api-member::
          :name: [``mac``]
-         :type: (:ref:`commands.KeyName`)
+         :type: (:ref:`commands.KeyName`, optional)
          
          Key combination on Mac.
       
       
       .. api-member::
          :name: [``windows``]
-         :type: (:ref:`commands.KeyName`)
+         :type: (:ref:`commands.KeyName`, optional)
          
          Key combination on Windows.
       

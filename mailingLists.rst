@@ -132,12 +132,12 @@ Creates a new mailing list in the address book with id ``parentId``.
       
       .. api-member::
          :name: [``description``]
-         :type: (string)
+         :type: (string, optional)
       
       
       .. api-member::
          :name: [``nickName``]
-         :type: (string)
+         :type: (string, optional)
       
    
 
@@ -187,12 +187,12 @@ Edits the properties of a mailing list.
       
       .. api-member::
          :name: [``description``]
-         :type: (string)
+         :type: (string, optional)
       
       
       .. api-member::
          :name: [``nickName``]
-         :type: (string)
+         :type: (string, optional)
       
    
 
@@ -542,28 +542,28 @@ A node representing a mailing list.
    
    .. api-member::
       :name: [``contacts``]
-      :type: (array of :ref:`contacts.ContactNode`)
+      :type: (array of :ref:`contacts.ContactNode`, optional)
       
       A list of contacts held by this node's address book or mailing list.
    
    
    .. api-member::
       :name: [``parentId``]
-      :type: (string)
+      :type: (string, optional)
       
       The ``id`` of the parent object.
    
    
    .. api-member::
       :name: [``readOnly``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Indicates if the object is read-only.
    
    
    .. api-member::
       :name: [``remote``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
       
       Indicates if the object came from a remote address book.

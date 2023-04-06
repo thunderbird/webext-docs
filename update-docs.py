@@ -226,6 +226,7 @@ def get_api_member_parts(name, value):
         type_string = "(%s)"
         if value.get("optional", False):
             parts['name'] = "[``%s``]" % name
+            type_string = "(%s, optional)"
         else:
             parts['name'] = "``%s``" % name
 
@@ -254,6 +255,7 @@ def get_api_member_parts(name, value):
     
     if "added" in value or "changed" in value:
         parts['annotation'] = format_addition(value)
+
     return parts
 
 
