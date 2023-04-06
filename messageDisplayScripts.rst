@@ -101,14 +101,14 @@ Details of a message display script registered programmatically
    
    .. api-member::
       :name: [``css``]
-      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`)
+      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`, optional)
       
       The list of CSS files to inject
    
    
    .. api-member::
       :name: [``js``]
-      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`)
+      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`, optional)
       
       The list of JavaScript files to inject
    

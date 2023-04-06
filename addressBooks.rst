@@ -87,7 +87,7 @@ Gets a list of the user's address books, optionally including all contacts and m
    
    .. api-member::
       :name: [``complete``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       If set to true, results will include contacts and mailing lists for each address book.
    
@@ -127,7 +127,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
    
    .. api-member::
       :name: [``complete``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       If set to true, results will include contacts and mailing lists for this address book.
    
@@ -386,35 +386,35 @@ A node representing an address book.
    
    .. api-member::
       :name: [``contacts``]
-      :type: (array of :ref:`contacts.ContactNode`)
+      :type: (array of :ref:`contacts.ContactNode`, optional)
       
       A list of contacts held by this node's address book or mailing list.
    
    
    .. api-member::
       :name: [``mailingLists``]
-      :type: (array of :ref:`mailingLists.MailingListNode`)
+      :type: (array of :ref:`mailingLists.MailingListNode`, optional)
       
       A list of mailingLists in this node's address book.
    
    
    .. api-member::
       :name: [``parentId``]
-      :type: (string)
+      :type: (string, optional)
       
       The ``id`` of the parent object.
    
    
    .. api-member::
       :name: [``readOnly``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Indicates if the object is read-only.
    
    
    .. api-member::
       :name: [``remote``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
       
       Indicates if the address book is accessed via remote look-up.

@@ -25,32 +25,32 @@ Manifest file properties
 
 .. api-member::
    :name: [``message_display_action``]
-   :type: (object)
+   :type: (object, optional)
    
    .. api-member::
       :name: [``browser_style``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
    
    
    .. api-member::
       :name: [``default_area``]
-      :type: (string)
+      :type: (string, optional)
       
       Currently unused.
    
    
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`messageDisplayAction.IconPath`)
+      :type: (:ref:`messageDisplayAction.IconPath`, optional)
       
       The paths to one or more icons for the messageDisplayAction button.
    
    
    .. api-member::
       :name: [``default_label``]
-      :type: (string)
+      :type: (string, optional)
       :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
       
       The label of the messageDisplayAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
@@ -58,21 +58,21 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_popup``]
-      :type: (string)
+      :type: (string, optional)
       
       The html document to be opened as a popup when the user clicks on the messageDisplayAction button.
    
    
    .. api-member::
       :name: [``default_title``]
-      :type: (string)
+      :type: (string, optional)
       
       The title of the messageDisplayAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
    
    
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`messageDisplayAction.ThemeIcons`)
+      :type: (array of :ref:`messageDisplayAction.ThemeIcons`, optional)
       
       Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
    
@@ -114,14 +114,14 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Sets the title only for the given tab.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -146,14 +146,14 @@ Gets the title of the messageDisplayAction button.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -195,14 +195,14 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Sets the label only for the given tab.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -227,14 +227,14 @@ Gets the label of the messageDisplayAction button.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Specifies for which tab the label should be retrieved. If no tab is specified, the global label is retrieved.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -269,28 +269,28 @@ Sets the icon for the messageDisplayAction button. Either the ``path`` or the ``
       
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`)
+         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`, optional)
          
          The image data for one or more icons for the composeAction button.
       
       
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`messageDisplayAction.IconPath`)
+         :type: (:ref:`messageDisplayAction.IconPath`, optional)
          
          The paths to one or more icons for the messageDisplayAction button.
       
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Sets the icon only for the given tab.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -322,14 +322,14 @@ Sets the html document to be opened as a popup when the user clicks on the messa
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Sets the popup only for the given tab.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -354,14 +354,14 @@ Gets the html document set as the popup for this messageDisplayAction button.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -403,14 +403,14 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Sets the badge text only for the given tab.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -435,14 +435,14 @@ Gets the badge text of the messageDisplayAction button.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Specifies for which tab the badge text should be retrieved. If no tab is specified, the global label is retrieved.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -484,14 +484,14 @@ Sets the background color for the badge.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Sets the background color for the badge only for the given tab.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -516,14 +516,14 @@ Gets the badge background color of the messageDisplayAction button.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global label is retrieved.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -554,7 +554,7 @@ Enables the messageDisplayAction button for a tab. By default, a messageDisplayA
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The id of the tab for which you want to modify the messageDisplayAction button.
    
@@ -574,7 +574,7 @@ Disables the messageDisplayAction button for a tab.
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The id of the tab for which you want to modify the messageDisplayAction button.
    
@@ -598,14 +598,14 @@ Checks whether the messageDisplayAction button is enabled.
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer) **Unsupported.**
+         :type: (integer, optional) **Unsupported.**
          
          Will throw an error if used.
       
@@ -666,7 +666,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
    
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`messageDisplayAction.OnClickData`)
+      :type: (:ref:`messageDisplayAction.OnClickData`, optional)
       :annotation: -- [Added in TB 74.0b2]
    
 
@@ -761,7 +761,7 @@ Information sent when a messageDisplayAction button is clicked.
    
    .. api-member::
       :name: [``button``]
-      :type: (integer)
+      :type: (integer, optional)
       
       An integer value of button by which menu item was clicked.
    

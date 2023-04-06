@@ -47,7 +47,7 @@ Open a new message compose window. If the provided ComposeDetails object does no
    
    .. api-member::
       :name: [``messageId``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 84, backported to TB 78.7.0]
       
       If specified, the message or template to edit as a new message.
@@ -55,7 +55,7 @@ Open a new message compose window. If the provided ComposeDetails object does no
    
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.ComposeDetails`, optional)
    
 
 .. api-header::
@@ -91,7 +91,7 @@ Open a new message compose window replying to a given message. If the provided C
    
    .. api-member::
       :name: [``replyType``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       Supported values:
       
@@ -107,7 +107,7 @@ Open a new message compose window replying to a given message. If the provided C
    
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.ComposeDetails`, optional)
       :annotation: -- [Added in TB 76]
    
 
@@ -144,7 +144,7 @@ Open a new message compose window forwarding a given message. If the provided Co
    
    .. api-member::
       :name: [``forwardType``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       Supported values:
       
@@ -157,7 +157,7 @@ Open a new message compose window forwarding a given message. If the provided Co
    
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.ComposeDetails`, optional)
    
 
 .. api-header::
@@ -296,7 +296,7 @@ Adds an attachment to the message being composed in the specified tab.
       
       .. api-member::
          :name: [``name``]
-         :type: (string)
+         :type: (string, optional)
          
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
@@ -346,12 +346,12 @@ Renames and/or replaces the contents of an attachment to the message being compo
       
       .. api-member::
          :name: [``file``]
-         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
+         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
       
       
       .. api-member::
          :name: [``name``]
-         :type: (string)
+         :type: (string, optional)
          
          The name, as displayed to the user, of this attachment. If not specified, the name of the ``file`` object is used.
       
@@ -420,7 +420,7 @@ Sends the message currently being composed.
    
    .. api-member::
       :name: [``options``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: ``mode``
@@ -532,14 +532,14 @@ Fired when a message is about to be sent from the compose window. This is a user
       
       .. api-member::
          :name: [``cancel``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Cancels the send.
       
       
       .. api-member::
          :name: [``details``]
-         :type: (:ref:`compose.ComposeDetails`)
+         :type: (:ref:`compose.ComposeDetails`, optional)
          
          Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
       
@@ -724,14 +724,14 @@ Represents an attachment in a message being composed.
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       The name of this attachment, as displayed to the user.
    
    
    .. api-member::
       :name: [``size``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 83, backported to TB 78.5.0]
       
       The size in bytes of this attachment. Read-only.
@@ -753,7 +753,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``attachments``]
-      :type: (array of object)
+      :type: (array of object, optional)
       :annotation: -- [Added in TB 82, backported to TB 78.4.0]
       
       Attachments to add to the message. Only used in the begin* functions.
@@ -761,30 +761,30 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``bcc``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``body``]
-      :type: (string)
+      :type: (string, optional)
       
       The HTML content of the message.
    
    
    .. api-member::
       :name: [``cc``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``followupTo``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
       :annotation: -- [Added in TB 74]
    
    
    .. api-member::
       :name: [``from``]
-      :type: (:ref:`compose.ComposeRecipient`)
+      :type: (:ref:`compose.ComposeRecipient`, optional)
       :annotation: -- [Added in TB 88]
       
       *Caution*: Setting a value for ``from`` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
@@ -792,7 +792,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``identityId``]
-      :type: (string)
+      :type: (string, optional)
       :annotation: -- [Added in TB 76]
       
       The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
@@ -800,7 +800,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``isPlainText``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 75]
       
       Whether the message is an HTML message or a plain text message.
@@ -808,13 +808,13 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``newsgroups``]
-      :type: (string or array of string)
+      :type: (string or array of string, optional)
       :annotation: -- [Added in TB 74]
    
    
    .. api-member::
       :name: [``plainTextBody``]
-      :type: (string)
+      :type: (string, optional)
       :annotation: -- [Added in TB 75]
       
       The plain text content of the message.
@@ -822,7 +822,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``relatedMessageId``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 95, backported to TB 91.3.1]
       
       The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`null` in all other cases or if the original message was opened from file.
@@ -830,22 +830,22 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``replyTo``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``subject``]
-      :type: (string)
+      :type: (string, optional)
    
    
    .. api-member::
       :name: [``to``]
-      :type: (:ref:`compose.ComposeRecipientList`)
+      :type: (:ref:`compose.ComposeRecipientList`, optional)
    
    
    .. api-member::
       :name: [``type``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 88]
       
       Read-only. The type of the message being composed, depending on how the compose window was opened by the user.

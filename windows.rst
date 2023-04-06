@@ -43,7 +43,7 @@ Gets details about a window.
    
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`)
+      :type: (:ref:`windows.GetInfo`, optional)
    
 
 .. api-header::
@@ -71,7 +71,7 @@ Gets the active or topmost window.
    
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`)
+      :type: (:ref:`windows.GetInfo`, optional)
    
 
 .. api-header::
@@ -99,7 +99,7 @@ Gets the window that was most recently focused — typically the window 'on top'
    
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`)
+      :type: (:ref:`windows.GetInfo`, optional)
    
 
 .. api-header::
@@ -127,7 +127,7 @@ Gets all windows.
    
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`)
+      :type: (:ref:`windows.GetInfo`, optional)
    
 
 .. api-header::
@@ -155,86 +155,86 @@ Creates (opens) a new window with any optional sizing, position or default URL p
    
    .. api-member::
       :name: [``createData``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: [``allowScriptsToClose``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Allow scripts running inside the window to close the window by calling :code:`window.close()`.
       
       
       .. api-member::
          :name: [``focused``]
-         :type: (boolean) **Unsupported.**
+         :type: (boolean, optional) **Unsupported.**
          
          If true, opens an active window. If false, opens an inactive window.
       
       
       .. api-member::
          :name: [``height``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The height in pixels of the new window, including the frame. If not specified defaults to a natural height.
       
       
       .. api-member::
          :name: [``incognito``]
-         :type: (boolean) **Unsupported.**
+         :type: (boolean, optional) **Unsupported.**
       
       
       .. api-member::
          :name: [``left``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window.
       
       
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`windows.WindowState`)
+         :type: (:ref:`windows.WindowState`, optional)
          
          The initial state of the window. The ``minimized``, ``maximized`` and ``fullscreen`` states cannot be combined with ``left``, ``top``, ``width`` or ``height``.
       
       
       .. api-member::
          :name: [``tabId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The id of the tab for which you want to adopt to the new window.
       
       
       .. api-member::
          :name: [``titlePreface``]
-         :type: (string)
+         :type: (string, optional)
          
          A string to add to the beginning of the window title.
       
       
       .. api-member::
          :name: [``top``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window.
       
       
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`windows.CreateType`)
+         :type: (:ref:`windows.CreateType`, optional)
          
          Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
       
       
       .. api-member::
          :name: [``url``]
-         :type: (string or array of string)
+         :type: (string or array of string, optional)
          
          A URL or array of URLs to open as tabs in the window. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the current page within the extension. Defaults to the New Tab Page.
       
       
       .. api-member::
          :name: [``width``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
       
@@ -276,56 +276,56 @@ Updates the properties of a window. Specify only the properties that you want to
       
       .. api-member::
          :name: [``drawAttention``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Setting this to :value:`true` will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
       
       
       .. api-member::
          :name: [``focused``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          If true, brings the window to the front. If false, brings the next window in the z-order to the front.
       
       
       .. api-member::
          :name: [``height``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The height to resize the window to in pixels.
       
       
       .. api-member::
          :name: [``left``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The offset from the left edge of the screen to move the window to in pixels. This value is ignored for panels.
       
       
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`windows.WindowState`)
+         :type: (:ref:`windows.WindowState`, optional)
          
          The new state of the window. The ``minimized``, ``maximized`` and ``fullscreen`` states cannot be combined with ``left``, ``top``, ``width`` or ``height``.
       
       
       .. api-member::
          :name: [``titlePreface``]
-         :type: (string)
+         :type: (string, optional)
          
          A string to add to the beginning of the window title.
       
       
       .. api-member::
          :name: [``top``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
       
       
       .. api-member::
          :name: [``width``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The width to resize the window to in pixels.
       
@@ -524,14 +524,14 @@ Specifies additional requirements for the returned windows.
    
    .. api-member::
       :name: [``populate``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       If true, the :ref:`windows.Window` returned will have a ``tabs`` property that contains an array of :ref:`tabs.Tab` objects representing the tabs inside the window. The :ref:`tabs.Tab` objects only contain the ``url``, ``title`` and ``favIconUrl`` properties if the extension's manifest file includes the :permission:`tabs` permission.
    
    
    .. api-member::
       :name: [``windowTypes``]
-      :type: (array of :ref:`windows.WindowType`)
+      :type: (array of :ref:`windows.WindowType`, optional)
       
       If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions.
    
@@ -570,63 +570,63 @@ Window
    
    .. api-member::
       :name: [``height``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The height of the window, including the frame, in pixels.
    
    
    .. api-member::
       :name: [``id``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the window. Window IDs are unique within a session.
    
    
    .. api-member::
       :name: [``left``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The offset of the window from the left edge of the screen in pixels.
    
    
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`windows.WindowState`)
+      :type: (:ref:`windows.WindowState`, optional)
       
       The state of this window.
    
    
    .. api-member::
       :name: [``tabs``]
-      :type: (array of :ref:`tabs.Tab`)
+      :type: (array of :ref:`tabs.Tab`, optional)
       
       Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused`, and the optional :ref:`windows.GetInfo` parameter has its ``populate`` member set to :value:`true`.
    
    
    .. api-member::
       :name: [``title``]
-      :type: (string)
+      :type: (string, optional)
       
       The title of the window. Read-only.
    
    
    .. api-member::
       :name: [``top``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The offset of the window from the top edge of the screen in pixels.
    
    
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`windows.WindowType`)
+      :type: (:ref:`windows.WindowType`, optional)
       
       The type of window this is.
    
    
    .. api-member::
       :name: [``width``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The width of the window, including the frame, in pixels.
    

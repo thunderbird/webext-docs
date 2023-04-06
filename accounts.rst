@@ -48,7 +48,7 @@ Returns all mail accounts.
    
    .. api-member::
       :name: [``includeFolders``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
       
       Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to :value:`true`.
@@ -89,7 +89,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
    
    .. api-member::
       :name: [``includeFolders``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
       
       Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to :value:`true`.
@@ -125,7 +125,7 @@ Returns the default account, or :value:`null` if it is not defined.
    
    .. api-member::
       :name: [``includeFolders``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
       
       Specifies whether the returned :ref:`accounts.MailAccount` object should included the account's folders. Defaults to :value:`true`.
@@ -256,7 +256,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
    
    .. api-member::
       :name: [``folders``]
-      :type: (array of :ref:`folders.MailFolder`)
+      :type: (array of :ref:`folders.MailFolder`, optional)
       
       The folders for this account are only included if requested.
    

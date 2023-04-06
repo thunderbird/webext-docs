@@ -27,7 +27,7 @@ Manifest file properties
 
 .. api-member::
    :name: [``cloud_file``]
-   :type: (object)
+   :type: (object, optional)
    
    .. api-member::
       :name: ``management_url``
@@ -45,7 +45,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``browser_style``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 90]
       
       Enable browser styles in the ``management_url`` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
@@ -53,7 +53,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``data_format``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 71, backported to TB 68.2.1]
       
       Determines the format of the ``data`` argument in :ref:`cloudFile.onFileUpload`. Support for :value:`ArrayBuffer` will be removed in Thunderbird 102.
@@ -69,14 +69,14 @@ Manifest file properties
    
    .. api-member::
       :name: [``new_account_url``]
-      :type: (string) **Deprecated.**
+      :type: (string, optional) **Deprecated.**
       
       This property was never used.
    
    
    .. api-member::
       :name: [``service_url``]
-      :type: (string)
+      :type: (string, optional)
       
       URL to the web page of the cloud file service.
    
@@ -167,35 +167,35 @@ Update a cloud file account.
       
       .. api-member::
          :name: [``configured``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          If true, the account is configured and ready to use. Only configured accounts are offered to the user.
       
       
       .. api-member::
          :name: [``managementUrl``]
-         :type: (string)
+         :type: (string, optional)
          
          A page for configuring accounts, to be displayed in the preferences UI.
       
       
       .. api-member::
          :name: [``spaceRemaining``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``spaceUsed``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``uploadSizeLimit``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
       
@@ -270,14 +270,14 @@ Fired when a file should be uploaded to the cloud file provider.
       
       .. api-member::
          :name: [``aborted``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
       
       
       .. api-member::
          :name: [``templateInfo``]
-         :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
+         :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
          :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
          Information to override the default values used in the cloud file message template.
@@ -285,7 +285,7 @@ Fired when a file should be uploaded to the cloud file provider.
       
       .. api-member::
          :name: [``url``]
-         :type: (string)
+         :type: (string, optional)
          
          The URL where the uploaded file can be accessed.
       
@@ -519,21 +519,21 @@ Information about a cloud file account.
    
    .. api-member::
       :name: [``spaceRemaining``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``spaceUsed``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``uploadSizeLimit``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
    
@@ -553,21 +553,21 @@ Defines information to be used in the cloud file entry added to the message.
    
    .. api-member::
       :name: [``service_icon``]
-      :type: (string)
+      :type: (string, optional)
       
       A URL pointing to an icon to represent the used cloud file service. Defaults to the icon of the provider add-on.
    
    
    .. api-member::
       :name: [``service_name``]
-      :type: (string)
+      :type: (string, optional)
       
       A name to represent the used cloud file service. Defaults to the associated cloud file account name.
    
    
    .. api-member::
       :name: [``service_url``]
-      :type: (string)
+      :type: (string, optional)
       
       An URL to the web page of the used cloud file service. Used to attach a link to the ``service_name``. Defaults to the ``service_url`` manifest entry. Set to an empty string in order to not create a link.
    

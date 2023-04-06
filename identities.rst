@@ -49,7 +49,7 @@ Returns the identities of the specified account, or all identities if no account
    
    .. api-member::
       :name: [``accountId``]
-      :type: (string)
+      :type: (string, optional)
    
 
 .. api-header::
@@ -395,14 +395,14 @@ MailIdentity
    
    .. api-member::
       :name: [``accountId``]
-      :type: (string)
+      :type: (string, optional)
       
       The id of the :ref:`accounts.MailAccount` this identity belongs to. The ``accountId`` property is read-only.
    
    
    .. api-member::
       :name: [``composeHtml``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 85, backported to TB 78.7.0]
       
       If the identity uses HTML as the default compose format.
@@ -410,49 +410,49 @@ MailIdentity
    
    .. api-member::
       :name: [``email``]
-      :type: (string)
+      :type: (string, optional)
       
       The user's email address as used when messages are sent from this identity.
    
    
    .. api-member::
       :name: [``id``]
-      :type: (string)
+      :type: (string, optional)
       
       A unique identifier for this identity. The ``id`` property is read-only.
    
    
    .. api-member::
       :name: [``label``]
-      :type: (string)
+      :type: (string, optional)
       
       A user-defined label for this identity.
    
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       The user's name as used when messages are sent from this identity.
    
    
    .. api-member::
       :name: [``organization``]
-      :type: (string)
+      :type: (string, optional)
       
       The organization associated with this identity.
    
    
    .. api-member::
       :name: [``replyTo``]
-      :type: (string)
+      :type: (string, optional)
       
       The reply-to email address associated with this identity.
    
    
    .. api-member::
       :name: [``signature``]
-      :type: (string)
+      :type: (string, optional)
       :annotation: -- [Added in TB 91]
       
       The signature of the identity.
@@ -460,7 +460,7 @@ MailIdentity
    
    .. api-member::
       :name: [``signatureIsPlainText``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
       
       If the signature should be interpreted as plain text or as HTML.

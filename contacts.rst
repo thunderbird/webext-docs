@@ -85,7 +85,7 @@ Gets all contacts matching ``queryInfo`` in the address book with the id ``paren
    
    .. api-member::
       :name: [``parentId``]
-      :type: (string)
+      :type: (string, optional)
       
       The id of the address book to search. If not specified, all address books are searched.
    
@@ -165,7 +165,7 @@ Adds a new contact to the address book with the id ``parentId``.
    
    .. api-member::
       :name: [``id``]
-      :type: (string)
+      :type: (string, optional)
       
       Assigns the contact an id. If an existing contact has this id, an exception is thrown.
    
@@ -397,21 +397,21 @@ A node representing a contact in an address book.
    
    .. api-member::
       :name: [``parentId``]
-      :type: (string)
+      :type: (string, optional)
       
       The ``id`` of the parent object.
    
    
    .. api-member::
       :name: [``readOnly``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Indicates if the object is read-only.
    
    
    .. api-member::
       :name: [``remote``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Indicates if the object came from a remote address book.
    
@@ -457,35 +457,35 @@ Object defining a query for :ref:`contacts.quickSearch`.
    
    .. api-member::
       :name: [``includeLocal``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Whether to include results from local address books. Defaults to true.
    
    
    .. api-member::
       :name: [``includeReadOnly``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Whether to include results from read-only address books. Defaults to true.
    
    
    .. api-member::
       :name: [``includeReadWrite``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Whether to include results from read-write address books. Defaults to true.
    
    
    .. api-member::
       :name: [``includeRemote``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Whether to include results from remote address books. Defaults to true.
    
    
    .. api-member::
       :name: [``searchString``]
-      :type: (string)
+      :type: (string, optional)
       
       One or more space-separated terms to search for.
    

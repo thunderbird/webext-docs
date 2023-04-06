@@ -268,7 +268,7 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
    
    .. api-member::
       :name: [``includeSubFolders``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Specifies whether the returned :ref:`folders.MailFolder` object for each parent folder should include its nested subfolders . Defaults to :value:`false`.
    
@@ -308,7 +308,7 @@ Get the subfolders of the specified folder or account.
    
    .. api-member::
       :name: [``includeSubFolders``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Specifies whether the returned :ref:`folders.MailFolder` object for each direct subfolder should also include all its nested subfolders . Defaults to :value:`true`.
    
@@ -585,14 +585,14 @@ An object describing a mail folder, as returned for example by the :ref:`folders
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       The human-friendly name of this folder.
    
    
    .. api-member::
       :name: [``subFolders``]
-      :type: (array of :ref:`folders.MailFolder`)
+      :type: (array of :ref:`folders.MailFolder`, optional)
       :annotation: -- [Added in TB 74]
       
       Subfolders are only included if requested.
@@ -600,7 +600,7 @@ An object describing a mail folder, as returned for example by the :ref:`folders
    
    .. api-member::
       :name: [``type``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       The type of folder, for several common types.
       
@@ -646,21 +646,21 @@ An object containing additional information about a mail folder.
    
    .. api-member::
       :name: [``favorite``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Whether this folder is a favorite folder.
    
    
    .. api-member::
       :name: [``totalMessageCount``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Number of messages in this folder.
    
    
    .. api-member::
       :name: [``unreadMessageCount``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Number of unread messages in this folder.
    

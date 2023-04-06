@@ -320,7 +320,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``attachment``]
-         :type: (boolean)
+         :type: (boolean, optional)
          :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
          If specified, returns only messages with or without attachments.
@@ -328,56 +328,56 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``author``]
-         :type: (string)
+         :type: (string, optional)
          
          Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: :value:`Name <user@domain.org>`). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
          :name: [``body``]
-         :type: (string)
+         :type: (string, optional)
          
          Returns only messages with this value in the body of the mail.
       
       
       .. api-member::
          :name: [``flagged``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Returns only flagged (or unflagged if false) messages.
       
       
       .. api-member::
          :name: [``folder``]
-         :type: (:ref:`folders.MailFolder`)
+         :type: (:ref:`folders.MailFolder`, optional)
          
          Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
       
       
       .. api-member::
          :name: [``fromDate``]
-         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
+         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
          
          Returns only messages with a date after this value.
       
       
       .. api-member::
          :name: [``fromMe``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Returns only messages with the author's address matching any configured identity.
       
       
       .. api-member::
          :name: [``fullText``]
-         :type: (string)
+         :type: (string, optional)
          
          Returns only messages with this value somewhere in the mail (subject, body or author).
       
       
       .. api-member::
          :name: [``headerMessageId``]
-         :type: (string)
+         :type: (string, optional)
          :annotation: -- [Added in TB 85]
          
          Returns only messages with a Message-ID header matching this value.
@@ -385,7 +385,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``includeSubFolders``]
-         :type: (boolean)
+         :type: (boolean, optional)
          :annotation: -- [Added in TB 91]
          
          Search the folder specified by ``queryInfo.folder`` recursively.
@@ -393,21 +393,21 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``recipients``]
-         :type: (string)
+         :type: (string, optional)
          
          Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: :value:`Name <user@domain.org>`). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
       
       
       .. api-member::
          :name: [``subject``]
-         :type: (string)
+         :type: (string, optional)
          
          Returns only messages with this value matching the subject.
       
       
       .. api-member::
          :name: [``tags``]
-         :type: (:ref:`messages.TagsDetail`)
+         :type: (:ref:`messages.TagsDetail`, optional)
          :annotation: -- [Added in TB 74]
          
          Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
@@ -415,21 +415,21 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``toDate``]
-         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
+         :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
          
          Returns only messages with a date before this value.
       
       
       .. api-member::
          :name: [``toMe``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Returns only messages with at least one recipient address matching any configured identity.
       
       
       .. api-member::
          :name: [``unread``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Returns only unread (or read if false) messages.
       
@@ -573,7 +573,7 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
    
    .. api-member::
       :name: [``skipTrash``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       If true, the message will be deleted permanently, regardless of the account's deletion behavior settings.
    
@@ -889,28 +889,28 @@ Message properties that can be updated by the :ref:`messages.update` and that ar
    
    .. api-member::
       :name: [``flagged``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Message is flagged.
    
    
    .. api-member::
       :name: [``junk``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Message is junk.
    
    
    .. api-member::
       :name: [``read``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Message is read.
    
    
    .. api-member::
       :name: [``tags``]
-      :type: (array of string)
+      :type: (array of string, optional)
       
       Tags associated with this message. For a list of available tags, call the listTags method.
    
@@ -1020,7 +1020,7 @@ Basic information about a message.
    
    .. api-member::
       :name: [``folder``]
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolder`, optional)
       
       The :permission:`accountsRead` permission is required for this property to be included.
    
@@ -1045,7 +1045,7 @@ See :doc:`how-to/messageLists` for more information.
    
    .. api-member::
       :name: [``id``]
-      :type: (string)
+      :type: (string, optional)
    
 
 .. _messages.MessagePart:
@@ -1063,47 +1063,47 @@ Represents an email message "part", which could be the whole message
    
    .. api-member::
       :name: [``body``]
-      :type: (string)
+      :type: (string, optional)
       
       The content of the part
    
    
    .. api-member::
       :name: [``contentType``]
-      :type: (string)
+      :type: (string, optional)
    
    
    .. api-member::
       :name: [``headers``]
-      :type: (object)
+      :type: (object, optional)
       
       A *dictionary object* of part headers as *key-value* pairs, with the header name as key, and an array of headers as value
    
    
    .. api-member::
       :name: [``name``]
-      :type: (string)
+      :type: (string, optional)
       
       Name of the part, if it is a file
    
    
    .. api-member::
       :name: [``partName``]
-      :type: (string)
+      :type: (string, optional)
       
       The identifier of this part, used in :ref:`messages.getAttachmentFile`
    
    
    .. api-member::
       :name: [``parts``]
-      :type: (array of :ref:`messages.MessagePart`)
+      :type: (array of :ref:`messages.MessagePart`, optional)
       
       Any sub-parts of this part
    
    
    .. api-member::
       :name: [``size``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The size of this part. The size of *message/** parts is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.
    

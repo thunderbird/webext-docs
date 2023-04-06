@@ -102,18 +102,18 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
    
    .. api-member::
       :name: [``connectInfo``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: [``frameId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Open a port to a specific frame identified by ``frameId`` instead of all frames in the tab.
       
       
       .. api-member::
          :name: [``name``]
-         :type: (string)
+         :type: (string, optional)
          
          Will be passed into onConnect for content scripts that are listening for the connection event.
       
@@ -156,11 +156,11 @@ Sends a single message to the content script(s) in the specified tab, with an op
    
    .. api-member::
       :name: [``options``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: [``frameId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Send a message to a specific frame identified by ``frameId`` instead of all frames in the tab.
       
@@ -199,35 +199,35 @@ Creates a new tab or switches to a tab with the given URL, if it exists already.
       
       .. api-member::
          :name: [``active``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to :value:`true`.
       
       
       .. api-member::
          :name: [``index``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
       
       
       .. api-member::
          :name: [``selected``]
-         :type: (boolean) **Unsupported.**
+         :type: (boolean, optional) **Unsupported.**
          
          Whether the tab should become the selected tab in the window. Defaults to :value:`true`
       
       
       .. api-member::
          :name: [``url``]
-         :type: (string)
+         :type: (string, optional)
          
          The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the current page within the extension.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The window to create the new tab in. Defaults to the current window.
       
@@ -296,63 +296,63 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       
       .. api-member::
          :name: [``active``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are active in their windows.
       
       
       .. api-member::
          :name: [``currentWindow``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are in the current window.
       
       
       .. api-member::
          :name: [``highlighted``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are highlighted. Works as an alias of active.
       
       
       .. api-member::
          :name: [``index``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The position of the tabs within their windows.
       
       
       .. api-member::
          :name: [``lastFocusedWindow``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are in the last focused window.
       
       
       .. api-member::
          :name: [``mailTab``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tab is a Thunderbird 3-pane tab.
       
       
       .. api-member::
          :name: [``status``]
-         :type: (:ref:`tabs.TabStatus`)
+         :type: (:ref:`tabs.TabStatus`, optional)
          
          Whether the tabs have completed loading.
       
       
       .. api-member::
          :name: [``title``]
-         :type: (string)
+         :type: (string, optional)
          
          Match page titles against a pattern.
       
       
       .. api-member::
          :name: [``type``]
-         :type: (string)
+         :type: (string, optional)
          :annotation: -- [Added in TB 91]
          
          Match tabs against the given Tab.type (see :ref:`tabs.Tab`). Ignored if ``queryInfo.mailTab`` is specified.
@@ -360,21 +360,21 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       
       .. api-member::
          :name: [``url``]
-         :type: (string or array of string)
+         :type: (string or array of string, optional)
          
          Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Note that fragment identifiers are not matched.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
       
       
       .. api-member::
          :name: [``windowType``]
-         :type: (:ref:`tabs.WindowType`)
+         :type: (:ref:`tabs.WindowType`, optional)
          
          The type of window the tabs are in.
       
@@ -405,7 +405,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Defaults to the selected tab of the current window.
    
@@ -418,14 +418,14 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
       
       .. api-member::
          :name: [``active``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Set this to :value:`true`, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
       
       
       .. api-member::
          :name: [``url``]
-         :type: (string)
+         :type: (string, optional)
          
          A URL to navigate the tab to. Only applicable for :value:`content` tabs and active :value:`mail` tabs.
       
@@ -476,7 +476,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          Defaults to the window the tab is currently in.
       
@@ -509,18 +509,18 @@ Reload a tab.
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the tab to reload; defaults to the selected tab of the current window.
    
    
    .. api-member::
       :name: [``reloadProperties``]
-      :type: (object)
+      :type: (object, optional)
       
       .. api-member::
          :name: [``bypassCache``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether using any local cache. Default is false.
       
@@ -568,7 +568,7 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the tab in which to run the script; defaults to the active tab of the current window.
    
@@ -614,7 +614,7 @@ Injects CSS into a page. For details, see the `programmatic injection <https://d
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
    
@@ -648,7 +648,7 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
    
@@ -716,7 +716,7 @@ Fired when a tab is updated.
    
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`tabs.UpdateFilter`)
+      :type: (:ref:`tabs.UpdateFilter`, optional)
       
       A set of filters that restricts the events that will be sent to this listener.
    
@@ -738,21 +738,21 @@ Fired when a tab is updated.
       
       .. api-member::
          :name: [``favIconUrl``]
-         :type: (string)
+         :type: (string, optional)
          
          The tab's new favicon URL.
       
       
       .. api-member::
          :name: [``status``]
-         :type: (string)
+         :type: (string, optional)
          
          The status of the tab. Can be either :value:`loading` or :value:`complete`.
       
       
       .. api-member::
          :name: [``url``]
-         :type: (string)
+         :type: (string, optional)
          
          The tab's URL if it has changed.
       
@@ -1034,49 +1034,49 @@ Tab
    
    .. api-member::
       :name: [``favIconUrl``]
-      :type: (string)
+      :type: (string, optional)
       
       The URL of the tab's favicon. This property is only present if the extension's manifest includes the :permission:`tabs` permission. It may also be an empty string if the tab is loading.
    
    
    .. api-member::
       :name: [``height``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The height of the tab in pixels.
    
    
    .. api-member::
       :name: [``id``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
    
    
    .. api-member::
       :name: [``mailTab``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Whether the tab is a 3-pane tab.
    
    
    .. api-member::
       :name: [``status``]
-      :type: (string)
+      :type: (string, optional)
       
       Either :value:`loading` or :value:`complete`.
    
    
    .. api-member::
       :name: [``title``]
-      :type: (string)
+      :type: (string, optional)
       
       The title of the tab. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
    
    
    .. api-member::
       :name: [``type``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 91]
       
       Supported values:
@@ -1117,21 +1117,21 @@ Tab
    
    .. api-member::
       :name: [``url``]
-      :type: (string)
+      :type: (string, optional)
       
       The URL the tab is displaying. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
    
    
    .. api-member::
       :name: [``width``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The width of the tab in pixels.
    
    
    .. api-member::
       :name: [``windowId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The ID of the window the tab is contained within.
    
@@ -1177,26 +1177,26 @@ An object describing filters to apply to tabs.onUpdated events.
    
    .. api-member::
       :name: [``properties``]
-      :type: (array of :ref:`tabs.UpdatePropertyName`)
+      :type: (array of :ref:`tabs.UpdatePropertyName`, optional)
       
       A list of property names. Events that do not match any of the names will be filtered out.
    
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
    
    
    .. api-member::
       :name: [``urls``]
-      :type: (array of string)
+      :type: (array of string, optional)
       
       A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or :permission:`activeTab` permission.
    
    
    .. api-member::
       :name: [``windowId``]
-      :type: (integer)
+      :type: (integer, optional)
    
 
 .. _tabs.UpdatePropertyName:
