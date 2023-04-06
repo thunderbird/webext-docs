@@ -103,7 +103,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``command``]
          :type: (string)
          
-         Specifies a command to issue for the context click. Currently supports internal commands :value:`_execute_browser_action`, :value:`_execute_compose_action` and :value:`_execute_message_display_action`.
+         Specifies a command to issue for the context click. Currently supports internal commands :value:`_execute_action`, :value:`_execute_compose_action` and :value:`_execute_message_display_action`.
       
       
       .. api-member::
@@ -555,65 +555,93 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`all`
          
          .. api-member::
-            :name: :value:`page`
-         
-         .. api-member::
-            :name: :value:`frame`
-         
-         .. api-member::
-            :name: :value:`selection`
-         
-         .. api-member::
-            :name: :value:`link`
-         
-         .. api-member::
-            :name: :value:`editable`
-         
-         .. api-member::
-            :name: :value:`password`
-         
-         .. api-member::
-            :name: :value:`image`
-         
-         .. api-member::
-            :name: :value:`video`
+            :name: :value:`all_message_attachments`
          
          .. api-member::
             :name: :value:`audio`
          
          .. api-member::
-            :name: :value:`browser_action`
-         
-         .. api-member::
             :name: :value:`compose_action`
-            :annotation: -- [Added in TB 89]
          
          .. api-member::
-            :name: :value:`message_display_action`
-            :annotation: -- [Added in TB 89]
+            :name: :value:`compose_attachments`
          
          .. api-member::
-            :name: :value:`tab`
+            :name: :value:`compose_body`
          
          .. api-member::
-            :name: :value:`message_list`
+            :name: :value:`editable`
          
          .. api-member::
             :name: :value:`folder_pane`
          
          .. api-member::
-            :name: :value:`compose_attachments`
-            :annotation: -- [Added in TB 83, backported to TB 78.5.0]
+            :name: :value:`frame`
+         
+         .. api-member::
+            :name: :value:`image`
+         
+         .. api-member::
+            :name: :value:`link`
          
          .. api-member::
             :name: :value:`message_attachments`
          
          .. api-member::
-            :name: :value:`all_message_attachments`
+            :name: :value:`message_display_action`
+         
+         .. api-member::
+            :name: :value:`message_list`
+         
+         .. api-member::
+            :name: :value:`page`
+         
+         .. api-member::
+            :name: :value:`password`
+         
+         .. api-member::
+            :name: :value:`selection`
+         
+         .. api-member::
+            :name: :value:`tab`
          
          .. api-member::
             :name: :value:`tools_menu`
-            :annotation: -- [Added in TB 88]
+         
+         .. api-member::
+            :name: :value:`video`
+   
+
+OR
+
+.. api-header::
+   :label: `string`
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`browser_action`
+   
+
+OR
+
+.. api-header::
+   :label: `string`
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`action`
    
 
 .. _menus.ItemType:

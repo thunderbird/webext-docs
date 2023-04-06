@@ -130,7 +130,7 @@ Opens a message in a new tab or in a new window.
          :name: [``location``]
          :type: (`string`)
          
-         Where to open the message. If not specified, the users preference is honoured. Ignored for external messages, which are always opened in a new window.
+         Where to open the message. If not specified, the users preference is honoured.
          
          Supported values:
          
