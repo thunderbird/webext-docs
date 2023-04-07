@@ -1244,6 +1244,8 @@ Used by various functions to represent the state of a message being composed. No
       :name: [``newsgroups``]
       :type: (string or array of string, optional)
       :annotation: -- [Added in TB 74]
+      
+      A single newsgroup name or an array of newsgroup names.
    
    
    .. api-member::

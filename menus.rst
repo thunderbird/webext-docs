@@ -16,7 +16,7 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/me
 
 .. role:: code
 
-The menus API allows to add items to Thunderbirds menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
+The menus API allows to add items to Thunderbird's menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
 
 .. rst-class:: api-main-section
 
@@ -103,7 +103,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
          :name: [``command``]
          :type: (string, optional)
          
-         Specifies a command to issue for the context click. Currently supports internal commands :value:`_execute_action`, :value:`_execute_compose_action` and :value:`_execute_message_display_action`.
+         Specifies a command to issue for the context click. Currently supports internal commands :value:`_execute_browser_action`, :value:`_execute_compose_action` and :value:`_execute_message_display_action`.
       
       
       .. api-member::
