@@ -546,7 +546,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the messageDisplayAction button for a tab. By default, a messageDisplayAction button is enabled.
+Enables the messageDisplayAction button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, a messageDisplayAction button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -566,7 +566,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the messageDisplayAction button for a tab.
+Disables the messageDisplayAction button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.
 
 .. api-header::
    :label: Parameters
