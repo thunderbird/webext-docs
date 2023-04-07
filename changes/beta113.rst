@@ -9,7 +9,7 @@ action APIs
 
 compose API
 ===========
-* Fix compose API to clear all (!) headers, if :ref:`compose.setComposeDetails` is used to update the non-standard ``X-`` headers.
+* Fix compose API to no longer clear all (!) headers, if :ref:`compose.setComposeDetails` is used to update the non-standard ``X-`` headers.
 
 protocol_handler API
 ====================
