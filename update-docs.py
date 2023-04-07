@@ -717,6 +717,10 @@ def format_namespace(manifest, namespace):
             elif "choices" in type_:
                 first = True
                 for choice in type_["choices"]:
+                    if "min_manifest_version" in choice and choice["min_manifest_version"] > MV:
+                        continue
+                    if "max_manifest_version" in choice and choice["max_manifest_version"] < MV:
+                        continue
                     if first:
                         first = False
                     else:

@@ -629,12 +629,40 @@ Checks whether the composeAction button is enabled.
 
 .. _composeAction.openPopup:
 
-openPopup()
------------
+openPopup([options])
+--------------------
 
 .. api-section-annotation-hack:: 
 
-Opens the action's popup window in the active window.
+Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action is disabled or has been removed from the toolbar.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object)
+      
+      An object with information about the popup to open.
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         Defaults to the current window.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: boolean
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

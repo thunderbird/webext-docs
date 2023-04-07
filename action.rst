@@ -493,7 +493,7 @@ enable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Enables the action button for a tab. By default, an action button is enabled.
+Enables the action button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, an action button is enabled.
 
 .. api-header::
    :label: Parameters
@@ -513,7 +513,7 @@ disable([tabId])
 
 .. api-section-annotation-hack:: 
 
-Disables the action button for a tab.
+Disables the action button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.
 
 .. api-header::
    :label: Parameters
@@ -570,12 +570,40 @@ Checks whether the action button is enabled.
 
 .. _action.openPopup:
 
-openPopup()
------------
+openPopup([options])
+--------------------
 
 .. api-section-annotation-hack:: 
 
-Opens the action's popup window in the active window.
+Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action is disabled or has been removed from the toolbar.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object)
+      
+      An object with information about the popup to open.
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer)
+         
+         Defaults to the current window.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: boolean
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 
@@ -634,6 +662,36 @@ ActionManifest
 
    
    .. api-member::
+      :name: [``allowed_spaces``]
+      :type: (array of `string`)
+      
+      Defines the spaces, in which the action button can appear in the toolbar of the normal Thunderbird window. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`mail`
+      
+      .. api-member::
+         :name: :value:`addressbook`
+      
+      .. api-member::
+         :name: :value:`calendar`
+      
+      .. api-member::
+         :name: :value:`tasks`
+      
+      .. api-member::
+         :name: :value:`chat`
+      
+      .. api-member::
+         :name: :value:`settings`
+      
+      .. api-member::
+         :name: :value:`default`
+   
+   
+   .. api-member::
       :name: [``browser_style``]
       :type: (boolean)
       
@@ -644,7 +702,7 @@ ActionManifest
       :name: [``default_area``]
       :type: (`string`)
       
-      Defines the location the action button will appear. The default location is :value:`maintoolbar`.
+      Defines the location the action button will appear. This will always behave like :value:`maintoolbar`. The :value:`tabstoolbar` area should no longer be used.
       
       Supported values:
       
