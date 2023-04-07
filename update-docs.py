@@ -223,11 +223,12 @@ def get_api_member_parts(name, value):
             # type_string = "[%s]" activate not yet
             type_string = "%s"
     elif name:
-        type_string = "(%s)"
         if value.get("optional", False):
             parts['name'] = "[``%s``]" % name
+            type_string = "(%s, optional)"
         else:
             parts['name'] = "``%s``" % name
+            type_string = "(%s)"
 
     if "unsupported" in value:
         type_string += " **Unsupported.**"

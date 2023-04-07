@@ -41,28 +41,28 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
       
       .. api-member::
          :name: [``active``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are active in their windows.
       
       
       .. api-member::
          :name: [``currentWindow``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are in the current window.
       
       
       .. api-member::
          :name: [``lastFocusedWindow``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the tabs are in the last focused window.
       
       
       .. api-member::
          :name: [``windowId``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
       
@@ -142,7 +142,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Defaults to the active tab of the current window.
    
@@ -153,21 +153,21 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
       
       .. api-member::
          :name: [``displayedFolder``]
-         :type: (:ref:`folders.MailFolder`)
+         :type: (:ref:`folders.MailFolder`, optional)
          
          Sets the folder displayed in the tab. The extension must have the :permission:`accountsRead` permission to do this.
       
       
       .. api-member::
          :name: [``folderPaneVisible``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows or hides the folder pane.
       
       
       .. api-member::
          :name: [``layout``]
-         :type: (`string`)
+         :type: (`string`, optional)
          
          Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
          
@@ -185,14 +185,14 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
       
       .. api-member::
          :name: [``messagePaneVisible``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows or hides the message display pane.
       
       
       .. api-member::
          :name: [``sortOrder``]
-         :type: (`string`)
+         :type: (`string`, optional)
          
          Sorts the list of messages. ``sortType`` must also be given.
          
@@ -210,7 +210,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
       
       .. api-member::
          :name: [``sortType``]
-         :type: (`string`)
+         :type: (`string`, optional)
          
          Sorts the list of messages. ``sortOrder`` must also be given.
          
@@ -279,7 +279,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
       
       .. api-member::
          :name: [``viewType``]
-         :type: (`string`)
+         :type: (`string`, optional)
          :annotation: -- [Added in TB 91]
          
          Supported values:
@@ -310,7 +310,7 @@ Lists the selected messages in the current folder.
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Defaults to the active tab of the current window.
    
@@ -345,7 +345,7 @@ Selects none, one or multiple messages.
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Defaults to the active tab of the current window.
    
@@ -378,7 +378,7 @@ Sets the Quick Filter user interface based on the options specified.
    
    .. api-member::
       :name: [``tabId``]
-      :type: (integer)
+      :type: (integer, optional)
       
       Defaults to the active tab of the current window.
    
@@ -389,49 +389,49 @@ Sets the Quick Filter user interface based on the options specified.
       
       .. api-member::
          :name: [``attachment``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows only messages with attachments.
       
       
       .. api-member::
          :name: [``contact``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows only messages from people in the address book.
       
       
       .. api-member::
          :name: [``flagged``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows only flagged messages.
       
       
       .. api-member::
          :name: [``show``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows or hides the Quick Filter bar.
       
       
       .. api-member::
          :name: [``tags``]
-         :type: (boolean or :ref:`messages.TagsDetail`)
+         :type: (boolean or :ref:`messages.TagsDetail`, optional)
          
          Shows only messages with tags on them.
       
       
       .. api-member::
          :name: [``text``]
-         :type: (:ref:`mailTabs.QuickFilterTextDetail`)
+         :type: (:ref:`mailTabs.QuickFilterTextDetail`, optional)
          
          Shows only messages matching the supplied text.
       
       
       .. api-member::
          :name: [``unread``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Shows only unread messages.
       
@@ -577,24 +577,24 @@ MailTab
    
    .. api-member::
       :name: [``displayedFolder``]
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolder`, optional)
       
       The :permission:`accountsRead` permission is required for this property to be included.
    
    
    .. api-member::
       :name: [``folderPaneVisible``]
-      :type: (boolean)
+      :type: (boolean, optional)
    
    
    .. api-member::
       :name: [``messagePaneVisible``]
-      :type: (boolean)
+      :type: (boolean, optional)
    
    
    .. api-member::
       :name: [``sortOrder``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       **Note:** ``sortType`` and ``sortOrder`` depend on each other, so both should be present, or neither.
       
@@ -612,7 +612,7 @@ MailTab
    
    .. api-member::
       :name: [``sortType``]
-      :type: (`string`)
+      :type: (`string`, optional)
       
       **Note:** ``sortType`` and ``sortOrder`` depend on each other, so both should be present, or neither.
       
@@ -681,7 +681,7 @@ MailTab
    
    .. api-member::
       :name: [``viewType``]
-      :type: (`string`)
+      :type: (`string`, optional)
       :annotation: -- [Added in TB 91]
       
       Supported values:
@@ -716,28 +716,28 @@ QuickFilterTextDetail
    
    .. api-member::
       :name: [``author``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Shows messages where ``text`` matches the author.
    
    
    .. api-member::
       :name: [``body``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Shows messages where ``text`` matches the message body.
    
    
    .. api-member::
       :name: [``recipients``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Shows messages where ``text`` matches the recipients.
    
    
    .. api-member::
       :name: [``subject``]
-      :type: (boolean)
+      :type: (boolean, optional)
       
       Shows messages where ``text`` matches the subject.
    

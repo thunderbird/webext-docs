@@ -114,42 +114,42 @@ ButtonProperties
    
    .. api-member::
       :name: [``badgeBackgroundColor``]
-      :type: (string or :ref:`spacesToolbar.ColorArray`)
+      :type: (string or :ref:`spacesToolbar.ColorArray`, optional)
       
       Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to an empty string.
    
    
    .. api-member::
       :name: [``badgeText``]
-      :type: (string)
+      :type: (string, optional)
       
       Sets the badge text for the spaces toolbar button. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to an empty string.
    
    
    .. api-member::
       :name: [``defaultIcons``]
-      :type: (string or :ref:`spacesToolbar.IconPath`)
+      :type: (string or :ref:`spacesToolbar.IconPath`, optional)
       
       The paths to one or more icons for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string.
    
    
    .. api-member::
       :name: [``themeIcons``]
-      :type: (array of :ref:`spacesToolbar.ThemeIcons`)
+      :type: (array of :ref:`spacesToolbar.ThemeIcons`, optional)
       
       Specifies dark and light icons for the spaces toolbar button to be used with themes: The ``light`` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified.
    
    
    .. api-member::
       :name: [``title``]
-      :type: (string)
+      :type: (string, optional)
       
       The title for the spaces toolbar button, used in the tooltip of the button and as the displayed name in the overflow menu. Defaults to the name of the extension, if set to an empty string.
    
    
    .. api-member::
       :name: [``url``]
-      :type: (string)
+      :type: (string, optional)
       
       The page url, loaded into a tab when the button is clicked. Supported are :value:`https://` and :value:`http://` links, as well as links to WebExtension pages.
    

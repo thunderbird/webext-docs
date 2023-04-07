@@ -76,21 +76,21 @@ Example:
       
       .. api-member::
          :name: [``addressBookName``]
-         :type: (string)
+         :type: (string, optional)
          
          The name of the created address book.
       
       
       .. api-member::
          :name: [``id``]
-         :type: (string)
+         :type: (string, optional)
          
          The unique ID of the created address book. If several listeners have been added, the ``id`` allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.
       
       
       .. api-member::
          :name: [``isSecure``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Whether the address book search queries are using encrypted protocols like HTTPS.
       
@@ -107,14 +107,14 @@ Example:
    
    .. api-member::
       :name: [``searchString``]
-      :type: (string)
+      :type: (string, optional)
       
       The search text that the user entered. Not available when invoked from the advanced address book search dialog.
    
    
    .. api-member::
       :name: [``query``]
-      :type: (string)
+      :type: (string, optional)
       
       The boolean query expression corresponding to the search. **Note:** This parameter may change in future releases of Thunderbird.
    

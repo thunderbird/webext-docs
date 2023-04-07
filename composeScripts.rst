@@ -91,14 +91,14 @@ Details of a compose script registered programmatically
    
    .. api-member::
       :name: [``css``]
-      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`)
+      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`, optional)
       
       The list of CSS files to inject
    
    
    .. api-member::
       :name: [``js``]
-      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`)
+      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`, optional)
       
       The list of JavaScript files to inject
    

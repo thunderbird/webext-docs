@@ -23,7 +23,7 @@ Manifest file properties
 
 .. api-member::
    :name: [``cloud_file``]
-   :type: (object)
+   :type: (object, optional)
    
    .. api-member::
       :name: ``management_url``
@@ -41,7 +41,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``browser_style``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 90]
       
       Enable browser styles in the ``management_url`` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
@@ -49,21 +49,21 @@ Manifest file properties
    
    .. api-member::
       :name: [``data_format``]
-      :type: (string) **Deprecated.**
+      :type: (string, optional) **Deprecated.**
       
       This property is no longer used. The only supported data format for the ``data`` argument in :ref:`cloudFile.onFileUpload` is `File <https://developer.mozilla.org/docs/Web/API/File>`__.
    
    
    .. api-member::
       :name: [``new_account_url``]
-      :type: (string) **Deprecated.**
+      :type: (string, optional) **Deprecated.**
       
       This property was never used.
    
    
    .. api-member::
       :name: [``reuse_uploads``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 98]
       
       If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known ``url`` and ``templateInfo`` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the ``relatedFileInfo`` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
@@ -71,7 +71,7 @@ Manifest file properties
    
    .. api-member::
       :name: [``service_url``]
-      :type: (string) **Deprecated.**
+      :type: (string, optional) **Deprecated.**
       
       This property is no longer used. The ``service_url`` property of the :ref:`cloudFile.CloudFileTemplateInfo` object returned by the :ref:`cloudFile.onFileUpload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
    
@@ -162,35 +162,35 @@ Update a cloud file account.
       
       .. api-member::
          :name: [``configured``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          If true, the account is configured and ready to use. Only configured accounts are offered to the user.
       
       
       .. api-member::
          :name: [``managementUrl``]
-         :type: (string)
+         :type: (string, optional)
          
          A page for configuring accounts, to be displayed in the preferences UI.
       
       
       .. api-member::
          :name: [``spaceRemaining``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``spaceUsed``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
       
       
       .. api-member::
          :name: [``uploadSizeLimit``]
-         :type: (integer)
+         :type: (integer, optional)
          
          The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
       
@@ -258,7 +258,7 @@ Fired when a file should be uploaded to the cloud file provider.
    
    .. api-member::
       :name: [``relatedFileInfo``]
-      :type: (:ref:`cloudFile.RelatedCloudFile`)
+      :type: (:ref:`cloudFile.RelatedCloudFile`, optional)
       :annotation: -- [Added in TB 98]
       
       Information about an already uploaded file, which is related to this upload.
@@ -273,14 +273,14 @@ Fired when a file should be uploaded to the cloud file provider.
       
       .. api-member::
          :name: [``aborted``]
-         :type: (boolean)
+         :type: (boolean, optional)
          
          Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
       
       
       .. api-member::
          :name: [``error``]
-         :type: (boolean or string)
+         :type: (boolean or string, optional)
          :annotation: -- [Added in TB 96]
          
          Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
@@ -288,7 +288,7 @@ Fired when a file should be uploaded to the cloud file provider.
       
       .. api-member::
          :name: [``templateInfo``]
-         :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
+         :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
          :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
          Additional file information used in the cloud file entry added to the message.
@@ -296,7 +296,7 @@ Fired when a file should be uploaded to the cloud file provider.
       
       .. api-member::
          :name: [``url``]
-         :type: (string)
+         :type: (string, optional)
          
          The URL where the uploaded file can be accessed.
       
@@ -405,14 +405,14 @@ Fired when a previously uploaded file should be renamed.
       
       .. api-member::
          :name: [``error``]
-         :type: (boolean or string)
+         :type: (boolean or string, optional)
          
          Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
       
       
       .. api-member::
          :name: [``url``]
-         :type: (string)
+         :type: (string, optional)
          
          The URL where the renamed file can be accessed.
       
@@ -605,21 +605,21 @@ Information about a cloud file account.
    
    .. api-member::
       :name: [``spaceRemaining``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``spaceUsed``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
    
    
    .. api-member::
       :name: [``uploadSizeLimit``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
    
@@ -639,7 +639,7 @@ Defines information to be used in the cloud file entry added to the message.
    
    .. api-member::
       :name: [``download_expiry_date``]
-      :type: (object)
+      :type: (object, optional)
       :annotation: -- [Added in TB 98]
       
       If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
@@ -653,7 +653,7 @@ Defines information to be used in the cloud file entry added to the message.
       
       .. api-member::
          :name: [``format``]
-         :type: (object)
+         :type: (object, optional)
          
          A format options object as used by `Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__. Defaults to: 
          
@@ -666,7 +666,7 @@ Defines information to be used in the cloud file entry added to the message.
    
    .. api-member::
       :name: [``download_limit``]
-      :type: (integer)
+      :type: (integer, optional)
       :annotation: -- [Added in TB 98]
       
       If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
@@ -674,7 +674,7 @@ Defines information to be used in the cloud file entry added to the message.
    
    .. api-member::
       :name: [``download_password_protected``]
-      :type: (boolean)
+      :type: (boolean, optional)
       :annotation: -- [Added in TB 98]
       
       If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
@@ -682,21 +682,21 @@ Defines information to be used in the cloud file entry added to the message.
    
    .. api-member::
       :name: [``service_icon``]
-      :type: (string)
+      :type: (string, optional)
       
       A URL pointing to an icon to represent the used cloud file service. Defaults to the icon of the provider add-on.
    
    
    .. api-member::
       :name: [``service_name``]
-      :type: (string)
+      :type: (string, optional)
       
       A name to represent the used cloud file service. Defaults to the associated cloud file account name.
    
    
    .. api-member::
       :name: [``service_url``]
-      :type: (string)
+      :type: (string, optional)
       
       A URL pointing to a web page of the used cloud file service. Will be used in a *Learn more about* link in the footer of the cloud file attachment element.
    
@@ -730,21 +730,21 @@ Information about an already uploaded cloud file, which is related to a new uplo
    
    .. api-member::
       :name: [``id``]
-      :type: (integer)
+      :type: (integer, optional)
       
       The identifier for the related file. In some circumstances, the id is unavailable.
    
    
    .. api-member::
       :name: [``templateInfo``]
-      :type: (:ref:`cloudFile.CloudFileTemplateInfo`)
+      :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
       
       Additional information of the related file, used in the cloud file entry added to the message.
    
    
    .. api-member::
       :name: [``url``]
-      :type: (string)
+      :type: (string, optional)
       
       The URL where the upload of the related file can be accessed.
    
