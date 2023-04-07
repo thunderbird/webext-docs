@@ -628,22 +628,6 @@ OR
             :name: :value:`browser_action`
    
 
-OR
-
-.. api-header::
-   :label: `string`
-
-   
-   .. container:: api-member-node
-   
-      .. container:: api-member-description-only
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`action`
-   
-
 .. _menus.ItemType:
 
 ItemType
