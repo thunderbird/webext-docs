@@ -287,6 +287,19 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
+
+    # Cater for MV2/3 differences, pick the correct one and proceed as normal. We
+    # do not support individual descriptions of the allowed types.
+    if "choices" in obj:
+        for choice in obj["choices"]:
+            if "min_manifest_version" in choice and choice["min_manifest_version"] > MV:
+                continue
+            if "max_manifest_version" in choice and choice["max_manifest_version"] < MV:
+                continue
+            if "type" in choice and "description" in choice:
+                for key in choice:
+                    obj[key] = choice[key]
+
     parts =  get_api_member_parts(name, obj)
   
     #enum_only:        fake header + enum
