@@ -223,12 +223,12 @@ def get_api_member_parts(name, value):
             # type_string = "[%s]" activate not yet
             type_string = "%s"
     elif name:
+        type_string = "(%s)"
         if value.get("optional", False):
             parts['name'] = "[``%s``]" % name
             type_string = "(%s, optional)"
         else:
             parts['name'] = "``%s``" % name
-            type_string = "(%s)"
 
     if "unsupported" in value:
         type_string += " **Unsupported.**"
@@ -255,6 +255,7 @@ def get_api_member_parts(name, value):
     
     if "added" in value or "changed" in value:
         parts['annotation'] = format_addition(value)
+
     return parts
 
 
@@ -287,7 +288,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
-
+    
     # Cater for MV2/3 differences, pick the correct one and proceed as normal. We
     # do not support individual descriptions of the allowed types.
     if "choices" in obj:
@@ -345,7 +346,7 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
                 #unique_id += 1
 
     if print_enum_only:
-        content.extend([indent + sub for sub in parts['enum']])       
+        content.extend([indent + sub for sub in parts['enum']])
     else:
         content.extend([indent + sub for sub in parts['description']])
         content.extend([indent + sub for sub in parts['enum']])
@@ -774,8 +775,8 @@ def format_namespace(manifest, namespace):
 
 def map_permission_to_key(permission):
     mapping = {
-        "accountsRead": "accountsRead2",
-        "messagesMove": "messagesMove2",
+        "accountsRead": "accountsRead",
+        "messagesMove": "messagesMove",
     }
     if permission in mapping:
         return mapping[permission]
@@ -793,11 +794,12 @@ def format_manifest_namespace(manifest, namespace):
     permission_lines = []
 
     permission_strings = {}
-    with open(permissions_file) as pf:
-        for line in pf:
-            if line.startswith("webextPerms.description"):
-                parts = line.split("=", 2)
-                permission_strings[parts[0][24:]] = parts[1].strip()
+    for permissions_file in permissions_files:
+        with open(permissions_file) as pf:
+            for line in pf:
+                if line.startswith("webext-perms-description"):
+                    parts = line.split("=", 2)
+                    permission_strings[parts[0][25:].replace("-", "." ).strip()] = parts[1].strip()
 
     for type_ in manifest["types"]:
         if type_.get("$extend", None) == "WebExtensionManifest":
@@ -833,7 +835,7 @@ def format_manifest_namespace(manifest, namespace):
 
 
 if __name__ == "__main__":
-    global src_dir, permissions_file
+    global src_dir, permissions_files
 
     parser = argparse.ArgumentParser(
         description="Create WebExtensions documentation from schema files"
@@ -845,7 +847,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     src_dir = os.path.join(args.path, "mail/components/extensions/schemas")
-    permissions_file = os.path.join(args.path, "mail/locales/en-US/chrome/messenger/addons.properties")
+    permissions_files = [
+        os.path.join(args.path, "../toolkit/locales/en-US/toolkit/global/extensionPermissions.ftl"),
+        os.path.join(args.path, "mail/locales/en-US/messenger/extensionPermissions.ftl")
+    ]
 
     # read additional type defs
     additional_type_defs_file = os.path.join(OVERLAY_DIR, "additional_type_defs.json")
