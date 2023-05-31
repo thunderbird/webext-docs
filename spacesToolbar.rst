@@ -49,6 +49,18 @@ Adds a new button to the spaces toolbar. Throws an exception, if the used ``id``
       Properties of the new button. The ``url`` is mandatory.
    
 
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: integer
+      
+      The id of the space belonging to the newly created button, as used by the tabs API.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _spacesToolbar.removeButton:
 
 removeButton(id)
