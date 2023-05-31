@@ -21,7 +21,7 @@ __ https://github.com/thundernest/sample-extensions
 
 .. role:: code
 
-Use an action to put a button in the mail window toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
+Use the browserAction API to add a button to Thunderbird's unified toolbar. In addition to its icon, a browserAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
@@ -30,7 +30,109 @@ Manifest file properties
 
 .. api-member::
    :name: [``browser_action``]
-   :type: (:ref:`browserAction.ActionManifest`, optional)
+   :type: (object, optional)
+   
+   .. api-member::
+      :name: [``allowed_spaces``]
+      :type: (array of `string`, optional)
+      
+      Defines for which spaces the browserAction button will added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`mail`
+      
+      .. api-member::
+         :name: :value:`addressbook`
+      
+      .. api-member::
+         :name: :value:`calendar`
+      
+      .. api-member::
+         :name: :value:`tasks`
+      
+      .. api-member::
+         :name: :value:`chat`
+      
+      .. api-member::
+         :name: :value:`settings`
+      
+      .. api-member::
+         :name: :value:`default`
+   
+   
+   .. api-member::
+      :name: [``browser_style``]
+      :type: (boolean, optional)
+      
+      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+   
+   
+   .. api-member::
+      :name: [``default_area``]
+      :type: (`string`, optional) **Deprecated.**
+      
+      Defines the location the browserAction button will appear. This will always behave like :value:`maintoolbar`. The :value:`tabstoolbar` area should no longer be used.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`maintoolbar`
+      
+      .. api-member::
+         :name: :value:`tabstoolbar`
+   
+   
+   .. api-member::
+      :name: [``default_icon``]
+      :type: (:ref:`browserAction.IconPath`, optional)
+      
+      The paths to one or more icons for the browserAction button.
+   
+   
+   .. api-member::
+      :name: [``default_label``]
+      :type: (string, optional)
+      
+      The label of the browserAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+   
+   
+   .. api-member::
+      :name: [``default_popup``]
+      :type: (string, optional)
+      
+      The html document to be opened as a popup when the user clicks on the browserAction button.
+   
+   
+   .. api-member::
+      :name: [``default_title``]
+      :type: (string, optional)
+      
+      The title of the browserAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
+   
+   
+   .. api-member::
+      :name: [``default_windows``]
+      :type: (array of `string`, optional)
+      
+      Defines the windows, the browserAction button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`normal`
+      
+      .. api-member::
+         :name: :value:`messageDisplay`
+   
+   
+   .. api-member::
+      :name: [``theme_icons``]
+      :type: (array of :ref:`browserAction.ThemeIcons`, optional)
+      
+      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
+   
 
 .. rst-class:: api-permission-info
 
@@ -664,114 +766,6 @@ ActionManifest
 --------------
 
 .. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``allowed_spaces``]
-      :type: (array of `string`, optional)
-      
-      Defines the spaces, in which the action button can appear in the toolbar of the normal Thunderbird window. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`mail`
-      
-      .. api-member::
-         :name: :value:`addressbook`
-      
-      .. api-member::
-         :name: :value:`calendar`
-      
-      .. api-member::
-         :name: :value:`tasks`
-      
-      .. api-member::
-         :name: :value:`chat`
-      
-      .. api-member::
-         :name: :value:`settings`
-      
-      .. api-member::
-         :name: :value:`default`
-   
-   
-   .. api-member::
-      :name: [``browser_style``]
-      :type: (boolean, optional)
-      
-      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
-   
-   
-   .. api-member::
-      :name: [``default_area``]
-      :type: (`string`, optional)
-      
-      Defines the location the action button will appear. This will always behave like :value:`maintoolbar`. The :value:`tabstoolbar` area should no longer be used.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`maintoolbar`
-      
-      .. api-member::
-         :name: :value:`tabstoolbar`
-         :annotation: -- [Added in TB 92, backported to TB 91.0.2]
-   
-   
-   .. api-member::
-      :name: [``default_icon``]
-      :type: (:ref:`browserAction.IconPath`, optional)
-      
-      The paths to one or more icons for the action button.
-   
-   
-   .. api-member::
-      :name: [``default_label``]
-      :type: (string, optional)
-      :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
-      
-      The label of the action button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
-   
-   
-   .. api-member::
-      :name: [``default_popup``]
-      :type: (string, optional)
-      
-      The html document to be opened as a popup when the user clicks on the action button.
-   
-   
-   .. api-member::
-      :name: [``default_title``]
-      :type: (string, optional)
-      
-      The title of the action button. This shows up in the tooltip and the label. Defaults to the add-on name.
-   
-   
-   .. api-member::
-      :name: [``default_windows``]
-      :type: (array of `string`, optional)
-      
-      Defines the windows, the action button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`normal`
-      
-      .. api-member::
-         :name: :value:`messageDisplay`
-   
-   
-   .. api-member::
-      :name: [``theme_icons``]
-      :type: (array of :ref:`browserAction.ThemeIcons`, optional)
-      
-      Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
-   
 
 .. _browserAction.ColorArray:
 
