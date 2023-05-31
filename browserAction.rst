@@ -71,9 +71,9 @@ Manifest file properties
    
    .. api-member::
       :name: [``default_area``]
-      :type: (`string`, optional) **Deprecated.**
+      :type: (`string`, optional)
       
-      Defines the location the browserAction button will appear. This will always behave like :value:`maintoolbar`. The :value:`tabstoolbar` area should no longer be used.
+      Defines the location the browserAction button will appear. Deprecated and ignored. Replaced by ``allowed_spaces``
       
       Supported values:
       
