@@ -56,7 +56,7 @@ removeButton(id)
 
 .. api-section-annotation-hack:: 
 
-Removes the specified button from the spaces toolbar. Throws an exception if the requested spaces toolbar button does not exist. If the tab of this button is currently open, it will be closed.
+Removes the specified button from the spaces toolbar. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension. If the tab of this button is currently open, it will be closed.
 
 .. api-header::
    :label: Parameters
@@ -66,7 +66,7 @@ Removes the specified button from the spaces toolbar. Throws an exception if the
       :name: ``id``
       :type: (string)
       
-      The id of the button which is to be removed. May only contain alphanumeric characters and underscores.
+      The id of the spaces toolbar button, which is to be removed. May only contain alphanumeric characters and underscores.
    
 
 .. _spacesToolbar.updateButton:
@@ -76,7 +76,7 @@ updateButton(id, properties)
 
 .. api-section-annotation-hack:: 
 
-Updates properties of the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist.
+Updates properties of the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
 
 .. api-header::
    :label: Parameters
@@ -86,7 +86,7 @@ Updates properties of the specified spaces toolbar button. Throws an exception i
       :name: ``id``
       :type: (string)
       
-      The id of the button which is to be updated. May only contain alphanumeric characters and underscores.
+      The id of the spaces toolbar button, which is to be updated. May only contain alphanumeric characters and underscores.
    
    
    .. api-member::
@@ -95,6 +95,45 @@ Updates properties of the specified spaces toolbar button. Throws an exception i
       
       Only specified properties will be updated.
    
+
+.. _spacesToolbar.clickButton:
+
+clickButton(id, [windowId])
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+      
+      The id of the spaces toolbar button. May only contain alphanumeric characters and underscores.
+   
+   
+   .. api-member::
+      :name: [``windowId``]
+      :type: (integer, optional)
+      
+      The id of the normal window, where the spaces toolbar button should be clicked. Defaults to the most recent normal window.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      
+      Details about the opened or activated tab.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

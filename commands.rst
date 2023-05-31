@@ -172,6 +172,55 @@ Fired when a registered command is activated using a keyboard shortcut. This is 
       The details of the active tab while the command occurred.
    
 
+.. _commands.onChanged:
+
+onChanged
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a registered command's shortcut is changed.
+
+.. api-header::
+   :label: Parameters for onChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(changeInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``changeInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+         
+         The name of the shortcut.
+      
+      
+      .. api-member::
+         :name: ``newShortcut``
+         :type: (string)
+         
+         The new shortcut active for this command, or blank if not active.
+      
+      
+      .. api-member::
+         :name: ``oldShortcut``
+         :type: (string)
+         
+         The old shortcut which is no longer active for this command, or blank if the shortcut was previously inactive.
+      
+   
+
 .. rst-class:: api-main-section
 
 Types

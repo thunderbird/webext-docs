@@ -33,6 +33,11 @@ Permissions
 
    Read and modify your email messages as they are displayed to you
 
+.. api-member::
+   :name: :permission:`sensitiveDataUpload`
+
+   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+
 .. rst-class:: api-permission-info
 
 .. note::

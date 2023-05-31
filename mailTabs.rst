@@ -24,8 +24,8 @@ Functions
 
 .. _mailTabs.query:
 
-query(queryInfo)
-----------------
+query([queryInfo])
+------------------
 
 .. api-section-annotation-hack:: 
 
@@ -36,8 +36,8 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
 
    
    .. api-member::
-      :name: ``queryInfo``
-      :type: (object)
+      :name: [``queryInfo``]
+      :type: (object, optional)
       
       .. api-member::
          :name: [``active``]
@@ -155,7 +155,7 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          :name: [``displayedFolder``]
          :type: (:ref:`folders.MailFolder`, optional)
          
-         Sets the folder displayed in the tab. The extension must have the :permission:`accountsRead` permission to do this.
+         Sets the folder displayed in the tab. The extension must have the :permission:`accountsRead` permission to do this. The previous message selection in the given folder will be restored.
       
       
       .. api-member::

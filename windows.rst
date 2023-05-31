@@ -165,6 +165,13 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       
       
       .. api-member::
+         :name: [``cookieStoreId``]
+         :type: (string, optional)
+         
+         The CookieStoreId to use for all tabs that were created when the window is opened.
+      
+      
+      .. api-member::
          :name: [``focused``]
          :type: (boolean, optional) **Unsupported.**
          
