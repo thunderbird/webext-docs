@@ -205,6 +205,13 @@ Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages. O
       
       
       .. api-member::
+         :name: [``cookieStoreId``]
+         :type: (string, optional)
+         
+         The `CookieStore <|link-cookieStore|>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <|link-contextualIdentity|>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+      
+      
+      .. api-member::
          :name: [``index``]
          :type: (integer, optional)
          
@@ -279,8 +286,8 @@ Duplicates a tab.
 
 .. _tabs.query:
 
-query(queryInfo)
-----------------
+query([queryInfo])
+------------------
 
 .. api-section-annotation-hack:: 
 
@@ -291,14 +298,21 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
    
    .. api-member::
-      :name: ``queryInfo``
-      :type: (object)
+      :name: [``queryInfo``]
+      :type: (object, optional)
       
       .. api-member::
          :name: [``active``]
          :type: (boolean, optional)
          
          Whether the tabs are active in their windows.
+      
+      
+      .. api-member::
+         :name: [``cookieStoreId``]
+         :type: (array of string or string, optional)
+         
+         The `CookieStore <|link-cookieStore|>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <|link-contextualIdentity|>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.
       
       
       .. api-member::
@@ -334,6 +348,13 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :type: (boolean, optional)
          
          Whether the tab is a Thunderbird 3-pane tab.
+      
+      
+      .. api-member::
+         :name: [``spaceId``]
+         :type: (integer, optional)
+         
+         The id of the space the tabs should belong to.
       
       
       .. api-member::
@@ -420,14 +441,14 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
          :name: [``active``]
          :type: (boolean, optional)
          
-         Set this to :value:`true`, if the tab should be active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
+         Set this to :value:`true`, if the tab should become active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
       
       
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
          
-         A URL to navigate the tab to. Only applicable for :value:`content` tabs and active :value:`mail` tabs.
+         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
       
    
 
@@ -450,7 +471,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: 
 
-Moves one or more tabs to a new position within its window, or to a new window. Note that tabs can only be moved to and from windows of type :value:`normal`.
+Moves one or more tabs to a new position within its current window, or to a different window. Note that tabs can only be moved to and from windows of type :value:`normal`.
 
 .. api-header::
    :label: Parameters
@@ -471,7 +492,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
          :name: ``index``
          :type: (integer)
          
-         The position to move the window to. :value:`-1` will place the tab at the end of the window.
+         The position to move the tab to. :value:`-1` will place the tab at the end of the window.
       
       
       .. api-member::
@@ -487,7 +508,7 @@ Moves one or more tabs to a new position within its window, or to a new window. 
 
    
    .. api-member::
-      :type: :ref:`tabs.Tab` or array of :ref:`tabs.Tab`
+      :type: array of :ref:`tabs.Tab`
       
       Details about the moved tabs.
    
@@ -501,7 +522,7 @@ reload([tabId], [reloadProperties])
 
 .. api-section-annotation-hack:: 
 
-Reload a tab.
+Reload a tab. Only applicable for tabs which display a content page.
 
 .. api-header::
    :label: Parameters
@@ -853,6 +874,13 @@ Fires when the active tab in a window changes. Note that the tab's URL may not b
          
          The ID of the window the active tab changed inside of.
       
+      
+      .. api-member::
+         :name: [``previousTabId``]
+         :type: (integer, optional)
+         
+         The ID of the tab that was previously active, if that tab is still open.
+      
    
 
 .. _tabs.onDetached:
@@ -1033,6 +1061,13 @@ Tab
    
    
    .. api-member::
+      :name: [``cookieStoreId``]
+      :type: (string, optional)
+      
+      The `CookieStore <|link-cookieStore|>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <|link-contextualIdentity|>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+   
+   
+   .. api-member::
       :name: [``favIconUrl``]
       :type: (string, optional)
       
@@ -1058,6 +1093,13 @@ Tab
       :type: (boolean, optional)
       
       Whether the tab is a 3-pane tab.
+   
+   
+   .. api-member::
+      :name: [``spaceId``]
+      :type: (integer, optional)
+      
+      The id of the space.
    
    
    .. api-member::

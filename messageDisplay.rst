@@ -110,13 +110,20 @@ Opens a message in a new tab or in a new window.
       :name: ``openProperties``
       :type: (object)
       
-      Settings for opening the message. Exactly one of messageId or headerMessageId must be specified.
+      Settings for opening the message. Exactly one of messageId, headerMessageId or file must be specified.
       
       .. api-member::
          :name: [``active``]
          :type: (boolean, optional)
          
          Whether the new tab should become the active tab in the window. Only applicable to messages opened in tabs.
+      
+      
+      .. api-member::
+         :name: [``file``]
+         :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
+         
+         The DOM file object of a message to be opened.
       
       
       .. api-member::

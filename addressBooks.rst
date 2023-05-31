@@ -26,6 +26,11 @@ Permissions
 
    Read and modify your address books and contacts
 
+.. api-member::
+   :name: :permission:`sensitiveDataUpload`
+
+   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -45,6 +50,16 @@ openUI()
 .. api-section-annotation-hack:: 
 
 Opens the address book user interface.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions

@@ -53,6 +53,11 @@ Permissions
 
    Create, modify and delete message tags
 
+.. api-member::
+   :name: :permission:`sensitiveDataUpload`
+
+   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -311,10 +316,45 @@ The most simple way to get the content of an attachment is to use the `text() <h
 .. literalinclude:: includes/messages/file.js
   :language: JavaScript
 
+.. _messages.openAttachment:
+
+openAttachment(messageId, partName, tabId)
+------------------------------------------
+
+.. api-section-annotation-hack:: 
+
+Opens the specified attachment
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partName``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+      
+      The ID of the tab associated with the message opening.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.query:
 
-query(queryInfo)
-----------------
+query([queryInfo])
+------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 69, backported to TB 68.2]
 
@@ -325,8 +365,8 @@ Gets all messages that have the specified properties, or all messages if no prop
 
    
    .. api-member::
-      :name: ``queryInfo``
-      :type: (object)
+      :name: [``queryInfo``]
+      :type: (object, optional)
       
       .. api-member::
          :name: [``attachment``]

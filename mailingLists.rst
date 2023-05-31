@@ -26,6 +26,11 @@ Permissions
 
    Read and modify your address books and contacts
 
+.. api-member::
+   :name: :permission:`sensitiveDataUpload`
+
+   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+
 .. rst-class:: api-permission-info
 
 .. note::
