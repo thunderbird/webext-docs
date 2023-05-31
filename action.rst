@@ -13,7 +13,7 @@ It is identical to the old ``browserAction`` API and very similar to Firefox's `
 
 .. role:: code
 
-Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, a browserAction button can also have a tooltip, a badge, and a popup.
+Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
 
