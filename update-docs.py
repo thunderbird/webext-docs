@@ -775,8 +775,8 @@ def format_namespace(manifest, namespace):
 
 def map_permission_to_key(permission):
     mapping = {
-        "accountsRead": "accountsRead2",
-        "messagesMove": "messagesMove2",
+        "accountsRead": "accountsRead",
+        "messagesMove": "messagesMove",
     }
     if permission in mapping:
         return mapping[permission]
@@ -794,11 +794,12 @@ def format_manifest_namespace(manifest, namespace):
     permission_lines = []
 
     permission_strings = {}
-    with open(permissions_file) as pf:
-        for line in pf:
-            if line.startswith("webextPerms.description"):
-                parts = line.split("=", 2)
-                permission_strings[parts[0][24:]] = parts[1].strip()
+    for permissions_file in permissions_files:
+        with open(permissions_file) as pf:
+            for line in pf:
+                if line.startswith("webext-perms-description"):
+                    parts = line.split("=", 2)
+                    permission_strings[parts[0][25:].replace("-", "." ).strip()] = parts[1].strip()
 
     for type_ in manifest["types"]:
         if type_.get("$extend", None) == "WebExtensionManifest":
@@ -834,7 +835,7 @@ def format_manifest_namespace(manifest, namespace):
 
 
 if __name__ == "__main__":
-    global src_dir, permissions_file
+    global src_dir, permissions_files
 
     parser = argparse.ArgumentParser(
         description="Create WebExtensions documentation from schema files"
@@ -846,7 +847,10 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     src_dir = os.path.join(args.path, "mail/components/extensions/schemas")
-    permissions_file = os.path.join(args.path, "mail/locales/en-US/chrome/messenger/addons.properties")
+    permissions_files = [
+        os.path.join(args.path, "../toolkit/locales/en-US/toolkit/global/extensionPermissions.ftl"),
+        os.path.join(args.path, "mail/locales/en-US/messenger/extensionPermissions.ftl")
+    ]
 
     # read additional type defs
     additional_type_defs_file = os.path.join(OVERLAY_DIR, "additional_type_defs.json")
