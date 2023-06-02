@@ -36,7 +36,7 @@ Manifest file properties
       :name: [``allowed_spaces``]
       :type: (array of `string`, optional)
       
-      Defines for which spaces the browserAction button will added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.
+      Defines for which spaces the browserAction button will be added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.
       
       Supported values:
       
