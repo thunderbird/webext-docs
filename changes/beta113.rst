@@ -8,6 +8,10 @@ action APIs
 * Fixed the annoying issue on MacOS, where the popup was opened empty after the second time it was opened. A big shout out to Arnd Issler for helping to track this down.
 * Added ``allowed_spaces`` manifest entry, to let add-ons define in which space the action button should be allowed in.
 
+browserAction API
+=================
+* The browserAction API has been renamed to action API for Manifest v3.
+
 compose API
 ===========
 * Fix compose API to no longer clear all (!) headers, if :ref:`compose.setComposeDetails` is used to update the non-standard ``X-`` headers.
