@@ -28,7 +28,7 @@ Manifest file properties
       :name: [``allowed_spaces``]
       :type: (array of `string`, optional)
       
-      Defines for which spaces the action button will added to Thunderbird's unified toolbar. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
+      Defines for which spaces the action button will be added to Thunderbird's unified toolbar. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
       
       Supported values:
       
@@ -59,11 +59,6 @@ Manifest file properties
       :type: (boolean, optional)
       
       Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
-   
-   
-   .. api-member::
-      :name: [``default_area``]
-      :type: (string, optional) **Unsupported.**
    
    
    .. api-member::
