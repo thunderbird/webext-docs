@@ -266,7 +266,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   messageDisplayAction
   messageDisplayScripts
   messages
-  spacesToolbar
+  spaces
   theme
   tabs
   windows

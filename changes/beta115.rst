@@ -2,8 +2,14 @@
 Changes in Thunderbird 115
 ==========================
 
-Introduce an additional ``sensitiveDataUpload``permission, which allows to by-pass human review, but prompts the user for the following permission: Transfer sensitive user data (if access has been granted) to a remote server for further processing.
+Introduce an additional ``sensitiveDataUpload`` permission, which allows to by-pass human review, but prompts the user for the following permission: *Transfer sensitive user data (if access has been granted) to a remote server for further processing.*
+
 If an add-on is not requesting that permission, but a reviewer concludes that it is indeed sending data to a remote server not under the control of the user, the reviewer may request the permission to be added.
+
+action API
+==========
+* Remove support for the ``default_area`` manifest entry.
+* Add support for the ``allowed_spaces`` manifest entry.
 
 addressBooks API
 ================
@@ -16,7 +22,7 @@ commands API
 messages API
 ============
 * The ``queryInfo`` parameter for :ref:`messages.query` is now optional.
-* Added :ref:``messages.openAttachment`` to open message attachments with the registered application. A big thank you to Mark Banner.
+* Added :ref:`messages.openAttachment` to open message attachments with the registered application. A big thank you to Mark Banner.
 
 messageDisplay API
 ==================
