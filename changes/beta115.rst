@@ -8,8 +8,7 @@ If an add-on is not requesting that permission, but a reviewer concludes that it
 
 action API
 ==========
-* Remove support for the ``default_area`` manifest entry.
-* Add support for the ``allowed_spaces`` manifest entry.
+* Deprecate the ``default_area`` manifest entry in favour of the recently added ``allowed_spaces`` manifest entry.
 
 addressBooks API
 ================
@@ -26,7 +25,7 @@ messages API
 
 messageDisplay API
 ==================
-* Added support for :ref:`messageDisplay.open` to open messages from DOM File object.
+* Added support for :ref:`messageDisplay.open` to open messages from a DOM File object.
 
 spaces API & spacesToolbar API
 ==============================
