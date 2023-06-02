@@ -29,7 +29,7 @@ messageDisplay API
 
 spaces API & spacesToolbar API
 ==============================
-* The button-centric spacesToolbar API was removed for Manifest v3 and has been replaced by the spaces-centric spaces API.
+* The button-centric ``spacesToolbar API`` was removed for Manifest v3 and has been replaced by the spaces-centric ``spaces API``.
 
 tabs API
 ========
