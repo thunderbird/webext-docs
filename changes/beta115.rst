@@ -39,7 +39,7 @@ sessions API
 
 spaces API
 ==========
-* Add :ref:`spaces_api` which supersedes the spacesToolbar and allows to manage built-in and custom spaces.
+* Add :ref:`spaces_api` which supersedes the spacesToolbar API and allows to manage built-in and custom spaces.
 
 spacesToolbar API
 =================
