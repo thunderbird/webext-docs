@@ -699,15 +699,6 @@ The type of a window. Under some circumstances a window may not be assigned a ty
             :name: :value:`popup`
          
          .. api-member::
-            :name: :value:`panel`
-         
-         .. api-member::
-            :name: :value:`app`
-         
-         .. api-member::
-            :name: :value:`devtools`
-         
-         .. api-member::
             :name: :value:`messageCompose`
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
          

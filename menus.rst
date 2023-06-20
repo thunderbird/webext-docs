@@ -564,6 +564,9 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`compose_action`
          
          .. api-member::
+            :name: :value:`compose_action_menu`
+         
+         .. api-member::
             :name: :value:`compose_attachments`
          
          .. api-member::
@@ -589,6 +592,9 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          
          .. api-member::
             :name: :value:`message_display_action`
+         
+         .. api-member::
+            :name: :value:`message_display_action_menu`
          
          .. api-member::
             :name: :value:`message_list`
@@ -626,6 +632,9 @@ OR
          
          .. api-member::
             :name: :value:`action`
+         
+         .. api-member::
+            :name: :value:`action_menu`
    
 
 .. _menus.ItemType:
