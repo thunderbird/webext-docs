@@ -82,6 +82,10 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 +-------------------------------+------------------------------------------------------------+
 | :doc:`messages`               | |messages-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
+| :doc:`sessions`               | |sessions-Description|                                       |
++-------------------------------+------------------------------------------------------------+
+| :doc:`spaces`                 | |spaces-Description|                                       |
++-------------------------------+------------------------------------------------------------+
 | :doc:`spacesToolbar`          | |spacesToolbar-Description|                                |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`tabs`                   | |tabs-Description|                                         |
@@ -111,6 +115,8 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |messageDisplayAction-Description| replace:: Enables an extension to interact with a `message display action button`_. 
 .. |messageDisplayScripts-Description| replace:: Functionally is the same as the contentScripts API except that it works on the document of email messages being displayed.
 .. |messages-Description| replace:: Enables an extension to list, search, read, copy, move and delete messages.
+.. |sessions-Description| replace:: Enables an extension to store tab related session data for individual tabs (restored on app restart).
+.. |spaces-Description| replace:: Enables an extension to interact with Thunderbird's spaces, and to create custom spaces.
 .. |spacesToolbar-Description| replace:: Enables an extension to interact with Thunderbird's spaces toolbar.
 .. |tabs-Description| replace:: Enables an extension to interact with Thunderbird's tab system. It allows to create, modify, and rearrange tabs and to communicate with scripts in tabs.
 .. |windows-Description| replace:: Enables an extension to interact with Thunderbird's windows which can contain webpage tabs and also with other window types like composer or address books that cannot contain webpage tabs. You can use this API to create, modify, and rearrange windows.
@@ -257,6 +263,8 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   messageDisplayAction
   messageDisplayScripts
   messages
+  sessions
+  spaces
   spacesToolbar
   theme
   tabs

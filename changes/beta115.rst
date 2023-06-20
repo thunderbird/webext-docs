@@ -9,6 +9,7 @@ If an add-on is not requesting that permission, but a reviewer concludes that it
 browserAction API
 =================
 * Deprecate the ``default_area`` manifest entry in favour of the recently added ``allowed_spaces`` manifest entry.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` and a new ``browser_action_menu`` context.
 
 addressBooks API
 ================
@@ -18,14 +19,27 @@ commands API
 ============
 * Add the :ref:`commands.onChanged` event to be notified when a command shortcut has been changed.
 
+compose API
+===========
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` and a new ``compose_action_menu`` context.
+
 messages API
 ============
 * The ``queryInfo`` parameter for :ref:`messages.query` is now optional.
 * Added :ref:`messages.openAttachment` to open message attachments with the registered application. A big thank you to Mark Banner.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` and a new ``message_display_action_menu`` context.
 
 messageDisplay API
 ==================
 * Added support for :ref:`messageDisplay.open` to open messages from a DOM File object.
+
+sessions API
+==========
+* Add a first simple version of the :ref:`sessions_api` to allow extensions to store tab related session data, which is restored on app restart.
+
+spaces API
+==========
+* Add :ref:`spaces_api` which supersedes the spacesToolbar and allows to manage built-in and custom spaces.
 
 spacesToolbar API
 =================

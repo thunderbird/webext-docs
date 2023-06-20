@@ -60,7 +60,7 @@ Manifest file properties
       :name: [``default_popup``]
       :type: (string, optional)
       
-      The html document to be opened as a popup when the user clicks on the messageDisplayAction button.
+      The html document to be opened as a popup when the user clicks on the messageDisplayAction button. Ignored for action buttons with type :value:`menu`.
    
    
    .. api-member::
@@ -75,6 +75,21 @@ Manifest file properties
       :type: (array of :ref:`messageDisplayAction.ThemeIcons`, optional)
       
       Specifies dark and light icons to be used with themes. The ``light`` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the ``default_icon`` for light backgrounds (if specified).
+   
+   
+   .. api-member::
+      :name: [``type``]
+      :type: (`string`, optional)
+      
+      Specifies the type of the button. Default type is :code:`button`.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`button`
+      
+      .. api-member::
+         :name: :value:`menu`
    
 
 .. rst-class:: api-permission-info
@@ -628,7 +643,7 @@ openPopup([options])
 
 .. api-section-annotation-hack:: 
 
-Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action is disabled or has been removed from the toolbar.
+Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type :value:`menu`, is disabled or has been removed from the toolbar.
 
 .. api-header::
    :label: Parameters
