@@ -9,7 +9,7 @@ If an add-on is not requesting that permission, but a reviewer concludes that it
 action API
 ==========
 * Deprecate the ``default_area`` manifest entry in favour of the recently added ``allowed_spaces`` manifest entry.
-* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` and a new ``browser_action_menu`` context.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` API and a new ``browser_action_menu`` context.
 
 addressBooks API
 ================
@@ -21,13 +21,13 @@ commands API
 
 compose API
 ===========
-* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` and a new ``compose_action_menu`` context.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` API and a new ``compose_action_menu`` context.
 
 messages API
 ============
 * The ``queryInfo`` parameter for :ref:`messages.query` is now optional.
 * Added :ref:`messages.openAttachment` to open message attachments with the registered application. A big thank you to Mark Banner.
-* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` and a new ``message_display_action_menu`` context.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` API and a new ``message_display_action_menu`` context.
 
 messageDisplay API
 ==================
@@ -39,7 +39,7 @@ spaces API & spacesToolbar API
 
 sessions API
 ==========
-* Add a first simple version of the :ref:`sessions_api` to allow extensions to store tab related session data, which is restored on app restart.
+* Add a first simple version of the :ref:`sessions_api` API to allow extensions to store tab related session data, which is restored on app restart.
 
 tabs API
 ========
