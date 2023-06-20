@@ -2,7 +2,7 @@
 Changes in Thunderbird 115
 ==========================
 
-Introduce an additional ``sensitiveDataUpload`` permission, which allows to by-pass human review, but prompts the user for the following permission: *Transfer sensitive user data (if access has been granted) to a remote server for further processing.*
+WebExtension usually are not reviewed when submitted but instead are made available instantly. The WebExtension permission system should guard against malicious actors. However, the data available to extensions is very sensitive and if a user granted access to messages and contacts he mostly assumes the data is only used locally. Extensions however, can unknowingly send this data to remote servers. We therefore started to enforce review of all extensions, which request sensitive permissions like ``messagesRead`` or ``addressBooks``. We also introduce an additional ``sensitiveDataUpload`` permission, which allows to by-pass this human review, but prompts the user for the following permission: *Transfer sensitive user data (if access has been granted) to a remote server for further processing.*
 
 If an add-on is not requesting that permission, but a reviewer concludes that it is indeed sending data to a remote server not under the control of the user, the reviewer may request the permission to be added.
 
