@@ -2,7 +2,7 @@
 
   The Manifest v3 specification is not finalized yet and will continue to change. Feel free to test 
   and explore the required changes for your extensions to run under Manifest v3, but do not release 
-  or distribute them yet. We aim to finalize the specification with the release of Thunderbird 115.
+  or distribute them yet.
   
   The `Firefox blog post about MV3 <https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/>`__
   has all the relevant information.
