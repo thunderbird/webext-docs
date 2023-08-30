@@ -204,17 +204,12 @@ Returns a specified message, including all headers and MIME parts. Throws if the
 
 .. _messages.getRaw:
 
-getRaw(messageId)
------------------
+getRaw(messageId, [options])
+----------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__, which is a simple series of 8-bit values. Throws if the message could not be read, for example due to network issues. If the message contains non-ASCII characters, the body parts in the binary string cannot be read directly and must be decoded according to their character sets. Use :ref:`messages.getFull` to get the correctly decoded parts. Manually decoding the raw message is probably too error-prone, especially if the message contains MIME parts with different character set encodings or attachments.
-
-To get a readable version of the raw message as it appears in Thunderbird's message source view, it may be sufficient to decode the message according to the character set specified in its main `content-type <https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Type>`__ header (example: :value:`text/html; charset=UTF-8`) using the following function (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__): 
-
-.. literalinclude:: includes/messages/decodeBinaryString.js
-  :language: JavaScript
+Returns the unmodified source of a message. Throws if the message could not be read, for example due to network issues.
 
 .. api-header::
    :label: Parameters
@@ -224,13 +219,38 @@ To get a readable version of the raw message as it appears in Thunderbird's mess
       :name: ``messageId``
       :type: (integer)
    
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object, optional)
+      
+      .. api-member::
+         :name: ``data_format``
+         :type: (`string`)
+         
+         The message can either be returned as a DOM File or as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__. The historic default is to return a binary string (kept for backward compatibility). However, it is now recommended to use the ``File`` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <|link-DOMFile-text|>`__ and `File.arrayBuffer() <|link-DOMFile-arrayBuffer|>`__. Working with binary strings is error prone and needs special handling: 
+         
+         .. literalinclude:: includes/messages/decodeBinaryString.js
+           :language: JavaScript
+         
+          (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__).
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`File`
+         
+         .. api-member::
+            :name: :value:`BinaryString`
+      
+   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    
    .. api-member::
-      :type: string
+      :type: string or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
