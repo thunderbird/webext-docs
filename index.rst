@@ -308,6 +308,6 @@ Where To Get Help And More Information
 
 __ https://developer.thunderbird.net/add-ons/
 __ https://developer.thunderbird.net/add-ons/community
-__ https://github.com/thundernest/sample-extensions
+__ https://github.com/thunderbird/sample-extensions
 __ https://github.com/mdn/webextensions-examples
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions

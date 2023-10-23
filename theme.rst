@@ -338,7 +338,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
       :name: [``stylesheet``]
       :type: (:ref:`theme.ExtensionURL`, optional)
       
-      URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thundernest/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the :value:`--chat-button-color` CSS color variable: 
+      URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird. The `theme_experiment add-on in our example repository <https://github.com/thunderbird/sample-extensions/tree/master/theme_experiment>`__ is using the stylesheet shown below, to add the :value:`--chat-button-color` CSS color variable:
       
       .. literalinclude:: includes/theme/theme_experiment_style.css
         :language: CSS
