@@ -17,7 +17,18 @@
       {
         "name": "getRaw",
         "added": "72",
-        "backported": "68.7"
+        "backported": "68.7",
+        "parameters": [
+          {
+            "name": "options",
+            "properties": {
+              "data_format": {
+                "added": "117",
+                "backported": "115.3.2"
+              }
+            }
+          }
+        ]
       },
       {
         "name": "listAttachments",
