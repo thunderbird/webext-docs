@@ -8,10 +8,16 @@ source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
 
-import sphinx_rtd_theme
-html_theme = "sphinx_rtd_theme"
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+extensions = [
+    # ... other extensions here
+    'versionwarning.extension',
+    'apiheader',
+    'apimember',
+    'apisectionannotationhack',
+    'sphinx_rtd_theme',
+]
 
+html_theme = "sphinx_rtd_theme"
 html_theme_options = {
     # Toc options
     'collapse_navigation': False,
@@ -45,15 +51,6 @@ versionwarning_current_indexmessage = 'This is the API documentation for the cur
 versionwarning_older_type = 'warning'
 versionwarning_older_title = 'Warning'
 versionwarning_older_message = 'This is an outdated API documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
-
-
-extensions = [
-    # ... other extensions here
-    'versionwarning.extension',
-    'apiheader',
-    'apimember',
-    'apisectionannotationhack',
-]
 
 def setup(app):
    #app.add_javascript("custom.js")
