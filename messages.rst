@@ -136,6 +136,29 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
 
    - :permission:`messagesRead`
 
+.. _messages.abortList:
+
+abortList(messageListId)
+------------------------
+
+.. api-section-annotation-hack:: 
+
+Finalizes the specified list and terminates any process currently still adding messages.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.get:
 
 get(messageId)
@@ -404,6 +427,13 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       
       .. api-member::
+         :name: [``autoPaginationTimeout``]
+         :type: (integer, optional)
+         
+         Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
+      
+      
+      .. api-member::
          :name: [``body``]
          :type: (string, optional)
          
@@ -462,10 +492,24 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       
       .. api-member::
+         :name: [``messagesPerPage``]
+         :type: (integer, optional)
+         
+         Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
+      
+      
+      .. api-member::
          :name: [``recipients``]
          :type: (string, optional)
          
          Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: :value:`Name <user@domain.org>`). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
+      
+      
+      .. api-member::
+         :name: [``returnMessageListId``]
+         :type: (boolean, optional)
+         
+         The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.
       
       
       .. api-member::
@@ -510,7 +554,7 @@ Gets all messages that have the specified properties, or all messages if no prop
 
    
    .. api-member::
-      :type: :ref:`messages.MessageList`
+      :type: :ref:`messages.MessageList` or string
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -768,7 +812,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :name: ``key``
       :type: (string)
       
-      Unique tag identifier (must use only alphanumeric characters).
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
    
    .. api-member::
@@ -808,7 +852,7 @@ Updates a message tag.
       :name: ``key``
       :type: (string)
       
-      Unique tag identifier.
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
    
    .. api-member::
@@ -852,6 +896,8 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
    .. api-member::
       :name: ``key``
       :type: (string)
+      
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
 
 .. api-header::
