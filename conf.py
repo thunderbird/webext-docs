@@ -8,9 +8,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
 
-# We only need to set the RTD theme when not on RTD because the RTD
-# environment handles this otherwise.
-# html_theme = 'sphinx_rtd_theme'
+import sphinx_rtd_theme
+html_theme = "sphinx_rtd_theme"
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 html_theme_options = {
     # Toc options
