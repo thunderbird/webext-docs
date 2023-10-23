@@ -132,6 +132,10 @@ def get_type(obj, name):
                 if "choices" in obj["items"]:
                     choices = []
                     for choice in obj["items"]["choices"]:
+                        if "min_manifest_version" in choice and choice["min_manifest_version"] > MV:
+                            continue
+                        if "max_manifest_version" in choice and choice["max_manifest_version"] < MV:
+                            continue
                         choices.append(get_type(choice, name))
                     return "array of %s" % " or ".join(choices)
                 else:
@@ -242,6 +246,10 @@ def get_api_member_parts(name, value):
     elif "choices" in value:
         choices = []
         for choice in value["choices"]:
+            if "min_manifest_version" in choice and choice["min_manifest_version"] > MV:
+                continue
+            if "max_manifest_version" in choice and choice["max_manifest_version"] < MV:
+                continue
             choices.append(get_type(choice, name))
         parts['type'] = type_string % " or ".join(choices)
 
