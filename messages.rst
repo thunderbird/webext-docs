@@ -251,7 +251,7 @@ Returns the unmodified source of a message. Throws if the message could not be r
          :name: ``data_format``
          :type: (`string`)
          
-         The message can either be returned as a DOM File or as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__. The historic default is to return a binary string (kept for backward compatibility). However, it is now recommended to use the ``File`` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <|link-DOMFile-text|>`__ and `File.arrayBuffer() <|link-DOMFile-arrayBuffer|>`__. Working with binary strings is error prone and needs special handling: 
+         The message can either be returned as a DOM File or as a `binary string <https://developer.mozilla.org/en-US/docs/Web/API/DOMString/Binary>`__. The historic default is to return a binary string (kept for backward compatibility). However, it is now recommended to use the ``File`` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ and `File.arrayBuffer() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer>`__. Working with binary strings is error prone and needs special handling: 
          
          .. literalinclude:: includes/messages/decodeBinaryString.js
            :language: JavaScript
