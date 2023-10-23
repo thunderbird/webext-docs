@@ -68,6 +68,9 @@ def merge_objects(a, b):
 
 
 def replace_code(string):
+    # Dirty quick fix, should be solved by a regexp.
+    string = string.replace("</literalinclude> ", "\n\n")
+    
     replacements = {
         "<em>": "*",
         "</em>": "*",
