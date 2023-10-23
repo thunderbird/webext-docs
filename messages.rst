@@ -141,7 +141,7 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
 abortList(messageListId)
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 120]
 
 Finalizes the specified list and terminates any process currently still adding messages.
 
@@ -429,6 +429,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``autoPaginationTimeout``]
          :type: (integer, optional)
+         :annotation: -- [Added in TB 120]
          
          Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
       
@@ -494,6 +495,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``messagesPerPage``]
          :type: (integer, optional)
+         :annotation: -- [Added in TB 120]
          
          Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
       
@@ -508,6 +510,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       .. api-member::
          :name: [``returnMessageListId``]
          :type: (boolean, optional)
+         :annotation: -- [Added in TB 120]
          
          The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.
       
