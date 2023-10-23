@@ -107,6 +107,8 @@ def replace_code(string):
         "|link-runtime-on-connect|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect",
         "|link-runtime-on-message|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage",
         "|link-match-patterns|": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns",
+        "|link-DOMFile-arrayBuffer|": "https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer",
+        "|link-DOMFile-text|": "https://developer.mozilla.org/en-US/docs/Web/API/Blob/text",
 
         "|DateTimeFormat|": "`Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__",
         "|File|": "`File <https://developer.mozilla.org/docs/Web/API/File>`__",
