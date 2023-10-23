@@ -138,7 +138,7 @@ Manifest file properties
       :name: [``type``]
       :type: (`string`, optional)
       
-      Specifies the type of the button. Default type is :code:`button`.
+      Specifies the type of the button. Default type is :value:`button`.
       
       Supported values:
       
