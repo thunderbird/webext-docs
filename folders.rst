@@ -600,35 +600,9 @@ An object describing a mail folder, as returned for example by the :ref:`folders
    
    .. api-member::
       :name: [``type``]
-      :type: (`string`, optional)
+      :type: (:ref:`folders.MailFolderType`, optional)
       
-      The type of folder, for several common types.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`inbox`
-      
-      .. api-member::
-         :name: :value:`drafts`
-      
-      .. api-member::
-         :name: :value:`sent`
-      
-      .. api-member::
-         :name: :value:`trash`
-      
-      .. api-member::
-         :name: :value:`templates`
-      
-      .. api-member::
-         :name: :value:`archives`
-      
-      .. api-member::
-         :name: :value:`junk`
-      
-      .. api-member::
-         :name: :value:`outbox`
+      The type of folder.
    
 
 .. _folders.MailFolderInfo:
@@ -663,4 +637,48 @@ An object containing additional information about a mail folder.
       :type: (integer, optional)
       
       Number of unread messages in this folder.
+   
+
+.. _folders.MailFolderType:
+
+MailFolderType
+--------------
+
+.. api-section-annotation-hack:: 
+
+The type of folder
+
+.. api-header::
+   :label: `string`
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`inbox`
+         
+         .. api-member::
+            :name: :value:`drafts`
+         
+         .. api-member::
+            :name: :value:`sent`
+         
+         .. api-member::
+            :name: :value:`trash`
+         
+         .. api-member::
+            :name: :value:`templates`
+         
+         .. api-member::
+            :name: :value:`archives`
+         
+         .. api-member::
+            :name: :value:`junk`
+         
+         .. api-member::
+            :name: :value:`outbox`
    
