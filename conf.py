@@ -7,7 +7,10 @@ project = u'WebExtension API Documentation for Thunderbird 115<br><br>Manifest v
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
-html_theme = 'sphinx_rtd_theme'
+
+# We only need to set the RTD theme when not on RTD because the RTD
+# environment handles this otherwise.
+# html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
     # Toc options
