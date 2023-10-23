@@ -36,6 +36,10 @@
         "added": "106"
       },
       {
+        "name": "abortList",
+        "added": "120"
+      },
+      {
         "name": "query",
         "added": "69",
         "backported": "68.2",
@@ -55,6 +59,15 @@
               "attachment": {
                 "added": "96",
                 "backported": "91.4.1"
+              },
+              "autoPaginationTimeout": {
+                "added": "120"
+              },
+              "messagesPerPage": {
+                "added": "120"
+              },
+              "returnMessageListId": {
+                "added": "120"
               }
             }
           }
