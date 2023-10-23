@@ -34,7 +34,7 @@ messageDisplay API
 * Added support for :ref:`messageDisplay.open` to open messages from a DOM File object.
 
 sessions API
-==========
+============
 * Add a first simple version of the :ref:`sessions_api` API to allow extensions to store tab related session data, which is restored on app restart.
 
 spaces API
