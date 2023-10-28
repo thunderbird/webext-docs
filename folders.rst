@@ -130,7 +130,7 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       .. api-member::
          :name: [``name``]
-         :type: (object or string, optional)
+         :type: (:ref:`folders.RegularExpression` or string, optional)
          
          Return only folders whose name is matched by the provided string or regular expression.
       
@@ -875,13 +875,6 @@ An object containing additional information about a mail folder.
    
    
    .. api-member::
-      :name: [``quota``]
-      :type: (array of :ref:`folders.MailFolderQuota`, optional)
-      
-      Quota information, if available.
-   
-   
-   .. api-member::
       :name: [``totalMessageCount``]
       :type: (integer, optional)
       
@@ -893,55 +886,6 @@ An object containing additional information about a mail folder.
       :type: (integer, optional)
       
       Number of unread messages in this folder.
-   
-
-.. _folders.MailFolderQuota:
-
-MailFolderQuota
----------------
-
-.. api-section-annotation-hack:: 
-
-An object containing quota information.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``limit``
-      :type: (integer)
-      
-      The maximum available quota.
-   
-   
-   .. api-member::
-      :name: ``type``
-      :type: (`string`)
-      
-      The type of the quota as defined by RFC2087. A :value:`STORAGE` quota is constraining the available storage in bytes, a :value:`MESSAGE` quota is constraining the number of storable messages.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`STORAGE`
-      
-      .. api-member::
-         :name: :value:`MESSAGE`
-   
-   
-   .. api-member::
-      :name: ``unused``
-      :type: (integer)
-      
-      The currently unused quota.
-   
-   
-   .. api-member::
-      :name: ``used``
-      :type: (integer)
-      
-      The currently used quota.
    
 
 .. _folders.MailFolderType:
@@ -1013,4 +957,40 @@ An object defining a range.
       :type: (integer, optional)
       
       The minimum value required to match the query.
+   
+
+.. _folders.RegularExpression:
+
+RegularExpression
+-----------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``regexp``
+      :type: (string)
+      
+      A regular expression, for example :value:`^Projects \d{4}$`
+   
+   
+   .. api-member::
+      :name: [``flags``]
+      :type: (`string`, optional)
+      
+      RegExp Flags: :value:`i` = case insensitive, :value:`u` & :value:`v` = unicode support
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`i`
+      
+      .. api-member::
+         :name: :value:`u`
+      
+      .. api-member::
+         :name: :value:`v`
    
