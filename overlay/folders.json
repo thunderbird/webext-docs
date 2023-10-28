@@ -21,6 +21,18 @@
         "added": "91"
       },
       {
+        "id": "query",
+        "added": "121"
+      },
+      {
+        "id": "markAsRead",
+        "added": "121"
+      },
+      {
+        "id": "update",
+        "added": "121"
+      },
+      {
         "id": "getSubFolders",
         "added": "91"
       },
