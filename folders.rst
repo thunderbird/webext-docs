@@ -34,6 +34,144 @@ Permissions
 Functions
 =========
 
+.. _folders.query:
+
+query([queryInfo])
+------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Gets folders that match the specified properties, or all folders if no properties are specified.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``queryInfo``]
+      :type: (object, optional)
+      
+      .. api-member::
+         :name: [``canAddMessages``]
+         :type: (boolean, optional)
+         
+         Whether the folder supports adding new messages, or not.
+      
+      
+      .. api-member::
+         :name: [``canAddSubfolders``]
+         :type: (boolean, optional)
+         
+         Whether the folder supports adding new subfolders, or not.
+      
+      
+      .. api-member::
+         :name: [``canBeDeleted``]
+         :type: (boolean, optional)
+         
+         Whether the folder can be deleted, or not.
+      
+      
+      .. api-member::
+         :name: [``canBeRenamed``]
+         :type: (boolean, optional)
+         
+         Whether the folder can be renamed, or not.
+      
+      
+      .. api-member::
+         :name: [``canDeleteMessages``]
+         :type: (boolean, optional)
+         
+         Whether the folder supports deleting messages, or not.
+      
+      
+      .. api-member::
+         :name: [``favorite``]
+         :type: (boolean, optional)
+         
+         Whether the folder is a favorite folder, or not.
+      
+      
+      .. api-member::
+         :name: [``hasMessages``]
+         :type: (boolean or :ref:`folders.QueryRange`, optional)
+         
+         Whether the folder (excluding subfolders) contains messages, or not. Supports to specify a :ref:`folders.QueryRange` (min/max) instead of a simple boolean value (none/some).
+      
+      
+      .. api-member::
+         :name: [``hasNewMessages``]
+         :type: (boolean or :ref:`folders.QueryRange`, optional)
+         
+         Whether the folder (excluding subfolders) contains new messages, or not. Supports to specify a :ref:`folders.QueryRange` (min/max) instead of a simple boolean value (none/some).
+      
+      
+      .. api-member::
+         :name: [``hasSubFolders``]
+         :type: (boolean or :ref:`folders.QueryRange`, optional)
+         
+         Whether the folder has subfolders, or not. Supports to specify a :ref:`folders.QueryRange` (min/max) instead of a simple boolean value (none/some).
+      
+      
+      .. api-member::
+         :name: [``hasUnreadMessages``]
+         :type: (boolean or :ref:`folders.QueryRange`, optional)
+         
+         Whether the folder (excluding subfolders) contains unread messages, or not. Supports to specify a :ref:`folders.QueryRange` (min/max) instead of a simple boolean value (none/some).
+      
+      
+      .. api-member::
+         :name: [``mostRecent``]
+         :type: (boolean, optional)
+         
+         Whether the folder (excluding subfolders) has been used within the last month. The returned folders will be sorted by their recentness and limited to the most recent ones, which is controlled by the :value:`mail.folder_widget.max_recent` preference. A value of :value:`false` is ignored.
+      
+      
+      .. api-member::
+         :name: [``name``]
+         :type: (:ref:`folders.RegularExpression` or string, optional)
+         
+         Return only folders whose name is matched by the provided string or regular expression.
+      
+      
+      .. api-member::
+         :name: [``parent``]
+         :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`, optional)
+         
+         Limits the search to the specified parent folder or account.
+      
+      
+      .. api-member::
+         :name: [``recent``]
+         :type: (boolean, optional)
+         
+         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness. Ignored if :value:`mostRecent` is specified.
+      
+      
+      .. api-member::
+         :name: [``type``]
+         :type: (:ref:`folders.MailFolderType` or array of :ref:`folders.MailFolderType`, optional)
+         
+         Match only folders of the specified type or types.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
 .. _folders.create:
 
 create(parent, childName)
@@ -215,6 +353,44 @@ Deletes a folder.
    - :permission:`accountsFolders`
    - :permission:`messagesDelete`
 
+.. _folders.update:
+
+update(folder, updateProperties)
+--------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Updates properties of a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``updateProperties``
+      :type: (object)
+      
+      The properties to update.
+      
+      .. api-member::
+         :name: [``favorite``]
+         :type: (boolean, optional)
+         
+         Sets or clears the favorite status.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
 .. _folders.getFolderInfo:
 
 getFolderInfo(folder)
@@ -327,6 +503,30 @@ Get the subfolders of the specified folder or account.
    :label: Required permissions
 
    - :permission:`accountsRead`
+
+.. _folders.markAsRead:
+
+markAsRead(folder)
+------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Marks all messages in a folder as read.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
 
 .. rst-class:: api-main-section
 
@@ -619,10 +819,59 @@ An object containing additional information about a mail folder.
 
    
    .. api-member::
+      :name: [``canAddMessages``]
+      :type: (boolean, optional)
+      
+      Whether this folder supports adding new messages.
+   
+   
+   .. api-member::
+      :name: [``canAddSubfolders``]
+      :type: (boolean, optional)
+      
+      Whether this folder supports adding new subfolders.
+   
+   
+   .. api-member::
+      :name: [``canBeDeleted``]
+      :type: (boolean, optional)
+      
+      Whether this folder can be deleted.
+   
+   
+   .. api-member::
+      :name: [``canBeRenamed``]
+      :type: (boolean, optional)
+      
+      Whether this folder can be renamed.
+   
+   
+   .. api-member::
+      :name: [``canDeleteMessages``]
+      :type: (boolean, optional)
+      
+      Whether this folder supports deleting messages.
+   
+   
+   .. api-member::
       :name: [``favorite``]
       :type: (boolean, optional)
       
       Whether this folder is a favorite folder.
+   
+   
+   .. api-member::
+      :name: [``lastUsed``]
+      :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+      
+      Date the folder was last used (precision: seconds).
+   
+   
+   .. api-member::
+      :name: [``newMessageCount``]
+      :type: (integer, optional)
+      
+      Number of new messages in this folder.
    
    
    .. api-member::
@@ -681,4 +930,56 @@ The type of folder
          
          .. api-member::
             :name: :value:`outbox`
+   
+
+.. _folders.QueryRange:
+
+QueryRange
+----------
+
+.. api-section-annotation-hack:: 
+
+An object defining a range.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``max``]
+      :type: (integer, optional)
+      
+      The maximum value required to match the query.
+   
+   
+   .. api-member::
+      :name: [``min``]
+      :type: (integer, optional)
+      
+      The minimum value required to match the query.
+   
+
+.. _folders.RegularExpression:
+
+RegularExpression
+-----------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``regexp``
+      :type: (string)
+      
+      A regular expression, for example :value:`^Projects \d{4}$`
+   
+   
+   .. api-member::
+      :name: [``flags``]
+      :type: (string, optional)
+      
+      Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support)
    
