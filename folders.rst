@@ -981,5 +981,5 @@ RegularExpression
       :name: [``flags``]
       :type: (string, optional)
       
-      Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support)
+      Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support
    
