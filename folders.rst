@@ -979,18 +979,7 @@ RegularExpression
    
    .. api-member::
       :name: [``flags``]
-      :type: (`string`, optional)
+      :type: (string, optional)
       
-      RegExp Flags: :value:`i` = case insensitive, :value:`u` & :value:`v` = unicode support
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`i`
-      
-      .. api-member::
-         :name: :value:`u`
-      
-      .. api-member::
-         :name: :value:`v`
+      Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support)
    
