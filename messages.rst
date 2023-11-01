@@ -415,10 +415,10 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``attachment``]
-         :type: (boolean, optional)
+         :type: (boolean or :ref:`messages.QueryRange`, optional)
          :annotation: -- [Added in TB 96, backported to TB 91.4.1]
          
-         If specified, returns only messages with or without attachments.
+         Whether the message has attachments, or not. Supports to specify a :ref:`messages.QueryRange` (min/max) instead of a simple boolean value (none/some).
       
       
       .. api-member::
@@ -495,11 +495,42 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       
       .. api-member::
+         :name: [``junk``]
+         :type: (boolean, optional)
+         :annotation: -- [Added in TB 121]
+         
+         Returns only messages whith the specified junk state.
+      
+      
+      .. api-member::
+         :name: [``junkScore``]
+         :type: (:ref:`messages.QueryRange`, optional)
+         :annotation: -- [Added in TB 121]
+         
+         Returns only messages with a junk score in the specified range.
+      
+      
+      .. api-member::
          :name: [``messagesPerPage``]
          :type: (integer, optional)
          :annotation: -- [Added in TB 120]
          
          Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
+      
+      
+      .. api-member::
+         :name: [``new``]
+         :type: (boolean, optional)
+         :annotation: -- [Added in TB 121]
+         
+         Returns only messages with the specified new state.
+      
+      
+      .. api-member::
+         :name: [``read``]
+         :type: (boolean, optional)
+         
+         Returns only messages with the specified read state.
       
       
       .. api-member::
@@ -518,10 +549,18 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       
       .. api-member::
+         :name: [``size``]
+         :type: (:ref:`messages.QueryRange`, optional)
+         :annotation: -- [Added in TB 121]
+         
+         Returns only messages with a size in the specified byte range.
+      
+      
+      .. api-member::
          :name: [``subject``]
          :type: (string, optional)
          
-         Returns only messages with this value matching the subject.
+         Returns only messages whose subject contains the provided string.
       
       
       .. api-member::
@@ -544,13 +583,6 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (boolean, optional)
          
          Returns only messages with at least one recipient address matching any configured identity.
-      
-      
-      .. api-member::
-         :name: [``unread``]
-         :type: (boolean, optional)
-         
-         Returns only unread (or read if false) messages.
       
    
 
@@ -1076,13 +1108,20 @@ onNewMailReceived
 Fired when a new message is received, and has been through junk classification and message filters.
 
 .. api-header::
-   :label: Parameters for onNewMailReceived.addListener(listener)
+   :label: Parameters for onNewMailReceived.addListener(listener, monitorAllFolders)
 
    
    .. api-member::
       :name: ``listener(folder, messages)``
       
       A function that will be called when this event occurs.
+   
+   
+   .. api-member::
+      :name: [``monitorAllFolders``]
+      :type: (boolean, optional)
+      
+      Monitor all folders (including all special use folders as defined by :ref:`folders.MailFolderUsage`) instead of just inbox folders and normal folders.
    
 
 .. api-header::
@@ -1467,6 +1506,33 @@ MessageTag
       :type: (string)
       
       Human-readable tag name.
+   
+
+.. _messages.QueryRange:
+
+QueryRange
+----------
+
+.. api-section-annotation-hack:: 
+
+An object defining a range.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``max``]
+      :type: (integer, optional)
+      
+      The maximum value required to match the query.
+   
+   
+   .. api-member::
+      :name: [``min``]
+      :type: (integer, optional)
+      
+      The minimum value required to match the query.
    
 
 .. _messages.TagsDetail:
