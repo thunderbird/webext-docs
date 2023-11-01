@@ -151,9 +151,16 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`folders.MailFolderType` or array of :ref:`folders.MailFolderType`, optional)
+         :type: (:ref:`folders.MailFolderUsage`, optional)
          
-         Match only folders of the specified type or types.
+         Deprecated. Match only folders with the specified special usage.
+      
+      
+      .. api-member::
+         :name: [``usage``]
+         :type: (array of :ref:`folders.MailFolderUsage`, optional)
+         
+         Match only folders with the specified special usage (folders have to match all specified uses).
       
    
 
@@ -398,7 +405,7 @@ getFolderInfo(folder)
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Get additional information about a mail folder.
+Get additional information about a folder.
 
 .. api-header::
    :label: Parameters
@@ -415,6 +422,72 @@ Get additional information about a mail folder.
    
    .. api-member::
       :type: :ref:`folders.MailFolderInfo`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getFolderCapabilities:
+
+getFolderCapabilities(folder)
+-----------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Get capability information about a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolderCapabilities`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getFolderUsage:
+
+getFolderUsage(folder)
+----------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Get the special usage of a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`folders.MailFolderUsage`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -713,6 +786,49 @@ Fired when a folder has been deleted.
 
    - :permission:`accountsRead`
 
+.. _folders.onFolderUsageChanged:
+
+onFolderUsageChanged
+--------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Fired when the special usage of a folder has changed.
+
+.. api-header::
+   :label: Parameters for onFolderUsageChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(folder, oldFolderUsage, newFolderUsage)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``oldFolderUsage``
+      :type: (array of :ref:`folders.MailFolderUsage`)
+   
+   
+   .. api-member::
+      :name: ``newFolderUsage``
+      :type: (array of :ref:`folders.MailFolderUsage`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
 .. _folders.onFolderInfoChanged:
 
 onFolderInfoChanged
@@ -763,7 +879,7 @@ MailFolder
 
 .. api-section-annotation-hack:: 
 
-An object describing a mail folder, as returned for example by the :ref:`folders.getParentFolders` or :ref:`folders.getSubFolders` methods, or part of a :ref:`accounts.MailAccount` object, which is returned for example by the :ref:`accounts.list` and :ref:`accounts.get` methods. The ``subFolders`` property is only included if requested.
+An object describing a folder, as returned for example by the :ref:`folders.getParentFolders` or :ref:`folders.getSubFolders` methods, or part of a :ref:`accounts.MailAccount` object, which is returned for example by the :ref:`accounts.list` and :ref:`accounts.get` methods. The ``subFolders`` property is only included if requested.
 
 .. api-header::
    :label: object
@@ -800,19 +916,27 @@ An object describing a mail folder, as returned for example by the :ref:`folders
    
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`folders.MailFolderType`, optional)
+      :type: (:ref:`folders.MailFolderUsage`, optional)
       
-      The type of folder.
+      Deprecated. Was used to represent the type of this folder.
+   
+   
+   .. api-member::
+      :name: [``usage``]
+      :type: (array of :ref:`folders.MailFolderUsage`, optional)
+      :annotation: -- [Added in TB 121]
+      
+      The special usage of this folder. A folder can have multiple special uses.
    
 
-.. _folders.MailFolderInfo:
+.. _folders.MailFolderCapabilities:
 
-MailFolderInfo
---------------
+MailFolderCapabilities
+----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
-An object containing additional information about a mail folder.
+An object containing capability information about a folder.
 
 .. api-header::
    :label: object
@@ -852,6 +976,19 @@ An object containing additional information about a mail folder.
       
       Whether this folder supports deleting messages.
    
+
+.. _folders.MailFolderInfo:
+
+MailFolderInfo
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+An object containing additional information about a folder.
+
+.. api-header::
+   :label: object
+
    
    .. api-member::
       :name: [``favorite``]
@@ -863,6 +1000,7 @@ An object containing additional information about a mail folder.
    .. api-member::
       :name: [``lastUsed``]
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+      :annotation: -- [Added in TB 121]
       
       Date the folder was last used (precision: seconds).
    
@@ -870,8 +1008,17 @@ An object containing additional information about a mail folder.
    .. api-member::
       :name: [``newMessageCount``]
       :type: (integer, optional)
+      :annotation: -- [Added in TB 121]
       
       Number of new messages in this folder.
+   
+   
+   .. api-member::
+      :name: [``quota``]
+      :type: (array of :ref:`folders.MailFolderQuota`, optional)
+      :annotation: -- [Added in TB 121]
+      
+      Quota information, if available.
    
    
    .. api-member::
@@ -888,14 +1035,63 @@ An object containing additional information about a mail folder.
       Number of unread messages in this folder.
    
 
-.. _folders.MailFolderType:
+.. _folders.MailFolderQuota:
 
-MailFolderType
---------------
+MailFolderQuota
+---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
-The type of folder
+An object containing quota information.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: ``limit``
+      :type: (integer)
+      
+      The maximum available quota.
+   
+   
+   .. api-member::
+      :name: ``type``
+      :type: (`string`)
+      
+      The type of the quota as defined by RFC2087. A :value:`STORAGE` quota is constraining the available storage in bytes, a :value:`MESSAGE` quota is constraining the number of storable messages.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`STORAGE`
+      
+      .. api-member::
+         :name: :value:`MESSAGE`
+   
+   
+   .. api-member::
+      :name: ``unused``
+      :type: (integer)
+      
+      The currently unused quota.
+   
+   
+   .. api-member::
+      :name: ``used``
+      :type: (integer)
+      
+      The currently used quota.
+   
+
+.. _folders.MailFolderUsage:
+
+MailFolderUsage
+---------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Supported values for the special usage of a folder.
 
 .. api-header::
    :label: `string`
@@ -974,7 +1170,7 @@ RegularExpression
       :name: ``regexp``
       :type: (string)
       
-      A regular expression, for example :value:`^Projects \d{4}$`
+      A regular expression, for example :value:`^Projects \d{4}$`.
    
    
    .. api-member::

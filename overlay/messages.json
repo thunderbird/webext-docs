@@ -56,6 +56,18 @@
               "headerMessageId": {
                 "added": "85"
               },
+              "junk": {
+                "added": "121"
+              },
+              "junkScore": {
+                "added": "121"
+              },
+              "new": {
+                "added": "121"
+              },
+              "size": {
+                "added": "121"
+              },
               "attachment": {
                 "added": "96",
                 "backported": "91.4.1"

@@ -373,10 +373,10 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       
       .. api-member::
          :name: [``type``]
-         :type: (string, optional)
+         :type: (:ref:`tabs.TabType` or array of :ref:`tabs.TabType`, optional)
          :annotation: -- [Added in TB 91]
          
-         Match tabs against the given Tab.type (see :ref:`tabs.Tab`). Ignored if ``queryInfo.mailTab`` is specified.
+         Match tabs against the given tab type or types. Ignored if ``queryInfo.mailTab`` is specified.
       
       
       .. api-member::
@@ -1118,43 +1118,8 @@ Tab
    
    .. api-member::
       :name: [``type``]
-      :type: (`string`, optional)
+      :type: (:ref:`tabs.TabType`, optional)
       :annotation: -- [Added in TB 91]
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`addressBook`
-      
-      .. api-member::
-         :name: :value:`calendar`
-      
-      .. api-member::
-         :name: :value:`calendarEvent`
-      
-      .. api-member::
-         :name: :value:`calendarTask`
-      
-      .. api-member::
-         :name: :value:`chat`
-      
-      .. api-member::
-         :name: :value:`content`
-      
-      .. api-member::
-         :name: :value:`mail`
-      
-      .. api-member::
-         :name: :value:`messageCompose`
-      
-      .. api-member::
-         :name: :value:`messageDisplay`
-      
-      .. api-member::
-         :name: :value:`special`
-      
-      .. api-member::
-         :name: :value:`tasks`
    
    
    .. api-member::
@@ -1202,6 +1167,59 @@ Whether the tabs have completed loading.
          
          .. api-member::
             :name: :value:`complete`
+   
+
+.. _tabs.TabType:
+
+TabType
+-------
+
+.. api-section-annotation-hack:: 
+
+Tab types supported by the tabs API.
+
+.. api-header::
+   :label: `string`
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`addressBook`
+         
+         .. api-member::
+            :name: :value:`calendar`
+         
+         .. api-member::
+            :name: :value:`calendarEvent`
+         
+         .. api-member::
+            :name: :value:`calendarTask`
+         
+         .. api-member::
+            :name: :value:`chat`
+         
+         .. api-member::
+            :name: :value:`content`
+         
+         .. api-member::
+            :name: :value:`mail`
+         
+         .. api-member::
+            :name: :value:`messageCompose`
+         
+         .. api-member::
+            :name: :value:`messageDisplay`
+         
+         .. api-member::
+            :name: :value:`special`
+         
+         .. api-member::
+            :name: :value:`tasks`
    
 
 .. _tabs.UpdateFilter:

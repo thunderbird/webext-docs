@@ -302,6 +302,11 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
     
+    if "min_manifest_version" in obj and obj["min_manifest_version"] > MV:
+        return []
+    if "max_manifest_version" in obj and obj["max_manifest_version"] < MV:
+        return []
+
     # Cater for MV2/3 differences, pick the correct one and proceed as normal. We
     # do not support individual descriptions of the allowed types.
     if "choices" in obj:

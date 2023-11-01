@@ -7,12 +7,38 @@
         "properties": {
           "subFolders": {
             "added": "74"
+          },
+          "usage": {
+            "added": "121"
           }
         }
       },
       {
         "id": "MailFolderInfo",
-        "added": "91"
+        "added": "91",
+        "properties": {
+          "lastUsed":{
+            "added": "121"
+          },
+          "quota": {
+            "added": "121"
+          },
+          "newMessageCount": {
+            "added": "121"
+          }
+        }
+      },
+      {
+        "id": "MailFolderCapabilities",
+        "added": "121"
+      },
+      {
+        "id": "MailFolderQuota",
+        "added": "121"
+      },
+      {
+        "id": "MailFolderUsage",
+        "added": "121"
       }
     ],
     "functions": [
@@ -39,6 +65,14 @@
       {
         "id": "getFolderInfo",
         "added": "91"
+      },
+      {
+        "id": "getFolderCapabilities",
+        "added": "121"
+      },
+      {
+        "id": "getFolderUsage",
+        "added": "121"
       },
       {
         "name": "move",
@@ -73,6 +107,10 @@
       {
         "name": "onFolderInfoChanged",
         "added": "91"
+      },
+      {
+        "name": "onFolderUsageChanged",
+        "added": "121"
       }
     ]
   }
