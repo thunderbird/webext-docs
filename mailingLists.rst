@@ -42,47 +42,14 @@ Permissions
 Functions
 =========
 
-.. _mailingLists.list:
+.. _mailingLists.addMember:
 
-list(parentId)
---------------
-
-.. api-section-annotation-hack:: 
-
-Gets all the mailing lists in the address book with id ``parentId``.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``parentId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`mailingLists.MailingListNode`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _mailingLists.get:
-
-get(id)
--------
+addMember(id, contactId)
+------------------------
 
 .. api-section-annotation-hack:: 
 
-Gets a single mailing list.
+Adds a contact to the mailing list with id ``id``. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.
 
 .. api-header::
    :label: Parameters
@@ -92,16 +59,11 @@ Gets a single mailing list.
       :name: ``id``
       :type: (string)
    
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
    
    .. api-member::
-      :type: :ref:`mailingLists.MailingListNode`
+      :name: ``contactId``
+      :type: (string)
    
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
@@ -163,49 +125,6 @@ Creates a new mailing list in the address book with id ``parentId``.
 
    - :permission:`addressBooks`
 
-.. _mailingLists.update:
-
-update(id, properties)
-----------------------
-
-.. api-section-annotation-hack:: 
-
-Edits the properties of a mailing list.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: ``properties``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``name``
-         :type: (string)
-      
-      
-      .. api-member::
-         :name: [``description``]
-         :type: (string, optional)
-      
-      
-      .. api-member::
-         :name: [``nickName``]
-         :type: (string, optional)
-      
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
 .. _mailingLists.delete:
 
 delete(id)
@@ -229,14 +148,14 @@ Removes the mailing list.
 
    - :permission:`addressBooks`
 
-.. _mailingLists.addMember:
+.. _mailingLists.get:
 
-addMember(id, contactId)
-------------------------
+get(id)
+-------
 
 .. api-section-annotation-hack:: 
 
-Adds a contact to the mailing list with id ``id``. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.
+Gets a single mailing list.
 
 .. api-header::
    :label: Parameters
@@ -246,11 +165,49 @@ Adds a contact to the mailing list with id ``id``. If the contact and mailing li
       :name: ``id``
       :type: (string)
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
    
    .. api-member::
-      :name: ``contactId``
+      :type: :ref:`mailingLists.MailingListNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _mailingLists.list:
+
+list(parentId)
+--------------
+
+.. api-section-annotation-hack:: 
+
+Gets all the mailing lists in the address book with id ``parentId``.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``parentId``
       :type: (string)
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`mailingLists.MailingListNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
@@ -311,6 +268,49 @@ Removes a contact from the mailing list with id ``id``. This does not delete the
    .. api-member::
       :name: ``contactId``
       :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _mailingLists.update:
+
+update(id, properties)
+----------------------
+
+.. api-section-annotation-hack:: 
+
+Edits the properties of a mailing list.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``properties``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+      
+      
+      .. api-member::
+         :name: [``description``]
+         :type: (string, optional)
+      
+      
+      .. api-member::
+         :name: [``nickName``]
+         :type: (string, optional)
+      
    
 
 .. api-header::

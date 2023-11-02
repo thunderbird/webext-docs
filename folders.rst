@@ -34,6 +34,351 @@ Permissions
 Functions
 =========
 
+.. _folders.copy:
+
+copy(sourceFolder, destination)
+-------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Copies the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``sourceFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
+.. _folders.create:
+
+create(parent, childName)
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+Creates a new subfolder in the specified folder or at the root of the specified account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``parent``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+   
+   .. api-member::
+      :name: ``childName``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
+.. _folders.delete:
+
+delete(folder)
+--------------
+
+.. api-section-annotation-hack:: 
+
+Deletes a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+   - :permission:`messagesDelete`
+
+.. _folders.get:
+
+get(folderId)
+-------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Returns the specified folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folderId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getFolderCapabilities:
+
+getFolderCapabilities(folder)
+-----------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Get capability information about a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolderCapabilities`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getFolderInfo:
+
+getFolderInfo(folder)
+---------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Get additional information about a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolderInfo`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getParentFolders:
+
+getParentFolders(folder, [includeSubFolders])
+---------------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Get all parent folders as a flat ordered array. The first array entry is the direct parent.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: [``includeSubFolders``]
+      :type: (boolean, optional)
+      
+      Specifies whether the returned :ref:`folders.MailFolder` object for each parent folder should include its nested subfolders . Defaults to :value:`false`.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.getSubFolders:
+
+getSubFolders(folderOrAccount, [includeSubFolders])
+---------------------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Get the subfolders of the specified folder or account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folderOrAccount``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+   
+   .. api-member::
+      :name: [``includeSubFolders``]
+      :type: (boolean, optional)
+      
+      Specifies whether the returned :ref:`folders.MailFolder` object for each direct subfolder should also include all its nested subfolders . Defaults to :value:`true`.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.markAsRead:
+
+markAsRead(folder)
+------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Marks all messages in a folder as read.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
+.. _folders.move:
+
+move(sourceFolder, destination)
+-------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``sourceFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
 .. _folders.query:
 
 query([queryInfo])
@@ -179,78 +524,6 @@ Gets folders that match the specified properties, or all folders if no propertie
 
    - :permission:`accountsRead`
 
-.. _folders.get:
-
-get(folderId)
--------------
-
-.. api-section-annotation-hack:: -- [Added in TB 121]
-
-Returns the specified folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folderId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.create:
-
-create(parent, childName)
--------------------------
-
-.. api-section-annotation-hack:: 
-
-Creates a new subfolder in the specified folder or at the root of the specified account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``parent``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
-   
-   
-   .. api-member::
-      :name: ``childName``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
 .. _folders.rename:
 
 rename(folder, newName)
@@ -290,109 +563,6 @@ Renames a folder.
    - :permission:`accountsRead`
    - :permission:`accountsFolders`
 
-.. _folders.move:
-
-move(sourceFolder, destination)
--------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``sourceFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``destination``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
-.. _folders.copy:
-
-copy(sourceFolder, destination)
--------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Copies the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``sourceFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``destination``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
-.. _folders.delete:
-
-delete(folder)
---------------
-
-.. api-section-annotation-hack:: 
-
-Deletes a folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-   - :permission:`messagesDelete`
-
 .. _folders.update:
 
 update(folder, updateProperties)
@@ -423,176 +593,6 @@ Updates properties of a folder.
          
          Sets or clears the favorite status.
       
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
-.. _folders.getFolderInfo:
-
-getFolderInfo(folder)
----------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Get additional information about a folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolderInfo`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.getFolderCapabilities:
-
-getFolderCapabilities(folder)
------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 121]
-
-Get capability information about a folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolderCapabilities`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.getParentFolders:
-
-getParentFolders(folder, [includeSubFolders])
----------------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Get all parent folders as a flat ordered array. The first array entry is the direct parent.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: [``includeSubFolders``]
-      :type: (boolean, optional)
-      
-      Specifies whether the returned :ref:`folders.MailFolder` object for each parent folder should include its nested subfolders . Defaults to :value:`false`.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.getSubFolders:
-
-getSubFolders(folderOrAccount, [includeSubFolders])
----------------------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Get the subfolders of the specified folder or account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folderOrAccount``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
-   
-   
-   .. api-member::
-      :name: [``includeSubFolders``]
-      :type: (boolean, optional)
-      
-      Specifies whether the returned :ref:`folders.MailFolder` object for each direct subfolder should also include all its nested subfolders . Defaults to :value:`true`.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.markAsRead:
-
-markAsRead(folder)
-------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 121]
-
-Marks all messages in a folder as read.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
    
 
 .. api-header::

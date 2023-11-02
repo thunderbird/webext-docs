@@ -42,21 +42,51 @@ Permissions
 Functions
 =========
 
-.. _addressBooks.openUI:
+.. _addressBooks.closeUI:
 
-openUI()
---------
+closeUI()
+---------
 
 .. api-section-annotation-hack:: 
 
-Opens the address book user interface.
+Closes the address book user interface.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _addressBooks.create:
+
+create(properties)
+------------------
+
+.. api-section-annotation-hack:: 
+
+Creates a new, empty address book.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``properties``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``name``
+         :type: (string)
+      
+   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: string
+      
+      The id of the new address book.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -66,14 +96,63 @@ Opens the address book user interface.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.closeUI:
+.. _addressBooks.delete:
 
-closeUI()
----------
+delete(id)
+----------
 
 .. api-section-annotation-hack:: 
 
-Closes the address book user interface.
+Removes an address book, and all associated contacts and mailing lists.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _addressBooks.get:
+
+get(id, [complete])
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Gets a single address book, optionally including all contacts and mailing lists.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``complete``]
+      :type: (boolean, optional)
+      
+      If set to true, results will include contacts and mailing lists for this address book.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`addressBooks.AddressBookNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
@@ -122,77 +201,21 @@ Gets a list of the user's address books, optionally including all contacts and m
 
    - :permission:`addressBooks`
 
-.. _addressBooks.get:
+.. _addressBooks.openUI:
 
-get(id, [complete])
--------------------
+openUI()
+--------
 
 .. api-section-annotation-hack:: 
 
-Gets a single address book, optionally including all contacts and mailing lists.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: [``complete``]
-      :type: (boolean, optional)
-      
-      If set to true, results will include contacts and mailing lists for this address book.
-   
+Opens the address book user interface.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    
    .. api-member::
-      :type: :ref:`addressBooks.AddressBookNode`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _addressBooks.create:
-
-create(properties)
-------------------
-
-.. api-section-annotation-hack:: 
-
-Creates a new, empty address book.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``properties``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``name``
-         :type: (string)
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: string
-      
-      The id of the new address book.
+      :type: :ref:`tabs.Tab`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -228,29 +251,6 @@ Renames an address book.
          :name: ``name``
          :type: (string)
       
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _addressBooks.delete:
-
-delete(id)
-----------
-
-.. api-section-annotation-hack:: 
-
-Removes an address book, and all associated contacts and mailing lists.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
    
 
 .. api-header::

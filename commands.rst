@@ -51,6 +51,45 @@ Manifest file properties
 Functions
 =========
 
+.. _commands.getAll:
+
+getAll()
+--------
+
+.. api-section-annotation-hack:: 
+
+Returns all the registered extension commands for this extension and their shortcut (if active).
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`commands.Command`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _commands.reset:
+
+reset(name)
+-----------
+
+.. api-section-annotation-hack:: 
+
+Reset a command's details to what is specified in the manifest.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      The name of the command.
+   
+
 .. _commands.update:
 
 update(detail)
@@ -91,45 +130,6 @@ Update the details of an already defined command.
          An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__  to set a new shortcut key. If the string does not match this format, the function throws an error.
       
    
-
-.. _commands.reset:
-
-reset(name)
------------
-
-.. api-section-annotation-hack:: 
-
-Reset a command's details to what is specified in the manifest.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``name``
-      :type: (string)
-      
-      The name of the command.
-   
-
-.. _commands.getAll:
-
-getAll()
---------
-
-.. api-section-annotation-hack:: 
-
-Returns all the registered extension commands for this extension and their shortcut (if active).
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`commands.Command`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

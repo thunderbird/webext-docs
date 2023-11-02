@@ -91,6 +91,45 @@ Retrieves details about the specified space.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _spaces.open:
+
+open(spaceId, [windowId])
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+Opens or switches to the specified space. Throws an exception if the requested space does not exist or was not created by this extension.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``spaceId``
+      :type: (integer)
+      
+      The id of the space.
+   
+   
+   .. api-member::
+      :name: [``windowId``]
+      :type: (integer, optional)
+      
+      The id of the normal window, where the space should be opened. Defaults to the most recent normal window.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      
+      Details about the opened or activated space tab.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _spaces.query:
 
 query([queryInfo])
@@ -207,45 +246,6 @@ Updates the specified space. Throws an exception if the requested space does not
       
       Only specified button properties will be updated.
    
-
-.. _spaces.open:
-
-open(spaceId, [windowId])
--------------------------
-
-.. api-section-annotation-hack:: 
-
-Opens or switches to the specified space. Throws an exception if the requested space does not exist or was not created by this extension.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``spaceId``
-      :type: (integer)
-      
-      The id of the space.
-   
-   
-   .. api-member::
-      :name: [``windowId``]
-      :type: (integer, optional)
-      
-      The id of the normal window, where the space should be opened. Defaults to the most recent normal window.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`tabs.Tab`
-      
-      Details about the opened or activated space tab.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

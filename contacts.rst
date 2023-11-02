@@ -42,6 +42,144 @@ Permissions
 Functions
 =========
 
+.. _contacts.create:
+
+create(parentId, [id], properties)
+----------------------------------
+
+.. api-section-annotation-hack:: 
+
+Adds a new contact to the address book with the id ``parentId``.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``parentId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: [``id``]
+      :type: (string, optional)
+      
+      Assigns the contact an id. If an existing contact has this id, an exception is thrown. **Note:** Deprecated, the card's id should be specified in the vCard string instead.
+   
+   
+   .. api-member::
+      :name: ``properties``
+      :type: (:ref:`contacts.ContactProperties`)
+      
+      The properties object for the new contact. If it includes a ``vCard`` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+      
+      The ID of the new contact.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _contacts.delete:
+
+delete(id)
+----------
+
+.. api-section-annotation-hack:: 
+
+Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _contacts.get:
+
+get(id)
+-------
+
+.. api-section-annotation-hack:: 
+
+Gets a single contact.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`contacts.ContactNode`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _contacts.getPhoto:
+
+getPhoto(id)
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 106]
+
+Gets the photo associated with this contact, if any.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.list:
 
 list(parentId)
@@ -117,72 +255,6 @@ Gets all contacts matching ``queryInfo`` in the address book with the id ``paren
 
    - :permission:`addressBooks`
 
-.. _contacts.get:
-
-get(id)
--------
-
-.. api-section-annotation-hack:: 
-
-Gets a single contact.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`contacts.ContactNode`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _contacts.getPhoto:
-
-getPhoto(id)
-------------
-
-.. api-section-annotation-hack:: -- [Added in TB 106]
-
-Gets the photo associated with this contact, if any.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
 .. _contacts.setPhoto:
 
 setPhoto(id, file)
@@ -205,55 +277,6 @@ Sets the photo associated with this contact.
       :name: ``file``
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
    
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _contacts.create:
-
-create(parentId, [id], properties)
-----------------------------------
-
-.. api-section-annotation-hack:: 
-
-Adds a new contact to the address book with the id ``parentId``.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``parentId``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: [``id``]
-      :type: (string, optional)
-      
-      Assigns the contact an id. If an existing contact has this id, an exception is thrown. **Note:** Deprecated, the card's id should be specified in the vCard string instead.
-   
-   
-   .. api-member::
-      :name: ``properties``
-      :type: (:ref:`contacts.ContactProperties`)
-      
-      The properties object for the new contact. If it includes a ``vCard`` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: string
-      
-      The ID of the new contact.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
@@ -283,29 +306,6 @@ Updates a contact.
       :type: (:ref:`contacts.ContactProperties`)
       
       An object with properties to update the specified contact. Individual properties are removed, if they are set to :value:`null`. If the provided object includes a ``vCard`` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored. **Note:** Using individual properties is deprecated, use the ``vCard`` member instead. 
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _contacts.delete:
-
-delete(id)
-----------
-
-.. api-section-annotation-hack:: 
-
-Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
    
 
 .. api-header::

@@ -23,123 +23,6 @@ The windows API supports creating, modifying and interacting with Thunderbird wi
 Functions
 =========
 
-.. _windows.get:
-
-get(windowId, [getInfo])
-------------------------
-
-.. api-section-annotation-hack:: 
-
-Gets details about a window.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``windowId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _windows.getCurrent:
-
-getCurrent([getInfo])
----------------------
-
-.. api-section-annotation-hack:: 
-
-Gets the active or topmost window.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _windows.getLastFocused:
-
-getLastFocused([getInfo])
--------------------------
-
-.. api-section-annotation-hack:: 
-
-Gets the window that was most recently focused — typically the window 'on top'.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _windows.getAll:
-
-getAll([getInfo])
------------------
-
-.. api-section-annotation-hack:: 
-
-Gets all windows.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`windows.Window`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
 .. _windows.create:
 
 create([createData])
@@ -259,6 +142,159 @@ Creates (opens) a new window with any optional sizing, position or default URL p
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _windows.get:
+
+get(windowId, [getInfo])
+------------------------
+
+.. api-section-annotation-hack:: 
+
+Gets details about a window.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``windowId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: [``getInfo``]
+      :type: (:ref:`windows.GetInfo`, optional)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`windows.Window`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _windows.getAll:
+
+getAll([getInfo])
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Gets all windows.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``getInfo``]
+      :type: (:ref:`windows.GetInfo`, optional)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`windows.Window`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _windows.getCurrent:
+
+getCurrent([getInfo])
+---------------------
+
+.. api-section-annotation-hack:: 
+
+Gets the active or topmost window.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``getInfo``]
+      :type: (:ref:`windows.GetInfo`, optional)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`windows.Window`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _windows.getLastFocused:
+
+getLastFocused([getInfo])
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+Gets the window that was most recently focused — typically the window 'on top'.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``getInfo``]
+      :type: (:ref:`windows.GetInfo`, optional)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`windows.Window`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _windows.openDefaultBrowser:
+
+openDefaultBrowser(url)
+-----------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 84, backported to TB 78.6.0]
+
+Opens the provided URL in the default system browser.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``url``
+      :type: (string)
+   
+
+.. _windows.remove:
+
+remove(windowId)
+----------------
+
+.. api-section-annotation-hack:: 
+
+Removes (closes) a window, and all the tabs inside it.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``windowId``
+      :type: (integer)
+   
+
 .. _windows.update:
 
 update(windowId, updateInfo)
@@ -347,42 +383,6 @@ Updates the properties of a window. Specify only the properties that you want to
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _windows.remove:
-
-remove(windowId)
-----------------
-
-.. api-section-annotation-hack:: 
-
-Removes (closes) a window, and all the tabs inside it.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``windowId``
-      :type: (integer)
-   
-
-.. _windows.openDefaultBrowser:
-
-openDefaultBrowser(url)
------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 84, backported to TB 78.6.0]
-
-Opens the provided URL in the default system browser.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``url``
-      :type: (string)
-   
 
 .. rst-class:: api-main-section
 

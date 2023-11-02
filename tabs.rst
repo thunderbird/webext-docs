@@ -35,53 +35,6 @@ Permissions
 Functions
 =========
 
-.. _tabs.get:
-
-get(tabId)
-----------
-
-.. api-section-annotation-hack:: 
-
-Retrieves details about the specified tab.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`tabs.Tab`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _tabs.getCurrent:
-
-getCurrent()
-------------
-
-.. api-section-annotation-hack:: 
-
-Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`tabs.Tab`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
 .. _tabs.connect:
 
 connect(tabId, [connectInfo])
@@ -127,53 +80,6 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
       :type: `Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`__
       
       A port that can be used to communicate with the content scripts running in the specified tab.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _tabs.sendMessage:
-
-sendMessage(tabId, message, [options])
---------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
-
-Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``message``
-      :type: (any)
-   
-   
-   .. api-member::
-      :name: [``options``]
-      :type: (object, optional)
-      
-      .. api-member::
-         :name: [``frameId``]
-         :type: (integer, optional)
-         
-         Send a message to a specific frame identified by ``frameId`` instead of all frames in the tab.
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: any
-      
-      The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will be set to the error message.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -280,6 +186,184 @@ Duplicates a tab.
       :type: :ref:`tabs.Tab`
       
       Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the :permission:`tabs` permission has not been requested.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _tabs.executeScript:
+
+executeScript([tabId], details)
+-------------------------------
+
+.. api-section-annotation-hack:: 
+
+Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
+
+.. api-header::
+   :label: Changes in Thunderbird 77
+
+   
+   .. api-member::
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      The ID of the tab in which to run the script; defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``details``
+      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
+      
+      Details of the script to run.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of any
+      
+      The result of the script in every injected frame.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _tabs.get:
+
+get(tabId)
+----------
+
+.. api-section-annotation-hack:: 
+
+Retrieves details about the specified tab.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _tabs.getCurrent:
+
+getCurrent()
+------------
+
+.. api-section-annotation-hack:: 
+
+Gets the tab that this script call is being made from. May be undefined if called from a non-tab context (for example: a background page or popup view).
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _tabs.insertCSS:
+
+insertCSS([tabId], details)
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
+
+.. api-header::
+   :label: Changes in Thunderbird 77
+
+   
+   .. api-member::
+      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``details``
+      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
+      
+      Details of the CSS text to insert.
+   
+
+.. _tabs.move:
+
+move(tabIds, moveProperties)
+----------------------------
+
+.. api-section-annotation-hack:: 
+
+Moves one or more tabs to a new position within its current window, or to a different window. Note that tabs can only be moved to and from windows of type :value:`normal`.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabIds``
+      :type: (integer or array of integer)
+      
+      The tab or list of tabs to move.
+   
+   
+   .. api-member::
+      :name: ``moveProperties``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``index``
+         :type: (integer)
+         
+         The position to move the tab to. :value:`-1` will place the tab at the end of the window.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional)
+         
+         Defaults to the window the tab is currently in.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`tabs.Tab`
+      
+      Details about the moved tabs.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -411,110 +495,6 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _tabs.update:
-
-update([tabId], updateProperties)
----------------------------------
-
-.. api-section-annotation-hack:: 
-
-Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      Defaults to the selected tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``updateProperties``
-      :type: (object)
-      
-      Properties which should to be updated.
-      
-      .. api-member::
-         :name: [``active``]
-         :type: (boolean, optional)
-         
-         Set this to :value:`true`, if the tab should become active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
-      
-      
-      .. api-member::
-         :name: [``url``]
-         :type: (string, optional)
-         
-         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`tabs.Tab`
-      
-      Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the :permission:`tabs` permission has not been requested.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _tabs.move:
-
-move(tabIds, moveProperties)
-----------------------------
-
-.. api-section-annotation-hack:: 
-
-Moves one or more tabs to a new position within its current window, or to a different window. Note that tabs can only be moved to and from windows of type :value:`normal`.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``tabIds``
-      :type: (integer or array of integer)
-      
-      The tab or list of tabs to move.
-   
-   
-   .. api-member::
-      :name: ``moveProperties``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``index``
-         :type: (integer)
-         
-         The position to move the tab to. :value:`-1` will place the tab at the end of the window.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional)
-         
-         Defaults to the window the tab is currently in.
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`tabs.Tab`
-      
-      Details about the moved tabs.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
 .. _tabs.reload:
 
 reload([tabId], [reloadProperties])
@@ -567,86 +547,6 @@ Closes one or more tabs.
       The tab or list of tabs to close.
    
 
-.. _tabs.executeScript:
-
-executeScript([tabId], details)
--------------------------------
-
-.. api-section-annotation-hack:: 
-
-Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
-
-.. api-header::
-   :label: Changes in Thunderbird 77
-
-   
-   .. api-member::
-      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      The ID of the tab in which to run the script; defaults to the active tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
-      
-      Details of the script to run.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of any
-      
-      The result of the script in every injected frame.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _tabs.insertCSS:
-
-insertCSS([tabId], details)
----------------------------
-
-.. api-section-annotation-hack:: 
-
-Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
-
-.. api-header::
-   :label: Changes in Thunderbird 77
-
-   
-   .. api-member::
-      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
-      
-      Details of the CSS text to insert.
-   
-
 .. _tabs.removeCSS:
 
 removeCSS([tabId], details)
@@ -680,6 +580,106 @@ Removes injected CSS from a page. For details, see the `programmatic injection <
       
       Details of the CSS text to remove.
    
+
+.. _tabs.sendMessage:
+
+sendMessage(tabId, message, [options])
+--------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
+
+Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``message``
+      :type: (any)
+   
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object, optional)
+      
+      .. api-member::
+         :name: [``frameId``]
+         :type: (integer, optional)
+         
+         Send a message to a specific frame identified by ``frameId`` instead of all frames in the tab.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: any
+      
+      The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will be set to the error message.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _tabs.update:
+
+update([tabId], updateProperties)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Modifies the properties of a tab. Properties that are not specified in ``updateProperties`` are not modified.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      Defaults to the selected tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``updateProperties``
+      :type: (object)
+      
+      Properties which should to be updated.
+      
+      .. api-member::
+         :name: [``active``]
+         :type: (boolean, optional)
+         
+         Set this to :value:`true`, if the tab should become active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
+      
+      
+      .. api-member::
+         :name: [``url``]
+         :type: (string, optional)
+         
+         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      
+      Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain ``url``, ``title`` and ``favIconUrl`` if the :permission:`tabs` permission has not been requested.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

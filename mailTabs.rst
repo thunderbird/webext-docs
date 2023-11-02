@@ -22,50 +22,22 @@ __ https://github.com/thundernest/sample-extensions/tree/master/layout
 Functions
 =========
 
-.. _mailTabs.query:
+.. _mailTabs.create:
 
-query([queryInfo])
-------------------
+create([createProperties])
+--------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
-Gets all mail tabs that have the specified properties, or all mail tabs if no properties are specified.
+Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. Note: A new mail window can be created via :ref:`windows.create`.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: [``queryInfo``]
-      :type: (object, optional)
-      
-      .. api-member::
-         :name: [``active``]
-         :type: (boolean, optional)
-         
-         Whether the tabs are active in their windows.
-      
-      
-      .. api-member::
-         :name: [``currentWindow``]
-         :type: (boolean, optional)
-         
-         Whether the tabs are in the current window.
-      
-      
-      .. api-member::
-         :name: [``lastFocusedWindow``]
-         :type: (boolean, optional)
-         
-         Whether the tabs are in the last focused window.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional)
-         
-         The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
-      
+      :name: [``createProperties``]
+      :type: (:ref:`mailTabs.MailTabProperties`, optional)
    
 
 .. api-header::
@@ -73,7 +45,9 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
 
    
    .. api-member::
-      :type: array of :ref:`mailTabs.MailTab`
+      :type: :ref:`mailTabs.MailTab`
+      
+      Details about the created mail tab. Will contain the ID of the new tab.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -123,73 +97,6 @@ Get the properties of the active mail tab, if the active tab is a mail tab. Retu
    
    .. api-member::
       :type: :ref:`mailTabs.MailTab`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _mailTabs.create:
-
-create([createProperties])
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 121]
-
-Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. Note: A new mail window can be created via :ref:`windows.create`.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``createProperties``]
-      :type: (:ref:`mailTabs.MailTabProperties`, optional)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`mailTabs.MailTab`
-      
-      Details about the created mail tab. Will contain the ID of the new tab.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _mailTabs.update:
-
-update([tabId], updateProperties)
----------------------------------
-
-.. api-section-annotation-hack:: 
-
-Modifies the properties of a mail tab. Properties that are not specified in ``updateProperties`` are not modified.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      Defaults to the active tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``updateProperties``
-      :type: (:ref:`mailTabs.MailTabProperties`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`mailTabs.MailTab`
-      
-      Details about the updated mail tab.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -264,38 +171,61 @@ Lists the selected messages in the current folder.
 
    - :permission:`messagesRead`
 
-.. _mailTabs.setSelectedMessages:
+.. _mailTabs.query:
 
-setSelectedMessages([tabId], messageIds)
-----------------------------------------
+query([queryInfo])
+------------------
 
 .. api-section-annotation-hack:: 
 
-Selects none, one or multiple messages.
+Gets all mail tabs that have the specified properties, or all mail tabs if no properties are specified.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
+      :name: [``queryInfo``]
+      :type: (object, optional)
       
-      Defaults to the active tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``messageIds``
-      :type: (array of integer)
+      .. api-member::
+         :name: [``active``]
+         :type: (boolean, optional)
+         
+         Whether the tabs are active in their windows.
       
-      The IDs of the messages, which should be selected. The mail tab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
+      
+      .. api-member::
+         :name: [``currentWindow``]
+         :type: (boolean, optional)
+         
+         Whether the tabs are in the current window.
+      
+      
+      .. api-member::
+         :name: [``lastFocusedWindow``]
+         :type: (boolean, optional)
+         
+         Whether the tabs are in the last focused window.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional)
+         
+         The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
+      
    
 
 .. api-header::
-   :label: Required permissions
+   :label: Return type (`Promise`_)
 
-   - :permission:`accountsRead`
-   - :permission:`messagesRead`
+   
+   .. api-member::
+      :type: array of :ref:`mailTabs.MailTab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _mailTabs.setQuickFilter:
 
@@ -370,6 +300,76 @@ Sets the Quick Filter user interface based on the options specified.
          Shows only unread messages.
       
    
+
+.. _mailTabs.setSelectedMessages:
+
+setSelectedMessages([tabId], messageIds)
+----------------------------------------
+
+.. api-section-annotation-hack:: 
+
+Selects none, one or multiple messages.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      Defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages, which should be selected. The mail tab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`messagesRead`
+
+.. _mailTabs.update:
+
+update([tabId], updateProperties)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Modifies the properties of a mail tab. Properties that are not specified in ``updateProperties`` are not modified.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      Defaults to the active tab of the current window.
+   
+   
+   .. api-member::
+      :name: ``updateProperties``
+      :type: (:ref:`mailTabs.MailTabProperties`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+      
+      Details about the updated mail tab.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

@@ -69,39 +69,54 @@ Permissions
 Functions
 =========
 
-.. _messages.list:
+.. _messages.abortList:
 
-list(folder)
-------------
+abortList(messageListId)
+------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 120]
 
-Gets all messages in a folder.
+Finalizes the specified list and terminates any process currently still adding messages.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :name: ``messageListId``
+      :type: (string)
    
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`messages.MessageList`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`messagesRead`
-   - :permission:`accountsRead`
+
+.. _messages.archive:
+
+archive(messageIds)
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Archives messages using the current settings. Archiving external messages will throw an *ExtensionError*.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to archive.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesMove`
 
 .. _messages.continueList:
 
@@ -136,28 +151,143 @@ Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for
 
    - :permission:`messagesRead`
 
-.. _messages.abortList:
+.. _messages.copy:
 
-abortList(messageListId)
-------------------------
+copy(messageIds, destination)
+-----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 120]
+.. api-section-annotation-hack:: 
 
-Finalizes the specified list and terminates any process currently still adding messages.
+Copies messages to a specified folder.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``messageListId``
-      :type: (string)
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to copy.
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The folder to copy the messages to.
    
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`messagesRead`
+   - :permission:`accountsRead`
+   - :permission:`messagesMove`
+
+.. _messages.createTag:
+
+createTag(key, tag, color)
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+   
+   
+   .. api-member::
+      :name: ``tag``
+      :type: (string)
+      
+      Human-readable tag name.
+   
+   
+   .. api-member::
+      :name: ``color``
+      :type: (string)
+      
+      Tag color in hex format (i.e.: #000080 for navy blue)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
+
+.. _messages.delete:
+
+delete(messageIds, [skipTrash])
+-------------------------------
+
+.. api-section-annotation-hack:: 
+
+Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an *ExtensionError*. The ``skipTrash`` parameter allows immediate permanent deletion, bypassing the trash folder.
+
+**Note**: Consider using :ref:`messages.move` to manually move messages to the account's trash folder, instead of requesting the overly powerful permission to actually delete messages. The account's trash folder can be extracted as follows: 
+
+.. literalinclude:: includes/messages/getTrash.js
+  :language: JavaScript
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to delete.
+   
+   
+   .. api-member::
+      :name: [``skipTrash``]
+      :type: (boolean, optional)
+      
+      If true, the message will be deleted permanently, regardless of the account's deletion behavior settings.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesDelete`
+
+.. _messages.deleteTag:
+
+deleteTag(key)
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
 
 .. _messages.get:
 
@@ -191,6 +321,49 @@ Returns the specified message.
    :label: Required permissions
 
    - :permission:`messagesRead`
+
+.. _messages.getAttachmentFile:
+
+getAttachmentFile(messageId, partName)
+--------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 88]
+
+Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partName``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
+
+.. literalinclude:: includes/messages/file.js
+  :language: JavaScript
 
 .. _messages.getFull:
 
@@ -285,6 +458,87 @@ Returns the unmodified source of a message. Throws if the message could not be r
 
    - :permission:`messagesRead`
 
+.. _messages.import:
+
+import(file, destination, [properties])
+---------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 106]
+
+Imports a message into a local Thunderbird folder. To import a message into an IMAP folder, add it to a local folder first and then move it to the IMAP folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``file``
+      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The folder to import the messages into.
+   
+   
+   .. api-member::
+      :name: [``properties``]
+      :type: (:ref:`messages.MessageProperties`, optional)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageHeader`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+   - :permission:`messagesImport`
+
+.. _messages.list:
+
+list(folder)
+------------
+
+.. api-section-annotation-hack:: 
+
+Gets all messages in a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+
 .. _messages.listAttachments:
 
 listAttachments(messageId)
@@ -318,35 +572,21 @@ Lists the attachments of a message.
 
    - :permission:`messagesRead`
 
-.. _messages.getAttachmentFile:
+.. _messages.listTags:
 
-getAttachmentFile(messageId, partName)
---------------------------------------
+listTags()
+----------
 
-.. api-section-annotation-hack:: -- [Added in TB 88]
+.. api-section-annotation-hack:: 
 
-Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``partName``
-      :type: (string)
-   
+Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    
    .. api-member::
-      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
+      :type: array of :ref:`messages.MessageTag`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -356,10 +596,39 @@ Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://deve
 
    - :permission:`messagesRead`
 
-The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
+.. _messages.move:
 
-.. literalinclude:: includes/messages/file.js
-  :language: JavaScript
+move(messageIds, destination)
+-----------------------------
+
+.. api-section-annotation-hack:: 
+
+Moves messages to a specified folder. If the messages cannot be removed from the source folder, they will be copied instead of moved. Moving external messages will throw an *ExtensionError*.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages to move.
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder`)
+      
+      The folder to move the messages to.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+   - :permission:`messagesMove`
 
 .. _messages.openAttachment:
 
@@ -629,249 +898,6 @@ Marks or unmarks a message as junk, read, flagged, or tagged. Updating external 
 
    - :permission:`messagesRead`
 
-.. _messages.move:
-
-move(messageIds, destination)
------------------------------
-
-.. api-section-annotation-hack:: 
-
-Moves messages to a specified folder. If the messages cannot be removed from the source folder, they will be copied instead of moved. Moving external messages will throw an *ExtensionError*.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageIds``
-      :type: (array of integer)
-      
-      The IDs of the messages to move.
-   
-   
-   .. api-member::
-      :name: ``destination``
-      :type: (:ref:`folders.MailFolder`)
-      
-      The folder to move the messages to.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`accountsRead`
-   - :permission:`messagesMove`
-
-.. _messages.copy:
-
-copy(messageIds, destination)
------------------------------
-
-.. api-section-annotation-hack:: 
-
-Copies messages to a specified folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageIds``
-      :type: (array of integer)
-      
-      The IDs of the messages to copy.
-   
-   
-   .. api-member::
-      :name: ``destination``
-      :type: (:ref:`folders.MailFolder`)
-      
-      The folder to copy the messages to.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`accountsRead`
-   - :permission:`messagesMove`
-
-.. _messages.delete:
-
-delete(messageIds, [skipTrash])
--------------------------------
-
-.. api-section-annotation-hack:: 
-
-Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an *ExtensionError*. The ``skipTrash`` parameter allows immediate permanent deletion, bypassing the trash folder.
-
-**Note**: Consider using :ref:`messages.move` to manually move messages to the account's trash folder, instead of requesting the overly powerful permission to actually delete messages. The account's trash folder can be extracted as follows: 
-
-.. literalinclude:: includes/messages/getTrash.js
-  :language: JavaScript
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageIds``
-      :type: (array of integer)
-      
-      The IDs of the messages to delete.
-   
-   
-   .. api-member::
-      :name: [``skipTrash``]
-      :type: (boolean, optional)
-      
-      If true, the message will be deleted permanently, regardless of the account's deletion behavior settings.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesDelete`
-
-.. _messages.import:
-
-import(file, destination, [properties])
----------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 106]
-
-Imports a message into a local Thunderbird folder. To import a message into an IMAP folder, add it to a local folder first and then move it to the IMAP folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``file``
-      :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
-   
-   
-   .. api-member::
-      :name: ``destination``
-      :type: (:ref:`folders.MailFolder`)
-      
-      The folder to import the messages into.
-   
-   
-   .. api-member::
-      :name: [``properties``]
-      :type: (:ref:`messages.MessageProperties`, optional)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`messages.MessageHeader`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`accountsRead`
-   - :permission:`messagesImport`
-
-.. _messages.archive:
-
-archive(messageIds)
--------------------
-
-.. api-section-annotation-hack:: 
-
-Archives messages using the current settings. Archiving external messages will throw an *ExtensionError*.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageIds``
-      :type: (array of integer)
-      
-      The IDs of the messages to archive.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesMove`
-
-.. _messages.listTags:
-
-listTags()
-----------
-
-.. api-section-annotation-hack:: 
-
-Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`messages.MessageTag`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-.. _messages.createTag:
-
-createTag(key, tag, color)
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-   
-   
-   .. api-member::
-      :name: ``tag``
-      :type: (string)
-      
-      Human-readable tag name.
-   
-   
-   .. api-member::
-      :name: ``color``
-      :type: (string)
-      
-      Tag color in hex format (i.e.: #000080 for navy blue)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
-
 .. _messages.updateTag:
 
 updateTag(key, updateProperties)
@@ -909,32 +935,6 @@ Updates a message tag.
          
          Human-readable tag name.
       
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
-
-.. _messages.deleteTag:
-
-deleteTag(key)
---------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
 
 .. api-header::

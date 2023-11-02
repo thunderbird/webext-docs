@@ -40,41 +40,6 @@ Permissions
 Functions
 =========
 
-.. _menus.getTargetElement:
-
-getTargetElement(targetElementId)
----------------------------------
-
-.. api-section-annotation-hack:: 
-
-Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``targetElementId``
-      :type: (integer)
-      
-      The identifier of the clicked element, available as ``info.targetElementId`` in the :ref:`menus.onShown` and :ref:`menus.onClicked` events.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`__
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`menus`
-
 .. _menus.create:
 
 create(createProperties, [callback])
@@ -215,6 +180,144 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 
    - :permission:`menus`
 
+.. _menus.getTargetElement:
+
+getTargetElement(targetElementId)
+---------------------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``targetElementId``
+      :type: (integer)
+      
+      The identifier of the clicked element, available as ``info.targetElementId`` in the :ref:`menus.onShown` and :ref:`menus.onClicked` events.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`__
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
+.. _menus.overrideContext:
+
+overrideContext(contextOptions)
+-------------------------------
+
+.. api-section-annotation-hack:: 
+
+Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``contextOptions``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``context``]
+         :type: (`string`, optional)
+         
+         ContextType to override, to allow menu items from other extensions in the menu. Currently only :value:`tab` is supported. ``contextOptions.showDefaults`` cannot be used with this option.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`tab`
+      
+      
+      .. api-member::
+         :name: [``showDefaults``]
+         :type: (boolean, optional)
+         
+         Whether to also include default menu items in the menu.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Required when context is :value:`tab`. Requires the :permission:`tabs` permission.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+   - :permission:`menus.overrideContext`
+
+.. _menus.refresh:
+
+refresh()
+---------
+
+.. api-section-annotation-hack:: 
+
+Updates the extension items in the shown menu, including changes that have been made since the menu was shown. Has no effect if the menu is hidden. Rebuilding a shown menu is an expensive operation, only invoke this method when necessary.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
+.. _menus.remove:
+
+remove(menuItemId)
+------------------
+
+.. api-section-annotation-hack:: 
+
+Removes a context menu item.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``menuItemId``
+      :type: (integer or string)
+      
+      The ID of the context menu item to remove.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
+.. _menus.removeAll:
+
+removeAll()
+-----------
+
+.. api-section-annotation-hack:: 
+
+Removes all context menu items added by this extension.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.update:
 
 update(id, updateProperties)
@@ -305,109 +408,6 @@ Updates a previously created context menu item.
          Whether the item is visible in the menu.
       
    
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`menus`
-
-.. _menus.remove:
-
-remove(menuItemId)
-------------------
-
-.. api-section-annotation-hack:: 
-
-Removes a context menu item.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``menuItemId``
-      :type: (integer or string)
-      
-      The ID of the context menu item to remove.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`menus`
-
-.. _menus.removeAll:
-
-removeAll()
------------
-
-.. api-section-annotation-hack:: 
-
-Removes all context menu items added by this extension.
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`menus`
-
-.. _menus.overrideContext:
-
-overrideContext(contextOptions)
--------------------------------
-
-.. api-section-annotation-hack:: 
-
-Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``contextOptions``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``context``]
-         :type: (`string`, optional)
-         
-         ContextType to override, to allow menu items from other extensions in the menu. Currently only :value:`tab` is supported. ``contextOptions.showDefaults`` cannot be used with this option.
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`tab`
-      
-      
-      .. api-member::
-         :name: [``showDefaults``]
-         :type: (boolean, optional)
-         
-         Whether to also include default menu items in the menu.
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Required when context is :value:`tab`. Requires the :permission:`tabs` permission.
-      
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`menus`
-   - :permission:`menus.overrideContext`
-
-.. _menus.refresh:
-
-refresh()
----------
-
-.. api-section-annotation-hack:: 
-
-Updates the extension items in the shown menu, including changes that have been made since the menu was shown. Has no effect if the menu is hidden. Rebuilding a shown menu is an expensive operation, only invoke this method when necessary.
 
 .. api-header::
    :label: Required permissions

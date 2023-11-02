@@ -85,6 +85,31 @@ Returns the current theme for the specified window or the last focused window.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _theme.reset:
+
+reset([windowId])
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Removes the updates made to the theme.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``windowId``]
+      :type: (integer, optional)
+      
+      The id of the window to reset. No id resets all windows.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`theme`
+
 .. _theme.update:
 
 update([windowId], details)
@@ -110,31 +135,6 @@ Make complete updates to the theme. Resolves when the update has completed.
       :type: (:ref:`theme.ThemeType`)
       
       The properties of the theme to update.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`theme`
-
-.. _theme.reset:
-
-reset([windowId])
------------------
-
-.. api-section-annotation-hack:: 
-
-Removes the updates made to the theme.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``windowId``]
-      :type: (integer, optional)
-      
-      The id of the window to reset. No id resets all windows.
    
 
 .. api-header::
