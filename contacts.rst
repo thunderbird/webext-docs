@@ -351,6 +351,44 @@ Fired when a contact is created.
 
    - :permission:`addressBooks`
 
+.. _contacts.onDeleted:
+
+onDeleted
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a contact is removed from an address book.
+
+.. api-header::
+   :label: Parameters for onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(parentId, id)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``parentId``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _contacts.onUpdated:
 
 onUpdated
@@ -383,44 +421,6 @@ Fired when a contact is changed.
       :name: ``changedProperties``
       :type: (:ref:`contacts.PropertyChange`)
       :annotation: -- [Added in TB 83]
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
-.. _contacts.onDeleted:
-
-onDeleted
----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a contact is removed from an address book.
-
-.. api-header::
-   :label: Parameters for onDeleted.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(parentId, id)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``parentId``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
    
 
 .. api-header::

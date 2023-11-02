@@ -461,6 +461,30 @@ Fired when a context menu item is clicked. This is a user input event handler. F
 
    - :permission:`menus`
 
+.. _menus.onHidden:
+
+onHidden
+--------
+
+.. api-section-annotation-hack:: 
+
+Fired when a menu is hidden. This event is only fired if onShown has fired before.
+
+.. api-header::
+   :label: Parameters for onHidden.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener()``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`menus`
+
 .. _menus.onShown:
 
 onShown
@@ -496,30 +520,6 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
       :type: (:ref:`tabs.Tab`)
       
       The details of the tab where the menu was opened.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`menus`
-
-.. _menus.onHidden:
-
-onHidden
---------
-
-.. api-section-annotation-hack:: 
-
-Fired when a menu is hidden. This event is only fired if onShown has fired before.
-
-.. api-header::
-   :label: Parameters for onHidden.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener()``
-      
-      A function that will be called when this event occurs.
    
 
 .. api-header::

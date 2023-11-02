@@ -686,6 +686,98 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
 Events
 ======
 
+.. _tabs.onActivated:
+
+onActivated
+-----------
+
+.. api-section-annotation-hack:: 
+
+Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+
+.. api-header::
+   :label: Parameters for onActivated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(activeInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``activeInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``tabId``
+         :type: (integer)
+         
+         The ID of the tab that has become active.
+      
+      
+      .. api-member::
+         :name: ``windowId``
+         :type: (integer)
+         
+         The ID of the window the active tab changed inside of.
+      
+      
+      .. api-member::
+         :name: [``previousTabId``]
+         :type: (integer, optional)
+         
+         The ID of the tab that was previously active, if that tab is still open.
+      
+   
+
+.. _tabs.onAttached:
+
+onAttached
+----------
+
+.. api-section-annotation-hack:: 
+
+Fired when a tab is attached to a window, for example because it was moved between windows.
+
+.. api-header::
+   :label: Parameters for onAttached.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, attachInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``attachInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``newPosition``
+         :type: (integer)
+      
+      
+      .. api-member::
+         :name: ``newWindowId``
+         :type: (integer)
+      
+   
+
 .. _tabs.onCreated:
 
 onCreated
@@ -714,6 +806,144 @@ Fired when a tab is created. Note that the tab's URL may not be set at the time 
       :type: (:ref:`tabs.Tab`)
       
       Details of the tab that was created.
+   
+
+.. _tabs.onDetached:
+
+onDetached
+----------
+
+.. api-section-annotation-hack:: 
+
+Fired when a tab is detached from a window, for example because it is being moved between windows.
+
+.. api-header::
+   :label: Parameters for onDetached.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, detachInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``detachInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``oldPosition``
+         :type: (integer)
+      
+      
+      .. api-member::
+         :name: ``oldWindowId``
+         :type: (integer)
+      
+   
+
+.. _tabs.onMoved:
+
+onMoved
+-------
+
+.. api-section-annotation-hack:: 
+
+Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
+
+.. api-header::
+   :label: Parameters for onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, moveInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``moveInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``fromIndex``
+         :type: (integer)
+      
+      
+      .. api-member::
+         :name: ``toIndex``
+         :type: (integer)
+      
+      
+      .. api-member::
+         :name: ``windowId``
+         :type: (integer)
+      
+   
+
+.. _tabs.onRemoved:
+
+onRemoved
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a tab is closed.
+
+.. api-header::
+   :label: Parameters for onRemoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tabId, removeInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``removeInfo``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``isWindowClosing``
+         :type: (boolean)
+         
+         Is :value:`true` when the tab is being closed because its window is being closed.
+      
+      
+      .. api-member::
+         :name: ``windowId``
+         :type: (integer)
+         
+         The window whose tab is closed.
+      
    
 
 .. _tabs.onUpdated:
@@ -784,236 +1014,6 @@ Fired when a tab is updated.
       :type: (:ref:`tabs.Tab`)
       
       Gives the state of the tab that was updated.
-   
-
-.. _tabs.onMoved:
-
-onMoved
--------
-
-.. api-section-annotation-hack:: 
-
-Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
-
-.. api-header::
-   :label: Parameters for onMoved.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tabId, moveInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``moveInfo``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``fromIndex``
-         :type: (integer)
-      
-      
-      .. api-member::
-         :name: ``toIndex``
-         :type: (integer)
-      
-      
-      .. api-member::
-         :name: ``windowId``
-         :type: (integer)
-      
-   
-
-.. _tabs.onActivated:
-
-onActivated
------------
-
-.. api-section-annotation-hack:: 
-
-Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
-
-.. api-header::
-   :label: Parameters for onActivated.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(activeInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``activeInfo``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``tabId``
-         :type: (integer)
-         
-         The ID of the tab that has become active.
-      
-      
-      .. api-member::
-         :name: ``windowId``
-         :type: (integer)
-         
-         The ID of the window the active tab changed inside of.
-      
-      
-      .. api-member::
-         :name: [``previousTabId``]
-         :type: (integer, optional)
-         
-         The ID of the tab that was previously active, if that tab is still open.
-      
-   
-
-.. _tabs.onDetached:
-
-onDetached
-----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a tab is detached from a window, for example because it is being moved between windows.
-
-.. api-header::
-   :label: Parameters for onDetached.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tabId, detachInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``detachInfo``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``oldPosition``
-         :type: (integer)
-      
-      
-      .. api-member::
-         :name: ``oldWindowId``
-         :type: (integer)
-      
-   
-
-.. _tabs.onAttached:
-
-onAttached
-----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a tab is attached to a window, for example because it was moved between windows.
-
-.. api-header::
-   :label: Parameters for onAttached.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tabId, attachInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``attachInfo``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``newPosition``
-         :type: (integer)
-      
-      
-      .. api-member::
-         :name: ``newWindowId``
-         :type: (integer)
-      
-   
-
-.. _tabs.onRemoved:
-
-onRemoved
----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a tab is closed.
-
-.. api-header::
-   :label: Parameters for onRemoved.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tabId, removeInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``removeInfo``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``isWindowClosing``
-         :type: (boolean)
-         
-         Is :value:`true` when the tab is being closed because its window is being closed.
-      
-      
-      .. api-member::
-         :name: ``windowId``
-         :type: (integer)
-         
-         The window whose tab is closed.
-      
    
 
 .. rst-class:: api-main-section

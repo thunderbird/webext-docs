@@ -296,39 +296,6 @@ Fired when an address book is created.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.onUpdated:
-
-onUpdated
----------
-
-.. api-section-annotation-hack:: 
-
-Fired when an address book is renamed.
-
-.. api-header::
-   :label: Parameters for onUpdated.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(node)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``node``
-      :type: (:ref:`addressBooks.AddressBookNode`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
 .. _addressBooks.onDeleted:
 
 onDeleted
@@ -355,6 +322,39 @@ Fired when an addressBook is deleted.
    .. api-member::
       :name: ``id``
       :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _addressBooks.onUpdated:
+
+onUpdated
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when an address book is renamed.
+
+.. api-header::
+   :label: Parameters for onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``node``
+      :type: (:ref:`addressBooks.AddressBookNode`)
    
 
 .. api-header::

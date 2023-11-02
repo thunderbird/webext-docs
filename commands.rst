@@ -136,42 +136,6 @@ Update the details of an already defined command.
 Events
 ======
 
-.. _commands.onCommand:
-
-onCommand
----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
-
-.. api-header::
-   :label: Parameters for onCommand.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(command, tab)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``command``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      :annotation: -- [Added in TB 106]
-      
-      The details of the active tab while the command occurred.
-   
-
 .. _commands.onChanged:
 
 onChanged
@@ -219,6 +183,42 @@ Fired when a registered command's shortcut is changed.
          
          The old shortcut which is no longer active for this command, or blank if the shortcut was previously inactive.
       
+   
+
+.. _commands.onCommand:
+
+onCommand
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+
+.. api-header::
+   :label: Parameters for onCommand.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(command, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``command``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 106]
+      
+      The details of the active tab while the command occurred.
    
 
 .. rst-class:: api-main-section

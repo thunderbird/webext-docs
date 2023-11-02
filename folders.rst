@@ -606,6 +606,44 @@ Updates properties of a folder.
 Events
 ======
 
+.. _folders.onCopied:
+
+onCopied
+--------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when a folder has been copied.
+
+.. api-header::
+   :label: Parameters for onCopied.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, copiedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``originalFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``copiedFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
 .. _folders.onCreated:
 
 onCreated
@@ -631,6 +669,115 @@ Fired when a folder has been created.
    
    .. api-member::
       :name: ``createdFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.onDeleted:
+
+onDeleted
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when a folder has been deleted.
+
+.. api-header::
+   :label: Parameters for onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(deletedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``deletedFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.onFolderInfoChanged:
+
+onFolderInfoChanged
+-------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
+
+.. api-header::
+   :label: Parameters for onFolderInfoChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(folder, folderInfo)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``folderInfo``
+      :type: (:ref:`folders.MailFolderInfo`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.onMoved:
+
+onMoved
+-------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when a folder has been moved.
+
+.. api-header::
+   :label: Parameters for onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, movedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``originalFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``movedFolder``
       :type: (:ref:`folders.MailFolder`)
    
 
@@ -677,115 +824,6 @@ Fired when a folder has been renamed.
 
    - :permission:`accountsRead`
 
-.. _folders.onMoved:
-
-onMoved
--------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when a folder has been moved.
-
-.. api-header::
-   :label: Parameters for onMoved.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(originalFolder, movedFolder)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``originalFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``movedFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.onCopied:
-
-onCopied
---------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when a folder has been copied.
-
-.. api-header::
-   :label: Parameters for onCopied.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(originalFolder, copiedFolder)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``originalFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``copiedFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.onDeleted:
-
-onDeleted
----------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when a folder has been deleted.
-
-.. api-header::
-   :label: Parameters for onDeleted.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(deletedFolder)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``deletedFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
 .. _folders.onUpdated:
 
 onUpdated
@@ -817,44 +855,6 @@ Fired when properties of a folder have changed (:value:`specialUse` and :value:`
    .. api-member::
       :name: ``updatedFolder``
       :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.onFolderInfoChanged:
-
-onFolderInfoChanged
--------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
-
-.. api-header::
-   :label: Parameters for onFolderInfoChanged.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(folder, folderInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``folderInfo``
-      :type: (:ref:`folders.MailFolderInfo`)
    
 
 .. api-header::

@@ -419,36 +419,6 @@ Fired when a window is created.
       Details of the window that was created.
    
 
-.. _windows.onRemoved:
-
-onRemoved
----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a window is removed (closed).
-
-.. api-header::
-   :label: Parameters for onRemoved.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(windowId)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``windowId``
-      :type: (integer)
-      
-      ID of the removed window.
-   
-
 .. _windows.onFocusChanged:
 
 onFocusChanged
@@ -477,6 +447,36 @@ Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID
       :type: (integer)
       
       ID of the newly focused window.
+   
+
+.. _windows.onRemoved:
+
+onRemoved
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a window is removed (closed).
+
+.. api-header::
+   :label: Parameters for onRemoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(windowId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``windowId``
+      :type: (integer)
+      
+      ID of the removed window.
    
 
 .. rst-class:: api-main-section

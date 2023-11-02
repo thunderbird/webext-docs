@@ -356,39 +356,6 @@ Fired when a mailing list is created.
 
    - :permission:`addressBooks`
 
-.. _mailingLists.onUpdated:
-
-onUpdated
----------
-
-.. api-section-annotation-hack:: 
-
-Fired when a mailing list is changed.
-
-.. api-header::
-   :label: Parameters for onUpdated.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(node)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``node``
-      :type: (:ref:`mailingLists.MailingListNode`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`addressBooks`
-
 .. _mailingLists.onDeleted:
 
 onDeleted
@@ -491,6 +458,39 @@ Fired when a contact is removed from the mailing list.
    .. api-member::
       :name: ``id``
       :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
+.. _mailingLists.onUpdated:
+
+onUpdated
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a mailing list is changed.
+
+.. api-header::
+   :label: Parameters for onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(node)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``node``
+      :type: (:ref:`mailingLists.MailingListNode`)
    
 
 .. api-header::

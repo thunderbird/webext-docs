@@ -948,83 +948,6 @@ Updates a message tag.
 Events
 ======
 
-.. _messages.onUpdated:
-
-onUpdated
----------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when one or more properties of a message have been updated.
-
-.. api-header::
-   :label: Parameters for onUpdated.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(message, changedProperties)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``message``
-      :type: (:ref:`messages.MessageHeader`)
-   
-   
-   .. api-member::
-      :name: ``changedProperties``
-      :type: (:ref:`messages.MessageProperties`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-.. _messages.onMoved:
-
-onMoved
--------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when messages have been moved.
-
-.. api-header::
-   :label: Parameters for onMoved.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(originalMessages, movedMessages)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``originalMessages``
-      :type: (:ref:`messages.MessageList`)
-   
-   
-   .. api-member::
-      :name: ``movedMessages``
-      :type: (:ref:`messages.MessageList`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`accountsRead`
-
 .. _messages.onCopied:
 
 onCopied
@@ -1098,6 +1021,45 @@ Fired when messages have been permanently deleted.
    - :permission:`messagesRead`
    - :permission:`accountsRead`
 
+.. _messages.onMoved:
+
+onMoved
+-------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when messages have been moved.
+
+.. api-header::
+   :label: Parameters for onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalMessages, movedMessages)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``originalMessages``
+      :type: (:ref:`messages.MessageList`)
+   
+   
+   .. api-member::
+      :name: ``movedMessages``
+      :type: (:ref:`messages.MessageList`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`accountsRead`
+
 .. _messages.onNewMailReceived:
 
 onNewMailReceived
@@ -1143,6 +1105,44 @@ Fired when a new message is received, and has been through junk classification a
 
    - :permission:`messagesRead`
    - :permission:`accountsRead`
+
+.. _messages.onUpdated:
+
+onUpdated
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when one or more properties of a message have been updated.
+
+.. api-header::
+   :label: Parameters for onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(message, changedProperties)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``message``
+      :type: (:ref:`messages.MessageHeader`)
+   
+   
+   .. api-member::
+      :name: ``changedProperties``
+      :type: (:ref:`messages.MessageProperties`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. rst-class:: api-main-section
 

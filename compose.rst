@@ -682,21 +682,21 @@ Updates the name and/or the content of an attachment in the message being compos
 Events
 ======
 
-.. _compose.onBeforeSend:
+.. _compose.onActiveDictionariesChanged:
 
-onBeforeSend
-------------
+onActiveDictionariesChanged
+---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 74]
+.. api-section-annotation-hack:: -- [Added in TB 102]
 
-Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+Fired when one or more dictionaries have been activated or deactivated.
 
 .. api-header::
-   :label: Parameters for onBeforeSend.addListener(listener)
+   :label: Parameters for onActiveDictionariesChanged.addListener(listener)
 
    
    .. api-member::
-      :name: ``listener(tab, details)``
+      :name: ``listener(tab, dictionaries)``
       
       A function that will be called when this event occurs.
    
@@ -708,35 +708,72 @@ Fired when a message is about to be sent from the compose window. This is a user
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: -- [Added in TB 74.0b2]
    
    
    .. api-member::
-      :name: ``details``
-      :type: (:ref:`compose.ComposeDetails`)
+      :name: ``dictionaries``
+      :type: (:ref:`compose.ComposeDictionaries`)
+   
+
+.. _compose.onAfterSave:
+
+onAfterSave
+-----------
+
+.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.0]
+
+Fired when saving a message as draft or template succeeded or failed.
+
+.. api-header::
+   :label: Parameters for onAfterSave.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, saveInfo)``
       
-      The current state of the compose window. This is functionally the same as calling the :ref:`compose.getComposeDetails` function.
+      A function that will be called when this event occurs.
    
 
 .. api-header::
-   :label: Expected return value of the listener function
+   :label: Parameters passed to the listener function
 
    
    .. api-member::
-      :type: object
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``saveInfo``
+      :type: (object)
       
       .. api-member::
-         :name: [``cancel``]
-         :type: (boolean, optional)
+         :name: ``messages``
+         :type: (array of :ref:`messages.MessageHeader`)
          
-         Cancels the send.
+         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
       
       
       .. api-member::
-         :name: [``details``]
-         :type: (:ref:`compose.ComposeDetails`, optional)
+         :name: ``mode``
+         :type: (`string`)
          
-         Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
+         The used save mode.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`draft`
+         
+         .. api-member::
+            :name: :value:`template`
+      
+      
+      .. api-member::
+         :name: [``error``]
+         :type: (string, optional)
+         
+         An error description, if saving the message failed.
       
    
 
@@ -811,73 +848,6 @@ Fired when sending a message succeeded or failed.
          :type: (string, optional)
          
          The header messageId of the outgoing message. Only included for actually sent messages.
-      
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`compose`
-
-.. _compose.onAfterSave:
-
-onAfterSave
------------
-
-.. api-section-annotation-hack:: -- [Added in TB 106, backported to TB 102.3.0]
-
-Fired when saving a message as draft or template succeeded or failed.
-
-.. api-header::
-   :label: Parameters for onAfterSave.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tab, saveInfo)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-   
-   
-   .. api-member::
-      :name: ``saveInfo``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``messages``
-         :type: (array of :ref:`messages.MessageHeader`)
-         
-         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
-      
-      
-      .. api-member::
-         :name: ``mode``
-         :type: (`string`)
-         
-         The used save mode.
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`draft`
-         
-         .. api-member::
-            :name: :value:`template`
-      
-      
-      .. api-member::
-         :name: [``error``]
-         :type: (string, optional)
-         
-         An error description, if saving the message failed.
       
    
 
@@ -962,6 +932,102 @@ Fired when an attachment is removed from a message being composed.
 
    - :permission:`compose`
 
+.. _compose.onBeforeSend:
+
+onBeforeSend
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 74]
+
+Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+
+.. api-header::
+   :label: Parameters for onBeforeSend.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, details)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 74.0b2]
+   
+   
+   .. api-member::
+      :name: ``details``
+      :type: (:ref:`compose.ComposeDetails`)
+      
+      The current state of the compose window. This is functionally the same as calling the :ref:`compose.getComposeDetails` function.
+   
+
+.. api-header::
+   :label: Expected return value of the listener function
+
+   
+   .. api-member::
+      :type: object
+      
+      .. api-member::
+         :name: [``cancel``]
+         :type: (boolean, optional)
+         
+         Cancels the send.
+      
+      
+      .. api-member::
+         :name: [``details``]
+         :type: (:ref:`compose.ComposeDetails`, optional)
+         
+         Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
+      
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`compose`
+
+.. _compose.onComposeStateChanged:
+
+onComposeStateChanged
+---------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 90]
+
+Fired when the state of the message composer changed.
+
+.. api-header::
+   :label: Parameters for onComposeStateChanged.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tab, state)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+   
+   
+   .. api-member::
+      :name: ``state``
+      :type: (:ref:`compose.ComposeState`)
+   
+
 .. _compose.onIdentityChanged:
 
 onIdentityChanged
@@ -999,72 +1065,6 @@ Fired when the user changes the identity that will be used to send a message bei
    :label: Required permissions
 
    - :permission:`accountsRead`
-
-.. _compose.onComposeStateChanged:
-
-onComposeStateChanged
----------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 90]
-
-Fired when the state of the message composer changed.
-
-.. api-header::
-   :label: Parameters for onComposeStateChanged.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tab, state)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-   
-   
-   .. api-member::
-      :name: ``state``
-      :type: (:ref:`compose.ComposeState`)
-   
-
-.. _compose.onActiveDictionariesChanged:
-
-onActiveDictionariesChanged
----------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Fired when one or more dictionaries have been activated or deactivated.
-
-.. api-header::
-   :label: Parameters for onActiveDictionariesChanged.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(tab, dictionaries)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-   
-   
-   .. api-member::
-      :name: ``dictionaries``
-      :type: (:ref:`compose.ComposeDictionaries`)
-   
 
 .. rst-class:: api-main-section
 
