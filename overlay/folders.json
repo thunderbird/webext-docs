@@ -71,7 +71,7 @@
         "added": "121"
       },
       {
-        "id": "getFolderUsage",
+        "id": "get",
         "added": "121"
       },
       {
@@ -109,7 +109,7 @@
         "added": "91"
       },
       {
-        "name": "onFolderUsageChanged",
+        "name": "onUpdated",
         "added": "121"
       }
     ]

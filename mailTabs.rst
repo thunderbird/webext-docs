@@ -127,6 +127,36 @@ Get the properties of the active mail tab, if the active tab is a mail tab. Retu
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _mailTabs.create:
+
+create([createProperties])
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. Note: A new mail window can be created via :ref:`windows.create`.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``createProperties``]
+      :type: (:ref:`mailTabs.MailTabProperties`, optional)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+      
+      Details about the created mail tab. Will contain the ID of the new tab.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _mailTabs.update:
 
 update([tabId], updateProperties)
@@ -149,151 +179,55 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
    
    .. api-member::
       :name: ``updateProperties``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``displayedFolder``]
-         :type: (:ref:`folders.MailFolder`, optional)
-         
-         Sets the folder displayed in the tab. The extension must have the :permission:`accountsRead` permission to do this. The previous message selection in the given folder will be restored.
-      
-      
-      .. api-member::
-         :name: [``folderPaneVisible``]
-         :type: (boolean, optional)
-         
-         Shows or hides the folder pane.
-      
-      
-      .. api-member::
-         :name: [``layout``]
-         :type: (`string`, optional)
-         
-         Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`standard`
-         
-         .. api-member::
-            :name: :value:`wide`
-         
-         .. api-member::
-            :name: :value:`vertical`
-      
-      
-      .. api-member::
-         :name: [``messagePaneVisible``]
-         :type: (boolean, optional)
-         
-         Shows or hides the message display pane.
-      
-      
-      .. api-member::
-         :name: [``sortOrder``]
-         :type: (`string`, optional)
-         
-         Sorts the list of messages. ``sortType`` must also be given.
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`none`
-         
-         .. api-member::
-            :name: :value:`ascending`
-         
-         .. api-member::
-            :name: :value:`descending`
-      
-      
-      .. api-member::
-         :name: [``sortType``]
-         :type: (`string`, optional)
-         
-         Sorts the list of messages. ``sortOrder`` must also be given.
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`none`
-         
-         .. api-member::
-            :name: :value:`date`
-         
-         .. api-member::
-            :name: :value:`subject`
-         
-         .. api-member::
-            :name: :value:`author`
-         
-         .. api-member::
-            :name: :value:`id`
-         
-         .. api-member::
-            :name: :value:`thread`
-         
-         .. api-member::
-            :name: :value:`priority`
-         
-         .. api-member::
-            :name: :value:`status`
-         
-         .. api-member::
-            :name: :value:`size`
-         
-         .. api-member::
-            :name: :value:`flagged`
-         
-         .. api-member::
-            :name: :value:`unread`
-         
-         .. api-member::
-            :name: :value:`recipient`
-         
-         .. api-member::
-            :name: :value:`location`
-         
-         .. api-member::
-            :name: :value:`tags`
-         
-         .. api-member::
-            :name: :value:`junkStatus`
-         
-         .. api-member::
-            :name: :value:`attachments`
-         
-         .. api-member::
-            :name: :value:`account`
-         
-         .. api-member::
-            :name: :value:`custom`
-         
-         .. api-member::
-            :name: :value:`received`
-         
-         .. api-member::
-            :name: :value:`correspondent`
-      
-      
-      .. api-member::
-         :name: [``viewType``]
-         :type: (`string`, optional)
-         :annotation: -- [Added in TB 91]
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`ungrouped`
-         
-         .. api-member::
-            :name: :value:`groupedByThread`
-         
-         .. api-member::
-            :name: :value:`groupedBySortType`
-      
+      :type: (:ref:`mailTabs.MailTabProperties`)
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+      
+      Details about the updated mail tab.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _mailTabs.getListedMessages:
+
+getListedMessages([tabId])
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Lists the messages in the current view, honoring sort order and filters.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      Defaults to the active tab of the current window.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
 
 .. _mailTabs.getSelectedMessages:
 
@@ -354,7 +288,7 @@ Selects none, one or multiple messages.
       :name: ``messageIds``
       :type: (array of integer)
       
-      The IDs of the messages, which should be selected. The mailTab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
+      The IDs of the messages, which should be selected. The mail tab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
    
 
 .. api-header::
@@ -683,6 +617,159 @@ MailTab
       :name: [``viewType``]
       :type: (`string`, optional)
       :annotation: -- [Added in TB 91]
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`ungrouped`
+      
+      .. api-member::
+         :name: :value:`groupedByThread`
+      
+      .. api-member::
+         :name: :value:`groupedBySortType`
+   
+
+.. _mailTabs.MailTabProperties:
+
+MailTabProperties
+-----------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``displayedFolder``]
+      :type: (:ref:`folders.MailFolder`, optional)
+      
+      Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if :value:`selectedMessages` is specified.
+   
+   
+   .. api-member::
+      :name: [``folderPaneVisible``]
+      :type: (boolean, optional)
+      
+      Shows or hides the folder pane.
+   
+   
+   .. api-member::
+      :name: [``layout``]
+      :type: (`string`, optional)
+      
+      Sets the arrangement of the folder pane, message list pane, and message display pane. Note that setting this applies it to all mail tabs.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`standard`
+      
+      .. api-member::
+         :name: :value:`wide`
+      
+      .. api-member::
+         :name: :value:`vertical`
+   
+   
+   .. api-member::
+      :name: [``messagePaneVisible``]
+      :type: (boolean, optional)
+      
+      Shows or hides the message display pane.
+   
+   
+   .. api-member::
+      :name: [``sortOrder``]
+      :type: (`string`, optional)
+      
+      Sorts the list of messages. ``sortType`` must also be given.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`none`
+      
+      .. api-member::
+         :name: :value:`ascending`
+      
+      .. api-member::
+         :name: :value:`descending`
+   
+   
+   .. api-member::
+      :name: [``sortType``]
+      :type: (`string`, optional)
+      
+      Sorts the list of messages. ``sortOrder`` must also be given.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`none`
+      
+      .. api-member::
+         :name: :value:`date`
+      
+      .. api-member::
+         :name: :value:`subject`
+      
+      .. api-member::
+         :name: :value:`author`
+      
+      .. api-member::
+         :name: :value:`id`
+      
+      .. api-member::
+         :name: :value:`thread`
+      
+      .. api-member::
+         :name: :value:`priority`
+      
+      .. api-member::
+         :name: :value:`status`
+      
+      .. api-member::
+         :name: :value:`size`
+      
+      .. api-member::
+         :name: :value:`flagged`
+      
+      .. api-member::
+         :name: :value:`unread`
+      
+      .. api-member::
+         :name: :value:`recipient`
+      
+      .. api-member::
+         :name: :value:`location`
+      
+      .. api-member::
+         :name: :value:`tags`
+      
+      .. api-member::
+         :name: :value:`junkStatus`
+      
+      .. api-member::
+         :name: :value:`attachments`
+      
+      .. api-member::
+         :name: :value:`account`
+      
+      .. api-member::
+         :name: :value:`custom`
+      
+      .. api-member::
+         :name: :value:`received`
+      
+      .. api-member::
+         :name: :value:`correspondent`
+   
+   
+   .. api-member::
+      :name: [``viewType``]
+      :type: (`string`, optional)
       
       Supported values:
       
