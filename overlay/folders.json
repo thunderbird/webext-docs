@@ -8,7 +8,7 @@
           "subFolders": {
             "added": "74"
           },
-          "usage": {
+          "specialUse": {
             "added": "121"
           }
         }
@@ -37,7 +37,7 @@
         "added": "121"
       },
       {
-        "id": "MailFolderUsage",
+        "id": "MailFolderSpecialUse",
         "added": "121"
       }
     ],

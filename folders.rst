@@ -895,11 +895,6 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    
    .. api-member::
-      :name: ``usage``
-      :annotation: -- [Added in TB 121]
-   
-   
-   .. api-member::
       :name: [``favorite``]
       :type: (boolean, optional)
       
@@ -923,6 +918,7 @@ An object describing a folder. The ``subFolders`` property is only included if r
    .. api-member::
       :name: [``specialUse``]
       :type: (array of :ref:`folders.MailFolderSpecialUse`, optional)
+      :annotation: -- [Added in TB 121]
       
       The special use of this folder. A folder can have multiple special uses.
    
@@ -1102,7 +1098,7 @@ An object containing quota information.
 MailFolderSpecialUse
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Supported values for the special use of a folder.
 
@@ -1140,13 +1136,6 @@ Supported values for the special use of a folder.
          .. api-member::
             :name: :value:`outbox`
    
-
-.. _folders.MailFolderUsage:
-
-MailFolderUsage
----------------
-
-.. api-section-annotation-hack:: -- [Added in TB 121]
 
 .. _folders.QueryRange:
 
