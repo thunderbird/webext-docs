@@ -166,7 +166,7 @@ get(messageId)
 
 .. api-section-annotation-hack:: 
 
-Returns a specified message.
+Returns the specified message.
 
 .. api-header::
    :label: Parameters
@@ -199,7 +199,7 @@ getFull(messageId)
 
 .. api-section-annotation-hack:: 
 
-Returns a specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.
+Returns the specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.
 
 .. api-header::
    :label: Parameters
@@ -1121,7 +1121,7 @@ Fired when a new message is received, and has been through junk classification a
       :name: [``monitorAllFolders``]
       :type: (boolean, optional)
       
-      Monitor all folders (including all special use folders as defined by :ref:`folders.MailFolderUsage`) instead of just inbox folders and normal folders.
+      Monitor all folders (including all special use folders as defined by :ref:`folders.MailFolderSpecialUse`) instead of just inbox folders and normal folders.
    
 
 .. api-header::

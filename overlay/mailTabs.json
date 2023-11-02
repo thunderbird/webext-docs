@@ -13,6 +13,14 @@
     ],
     "functions": [
       {
+        "name": "create",
+        "added": "121"
+      },
+      {
+        "name": "getListedMessages",
+        "added": "121"
+      },
+      {
         "name": "update",
         "parameters": [
           {
