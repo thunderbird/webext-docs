@@ -84,7 +84,7 @@ Gets all messages in a folder.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId`)
    
 
 .. api-header::
@@ -451,10 +451,10 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       
       .. api-member::
-         :name: [``folder``]
-         :type: (:ref:`folders.MailFolder`, optional)
+         :name: [``folderId``]
+         :type: (:ref:`folders.MailFolderId`, optional)
          
-         Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
+         Returns only messages from the folder with the specified id. The :permission:`accountsRead` permission is required.
       
       
       .. api-member::
@@ -491,7 +491,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (boolean, optional)
          :annotation: -- [Added in TB 91]
          
-         Search the folder specified by ``queryInfo.folder`` recursively.
+         Search the specified folder recursively.
       
       
       .. api-member::
@@ -651,7 +651,7 @@ Moves messages to a specified folder. If the messages cannot be removed from the
    
    .. api-member::
       :name: ``destination``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId`)
       
       The folder to move the messages to.
    
@@ -685,7 +685,7 @@ Copies messages to a specified folder.
    
    .. api-member::
       :name: ``destination``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId`)
       
       The folder to copy the messages to.
    
@@ -755,7 +755,7 @@ Imports a message into a local Thunderbird folder. To import a message into an I
    
    .. api-member::
       :name: ``destination``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId`)
       
       The folder to import the messages into.
    

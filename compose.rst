@@ -1133,7 +1133,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``additionalFccFolder``]
-      :type: (:ref:`folders.MailFolder` or `string`, optional)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder` or `string`, optional)
       :annotation: -- [Added in TB 102]
       
       An additional fcc folder which can be selected while composing the message, an empty string if not used.
@@ -1258,7 +1258,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``overrideDefaultFccFolder``]
-      :type: (:ref:`folders.MailFolder` or `string`, optional)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder` or `string`, optional)
       :annotation: -- [Added in TB 102]
       
        This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all.

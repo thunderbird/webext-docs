@@ -643,7 +643,7 @@ MailTabProperties
    
    .. api-member::
       :name: [``displayedFolder``]
-      :type: (:ref:`folders.MailFolder`, optional)
+      :type: (:ref:`folders.MailFolderId`, optional)
       
       Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if :value:`selectedMessages` is specified.
    

@@ -237,7 +237,7 @@ Fired when a new account has been created.
    
    .. api-member::
       :name: ``id``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -275,7 +275,7 @@ Fired when an account has been removed.
    
    .. api-member::
       :name: ``id``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
 
 .. api-header::
@@ -308,7 +308,7 @@ Fired when a property of an account has been modified. Folders and identities of
    
    .. api-member::
       :name: ``id``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -355,7 +355,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
    
    .. api-member::
       :name: ``id``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
       
       A unique identifier for this account.
    
@@ -383,8 +383,20 @@ An object describing a mail account, as returned for example by the :ref:`accoun
    
    
    .. api-member::
-      :name: [``folders``]
-      :type: (array of :ref:`folders.MailFolder`, optional)
+      :name: [``rootFolder``]
+      :type: (:ref:`folders.MailFolder`, optional)
       
-      The folders for this account are only included if requested.
+      The root folder associated with this account.
    
+
+.. _accounts.MailAccountId:
+
+MailAccountId
+-------------
+
+.. api-section-annotation-hack:: 
+
+A unique id representing a :ref:`accounts.MailAccount`.
+
+.. api-header::
+   :label: string
