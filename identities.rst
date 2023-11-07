@@ -49,7 +49,7 @@ Returns the identities of the specified account, or all identities if no account
    
    .. api-member::
       :name: [``accountId``]
-      :type: (string, optional)
+      :type: (:ref:`accounts.MailAccountId`, optional)
    
 
 .. api-header::
@@ -115,7 +115,7 @@ Create a new identity in the specified account.
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -217,7 +217,7 @@ Returns the default identity for the requested account, or :value:`null` if it i
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
 
 .. api-header::
@@ -250,7 +250,7 @@ Sets the default identity for the requested account.
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -395,7 +395,7 @@ MailIdentity
    
    .. api-member::
       :name: [``accountId``]
-      :type: (string, optional)
+      :type: (:ref:`accounts.MailAccountId`, optional)
       
       The id of the :ref:`accounts.MailAccount` this identity belongs to. The ``accountId`` property is read-only.
    

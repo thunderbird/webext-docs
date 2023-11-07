@@ -84,7 +84,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -161,7 +161,7 @@ Sets the default identity for an account.
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -189,7 +189,7 @@ Returns the default identity for an account, or :value:`null` if it is not defin
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
 
 .. api-header::
@@ -226,7 +226,7 @@ Fired when a new account has been created.
 
    
    .. api-member::
-      :name: ``listener(id, account)``
+      :name: ``listener(accountId, account)``
       
       A function that will be called when this event occurs.
    
@@ -236,7 +236,7 @@ Fired when a new account has been created.
 
    
    .. api-member::
-      :name: ``id``
+      :name: ``accountId``
       :type: (:ref:`accounts.MailAccountId`)
    
    
@@ -264,7 +264,7 @@ Fired when an account has been removed.
 
    
    .. api-member::
-      :name: ``listener(id)``
+      :name: ``listener(accountId)``
       
       A function that will be called when this event occurs.
    
@@ -274,7 +274,7 @@ Fired when an account has been removed.
 
    
    .. api-member::
-      :name: ``id``
+      :name: ``accountId``
       :type: (:ref:`accounts.MailAccountId`)
    
 
@@ -297,7 +297,7 @@ Fired when a property of an account has been modified. Folders and identities of
 
    
    .. api-member::
-      :name: ``listener(id, changedValues)``
+      :name: ``listener(accountId, changedValues)``
       
       A function that will be called when this event occurs.
    
@@ -307,7 +307,7 @@ Fired when a property of an account has been modified. Folders and identities of
 
    
    .. api-member::
-      :name: ``id``
+      :name: ``accountId``
       :type: (:ref:`accounts.MailAccountId`)
    
    

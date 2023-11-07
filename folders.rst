@@ -903,7 +903,7 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
       
       The id of the account this folder belongs to.
    
