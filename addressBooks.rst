@@ -8,7 +8,7 @@ The address books API, also including the :doc:`contacts` and :doc:`mailingLists
 
 The `Address Books`__ sample extension uses this API.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
+__ https://github.com/thunderbird/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
 
