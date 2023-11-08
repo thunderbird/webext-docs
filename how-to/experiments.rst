@@ -16,7 +16,7 @@ Adding an experiment to your extension
 
 The full code of this example is `on GitHub`__.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/experiment
+__ https://github.com/thunderbird/sample-extensions/tree/master/experiment
 
 .. note::
 

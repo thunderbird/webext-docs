@@ -9,7 +9,7 @@ The quickSearch function was added in Thunderbird 68.
 
 The `Address Books`__ sample extension uses this API.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
+__ https://github.com/thunderbird/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
 
