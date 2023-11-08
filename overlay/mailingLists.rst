@@ -6,4 +6,4 @@ The :doc:`addressBooks` API, also including the :doc:`contacts` and :doc:`mailin
 
 The `Address Books`__ sample extension uses this API.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/addressBooks
+__ https://github.com/thunderbird/sample-extensions/tree/master/addressBooks
