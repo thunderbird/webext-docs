@@ -10,4 +10,4 @@ the default may change in a future version.
 
 The `DropBox Uploader`__ sample extension uses this API.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/dropbox
+__ https://github.com/thunderbird/sample-extensions/tree/master/dropbox

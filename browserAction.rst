@@ -9,7 +9,7 @@ The browserAction API first appeared in Thunderbird 64. It is very similar to Fi
 Many of our `sample extensions`__ use a browserAction.
 
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserAction
-__ https://github.com/thundernest/sample-extensions
+__ https://github.com/thunderbird/sample-extensions
 
 .. role:: permission
 
