@@ -48,7 +48,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -125,7 +125,7 @@ Returns the default identity for an account, or :value:`null` if it is not defin
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
 
 .. api-header::
@@ -194,7 +194,7 @@ Sets the default identity for an account.
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -226,7 +226,7 @@ Fired when a new account has been created.
 
    
    .. api-member::
-      :name: ``listener(id, account)``
+      :name: ``listener(accountId, account)``
       
       A function that will be called when this event occurs.
    
@@ -236,8 +236,8 @@ Fired when a new account has been created.
 
    
    .. api-member::
-      :name: ``id``
-      :type: (string)
+      :name: ``accountId``
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -264,7 +264,7 @@ Fired when an account has been removed.
 
    
    .. api-member::
-      :name: ``listener(id)``
+      :name: ``listener(accountId)``
       
       A function that will be called when this event occurs.
    
@@ -274,8 +274,8 @@ Fired when an account has been removed.
 
    
    .. api-member::
-      :name: ``id``
-      :type: (string)
+      :name: ``accountId``
+      :type: (:ref:`accounts.MailAccountId`)
    
 
 .. api-header::
@@ -297,7 +297,7 @@ Fired when a property of an account has been modified. Folders and identities of
 
    
    .. api-member::
-      :name: ``listener(id, changedValues)``
+      :name: ``listener(accountId, changedValues)``
       
       A function that will be called when this event occurs.
    
@@ -307,8 +307,8 @@ Fired when a property of an account has been modified. Folders and identities of
 
    
    .. api-member::
-      :name: ``id``
-      :type: (string)
+      :name: ``accountId``
+      :type: (:ref:`accounts.MailAccountId`)
    
    
    .. api-member::
@@ -355,7 +355,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
    
    .. api-member::
       :name: ``id``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
       
       A unique identifier for this account.
    
@@ -388,3 +388,22 @@ An object describing a mail account, as returned for example by the :ref:`accoun
       
       The folders for this account are only included if requested.
    
+   
+   .. api-member::
+      :name: [``rootFolder``]
+      :type: (:ref:`folders.MailFolder`, optional)
+      
+      The root folder associated with this account.
+   
+
+.. _accounts.MailAccountId:
+
+MailAccountId
+-------------
+
+.. api-section-annotation-hack:: 
+
+A unique id representing a :ref:`accounts.MailAccount`.
+
+.. api-header::
+   :label: string

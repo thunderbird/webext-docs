@@ -8,8 +8,8 @@ The mailTabs API first appeared in Thunderbird 66 and allows to interact with Th
 
 The `Filter`__  and `Layout`__ sample extensions use this API.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/filter
-__ https://github.com/thundernest/sample-extensions/tree/master/layout
+__ https://github.com/thunderbird/sample-extensions/tree/master/filter
+__ https://github.com/thunderbird/sample-extensions/tree/master/layout
 
 .. role:: permission
 
@@ -643,7 +643,7 @@ MailTabProperties
    
    .. api-member::
       :name: [``displayedFolder``]
-      :type: (:ref:`folders.MailFolder`, optional)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`, optional)
       
       Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if :value:`selectedMessages` is specified.
    

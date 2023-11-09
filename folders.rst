@@ -36,8 +36,8 @@ Functions
 
 .. _folders.copy:
 
-copy(sourceFolder, destination)
--------------------------------
+copy(source, destination)
+-------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
@@ -48,13 +48,13 @@ Copies the given ``sourceFolder`` into the given ``destination``. Throws if the 
 
    
    .. api-member::
-      :name: ``sourceFolder``
-      :type: (:ref:`folders.MailFolder`)
+      :name: ``source``
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
    
    .. api-member::
       :name: ``destination``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
    
 
 .. api-header::
@@ -75,8 +75,8 @@ Copies the given ``sourceFolder`` into the given ``destination``. Throws if the 
 
 .. _folders.create:
 
-create(parent, childName)
--------------------------
+create(destination, childName)
+------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -87,8 +87,8 @@ Creates a new subfolder in the specified folder or at the root of the specified 
 
    
    .. api-member::
-      :name: ``parent``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
    
    
    .. api-member::
@@ -127,7 +127,7 @@ Deletes a folder.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
 
 .. api-header::
@@ -139,8 +139,8 @@ Deletes a folder.
 
 .. _folders.get:
 
-get(folderId)
--------------
+get(folderId, [includeSubFolders])
+----------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
@@ -152,7 +152,14 @@ Returns the specified folder.
    
    .. api-member::
       :name: ``folderId``
-      :type: (string)
+      :type: (:ref:`folders.MailFolderId`)
+   
+   
+   .. api-member::
+      :name: [``includeSubFolders``]
+      :type: (boolean, optional)
+      
+      Specifies whether the returned :ref:`folders.MailFolder` object should include all its nested subfolders . Defaults to :value:`true`.
    
 
 .. api-header::
@@ -185,7 +192,7 @@ Get capability information about a folder.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
 
 .. api-header::
@@ -218,7 +225,7 @@ Get additional information about a folder.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
 
 .. api-header::
@@ -251,7 +258,7 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
    
    .. api-member::
@@ -278,8 +285,8 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
 
 .. _folders.getSubFolders:
 
-getSubFolders(folderOrAccount, [includeSubFolders])
----------------------------------------------------
+getSubFolders(folder, [includeSubFolders])
+------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
@@ -290,8 +297,8 @@ Get the subfolders of the specified folder or account.
 
    
    .. api-member::
-      :name: ``folderOrAccount``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
    
    
    .. api-member::
@@ -331,7 +338,7 @@ Marks all messages in a folder as read.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
 
 .. api-header::
@@ -342,8 +349,8 @@ Marks all messages in a folder as read.
 
 .. _folders.move:
 
-move(sourceFolder, destination)
--------------------------------
+move(source, destination)
+-------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
@@ -354,13 +361,13 @@ Moves the given ``sourceFolder`` into the given ``destination``. Throws if the d
 
    
    .. api-member::
-      :name: ``sourceFolder``
-      :type: (:ref:`folders.MailFolder`)
+      :name: ``source``
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
    
    .. api-member::
       :name: ``destination``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
    
 
 .. api-header::
@@ -395,6 +402,13 @@ Gets folders that match the specified properties, or all folders if no propertie
    .. api-member::
       :name: [``queryInfo``]
       :type: (object, optional)
+      
+      .. api-member::
+         :name: [``accountId``]
+         :type: (:ref:`accounts.MailAccountId`, optional)
+         
+         Limits the search to folders of the account with the specified id.
+      
       
       .. api-member::
          :name: [``canAddMessages``]
@@ -432,10 +446,10 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
-         :name: [``favorite``]
-         :type: (boolean, optional)
+         :name: [``folderId``]
+         :type: (:ref:`folders.MailFolderId`, optional)
          
-         Whether the folder is a favorite folder, or not.
+         Limits the search to the folder with the specified id.
       
       
       .. api-member::
@@ -467,6 +481,20 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
+         :name: [``isFavorite``]
+         :type: (boolean, optional)
+         
+         Whether the folder is a favorite folder, or not.
+      
+      
+      .. api-member::
+         :name: [``isRoot``]
+         :type: (boolean, optional)
+         
+         Whether the folder is a root folder, or not.
+      
+      
+      .. api-member::
          :name: [``mostRecent``]
          :type: (boolean, optional)
          
@@ -481,10 +509,10 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
-         :name: [``parent``]
-         :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`, optional)
+         :name: [``path``]
+         :type: (:ref:`folders.RegularExpression` or string, optional)
          
-         Limits the search to the specified parent folder or account.
+         Return only folders whose path is matched by the provided string or regular expression.
       
       
       .. api-member::
@@ -539,7 +567,7 @@ Renames a folder.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
    
    .. api-member::
@@ -578,7 +606,7 @@ Updates properties of a folder.
    
    .. api-member::
       :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
+      :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`)
    
    
    .. api-member::
@@ -588,7 +616,7 @@ Updates properties of a folder.
       The properties to update.
       
       .. api-member::
-         :name: [``favorite``]
+         :name: [``isFavorite``]
          :type: (boolean, optional)
          
          Sets or clears the favorite status.
@@ -831,7 +859,7 @@ onUpdated
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
-Fired when properties of a folder have changed (:value:`specialUse` and :value:`favorite`).
+Fired when properties of a folder have changed (:value:`specialUse` and :value:`isFavorite`).
 
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
@@ -882,9 +910,9 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    .. api-member::
       :name: ``accountId``
-      :type: (string)
+      :type: (:ref:`accounts.MailAccountId`)
       
-      The account this folder belongs to.
+      The id of the account this folder belongs to.
    
    
    .. api-member::
@@ -895,17 +923,31 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    
    .. api-member::
-      :name: [``favorite``]
+      :name: [``id``]
+      :type: (:ref:`folders.MailFolderId`, optional)
+      
+      An identifier for the folder.
+   
+   
+   .. api-member::
+      :name: [``isFavorite``]
       :type: (boolean, optional)
       
       Whether this folder is a favorite folder.
    
    
    .. api-member::
-      :name: [``id``]
-      :type: (string, optional)
+      :name: [``isRoot``]
+      :type: (boolean, optional)
       
-      An identifier for the folder.
+      Whether this folder is a root folder.
+   
+   
+   .. api-member::
+      :name: [``isSearch``]
+      :type: (boolean, optional)
+      
+      Whether this folder is a virtual search folder.
    
    
    .. api-member::
@@ -985,6 +1027,18 @@ An object containing capability information about a folder.
       
       Whether this folder supports deleting messages.
    
+
+.. _folders.MailFolderId:
+
+MailFolderId
+------------
+
+.. api-section-annotation-hack:: 
+
+A unique id representing a :ref:`folders.MailFolder` throughout a session. Renaming or moving a folder will invalidate its id.
+
+.. api-header::
+   :label: string
 
 .. _folders.MailFolderInfo:
 

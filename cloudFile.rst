@@ -8,7 +8,7 @@ The cloudFile (a.k.a. fileLink) API first appeared in Thunderbird 60. It allows 
 
 The `DropBox Uploader`__ sample extension uses this API.
 
-__ https://github.com/thundernest/sample-extensions/tree/master/dropbox
+__ https://github.com/thunderbird/sample-extensions/tree/master/dropbox
 
 .. role:: permission
 
