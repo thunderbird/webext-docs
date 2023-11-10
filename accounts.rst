@@ -33,42 +33,6 @@ Permissions
 Functions
 =========
 
-.. _accounts.list:
-
-list([includeFolders])
-----------------------
-
-.. api-section-annotation-hack:: 
-
-Returns all mail accounts. They will be returned in the same order as used in Thunderbird's folder pane.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``includeFolders``]
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 91]
-      
-      Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to :value:`true`.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`accounts.MailAccount`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
 .. _accounts.get:
 
 get(accountId, [includeFolders])
@@ -146,34 +110,6 @@ Returns the default account, or :value:`null` if it is not defined.
 
    - :permission:`accountsRead`
 
-.. _accounts.setDefaultIdentity:
-
-setDefaultIdentity(accountId, identityId)
------------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 76]
-
-Sets the default identity for an account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
-   
-   
-   .. api-member::
-      :name: ``identityId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
 .. _accounts.getDefaultIdentity:
 
 getDefaultIdentity(accountId)
@@ -201,6 +137,70 @@ Returns the default identity for an account, or :value:`null` if it is not defin
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _accounts.list:
+
+list([includeFolders])
+----------------------
+
+.. api-section-annotation-hack:: 
+
+Returns all mail accounts. They will be returned in the same order as used in Thunderbird's folder pane.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``includeFolders``]
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 91]
+      
+      Specifies whether the returned :ref:`accounts.MailAccount` objects should included their account's folders. Defaults to :value:`true`.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`accounts.MailAccount`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _accounts.setDefaultIdentity:
+
+setDefaultIdentity(accountId, identityId)
+-----------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 76]
+
+Sets the default identity for an account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (:ref:`accounts.MailAccountId`)
+   
+   
+   .. api-member::
+      :name: ``identityId``
+      :type: (string)
+   
 
 .. api-header::
    :label: Required permissions

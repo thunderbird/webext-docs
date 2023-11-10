@@ -103,413 +103,44 @@ Manifest file properties
 Functions
 =========
 
-.. _messageDisplayAction.setTitle:
+.. _messageDisplayAction.disable:
 
-setTitle(details)
------------------
-
-.. api-section-annotation-hack:: 
-
-Sets the title of the messageDisplayAction button. Is used as tooltip and as the label.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``title``
-         :type: (string or null)
-         
-         A string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Sets the title only for the given tab.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. _messageDisplayAction.getTitle:
-
-getTitle(details)
------------------
-
-.. api-section-annotation-hack:: 
-
-Gets the title of the messageDisplayAction button.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: string
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _messageDisplayAction.setLabel:
-
-setLabel(details)
------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
-
-Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``label``
-         :type: (string or null)
-         
-         A string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Sets the label only for the given tab.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. _messageDisplayAction.getLabel:
-
-getLabel(details)
------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
-
-Gets the label of the messageDisplayAction button.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Specifies for which tab the label should be retrieved. If no tab is specified, the global label is retrieved.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: string
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _messageDisplayAction.setIcon:
-
-setIcon(details)
+disable([tabId])
 ----------------
 
 .. api-section-annotation-hack:: 
 
-Sets the icon for the messageDisplayAction button. Either the ``path`` or the ``imageData`` property must be specified.
+Disables the messageDisplayAction button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``details``
-      :type: (object)
+      :name: [``tabId``]
+      :type: (integer, optional)
       
-      .. api-member::
-         :name: [``imageData``]
-         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`, optional)
-         
-         The image data for one or more icons for the composeAction button.
-      
-      
-      .. api-member::
-         :name: [``path``]
-         :type: (:ref:`messageDisplayAction.IconPath`, optional)
-         
-         The paths to one or more icons for the messageDisplayAction button.
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Sets the icon only for the given tab.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
+      The id of the tab for which you want to modify the messageDisplayAction button.
    
 
-.. _messageDisplayAction.setPopup:
+.. _messageDisplayAction.enable:
 
-setPopup(details)
------------------
+enable([tabId])
+---------------
 
 .. api-section-annotation-hack:: 
 
-Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction button.
+Enables the messageDisplayAction button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, a messageDisplayAction button is enabled.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``details``
-      :type: (object)
+      :name: [``tabId``]
+      :type: (integer, optional)
       
-      .. api-member::
-         :name: ``popup``
-         :type: (string or null)
-         
-         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (action will use the popup value defined in the manifest).
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Sets the popup only for the given tab.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. _messageDisplayAction.getPopup:
-
-getPopup(details)
------------------
-
-.. api-section-annotation-hack:: 
-
-Gets the html document set as the popup for this messageDisplayAction button.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: string
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _messageDisplayAction.setBadgeText:
-
-setBadgeText(details)
----------------------
-
-.. api-section-annotation-hack:: 
-
-Sets the badge text for the messageDisplayAction button. The badge is displayed on top of the icon.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``text``
-         :type: (string or null)
-         
-         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Sets the badge text only for the given tab.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. _messageDisplayAction.getBadgeText:
-
-getBadgeText(details)
----------------------
-
-.. api-section-annotation-hack:: 
-
-Gets the badge text of the messageDisplayAction button.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Specifies for which tab the badge text should be retrieved. If no tab is specified, the global label is retrieved.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: string
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _messageDisplayAction.setBadgeBackgroundColor:
-
-setBadgeBackgroundColor(details)
---------------------------------
-
-.. api-section-annotation-hack:: 
-
-Sets the background color for the badge.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``details``
-      :type: (object)
-      
-      .. api-member::
-         :name: ``color``
-         :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
-         
-         The color to use as background in the badge. Cleared by setting it to :value:`null` or an empty string.
-      
-      
-      .. api-member::
-         :name: [``tabId``]
-         :type: (integer, optional)
-         
-         Sets the background color for the badge only for the given tab.
-      
-      
-      .. api-member::
-         :name: [``windowId``]
-         :type: (integer, optional) **Unsupported.**
-         
-         Will throw an error if used.
-      
+      The id of the tab for which you want to modify the messageDisplayAction button.
    
 
 .. _messageDisplayAction.getBadgeBackgroundColor:
@@ -554,45 +185,173 @@ Gets the badge background color of the messageDisplayAction button.
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.enable:
+.. _messageDisplayAction.getBadgeText:
 
-enable([tabId])
----------------
+getBadgeText(details)
+---------------------
 
 .. api-section-annotation-hack:: 
 
-Enables the messageDisplayAction button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, a messageDisplayAction button is enabled.
+Gets the badge text of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
+      :name: ``details``
+      :type: (object)
       
-      The id of the tab for which you want to modify the messageDisplayAction button.
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Specifies for which tab the badge text should be retrieved. If no tab is specified, the global label is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
 
-.. _messageDisplayAction.disable:
+.. api-header::
+   :label: Return type (`Promise`_)
 
-disable([tabId])
-----------------
+   
+   .. api-member::
+      :type: string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. api-section-annotation-hack:: 
+.. _messageDisplayAction.getLabel:
 
-Disables the messageDisplayAction button for a specific tab (if a ``tabId`` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.
+getLabel(details)
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+
+Gets the label of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
+      :name: ``details``
+      :type: (object)
       
-      The id of the tab for which you want to modify the messageDisplayAction button.
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Specifies for which tab the label should be retrieved. If no tab is specified, the global label is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
    
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _messageDisplayAction.getPopup:
+
+getPopup(details)
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Gets the html document set as the popup for this messageDisplayAction button.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _messageDisplayAction.getTitle:
+
+getTitle(details)
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Gets the title of the messageDisplayAction button.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.isEnabled:
 
@@ -672,6 +431,247 @@ Opens the action's popup window in the specified window. Defaults to the current
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _messageDisplayAction.setBadgeBackgroundColor:
+
+setBadgeBackgroundColor(details)
+--------------------------------
+
+.. api-section-annotation-hack:: 
+
+Sets the background color for the badge.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``color``
+         :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
+         
+         The color to use as background in the badge. Cleared by setting it to :value:`null` or an empty string.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Sets the background color for the badge only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. _messageDisplayAction.setBadgeText:
+
+setBadgeText(details)
+---------------------
+
+.. api-section-annotation-hack:: 
+
+Sets the badge text for the messageDisplayAction button. The badge is displayed on top of the icon.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``text``
+         :type: (string or null)
+         
+         Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Sets the badge text only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. _messageDisplayAction.setIcon:
+
+setIcon(details)
+----------------
+
+.. api-section-annotation-hack:: 
+
+Sets the icon for the messageDisplayAction button. Either the ``path`` or the ``imageData`` property must be specified.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``imageData``]
+         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`, optional)
+         
+         The image data for one or more icons for the composeAction button.
+      
+      
+      .. api-member::
+         :name: [``path``]
+         :type: (:ref:`messageDisplayAction.IconPath`, optional)
+         
+         The paths to one or more icons for the messageDisplayAction button.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Sets the icon only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. _messageDisplayAction.setLabel:
+
+setLabel(details)
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+
+Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``label``
+         :type: (string or null)
+         
+         A string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Sets the label only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. _messageDisplayAction.setPopup:
+
+setPopup(details)
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction button.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``popup``
+         :type: (string or null)
+         
+         The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (action will use the popup value defined in the manifest).
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Sets the popup only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
+
+.. _messageDisplayAction.setTitle:
+
+setTitle(details)
+-----------------
+
+.. api-section-annotation-hack:: 
+
+Sets the title of the messageDisplayAction button. Is used as tooltip and as the label.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``details``
+      :type: (object)
+      
+      .. api-member::
+         :name: ``title``
+         :type: (string or null)
+         
+         A string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
+      
+      
+      .. api-member::
+         :name: [``tabId``]
+         :type: (integer, optional)
+         
+         Sets the title only for the given tab.
+      
+      
+      .. api-member::
+         :name: [``windowId``]
+         :type: (integer, optional) **Unsupported.**
+         
+         Will throw an error if used.
+      
+   
 
 .. rst-class:: api-main-section
 

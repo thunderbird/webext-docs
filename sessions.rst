@@ -17,38 +17,6 @@ The sessions API first appeared in Thunderbird 115. It allows to add tab related
 Functions
 =========
 
-.. _sessions.setTabValue:
-
-setTabValue(tabId, key, value)
-------------------------------
-
-.. api-section-annotation-hack:: 
-
-Store a key/value pair associated with a given tab.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-      
-      ID of the tab with which you want to associate the data. Error is thrown if ID is invalid.
-   
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Key that you can later use to retrieve this particular data value.
-   
-   
-   .. api-member::
-      :name: ``value``
-      :type: (string)
-   
-
 .. _sessions.getTabValue:
 
 getTabValue(tabId, key)
@@ -111,4 +79,36 @@ Remove a key/value pair from a given tab.
       :type: (string)
       
       Key identifying the particular value to remove.
+   
+
+.. _sessions.setTabValue:
+
+setTabValue(tabId, key, value)
+------------------------------
+
+.. api-section-annotation-hack:: 
+
+Store a key/value pair associated with a given tab.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+      
+      ID of the tab with which you want to associate the data. Error is thrown if ID is invalid.
+   
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Key that you can later use to retrieve this particular data value.
+   
+   
+   .. api-member::
+      :name: ``value``
+      :type: (string)
    
