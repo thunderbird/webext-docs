@@ -22,6 +22,90 @@ __ https://github.com/thunderbird/sample-extensions/tree/master/layout
 Functions
 =========
 
+.. _mailTabs.get:
+
+get(tabId)
+----------
+
+.. api-section-annotation-hack:: 
+
+Get the properties of a mail tab.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+      
+      ID of the requested mail tab. Throws if the requested tab is not a mail tab.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _mailTabs.getCurrent:
+
+getCurrent()
+------------
+
+.. api-section-annotation-hack:: 
+
+Get the properties of the active mail tab, if the active tab is a mail tab. Returns undefined otherwise.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`mailTabs.MailTab`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _mailTabs.getSelectedMessages:
+
+getSelectedMessages([tabId])
+----------------------------
+
+.. api-section-annotation-hack:: 
+
+Lists the selected messages in the current folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      Defaults to the active tab of the current window.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _mailTabs.query:
 
 query([queryInfo])
@@ -78,54 +162,112 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _mailTabs.get:
+.. _mailTabs.setQuickFilter:
 
-get(tabId)
-----------
+setQuickFilter([tabId], properties)
+-----------------------------------
 
 .. api-section-annotation-hack:: 
 
-Get the properties of a mail tab.
+Sets the Quick Filter user interface based on the options specified.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``tabId``
-      :type: (integer)
+      :name: [``tabId``]
+      :type: (integer, optional)
       
-      ID of the requested mail tab. Throws if the requested tab is not a mail tab.
+      Defaults to the active tab of the current window.
    
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
    
    .. api-member::
-      :type: :ref:`mailTabs.MailTab`
+      :name: ``properties``
+      :type: (object)
+      
+      .. api-member::
+         :name: [``attachment``]
+         :type: (boolean, optional)
+         
+         Shows only messages with attachments.
+      
+      
+      .. api-member::
+         :name: [``contact``]
+         :type: (boolean, optional)
+         
+         Shows only messages from people in the address book.
+      
+      
+      .. api-member::
+         :name: [``flagged``]
+         :type: (boolean, optional)
+         
+         Shows only flagged messages.
+      
+      
+      .. api-member::
+         :name: [``show``]
+         :type: (boolean, optional)
+         
+         Shows or hides the Quick Filter bar.
+      
+      
+      .. api-member::
+         :name: [``tags``]
+         :type: (boolean or :ref:`messages.TagsDetail`, optional)
+         
+         Shows only messages with tags on them.
+      
+      
+      .. api-member::
+         :name: [``text``]
+         :type: (:ref:`mailTabs.QuickFilterTextDetail`, optional)
+         
+         Shows only messages matching the supplied text.
+      
+      
+      .. api-member::
+         :name: [``unread``]
+         :type: (boolean, optional)
+         
+         Shows only unread messages.
+      
    
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _mailTabs.getCurrent:
+.. _mailTabs.setSelectedMessages:
 
-getCurrent()
-------------
+setSelectedMessages([tabId], messageIds)
+----------------------------------------
 
 .. api-section-annotation-hack:: 
 
-Get the properties of the active mail tab, if the active tab is a mail tab. Returns undefined otherwise.
+Selects none, one or multiple messages.
 
 .. api-header::
-   :label: Return type (`Promise`_)
+   :label: Parameters
 
    
    .. api-member::
-      :type: :ref:`mailTabs.MailTab`
+      :name: [``tabId``]
+      :type: (integer, optional)
+      
+      Defaults to the active tab of the current window.
    
    
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+   .. api-member::
+      :name: ``messageIds``
+      :type: (array of integer)
+      
+      The IDs of the messages, which should be selected. The mailTab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`messagesRead`
 
 .. _mailTabs.update:
 
@@ -292,148 +434,6 @@ Modifies the properties of a mail tab. Properties that are not specified in ``up
          
          .. api-member::
             :name: :value:`groupedBySortType`
-      
-   
-
-.. _mailTabs.getSelectedMessages:
-
-getSelectedMessages([tabId])
-----------------------------
-
-.. api-section-annotation-hack:: 
-
-Lists the selected messages in the current folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      Defaults to the active tab of the current window.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`messages.MessageList`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-.. _mailTabs.setSelectedMessages:
-
-setSelectedMessages([tabId], messageIds)
-----------------------------------------
-
-.. api-section-annotation-hack:: 
-
-Selects none, one or multiple messages.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      Defaults to the active tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``messageIds``
-      :type: (array of integer)
-      
-      The IDs of the messages, which should be selected. The mailTab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`messagesRead`
-
-.. _mailTabs.setQuickFilter:
-
-setQuickFilter([tabId], properties)
------------------------------------
-
-.. api-section-annotation-hack:: 
-
-Sets the Quick Filter user interface based on the options specified.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: [``tabId``]
-      :type: (integer, optional)
-      
-      Defaults to the active tab of the current window.
-   
-   
-   .. api-member::
-      :name: ``properties``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``attachment``]
-         :type: (boolean, optional)
-         
-         Shows only messages with attachments.
-      
-      
-      .. api-member::
-         :name: [``contact``]
-         :type: (boolean, optional)
-         
-         Shows only messages from people in the address book.
-      
-      
-      .. api-member::
-         :name: [``flagged``]
-         :type: (boolean, optional)
-         
-         Shows only flagged messages.
-      
-      
-      .. api-member::
-         :name: [``show``]
-         :type: (boolean, optional)
-         
-         Shows or hides the Quick Filter bar.
-      
-      
-      .. api-member::
-         :name: [``tags``]
-         :type: (boolean or :ref:`messages.TagsDetail`, optional)
-         
-         Shows only messages with tags on them.
-      
-      
-      .. api-member::
-         :name: [``text``]
-         :type: (:ref:`mailTabs.QuickFilterTextDetail`, optional)
-         
-         Shows only messages matching the supplied text.
-      
-      
-      .. api-member::
-         :name: [``unread``]
-         :type: (boolean, optional)
-         
-         Shows only unread messages.
       
    
 

@@ -34,123 +34,6 @@ Permissions
 Functions
 =========
 
-.. _folders.create:
-
-create(parent, childName)
--------------------------
-
-.. api-section-annotation-hack:: 
-
-Creates a new subfolder in the specified folder or at the root of the specified account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``parent``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
-   
-   
-   .. api-member::
-      :name: ``childName``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
-.. _folders.rename:
-
-rename(folder, newName)
------------------------
-
-.. api-section-annotation-hack:: 
-
-Renames a folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``folder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``newName``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
-.. _folders.move:
-
-move(sourceFolder, destination)
--------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``sourceFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``destination``
-      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`folders.MailFolder`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-   - :permission:`accountsFolders`
-
 .. _folders.copy:
 
 copy(sourceFolder, destination)
@@ -172,6 +55,45 @@ Copies the given ``sourceFolder`` into the given ``destination``. Throws if the 
    .. api-member::
       :name: ``destination``
       :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
+.. _folders.create:
+
+create(parent, childName)
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+Creates a new subfolder in the specified folder or at the root of the specified account.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``parent``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+   
+   .. api-member::
+      :name: ``childName``
+      :type: (string)
    
 
 .. api-header::
@@ -328,119 +250,88 @@ Get the subfolders of the specified folder or account.
 
    - :permission:`accountsRead`
 
+.. _folders.move:
+
+move(sourceFolder, destination)
+-------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``sourceFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``destination``
+      :type: (:ref:`folders.MailFolder` or :ref:`accounts.MailAccount`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
+.. _folders.rename:
+
+rename(folder, newName)
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Renames a folder.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``folder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``newName``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`folders.MailFolder`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+   - :permission:`accountsFolders`
+
 .. rst-class:: api-main-section
 
 Events
 ======
-
-.. _folders.onCreated:
-
-onCreated
----------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when a folder has been created.
-
-.. api-header::
-   :label: Parameters for onCreated.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(createdFolder)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``createdFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.onRenamed:
-
-onRenamed
----------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when a folder has been renamed.
-
-.. api-header::
-   :label: Parameters for onRenamed.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(originalFolder, renamedFolder)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``originalFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``renamedFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _folders.onMoved:
-
-onMoved
--------
-
-.. api-section-annotation-hack:: -- [Added in TB 91]
-
-Fired when a folder has been moved.
-
-.. api-header::
-   :label: Parameters for onMoved.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(originalFolder, movedFolder)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``originalFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-   
-   .. api-member::
-      :name: ``movedFolder``
-      :type: (:ref:`folders.MailFolder`)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
 
 .. _folders.onCopied:
 
@@ -472,6 +363,39 @@ Fired when a folder has been copied.
    
    .. api-member::
       :name: ``copiedFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.onCreated:
+
+onCreated
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when a folder has been created.
+
+.. api-header::
+   :label: Parameters for onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(createdFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``createdFolder``
       :type: (:ref:`folders.MailFolder`)
    
 
@@ -544,6 +468,82 @@ Fired when certain information of a folder have changed. Bursts of message count
    .. api-member::
       :name: ``folderInfo``
       :type: (:ref:`folders.MailFolderInfo`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.onMoved:
+
+onMoved
+-------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when a folder has been moved.
+
+.. api-header::
+   :label: Parameters for onMoved.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, movedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``originalFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``movedFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _folders.onRenamed:
+
+onRenamed
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 91]
+
+Fired when a folder has been renamed.
+
+.. api-header::
+   :label: Parameters for onRenamed.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(originalFolder, renamedFolder)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``originalFolder``
+      :type: (:ref:`folders.MailFolder`)
+   
+   
+   .. api-member::
+      :name: ``renamedFolder``
+      :type: (:ref:`folders.MailFolder`)
    
 
 .. api-header::

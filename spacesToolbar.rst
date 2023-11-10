@@ -61,6 +61,45 @@ Adds a new button to the spaces toolbar. Throws an exception, if the used ``id``
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _spacesToolbar.clickButton:
+
+clickButton(id, [windowId])
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+      
+      The id of the spaces toolbar button. May only contain alphanumeric characters and underscores.
+   
+   
+   .. api-member::
+      :name: [``windowId``]
+      :type: (integer, optional)
+      
+      The id of the normal window, where the spaces toolbar button should be clicked. Defaults to the most recent normal window.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`tabs.Tab`
+      
+      Details about the opened or activated tab.
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _spacesToolbar.removeButton:
 
 removeButton(id)
@@ -107,45 +146,6 @@ Updates properties of the specified spaces toolbar button. Throws an exception i
       
       Only specified properties will be updated.
    
-
-.. _spacesToolbar.clickButton:
-
-clickButton(id, [windowId])
----------------------------
-
-.. api-section-annotation-hack:: 
-
-Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-      
-      The id of the spaces toolbar button. May only contain alphanumeric characters and underscores.
-   
-   
-   .. api-member::
-      :name: [``windowId``]
-      :type: (integer, optional)
-      
-      The id of the normal window, where the spaces toolbar button should be clicked. Defaults to the most recent normal window.
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`tabs.Tab`
-      
-      Details about the opened or activated tab.
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
 

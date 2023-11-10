@@ -211,6 +211,184 @@ Update a cloud file account.
 Events
 ======
 
+.. _cloudFile.onAccountAdded:
+
+onAccountAdded
+--------------
+
+.. api-section-annotation-hack:: 
+
+Fired when a cloud file account of this add-on was created.
+
+.. api-header::
+   :label: Parameters for onAccountAdded.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The created account.
+   
+
+.. _cloudFile.onAccountDeleted:
+
+onAccountDeleted
+----------------
+
+.. api-section-annotation-hack:: 
+
+Fired when a cloud file account of this add-on was deleted.
+
+.. api-header::
+   :label: Parameters for onAccountDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(accountId)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``accountId``
+      :type: (string)
+      
+      The id of the removed account.
+   
+
+.. _cloudFile.onFileDeleted:
+
+onFileDeleted
+-------------
+
+.. api-section-annotation-hack:: 
+
+Fired when a previously uploaded file should be deleted.
+
+.. api-header::
+   :label: Parameters for onFileDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account, fileId, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The account used for the file upload.
+   
+   
+   .. api-member::
+      :name: ``fileId``
+      :type: (integer)
+      
+      An identifier for this file.
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      :annotation: -- [Added in TB 91]
+      
+      The tab where the upload was initiated. Currently only available for the message composer.
+   
+
+.. _cloudFile.onFileRename:
+
+onFileRename
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 96, backported to TB 91.4.1]
+
+Fired when a previously uploaded file should be renamed.
+
+.. api-header::
+   :label: Parameters for onFileRename.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(account, fileId, newName, tab)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``account``
+      :type: (:ref:`cloudFile.CloudFileAccount`)
+      
+      The account used for the file upload.
+   
+   
+   .. api-member::
+      :name: ``fileId``
+      :type: (integer)
+      
+      An identifier for the file which should be renamed.
+   
+   
+   .. api-member::
+      :name: ``newName``
+      :type: (string)
+      
+      The new name of the file.
+   
+   
+   .. api-member::
+      :name: ``tab``
+      :type: (:ref:`tabs.Tab`)
+      
+      The tab where the rename was initiated. Currently only available for the message composer.
+   
+
+.. api-header::
+   :label: Expected return value of the listener function
+
+   
+   .. api-member::
+      :type: object
+      
+      .. api-member::
+         :name: [``error``]
+         :type: (boolean or string, optional)
+         
+         Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
+      
+      
+      .. api-member::
+         :name: [``url``]
+         :type: (string, optional)
+         
+         The URL where the renamed file can be accessed.
+      
+   
+
 .. _cloudFile.onFileUpload:
 
 onFileUpload
@@ -343,184 +521,6 @@ onFileUploadAbort
       :annotation: -- [Added in TB 91]
       
       The tab where the upload was initiated. Currently only available for the message composer.
-   
-
-.. _cloudFile.onFileRename:
-
-onFileRename
-------------
-
-.. api-section-annotation-hack:: -- [Added in TB 96, backported to TB 91.4.1]
-
-Fired when a previously uploaded file should be renamed.
-
-.. api-header::
-   :label: Parameters for onFileRename.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(account, fileId, newName, tab)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
-      The account used for the file upload.
-   
-   
-   .. api-member::
-      :name: ``fileId``
-      :type: (integer)
-      
-      An identifier for the file which should be renamed.
-   
-   
-   .. api-member::
-      :name: ``newName``
-      :type: (string)
-      
-      The new name of the file.
-   
-   
-   .. api-member::
-      :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      
-      The tab where the rename was initiated. Currently only available for the message composer.
-   
-
-.. api-header::
-   :label: Expected return value of the listener function
-
-   
-   .. api-member::
-      :type: object
-      
-      .. api-member::
-         :name: [``error``]
-         :type: (boolean or string, optional)
-         
-         Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
-      
-      
-      .. api-member::
-         :name: [``url``]
-         :type: (string, optional)
-         
-         The URL where the renamed file can be accessed.
-      
-   
-
-.. _cloudFile.onFileDeleted:
-
-onFileDeleted
--------------
-
-.. api-section-annotation-hack:: 
-
-Fired when a previously uploaded file should be deleted.
-
-.. api-header::
-   :label: Parameters for onFileDeleted.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(account, fileId, tab)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
-      The account used for the file upload.
-   
-   
-   .. api-member::
-      :name: ``fileId``
-      :type: (integer)
-      
-      An identifier for this file.
-   
-   
-   .. api-member::
-      :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      :annotation: -- [Added in TB 91]
-      
-      The tab where the upload was initiated. Currently only available for the message composer.
-   
-
-.. _cloudFile.onAccountAdded:
-
-onAccountAdded
---------------
-
-.. api-section-annotation-hack:: 
-
-Fired when a cloud file account of this add-on was created.
-
-.. api-header::
-   :label: Parameters for onAccountAdded.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(account)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
-      The created account.
-   
-
-.. _cloudFile.onAccountDeleted:
-
-onAccountDeleted
-----------------
-
-.. api-section-annotation-hack:: 
-
-Fired when a cloud file account of this add-on was deleted.
-
-.. api-header::
-   :label: Parameters for onAccountDeleted.addListener(listener)
-
-   
-   .. api-member::
-      :name: ``listener(accountId)``
-      
-      A function that will be called when this event occurs.
-   
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (string)
-      
-      The id of the removed account.
    
 
 .. rst-class:: api-main-section
