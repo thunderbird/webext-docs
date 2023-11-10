@@ -944,13 +944,6 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    
    .. api-member::
-      :name: [``isSearch``]
-      :type: (boolean, optional)
-      
-      Whether this folder is a virtual search folder.
-   
-   
-   .. api-member::
       :name: [``name``]
       :type: (string, optional)
       
