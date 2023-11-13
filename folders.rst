@@ -505,7 +505,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :name: [``limit``]
          :type: (integer, optional)
          
-         Limits the number of returned folders. If used together with :value:`recent`, supports being set to :ref:`DEFAULT_MOST_RECENT_LIMIT`
+         Limits the number of returned folders. If used together with :value:`recent`, supports being set to :ref:`folders.DEFAULT_MOST_RECENT_LIMIT`
       
       
       .. api-member::
