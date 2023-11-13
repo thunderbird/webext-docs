@@ -41,7 +41,7 @@ copy(source, destination)
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Copies the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
@@ -139,8 +139,8 @@ Deletes a folder.
 
 .. _folders.get:
 
-get(folderId, [includeSubFolders])
-----------------------------------
+get(folder, [includeSubFolders])
+--------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
@@ -151,7 +151,7 @@ Returns the specified folder.
 
    
    .. api-member::
-      :name: ``folderId``
+      :name: ``folder``
       :type: (:ref:`folders.MailFolderId`)
    
    
@@ -354,7 +354,7 @@ move(source, destination)
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
@@ -492,6 +492,13 @@ Gets folders that match the specified properties, or all folders if no propertie
          :type: (boolean, optional)
          
          Whether the folder is a root folder, or not.
+      
+      
+      .. api-member::
+         :name: [``isSearch``]
+         :type: (boolean, optional)
+         
+         Whether this folder is a virtual search folder, or not.
       
       
       .. api-member::
@@ -934,6 +941,13 @@ An object describing a folder. The ``subFolders`` property is only included if r
       :type: (boolean, optional)
       
       Whether this folder is a root folder.
+   
+   
+   .. api-member::
+      :name: [``isSearch``]
+      :type: (boolean, optional)
+      
+      Whether this folder is a virtual search folder.
    
    
    .. api-member::

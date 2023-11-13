@@ -56,7 +56,7 @@ register(messageDisplayScriptOptions)
 
 .. api-section-annotation-hack:: 
 
-Register a message display script programmatically
+Register a message display script programmatically. **Note:** Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`tabs.executeScript` for each of the open :value:`messageDisplay` tabs.
 
 .. api-header::
    :label: Parameters

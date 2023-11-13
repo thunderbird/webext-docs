@@ -216,7 +216,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :name: ``color``
       :type: (string)
       
-      Tag color in hex format (i.e.: #000080 for navy blue)
+      Tag color in hex format (i.e.: :value:`#000080` for navy blue)
    
 
 .. api-header::
@@ -586,7 +586,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 
    
    .. api-member::
-      :type: array of :ref:`messages.MessageTag`
+      :type: array of :ref:`messages.tags.MessageTag`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -681,6 +681,13 @@ Gets all messages that have the specified properties, or all messages if no prop
    .. api-member::
       :name: [``queryInfo``]
       :type: (object, optional)
+      
+      .. api-member::
+         :name: [``accountId``]
+         :type: (:ref:`accounts.MailAccountId`, optional)
+         
+         Limits the search to folders of the account with the specified id.
+      
       
       .. api-member::
          :name: [``attachment``]
@@ -834,7 +841,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``tags``]
-         :type: (:ref:`messages.TagsDetail`, optional)
+         :type: (:ref:`messages.tags.TagsDetail`, optional)
          :annotation: -- [Added in TB 74]
          
          Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
@@ -1320,7 +1327,7 @@ Basic information about a message.
       :name: ``tags``
       :type: (array of string)
       
-      Tags associated with this message. For a list of available tags, call the listTags method.
+      Tags associated with this message. For a list of available tags, use :ref:`messages.tags.list`.
    
    
    .. api-member::
@@ -1469,45 +1476,6 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       Tags associated with this message. For a list of available tags, call the listTags method.
    
 
-.. _messages.MessageTag:
-
-MessageTag
-----------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``color``
-      :type: (string)
-      
-      Tag color.
-   
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier.
-   
-   
-   .. api-member::
-      :name: ``ordinal``
-      :type: (string)
-      
-      Custom sort string (usually empty).
-   
-   
-   .. api-member::
-      :name: ``tag``
-      :type: (string)
-      
-      Human-readable tag name.
-   
-
 .. _messages.QueryRange:
 
 QueryRange
@@ -1533,39 +1501,4 @@ An object defining a range.
       :type: (integer, optional)
       
       The minimum value required to match the query.
-   
-
-.. _messages.TagsDetail:
-
-TagsDetail
-----------
-
-.. api-section-annotation-hack:: 
-
-Used for filtering messages by tag in various methods. Note that functions using this type may have a partial implementation.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``mode``
-      :type: (`string`)
-      
-      Whether all of the tag filters must apply, or any of them.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`all`
-      
-      .. api-member::
-         :name: :value:`any`
-   
-   
-   .. api-member::
-      :name: ``tags``
-      :type: (object)
-      
-      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    

@@ -29,7 +29,7 @@ create([createProperties])
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
-Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. Note: A new mail window can be created via :ref:`windows.create`.
+Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. **Note:** A new mail window can be created via :ref:`windows.create`.
 
 .. api-header::
    :label: Parameters

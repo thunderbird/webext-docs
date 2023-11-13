@@ -665,7 +665,7 @@ Modifies the properties of a tab. Properties that are not specified in ``updateP
          :name: [``url``]
          :type: (string, optional)
          
-         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
+         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. **Note:** This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
       
    
 
