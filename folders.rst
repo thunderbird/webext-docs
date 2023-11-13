@@ -502,10 +502,10 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
-         :name: [``mostRecent``]
-         :type: (boolean, optional)
+         :name: [``limit``]
+         :type: (integer, optional)
          
-         Whether the folder (excluding subfolders) has been used within the last month. The returned folders will be sorted by their recentness and limited to the most recent ones, which is controlled by the :value:`mail.folder_widget.max_recent` preference. A value of :value:`false` is ignored.
+         Limits the number of returned folders. If used together with :value:`recent`, supports being set to :ref:`DEFAULT_MOST_RECENT_LIMIT`
       
       
       .. api-member::
@@ -526,7 +526,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :name: [``recent``]
          :type: (boolean, optional)
          
-         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness. Ignored if :value:`mostRecent` is specified.
+         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness.
       
       
       .. api-member::
@@ -1228,3 +1228,17 @@ RegularExpression
       
       Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support
    
+
+.. rst-class:: api-main-section
+
+Properties
+==========
+
+.. _folders.DEFAULT_MOST_RECENT_LIMIT:
+
+DEFAULT_MOST_RECENT_LIMIT
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+The number of most recent folders used in Thunderbird's UI. Controled by the :value:`mail.folder_widget.max_recent` preference.
