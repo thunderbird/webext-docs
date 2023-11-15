@@ -41,7 +41,7 @@ copy(source, destination)
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Copies the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
@@ -139,8 +139,8 @@ Deletes a folder.
 
 .. _folders.get:
 
-get(folderId, [includeSubFolders])
-----------------------------------
+get(folder, [includeSubFolders])
+--------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
@@ -151,7 +151,7 @@ Returns the specified folder.
 
    
    .. api-member::
-      :name: ``folderId``
+      :name: ``folder``
       :type: (:ref:`folders.MailFolderId`)
    
    
@@ -354,7 +354,7 @@ move(source, destination)
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Moves the given ``sourceFolder`` into the given ``destination``. Throws if the destination already contains a folder with the name of the source folder.
+Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
@@ -495,10 +495,17 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
-         :name: [``mostRecent``]
+         :name: [``isVirtual``]
          :type: (boolean, optional)
          
-         Whether the folder (excluding subfolders) has been used within the last month. The returned folders will be sorted by their recentness and limited to the most recent ones, which is controlled by the :value:`mail.folder_widget.max_recent` preference. A value of :value:`false` is ignored.
+         Whether this folder is a virtual search folder, or not.
+      
+      
+      .. api-member::
+         :name: [``limit``]
+         :type: (integer, optional)
+         
+         Limits the number of returned folders. If used together with :value:`recent`, supports being set to :ref:`folders.DEFAULT_MOST_RECENT_LIMIT`
       
       
       .. api-member::
@@ -519,7 +526,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :name: [``recent``]
          :type: (boolean, optional)
          
-         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness. Ignored if :value:`mostRecent` is specified.
+         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness.
       
       
       .. api-member::
@@ -944,6 +951,13 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    
    .. api-member::
+      :name: [``isVirtual``]
+      :type: (boolean, optional)
+      
+      Whether this folder is a virtual search folder.
+   
+   
+   .. api-member::
       :name: [``name``]
       :type: (string, optional)
       
@@ -1235,3 +1249,17 @@ RegularExpression
       
       Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support
    
+
+.. rst-class:: api-main-section
+
+Properties
+==========
+
+.. _folders.DEFAULT_MOST_RECENT_LIMIT:
+
+DEFAULT_MOST_RECENT_LIMIT
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+The number of most recent folders used in Thunderbird's UI. Controled by the :value:`mail.folder_widget.max_recent` preference.

@@ -29,7 +29,7 @@ create([createProperties])
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
-Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. Note: A new mail window can be created via :ref:`windows.create`.
+Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. **Note:** A new mail window can be created via :ref:`windows.create`.
 
 .. api-header::
    :label: Parameters
@@ -281,7 +281,7 @@ Sets the Quick Filter user interface based on the options specified.
       
       .. api-member::
          :name: [``tags``]
-         :type: (boolean or :ref:`messages.TagsDetail`, optional)
+         :type: (boolean or :ref:`messages.tags.TagsDetail`, optional)
          
          Shows only messages with tags on them.
       
