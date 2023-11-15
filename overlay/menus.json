@@ -4,9 +4,10 @@
     "types": [
       {
         "id": "ContextType",
+        "description": "The different contexts a menu can appear in. More information about each context can be found in the `Supported UI Elements <|link-ui-elements|>`__ article on developer.thunderbird.net.",
         "enumChanges": {
           "all": {
-            "description": "Equivalent to the combination of all other contexts except for <value>tools_menu<value>."
+            "description": "Equivalent to the combination of all other contexts except for <value>tab</value> and <value>tools_menu</value>."
           },
           "all_message_attachments": {
             "description": "Applies when the user context-clicks the summary of the message attachments of a displayed message with more than one attachment."

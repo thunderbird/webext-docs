@@ -539,7 +539,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
+The different contexts a menu can appear in. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
@@ -554,7 +554,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          .. api-member::
             :name: :value:`all`
          
-            Equivalent to the combination of all other contexts except for :value:`tools_menu:value:`.
+            Equivalent to the combination of all other contexts except for :value:`tab` and :value:`tools_menu`.
          
          .. api-member::
             :name: :value:`all_message_attachments`
