@@ -281,7 +281,7 @@ Sets the Quick Filter user interface based on the options specified.
       
       .. api-member::
          :name: [``tags``]
-         :type: (boolean or :ref:`messages.TagsDetail`, optional)
+         :type: (boolean or :ref:`messages.tags.TagsDetail`, optional)
          
          Shows only messages with tags on them.
       

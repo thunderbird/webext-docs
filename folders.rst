@@ -495,7 +495,7 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
-         :name: [``isSearch``]
+         :name: [``isVirtual``]
          :type: (boolean, optional)
          
          Whether this folder is a virtual search folder, or not.
@@ -944,7 +944,7 @@ An object describing a folder. The ``subFolders`` property is only included if r
    
    
    .. api-member::
-      :name: [``isSearch``]
+      :name: [``isVirtual``]
       :type: (boolean, optional)
       
       Whether this folder is a virtual search folder.
