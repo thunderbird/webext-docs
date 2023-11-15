@@ -684,6 +684,8 @@ OR
          .. api-member::
             :name: :value:`browser_action`
          
+            Applies when the user context-clicks a browserAction button in a Manifest V2 extension
+         
          .. api-member::
             :name: :value:`browser_action_menu`
             :annotation: -- [Added in TB 115]
