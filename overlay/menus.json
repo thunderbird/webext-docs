@@ -6,7 +6,8 @@
         "id": "ContextType",
         "enumChanges": {
           "compose_action": {
-            "added": "89"
+            "added": "89",
+            "description": "Context menu of compose action buttons."
           },
           "message_display_action": {
             "added": "89"

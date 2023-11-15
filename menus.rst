@@ -562,12 +562,16 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          
          .. api-member::
             :name: :value:`compose_action`
+            :annotation: -- [Added in TB 89]
+         
+            Context menu of compose action buttons.
          
          .. api-member::
             :name: :value:`compose_action_menu`
          
          .. api-member::
             :name: :value:`compose_attachments`
+            :annotation: -- [Added in TB 83, backported to TB 78.5.0]
          
          .. api-member::
             :name: :value:`compose_body`
@@ -592,6 +596,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          
          .. api-member::
             :name: :value:`message_display_action`
+            :annotation: -- [Added in TB 89]
          
          .. api-member::
             :name: :value:`message_display_action_menu`
@@ -613,6 +618,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          
          .. api-member::
             :name: :value:`tools_menu`
+            :annotation: -- [Added in TB 88]
          
          .. api-member::
             :name: :value:`video`
