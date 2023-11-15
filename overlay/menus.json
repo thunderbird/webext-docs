@@ -13,7 +13,7 @@
             "description": "Applies when the user context-clicks the summary of the message attachments of a displayed message with more than one attachment."
           },
           "action": {
-            "description": "Applies when the user context-clicks a browserAction button in a Manifest V3 extension"
+            "description": "Applies when the user context-clicks a browserAction button in a Manifest V3 extension."
           },
           "action_menu": {
             "added": "115",
@@ -23,7 +23,7 @@
             "description": "Applies when the user context-clicks an audio element."
           },
           "browser_action": {
-            "description": "Applies when the user context-clicks a browserAction button in a Manifest V2 extension"
+            "description": "Applies when the user context-clicks a browserAction button."
           },
           "browser_action_menu": {
             "added": "115",
