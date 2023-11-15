@@ -297,7 +297,7 @@ def format_enum(name, value):
 
     return enum_lines
     
-def format_object(name, obj, print_description_only = False, print_enum_only = False):
+def format_object(name, obj, print_description_only = False, print_enum_only = False, enumChanges = None):
     global unique_id
     # enums have been moved inline and are no longer referenced
     #enum_lines = []
@@ -306,6 +306,11 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
         return []
     if "max_manifest_version" in obj and obj["max_manifest_version"] < MV:
         return []
+
+    # If we have received an enumChanges object and we do not already have one,
+    # add it to the object.
+    if obj.get("enumChanges") == None and enumChanges != None:
+        obj["enumChanges"] = enumChanges
 
     # Cater for MV2/3 differences, pick the correct one and proceed as normal. We
     # do not support individual descriptions of the allowed types.
@@ -758,7 +763,7 @@ def format_namespace(manifest, namespace):
                         first = False
                     else:
                         type_lines.extend(["", "OR", ""])
-                    type_lines.extend(api_header(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True)))
+                    type_lines.extend(api_header(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True, enumChanges=type_.get("enumChanges"))))
                     #enum_lines.extend(format_enum(type_["id"], choice))
 
             type_lines.append("")
