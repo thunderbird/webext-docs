@@ -38,7 +38,7 @@ spaces API & spacesToolbar API
 * The button-centric ``spacesToolbar API`` was removed for Manifest v3 and has been replaced by the spaces-centric ``spaces API``.
 
 sessions API
-==========
+============
 * Add a first simple version of the :ref:`sessions_api` API to allow extensions to store tab related session data, which is restored on app restart.
 
 tabs API
