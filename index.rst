@@ -42,7 +42,7 @@ Thunderbird WebExtension APIs
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
 +------------------------------------------------+-------------------------------------------+
-| <div style="width:250px">Thunderbird API</div> | Description                               |
+| Thunderbird API &nsbp; &nsbp; &nsbp; &nsbp;    | Description                               |
 +================================================+===========================================+
 | :doc:`accounts`                                | |accounts-Description|                    |
 +------------------------------------------------+-------------------------------------------+
@@ -148,7 +148,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   it should work in Thunderbird as well. 
 
 +--------------------------------------------+-------------------------------------------+
-| <div style="width:250px">Firefox API</div> | Description                               |
+| Firefox API &nsbp; &nsbp; &nsbp; &nsbp;    | Description                               |
 +============================================+===========================================+
 | `browserSettings`_                         | |browserSettings-Description|             |
 +--------------------------------------------+-------------------------------------------+
