@@ -844,7 +844,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (:ref:`messages.tags.TagsDetail`, optional)
          :annotation: -- [Added in TB 74]
          
-         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
+         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.tags.list` method.
       
       
       .. api-member::
@@ -1480,7 +1480,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       :name: [``tags``]
       :type: (array of string, optional)
       
-      Tags associated with this message. For a list of available tags, call the listTags method.
+      Tags associated with this message. For a list of available tags, call the :ref:`messages.tags.list` method.
    
 
 .. _messages.QueryRange:
