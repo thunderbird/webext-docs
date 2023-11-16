@@ -586,6 +586,11 @@ def format_namespace(manifest, namespace):
         lines.append("")
         lines.extend(header_2("Functions", "api-main-section"))
         for function in sorted(namespace["functions"], key=lambda t: t["name"]):
+            if "min_manifest_version" in function and function["min_manifest_version"] > MV:
+                continue
+            if "max_manifest_version" in function and function["max_manifest_version"] < MV:
+                continue
+
             async = function.get("async")
             lines.extend(header_3(
                 "%s(%s)" % (function["name"], format_params(function, callback=async)),
@@ -631,12 +636,15 @@ def format_namespace(manifest, namespace):
                 lines.extend(format_hints(function))
 
 
-            
-
     if "events" in namespace:
         lines.append("")
         lines.extend(header_2("Events", "api-main-section"))
         for event in sorted(namespace["events"], key=lambda t: t["name"]):
+            if "min_manifest_version" in event and event["min_manifest_version"] > MV:
+                continue
+            if "max_manifest_version" in event and event["max_manifest_version"] < MV:
+                continue
+
             lines.extend(header_3(
                 "%s" % (event["name"]), # , (%s)format_params(event)
                 label="%s.%s" % (namespace["namespace"], event["name"]),

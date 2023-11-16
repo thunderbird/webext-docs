@@ -185,46 +185,6 @@ Copies messages to a specified folder.
    - :permission:`accountsRead`
    - :permission:`messagesMove`
 
-.. _messages.createTag:
-
-createTag(key, tag, color)
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-   
-   
-   .. api-member::
-      :name: ``tag``
-      :type: (string)
-      
-      Human-readable tag name.
-   
-   
-   .. api-member::
-      :name: ``color``
-      :type: (string)
-      
-      Tag color in hex format (i.e.: :value:`#000080` for navy blue)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
-
 .. _messages.delete:
 
 delete(messageIds, [skipTrash])
@@ -262,32 +222,6 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
 
    - :permission:`messagesRead`
    - :permission:`messagesDelete`
-
-.. _messages.deleteTag:
-
-deleteTag(key)
---------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
 
 .. _messages.get:
 
@@ -572,30 +506,6 @@ Lists the attachments of a message.
 
    - :permission:`messagesRead`
 
-.. _messages.listTags:
-
-listTags()
-----------
-
-.. api-section-annotation-hack:: 
-
-Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`messages.tags.MessageTag`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _messages.move:
 
 move(messageIds, destination)
@@ -844,7 +754,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (:ref:`messages.tags.TagsDetail`, optional)
          :annotation: -- [Added in TB 74]
          
-         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
+         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.tags.list` method.
       
       
       .. api-member::
@@ -904,51 +814,6 @@ Marks or unmarks a message as junk, read, flagged, or tagged. Updating external 
    :label: Required permissions
 
    - :permission:`messagesRead`
-
-.. _messages.updateTag:
-
-updateTag(key, updateProperties)
---------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Updates a message tag.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-   
-   
-   .. api-member::
-      :name: ``updateProperties``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``color``]
-         :type: (string, optional)
-         
-         Tag color in hex format (i.e.: #000080 for navy blue).
-      
-      
-      .. api-member::
-         :name: [``tag``]
-         :type: (string, optional)
-         
-         Human-readable tag name.
-      
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
 
 .. rst-class:: api-main-section
 
@@ -1473,7 +1338,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       :name: [``tags``]
       :type: (array of string, optional)
       
-      Tags associated with this message. For a list of available tags, call the listTags method.
+      Tags associated with this message. For a list of available tags, call the :ref:`messages.tags.list` method.
    
 
 .. _messages.QueryRange:

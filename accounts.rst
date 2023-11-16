@@ -110,39 +110,6 @@ Returns the default account, or :value:`null` if it is not defined.
 
    - :permission:`accountsRead`
 
-.. _accounts.getDefaultIdentity:
-
-getDefaultIdentity(accountId)
------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 85, backported to TB 78.7.0]
-
-Returns the default identity for an account, or :value:`null` if it is not defined.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`identities.MailIdentity`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
 .. _accounts.list:
 
 list([includeFolders])
@@ -173,34 +140,6 @@ Returns all mail accounts. They will be returned in the same order as used in Th
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _accounts.setDefaultIdentity:
-
-setDefaultIdentity(accountId, identityId)
------------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 76]
-
-Sets the default identity for an account.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
-   
-   
-   .. api-member::
-      :name: ``identityId``
-      :type: (string)
-   
 
 .. api-header::
    :label: Required permissions
