@@ -684,7 +684,7 @@ OR
          .. api-member::
             :name: :value:`action`
          
-            Applies when the user context-clicks a browserAction button in a Manifest V3 extension
+            Applies when the user context-clicks a browserAction button in a Manifest V3 extension.
          
          .. api-member::
             :name: :value:`action_menu`
