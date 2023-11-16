@@ -42,7 +42,7 @@ Thunderbird WebExtension APIs
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
 +------------------------------------------------+-------------------------------------------+
-| Thunderbird API &nsbp; &nsbp; &nsbp; &nsbp;    | Description                               |
+| Thunderbird API |_|                            | Description                               |
 +================================================+===========================================+
 | :doc:`accounts`                                | |accounts-Description|                    |
 +------------------------------------------------+-------------------------------------------+
@@ -123,6 +123,8 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |spacesToolbar-Description| replace:: Enables an extension to interact with Thunderbird's spaces toolbar.
 .. |tabs-Description| replace:: Enables an extension to interact with Thunderbird's tab system. It allows to create, modify, and rearrange tabs and to communicate with scripts in tabs.
 .. |windows-Description| replace:: Enables an extension to interact with Thunderbird's windows which can contain webpage tabs and also with other window types like composer or address books that cannot contain webpage tabs. You can use this API to create, modify, and rearrange windows.
+.. |_| unicode:: 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0
+   :trim:
 
 .. _`browser action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#browser-action
 .. _`compose action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#compose-action
@@ -148,7 +150,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   it should work in Thunderbird as well. 
 
 +--------------------------------------------+-------------------------------------------+
-| Firefox API &nsbp; &nsbp; &nsbp; &nsbp;    | Description                               |
+| Firefox API |_|                            | Description                               |
 +============================================+===========================================+
 | `browserSettings`_                         | |browserSettings-Description|             |
 +--------------------------------------------+-------------------------------------------+
