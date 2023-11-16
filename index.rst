@@ -41,64 +41,64 @@ Thunderbird WebExtension APIs
 
 Thunderbird provides the following messenger related WebExtension APIs, which are sometimes referred to as MailExtension APIs:
 
-+-------------------------------+------------------------------------------------------------+
-| Thunderbird API               | Description                                                |
-+===============================+====================+=======================================+
-| :doc:`accounts`               | |accounts-Description|                                     |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`addressBooks`           | |addressBooks-Description|                                 |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`addressBooks.provider`  | |addressBooksProvider-Description|                         |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`browserAction`          | |browserAction-Description|                                |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`cloudFile`              | |cloudFile-Description|                                    |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`commands`               | |commands-Description|                                     |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`compose`                | |compose-Description|                                      |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`composeAction`          | |composeAction-Description|                                |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`composeScripts`         | |composeScripts-Description|                               |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`contacts`               | |contacts-Description|                                     |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`folders`                | |folders-Description|                                      |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`identities`             | |identities-Description|                                   |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`mailingLists`           | |mailingLists-Description|                                 |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`mailTabs`               | |mailTabs-Description|                                     |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`menus`                  | |menus-Description|                                        |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`messageDisplay`         | |messageDisplay-Description|                               |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`messageDisplayAction`   | |messageDisplayAction-Description|                         |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`messageDisplayScripts`  | |messageDisplayScripts-Description|                        |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`messages`               | |messages-Description|                                     |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`sessions`               | |sessions-Description|                                     |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`spaces`                 | |spaces-Description|                                       |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`spacesToolbar`          | |spacesToolbar-Description|                                |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`tabs`                   | |tabs-Description|                                         |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`theme`                  | |theme-Description|                                        |
-+-------------------------------+------------------------------------------------------------+
-| :doc:`windows`                | |windows-Description|                                      |
-+-------------------------------+------------------------------------------------------------+
++------------------------------------------------+-------------------------------------------+
+| Thunderbird API |_|                            | Description                               |
++================================================+===========================================+
+| :doc:`accounts`                                | |accounts-Description|                    |
++------------------------------------------------+-------------------------------------------+
+| :doc:`addressBooks`                            | |addressBooks-Description|                |
++------------------------------------------------+-------------------------------------------+
+| :doc:`addressBooks.provider`                   | |addressBooksProvider-Description|        |
++------------------------------------------------+-------------------------------------------+
+| :doc:`browserAction`                           | |browserAction-Description|               |
++------------------------------------------------+-------------------------------------------+
+| :doc:`cloudFile`                               | |cloudFile-Description|                   |
++------------------------------------------------+-------------------------------------------+
+| :doc:`commands`                                | |commands-Description|                    |
++------------------------------------------------+-------------------------------------------+
+| :doc:`compose`                                 | |compose-Description|                     |
++------------------------------------------------+-------------------------------------------+
+| :doc:`composeAction`                           | |composeAction-Description|               |
++------------------------------------------------+-------------------------------------------+
+| :doc:`composeScripts`                          | |composeScripts-Description|              |
++------------------------------------------------+-------------------------------------------+
+| :doc:`contacts`                                | |contacts-Description|                    |
++------------------------------------------------+-------------------------------------------+
+| :doc:`folders`                                 | |folders-Description|                     |
++------------------------------------------------+-------------------------------------------+
+| :doc:`identities`                              | |identities-Description|                  |
++------------------------------------------------+-------------------------------------------+
+| :doc:`mailingLists`                            | |mailingLists-Description|                |
++------------------------------------------------+-------------------------------------------+
+| :doc:`mailTabs`                                | |mailTabs-Description|                    |
++------------------------------------------------+-------------------------------------------+
+| :doc:`menus`                                   | |menus-Description|                       |
++------------------------------------------------+-------------------------------------------+
+| :doc:`messageDisplay`                          | |messageDisplay-Description|              |
++------------------------------------------------+-------------------------------------------+
+| :doc:`messageDisplayAction`                    | |messageDisplayAction-Description|        |
++------------------------------------------------+-------------------------------------------+
+| :doc:`messageDisplayScripts`                   | |messageDisplayScripts-Description|       |
++------------------------------------------------+-------------------------------------------+
+| :doc:`messages`                                | |messages-Description|                    |
++------------------------------------------------+-------------------------------------------+
+| :doc:`sessions`                                | |sessions-Description|                    |
++------------------------------------------------+-------------------------------------------+
+| :doc:`spaces`                                  | |spaces-Description|                      |
++------------------------------------------------+-------------------------------------------+
+| :doc:`spacesToolbar`                           | |spacesToolbar-Description|               |
++------------------------------------------------+-------------------------------------------+
+| :doc:`tabs`                                    | |tabs-Description|                        |
++------------------------------------------------+-------------------------------------------+
+| :doc:`theme`                                   | |theme-Description|                       |
++------------------------------------------------+-------------------------------------------+
+| :doc:`windows`                                 | |windows-Description|                     |
++------------------------------------------------+-------------------------------------------+
   
 .. |accounts-Description| replace:: Enables an extension to access information of accounts and identities configured in Thunderbird's account manager.
 .. |addressBooks-Description| replace:: Enables an extension to access, modify, create and delete Thunderbird address books.
 .. |addressBooksProvider-Description| replace:: Allows to implement address books whose storage and entries are not handled by Thunderbird but by the extension.
-.. |browserAction-Description| replace:: Enables an extension to interact with a `browser action button`_. 
+.. |browserAction-Description| replace:: Enables an extension to interact with a `browser action button`_ in Thunderbird's main mail window. 
 .. |cloudFile-Description| replace:: Enables an extension to register a cloudFile provider, which can be used to upload large attachments to a server, instead of attaching them directly to the email.
 .. |commands-Description| replace:: The commands API adds keyboard shortcuts that can trigger actions in an extension.
 .. |compose-Description| replace:: Enables an extension to open a new message compose window or react to events while the message is being composed.
@@ -120,6 +120,8 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |spacesToolbar-Description| replace:: Enables an extension to interact with Thunderbird's spaces toolbar.
 .. |tabs-Description| replace:: Enables an extension to interact with Thunderbird's tab system. It allows to create, modify, and rearrange tabs and to communicate with scripts in tabs.
 .. |windows-Description| replace:: Enables an extension to interact with Thunderbird's windows which can contain webpage tabs and also with other window types like composer or address books that cannot contain webpage tabs. You can use this API to create, modify, and rearrange windows.
+.. |_| unicode:: 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0 0xA0
+   :trim:
 
 .. _`browser action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#browser-action
 .. _`compose action button`: https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#compose-action
@@ -144,55 +146,53 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   page should include a compatibility chart and if that includes support for Firefox,
   it should work in Thunderbird as well. 
 
-+-----------------------------+------------------------------------------------------------+
-| Firefox API                 | Description                                                |
-+=============================+====================+=======================================+
-| `browserSettings`_          | |browserSettings-Description|                              |
-+-----------------------------+------------------------------------------------------------+
-| `clipboard`_                | |clipboard-Description|                                    |
-+-----------------------------+------------------------------------------------------------+
-| `contentScripts`_           | |contentScripts-Description|                               |
-+-----------------------------+------------------------------------------------------------+
-| `cookies`_                  | |cookies-Description|                                      |
-+-----------------------------+------------------------------------------------------------+
-| `dns`_                      | |dns-Description|                                          |
-+-----------------------------+------------------------------------------------------------+
-| `downloads`_                | |downloads-Description|                                    |
-+-----------------------------+------------------------------------------------------------+
-| `extension`_                | |extension-Description|                                    |
-+-----------------------------+------------------------------------------------------------+
-| `i18n`_                     | |i18n-Description|                                         |
-+-----------------------------+------------------------------------------------------------+
-| `identity`_                 | |identity-Description|                                     |
-|                             |                                                            |
-|                             | *Added in Thunderbird 78.0b2*                              |
-+-----------------------------+------------------------------------------------------------+
-| `idle`_                     | |idle-Description|                                         |
-+-----------------------------+------------------------------------------------------------+
-| `privacy`_                  | |privacy-Description|                                      |
-+-----------------------------+------------------------------------------------------------+
-| `management`_               | |management-Description|                                   |
-+-----------------------------+------------------------------------------------------------+
-| `notifications`_            | |notifications-Description|                                |
-+-----------------------------+------------------------------------------------------------+
-| `permissions`_              | |permissions-Description|                                  |
-+-----------------------------+------------------------------------------------------------+
-| `protocol_handlers`_        | |protocol_handlers-Description|                            |
-+-----------------------------+------------------------------------------------------------+
-| `pkcs11`_                   | |pkcs11-Description|                                       |
-+-----------------------------+------------------------------------------------------------+
-| `proxy`_                    | |proxy-Description|                                        |
-+-----------------------------+------------------------------------------------------------+
-| `runtime`_                  | |runtime-Description|                                      |
-+-----------------------------+------------------------------------------------------------+
-| `storage`_                  | |storage-Description|                                      |
-+-----------------------------+------------------------------------------------------------+
-| `userScripts`_              | |userScripts-Description|                                  |
-+-----------------------------+------------------------------------------------------------+
-| `webNavigation`_            | |webNavigation-Description|                                |
-+-----------------------------+------------------------------------------------------------+
-| `webRequest`_               | |webRequest-Description|                                   |
-+-----------------------------+------------------------------------------------------------+
++--------------------------------------------+-------------------------------------------+
+| Firefox API |_|                            | Description                               |
++============================================+===========================================+
+| `browserSettings`_                         | |browserSettings-Description|             |
++--------------------------------------------+-------------------------------------------+
+| `clipboard`_                               | |clipboard-Description|                   |
++--------------------------------------------+-------------------------------------------+
+| `contentScripts`_                          | |contentScripts-Description|              |
++--------------------------------------------+-------------------------------------------+
+| `cookies`_                                 | |cookies-Description|                     |
++--------------------------------------------+-------------------------------------------+
+| `dns`_                                     | |dns-Description|                         |
++--------------------------------------------+-------------------------------------------+
+| `downloads`_                               | |downloads-Description|                   |
++--------------------------------------------+-------------------------------------------+
+| `extension`_                               | |extension-Description|                   |
++--------------------------------------------+-------------------------------------------+
+| `i18n`_                                    | |i18n-Description|                        |
++--------------------------------------------+-------------------------------------------+
+| `identity`_                                | |identity-Description|                    |
++--------------------------------------------+-------------------------------------------+
+| `idle`_                                    | |idle-Description|                        |
++--------------------------------------------+-------------------------------------------+
+| `privacy`_                                 | |privacy-Description|                     |
++--------------------------------------------+-------------------------------------------+
+| `management`_                              | |management-Description|                  |
++--------------------------------------------+-------------------------------------------+
+| `notifications`_                           | |notifications-Description|               |
++--------------------------------------------+-------------------------------------------+
+| `permissions`_                             | |permissions-Description|                 |
++--------------------------------------------+-------------------------------------------+
+| `protocol_handlers`_                       | |protocol_handlers-Description|           |
++--------------------------------------------+-------------------------------------------+
+| `pkcs11`_                                  | |pkcs11-Description|                      |
++--------------------------------------------+-------------------------------------------+
+| `proxy`_                                   | |proxy-Description|                       |
++--------------------------------------------+-------------------------------------------+
+| `runtime`_                                 | |runtime-Description|                     |
++--------------------------------------------+-------------------------------------------+
+| `storage`_                                 | |storage-Description|                     |
++--------------------------------------------+-------------------------------------------+
+| `userScripts`_                             | |userScripts-Description|                 |
++--------------------------------------------+-------------------------------------------+
+| `webNavigation`_                           | |webNavigation-Description|               |
++--------------------------------------------+-------------------------------------------+
+| `webRequest`_                              | |webRequest-Description|                  |
++--------------------------------------------+-------------------------------------------+
 
 .. _browserSettings: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings
 .. _clipboard: https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/clipboard
