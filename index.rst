@@ -52,7 +52,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 
 +-------------------------------+------------------------------------------------------------+
 | Thunderbird API               | Description                                                |
-+===============================+====================+=======================================+
++===============================+============================================================+
 | :doc:`accounts`               | |accounts-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`action`                 | |action-Description|                                       |
@@ -107,7 +107,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |accounts-Description| replace:: Enables an extension to access information of accounts and identities configured in Thunderbird's account manager.
 .. |addressBooks-Description| replace:: Enables an extension to access, modify, create and delete Thunderbird address books.
 .. |addressBooksProvider-Description| replace:: Allows to implement address books whose storage and entries are not handled by Thunderbird but by the extension.
-.. |action-Description| replace:: Enables an extension to interact with an `action button`_ in Thunderbirds main mail window. 
+.. |action-Description| replace:: Enables an extension to interact with an `action button`_ in Thunderbird's main mail window. 
 .. |cloudFile-Description| replace:: Enables an extension to register a cloudFile provider, which can be used to upload large attachments to a server, instead of attaching them directly to the email.
 .. |commands-Description| replace:: The commands API adds keyboard shortcuts that can trigger actions in an extension.
 .. |compose-Description| replace:: Enables an extension to open a new message compose window or react to events while the message is being composed.
@@ -272,6 +272,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   messageDisplayAction
   messageDisplayScripts
   messages
+  messages.tags
   sessions
   spaces
   theme
