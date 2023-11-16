@@ -4,19 +4,95 @@
     "types": [
       {
         "id": "ContextType",
+        "description": "The different contexts a menu can appear in. More information about each context can be found in the `Supported UI Elements <|link-ui-elements|>`__ article on developer.thunderbird.net.",
         "enumChanges": {
+          "all": {
+            "description": "Equivalent to the combination of all other contexts except for <value>tab</value> and <value>tools_menu</value>."
+          },
+          "all_message_attachments": {
+            "description": "Applies when the user context-clicks the summary of the message attachments of a displayed message with more than one attachment."
+          },
+          "action": {
+            "description": "Applies when the user context-clicks a browserAction button in a Manifest V3 extension."
+          },
+          "action_menu": {
+            "added": "115",
+            "description": "Applies when the user opened a browserAction button of type <value>menu</value> in a Manifest V3 extension."
+          },
+          "audio": {
+            "description": "Applies when the user context-clicks an audio element."
+          },
+          "browser_action": {
+            "description": "Applies when the user context-clicks a browserAction button."
+          },
+          "browser_action_menu": {
+            "added": "115",
+            "description": "Applies when the user opened a browserAction button of type <value>menu</value>."
+          },
+          "compose_action_menu": {
+            "added": "115",
+            "description": "Applies when the user opened a composeAction button of type <value>menu</value>."
+          },
+          "compose_body": {
+            "added": "115",
+            "description": "Applies when the user context-clicks in the compose editor."
+          },
+          "editable": {
+            "description": "Applies when the user context-clicks an editable element, like a textarea."
+          },
+          "folder_pane": {
+            "description": "Applies when the user context-clicks in the folder pane of the main Thunderbird window."
+          },
+          "frame": {
+            "description": "Applies when the user context-clicks in a nested iframe."
+          },
+          "image": {
+            "description": "Applies when the user context-clicks an image."
+          },
+          "link": {
+            "description": "Applies when the user context-clicks on a link."
+          },
+          "message_attachments": {
+            "description": "Applies when the user context-clicks a single attachment of a displayed message."
+          },
+          "message_display_action_menu": {
+            "added": "115",
+            "description": "Applies when the user opened a messageDisplayAction button of type <value>menu</value>."
+          },
+          "message_list": {
+            "description": "Applies when the user context-clicks in the message list (a.k.a. thread pane) of the main Thunderbird window."
+          },
+          "page": {
+            "description": "Applies when the user context-clicks in the page, but none of the other page contexts apply (for example, the click is not on an image or a nested iframe or a link)."
+          },
+          "password": {
+            "description": "Applies when the user context-clicks on a password input element."
+          },
+          "selection": {
+            "description": "Applies when part of the page is selected."
+          },
+          "tab": {
+            "description": "Applies when the user context-clicks on a tab (specifically, this refers to the tab-strip or other user interface element enabling the user to switch from one tab to another, not to the page itself)."
+          },
+          "video": {
+            "description": "Applies when the user context-clicks a video element."
+          },
           "compose_action": {
-            "added": "89"
+            "added": "89",
+            "description": "Applies when the user context-clicks a composeAction button."
           },
           "message_display_action": {
-            "added": "89"
+            "added": "89",
+            "description": "Applies when the user context-clicks a messageDisplayAction button."
           },
           "compose_attachments": {
             "added": "83",
-            "backported": "78.5.0"
+            "backported": "78.5.0",
+            "description": "Applies when the user context-clicks an attachment in the compose window."
           },
           "tools_menu": {
-            "added": "88"
+            "added": "88",
+            "description": "Applies when the user opens the <value>Tools</value> menu of Thunderbird's main menu."
           }
         }
       },

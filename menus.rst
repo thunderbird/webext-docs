@@ -539,7 +539,7 @@ ContextType
 
 .. api-section-annotation-hack:: 
 
-The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
+The different contexts a menu can appear in. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
@@ -554,68 +554,119 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
          .. api-member::
             :name: :value:`all`
          
+            Equivalent to the combination of all other contexts except for :value:`tab` and :value:`tools_menu`.
+         
          .. api-member::
             :name: :value:`all_message_attachments`
+         
+            Applies when the user context-clicks the summary of the message attachments of a displayed message with more than one attachment.
          
          .. api-member::
             :name: :value:`audio`
          
+            Applies when the user context-clicks an audio element.
+         
          .. api-member::
             :name: :value:`compose_action`
+            :annotation: -- [Added in TB 89]
+         
+            Applies when the user context-clicks a composeAction button.
          
          .. api-member::
             :name: :value:`compose_action_menu`
+            :annotation: -- [Added in TB 115]
+         
+            Applies when the user opened a composeAction button of type :value:`menu`.
          
          .. api-member::
             :name: :value:`compose_attachments`
+            :annotation: -- [Added in TB 83, backported to TB 78.5.0]
+         
+            Applies when the user context-clicks an attachment in the compose window.
          
          .. api-member::
             :name: :value:`compose_body`
+            :annotation: -- [Added in TB 115]
+         
+            Applies when the user context-clicks in the compose editor.
          
          .. api-member::
             :name: :value:`editable`
          
+            Applies when the user context-clicks an editable element, like a textarea.
+         
          .. api-member::
             :name: :value:`folder_pane`
+         
+            Applies when the user context-clicks in the folder pane of the main Thunderbird window.
          
          .. api-member::
             :name: :value:`frame`
          
+            Applies when the user context-clicks in a nested iframe.
+         
          .. api-member::
             :name: :value:`image`
+         
+            Applies when the user context-clicks an image.
          
          .. api-member::
             :name: :value:`link`
          
+            Applies when the user context-clicks on a link.
+         
          .. api-member::
             :name: :value:`message_attachments`
          
+            Applies when the user context-clicks a single attachment of a displayed message.
+         
          .. api-member::
             :name: :value:`message_display_action`
+            :annotation: -- [Added in TB 89]
+         
+            Applies when the user context-clicks a messageDisplayAction button.
          
          .. api-member::
             :name: :value:`message_display_action_menu`
+            :annotation: -- [Added in TB 115]
+         
+            Applies when the user opened a messageDisplayAction button of type :value:`menu`.
          
          .. api-member::
             :name: :value:`message_list`
          
+            Applies when the user context-clicks in the message list (a.k.a. thread pane) of the main Thunderbird window.
+         
          .. api-member::
             :name: :value:`page`
+         
+            Applies when the user context-clicks in the page, but none of the other page contexts apply (for example, the click is not on an image or a nested iframe or a link).
          
          .. api-member::
             :name: :value:`password`
          
+            Applies when the user context-clicks on a password input element.
+         
          .. api-member::
             :name: :value:`selection`
+         
+            Applies when part of the page is selected.
          
          .. api-member::
             :name: :value:`tab`
          
+            Applies when the user context-clicks on a tab (specifically, this refers to the tab-strip or other user interface element enabling the user to switch from one tab to another, not to the page itself).
+         
          .. api-member::
             :name: :value:`tools_menu`
+            :annotation: -- [Added in TB 88]
+         
+            Applies when the user opens the :value:`Tools` menu of Thunderbird's main menu.
          
          .. api-member::
             :name: :value:`video`
+         
+            Applies when the user context-clicks a video element.
    
 
 OR
@@ -633,8 +684,13 @@ OR
          .. api-member::
             :name: :value:`browser_action`
          
+            Applies when the user context-clicks a browserAction button.
+         
          .. api-member::
             :name: :value:`browser_action_menu`
+            :annotation: -- [Added in TB 115]
+         
+            Applies when the user opened a browserAction button of type :value:`menu`.
    
 
 .. _menus.ItemType:
