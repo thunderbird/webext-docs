@@ -16,34 +16,9 @@ Permissions
 ===========
 
 .. api-member::
-   :name: :permission:`messagesDelete`
-
-   Permanently delete your email messages
-
-.. api-member::
-   :name: :permission:`messagesImport`
-
-   Import messages into Thunderbird
-
-.. api-member::
-   :name: :permission:`messagesMove`
-
-   Copy or move your email messages (including moving them to the trash folder)
-
-.. api-member::
-   :name: :permission:`messagesRead`
-
-   Read your email messages and mark or tag them
-
-.. api-member::
    :name: :permission:`messagesTags`
 
    Create, modify and delete message tags
-
-.. api-member::
-   :name: :permission:`sensitiveDataUpload`
-
-   Transfer sensitive user data (if access has been granted) to a remote server for further processing
 
 .. rst-class:: api-permission-info
 

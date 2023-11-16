@@ -1,6 +1,9 @@
 [
   {
     "namespace": "messages",
+    "ignore_permissions": [
+      "messagesTags"
+    ],
     "functions": [
       {
         "name": "createTag",
@@ -160,5 +163,15 @@
         }
       }
     ]
-  }
+  },
+  {
+    "namespace": "messages.tags",
+    "ignore_permissions": [
+        "messagesDelete",
+        "messagesImport",
+        "messagesMove",
+        "messagesRead",
+        "sensitiveDataUpload"
+    ]
+  }  
 ]
