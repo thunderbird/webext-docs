@@ -82,6 +82,8 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 +-------------------------------+------------------------------------------------------------+
 | :doc:`messages`               | |messages-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
+| :doc:`messages.tags`          | |messages-tags-Description|                                |
++-------------------------------+------------------------------------------------------------+
 | :doc:`sessions`               | |sessions-Description|                                     |
 +-------------------------------+------------------------------------------------------------+
 | :doc:`spaces`                 | |spaces-Description|                                       |
@@ -115,6 +117,7 @@ Thunderbird provides the following messenger related WebExtension APIs, which ar
 .. |messageDisplayAction-Description| replace:: Enables an extension to interact with a `message display action button`_. 
 .. |messageDisplayScripts-Description| replace:: Functionally is the same as the contentScripts API except that it works on the document of email messages being displayed.
 .. |messages-Description| replace:: Enables an extension to list, search, read, copy, move and delete messages.
+.. |messages-tags-Description| replace:: Enables an extension to list, create, delete and update message tags.
 .. |sessions-Description| replace:: Enables an extension to store tab related session data for individual tabs (restored on app restart).
 .. |spaces-Description| replace:: Enables an extension to interact with Thunderbird's spaces, and to create custom spaces.
 .. |spacesToolbar-Description| replace:: Enables an extension to interact with Thunderbird's spaces toolbar.
