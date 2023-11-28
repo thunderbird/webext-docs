@@ -280,7 +280,6 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   changes/esr78
   changes/esr91
   changes/esr102
-  changes/esr115
 
 Where To Get Help And More Information
 ======================================
