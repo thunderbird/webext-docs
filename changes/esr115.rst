@@ -73,7 +73,7 @@ action APIs
 ===========
 * Removed the user input requirement from :ref:`browserAction.openPopup`, :ref:`composeAction.openPopup` and :ref:`messageDisplayAction.openPopup`. Also added support for the ``windowId`` property, to open the popup of a specific window. Furthermore, ``openPopup()`` now returns a boolean value, indicating whether opening of the popup has failed, because the action button or the entire toolbar has been removed by the user.
 * Fixed the annoying issue on MacOS, where the popup was opened empty after the second time it was opened. A big shout out to Arnd Issler for helping to track this down.
-* Added ``allowed_spaces`` manifest entry, to let add-ons define in which space the action button should be allowed in.
+* Added ``allowed_spaces`` manifest entry, to let extensions define in which space the action button should be allowed in.
 
 compose API
 ===========
@@ -146,4 +146,4 @@ Thunderbird 115.3.2 ESR
 
 messages API
 ============
-* Added the optional ``data_format`` parameter to :ref:`messages.getRaw` to request the message as a DOM ``File`` object.
+* Backported the optional ``data_format`` parameter to :ref:`messages.getRaw` to request the message as a DOM ``File`` object.
