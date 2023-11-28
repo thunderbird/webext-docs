@@ -46,12 +46,12 @@ mailTabs API
 messages API
 ============
 * Added the ``accountId``, ``folderId``, ``junk``, ``junkScore``, ``new`` and ``size`` properties to the ``queryInfo`` parameter of :ref:`messages.query`, to query for messages with the given properties.
-* Added the ability to :ref:`messages.query` to query for a range instead of a fixed value for ``attachment``, ``junkScore`` and ``size``.
+* Added the ability to :ref:`messages.query` for a range instead of a fixed value for ``attachment``, ``junkScore`` and ``size``.
 * Added the ``monitorAllFolders`` parameter to the :ref:`messages.onNewMailReceived` event, to allow extensions to listen for new messages in all folders, not just in inbox folders.
 
 messages.tags API
 =================
-* Replace deprecated :ref:`messages.listTags` by the newly added :ref:`messages.tags.list` to list tags.
-* Replace deprecated :ref:`messages.createTag` by the newly added :ref:`messages.tags.create` to create new tags.
-* Replace deprecated :ref:`messages.updateTag` by the newly added :ref:`messages.tags.update` to update tags.
-* Replace deprecated :ref:`messages.deleteTag` by the newly added :ref:`messages.tags.delete` to delete tags.
+* Replace deprecated :ref:`messages.listTags` function by the newly added :ref:`messages.tags.list` function, to list tags.
+* Replace deprecated :ref:`messages.createTag` function by the newly added :ref:`messages.tags.create` function, to create new tags.
+* Replace deprecated :ref:`messages.updateTag` function by the newly added :ref:`messages.tags.update` function, to update tags.
+* Replace deprecated :ref:`messages.deleteTag` function by the newly added :ref:`messages.tags.delete` function, to delete tags.
