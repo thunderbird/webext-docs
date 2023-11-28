@@ -1,5 +1,5 @@
 ==================================
-Changes up to Thunderbird 122 Beta
+Changes up to Thunderbird 121 Beta
 ==================================
 
 --------------------
