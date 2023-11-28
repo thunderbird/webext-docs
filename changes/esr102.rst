@@ -1,23 +1,19 @@
-=============================
-Changes up to Thunderbird 102
-=============================
+=================================
+Changes up to Thunderbird 102 ESR
+=================================
 
-------------------
-Thunderbird 95.0b1
-------------------
+-------------------
+Thunderbird 95 Beta
+-------------------
 
 compose API
 ============
 
 * added ``relatedMessageId`` property to the :ref:`compose.ComposeDetails` type
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 92 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=92%20Branch&o2=equals>`__, `Thunderbird 93 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=93%20Branch&o2=equals>`__, `Thunderbird 94 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=94%20Branch&o2=equals>`__ and `Thunderbird 95 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=95%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 96.0b1
-------------------
+-------------------
+Thunderbird 96 Beta
+-------------------
 
 cloudFile API
 =============
@@ -32,13 +28,9 @@ messages API
 
 * added ``attachment`` as a supported property of the :ref:`messages.query` function, to be able to query for messages with or without attachments
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 96 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=96%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 97.0b1
-------------------
+-------------------
+Thunderbird 97 Beta
+-------------------
 
 cloudFile API
 =============
@@ -46,13 +38,9 @@ cloudFile API
 * deprecated the ``manifest.service_url`` entry, it is superseded by the optional ``service_url`` property of the :ref:`cloudFile.CloudFileTemplateInfo`
 * added new optional properties to :ref:`cloudFile.CloudFileTemplateInfo` : ``download_expiry_date``, ``download_limit`` and ``download_password_protected``
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 97 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=97%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 98.0b1
-------------------
+-------------------
+Thunderbird 98 Beta
+-------------------
 
 accounts API
 ============
@@ -73,13 +61,9 @@ compose API
 * added support to use a :ref:`compose.ComposeAttachment` as the attachment in :ref:`compose.addAttachment` and in :ref:`compose.ComposeDetails`
 * modified the rules for ``body``, ``plainTextBody`` and ``isPlainText`` properties of :ref:`compose.ComposeDetails` in a backward compatible way - specifying both body types no longer causes an exception and it is now even suggested to always specify both and either let the API pick the users default compose mode, or use the ``isPlainText`` property as selector 
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 98 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=98%20Branch&o2=equals>`__.
-
--------------------
-Thunderbird 100.0b1
--------------------
+--------------------
+Thunderbird 100 Beta
+--------------------
 
 compose API
 ===========
@@ -92,13 +76,9 @@ spacesToolbar API
 
 * added :ref:`spacesToolbar_api`
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 99 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=99%20Branch&o2=equals>`__ and `Thunderbird 100 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=100%20Branch&o2=equals>`__.
-
--------------------
-Thunderbird 101.0b1
--------------------
+--------------------
+Thunderbird 101 Beta
+--------------------
 
 cloudfile API
 =============
@@ -108,13 +88,9 @@ messageDisplay API
 ==================
 * :ref:`messageDisplay.getDisplayedMessage` now returns messages in inactive tabs.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 101 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=101%20Branch&o2=equals>`__.
-
------------------
-Thunderbird 102.0
------------------
+---------------------
+Thunderbird 102.0 ESR
+---------------------
 
 compose API
 ===========
@@ -135,13 +111,9 @@ messageDisplay API
 ==================
 * Added :ref:`messageDisplay.open` to open messages in tabs or windows.
 
-____
-
-Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 102 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=102%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
-
--------------------
-Thunderbird 102.3.0
--------------------
+-----------------------
+Thunderbird 102.3.0 ESR
+-----------------------
 
 compose API
 ===========

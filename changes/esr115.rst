@@ -1,10 +1,10 @@
-=============================
-Changes up to Thunderbird 115
-=============================
+=================================
+Changes up to Thunderbird 115 ESR
+=================================
 
--------------------
-Thunderbird 106.0b1
--------------------
+--------------------
+Thunderbird 106 Beta
+--------------------
 
 browserAction API
 =================
@@ -40,25 +40,17 @@ messageDisplay API
 ==================
 * Fixed :ref:`messageDisplay.onMessageDisplayed` to be triggered for external messages.
 
-____
-
-Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 103 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=103%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 104 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=104%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 105 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=105%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 106 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=106%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
-
--------------------
-Thunderbird 107.0b1
--------------------
+--------------------
+Thunderbird 107 Beta
+--------------------
 
 contacts API
 ============
 * Added :ref:`contacts.setPhoto` to be able to set the photo of a contact.
 
-____
-
-Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 107 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=107%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
-
--------------------
-Thunderbird 111.0b1
--------------------
+--------------------
+Thunderbird 111 Beta
+--------------------
 
 messageDisplay API
 ==================
@@ -73,13 +65,9 @@ windows API
 * Fix :ref:`windows.create` to properly support ``top`` and ``left`` properties.
 * Fix ``beforeunload`` event not fired in popup windows. Note: There must have been some sort of interaction with the window (for example a mouse click into the window), for this event to be fired when the window is closed.
 
-____
-
-Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 108 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=108%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 109 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=109%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 110 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=110%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 111 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=111%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
-
--------------------
-Thunderbird 113.0b1
--------------------
+--------------------
+Thunderbird 113 Beta
+--------------------
 
 action APIs
 ===========
@@ -95,13 +83,10 @@ protocol_handler API
 ====================
 * Add support for WebExtension defined protocols to be accepted as command line arguments. More details can be found in the `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=1824976#c0>`__.
 
-____
 
-Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 112 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=112%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 113 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=113%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
-
------------------
-Thunderbird 115.0
------------------
+---------------------
+Thunderbird 115.0 ESR
+---------------------
 
 WebExtensions usually are not reviewed when submitted but instead are made available instantly. The WebExtension permission system should guard against malicious actors. However, the data available to extensions is very sensitive and if a user granted access to messages and contacts he mostly assumes the data is only used locally. Extensions however, can unknowingly send this data to remote servers. We therefore started to enforce review of all extensions, which request sensitive permissions like ``messagesRead`` or ``addressBooks``. We also introduce an additional ``sensitiveDataUpload`` permission, which allows to by-pass this human review, but prompts the user for the following permission: *Transfer sensitive user data (if access has been granted) to a remote server for further processing.*
 
@@ -154,14 +139,10 @@ tabs API
 * Add support for the ``previousTabId`` parameter to the :ref:`tabs.onActivated` event.
 * Changed handling of URLs in :ref:`tabs.update`: If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: The function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
 
-____
 
-Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 114 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=114%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 115 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=115%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
-
-
--------------------
-Thunderbird 115.3.2
--------------------
+-----------------------
+Thunderbird 115.3.2 ESR
+-----------------------
 
 messages API
 ============
