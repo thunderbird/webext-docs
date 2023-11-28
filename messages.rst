@@ -179,7 +179,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :name: ``key``
       :type: (string)
       
-      Unique tag identifier (must use only alphanumeric characters).
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
    
    .. api-member::
@@ -256,6 +256,8 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
    .. api-member::
       :name: ``key``
       :type: (string)
+      
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
 
 .. api-header::
@@ -404,6 +406,8 @@ Returns the unmodified source of a message. Throws if the message could not be r
          
          .. literalinclude:: includes/messages/decodeBinaryString.js
            :language: JavaScript
+         
+         
          
          (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__).
          
@@ -833,7 +837,7 @@ Updates a message tag.
       :name: ``key``
       :type: (string)
       
-      Unique tag identifier.
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
    
    
    .. api-member::

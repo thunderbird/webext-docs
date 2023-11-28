@@ -1,0 +1,168 @@
+=============================
+Changes up to Thunderbird 115
+=============================
+
+-------------------
+Thunderbird 106.0b1
+-------------------
+
+browserAction API
+=================
+* Introduced a ``default_windows`` manifest property, to allow a browserAction buttons to be displayed in stand alone message windows.
+
+commands API
+============
+* Added the ``tab`` parameter to :ref:`commands.onCommand`, to get information about the active tab, when a command occurs.
+
+compose API
+===========
+* Added :ref:`compose.onAfterSave` event, to be notified when saving a message as a draft or a template succeeded or failed.
+* Added :ref:`compose.onAfterSend` event, to be notified when sending a message succeeded or failed.
+
+contacts API
+============
+* Added :ref:`contacts.getPhoto` to be able to retrieve the photo of a contact.
+
+mailTabs API
+============
+* Added :ref:`mailTabs.setSelectedMessages`.
+
+messages API
+============
+* Added the ``message`` member to the :ref:`messages.MessageAttachment` type, to provide access to attached messages.
+* Added the ``external`` member to the :ref:`messages.MessageHeader` type, to indicate if a message is an external message, not stored in a message folder (message attachments or messages opened from file).
+* Added the ``new`` member to the :ref:`messages.MessageHeader` type, to indicate if a message has been received recently and is marked as new.
+* Added :ref:`messages.import` to import messages into Thunderbird (currently only supported for local folders).
+* Renamed ``MessageChangeProperties`` to :ref:`messages.MessageProperties`, as it is now also used by :ref:`messages.import`, to define the properties of the imported message.
+* Added the ``new`` member to the :ref:`messages.MessageProperties` type (currently only supported by :ref:`messages.import`).
+
+messageDisplay API
+==================
+* Fixed :ref:`messageDisplay.onMessageDisplayed` to be triggered for external messages.
+
+____
+
+Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 103 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=103%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 104 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=104%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 105 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=105%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 106 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=106%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
+
+-------------------
+Thunderbird 107.0b1
+-------------------
+
+contacts API
+============
+* Added :ref:`contacts.setPhoto` to be able to set the photo of a contact.
+
+____
+
+Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 107 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=107%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
+
+-------------------
+Thunderbird 111.0b1
+-------------------
+
+messageDisplay API
+==================
+* Improved :ref:`messageDisplay.open` to honour the ``location`` property also for external messages. They can now also be opened in tabs.
+
+protocol_handler API
+====================
+* Fix Thunderbird to properly support the `protocol_handlers API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/protocol_handlers>`__.
+
+windows API
+===========
+* Fix :ref:`windows.create` to properly support ``top`` and ``left`` properties.
+* Fix ``beforeunload`` event not fired in popup windows. Note: There must have been some sort of interaction with the window (for example a mouse click into the window), for this event to be fired when the window is closed.
+
+____
+
+Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 108 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=108%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 109 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=109%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__, `Thunderbird 110 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=110%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 111 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=111%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
+
+-------------------
+Thunderbird 113.0b1
+-------------------
+
+action APIs
+===========
+* Removed the user input requirement from :ref:`browserAction.openPopup`, :ref:`composeAction.openPopup` and :ref:`messageDisplayAction.openPopup`. Also added support for the ``windowId`` property, to open the popup of a specific window. Furthermore, ``openPopup()`` now returns a boolean value, indicating whether opening of the popup has failed, because the action button or the entire toolbar has been removed by the user.
+* Fixed the annoying issue on MacOS, where the popup was opened empty after the second time it was opened. A big shout out to Arnd Issler for helping to track this down.
+* Added ``allowed_spaces`` manifest entry, to let add-ons define in which space the action button should be allowed in.
+
+compose API
+===========
+* Fix compose API to no longer clear all (!) headers, if :ref:`compose.setComposeDetails` is used to update the non-standard ``X-`` headers.
+
+protocol_handler API
+====================
+* Add support for WebExtension defined protocols to be accepted as command line arguments. More details can be found in the `bug <https://bugzilla.mozilla.org/show_bug.cgi?id=1824976#c0>`__.
+
+____
+
+Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 112 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=112%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 113 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=113%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
+
+-----------------
+Thunderbird 115.0
+-----------------
+
+WebExtensions usually are not reviewed when submitted but instead are made available instantly. The WebExtension permission system should guard against malicious actors. However, the data available to extensions is very sensitive and if a user granted access to messages and contacts he mostly assumes the data is only used locally. Extensions however, can unknowingly send this data to remote servers. We therefore started to enforce review of all extensions, which request sensitive permissions like ``messagesRead`` or ``addressBooks``. We also introduce an additional ``sensitiveDataUpload`` permission, which allows to by-pass this human review, but prompts the user for the following permission: *Transfer sensitive user data (if access has been granted) to a remote server for further processing.*
+
+If an add-on is not requesting that permission, but a reviewer concludes that it is indeed sending data to a remote server not under the control of the user, the reviewer may request the permission to be added.
+
+browserAction API
+=================
+* Deprecate the ``default_area`` manifest entry in favour of the recently added ``allowed_spaces`` manifest entry.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` API and a new ``browser_action_menu`` context.
+
+addressBooks API
+================
+* The function :ref:`addressBooks.openUI` now returns a Promise for the :ref:`tabs.Tab` of the opened tab.
+
+commands API
+============
+* Add the :ref:`commands.onChanged` event to be notified when a command shortcut has been changed.
+
+compose API
+===========
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` API and a new ``compose_action_menu`` context.
+
+messages API
+============
+* The ``queryInfo`` parameter for :ref:`messages.query` is now optional.
+* Added :ref:`messages.openAttachment` to open message attachments with the registered application. A big thank you to Mark Banner.
+* Add support for the ``type`` manifest entry to define a ``menu`` button, whose menu entries can be controlled through the :ref:`menus_api` API and a new ``message_display_action_menu`` context.
+
+messageDisplay API
+==================
+* Added support for :ref:`messageDisplay.open` to open messages from a DOM File object.
+
+sessions API
+============
+* Add a first simple version of the :ref:`sessions_api` API to allow extensions to store tab related session data, which is restored on app restart.
+
+spaces API
+==========
+* Add :ref:`spaces_api` API which supersedes the spacesToolbar API and allows to manage built-in and custom spaces.
+
+spacesToolbar API
+=================
+* Add :ref:`spacesToolbar.clickButton` to trigger a click on the button of a space in the spaces toolbar. In Manifest v3 the button-centric ``spacesToolbar API`` was removed and replaced by the space-centric ``spaces API``, where the corresponding method is named `spaces.open() <https://webextension-api.thunderbird.net/en/latest-mv3/spaces.html#open-spaceid-windowid>`__.
+
+tabs API
+========
+* The ``queryInfo`` parameter for :ref:`tabs.query` is now optional.
+* Add a ``spaceId`` member to the :ref:`tabs.Tab` type.
+* Add a ``cookieStoreId`` member to the :ref:`tabs.Tab` type. A big thank you to Neil Rashbrook.
+* Add support for the ``previousTabId`` parameter to the :ref:`tabs.onActivated` event.
+* Changed handling of URLs in :ref:`tabs.update`: If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. Note: The function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
+
+____
+
+Bugzilla list of all fixed WebExtension API bugs in `Thunderbird 114 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=114%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__ and `Thunderbird 115 <https://bugzilla.mozilla.org/buglist.cgi?target_milestone=115%20Branch&resolution=FIXED&component=Add-Ons%3A%20Extensions%20API>`__.
+
+
+-------------------
+Thunderbird 115.3.2
+-------------------
+
+messages API
+============
+* Added the optional ``data_format`` parameter to :ref:`messages.getRaw` to request the message as a DOM ``File`` object.
