@@ -1,10 +1,10 @@
-============================
-Changes up to Thunderbird 78
-============================
+================================
+Changes up to Thunderbird 78 ESR
+================================
 
-------------------
-Thunderbird 74.0b1
-------------------
+-------------------
+Thunderbird 74 Beta
+-------------------
 
 legacy
 ======
@@ -61,13 +61,9 @@ messages
   ``junkScore`` is an integer score from 0 (not spam) to 100 (spam).
   ``junk`` shows whether or not that score is greater than the junk threshold.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 74 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2074.0&o2=equals>`__.
-
-------------------
-Thunderbird 75.0b1
-------------------
+-------------------
+Thunderbird 75 Beta
+-------------------
 
 browserAction/composeAction/messageDisplayAction
 ================================================
@@ -108,13 +104,9 @@ messages
   Your extension can now be notified of incoming mail. This is based on the
   ``MailServices.mfn.msgsClassified`` notification.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 75 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2075.0&o2=equals>`__.
-
-------------------
-Thunderbird 76.0b1
-------------------
+-------------------
+Thunderbird 76 Beta
+-------------------
 
 accounts
 ========
@@ -172,16 +164,12 @@ experiments
 
 __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/parent/ext-addressBook.js
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 76 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2076.0&o2=equals>`__.
-
 
 .. _thunderbird_77_0b1:
 
-------------------
-Thunderbird 77.0b1
-------------------
+-------------------
+Thunderbird 77 Beta
+-------------------
 
 compose
 =======
@@ -292,13 +280,9 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
   Javascript or CSS applied by these methods is *not* sent with the message. This is not a way to
   decorate messages or make them interactive.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 77 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=77%20Branch&o2=equals>`__.
-
-----------------
-Thunderbird 78.0
-----------------
+--------------------
+Thunderbird 78.0 ESR
+--------------------
 
 compose
 =======
@@ -327,14 +311,9 @@ identity
 * The `browser.identity <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity>`__
   namespace for OAuth handling was enabled.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 78 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2078.0&o2=equals>`__.
-
-
-------------------
-Thunderbird 78.4.0
-------------------
+----------------------
+Thunderbird 78.4.0 ESR
+----------------------
 
 compose
 =======
@@ -429,9 +408,9 @@ tabs
 * The :ref:`connect <tabs.connect>` and :ref:`sendMessage <tabs.sendMessage>` functions now work as
   they do in Firefox.
 
-------------------
-Thunderbird 78.5.0
-------------------
+----------------------
+Thunderbird 78.5.0 ESR
+----------------------
 
 compose
 =======
@@ -450,9 +429,9 @@ tabs
 * At start-up, :ref:`tabs.create <tabs.create>` will now wait for a window to open before
   attempting to open a tab.
 
-------------------
-Thunderbird 78.6.0
-------------------
+----------------------
+Thunderbird 78.6.0 ESR
+----------------------
 
 menus
 =====
@@ -465,9 +444,9 @@ windows
 
 * The :ref:`windows.openDefaultBrowser` function has been added. 
 
-------------------
-Thunderbird 78.6.1
-------------------
+----------------------
+Thunderbird 78.6.1 ESR
+----------------------
 
 browserAction
 ==================================================
@@ -484,9 +463,9 @@ messageDisplayAction
 
 * The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-------------------
-Thunderbird 78.7.0
-------------------
+----------------------
+Thunderbird 78.7.0 ESR
+----------------------
 
 accounts
 ========
@@ -507,9 +486,9 @@ compose
 * Using :ref:`beginForward <compose.beginForward>` function with a ``forwardInline`` type and
   ``details`` argument specified has been fixed.
 
-------------------
-Thunderbird 78.7.1
-------------------
+----------------------
+Thunderbird 78.7.1 ESR
+----------------------
 
 theme
 =====
