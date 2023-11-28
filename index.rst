@@ -231,7 +231,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 .. |identity-Description| replace:: Use the identity API to get an OAuth2 authorization code or access token, which an extension can then use to access user data from a service that supports OAuth2 access (such as Google or Facebook).
 .. |idle-Description| replace:: Find out when the user's system is idle, locked, or active.
 .. |privacy-Description| replace:: Access and modify various privacy-related settings.
-.. |management-Description| replace:: Gets information about installed add-ons.
+.. |management-Description| replace:: Gets information about installed extensions.
 .. |notifications-Description| replace:: Display notifications to the user, using the underlying operating system's notification mechanism.
 .. |permissions-Description| replace:: Enables extensions to request extra permissions at runtime, after they have been installed.
 .. |pkcs11-Description| replace:: Enables an extension to enumerate PKCS #11 security modules and to make them accessible as sources of keys and certificates.

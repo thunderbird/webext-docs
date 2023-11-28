@@ -18,7 +18,7 @@ messages API
 ============
 * Added :ref:`messages.abortList` to  terminate any process currently still adding messages to the given list.
 * Added the ``messagesPerPage`` property to the ``queryInfo`` parameter of :ref:`messages.query`, to allow queries to override the default size of message pages.  See :doc:`../how-to/messageLists` for more information.
-* Added the ``autoPaginationTimeout`` property to the ``queryInfo`` parameter of :ref:`messages.query`, to allow queries to override the default pagination timeout of ``1000ms``. Long running queries will return pages even if they have not reached the nominal page size, to allow add-ons to work with the already received results or terminate the list (and the associated query) using :ref:`messages.abortList`.
+* Added the ``autoPaginationTimeout`` property to the ``queryInfo`` parameter of :ref:`messages.query`, to allow queries to override the default pagination timeout of ``1000ms``. Long running queries will return pages even if they have not reached the nominal page size, to allow extensions to work with the already received results or terminate the list (and the associated query) using :ref:`messages.abortList`.
 * Added the ``returnMessageListId`` property to the ``queryInfo`` parameter of :ref:`messages.query`, to force queries to immediately return the id of the list associated with the query, instead of waiting for at least one found message and returning the first page.
 
 --------------------
