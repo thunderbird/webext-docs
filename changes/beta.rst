@@ -34,7 +34,7 @@ folders API
 * Added :ref:`folders.update` to update properties of the given folder.
 * Added the :ref:`folders.onUpdated` event.
 * Added ``isVirtual``, ``isRoot`` and ``isFavorite`` members to the :ref:`folders.MailFolder` type.
-* Added ``lastUsed``, ``newMessageCount`` and ``quote`` members to the :ref:`folders.MailFolderInfo` type.
+* Added ``lastUsed``, ``newMessageCount`` and ``quota`` members to the :ref:`folders.MailFolderInfo` type.
 * The ``type`` member of the :ref:`folders.MailFolder` type has been deprecated. It was replaced by the array member ``specialUse``, allowing folders to have multiple special uses.
 * The ``favorite`` member of the :ref:`folders.MailFolderInfo` type has been deprecated. It was replaced by the ``isFavorite`` property of the :ref:`folders.MailFolder` type.
 
