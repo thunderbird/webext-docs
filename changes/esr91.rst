@@ -11,11 +11,7 @@ messageDisplay
 
 * The :ref:`messageDisplay.getDisplayedMessages` function has been added to allow access to details of multiple-selection of email. Previously only a single selection function was available.
 
-  *This change has been backported to Thunderbird 78.4.0.*
-
 * The :ref:`messageDisplay.onMessagesDisplayed` event has been added.
-
-  *This change has been backported to Thunderbird 78.4.0.*
 
 See the documentation on those functions and events for more information.
 
@@ -35,23 +31,17 @@ compose
 * Attachments can now be specified in the :ref:`beginNew <compose.beginNew>`,
   :ref:`beginReply <compose.beginReply>`, and :ref:`beginForward <compose.beginForward>` functions.
 
-  *This change has been backported to Thunderbird 78.4.0.*
-
 tabs
 ====
 
 * The :ref:`connect <tabs.connect>` and :ref:`sendMessage <tabs.sendMessage>` functions now work as
   they do in Firefox.
 
-  *This change has been backported to Thunderbird 78.4.0.*
-
 messageDisplayScripts/tabs
 ==========================
 
 * Content script functions can now operate on a message display "tab" in the same way they do on a
   content tab in Thunderbird or Firefox. This requires the new "messagesModify" permission.
-
-  *This change has been backported to Thunderbird 78.4.0.*
 
   Here are some basic examples. See `the MDN documentation`__ for a more in-depth explanation.
 
@@ -86,9 +76,7 @@ messageDisplayScripts/tabs
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
 
 * Scripts can also be registered to run automatically on messages being displayed, using the new
-  :doc:`/messageDisplayScripts` API. 
-  
-  *This change has been backported to Thunderbird 78.4.0.*
+  :doc:`/messageDisplayScripts` API.
   
   Again, this works just like the contentScripts API:
 
@@ -135,8 +123,6 @@ compose
 
 * :ref:`ComposeAttachment <compose.ComposeAttachment>` objects now have a ``size`` property with
   the size of the attachment in bytes.
-  
-  *This change has been backported to Thunderbird 78.5.0.*
 
 contacts
 ========
@@ -165,8 +151,6 @@ menus
   accessed from the ``attachments`` property in an :ref:`onShown <menus.onShown>` or
   :ref:`onClicked <menus.onClicked>` listener.
   
-  *This change has been backported to Thunderbird 78.5.0.*
-  
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
   messages being displayed, if your extension has the ``messagesRead`` permission.
 
@@ -184,14 +168,10 @@ compose
 * The :ref:`beginNew <compose.beginNew>` function now has an optional ``messageId`` argument. If
   ``messageId`` is provided, the referenced message is opened to compose as a new message. This
   works for ordinary messages and templates.
-
-  *This change has been backported to Thunderbird 78.7.0.*
   
 * Using :ref:`beginForward <compose.beginForward>` function with a ``forwardInline`` type and
   ``details`` argument specified has been fixed.
-  
-  *This change has been backported to Thunderbird 78.7.0.*
-  
+    
 
 menus
 =====
@@ -199,43 +179,31 @@ menus
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
   messages being composed, if your extension has the ``compose`` permission.
 
-  *This change has been backported to Thunderbird 78.6.0.*
-
 tabs
 ====
 
 * At start-up, :ref:`tabs.create <tabs.create>` will now wait for a window to open before
   attempting to open a tab.
-
-  *This change has been backported to Thunderbird 78.5.0.*
  
 windows
 =======
 
 * The :ref:`windows.openDefaultBrowser` function has been added. 
 
-  *This change has been backported to Thunderbird 78.6.0.*
-
 browserAction
 ==================================================
 
 * The :ref:`browserAction.setLabel` and :ref:`browserAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
-
-  *This change has been backported to Thunderbird 78.6.0.*
 
 composeAction
 ==================================================
 
 * The :ref:`composeAction.setLabel` and :ref:`composeAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-  *This change has been backported to Thunderbird 78.6.0.*
-
 messageDisplayAction
 ==================================================
 
 * The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
-
-  *This change has been backported to Thunderbird 78.6.0.*
 
 ____
 
@@ -255,18 +223,12 @@ accounts
 
 * The ``composeHtml`` property has been added to the :ref:`identities.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
 
-  *This change has been backported to Thunderbird 78.7.0.*
-
 * The :ref:`accounts.getDefaultIdentity` function has been added, to get the default identity of a given account. Use :ref:`accounts.getDefault` to get the default account.
-
-  *This change has been backported to Thunderbird 78.7.0.*
 
 compose
 =======
 
 * The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
-
-  *This change has been backported to Thunderbird 78.7.0.*
 
 messages
 ========
@@ -287,8 +249,6 @@ theme
 * The :ref:`theme_api` API was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.
-
-  *This change has been backported to Thunderbird 78.7.1.*
 
 ____
 
