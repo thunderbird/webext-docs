@@ -462,7 +462,6 @@ cloudFile API
 =============
 
 * added the ``templateInfo`` member to the returned properties of the :ref:`cloudFile.onFileUpload` event
-* added the :ref:`cloudFile.onFileRename` event
 
 messages
 ========
