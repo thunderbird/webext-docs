@@ -286,11 +286,15 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   how-to/experiments
 
 .. toctree::
-  :glob:
-  :hidden:
+  :maxdepth: 1
   :caption: Changes to APIs
 
-  changes/*
+  changes/esr78
+  changes/esr91
+  changes/esr102
+  changes/esr115
+  changes/beta
+
 
 Where To Get Help And More Information
 ======================================

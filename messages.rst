@@ -844,7 +844,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (:ref:`messages.tags.TagsDetail`, optional)
          :annotation: -- [Added in TB 74]
          
-         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.tags.list` method.
+         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
       
       
       .. api-member::
@@ -1096,6 +1096,7 @@ Fired when a new message is received, and has been through junk classification a
    .. api-member::
       :name: [``monitorAllFolders``]
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 121]
       
       Monitor all folders (including all special use folders as defined by :ref:`folders.MailFolderSpecialUse`) instead of just inbox folders and normal folders.
    
@@ -1480,7 +1481,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       :name: [``tags``]
       :type: (array of string, optional)
       
-      Tags associated with this message. For a list of available tags, call the :ref:`messages.tags.list` method.
+      Tags associated with this message. For a list of available tags, call the listTags method.
    
 
 .. _messages.QueryRange:

@@ -103,7 +103,13 @@
     "events": [
       {
         "name": "onNewMailReceived",
-        "added": "75"
+        "added": "75",
+        "extraParameters": [
+          {
+            "name": "monitorAllFolders",
+            "added": "121"
+          }
+        ]
       },
       {
         "name": "onUpdated",
