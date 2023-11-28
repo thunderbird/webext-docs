@@ -407,8 +407,6 @@ Returns the unmodified source of a message. Throws if the message could not be r
          .. literalinclude:: includes/messages/decodeBinaryString.js
            :language: JavaScript
          
-         
-         
          (see MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__).
          
          Supported values:
