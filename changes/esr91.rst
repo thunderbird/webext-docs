@@ -1,10 +1,10 @@
-============================
-Changes up to Thunderbird 91
-============================
+================================
+Changes up to Thunderbird 91 ESR
+================================
 
-------------------
-Thunderbird 81.0b1
-------------------
+-------------------
+Thunderbird 81 Beta
+-------------------
 
 messageDisplay
 ==============
@@ -15,15 +15,11 @@ messageDisplay
 
 See the documentation on those functions and events for more information.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 79 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2079&o2=equals>`__, `Thunderbird 80 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=Thunderbird%2080&o2=equals>`__ and `Thunderbird 81 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=81%20Branch&o2=equals>`__.
-
 .. _thunderbird_82_0b1:
 
-------------------
-Thunderbird 82.0b1
-------------------
+-------------------
+Thunderbird 82 Beta
+-------------------
 
 compose
 =======
@@ -76,8 +72,8 @@ messageDisplayScripts/tabs
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
 
 * Scripts can also be registered to run automatically on messages being displayed, using the new
-  :doc:`/messageDisplayScripts` API. 
-    
+  :doc:`/messageDisplayScripts` API.
+  
   Again, this works just like the contentScripts API:
 
   .. code-block:: javascript
@@ -110,20 +106,16 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
   This functionality does *not* permanently alter messages, only what the user sees when they are
   displayed.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 82 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=82%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 83.0b1
-------------------
+-------------------
+Thunderbird 83 Beta
+-------------------
 
 compose
 =======
 
 * :ref:`ComposeAttachment <compose.ComposeAttachment>` objects now have a ``size`` property with
   the size of the attachment in bytes.
-  
+
 contacts
 ========
 
@@ -150,17 +142,13 @@ menus
   context menu on selected attachments in a compose window. The selected attachments can be
   accessed from the ``attachments`` property in an :ref:`onShown <menus.onShown>` or
   :ref:`onClicked <menus.onClicked>` listener.
-    
+  
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
   messages being displayed, if your extension has the ``messagesRead`` permission.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 83 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=83%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 84.0b1
-------------------
+-------------------
+Thunderbird 84 Beta
+-------------------
 
 compose
 =======
@@ -171,7 +159,7 @@ compose
   
 * Using :ref:`beginForward <compose.beginForward>` function with a ``forwardInline`` type and
   ``details`` argument specified has been fixed.
-  
+    
 
 menus
 =====
@@ -184,7 +172,7 @@ tabs
 
 * At start-up, :ref:`tabs.create <tabs.create>` will now wait for a window to open before
   attempting to open a tab.
-
+ 
 windows
 =======
 
@@ -205,13 +193,9 @@ messageDisplayAction
 
 * The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 84 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=84%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 85.0b1
-------------------
+-------------------
+Thunderbird 85 Beta
+-------------------
 
 addressBooks & contacts
 =======================
@@ -235,13 +219,9 @@ messages
 
 * :ref:`messages.query` supports queries for messages with a given ``headerMessageId``
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 85 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=85%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 86.0b1
-------------------
+-------------------
+Thunderbird 86 Beta
+-------------------
 
 theme
 =====
@@ -250,26 +230,18 @@ theme
 
   The color key ``sidebar_highlight_border`` has been added.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 86 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=86%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 87.0b1
-------------------
+-------------------
+Thunderbird 87 Beta
+-------------------
 
 commands
 ========
 
 * The :ref:`commands_api` API now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 87 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=87%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 88.0b1
-------------------
+-------------------
+Thunderbird 88 Beta
+-------------------
 
 compose
 =======
@@ -296,13 +268,9 @@ messages
 * added :ref:`messages.listAttachments` and :ref:`messages.getAttachmentFile` methods to work with message attachments
 * fixed :ref:`messages.getRaw` to work for nntp/news messages
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 88 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=88%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 89.0b1
-------------------
+-------------------
+Thunderbird 89 Beta
+-------------------
 
 mailTabs
 ========
@@ -317,13 +285,9 @@ menus
 * added ``message_display_action`` and ``compose_action`` :ref:`menus.ContextType`
 * introducing a ``fieldId`` property to :ref:`menus.onClickData` and :ref:`menus.onShowData` to to support fields part of the Thunderbird UI (currently supported values are ``composeSubject``, ``composeTo``, ``composeCc``, ``composeBcc``, ``composeReplyTo`` and ``composeNewsgroupTo``)
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 89 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=89%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 90.0b1
-------------------
+-------------------
+Thunderbird 90 Beta
+-------------------
 
 cloudFile
 =========
@@ -345,13 +309,9 @@ messages
 
 * added ``size`` property to the :ref:`messages.MessageHeader`
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 90 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=90%20Branch&o2=equals>`__.
-
-----------------
-Thunderbird 91.0
-----------------
+---------------------
+Thunderbird 91.0 ESR
+---------------------
 
 accounts API
 ============
@@ -441,22 +401,18 @@ tabs API
 * added ``type`` property to :ref:`tabs.Tab`, supporting ``addressBook``, ``calendar``, ``calendarEvent``, ``calendarTask``, ``chat``, ``content``, ``mail``, ``messageCompose``, ``messageDisplay``, ``special`` and ``tasks``
 * added ``type`` as supported property of the ``queryInfo`` parameter of :ref:`tabs.query`
 
-____
-
-Bugzilla list of fixed WebExtension API defects in `Thunderbird 91 <https://bugzilla.mozilla.org/buglist.cgi?query_format=advanced&f2=target_milestone&component=Add-Ons%3A%20Extensions%20API&resolution=FIXED&o1=equals&product=Thunderbird&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v1=defect&f1=bug_type&v2=91%20Branch&o2=equals>`__.
-
-------------------
-Thunderbird 91.0.2
-------------------
+-----------------------
+Thunderbird 91.0.2 ESR
+-----------------------
 
 browserAction API
 =================
 
 * added support for the ``tabstoolbar`` location, usable in the ``default_area`` manifest key
 
-------------------
-Thunderbird 91.4.1
-------------------
+-----------------------
+Thunderbird 91.4.1 ESR
+-----------------------
 
 cloudFile API
 =============
