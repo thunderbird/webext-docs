@@ -1,8 +1,0 @@
-==============================
-Changes in Thunderbird 102.5.1
-==============================
-
-*todo*
-____
-
-Bugzilla list of fixed WebExtension API defects uplifted from `Thunderbird 107 & 108 <https://bugzilla.mozilla.org/buglist.cgi?quicksearch=1732559%201780977%201791537%201792418%201792551%201793790%201796089>`__.
