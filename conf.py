@@ -19,7 +19,6 @@ extensions = [
 
 html_theme = "sphinx_rtd_theme"
 html_theme_options = {
-    'display_github': False,
     # Toc options
     'collapse_navigation': False,
     'sticky_navigation': True,
@@ -28,6 +27,12 @@ html_theme_options = {
     'titles_only': False,
     'style_external_links': True,
 }
+
+html_context = {
+  'display_github': False
+}
+
+html_show_sourcelink = False
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
