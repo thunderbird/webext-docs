@@ -209,8 +209,8 @@ accounts API
 
 * The :ref:`accounts.getDefaultIdentity` function has been added, to get the default identity of a given account. Use :ref:`accounts.getDefault` to get the default account.
 
-compose
-=======
+compose API
+===========
 
 * The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
 
