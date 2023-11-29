@@ -1,6 +1,6 @@
-========
-messages
-========
+============
+messages API
+============
 
 The messages API first appeared in Thunderbird 66.
 

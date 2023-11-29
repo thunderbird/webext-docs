@@ -1,8 +1,8 @@
 .. _windows_api:
 
-=======
-windows
-=======
+===========
+windows API
+===========
 
 .. note::
 
