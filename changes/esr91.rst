@@ -6,8 +6,8 @@ Changes up to Thunderbird 91 ESR
 Thunderbird 81 Beta
 -------------------
 
-messageDisplay
-==============
+messageDisplay API
+==================
 
 * The :ref:`messageDisplay.getDisplayedMessages` function has been added to allow access to details of multiple-selection of email. Previously only a single selection function was available.
 
@@ -21,20 +21,20 @@ See the documentation on those functions and events for more information.
 Thunderbird 82 Beta
 -------------------
 
-compose
-=======
+compose API
+===========
 
 * Attachments can now be specified in the :ref:`beginNew <compose.beginNew>`,
   :ref:`beginReply <compose.beginReply>`, and :ref:`beginForward <compose.beginForward>` functions.
 
-tabs
-====
+tabs API
+========
 
 * The :ref:`connect <tabs.connect>` and :ref:`sendMessage <tabs.sendMessage>` functions now work as
   they do in Firefox.
 
-messageDisplayScripts/tabs
-==========================
+messageDisplayScripts API
+=========================
 
 * Content script functions can now operate on a message display "tab" in the same way they do on a
   content tab in Thunderbird or Firefox. This requires the new :permission:`messagesModify` permission.
@@ -72,7 +72,7 @@ messageDisplayScripts/tabs
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
 
 * Scripts can also be registered to run automatically on messages being displayed, using the new
-  :doc:`/messageDisplayScripts` API.
+  :doc:`/messageDisplayScripts`.
   
   Again, this works just like the contentScripts API:
 
@@ -110,14 +110,14 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 Thunderbird 83 Beta
 -------------------
 
-compose
-=======
+compose API
+===========
 
 * :ref:`ComposeAttachment <compose.ComposeAttachment>` objects now have a ``size`` property with
   the size of the attachment in bytes.
 
-contacts
-========
+contacts API
+============
 
 * The :ref:`onUpdated <contacts.onUpdated>` event now calls listeners with a second argument,
   containing details of the changes made. For example:
@@ -135,8 +135,8 @@ contacts
       }
     }
 
-menus
-=====
+menus API
+=========
 
 * A ``compose_attachment`` context can now be used. This context applies when the user opens a
   context menu on selected attachments in a compose window. The selected attachments can be
@@ -150,8 +150,8 @@ menus
 Thunderbird 84 Beta
 -------------------
 
-compose
-=======
+compose API
+===========
 
 * The :ref:`beginNew <compose.beginNew>` function now has an optional ``messageId`` argument. If
   ``messageId`` is provided, the referenced message is opened to compose as a new message. This
@@ -161,35 +161,35 @@ compose
   ``details`` argument specified has been fixed.
     
 
-menus
-=====
+menus API
+=========
 
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
   messages being composed, if your extension has the :permission:`compose` permission.
 
-tabs
-====
+tabs API
+========
 
 * At start-up, :ref:`tabs.create <tabs.create>` will now wait for a window to open before
   attempting to open a tab.
  
-windows
-=======
+windows API
+===========
 
 * The :ref:`windows.openDefaultBrowser` function has been added. 
 
-action
-==================================================
+action API
+==========
 
 * The :ref:`action.setLabel` and :ref:`action.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-composeAction
-==================================================
+composeAction API
+=================
 
 * The :ref:`composeAction.setLabel` and :ref:`composeAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-messageDisplayAction
-==================================================
+messageDisplayAction API
+========================
 
 * The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
@@ -197,23 +197,23 @@ messageDisplayAction
 Thunderbird 85 Beta
 -------------------
 
-addressBooks & contacts
-=======================
+addressBooks API & contacts API
+===============================
 
-The :ref:`addressBooks_api` and :ref:`contacts_api` APIs will now return read-only address books. Add-ons that may update contacts and address books should check the ``readOnly`` flag of :ref:`addressBooks.AddressBookNode`.
+The :ref:`addressBooks_api` and :ref:`contacts_api` will now return read-only address books. Add-ons that may update contacts and address books should check the ``readOnly`` flag of :ref:`addressBooks.AddressBookNode`.
 
-accounts
-========
+accounts API
+============
 
 * The ``composeHtml`` property has been added to the :ref:`identities.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
 
-compose
-=======
+compose API
+===========
 
-* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
 
-messages
-========
+messages API
+============
 
 * :ref:`messages.query` supports queries for messages with a given ``headerMessageId``
 
@@ -221,10 +221,10 @@ messages
 Thunderbird 86 Beta
 -------------------
 
-theme
-=====
+theme API
+=========
 
-* The :ref:`theme_api` API was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
+* The :ref:`theme_api` was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.
 
@@ -232,36 +232,36 @@ theme
 Thunderbird 87 Beta
 -------------------
 
-commands
-========
+commands API
+============
 
-* The :ref:`commands_api` API now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
+* The :ref:`commands_api` now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
 
 -------------------
 Thunderbird 88 Beta
 -------------------
 
-compose
-=======
+compose API
+===========
 
 * added a ``type`` property to :ref:`compose.ComposeDetails`, to distinguish between ``new``, ``reply``, ``forward`` and ``draft``
 * added a ``from`` property to :ref:`compose.ComposeDetails`, to get/set the actual from address (independent of the used identity)
 
-contacts
-========
+contacts API
+============
 
 * fixed :ref:`contacts.quickSearch` to not fail on mailing lists
 
-menus
-=====
+menus API
+=========
 
 * added a ``tools_menu`` context to :ref:`menus.ContextType`
 * added a ``selectedAccount`` property to :ref:`menus.onShowData` and :ref:`menus.onClickData`, if the menu was opened on a root folder in the folder pane
 * fixed :ref:`menus.onClicked` to keep the user input status so :ref:`action.openPopup` can be used
 
 
-messages
-========
+messages API
+============
 
 * added :ref:`messages.listAttachments` and :ref:`messages.getAttachmentFile` methods to work with message attachments
 * fixed :ref:`messages.getRaw` to work for nntp/news messages
@@ -270,14 +270,14 @@ messages
 Thunderbird 89 Beta
 -------------------
 
-mailTabs
-========
+mailTabs API
+============
 
 * added :ref:`mailTabs.getCurrent` and :ref:`mailTabs.get` functions
 
 
-menus
-=====
+menus API
+=========
 
 * fixed ``browser_action`` :ref:`menus.ContextType`
 * added ``message_display_action`` and ``compose_action`` :ref:`menus.ContextType`
@@ -287,14 +287,14 @@ menus
 Thunderbird 90 Beta
 -------------------
 
-cloudFile
-=========
+cloudFile API
+=============
 
-* added support for the ``browser_style`` manifest property to the :ref:`cloudFile_api` API
+* added support for the ``browser_style`` manifest property to the :ref:`cloudFile_api`
 
 
-compose
-=========
+compose API
+===========
 
 * added :ref:`compose.sendMessage` function
 * added :ref:`compose.getComposeState` function
@@ -302,8 +302,8 @@ compose
 * added :ref:`compose.ComposeState` type
 * added ``redirect`` enum to type property of :ref:`compose.ComposeDetails`
 
-messages
-========
+messages API
+============
 
 * added ``size`` property to the :ref:`messages.MessageHeader`
 
@@ -364,7 +364,7 @@ folders API
 identities API
 ==============
 
-* added :ref:`identities_api` API (including create/delete/update functions and onCreated/onDeleted/onUpdated events)
+* added :ref:`identities_api` (including create/delete/update functions and onCreated/onDeleted/onUpdated events)
 * added ``signature`` and ``signatureIsPlainText`` to :ref:`identities.MailIdentity`
 
 
@@ -374,15 +374,15 @@ mailingLists API
 * added ``remote`` property to :ref:`mailingLists.MailingListNode`
 
 
-mailTabs
-========
+mailTabs API
+============
 
 * the :ref:`mailTabs.MailTab` object now includes a ``viewType`` property, supporting the values ``ungrouped``, ``groupedByThread`` and ``groupedBySortType``
 * the :ref:`mailTabs.update` function allows to set the new ``viewType`` property
 
 
-messages
-========
+messages API
+============
 
 * :ref:`messages.query` now searches all messages and not only the indexed ones 
 * added support for negative tag search to :ref:`messages.query`
@@ -417,7 +417,7 @@ cloudFile API
 
 * backported support for the ``templateInfo`` property, which is now returned by the :ref:`cloudFile.onFileUpload` event
 
-messages
-========
+messages API
+============
 
 * backported support to query for a given ``headerMessageId`` in :ref:`messages.query`

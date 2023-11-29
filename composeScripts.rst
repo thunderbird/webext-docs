@@ -1,8 +1,8 @@
 .. _composeScripts_api:
 
-==============
-composeScripts
-==============
+==================
+composeScripts API
+==================
 
 This compose scripts API first appeared in Thunderbird 77. Functionally it is the same as the
 `content scripts`__ API except that it works on the document of email messages during composition.

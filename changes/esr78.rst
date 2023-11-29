@@ -6,13 +6,13 @@ Changes up to Thunderbird 78 ESR
 Thunderbird 74 Beta
 -------------------
 
-legacy
-======
+legacy API
+==========
 
-* The legacy API has been removed. This has been covered elsewhere.
+* The legacy API has been removed.
 
-accounts/folders
-================
+accounts API & folders API
+==========================
 
 * The :ref:`MailFolder <folders.MailFolder>` object gained a subFolders property. From now on the
   :doc:`accounts API functions </accounts>` will return a hierarchy of folders instead of a flat
@@ -42,8 +42,8 @@ accounts/folders
   This example code works with both the current API in 68 and the new version in 74 (which will be
   backported to 68 after some time in beta).
 
-compose
-=======
+compose API
+===========
 
 * The compose API gained two new functions and an event. The
   :ref:`getComposeDetails <compose.getComposeDetails>` and
@@ -52,8 +52,8 @@ compose
   :ref:`onBeforeSend <compose.onBeforeSend>` event is fired when a message is about to be sent. At
   this point your extension can prevent sending or change the same details as in the new functions.
 
-messages
-========
+messages API
+============
 
 * The :ref:`query <messages.query>` function can now query by tags.
 
@@ -65,8 +65,8 @@ messages
 Thunderbird 75 Beta
 -------------------
 
-action/composeAction/messageDisplayAction
-================================================
+action APIs
+===========
 
 * The onClick event of the action APIs now has information about the active tab and the click event.
 
@@ -75,8 +75,8 @@ action/composeAction/messageDisplayAction
 
   *This change was uplifted to 74 beta 2.*
 
-compose
-=======
+compose API
+===========
 
 * The :ref:`onBeforeSend <compose.onBeforeSend>` event now has information about the active tab.
 
@@ -96,8 +96,8 @@ compose
 
   __ https://github.com/thunderbird/sample-extensions/tree/master/composeBody
 
-messages
-========
+messages API
+============
 
 * A new event was added: :ref:`onNewMailReceived <messages.onNewMailReceived>`.
 
@@ -108,8 +108,8 @@ messages
 Thunderbird 76 Beta
 -------------------
 
-accounts
-========
+accounts API
+============
 
 * Thunderbird 76 introduces the :ref:`identities.MailIdentity` type for interacting with mail
   identities. Like the rest of the accounts API, it is mostly read-only as we believe that
@@ -118,8 +118,8 @@ accounts
 * The :ref:`accounts.MailAccount` type now contains a list of identities associated with that
   account. The default identity is listed first and other identities are in no particular order.
 
-compose
-=======
+compose API
+===========
 
 * The :ref:`compose.ComposeDetails` type now has an ``identityId`` field for getting or setting the
   identity associated with a message being composed.
@@ -137,20 +137,20 @@ mailTabs/messageDisplay
   * :ref:`mailTabs.onSelectedMessagesChanged`
   * :ref:`messageDisplay.onMessageDisplayed`
 
-messages
-========
+messages API
+============
 
 * The :permission:`accountsRead` permission is now required for all functions that accept a
   :ref:`folders.MailFolder` argument. The permission was already required to obtain a ``MailFolder``
   anyway, so this change should not break extensions.
 
-experiments
-===========
+experiment APIs
+===============
 
 * For extensions with the :permission:`addressBooks` permission, a new ``addressBookManager`` object is
   available to WebExtensions experiment implementations. The ``addressBookManager`` provides the
   following functions to help you interact with the :doc:`/addressBooks`, :doc:`/contacts` and
-  :doc:`/mailingLists` APIs:
+  :doc:`/mailingLists`:
 
   * ``findAddressBookById``, ``findContactById``, ``findMailingListById`` to help you find "real"
     address book objects (``nsIAbCard``, ``nsIAbDirectory``) for the IDs provided by the
@@ -169,10 +169,10 @@ __ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/paren
 Thunderbird 77 Beta
 -------------------
 
-compose
-=======
+compose API
+===========
 
-* The :doc:`/compose` API functions :ref:`beginNew <compose.beginNew>`,
+* The :doc:`/compose` functions :ref:`beginNew <compose.beginNew>`,
   :ref:`beginReply <compose.beginReply>`, and :ref:`beginForward <compose.beginForward>` now return
   a :ref:`tabs.Tab` object for use with other API functions.
 
@@ -180,10 +180,10 @@ compose
   sequentially in the order they were added. Be aware that other extensions may see this event
   before or after yours does.
 
-tabs
-====
+tabs API
+========
 
-* Events in the :doc:`/tabs` and :doc:`/windows` APIs now fire in many more situations:
+* Events in the :doc:`/tabs` and :doc:`/windows` now fire in many more situations:
 
   * Calendar tabs now fire :ref:`tabs.onCreated <tabs.onCreated>`,
     :ref:`tabs.onActivated <tabs.onActivated>`, and :ref:`tabs.onRemoved <tabs.onRemoved>` just
@@ -196,17 +196,17 @@ tabs
     :ref:`tabs.onCreated <tabs.onCreated>` and :ref:`tabs.onRemoved <tabs.onRemoved>` events as
     well as :ref:`windows.onCreated <windows.onCreated>` and
     :ref:`windows.onRemoved <windows.onRemoved>` events. Each of these windows has exactly one tab
-    in the :doc:`/tabs` API and the added events reflect that.
+    in the :doc:`/tabs` and the added events reflect that.
 
     Whether the ``tabs`` event happens before or after the corresponding ``windows`` event is
     non-deterministic.
 
-composeScripts/tabs
-===================
+composeScripts API
+==================
 
 * Content script functions can now operate on a compose window "tab" in the same way they do on a
   content tab in Thunderbird or Firefox. (Despite the fact they don't have tabs, compose windows
-  have one tab object under the :doc:`/tabs` API.) This requires the :permission:`compose` permission.
+  have one tab object under the :doc:`/tabs`.) This requires the :permission:`compose` permission.
 
   Here are some basic examples. See `the MDN documentation`__ for a more in-depth explanation.
 
@@ -241,7 +241,7 @@ composeScripts/tabs
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
 
 * Scripts can also be registered to run automatically on composition window "tabs", using the new
-  :doc:`/composeScripts` API. Again, this works just like the contentScripts API:
+  :doc:`/composeScripts`. Again, this works just like the contentScripts API:
 
   .. code-block:: javascript
 
@@ -282,8 +282,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
 Thunderbird 78.0 ESR
 --------------------
 
-compose
-=======
+compose API
+===========
 
 * Attachments in the compose window can now be accessed with the compose API. These functions have
   been added:
@@ -303,8 +303,8 @@ compose
 * A new event, :ref:`compose.onIdentityChanged` was added.
 
 
-identity
-========
+identity API
+============
 
 * The `browser.identity <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/identity>`__
   namespace for OAuth handling was enabled.
@@ -313,21 +313,21 @@ identity
 Thunderbird 78.4.0 ESR
 ----------------------
 
-compose
-=======
+compose API
+===========
 
 * Backported support for attachments being specified in the :ref:`beginNew <compose.beginNew>`,
   :ref:`beginReply <compose.beginReply>`, and :ref:`beginForward <compose.beginForward>` functions.
 
-messageDisplay
-==============
+messageDisplay API
+==================
 
 * The :ref:`messageDisplay.getDisplayedMessages` function has been backported to allow access to details of multiple-selection of email. Previously only a single selection function was available.
 
 * The :ref:`messageDisplay.onMessagesDisplayed` event has been backported.
 
-messageDisplayScripts/tabs
-==========================
+messageDisplayScripts API
+=========================
 
 * Backported support for content script functions to operate on a message display tab in the same way they do on a
   content tab in Thunderbird or Firefox. This requires the new :permission:`messagesModify` permission.
@@ -365,7 +365,7 @@ messageDisplayScripts/tabs
 __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts
 
 * Scripts can also be registered to run automatically on messages being displayed, using the new
-  :doc:`/messageDisplayScripts` API. 
+  :doc:`/messageDisplayScripts`. 
   
   Again, this works just like the contentScripts API:
 
@@ -400,8 +400,8 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/co
   displayed.
 
 
-tabs
-====
+tabs API
+========
 
 * The :ref:`connect <tabs.connect>` and :ref:`sendMessage <tabs.sendMessage>` functions now work as
   they do in Firefox.
@@ -410,8 +410,8 @@ tabs
 Thunderbird 78.5.0 ESR
 ----------------------
 
-compose
-=======
+compose API
+===========
 
 * :ref:`ComposeAttachment <compose.ComposeAttachment>` objects now have a ``size`` property with
   the size of the attachment in bytes.
@@ -421,8 +421,8 @@ compose
   accessed from the ``attachments`` property in an :ref:`onShown <menus.onShown>` or
   :ref:`onClicked <menus.onClicked>` listener.
 
-tabs
-====
+tabs API
+========
 
 * At start-up, :ref:`tabs.create <tabs.create>` will now wait for a window to open before
   attempting to open a tab.
@@ -431,14 +431,14 @@ tabs
 Thunderbird 78.6.0 ESR
 ----------------------
 
-menus
-=====
+menus API
+=========
 
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
   messages being composed, if your extension has the :permission:`compose` permission.
 
-windows
-=======
+windows API
+===========
 
 * Backported the :ref:`windows.openDefaultBrowser` function. 
 
@@ -446,18 +446,18 @@ windows
 Thunderbird 78.6.1 ESR
 ----------------------
 
-action
-==================================================
+action API
+==========
 
 * The :ref:`action.setLabel` and :ref:`action.getLabel` functions have been backported. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-composeAction
-==================================================
+composeAction API
+=================
 
 * The :ref:`composeAction.setLabel` and :ref:`composeAction.getLabel` functions have been backported. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
-messageDisplayAction
-==================================================
+messageDisplayAction API
+========================
 
 * The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been backported. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
@@ -465,15 +465,15 @@ messageDisplayAction
 Thunderbird 78.7.0 ESR
 ----------------------
 
-accounts
-========
+accounts API
+============
 
 * The ``composeHtml`` property has been backported to the :ref:`identities.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
 
-compose
-=======
+compose API
+===========
 
-* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
 
 * The :ref:`beginNew <compose.beginNew>` function now has an optional ``messageId`` argument. If
   ``messageId`` is provided, the referenced message is opened to compose as a new message. This
@@ -486,9 +486,9 @@ compose
 Thunderbird 78.7.1 ESR
 ----------------------
 
-theme
-=====
+theme API
+=========
 
-* The :ref:`theme_api` API was backported (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
+* The :ref:`theme_api` was backported (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.
