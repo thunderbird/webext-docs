@@ -1,8 +1,8 @@
 .. _identities_api:
 
-==========
-identities
-==========
+==============
+identities API
+==============
 
 The identities API first appeared in Thunderbird 91.
 

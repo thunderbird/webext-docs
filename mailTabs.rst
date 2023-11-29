@@ -1,8 +1,8 @@
 .. _mailTabs_api:
 
-========
-mailTabs
-========
+============
+mailTabs API
+============
 
 The mailTabs API first appeared in Thunderbird 66 and allows to interact with Thunderbirds main mail window.
 

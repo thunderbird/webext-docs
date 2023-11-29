@@ -1,8 +1,8 @@
 .. _menus_api:
 
-=====
-menus
-=====
+=========
+menus API
+=========
 
 The menus API first appeared in Thunderbird 66.
 It is basically the same as the `Firefox menus API`__, but modified to suit Thunderbird.

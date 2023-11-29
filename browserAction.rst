@@ -1,8 +1,8 @@
 .. _browserAction_api:
 
-=============
-browserAction
-=============
+=================
+browserAction API
+=================
 
 The browserAction API first appeared in Thunderbird 64. It is very similar to Firefox's `browserAction API`__.
 
