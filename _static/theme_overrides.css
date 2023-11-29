@@ -232,6 +232,15 @@ div.document h1 {
   border-bottom:1px solid #ccc;
   color: #3782bb;
 }
-div.document h2, p.caption[role=heading] > span.caption-text {
+div.document h2, div.rst-content p.caption[role=heading] > span.caption-text {
   color: #3782bb;
+}
+
+/* All sections in the first level (having a h1 in the same level) need some extra space */
+h1 ~ div.section, h1 ~ section {
+  margin-block: 3em 1em;
+}
+/* A section starting below a h1 header does not need extra space */
+h1 + div.section, h1 + section {
+  margin-block: 1em;
 }
