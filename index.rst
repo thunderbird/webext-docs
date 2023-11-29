@@ -278,7 +278,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 
 .. toctree::
   :maxdepth: 1
-  :caption: How To Guides
+  :caption: How-to guides
 
   how-to/contacts
   how-to/eventListeners
@@ -287,7 +287,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 
 .. toctree::
   :maxdepth: 1
-  :caption: Changes to APIs
+  :caption: Changelog
 
   changes/esr78
   changes/esr91
