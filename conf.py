@@ -28,14 +28,11 @@ html_theme_options = {
     'style_external_links': True,
 }
 
-# Hide GitHub Links or redirect to the true source.
 html_context = {
   'display_github': False
 }
+
 html_show_sourcelink = False
-rst_prolog = """
-:github_url: https://searchfox.org/comm-central/source/mail/components/extensions/schemas
-"""
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
