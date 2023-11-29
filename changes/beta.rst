@@ -51,7 +51,11 @@ messages API
 
 messages.tags API
 =================
-* Replace deprecated :ref:`messages.listTags` function by the newly added :ref:`messages.tags.list` function, to list tags.
-* Replace deprecated :ref:`messages.createTag` function by the newly added :ref:`messages.tags.create` function, to create new tags.
-* Replace deprecated :ref:`messages.updateTag` function by the newly added :ref:`messages.tags.update` function, to update tags.
-* Replace deprecated :ref:`messages.deleteTag` function by the newly added :ref:`messages.tags.delete` function, to delete tags.
+All tag related functions have been moved into its own :ref:`messages.tags_api`.
+
+* Added :ref:`messages.tags.list` function, to list tags.
+* Added :ref:`messages.tags.create` function, to create new tags.
+* Added :ref:`messages.tags.update` function, to update tags.
+* Added :ref:`messages.tags.delete` function, to delete tags.
+
+The former functions :ref:`messages.listTags`, :ref:`messages.createTag`, :ref:`messages.updateTag` and :ref:`messages.deleteTag` have been deprecated.
