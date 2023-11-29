@@ -140,14 +140,14 @@ mailTabs/messageDisplay
 messages
 ========
 
-* The ``accountsRead`` permission is now required for all functions that accept a
+* The :permission:`accountsRead` permission is now required for all functions that accept a
   :ref:`folders.MailFolder` argument. The permission was already required to obtain a ``MailFolder``
   anyway, so this change should not break extensions.
 
 experiments
 ===========
 
-* For extensions with the ``addressBooks`` permission, a new ``addressBookManager`` object is
+* For extensions with the :permission:`addressBooks` permission, a new ``addressBookManager`` object is
   available to WebExtensions experiment implementations. The ``addressBookManager`` provides the
   following functions to help you interact with the :doc:`/addressBooks`, :doc:`/contacts` and
   :doc:`/mailingLists` APIs:
@@ -206,7 +206,7 @@ composeScripts/tabs
 
 * Content script functions can now operate on a compose window "tab" in the same way they do on a
   content tab in Thunderbird or Firefox. (Despite the fact they don't have tabs, compose windows
-  have one tab object under the :doc:`/tabs` API.) This requires the "compose" permission.
+  have one tab object under the :doc:`/tabs` API.) This requires the :permission:`compose` permission.
 
   Here are some basic examples. See `the MDN documentation`__ for a more in-depth explanation.
 
@@ -316,21 +316,21 @@ Thunderbird 78.4.0 ESR
 compose
 =======
 
-* Attachments can now be specified in the :ref:`beginNew <compose.beginNew>`,
+* Backported support for attachments being specified in the :ref:`beginNew <compose.beginNew>`,
   :ref:`beginReply <compose.beginReply>`, and :ref:`beginForward <compose.beginForward>` functions.
 
 messageDisplay
 ==============
 
-* The :ref:`messageDisplay.getDisplayedMessages` function has been added to allow access to details of multiple-selection of email. Previously only a single selection function was available.
+* The :ref:`messageDisplay.getDisplayedMessages` function has been backported to allow access to details of multiple-selection of email. Previously only a single selection function was available.
 
-* The :ref:`messageDisplay.onMessagesDisplayed` event has been added.
+* The :ref:`messageDisplay.onMessagesDisplayed` event has been backported.
 
 messageDisplayScripts/tabs
 ==========================
 
-* Content script functions can now operate on a message display "tab" in the same way they do on a
-  content tab in Thunderbird or Firefox. This requires the new "messagesModify" permission.
+* Backported support for content script functions to operate on a message display tab in the same way they do on a
+  content tab in Thunderbird or Firefox. This requires the new :permission:`messagesModify` permission.
 
   Here are some basic examples. See `the MDN documentation`__ for a more in-depth explanation.
 
@@ -416,7 +416,7 @@ compose
 * :ref:`ComposeAttachment <compose.ComposeAttachment>` objects now have a ``size`` property with
   the size of the attachment in bytes.
 
-* A ``compose_attachment`` context can now be used. This context applies when the user opens a
+* Backported support for the ``compose_attachment`` context. This context applies when the user opens a
   context menu on selected attachments in a compose window. The selected attachments can be
   accessed from the ``attachments`` property in an :ref:`onShown <menus.onShown>` or
   :ref:`onClicked <menus.onClicked>` listener.
@@ -435,12 +435,12 @@ menus
 =====
 
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
-  messages being composed, if your extension has the ``compose`` permission.
+  messages being composed, if your extension has the :permission:`compose` permission.
 
 windows
 =======
 
-* The :ref:`windows.openDefaultBrowser` function has been added. 
+* Backported the :ref:`windows.openDefaultBrowser` function. 
 
 ----------------------
 Thunderbird 78.6.1 ESR
@@ -449,17 +449,17 @@ Thunderbird 78.6.1 ESR
 action
 ==================================================
 
-* The :ref:`action.setLabel` and :ref:`action.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
+* The :ref:`action.setLabel` and :ref:`action.getLabel` functions have been backported. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
 composeAction
 ==================================================
 
-* The :ref:`composeAction.setLabel` and :ref:`composeAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
+* The :ref:`composeAction.setLabel` and :ref:`composeAction.getLabel` functions have been backported. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
 messageDisplayAction
 ==================================================
 
-* The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been added. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
+* The :ref:`messageDisplayAction.setLabel` and :ref:`messageDisplayAction.getLabel` functions have been backported. It is now possible to set a label value different from the title (which is used as tooltip text). The label can be set to an empty string to make the action button not have a label at all. If the toolbar is set to text-mode only (no icons), the action button label uses the title as fallback, in case an empty label has been set.
 
 ----------------------
 Thunderbird 78.7.0 ESR
@@ -468,7 +468,7 @@ Thunderbird 78.7.0 ESR
 accounts
 ========
 
-* The ``composeHtml`` property has been added to the :ref:`identities.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
+* The ``composeHtml`` property has been backported to the :ref:`identities.MailIdentity` type, to indicate, if the identity uses HTML as the default compose format.
 
 compose
 =======
@@ -489,6 +489,6 @@ Thunderbird 78.7.1 ESR
 theme
 =====
 
-* The :ref:`theme_api` API was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
+* The :ref:`theme_api` API was backported (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.

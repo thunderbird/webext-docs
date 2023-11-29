@@ -110,5 +110,5 @@ Thunderbird 102.3.0 ESR
 
 compose API
 ===========
-* Added the :ref:`compose.onAfterSave` event.
-* Added the :ref:`compose.onAfterSend` event.
+* Backported the :ref:`compose.onAfterSave` event.
+* Backported the :ref:`compose.onAfterSend` event.

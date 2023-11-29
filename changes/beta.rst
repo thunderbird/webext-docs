@@ -28,7 +28,8 @@ Thunderbird 121 Beta
 accounts API
 ============
 
-The deprecated functions ``accounts.getDefaultIdentity()`` and ``accounts.setDefaultIdentity()`` have been removed.
+* Removed the deprecated function ``accounts.getDefaultIdentity()``.
+* Removed the deprecated function ``accounts.setDefaultIdentity()``.
 
 folders API
 ===========

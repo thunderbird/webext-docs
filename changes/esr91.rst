@@ -37,7 +37,7 @@ messageDisplayScripts/tabs
 ==========================
 
 * Content script functions can now operate on a message display "tab" in the same way they do on a
-  content tab in Thunderbird or Firefox. This requires the new "messagesModify" permission.
+  content tab in Thunderbird or Firefox. This requires the new :permission:`messagesModify` permission.
 
   Here are some basic examples. See `the MDN documentation`__ for a more in-depth explanation.
 
@@ -144,7 +144,7 @@ menus
   :ref:`onClicked <menus.onClicked>` listener.
   
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
-  messages being displayed, if your extension has the ``messagesRead`` permission.
+  messages being displayed, if your extension has the :permission:`messagesRead` permission.
 
 -------------------
 Thunderbird 84 Beta
@@ -165,7 +165,7 @@ menus
 =====
 
 * The standard properties available to :ref:`onShown <menus.onShown>` are now available for
-  messages being composed, if your extension has the ``compose`` permission.
+  messages being composed, if your extension has the :permission:`compose` permission.
 
 tabs
 ====
@@ -406,7 +406,7 @@ Thunderbird 91.0.2 ESR
 browserAction API
 =================
 
-* added support for the ``tabstoolbar`` location, usable in the ``default_area`` manifest key
+* backported support for the ``tabstoolbar`` location, usable in the ``default_area`` manifest key
 
 -----------------------
 Thunderbird 91.4.1 ESR
@@ -415,9 +415,9 @@ Thunderbird 91.4.1 ESR
 cloudFile API
 =============
 
-* added the ``templateInfo`` member to the returned properties of the :ref:`cloudFile.onFileUpload` event
+* backported support for the ``templateInfo`` property, which is now returned by the :ref:`cloudFile.onFileUpload` event
 
 messages
 ========
 
-* :ref:`messages.query` supports queries for messages with a given ``headerMessageId``
+* backported support to query for a given ``headerMessageId`` in :ref:`messages.query`
