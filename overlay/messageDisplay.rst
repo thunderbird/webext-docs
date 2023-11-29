@@ -1,6 +1,6 @@
-==============
-messageDisplay
-==============
+==================
+messageDisplay API
+==================
 
 The message display API first appeared in Thunderbird 68.
 

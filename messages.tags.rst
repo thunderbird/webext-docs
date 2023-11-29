@@ -1,8 +1,8 @@
 .. _messages.tags_api:
 
-=============
-messages.tags
-=============
+=================
+messages.tags API
+=================
 
 .. role:: permission
 
