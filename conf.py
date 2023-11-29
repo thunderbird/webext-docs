@@ -7,6 +7,7 @@ project = u'WebExtension API Documentation for Thunderbird Beta<br><br>Manifest 
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
+github_url = "https://searchfox.org/comm-central/source/mail/components/extensions/schemas"
 
 extensions = [
     # ... other extensions here
@@ -26,7 +27,6 @@ html_theme_options = {
     'includehidden': True,
     'titles_only': False,
     'style_external_links': True,
-    'github_url': "https://searchfox.org/comm-central/source/mail/components/extensions/schemas",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
