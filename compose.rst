@@ -1142,7 +1142,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (boolean)
       :annotation: -- [Added in TB 102]
       
-      Wether or not the vCard of the used identity will be attached to the message during send. Note: If the value has not been modified, selecting a different identity will load the default value of the new identity.
+      Whether or not the vCard of the used identity will be attached to the message during send. Note: If the value has not been modified, selecting a different identity will load the default value of the new identity.
    
    
    .. api-member::
