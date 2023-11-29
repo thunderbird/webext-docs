@@ -1,5 +1,15 @@
 [
   {
+    "namespace": "messages.tags",
+    "ignore_permissions": [
+      "messagesDelete",
+      "messagesImport",
+      "messagesMove",
+      "messagesRead",
+      "sensitiveDataUpload"
+    ]
+  },
+  {
     "namespace": "messages",
     "ignore_permissions": [
       "messagesTags"
@@ -106,7 +116,13 @@
     "events": [
       {
         "name": "onNewMailReceived",
-        "added": "75"
+        "added": "75",
+        "extraParameters": [
+          {
+            "name": "monitorAllFolders",
+            "added": "121"
+          }
+        ]
       },
       {
         "name": "onUpdated",
@@ -163,15 +179,5 @@
         }
       }
     ]
-  },
-  {
-    "namespace": "messages.tags",
-    "ignore_permissions": [
-        "messagesDelete",
-        "messagesImport",
-        "messagesMove",
-        "messagesRead",
-        "sensitiveDataUpload"
-    ]
-  }  
+  }
 ]

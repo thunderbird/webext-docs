@@ -10,6 +10,15 @@
           },
           "specialUse": {
             "added": "121"
+          },
+          "isVirtual": {
+            "added": "121"
+          },
+          "isRoot": {
+            "added": "121"
+          },
+          "isFavorite": {
+            "added": "121"
           }
         }
       },

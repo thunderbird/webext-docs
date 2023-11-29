@@ -46,7 +46,15 @@ Permissions
 .. api-member::
    :name: :permission:`messagesRead`
 
-   Read your email messages and mark or tag them
+.. api-member::
+   :name: :permission:`messagesTagsList`
+
+   List message tags
+
+.. api-member::
+   :name: :permission:`messagesUpdate`
+
+   Change properties and tags of your email messages
 
 .. api-member::
    :name: :permission:`sensitiveDataUpload`
@@ -789,7 +797,7 @@ update(messageId, newProperties)
 
 .. api-section-annotation-hack:: 
 
-Marks or unmarks a message as junk, read, flagged, or tagged. Updating external messages will throw an *ExtensionError*.
+Updates message properties and tags. Updating external messages will throw an *ExtensionError*.
 
 .. api-header::
    :label: Parameters
@@ -809,6 +817,7 @@ Marks or unmarks a message as junk, read, flagged, or tagged. Updating external 
    :label: Required permissions
 
    - :permission:`messagesRead`
+   - :permission:`messagesUpdate`
 
 .. rst-class:: api-main-section
 
@@ -949,6 +958,7 @@ Fired when a new message is received, and has been through junk classification a
    .. api-member::
       :name: [``monitorAllFolders``]
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 121]
       
       Monitor all folders (including all special use folders as defined by :ref:`folders.MailFolderSpecialUse`) instead of just inbox folders and normal folders.
    

@@ -932,6 +932,7 @@ An object describing a folder. The ``subFolders`` property is only included if r
    .. api-member::
       :name: [``isFavorite``]
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 121]
       
       Whether this folder is a favorite folder.
    
@@ -939,6 +940,7 @@ An object describing a folder. The ``subFolders`` property is only included if r
    .. api-member::
       :name: [``isRoot``]
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 121]
       
       Whether this folder is a root folder.
    
@@ -946,6 +948,7 @@ An object describing a folder. The ``subFolders`` property is only included if r
    .. api-member::
       :name: [``isVirtual``]
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 121]
       
       Whether this folder is a virtual search folder.
    

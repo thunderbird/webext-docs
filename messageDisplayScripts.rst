@@ -6,7 +6,7 @@ messageDisplayScripts
 
 This message display scripts API first appeared in Thunderbird 78. Functionally it is the same as
 the `content scripts`__ API except that it works on the document of email messages being displayed.
-See the MDN documentation for a more in-depth explanation and :doc:`/changes/beta82` for examples.
+See the MDN documentation for a more in-depth explanation and :ref:`thunderbird_82_0b1` for examples.
 
 See also :ref:`executeScript <tabs.executeScript>`, :ref:`insertCSS <tabs.insertCSS>`,
 :ref:`removeCSS <tabs.removeCSS>`, and :doc:`composeScripts`.

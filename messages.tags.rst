@@ -20,11 +20,15 @@ Permissions
 
    Create, modify and delete message tags
 
-.. rst-class:: api-permission-info
+.. api-member::
+   :name: :permission:`messagesTagsList`
 
-.. note::
+   List message tags
 
-   The permission :permission:`messagesRead` is required to use ``messenger.messages.tags.*``.
+.. api-member::
+   :name: :permission:`messagesUpdate`
+
+   Change properties and tags of your email messages
 
 .. rst-class:: api-main-section
 
@@ -68,7 +72,6 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
 .. api-header::
    :label: Required permissions
 
-   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. _messages.tags.delete:
@@ -94,7 +97,6 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
 .. api-header::
    :label: Required permissions
 
-   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. _messages.tags.list:
@@ -119,7 +121,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 .. api-header::
    :label: Required permissions
 
-   - :permission:`messagesRead`
+   - :permission:`messagesTagsList`
 
 .. _messages.tags.update:
 
@@ -163,7 +165,6 @@ Updates a message tag.
 .. api-header::
    :label: Required permissions
 
-   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. rst-class:: api-main-section
