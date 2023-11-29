@@ -238,9 +238,9 @@ div.document h2, div.rst-content p.caption[role=heading] > span.caption-text {
 
 /* All sections in the first level (having a h1 in the same level) need some extra space */
 h1 ~ div.section, h1 ~ section {
-  margin-top: 3em;
+  margin-block: 3em 1em;
 }
-/* A section starting below a h1 header do not need extra space */
+/* A section starting below a h1 header does not need extra space */
 h1 + div.section, h1 + section {
-  margin-top: 1em;
+  margin-block: 1em;
 }
