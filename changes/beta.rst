@@ -64,7 +64,7 @@ messages API
 messages.tags API
 =================
 
-All tag related functions have been moved into its own :ref:`messages.tags_api` namespace.
+All tag related functions have been moved into its own :ref:`messages.tags_api`.
 
 * Added :ref:`messages.tags.list` function, to list tags.
 * Added :ref:`messages.tags.create` function, to create new tags.
