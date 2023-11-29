@@ -232,6 +232,6 @@ div.document h1 {
   border-bottom:1px solid #ccc;
   color: #3782bb;
 }
-div.document h2 {
+div.document h2, p.caption[role=heading] > span.caption-text {
   color: #3782bb;
 }
