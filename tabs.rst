@@ -1,8 +1,8 @@
 .. _tabs_api:
 
-====
-tabs
-====
+========
+tabs API
+========
 
 .. role:: permission
 

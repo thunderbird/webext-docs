@@ -1,8 +1,8 @@
 .. _messageDisplayScripts_api:
 
-=====================
-messageDisplayScripts
-=====================
+=========================
+messageDisplayScripts API
+=========================
 
 This message display scripts API first appeared in Thunderbird 78. Functionally it is the same as
 the `content scripts`__ API except that it works on the document of email messages being displayed.

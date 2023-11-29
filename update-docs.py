@@ -524,7 +524,7 @@ def format_namespace(manifest, namespace):
             lines.extend(map(lambda l: l.rstrip("\n").decode("utf-8"), fp_preamble.readlines()))
             lines.append("")
     else:
-        lines.extend(header_1(current_namespace_name))
+        lines.extend(header_1(current_namespace_name + " API"))
 
     lines.extend([
         "",

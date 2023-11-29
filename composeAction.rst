@@ -1,8 +1,8 @@
 .. _composeAction_api:
 
-=============
-composeAction
-=============
+=================
+composeAction API
+=================
 
 The composeAction API first appeared in Thunderbird 64. It is very similar to Firefox's `browserAction API`__.
 

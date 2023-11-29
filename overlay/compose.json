@@ -224,12 +224,12 @@
         ]
       },
       {
-        "name": "onAfterSend",
+        "name": "onAfterSave",
         "added": "106",
         "backported": "102.3.0"
       },
       {
-        "name": "onAfterSave",
+        "name": "onAfterSend",
         "added": "106",
         "backported": "102.3.0"
       },
