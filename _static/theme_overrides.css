@@ -219,3 +219,8 @@ div.container > ul {
   margin:0 !important;
   padding: 0 1ex 0 0 !important;
 }
+
+/* Hide "On GitHub" section from versions menu */
+div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(4) {
+  display: none;
+}
