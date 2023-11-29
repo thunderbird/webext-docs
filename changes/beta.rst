@@ -56,7 +56,6 @@ mailTabs API
 messages API
 ============
 * Added the ``accountId``, ``folderId``, ``junk``, ``junkScore``, ``new`` and ``size`` properties to the ``queryInfo`` parameter of :ref:`messages.query`, to query for messages with the given properties.
-* Support
 * Added the ability to :ref:`messages.query` for a range instead of a fixed value for ``attachment``, ``junkScore`` and ``size``.
 * Added the ``monitorAllFolders`` parameter to the :ref:`messages.onNewMailReceived` event, to allow extensions to listen for new messages in all folders, not just in inbox folders.
 * The functions :ref:`messages.list`, :ref:`messages.move`, :ref:`messages.copy` and :ref:`messages.import` need to use a :ref:`folders.MailFolderId` instead of :ref:`folders.MailFolder`, to specify a folder.
