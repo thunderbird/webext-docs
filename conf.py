@@ -24,7 +24,9 @@ html_theme_options = {
     'sticky_navigation': True,
     'navigation_depth': 4,
     'includehidden': True,
-    'titles_only': False
+    'titles_only': False,
+    'style_external_links': True,
+    'github_url': "https://searchfox.org/comm-central/source/mail/components/extensions/schemas",
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,
