@@ -46,15 +46,7 @@ Permissions
 .. api-member::
    :name: :permission:`messagesRead`
 
-.. api-member::
-   :name: :permission:`messagesTagsList`
-
-   List message tags
-
-.. api-member::
-   :name: :permission:`messagesUpdate`
-
-   Change properties and tags of your email messages
+   Read your email messages and mark or tag them
 
 .. api-member::
    :name: :permission:`sensitiveDataUpload`
@@ -757,7 +749,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :type: (:ref:`messages.tags.TagsDetail`, optional)
          :annotation: -- [Added in TB 74]
          
-         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.tags.list` method.
+         Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.listTags` method.
       
       
       .. api-member::
@@ -797,7 +789,7 @@ update(messageId, newProperties)
 
 .. api-section-annotation-hack:: 
 
-Updates message properties and tags. Updating external messages will throw an *ExtensionError*.
+Marks or unmarks a message as junk, read, flagged, or tagged. Updating external messages will throw an *ExtensionError*.
 
 .. api-header::
    :label: Parameters
@@ -817,7 +809,6 @@ Updates message properties and tags. Updating external messages will throw an *E
    :label: Required permissions
 
    - :permission:`messagesRead`
-   - :permission:`messagesUpdate`
 
 .. rst-class:: api-main-section
 
@@ -1343,7 +1334,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       :name: [``tags``]
       :type: (array of string, optional)
       
-      Tags associated with this message. For a list of available tags, call the :ref:`messages.tags.list` method.
+      Tags associated with this message. For a list of available tags, call the listTags method.
    
 
 .. _messages.QueryRange:
