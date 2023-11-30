@@ -40,7 +40,7 @@ html_show_sourcelink = False
 html_static_path = ['_static']
 
 # Configure headers
-versionwarning_body_selector = 'div[itemprop="articleBody"]'
+versionwarning_body_selector = 'div[itemprop="articleBody"] h1'
 
 versionwarning_latest_type = 'warning'
 versionwarning_latest_title = 'Warning'
