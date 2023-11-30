@@ -499,14 +499,22 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          .. api-member::
             :name: :value:`normal`
          
+            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
+         
          .. api-member::
             :name: :value:`popup`
+         
+            A non-modal stand-alone popup window.
          
          .. api-member::
             :name: :value:`panel`
          
+            Not supported, same as :value:`popup`
+         
          .. api-member::
             :name: :value:`detached_panel`
+         
+            Not supported, same as :value:`popup`
    
 
 .. _windows.GetInfo:
@@ -688,8 +696,12 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          .. api-member::
             :name: :value:`normal`
          
+            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
+         
          .. api-member::
             :name: :value:`popup`
+         
+            A non-modal stand-alone popup window.
          
          .. api-member::
             :name: :value:`panel`
@@ -708,9 +720,13 @@ The type of a window. Under some circumstances a window may not be assigned a ty
             :name: :value:`messageCompose`
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
          
+            A non-modal stand-alone message compose window.
+         
          .. api-member::
             :name: :value:`messageDisplay`
             :annotation: -- [Added in TB 70, backported to TB 68.1.1]
+         
+            A non-modal stand-alone message display window, viewing a single message.
    
 
 .. rst-class:: api-main-section
