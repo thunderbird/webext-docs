@@ -18,11 +18,36 @@
           },
           "messageCompose": {
             "added": "70",
-            "backported": "68.1.1"
+            "backported": "68.1.1",
+            "description": "A non-modal stand-alone message compose window."
           },
           "messageDisplay": {
             "added": "70",
-            "backported": "68.1.1"
+            "backported": "68.1.1",
+            "description": "A non-modal stand-alone message display window, viewing a single message."
+          },
+          "normal": {
+            "description": "A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane)."
+          },
+          "popup": {
+            "description": "A non-modal stand-alone popup window."
+          }
+        }
+      },
+      {
+        "id": "CreateType",
+        "enumChanges": {
+          "normal": {
+            "description": "A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane)."
+          },
+          "popup": {
+            "description": "A non-modal stand-alone popup window."
+          },
+          "panel": {
+            "description": "Not supported, same as <value>popup</value>"
+          },
+          "detached_panel": {
+            "description": "Not supported, same as <value>popup</value>"
           }
         }
       }
