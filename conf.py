@@ -48,7 +48,7 @@ versionwarning_latest_message = 'This is the API documentation for Thunderbird B
 
 versionwarning_latest_mv3_type = 'danger'
 versionwarning_latest_mv3_title = 'Warning (Manifest v3)'
-versionwarning_latest_mv3_message = 'This is the API documentation for the upcoming Manifest v3 specification for Thunderbird Beta. See version {newest} for the current ESR of Thunderbird.'
+versionwarning_latest_mv3_message = 'The Manifest v3 specification is not finalized yet and will continue to change. Feel free to test and explore the required changes for your extensions to run under Manifest v3, but do not release or distribute them yet.<br><br>The <a href="https://blog.mozilla.org/addons/2022/05/18/manifest-v3-in-firefox-recap-next-steps/">Firefox blog post about MV3</a> has all the relevant information.<br><br>See version {newest} for the current ESR of Thunderbird.'
 
 
 versionwarning_current_type = 'note'
