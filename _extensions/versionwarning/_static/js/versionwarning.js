@@ -57,7 +57,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
         );
 
         var body = $(config.banner.body_selector);
-        body.prepend(warning);
+        body.after(warning);
     }
 }
 
