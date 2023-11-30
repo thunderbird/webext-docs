@@ -13,7 +13,7 @@ __ https://github.com/thunderbird/sample-extensions
 
 .. important::
 
-  This API will be replaced in Manifest v3 by the `action API <https://webextension-api.thunderbird.net/en/latest-mv3/action.html>`__.
+  This API will be replaced in Manifest V3 by the `action API <https://webextension-api.thunderbird.net/en/latest-mv3/action.html>`__.
 
 .. role:: permission
 

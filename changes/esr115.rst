@@ -129,7 +129,7 @@ spaces API
 
 spacesToolbar API
 =================
-* Add :ref:`spacesToolbar.clickButton` to trigger a click on the button of a space in the spaces toolbar. In Manifest v3 the button-centric ``spacesToolbar API`` was removed and replaced by the space-centric ``spaces API``, where the corresponding method is named `spaces.open() <https://webextension-api.thunderbird.net/en/latest-mv3/spaces.html#open-spaceid-windowid>`__.
+* Add :ref:`spacesToolbar.clickButton` to trigger a click on the button of a space in the spaces toolbar. In Manifest V3 the button-centric ``spacesToolbar API`` was removed and replaced by the space-centric ``spaces API``, where the corresponding method is named `spaces.open() <https://webextension-api.thunderbird.net/en/latest-mv3/spaces.html#open-spaceid-windowid>`__.
 
 tabs API
 ========
