@@ -40,16 +40,15 @@ html_show_sourcelink = False
 html_static_path = ['_static']
 
 # Configure headers
-versionwarning_body_selector = 'div[itemprop="articleBody"]'
+versionwarning_body_selector = 'div[itemprop="articleBody"] h1'
 
 versionwarning_latest_type = 'warning'
 versionwarning_latest_title = 'Warning'
 versionwarning_latest_message = 'This is the API documentation for Thunderbird Beta. See version {newest} for the current ESR of Thunderbird.'
 
 versionwarning_latest_mv3_type = 'danger'
-versionwarning_latest_mv3_title = 'Warning (Manifest v3)'
-versionwarning_latest_mv3_message = 'This is the API documentation for the upcoming Manifest v3 specification for Thunderbird Beta. See version {newest} for the current ESR of Thunderbird.'
-
+versionwarning_latest_mv3_title = 'Warning (Manifest V3)'
+versionwarning_latest_mv3_message = 'The Manifest V3 specification of Thunderbird is not finalized yet and will continue to change. More information can be found in our <a href="https://developer.thunderbird.net/add-ons/manifest-v3/">Manifest V3 announcement</a>.<br><br>See version {newest} for the Manifest V2 documentation of the current ESR of Thunderbird.'
 
 versionwarning_current_type = 'note'
 versionwarning_current_title = 'Note'
