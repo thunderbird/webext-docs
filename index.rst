@@ -1,6 +1,6 @@
-==========================================
-Thunderbird WebExtension API Documentation
-==========================================
+===============================================
+WebExtension Documentation for Thunderbird Beta
+===============================================
 
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
 highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN documentation on the subject`__.
@@ -245,7 +245,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 
 .. toctree::
   :hidden:
-  :caption: API Documentation
+  :caption: API Reference
   
   accounts
   addressBooks
