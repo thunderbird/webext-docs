@@ -1,5 +1,3 @@
-.. _composeScripts_api:
-
 ==================
 composeScripts API
 ==================

@@ -1,5 +1,3 @@
-.. _addressBooks.provider_api:
-
 =========================
 addressBooks.provider API
 =========================

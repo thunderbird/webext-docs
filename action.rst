@@ -1,5 +1,3 @@
-.. _action_api:
-
 ==========
 action API
 ==========

@@ -1,5 +1,3 @@
-.. _composeAction_api:
-
 =================
 composeAction API
 =================

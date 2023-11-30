@@ -1,4 +1,3 @@
-.. _accounts_api:
 
 ============
 accounts API

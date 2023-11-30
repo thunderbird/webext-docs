@@ -1,5 +1,3 @@
-.. _spaces_api:
-
 ==========
 spaces API
 ==========

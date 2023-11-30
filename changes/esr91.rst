@@ -200,7 +200,7 @@ Thunderbird 85 Beta
 addressBooks API & contacts API
 ===============================
 
-The :ref:`addressBooks_api` and :ref:`contacts_api` will now return read-only address books. Add-ons that may update contacts and address books should check the ``readOnly`` flag of :ref:`addressBooks.AddressBookNode`.
+The :doc:`/addressBooks` and :doc:`/contacts` will now return read-only address books. Add-ons that may update contacts and address books should check the ``readOnly`` flag of :ref:`addressBooks.AddressBookNode`.
 
 accounts API
 ============
@@ -210,7 +210,7 @@ accounts API
 compose API
 ===========
 
-* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
+* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :doc:`/accounts` can be used to get the used/default identity and its default compose format.
 
 messages API
 ============
@@ -224,7 +224,7 @@ Thunderbird 86 Beta
 theme API
 =========
 
-* The :ref:`theme_api` was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
+* The :doc:`/theme` was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.
 
@@ -235,7 +235,7 @@ Thunderbird 87 Beta
 commands API
 ============
 
-* The :ref:`commands_api` now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
+* The :doc:`/commands` now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
 
 -------------------
 Thunderbird 88 Beta
@@ -290,7 +290,7 @@ Thunderbird 90 Beta
 cloudFile API
 =============
 
-* added support for the ``browser_style`` manifest property to the :ref:`cloudFile_api`
+* added support for the ``browser_style`` manifest property to the :doc:`/cloudFile`
 
 
 compose API
@@ -364,7 +364,7 @@ folders API
 identities API
 ==============
 
-* added :ref:`identities_api` (including create/delete/update functions and onCreated/onDeleted/onUpdated events)
+* added :doc:`/identities` (including create/delete/update functions and onCreated/onDeleted/onUpdated events)
 * added ``signature`` and ``signatureIsPlainText`` to :ref:`identities.MailIdentity`
 
 

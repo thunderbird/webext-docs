@@ -1,5 +1,3 @@
-.. _compose_api:
-
 ===========
 compose API
 ===========

@@ -1,5 +1,3 @@
-.. _messageDisplayAction_api:
-
 ========================
 messageDisplayAction API
 ========================

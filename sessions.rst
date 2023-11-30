@@ -1,5 +1,3 @@
-.. _sessions_api:
-
 ============
 sessions API
 ============

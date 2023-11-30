@@ -15,7 +15,7 @@ accounts API & folders API
 ==========================
 
 * The :ref:`MailFolder <folders.MailFolder>` object gained a subFolders property. From now on the
-  :doc:`accounts API functions </accounts>` will return a hierarchy of folders instead of a flat
+  :doc:`/accounts` functions will return a hierarchy of folders instead of a flat
   list. If you still need a flat list you should traverse the folder hierarchy:
 
   .. code-block:: javascript
@@ -473,7 +473,7 @@ accounts API
 compose API
 ===========
 
-* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
+* The begin* functions now honor ``body``, ``plainTextBody`` and ``isPlaintext`` as compose format selectors, overriding the default compose format of the used/default identity. The :doc:`/accounts` can be used to get the used/default identity and its default compose format.
 
 * The :ref:`beginNew <compose.beginNew>` function now has an optional ``messageId`` argument. If
   ``messageId`` is provided, the referenced message is opened to compose as a new message. This
@@ -489,6 +489,6 @@ Thunderbird 78.7.1 ESR
 theme API
 =========
 
-* The :ref:`theme_api` was backported (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
+* The :doc:`/theme` was backported (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.

@@ -1,5 +1,3 @@
-.. _mailingLists_api:
-
 ================
 mailingLists API
 ================

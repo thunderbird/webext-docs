@@ -1,5 +1,3 @@
-.. _messages.tags_api:
-
 =================
 messages.tags API
 =================

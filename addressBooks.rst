@@ -1,5 +1,3 @@
-.. _addressBooks_api:
-
 ================
 addressBooks API
 ================

@@ -1,5 +1,3 @@
-.. _folders_api:
-
 ===========
 folders API
 ===========

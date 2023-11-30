@@ -544,10 +544,6 @@ def format_namespace(manifest, namespace):
     global unique_id, additional_type_used
 
     lines = []
-    lines.extend([
-        "",
-        ".. _%s_api:" % namespace["namespace"],
-        ""]);
 
     #unique_id = 1
     preamble = os.path.join(OVERLAY_DIR, namespace["namespace"] + ".rst")

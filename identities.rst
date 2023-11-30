@@ -1,5 +1,3 @@
-.. _identities_api:
-
 ==============
 identities API
 ==============

@@ -1,5 +1,3 @@
-.. _messages_api:
-
 ============
 messages API
 ============
