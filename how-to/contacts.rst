@@ -1,7 +1,7 @@
 .. _howto_contacts:
 
 ===========================
-Working with vCard Contacts
+Working with vCard contacts
 ===========================
 
 Before the release of Thunderbird 102, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`contacts.ContactProperties`, extensions could store additional custom properties.
@@ -12,7 +12,7 @@ The vCard is exposed in the ``vCard`` property and changing it will update the c
 
 .. important::
 
-  Accessing contact details through legacy properties is **deprecated** and write access will be removed in Thunderbird 114. Newly added fields in the address book UI (e.g. the ``Timezone`` information), are not accessible through legacy properties, but only through the vCard.
+  Accessing contact details through legacy properties is **deprecated**. Newly added fields in the address book UI (e.g. the ``Timezone`` information), are not accessible through legacy properties, but only through the vCard.
   
   When updating a contact and providing values for the ``vCard`` property as well as for legacy properties, the specified legacy properties are ignored.
 

@@ -22,10 +22,11 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': False,
     'sticky_navigation': True,
-    'navigation_depth': 4,
+    'navigation_depth': 3,
     'includehidden': True,
     'titles_only': False,
     'style_external_links': True,
+    'prev_next_buttons_location': "None"
 }
 
 html_context = {
@@ -59,5 +60,5 @@ versionwarning_older_title = 'Warning'
 versionwarning_older_message = 'This is an outdated documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
 
 def setup(app):
-   #app.add_javascript("custom.js")
+   app.add_js_file("custom.js")
    app.add_css_file('theme_overrides.css')

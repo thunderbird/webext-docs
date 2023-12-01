@@ -248,3 +248,53 @@ h1 + div.section, h1 + section {
 .wy-nav-content {
   max-width:820px !important;
 }
+
+.sticky-sidebar {
+  position:fixed;
+  width: 320px;
+  margin-left: 810px;
+  color: #888;
+  padding: inherit;
+  top: 2em;
+}
+.sticky-sidebar > p {
+  font-size: 105%;
+}
+.sticky-sidebar a {
+  color: inherit;
+}
+.sticky-sidebar a:visited {
+  color: inherit;
+}
+.sticky-sidebar a:hover {
+  color: #3782bb;
+} 
+.sticky-sidebar li {
+  list-style: circle;
+}
+.sticky-sidebar ul {
+  padding-left: 2em;
+  padding-bottom: 1em;
+}
+div.sticky-sidebar ul {
+  margin-bottom: 1em !important;
+}
+.sticky-sidebar ul p {
+  color: #999;
+  margin:0.1em 0;
+}
+
+
+/* Make external links icon not consume extra space */
+a.reference.external::after {
+  vertical-align: inherit !important;
+  position: relative;
+  top: -5px;
+}
+
+/* Hide sidebar if not enough space */
+@media screen and (max-width: 1480px) {
+  .sticky-sidebar {
+    display: none;
+  }
+}

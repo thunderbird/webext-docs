@@ -1,3 +1,9 @@
+  ≡ Related information
+
+  * `"Message Display" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplay>`__
+  
+.. _messageDisplay_api:
+
 ==================
 messageDisplay API
 ==================

@@ -1,3 +1,8 @@
+  ≡ Related information
+
+  * `"Inline Attachment Preview" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplayScript.pdfPreview>`__
+  * `"Notification Banner" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplayScript.pdfPreview>`__
+  
 =========================
 messageDisplayScripts API
 =========================
