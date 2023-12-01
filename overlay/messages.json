@@ -4,15 +4,22 @@
     "functions": [
       {
         "name": "createTag",
-        "added": "102"
-      },
-      {
-        "name": "updateTag",
-        "added": "102"
+        "added": "102",
+        "sort": "3"
       },
       {
         "name": "deleteTag",
-        "added": "102"
+        "added": "102",
+        "sort": "3"
+      },
+      {
+        "name": "listTags",
+        "sort": "3"
+      },
+      {
+        "name": "updateTag",
+        "added": "102",
+        "sort": "3"
       },
       {
         "name": "getRaw",
@@ -31,17 +38,25 @@
         ]
       },
       {
-        "name": "listAttachments",
-        "added": "88"
-      },
-      {
         "name": "getAttachmentFile",
         "added": "88",
         "hints": "The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:<literalinclude>includes/messages/file.js<lang>JavaScript</lang></literalinclude>",
         "returns": {
           "$ref": "extensionTypes.File"
-        }
+        },
+        "sort": "1"
       },
+      {
+        "name": "listAttachments",
+        "added": "88",
+        "sort": "1"
+      },
+      {
+        "name": "openAttachment",
+        "added": "114",
+        "sort": "1"
+      },
+
       {
         "name": "import",
         "added": "106"
