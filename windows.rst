@@ -1,5 +1,19 @@
-.. _windows_api:
+.. container:: sticky-sidebar
 
+  ≡ windows API
+
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `Properties`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+  
+  * :doc:`/how-to/eventListeners`
+  * `"Await Popup" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/awaitPopup>`__
+  
 ===========
 windows API
 ===========

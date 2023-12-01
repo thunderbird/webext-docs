@@ -1,4 +1,14 @@
-.. _browserAction_api:
+.. container:: sticky-sidebar
+
+  ≡ browserAction API
+
+  * `Manifest file properties`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `External Types`_
+
+  .. include:: /developer-resources.rst
 
 =================
 browserAction API
@@ -13,7 +23,7 @@ __ https://github.com/thunderbird/sample-extensions
 
 .. important::
 
-  This API will be replaced in Manifest v3 by the `action API <https://webextension-api.thunderbird.net/en/latest-mv3/action.html>`__.
+  This API will be replaced in Manifest V3 by the `action API <https://webextension-api.thunderbird.net/en/latest-mv3/action.html>`__.
 
 .. role:: permission
 
@@ -774,13 +784,6 @@ Fired when an action button is clicked. This event will not fire if the action h
 
 Types
 =====
-
-.. _browserAction.ActionManifest:
-
-ActionManifest
---------------
-
-.. api-section-annotation-hack:: 
 
 .. _browserAction.ColorArray:
 

@@ -1,4 +1,18 @@
-.. _messages_api:
+.. container:: sticky-sidebar
+
+  ≡ messages API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+  
+  * :doc:`/how-to/messageLists`
+  * :doc:`/how-to/eventListeners`
 
 ============
 messages API

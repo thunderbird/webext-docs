@@ -1,4 +1,12 @@
-.. _spaces_api:
+.. container:: sticky-sidebar
+
+  ≡ spaces API
+
+  * `Functions`_
+  * `Types`_
+  * `External Types`_
+
+  .. include:: /developer-resources.rst
 
 ==========
 spaces API

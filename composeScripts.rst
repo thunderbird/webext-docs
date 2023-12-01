@@ -1,4 +1,13 @@
-.. _composeScripts_api:
+.. container:: sticky-sidebar
+
+  ≡ composeScripts API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Types`_
+  * `External Types`_
+
+  .. include:: /developer-resources.rst
 
 ==================
 composeScripts API

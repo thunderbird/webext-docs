@@ -1,4 +1,18 @@
-.. _compose_api:
+.. container:: sticky-sidebar
+
+  ≡ compose API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+  
+  * :doc:`/how-to/eventListeners`
+  * `"Compose Body" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/composeBody>`__
 
 ===========
 compose API
