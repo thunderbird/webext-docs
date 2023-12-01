@@ -41,3 +41,30 @@ You could also wrap this code in a generator for ease-of-use:
     // Do something with the message.
     let full = await messenger.messages.getFull(message.id);    
   }
+
+Working with queries
+====================
+
+A :ref:`messages.query` will be executed asynchronously and could need a long time
+to complete, if the user has a lot of messages.
+
+Additionally, Thunderbird may have already found the relevant messages, but is not
+yet returning them. This is due to the pagination mechanism which typically only
+returns a page after 100 messages have been added (or until the end of the list is reached).
+
+There are some measures to deal with these restrictions:
+
+* The auto pagination mechanism introduced in Thunderbird 121 will return pages
+  after the defined ``autoPaginationTimeout`` (default is :value:1000 ms) even if
+  the page has not yet reached its nominal page size. The auto pagination mechanism
+  can be disabled by setting the ``autoPaginationTimeout`` property of the
+  ``queryInfo`` object to :value:0.
+
+* An still ongoing query can be terminated by aborting its associated list, using
+  :ref:`messages.abortList`. Thunderbird will then also stop searching for the
+  requested messages.
+
+* In order to abort a query even before any page has been returned (which includes
+  the list id), the ``returnMessageListId`` property of the ``queryInfo`` object
+  can be set. This changes the return value of :ref:`messages.query` and immediately
+  returns the id of the associated message list.
