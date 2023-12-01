@@ -1,12 +1,36 @@
+.. container:: sticky-sidebar
+
+  ≡ On this page
+  
+  * `Getting started`_
+  * `Thunderbird WebExtension APIs`_
+  * `Firefox WebExtension APIs supported by Thunderbird`_
+  * :ref:`HowToGuide`
+  * :ref:`ChangeLog`
+  * `Where To Get Help And More Information`_
+
+  .. include:: developer-resources.rst
+
+
 ===============================================
 WebExtension Documentation for Thunderbird Beta
 ===============================================
 
+Getting started
+===============
+
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
-highly recommended to read our `Guide to MailExtensions`__ or some of the `MDN documentation on the subject`__.
+highly recommended to start with the following pages:
+
+* `Guide to MailExtensions`__
+* `Hello world Add-on tutorial`__
 
 __ https://developer.thunderbird.net/add-ons/mailextensions
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
+__ https://developer.thunderbird.net/add-ons/hello-world-add-on
+
+For any problems or feature requests please `file a bug`__.
+
+__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
 
 .. hint::
 
@@ -20,20 +44,6 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions
 
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
-
-
-This documentation includes the following topics:
-
- * `Thunderbird WebExtension APIs`_
- * `Firefox WebExtension APIs supported by Thunderbird`_
- * :ref:`HowToGuide`
- * `Where To Get Help And More Information`_
-
-For any problems or feature requests please `file a bug`__.
-
-__ https://bugzilla.mozilla.org/enter_bug.cgi?product=Thunderbird&component=Add-Ons%3A+Extensions+API
-
-
 
 
 Thunderbird WebExtension APIs
@@ -245,7 +255,7 @@ as well. The APIs listed in the following table are known to work with Thunderbi
 
 .. toctree::
   :hidden:
-  :caption: API Reference
+  :caption: API reference
   
   accounts
   addressBooks
@@ -285,6 +295,8 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   how-to/messageLists
   how-to/experiments
 
+.. _ChangeLog:
+
 .. toctree::
   :maxdepth: 1
   :caption: Changelog
@@ -296,16 +308,16 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   changes/beta
 
 
-Where To Get Help And More Information
+Where to get help and more information
 ======================================
 
-`Thunderbird add-on developer documentation`__
+`Introduction to add-on development`__
   Find information about creating and updating extensions for Thunderbird. Includes getting-started-tutorials and a collection of helpful articles and guides.
 
-`Thunderbird add-on developer community`__
-  Learn how to get in touch with other add-on developers, to ask questions and to share knowledge.
+`Add-on developer community`__
+  Learn how to get in touch with other Thunderbird add-on developers, to ask questions and to share knowledge.
   
-`Thunderbird sample extensions`__ 
+`Sample extensions`__ 
   A collection of MailExtensions, showing how to use Thunderbird WebExtension APIs.
   
 `MDN sample extensions`__

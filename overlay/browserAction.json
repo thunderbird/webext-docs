@@ -22,9 +22,9 @@
     ]
   },
   {
-    "namespace": "browserAction",
+    "namespace": "action",
     "permissions": [
-      "manifest:browser_action"
+      "manifest:action"
     ],
     "types": [
       {

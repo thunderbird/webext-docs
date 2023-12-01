@@ -1,3 +1,9 @@
+  ≡ Related information
+  
+  * :doc:`/how-to/eventListeners`
+  * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/quickfilter>`__
+  * `"Menu" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/menu>`__
+
 =========
 menus API
 =========
