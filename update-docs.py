@@ -576,7 +576,7 @@ def format_namespace(manifest, namespace):
         sidebartoc.append("  * `Functions`_")
         lines.append("")
         lines.extend(header_2("Functions", "api-main-section"))
-        for function in sorted(namespace["functions"], key=lambda t: t["name"]):
+        for function in sorted(namespace["functions"], key=lambda t: t["sort"] + t["name"] if "sort" in t else "0" + t["name"]):
             if "min_manifest_version" in function and function["min_manifest_version"] > MV:
                 continue
             if "max_manifest_version" in function and function["max_manifest_version"] < MV:
@@ -626,7 +626,7 @@ def format_namespace(manifest, namespace):
         sidebartoc.append("  * `Events`_")
         lines.append("")
         lines.extend(header_2("Events", "api-main-section"))
-        for event in sorted(namespace["events"], key=lambda t: t["name"]):
+        for event in sorted(namespace["events"], key=lambda t: t["sort"] + t["name"] if "sort" in t else "0" + t["name"]):
             if "min_manifest_version" in event and event["min_manifest_version"] > MV:
                 continue
             if "max_manifest_version" in event and event["max_manifest_version"] < MV:
@@ -727,7 +727,7 @@ def format_namespace(manifest, namespace):
                                 content.extend(format_object(key, value))
 
                     if "functions" in type_:
-                        for function in sorted(type_["functions"], key=lambda f: f["name"]):
+                        for function in sorted(type_["functions"], key=lambda t: t["sort"] + t["name"] if "sort" in t else "0" + t["name"]):
                             content.append("- ``%s(%s)``" % (function["name"], format_params(function)))
                             description = function.get("description", "")
                             if description:
