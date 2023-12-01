@@ -59,4 +59,5 @@ versionwarning_older_title = 'Warning'
 versionwarning_older_message = 'This is an outdated documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
 
 def setup(app):
+   app.add_js_file("custom.js")
    app.add_css_file('theme_overrides.css')
