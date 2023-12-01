@@ -109,39 +109,6 @@ Archives messages using the current settings. Archiving external messages will t
    - :permission:`messagesRead`
    - :permission:`messagesMove`
 
-.. _messages.continueList:
-
-continueList(messageListId)
----------------------------
-
-.. api-section-annotation-hack:: 
-
-Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageListId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`messages.MessageList`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _messages.copy:
 
 copy(messageIds, destination)
@@ -625,6 +592,39 @@ Marks or unmarks a message as junk, read, flagged, or tagged. Updating external 
       :name: ``newProperties``
       :type: (:ref:`messages.MessageProperties`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.continueList:
+
+continueList(messageListId)
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
