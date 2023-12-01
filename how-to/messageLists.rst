@@ -55,14 +55,13 @@ returns a page after 100 messages have been added (or until the end of the list 
 There are some measures to deal with these restrictions:
 
 * The auto pagination mechanism introduced in Thunderbird 121 will return pages
-  after the defined ``autoPaginationTimeout`` (default is :value:1000 ms) even if
+  after the defined ``autoPaginationTimeout`` (default is :value:`1000` ms) even if
   the page has not yet reached its nominal page size. The auto pagination mechanism
   can be disabled by setting the ``autoPaginationTimeout`` property of the
-  ``queryInfo`` object to :value:0.
+  ``queryInfo`` object to :value:`0`.
 
-* An still ongoing query can be terminated by aborting its associated list, using
-  :ref:`messages.abortList`. Thunderbird will then also stop searching for the
-  requested messages.
+* An ongoing query can be terminated by aborting its associated list, using
+  :ref:`messages.abortList`.
 
 * In order to abort a query even before any page has been returned (which includes
   the list id), the ``returnMessageListId`` property of the ``queryInfo`` object
