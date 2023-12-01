@@ -27,7 +27,7 @@ This documentation includes the following topics:
  * `Thunderbird WebExtension APIs`_
  * `Firefox WebExtension APIs supported by Thunderbird`_
  * :ref:`HowToGuide`
- * `Where To Get Help And More Information`_
+ * `Where to get help and more information`_
 
 For any problems or feature requests please `file a bug`__.
 
