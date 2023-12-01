@@ -1,3 +1,8 @@
+  ≡ Other relevant information
+
+  * :doc:`/how-to/contacts`
+  * :doc:`/how-to/eventListeners`
+  
 =========================
 addressBooks.provider API
 =========================

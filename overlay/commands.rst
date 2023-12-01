@@ -1,3 +1,7 @@
+  ≡ Other relevant information
+
+  * :doc:`/how-to/eventListeners`
+
 ============
 commands API
 ============

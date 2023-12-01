@@ -1,3 +1,8 @@
+  ≡ Other relevant information
+  
+  * :doc:`/how-to/messageLists`
+  * :doc:`/how-to/eventListeners`
+
 ============
 messages API
 ============
