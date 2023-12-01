@@ -7,7 +7,7 @@
   * `Firefox WebExtension APIs supported by Thunderbird`_
   * :ref:`HowToGuide`
   * :ref:`ChangeLog`
-  * `Where To Get Help And More Information`_
+  * `Where to get help and more information`_
 
   .. include:: developer-resources.rst
 
@@ -321,7 +321,7 @@ Where to get help and more information
   A collection of MailExtensions, showing how to use Thunderbird WebExtension APIs.
   
 `MDN sample extensions`__
-  A collection of WebExtensions, showing how to use WebExtension APIs. They probably won't work directly in Thunderbird, but they may provide hints on how to use some of the WebExtension APIs that Thunderbird inherited from Firefox.
+  A collection of WebExtensions, showing how to use WebExtension APIs in Firefox. They probably won't work directly in Thunderbird, but they may provide hints on how to use some of the WebExtension APIs that Thunderbird inherited from Firefox.
 
 `MDN WebExtension documentation`__
   Find general information about the WebExtensions API cross-browser technology used by Firefox and many Chromium-based browsers. Not all information listed there apply to Thunderbird.
