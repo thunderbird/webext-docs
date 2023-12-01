@@ -821,7 +821,11 @@ def format_manifest_namespace(manifest, namespace, sidebartoc):
             for line in pf:
                 if line.startswith("webext-perms-description"):
                     parts = line.split("=", 2)
-                    permission_strings[parts[0][25:].replace("-", "." ).strip()] = parts[1].strip()
+                    permission_name = parts[0][25:].replace("-", "." ).strip()
+                    # Simple approach to get around updated locale strings, which
+                    # usually have numbers added to them.
+                    permission_name = re.sub(r'[0-9]', '', permission_name)
+                    permission_strings[permission_name] = parts[1].strip()
 
     for type_ in manifest["types"]:
         if type_.get("$extend", None) == "WebExtensionManifest":
