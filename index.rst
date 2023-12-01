@@ -22,10 +22,10 @@ Getting started
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
 highly recommended to start with the following pages:
 
-* `Guide to MailExtensions`__
+* `Introduction to add-on development`__
 * `Hello world Add-on tutorial`__
 
-__ https://developer.thunderbird.net/add-ons/mailextensions
+__ https://developer.thunderbird.net/add-ons/about-add-ons
 __ https://developer.thunderbird.net/add-ons/hello-world-add-on
 
 For any problems or feature requests please `file a bug`__.
