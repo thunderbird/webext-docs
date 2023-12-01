@@ -78,29 +78,6 @@ Permissions
 Functions
 =========
 
-.. _messages.abortList:
-
-abortList(messageListId)
-------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 120]
-
-Finalizes the specified list and terminates any process currently still adding messages.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageListId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _messages.archive:
 
 archive(messageIds)
@@ -126,39 +103,6 @@ Archives messages using the current settings. Archiving external messages will t
 
    - :permission:`messagesRead`
    - :permission:`messagesMove`
-
-.. _messages.continueList:
-
-continueList(messageListId)
----------------------------
-
-.. api-section-annotation-hack:: 
-
-Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageListId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`messages.MessageList`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
 
 .. _messages.copy:
 
@@ -193,46 +137,6 @@ Copies messages to a specified folder.
    - :permission:`messagesRead`
    - :permission:`accountsRead`
    - :permission:`messagesMove`
-
-.. _messages.createTag:
-
-createTag(key, tag, color)
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-   
-   
-   .. api-member::
-      :name: ``tag``
-      :type: (string)
-      
-      Human-readable tag name.
-   
-   
-   .. api-member::
-      :name: ``color``
-      :type: (string)
-      
-      Tag color in hex format (i.e.: :value:`#000080` for navy blue)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
 
 .. _messages.delete:
 
@@ -272,32 +176,6 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
    - :permission:`messagesRead`
    - :permission:`messagesDelete`
 
-.. _messages.deleteTag:
-
-deleteTag(key)
---------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``key``
-      :type: (string)
-      
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
-
 .. _messages.get:
 
 get(messageId)
@@ -330,49 +208,6 @@ Returns the specified message.
    :label: Required permissions
 
    - :permission:`messagesRead`
-
-.. _messages.getAttachmentFile:
-
-getAttachmentFile(messageId, partName)
---------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 88]
-
-Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``partName``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
-
-.. literalinclude:: includes/messages/file.js
-  :language: JavaScript
 
 .. _messages.getFull:
 
@@ -548,63 +383,6 @@ Gets all messages in a folder.
    - :permission:`messagesRead`
    - :permission:`accountsRead`
 
-.. _messages.listAttachments:
-
-listAttachments(messageId)
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 88]
-
-Lists the attachments of a message.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageId``
-      :type: (integer)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`messages.MessageAttachment`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-.. _messages.listTags:
-
-listTags()
-----------
-
-.. api-section-annotation-hack:: 
-
-Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`messages.tags.MessageTag`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _messages.move:
 
 move(messageIds, destination)
@@ -638,41 +416,6 @@ Moves messages to a specified folder. If the messages cannot be removed from the
    - :permission:`messagesRead`
    - :permission:`accountsRead`
    - :permission:`messagesMove`
-
-.. _messages.openAttachment:
-
-openAttachment(messageId, partName, tabId)
-------------------------------------------
-
-.. api-section-annotation-hack:: 
-
-Opens the specified attachment
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``partName``
-      :type: (string)
-   
-   
-   .. api-member::
-      :name: ``tabId``
-      :type: (integer)
-      
-      The ID of the tab associated with the message opening.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
 
 .. _messages.query:
 
@@ -915,6 +658,263 @@ Marks or unmarks a message as junk, read, flagged, or tagged. Updating external 
       :name: ``newProperties``
       :type: (:ref:`messages.MessageProperties`)
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.getAttachmentFile:
+
+getAttachmentFile(messageId, partName)
+--------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 88]
+
+Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/docs/Web/API/File>`__ object.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partName``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
+
+.. literalinclude:: includes/messages/file.js
+  :language: JavaScript
+
+.. _messages.listAttachments:
+
+listAttachments(messageId)
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 88]
+
+Lists the attachments of a message.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`messages.MessageAttachment`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.openAttachment:
+
+openAttachment(messageId, partName, tabId)
+------------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 114]
+
+Opens the specified attachment
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partName``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``tabId``
+      :type: (integer)
+      
+      The ID of the tab associated with the message opening.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.abortList:
+
+abortList(messageListId)
+------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 120]
+
+Finalizes the specified list and terminates any process currently still adding messages.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.continueList:
+
+continueList(messageListId)
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.createTag:
+
+createTag(key, tag, color)
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+   
+   
+   .. api-member::
+      :name: ``tag``
+      :type: (string)
+      
+      Human-readable tag name.
+   
+   
+   .. api-member::
+      :name: ``color``
+      :type: (string)
+      
+      Tag color in hex format (i.e.: :value:`#000080` for navy blue)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
+
+.. _messages.deleteTag:
+
+deleteTag(key)
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 102]
+
+Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTags`
+
+.. _messages.listTags:
+
+listTags()
+----------
+
+.. api-section-annotation-hack:: 
+
+Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`messages.tags.MessageTag`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
