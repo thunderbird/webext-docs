@@ -12,9 +12,9 @@
   .. include:: developer-resources.rst
 
 
-===============================================
-WebExtension Documentation for Thunderbird Beta
-===============================================
+==============================================
+WebExtension Documentation for Thunderbird 115
+==============================================
 
 Getting started
 ===============
