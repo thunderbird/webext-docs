@@ -6,13 +6,15 @@
       "messagesImport",
       "messagesMove",
       "messagesRead",
-      "sensitiveDataUpload"
+      "sensitiveDataUpload",
+      "messagesUpdate"
     ]
   },
   {
     "namespace": "messages",
     "ignore_permissions": [
-      "messagesTags"
+      "messagesTags",
+      "messagesTagsList"
     ],
     "functions": [
       {

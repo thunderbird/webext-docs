@@ -1,4 +1,4 @@
-  ≡ Other relevant information
+  ≡ Related information
   
   * :doc:`/how-to/eventListeners`
   * `"Compose Body" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/composeBody>`__

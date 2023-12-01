@@ -1,4 +1,4 @@
-  ≡ Other relevant information
+  ≡ Related information
 
   * :doc:`/how-to/eventListeners`
 
