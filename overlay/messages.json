@@ -48,17 +48,17 @@
         "returns": {
           "$ref": "extensionTypes.File"
         },
-        "sort": "1"
+        "sort": "2"
       },
       {
         "name": "listAttachments",
         "added": "88",
-        "sort": "1"
+        "sort": "2"
       },
       {
         "name": "openAttachment",
         "added": "114",
-        "sort": "1"
+        "sort": "2"
       },
       {
         "name": "import",
@@ -66,12 +66,12 @@
       },
       {
         "name": "continueList",
-        "sort": "2"
+        "sort": "1"
       },
       {
         "name": "abortList",
         "added": "120",
-        "sort": "2"
+        "sort": "1"
       },
       {
         "name": "query",
