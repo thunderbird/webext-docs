@@ -248,3 +248,10 @@ h1 + div.section, h1 + section {
 .wy-nav-content {
   max-width:820px !important;
 }
+
+/* Make external links icon not consume extra space */
+a.reference.external::after {
+  vertical-align: inherit !important;
+  position: relative;
+  top: -5px;
+}
