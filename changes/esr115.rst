@@ -121,11 +121,11 @@ messageDisplay API
 
 sessions API
 ============
-* Add a first simple version of the :ref:`sessions_api` API to allow extensions to store tab related session data, which is restored on app restart.
+* Add a first simple version of the :doc:`/sessions` to allow extensions to store tab related session data, which is restored on app restart.
 
 spaces API
 ==========
-* Add :ref:`spaces_api` API which supersedes the spacesToolbar API and allows to manage built-in and custom spaces.
+* Add :doc:`/spaces` which supersedes the spacesToolbar API and allows to manage built-in and custom spaces.
 
 spacesToolbar API
 =================

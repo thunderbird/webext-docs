@@ -226,7 +226,6 @@ Thunderbird 86 Beta
 theme API
 =========
 
-* The :ref:`theme_api` was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 * The :doc:`/theme` was added to Thunderbird (see `bug 1684666 <https://bugzilla.mozilla.org/show_bug.cgi?id=1684666>`__). It’s more or less the same as the `Firefox theme API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/theme>`__, but has been extended to better fit the needs of Thunderbird.
 
   The color key ``sidebar_highlight_border`` has been added.
@@ -238,7 +237,6 @@ Thunderbird 87 Beta
 commands API
 ============
 
-* The :ref:`commands_api` now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
 * The :doc:`/commands` now supports the internal shortcuts ``_execute_compose_action`` and ``_execute_message_display_action``.
 
 -------------------
