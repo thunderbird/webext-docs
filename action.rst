@@ -767,13 +767,6 @@ Fired when an action button is clicked. This event will not fire if the action h
 Types
 =====
 
-.. _action.ActionManifest:
-
-ActionManifest
---------------
-
-.. api-section-annotation-hack:: 
-
 .. _action.ColorArray:
 
 ColorArray

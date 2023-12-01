@@ -279,9 +279,6 @@ def format_enum(name, value):
         return []
     
     enum_lines = [""]
-    # enums have been moved inline and are no longer referenced
-    #enum_lines.extend(["Values for ``%s``:" % name, ""])
-    #enum_lines.extend(reference("enum_%s_%d" % (name, unique_id)))
     enum_lines.append("Supported values:")
 
     enum_changes = value.get("enumChanges", None)
@@ -299,8 +296,6 @@ def format_enum(name, value):
     
 def format_object(name, obj, print_description_only = False, print_enum_only = False, enumChanges = None):
     global unique_id
-    # enums have been moved inline and are no longer referenced
-    #enum_lines = []
     
     if "min_manifest_version" in obj and obj["min_manifest_version"] > MV:
         return []
@@ -355,18 +350,12 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
                 continue
             if not value.get("optional", False):
                 nested_content.extend(format_object(key, value))
-                #nested_content.append("  - %s" % get_api_member_parts(key, value))
-                #enum_lines.extend(format_enum(key, value))
-                #unique_id += 1
 
         for [key, value] in items:
             if value.get("ignore", False):
                 continue
             if value.get("optional", False):
                 nested_content.extend(format_object(key, value))
-                #nested_content.append("  - %s" % get_api_member_parts(key, value))
-                #enum_lines.extend(format_enum(key, value))
-                #unique_id += 1
 
     if print_enum_only:
         content.extend([indent + sub for sub in parts['enum']])
@@ -379,7 +368,6 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
         lines.extend(fakeHeader)
         lines.extend(content)
         lines.append("")
-        #lines.extend(enum_lines)
 
     return lines
 
@@ -600,8 +588,6 @@ def format_namespace(manifest, namespace):
                 label="%s.%s" % (namespace["namespace"], function["name"]),
                 info=format_addition(function)
             ))
-            # enums have been moved inline and are no longer referenced
-            #enum_lines = []
 
             if "description" in function:
                 lines.extend(replace_code(function["description"]).split("\n"))
@@ -619,8 +605,6 @@ def format_namespace(manifest, namespace):
                             function["returns"] = param["parameters"][0]
                     else:
                         content.extend(format_object(param["name"], param))
-                        #enum_lines.extend(format_enum(param["name"], param))
-                        #unique_id += 1
                 
                 if len(content) > 0:
                     lines.extend(api_header("Parameters", content))
@@ -633,7 +617,6 @@ def format_namespace(manifest, namespace):
                 lines.extend(api_header("Return type (`Promise`_)", content))
 
             lines.extend(format_permissions(function, namespace))
-            #lines.extend(enum_lines)
             
             if "hints" in function:
                 lines.extend(format_hints(function))
@@ -718,17 +701,12 @@ def format_namespace(manifest, namespace):
             if run == 1 and not type_['id'] in additional_type_used:
                 continue
             
-            # enums have been moved inline and are no longer referenced
-            #enum_lines = []
-            type_lines.extend(header_3(
-                type_["name"] if "name" in type_ else type_["id"],
-                label="%s.%s" % (namespace["namespace"], type_["id"]),
-                info=format_addition(type_)
-            ))
+            type_name = type_["name"] if "name" in type_ else type_["id"]
+            type_props = []
 
             if "description" in type_:
-                type_lines.extend(replace_code(type_["description"]).split("\n"))
-                type_lines.append("")
+                type_props.extend(replace_code(type_["description"]).split("\n"))
+                type_props.append("")
 
             if "changed" in type_:
                 lines.extend(api_header("API changes", format_changes(type_)))
@@ -743,14 +721,10 @@ def format_namespace(manifest, namespace):
                         for [key, value] in items:
                             if not value.get("optional", False):
                                 content.extend(format_object(key, value))
-                                #enum_lines.extend(format_enum(key, value))
-                                #unique_id += 1
 
                         for [key, value] in items:
                             if value.get("optional", False):
                                 content.extend(format_object(key, value))
-                                #enum_lines.extend(format_enum(key, value))
-                                #unique_id += 1
 
                     if "functions" in type_:
                         for function in sorted(type_["functions"], key=lambda f: f["name"]):
@@ -759,13 +733,10 @@ def format_namespace(manifest, namespace):
                             if description:
                                 content[-1] += " %s" % replace_code(description)
 
-                    type_lines.extend(api_header("object", content))
+                    type_props.extend(api_header("object", content))
                 else:
-                    type_lines.extend(api_header(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
+                    type_props.extend(api_header(get_type(type_, type_["id"]), format_object(None, type_, print_enum_only=True)))
                     
-                type_lines.append("")
-                #enum_lines.extend(format_enum(type_["id"], type_))
-
             elif "choices" in type_:
                 first = True
                 for choice in type_["choices"]:
@@ -776,12 +747,17 @@ def format_namespace(manifest, namespace):
                     if first:
                         first = False
                     else:
-                        type_lines.extend(["", "OR", ""])
-                    type_lines.extend(api_header(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True, enumChanges=type_.get("enumChanges"))))
-                    #enum_lines.extend(format_enum(type_["id"], choice))
-
-            type_lines.append("")
-            #type_lines.extend(enum_lines)
+                        type_props.extend(["", "OR", ""])
+                    type_props.extend(api_header(get_type(choice, type_["id"]), format_object(None, choice, print_description_only=True, enumChanges=type_.get("enumChanges"))))
+                        
+            if len(type_props) > 0:
+                type_lines.extend(header_3(
+                    type_["name"] if "name" in type_ else type_["id"],
+                    label="%s.%s" % (namespace["namespace"], type_["id"]),
+                    info=format_addition(type_)
+                ))
+                type_lines.extend(type_props)
+                type_lines.append("")
             
         if len(type_lines) > 0:
             lines.extend(type_header)
