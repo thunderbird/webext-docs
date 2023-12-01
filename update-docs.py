@@ -544,6 +544,12 @@ def format_namespace(manifest, namespace):
     global unique_id, additional_type_used
 
     lines = []
+    sidebartoc = [
+        ".. container:: sticky-sidebar",
+        "",
+        "  " + u'\u2261' + " " + namespace["namespace"] + " API",
+        "",
+    ]
 
     #unique_id = 1
     preamble = os.path.join(OVERLAY_DIR, namespace["namespace"] + ".rst")
@@ -574,11 +580,12 @@ def format_namespace(manifest, namespace):
         lines.append("")
 
     if manifest is not None:
-        lines.extend(format_manifest_namespace(manifest, namespace))
+        lines.extend(format_manifest_namespace(manifest, namespace, sidebartoc))
 
     lines.extend(format_permissions(namespace))
 
     if "functions" in namespace:
+        sidebartoc.append("  * `Functions`_")
         lines.append("")
         lines.extend(header_2("Functions", "api-main-section"))
         for function in sorted(namespace["functions"], key=lambda t: t["name"]):
@@ -633,6 +640,7 @@ def format_namespace(manifest, namespace):
 
 
     if "events" in namespace:
+        sidebartoc.append("  * `Events`_")
         lines.append("")
         lines.extend(header_2("Events", "api-main-section"))
         for event in sorted(namespace["events"], key=lambda t: t["name"]):
@@ -685,6 +693,7 @@ def format_namespace(manifest, namespace):
     for run in range(2):
         type_lines = []
         type_header = []
+        type_sidebar_toc_entry = ""
         typegroup = None
 
         if run == 0:
@@ -692,6 +701,7 @@ def format_namespace(manifest, namespace):
                 typegroup = namespace['types']
                 type_header.append("")
                 type_header.extend(header_2("Types", "api-main-section"))
+                type_sidebar_toc_entry = "  * `Types`_"
             else:
                 continue
         
@@ -701,7 +711,7 @@ def format_namespace(manifest, namespace):
             type_header.extend(header_2("External Types", "api-main-section"))
             type_header.append("The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.")
             type_header.append("")
-            
+            type_sidebar_toc_entry = "  * `External Types`_"
 
         for type_ in sorted(typegroup, key=lambda t: t["id"]):
             # skip this type if it is not used
@@ -776,8 +786,10 @@ def format_namespace(manifest, namespace):
         if len(type_lines) > 0:
             lines.extend(type_header)
             lines.extend(type_lines)
+            sidebartoc.append(type_sidebar_toc_entry)
 
     if "properties" in namespace:
+        sidebartoc.append("  * `Properties`_")
         lines.append("")
         lines.extend(header_2("Properties", "api-main-section"))
 
@@ -798,7 +810,14 @@ def format_namespace(manifest, namespace):
     if lines[-1] != "":
         lines.append("")
 
-    return "\n".join(lines).encode("utf-8")
+    # Prepend sidebar toc.
+    sidebartoc.extend([
+        "",
+        "  .. include:: /developer-resources.rst",
+        ""
+    ])
+
+    return "\n".join(sidebartoc + lines).encode("utf-8")
 
 def map_permission_to_key(permission):
     mapping = {
@@ -809,7 +828,7 @@ def map_permission_to_key(permission):
         return mapping[permission]
     return permission
 
-def format_manifest_namespace(manifest, namespace):
+def format_manifest_namespace(manifest, namespace, sidebartoc):
     global unique_id
     #unique_id = 1
 
@@ -853,11 +872,13 @@ def format_manifest_namespace(manifest, namespace):
 
     if len(property_lines) > 0:
         lines = header_2("Manifest file properties", "api-main-section") + property_lines
+        sidebartoc.append("  * `Manifest file properties`_")
 
     if len(permission_lines) > 0:
         lines.extend(header_2("Permissions", "api-main-section"))
         lines.extend(permission_lines)
-        
+        sidebartoc.append("  * `Permissions`_")
+
     return lines
 
 
