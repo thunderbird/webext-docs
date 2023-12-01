@@ -22,10 +22,11 @@ html_theme_options = {
     # Toc options
     'collapse_navigation': False,
     'sticky_navigation': True,
-    'navigation_depth': 4,
+    'navigation_depth': 3,
     'includehidden': True,
     'titles_only': False,
     'style_external_links': True,
+    'prev_next_buttons_location': "None"
 }
 
 html_context = {
