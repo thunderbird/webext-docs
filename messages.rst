@@ -664,6 +664,62 @@ Marks or unmarks a message as junk, read, flagged, or tagged. Updating external 
 
    - :permission:`messagesRead`
 
+.. _messages.abortList:
+
+abortList(messageListId)
+------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 120]
+
+Finalizes the specified list and terminates any process currently still adding messages.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.continueList:
+
+continueList(messageListId)
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageListId``
+      :type: (string)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: :ref:`messages.MessageList`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
 .. _messages.getAttachmentFile:
 
 getAttachmentFile(messageId, partName)
@@ -769,62 +825,6 @@ Opens the specified attachment
       
       The ID of the tab associated with the message opening.
    
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-.. _messages.abortList:
-
-abortList(messageListId)
-------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 120]
-
-Finalizes the specified list and terminates any process currently still adding messages.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageListId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
-.. _messages.continueList:
-
-continueList(messageListId)
----------------------------
-
-.. api-section-annotation-hack:: 
-
-Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageListId``
-      :type: (string)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: :ref:`messages.MessageList`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
