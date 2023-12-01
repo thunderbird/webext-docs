@@ -9,7 +9,7 @@
 
   .. include:: /developer-resources.rst
 
-  ≡ Other relevant information
+  ≡ Related information
 
   * `"Inline Attachment Preview" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplayScript.pdfPreview>`__
   * `"Notification Banner" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplayScript.pdfPreview>`__

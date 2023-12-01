@@ -11,7 +11,7 @@
 
   .. include:: /developer-resources.rst
 
-  ≡ Other relevant information
+  ≡ Related information
   
   * `Theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__
   * :doc:`/how-to/eventListeners`

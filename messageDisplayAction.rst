@@ -10,7 +10,7 @@
 
   .. include:: /developer-resources.rst
 
-  ≡ Other relevant information
+  ≡ Related information
 
   * `"Message Display" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplay>`__
   

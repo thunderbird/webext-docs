@@ -10,7 +10,7 @@
 
   .. include:: /developer-resources.rst
 
-  ≡ Other relevant information
+  ≡ Related information
   
   * :doc:`/how-to/eventListeners`
 
