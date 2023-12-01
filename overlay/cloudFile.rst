@@ -1,7 +1,7 @@
   ≡ Related information
 
   * :doc:`/how-to/eventListeners`
-  * `"DropBox Uploader" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/dropbox>`__
+  * `"DropBox Uploader" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/dropbox>`__
 
 =============
 cloudFile API

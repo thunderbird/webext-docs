@@ -1,8 +1,8 @@
   ≡ Related information
   
   * :doc:`/how-to/eventListeners`
-  * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/quickfilter>`__
-  * `"MailTab Layout" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/mailtabs>`__
+  * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/quickfilter>`__
+  * `"MailTab Layout" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/mailtabs>`__
 
 ============
 mailTabs API

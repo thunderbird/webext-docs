@@ -1,7 +1,7 @@
   ≡ Related information
   
   * :doc:`/how-to/eventListeners`
-  * `"Await Popup" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/awaitPopup>`__
+  * `"Await Popup" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/awaitPopup>`__
   
 ===========
 windows API

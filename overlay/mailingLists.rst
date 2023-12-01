@@ -2,7 +2,7 @@
   
   * :doc:`/how-to/contacts`
   * :doc:`/how-to/eventListeners`
-  * `"Address Book" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/addressBooks>`__
+  * `"Address Book" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/addressBooks>`__
 
 ================
 mailingLists API
