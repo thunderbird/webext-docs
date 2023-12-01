@@ -1,3 +1,11 @@
+.. container:: sticky-sidebar
+
+  ≡ sessions API
+
+  * `Functions`_
+
+  .. include:: /developer-resources.rst
+
 ============
 sessions API
 ============

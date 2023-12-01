@@ -1,3 +1,22 @@
+.. container:: sticky-sidebar
+
+  ≡ menus API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `External Types`_
+  * `Properties`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Other relevant information
+  
+  * :doc:`/how-to/eventListeners`
+  * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/quickfilter>`__
+  * `"Menu" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/menu>`__
+
 =========
 menus API
 =========

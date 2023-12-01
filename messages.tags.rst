@@ -1,6 +1,18 @@
+.. container:: sticky-sidebar
+
+  ≡ messages.tags API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
 =================
 messages.tags API
 =================
+
+The messages.tags API first appeared in Thunderbird 121.
 
 .. role:: permission
 

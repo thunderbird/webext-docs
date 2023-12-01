@@ -1,3 +1,17 @@
+.. container:: sticky-sidebar
+
+  ≡ addressBooks.provider API
+
+  * `Permissions`_
+  * `Events`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Other relevant information
+
+  * :doc:`/how-to/contacts`
+  * :doc:`/how-to/eventListeners`
+  
 =========================
 addressBooks.provider API
 =========================

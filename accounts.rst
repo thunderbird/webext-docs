@@ -1,4 +1,18 @@
+.. container:: sticky-sidebar
 
+  ≡ accounts API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Other relevant information
+
+  * :doc:`/how-to/eventListeners`
+  
 ============
 accounts API
 ============

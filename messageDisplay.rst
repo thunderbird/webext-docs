@@ -1,3 +1,16 @@
+.. container:: sticky-sidebar
+
+  ≡ messageDisplay API
+
+  * `Functions`_
+  * `Events`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Other relevant information
+
+  * `"Message Display" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplay>`__
+  
 ==================
 messageDisplay API
 ==================

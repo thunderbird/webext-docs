@@ -1,3 +1,19 @@
+.. container:: sticky-sidebar
+
+  ≡ composeAction API
+
+  * `Manifest file properties`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `External Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Other relevant information
+  
+  * :doc:`/how-to/eventListeners`
+
 =================
 composeAction API
 =================
