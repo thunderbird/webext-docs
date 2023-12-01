@@ -68,4 +68,3 @@ There are some measures to deal with these restrictions:
   the list id), the ``returnMessageListId`` property of the ``queryInfo`` object
   can be set. This changes the return value of :ref:`messages.query` and immediately
   returns the id of the associated message list.
-
