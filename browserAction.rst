@@ -163,7 +163,7 @@ Manifest file properties
 
 .. note::
 
-   One of the manifest entries :value:`action` or :value:`browser_action` is required to use ``messenger.browserAction.*``.
+   A manifest entry named :value:`browser_action` is required to use ``messenger.browserAction.*``.
 
 .. rst-class:: api-main-section
 
