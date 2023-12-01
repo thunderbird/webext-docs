@@ -1,4 +1,17 @@
-.. _commands_api:
+.. container:: sticky-sidebar
+
+  ≡ commands API
+
+  * `Manifest file properties`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+
+  * :doc:`/how-to/eventListeners`
 
 ============
 commands API

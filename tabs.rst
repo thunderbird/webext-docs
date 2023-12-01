@@ -1,4 +1,18 @@
-.. _tabs_api:
+.. container:: sticky-sidebar
+
+  ≡ tabs API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `Properties`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+  
+  * :doc:`/how-to/eventListeners`
 
 ========
 tabs API

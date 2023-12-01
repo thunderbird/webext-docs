@@ -1,4 +1,17 @@
-.. _folders_api:
+.. container:: sticky-sidebar
+
+  ≡ folders API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+  
+  * :doc:`/how-to/eventListeners`
 
 ===========
 folders API

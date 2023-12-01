@@ -1,4 +1,14 @@
-.. _browserAction_api:
+.. container:: sticky-sidebar
+
+  ≡ browserAction API
+
+  * `Manifest file properties`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `External Types`_
+
+  .. include:: /developer-resources.rst
 
 =================
 browserAction API
@@ -153,7 +163,7 @@ Manifest file properties
 
 .. note::
 
-   A manifest entry named :value:`browser_action` is required to use ``messenger.browserAction.*``.
+   One of the manifest entries :value:`action` or :value:`browser_action` is required to use ``messenger.browserAction.*``.
 
 .. rst-class:: api-main-section
 
@@ -774,13 +784,6 @@ Fired when an action button is clicked. This event will not fire if the action h
 
 Types
 =====
-
-.. _browserAction.ActionManifest:
-
-ActionManifest
---------------
-
-.. api-section-annotation-hack:: 
 
 .. _browserAction.ColorArray:
 

@@ -1,4 +1,20 @@
-.. _theme_api:
+.. container:: sticky-sidebar
+
+  ≡ theme API
+
+  * `Manifest file properties`_
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+  * `External Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+  
+  * `Theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__
+  * :doc:`/how-to/eventListeners`
 
 =========
 theme API

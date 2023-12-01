@@ -1,14 +1,25 @@
-.. _addressBooks_api:
+.. container:: sticky-sidebar
+
+  ≡ addressBooks API
+
+  * `Permissions`_
+  * `Functions`_
+  * `Events`_
+  * `Types`_
+
+  .. include:: /developer-resources.rst
+
+  ≡ Related information
+
+  * :doc:`/how-to/contacts`
+  * :doc:`/how-to/eventListeners`
+  * `"Address Book" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/addressBooks>`__
 
 ================
 addressBooks API
 ================
 
 The :doc:`addressBooks`, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
-
-The `Address Books`__ sample extension uses this API.
-
-__ https://github.com/thunderbird/sample-extensions/tree/master/addressBooks
 
 .. role:: permission
 
