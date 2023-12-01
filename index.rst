@@ -281,20 +281,20 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   changes/esr91
   changes/esr102
 
-Where To Get Help And More Information
+Where to get help and more information
 ======================================
 
-`Thunderbird add-on developer documentation`__
+`Introduction to add-on development`__
   Find information about creating and updating extensions for Thunderbird. Includes getting-started-tutorials and a collection of helpful articles and guides.
 
-`Thunderbird add-on developer community`__
-  Learn how to get in touch with other add-on developers, to ask questions and to share knowledge.
+`Add-on developer community`__
+  Learn how to get in touch with other Thunderbird add-on developers, to ask questions and to share knowledge.
   
-`Thunderbird sample extensions`__ 
+`Sample extensions`__ 
   A collection of MailExtensions, showing how to use Thunderbird WebExtension APIs.
   
 `MDN sample extensions`__
-  A collection of WebExtensions, showing how to use WebExtension APIs. They probably won't work directly in Thunderbird, but they may provide hints on how to use some of the WebExtension APIs that Thunderbird inherited from Firefox.
+  A collection of WebExtensions, showing how to use WebExtension APIs in Firefox. They probably won't work directly in Thunderbird, but they may provide hints on how to use some of the WebExtension APIs that Thunderbird inherited from Firefox.
 
 `MDN WebExtension documentation`__
   Find general information about the WebExtensions API cross-browser technology used by Firefox and many Chromium-based browsers. Not all information listed there apply to Thunderbird.
