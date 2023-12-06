@@ -110,7 +110,7 @@ Open a new message compose window forwarding a given message.
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
       
       The message to forward, as retrieved using other APIs.
    
@@ -165,7 +165,7 @@ Open a new message compose window.
    
    .. api-member::
       :name: [``messageId``]
-      :type: (integer, optional)
+      :type: (:ref:`messages.MessageId`, optional)
       :annotation: -- [Added in TB 84, backported to TB 78.7.0]
       
       If specified, the message or template to edit as a new message.
@@ -208,7 +208,7 @@ Open a new message compose window replying to a given message.
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
       
       The message to reply to, as retrieved using other APIs.
    
@@ -1418,7 +1418,7 @@ OR
             :name: ``id``
             :type: (string)
             
-            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists`.
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
          
          
          .. api-member::

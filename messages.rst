@@ -98,7 +98,7 @@ Archives messages using the current settings. Archiving external messages will t
    
    .. api-member::
       :name: ``messageIds``
-      :type: (array of integer)
+      :type: (array of :ref:`messages.MessageId`)
       
       The IDs of the messages to archive.
    
@@ -124,7 +124,7 @@ Copies messages to a specified folder.
    
    .. api-member::
       :name: ``messageIds``
-      :type: (array of integer)
+      :type: (array of :ref:`messages.MessageId`)
       
       The IDs of the messages to copy.
    
@@ -163,7 +163,7 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
    
    .. api-member::
       :name: ``messageIds``
-      :type: (array of integer)
+      :type: (array of :ref:`messages.MessageId`)
       
       The IDs of the messages to delete.
    
@@ -196,7 +196,7 @@ Returns the specified message.
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
 
 .. api-header::
@@ -229,7 +229,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
 
 .. api-header::
@@ -262,7 +262,7 @@ Returns the unmodified source of a message. Throws if the message could not be r
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
    
    .. api-member::
@@ -403,7 +403,7 @@ Moves messages to a specified folder. If the messages cannot be removed from the
    
    .. api-member::
       :name: ``messageIds``
-      :type: (array of integer)
+      :type: (array of :ref:`messages.MessageId`)
       
       The IDs of the messages to move.
    
@@ -649,7 +649,7 @@ Updates message properties and tags. Updating external messages will throw an *E
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
    
    .. api-member::
@@ -734,7 +734,7 @@ Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://deve
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
    
    .. api-member::
@@ -777,7 +777,7 @@ Lists the attachments of a message.
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
 
 .. api-header::
@@ -810,7 +810,7 @@ Opens the specified attachment
    
    .. api-member::
       :name: ``messageId``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
    
    .. api-member::
@@ -1155,7 +1155,7 @@ Basic information about a message.
    
    .. api-member::
       :name: ``id``
-      :type: (integer)
+      :type: (:ref:`messages.MessageId`)
    
    
    .. api-member::
@@ -1224,6 +1224,18 @@ Basic information about a message.
       
       Whether the message has been marked as read. Not available for external or attached messages.
    
+
+.. _messages.MessageId:
+
+MessageId
+---------
+
+.. api-section-annotation-hack:: 
+
+A unique id representing a :ref:`messages.MessageHeader` and the associated message. This id doesn’t refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.
+
+.. api-header::
+   :label: integer
 
 .. _messages.MessageList:
 

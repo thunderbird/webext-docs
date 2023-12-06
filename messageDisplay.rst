@@ -163,7 +163,7 @@ Opens a message in a new tab or in a new window.
       
       .. api-member::
          :name: [``messageId``]
-         :type: (integer, optional)
+         :type: (:ref:`messages.MessageId`, optional)
          
          The id of a message to be opened. Will throw an *ExtensionError*, if the provided ``messageId`` is unknown or invalid.
       

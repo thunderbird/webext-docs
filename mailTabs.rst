@@ -332,7 +332,7 @@ Selects none, one or multiple messages.
    
    .. api-member::
       :name: ``messageIds``
-      :type: (array of integer)
+      :type: (array of :ref:`messages.MessageId`)
       
       The IDs of the messages, which should be selected. The mail tab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
    
