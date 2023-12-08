@@ -6,8 +6,9 @@
   * `Functions`_
   * `Events`_
   * `Types`_
+  * `Examples`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
 
@@ -401,3 +402,12 @@ An object describing a mail account, as returned for example by the :ref:`accoun
       
       The folders for this account are only included if requested.
    
+
+
+.. rst-class:: examples
+
+Examples
+========
+
+
+.. include:: /examples/accounts.rst

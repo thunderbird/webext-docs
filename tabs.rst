@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
   
