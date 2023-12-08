@@ -789,7 +789,7 @@ def format_namespace(manifest, namespace):
     # Prepend sidebar toc.
     sidebartoc.extend([
         "",
-        "  .. include:: /developer-resources.rst",
+        "  .. include:: /overlay/developer-resources.rst",
         ""
     ])
 

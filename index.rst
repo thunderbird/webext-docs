@@ -9,7 +9,7 @@
   * :ref:`ChangeLog`
   * `Where to get help and more information`_
 
-  .. include:: developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
 
 ==============================================
