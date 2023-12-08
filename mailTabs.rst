@@ -6,11 +6,14 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
   
   * :doc:`/how-to/eventListeners`
+  
+  ≡ Related examples on Github
+  
   * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/quickfilter>`__
   * `"MailTab Layout" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/mailtabs>`__
 

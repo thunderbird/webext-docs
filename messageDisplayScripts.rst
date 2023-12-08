@@ -7,9 +7,9 @@
   * `Types`_
   * `External Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
-  ≡ Related information
+  ≡ Related examples on Github
 
   * `"Inline Attachment Preview" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplayScript.pdfPreview>`__
   * `"Notification Banner" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplayScript.pdfPreview>`__

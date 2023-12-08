@@ -6,8 +6,9 @@
   * `Functions`_
   * `Events`_
   * `Types`_
+  * `Examples`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
 
@@ -420,3 +421,12 @@ A unique id representing a :ref:`accounts.MailAccount`.
 
 .. api-header::
    :label: string
+
+
+.. rst-class:: examples
+
+Examples
+========
+
+
+.. include:: /examples/accounts.rst

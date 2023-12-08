@@ -7,7 +7,7 @@
   * `Types`_
   * `External Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
 ==================
 composeScripts API

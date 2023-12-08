@@ -4,7 +4,7 @@
 
   * `Functions`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
 ============
 sessions API
