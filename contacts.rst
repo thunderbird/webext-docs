@@ -7,12 +7,15 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
   
   * :doc:`/how-to/contacts`
   * :doc:`/how-to/eventListeners`
+
+  ≡ Related examples on Github
+
   * `"Address Book" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/addressBooks>`__
 
 ============

@@ -8,11 +8,14 @@
   * `Types`_
   * `External Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
 
   * :doc:`/how-to/eventListeners`
+
+  ≡ Related examples on Github
+
   * `"API List" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/apiList>`__
 
 ==========

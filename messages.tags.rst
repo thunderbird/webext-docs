@@ -6,7 +6,7 @@
   * `Functions`_
   * `Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
 =================
 messages.tags API
@@ -30,10 +30,11 @@ Permissions
 
    Create, modify and delete message tags
 
-.. api-member::
-   :name: :permission:`messagesTagsList`
+.. rst-class:: api-permission-info
 
-   List message tags
+.. note::
+
+   The permission :permission:`messagesRead` is required to use ``messenger.messages.tags.*``.
 
 .. rst-class:: api-main-section
 
@@ -77,6 +78,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. _messages.tags.delete:
@@ -102,6 +104,7 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. _messages.tags.list:
@@ -126,7 +129,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 .. api-header::
    :label: Required permissions
 
-   - :permission:`messagesTagsList`
+   - :permission:`messagesRead`
 
 .. _messages.tags.update:
 
@@ -170,6 +173,7 @@ Updates a message tag.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. rst-class:: api-main-section
@@ -248,5 +252,5 @@ Used for filtering messages by tag in various methods. Note that functions using
       :name: ``tags``
       :type: (object)
       
-      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.tags.list` method.
+      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.listTags` method.
    

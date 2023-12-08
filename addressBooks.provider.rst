@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Events`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
 

@@ -7,11 +7,14 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /developer-resources.rst
+  .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
   
   * :doc:`/how-to/eventListeners`
+
+  ≡ Related examples on Github
+
   * `"Compose Body" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/composeBody>`__
 
 ===========
@@ -1313,7 +1316,7 @@ Used by various functions to represent the state of a message being composed. No
    
    .. api-member::
       :name: [``relatedMessageId``]
-      :type: (integer, optional)
+      :type: (:ref:`messages.MessageId`, optional)
       :annotation: -- [Added in TB 95]
       
       The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`null` in all other cases or if the original message was opened from file.
