@@ -1,4 +1,4 @@
-  ≡ Related information
+  ≡ Related examples on Github
 
   * `"Message Display" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplay>`__
   
