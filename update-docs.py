@@ -8,6 +8,7 @@ import argparse, glob, json, os, re
 
 DEST_DIR = os.path.dirname(__file__)
 OVERLAY_DIR = os.path.join(DEST_DIR, "overlay")
+EXAMPLE_DIR = os.path.join(DEST_DIR, "examples")
 MV = 2
 
 current_namespace = None
@@ -785,6 +786,14 @@ def format_namespace(manifest, namespace):
 
     if lines[-1] != "":
         lines.append("")
+
+    examples = os.path.join(EXAMPLE_DIR, namespace["namespace"] + ".rst")
+    if os.path.exists(examples):
+        lines.append("")
+        lines.extend(header_2("Examples","examples"))
+        lines.append("")
+        lines.append(".. include:: /examples/%s.rst" % (namespace["namespace"]))
+        sidebartoc.append("  * `Examples`_")
 
     # Prepend sidebar toc.
     sidebartoc.extend([
