@@ -39,7 +39,7 @@ beginNew([messageId], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a new message compose window. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+Open a new message compose window. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
 
 .. api-header::
    :label: Parameters
@@ -76,7 +76,7 @@ beginReply(messageId, [replyType], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a new message compose window replying to a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+Open a new message compose window replying to a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
 
 .. api-header::
    :label: Parameters
@@ -129,7 +129,7 @@ beginForward(messageId, [forwardType], [details])
 
 .. api-section-annotation-hack:: 
 
-Open a new message compose window forwarding a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` API can be used to get the used/default identity and its default compose format.
+Open a new message compose window forwarding a given message. If the provided ComposeDetails object does not provide ``body``, ``plainTextBody`` or ``isPlainText``, the default compose format of the used/default identity is used. The :ref:`accounts_api` can be used to get the used/default identity and its default compose format.
 
 .. api-header::
    :label: Parameters
@@ -795,7 +795,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (string, optional)
       :annotation: -- [Added in TB 76]
       
-      The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
+      The ID of an identity from the :doc:`accounts`. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
    
    
    .. api-member::
@@ -901,7 +901,7 @@ OR
             :name: ``id``
             :type: (string)
             
-            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists`.
          
          
          .. api-member::
