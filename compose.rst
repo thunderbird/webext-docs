@@ -1421,7 +1421,7 @@ OR
             :name: ``id``
             :type: (string)
             
-            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists`.
          
          
          .. api-member::
