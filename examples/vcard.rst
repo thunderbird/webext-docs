@@ -1,5 +1,3 @@
-.. _howto_contacts:
-
 ===========================
 Working with vCard contacts
 ===========================

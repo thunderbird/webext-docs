@@ -94,7 +94,7 @@ compose API
   serialise the document back to a string before calling setComposeDetails. `Here's a sample
   extension.`__
 
-  __ https://github.com/thunderbird/sample-extensions/tree/master/composeBody
+  __ https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/composeBody
 
 messages API
 ============

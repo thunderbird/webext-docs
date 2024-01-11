@@ -11,8 +11,8 @@
 
   ≡ Related information
   
-  * :doc:`/how-to/contacts`
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/vcard`
+  * :doc:`/examples/eventListeners`
 
   ≡ Related examples on Github
 
@@ -507,7 +507,7 @@ ContactProperties
 
 .. api-section-annotation-hack:: 
 
-A set of individual properties for a particular contact, and its vCard string. Further information can be found in :ref:`howto_contacts`.
+A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`examples/vcard`.
 
 .. api-header::
    :label: object

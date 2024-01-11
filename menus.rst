@@ -12,7 +12,7 @@
 
   ≡ Related information
   
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/eventListeners`
 
   ≡ Related examples on Github
 

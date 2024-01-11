@@ -1,7 +1,7 @@
   ≡ Related information
 
-  * :doc:`/how-to/contacts`
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/vcard`
+  * :doc:`/examples/eventListeners`
   
 =========================
 addressBooks.provider API
