@@ -1,7 +1,7 @@
   ≡ Related information
   
-  * :doc:`/how-to/eventListeners`
-  
+  * :doc:`/examples/eventListeners`
+
   ≡ Related examples on Github
   
   * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/quickfilter>`__

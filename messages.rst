@@ -11,8 +11,8 @@
 
   ≡ Related information
   
-  * :doc:`/how-to/messageLists`
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/messageLists`
+  * :doc:`/examples/eventListeners`
 
 ============
 messages API
@@ -29,7 +29,7 @@ The messages API first appeared in Thunderbird 66.
 .. warning::
 
   Some functions in this API potentially return *a lot* of messages. Be careful what you wish for!
-  See :doc:`how-to/messageLists` for more information.
+  See :doc:`examples/messageLists` for more information.
 
 .. role:: permission
 
@@ -700,7 +700,7 @@ continueList(messageListId)
 
 .. api-section-annotation-hack:: 
 
-Returns the next chunk of messages in a list. See :doc:`how-to/messageLists` for more information.
+Returns the next chunk of messages in a list. See :doc:`examples/messageLists` for more information.
 
 .. api-header::
    :label: Parameters
@@ -1386,7 +1386,7 @@ MessageList
 
 .. api-section-annotation-hack:: 
 
-See :doc:`how-to/messageLists` for more information.
+See :doc:`examples/messageLists` for more information.
 
 .. api-header::
    :label: object

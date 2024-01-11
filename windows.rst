@@ -11,8 +11,8 @@
 
   ≡ Related information
   
-  * :doc:`/how-to/eventListeners`
-  
+  * :doc:`/examples/eventListeners`
+
   ≡ Related examples on Github
   
   * `"Await Popup" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/awaitPopup>`__
