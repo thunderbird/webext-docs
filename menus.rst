@@ -6,7 +6,6 @@
   * `Functions`_
   * `Events`_
   * `Types`_
-  * `External Types`_
   * `Properties`_
 
   .. include:: /overlay/developer-resources.rst
@@ -114,7 +113,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.IconPath`, optional)
+         :type: (:ref:`menus.MenuIconPath`, optional)
          
          Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
       
@@ -386,7 +385,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.IconPath`, optional)
+         :type: (:ref:`menus.MenuIconPath`, optional)
       
       
       .. api-member::
@@ -744,6 +743,28 @@ The type of menu item.
          .. api-member::
             :name: :value:`separator`
    
+
+.. _menus.MenuIconPath:
+
+MenuIconPath
+------------
+
+.. api-section-annotation-hack:: 
+
+Either a *string* to specify a single icon path to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *name* being a size and *value* being a path to the icon for the specified size. Example: 
+
+.. literalinclude:: includes/MenuIconPath.json
+  :language: JSON
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. 
+
+.. api-header::
+   :label: :ref:`menus.SingleMenuIconPath`
+
+OR
+
+.. api-header::
+   :label: object
 
 .. _menus.OnClickData:
 
@@ -1121,26 +1142,27 @@ Information sent when a context menu is being shown. Some properties are only in
       The type of view where the menu is shown. May be unset if the menu is not associated with a view.
    
 
-.. rst-class:: api-main-section
+.. _menus.SingleMenuIconPath:
 
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _menus.IconPath:
-
-IconPath
---------
+SingleMenuIconPath
+------------------
 
 .. api-section-annotation-hack:: 
 
-Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
+The provided path may be a relative path to an icon file, an image :value:`data:` URL, a :value:`blob:` URL or a :value:`moz-extension::value:` URL. The :value:`data:` or :value:`blob:` URLs can be retrieved as follows: 
 
-.. literalinclude:: includes/IconPath.json
-  :language: JSON
+.. literalinclude:: includes/DataBlobUrls.js
+  :language: JavaScript
 
-See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
+,
+
+.. api-header::
+   :label: string
+
+OR
+
+.. api-header::
+   :label: string
 
 .. rst-class:: api-main-section
 
