@@ -9,7 +9,7 @@
 
   ≡ Related information
 
-  * :doc:`/examples/contacts`
+  * :doc:`/examples/vcard`
   * :doc:`/examples/eventListeners`
   
 =========================

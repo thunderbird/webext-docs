@@ -6,13 +6,12 @@
   * `Functions`_
   * `Events`_
   * `Types`_
-  * `Examples`_
 
   .. include:: /overlay/developer-resources.rst
 
   ≡ Related information
   
-  * :doc:`/examples/contacts`
+  * :doc:`/examples/vcard`
   * :doc:`/examples/eventListeners`
 
   ≡ Related examples on Github
@@ -508,7 +507,7 @@ ContactProperties
 
 .. api-section-annotation-hack:: 
 
-A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`/examples/contacts`.
+A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`/examples/vcard`.
 
 .. api-header::
    :label: object
@@ -595,12 +594,3 @@ Object defining a query for :ref:`contacts.quickSearch`.
       
       One or more space-separated terms to search for.
    
-
-
-.. rst-class:: examples
-
-Examples
-========
-
-
-.. include:: /examples/contacts.rst

@@ -11,7 +11,7 @@
 
   ≡ Related information
 
-  * :doc:`/examples/contacts`
+  * :doc:`/examples/vcard`
   * :doc:`/examples/eventListeners`
   
   ≡ Related examples on Github
