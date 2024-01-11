@@ -1246,7 +1246,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (string, optional)
       :annotation: -- [Added in TB 76]
       
-      The ID of an identity from the :doc:`accounts` API. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
+      The ID of an identity from the :doc:`accounts`. The settings from the identity will be used in the composed message. If ``replyTo`` is also specified, the ``replyTo`` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the ``identityId``.
    
    
    .. api-member::
@@ -1421,7 +1421,7 @@ OR
             :name: ``id``
             :type: (string)
             
-            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists` APIs.
+            The ID of a contact or mailing list from the :doc:`contacts` and :doc:`mailingLists`.
          
          
          .. api-member::
