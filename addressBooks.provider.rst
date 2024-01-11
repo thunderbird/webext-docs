@@ -9,8 +9,8 @@
 
   ≡ Related information
 
-  * :doc:`/how-to/contacts`
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/contacts`
+  * :doc:`/examples/eventListeners`
   
 =========================
 addressBooks.provider API

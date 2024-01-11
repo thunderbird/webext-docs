@@ -11,7 +11,7 @@
 
   ≡ Related information
   
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/eventListeners`
 
 ===========
 folders API

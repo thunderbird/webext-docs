@@ -11,8 +11,8 @@
 
   ≡ Related information
   
-  * :doc:`/how-to/contacts`
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/contacts`
+  * :doc:`/examples/eventListeners`
 
   ≡ Related examples on Github
 

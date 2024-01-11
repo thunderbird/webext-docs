@@ -5,7 +5,8 @@
   * `Getting started`_
   * `Thunderbird WebExtension APIs`_
   * `Firefox WebExtension APIs supported by Thunderbird`_
-  * :ref:`HowToGuide`
+  * :ref:`Examples`
+  * :ref:`Experiments`
   * :ref:`ChangeLog`
   * `Where to get help and more information`_
 
@@ -280,16 +281,26 @@ as well. The APIs listed in the following table are known to work with Thunderbi
   tabs
   windows
 
-.. _HowToGuide:
+.. _Examples:
+
+.. toctree::
+  :glob:
+  :maxdepth: 1
+  :caption: Examples
+
+  examples/*
+
+.. _Experiments:
 
 .. toctree::
   :maxdepth: 1
-  :caption: How-to guides
+  :caption: Experiment APIs
 
-  how-to/contacts
-  how-to/eventListeners
-  how-to/messageLists
-  how-to/experiments
+  experiments/introduction
+  experiments/generator
+  experiments/folders_and_messages
+  experiments/tabs_and_windows
+  experiments/contribute
 
 .. _ChangeLog:
 

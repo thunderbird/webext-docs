@@ -1,7 +1,7 @@
   ≡ Related information
   
   * `Theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__
-  * :doc:`/how-to/eventListeners`
+  * :doc:`/examples/eventListeners`
 
 =========
 theme API
