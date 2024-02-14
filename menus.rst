@@ -1149,12 +1149,10 @@ SingleMenuIconPath
 
 .. api-section-annotation-hack:: 
 
-The provided path may be a relative path to an icon file, or a :value:`moz-extension::value:` URL. Support for dynamic :value:`blob:` URLs or dynamic image :value:`data:` URL was added in Thunderbird 115.8. A :value:`data:` or :value:`blob:` URL can be retrieved as follows: 
+The path for a menu icon may be a relative path to an icon file, or a :value:`moz-extension:` URL. Support for dynamic :value:`blob:` URLs or dynamic image :value:`data:` URLs was added in Thunderbird 115.8. A :value:`data:` or :value:`blob:` URL can be retrieved as follows: 
 
 .. literalinclude:: includes/DataBlobUrls.js
   :language: JavaScript
-
-,
 
 .. api-header::
    :label: string
