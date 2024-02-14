@@ -68,6 +68,11 @@ Permissions
    Change properties and tags of your email messages
 
 .. api-member::
+   :name: :permission:`messagesModifyPermanent`
+
+   Permanently modify the source of your messages (including headers, body and attachments)
+
+.. api-member::
    :name: :permission:`sensitiveDataUpload`
 
    Transfer sensitive user data (if access has been granted) to a remote server for further processing
@@ -180,6 +185,37 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
 
    - :permission:`messagesRead`
    - :permission:`messagesDelete`
+
+.. _messages.deleteAttachments:
+
+deleteAttachments(messageId, partNames)
+---------------------------------------
+
+.. api-section-annotation-hack:: 
+
+Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partNames``
+      :type: (array of string)
+      
+      An array of attachments, identifiying the to be detached attachments by their :value:`partName`.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesModifyPermanent`
 
 .. _messages.get:
 
@@ -1196,7 +1232,7 @@ Represents an attachment in a message.
       :name: ``contentType``
       :type: (string)
       
-      The content type of the attachment.
+      The content type of the attachment. A value of :value:`text/x-moz-deleted` indicates that the original attachment was permanently deleted and replaced by a placeholder text attachment with some meta information about the original attachment.
    
    
    .. api-member::
