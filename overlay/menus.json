@@ -123,6 +123,10 @@
             "added": "89"
           }
         }
+      },
+      {
+        "id": "SingleMenuIconPath",
+        "type": "string"
       }
     ]
   }
