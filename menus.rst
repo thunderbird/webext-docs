@@ -753,7 +753,7 @@ MenuIconPath
 
 Either a :ref:`menus.SingleMenuIconPath` to specify a single icon path to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *name* being a size and *value* being a path to the icon for the specified size. Example: 
 
-.. literalinclude:: includes/MenuIconPath.json
+.. literalinclude:: includes/IconPath.json
   :language: JSON
 
 See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. 
