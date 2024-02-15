@@ -71,7 +71,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :name: ``color``
       :type: (string)
       
-      Tag color in hex format (i.e.: #000080 for navy blue)
+      Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.
    
 
 .. api-header::
@@ -135,7 +135,7 @@ update(key, updateProperties)
 
 .. api-section-annotation-hack:: 
 
-Updates a message tag.
+Updates a message tag. Throws if the specified tag key does not exist.
 
 .. api-header::
    :label: Parameters
@@ -156,7 +156,7 @@ Updates a message tag.
          :name: [``color``]
          :type: (string, optional)
          
-         Tag color in hex format (i.e.: #000080 for navy blue).
+         Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.
       
       
       .. api-member::
