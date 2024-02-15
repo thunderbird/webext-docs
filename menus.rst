@@ -385,7 +385,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.MenuIconPath`, optional)
+         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
       
       
       .. api-member::
@@ -751,7 +751,7 @@ MenuIconDictionary
 
 .. api-section-annotation-hack:: 
 
-A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the users display. Each entry is a *name-value* pair with *name* being a size and *value* being a :ref:`menus.MenuIconPath`. Example: 
+A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath`. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
