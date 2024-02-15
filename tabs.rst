@@ -149,7 +149,7 @@ Creates a new content tab. Use the :ref:`messageDisplay_api` to open messages. O
          :name: [``url``]
          :type: (string, optional)
          
-         The URL to navigate the tab to initially. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the current page within the extension.
+         The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension. 
       
       
       .. api-member::
