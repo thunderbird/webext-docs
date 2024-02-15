@@ -113,7 +113,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.MenuIconPath`, optional)
+         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
          
          Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
       
@@ -385,7 +385,7 @@ Updates a previously created context menu item.
       
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.MenuIconPath`, optional)
+         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
       
       
       .. api-member::
@@ -744,14 +744,14 @@ The type of menu item.
             :name: :value:`separator`
    
 
-.. _menus.MenuIconPath:
+.. _menus.MenuIconDictionary:
 
-MenuIconPath
-------------
+MenuIconDictionary
+------------------
 
 .. api-section-annotation-hack:: 
 
-Either a :ref:`menus.SingleMenuIconPath` to specify a single icon path to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *name* being a size and *value* being a path to the icon for the specified size. Example: 
+A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath`. Example: 
 
 .. literalinclude:: includes/IconPath.json
   :language: JSON
@@ -759,12 +759,22 @@ Either a :ref:`menus.SingleMenuIconPath` to specify a single icon path to be use
 See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. 
 
 .. api-header::
-   :label: :ref:`menus.SingleMenuIconPath`
+   :label: object
 
-OR
+.. _menus.MenuIconPath:
+
+MenuIconPath
+------------
+
+.. api-section-annotation-hack:: 
+
+The path for a menu icon may be a relative path to an icon file or a :value:`moz-extension:` URL. Support for dynamic :value:`blob:` URLs and dynamic image :value:`data:` URLs was added in Thunderbird Beta 123. A :value:`data:` URL a or :value:`blob:` URL can be retrieved as follows: 
+
+.. literalinclude:: includes/DataBlobUrls.js
+  :language: JavaScript
 
 .. api-header::
-   :label: object
+   :label: string
 
 .. _menus.OnClickData:
 
@@ -1141,21 +1151,6 @@ Information sent when a context menu is being shown. Some properties are only in
       
       The type of view where the menu is shown. May be unset if the menu is not associated with a view.
    
-
-.. _menus.SingleMenuIconPath:
-
-SingleMenuIconPath
-------------------
-
-.. api-section-annotation-hack:: 
-
-The path for a menu icon may be a relative path to an icon file or a :value:`moz-extension:` URL. Support for dynamic :value:`blob:` URLs and dynamic image :value:`data:` URLs was added in Thunderbird 115.8. A :value:`data:` URL a or :value:`blob:` URL can be retrieved as follows: 
-
-.. literalinclude:: includes/DataBlobUrls.js
-  :language: JavaScript
-
-.. api-header::
-   :label: string
 
 .. rst-class:: api-main-section
 

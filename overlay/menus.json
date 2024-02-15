@@ -125,7 +125,7 @@
         }
       },
       {
-        "id": "SingleMenuIconPath",
+        "id": "MenuIconPath",
         "type": "string"
       }
     ]
