@@ -746,7 +746,7 @@ Deletes the specified attachments and replaces them by placeholder text attachme
       :name: ``partNames``
       :type: (array of string)
       
-      An array of attachments, identifiying the to be deleted attachments by their :value:`partName`.
+      An array of attachments, identifying the to be deleted attachments by their :value:`partName`.
    
 
 .. api-header::
