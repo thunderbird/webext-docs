@@ -186,37 +186,6 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
    - :permission:`messagesRead`
    - :permission:`messagesDelete`
 
-.. _messages.deleteAttachments:
-
-deleteAttachments(messageId, partNames)
----------------------------------------
-
-.. api-section-annotation-hack:: 
-
-Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageId``
-      :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``partNames``
-      :type: (array of string)
-      
-      An array of attachments, identifiying the to be detached attachments by their :value:`partName`.
-   
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesModifyPermanent`
-
 .. _messages.get:
 
 get(messageId)
@@ -754,6 +723,37 @@ Returns the next chunk of messages in a list. See :doc:`examples/messageLists` f
    :label: Required permissions
 
    - :permission:`messagesRead`
+
+.. _messages.deleteAttachments:
+
+deleteAttachments(messageId, partNames)
+---------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 123]
+
+Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (integer)
+   
+   
+   .. api-member::
+      :name: ``partNames``
+      :type: (array of string)
+      
+      An array of attachments, identifiying the to be deleted attachments by their :value:`partName`.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesModifyPermanent`
 
 .. _messages.getAttachmentFile:
 
