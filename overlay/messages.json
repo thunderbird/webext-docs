@@ -61,6 +61,11 @@
         "sort": "2"
       },
       {
+        "name": "deleteAttachments",
+        "added": "123",
+        "sort": "2"
+      },
+      {
         "name": "import",
         "added": "106"
       },
