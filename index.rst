@@ -11,9 +11,9 @@
   .. include:: /overlay/developer-resources.rst
 
 
-===============================================
-WebExtension Documentation for Thunderbird Beta
-===============================================
+==============================================
+WebExtension Documentation for Thunderbird 128
+==============================================
 
 Getting started
 ===============
