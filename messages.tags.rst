@@ -12,7 +12,7 @@
 messages.tags API
 =================
 
-The messages.tags API first appeared in Thunderbird 121.
+The messages.tags API allows to manage the user's message tags.
 
 .. role:: permission
 

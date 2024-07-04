@@ -7,7 +7,7 @@
 messages API
 ============
 
-The messages API first appeared in Thunderbird 66.
+The messages API allows to access and manage the user's messages.
 
 .. note::
 

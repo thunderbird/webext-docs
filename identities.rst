@@ -17,7 +17,7 @@
 identities API
 ==============
 
-The identities API first appeared in Thunderbird 91.
+The identities API allows to manage the user's identities (each account can have multiple identities).
 
 
 .. role:: permission

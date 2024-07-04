@@ -22,7 +22,7 @@
 contacts API
 ============
 
-The :doc:`addressBooks`, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
+The contacts API allows to access and manage the user's contacts.
 
 .. role:: permission
 

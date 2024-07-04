@@ -22,7 +22,7 @@
 mailingLists API
 ================
 
-The :doc:`addressBooks`, also including the :doc:`contacts` and :doc:`mailingLists` namespaces, first appeared in Thunderbird 64.
+The mailingLists API allows to access and manage the user's mailing lists.
 
 .. role:: permission
 

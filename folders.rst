@@ -18,8 +18,7 @@
 folders API
 ===========
 
-The folders API first appeared in Thunderbird 68 as a part of the
-:doc:`accounts`. It was later moved here.
+The folders API allows to manage the user's message folders.
 
 .. role:: permission
 

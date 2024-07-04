@@ -18,7 +18,7 @@
 accounts API
 ============
 
-The accounts API first appeared in Thunderbird 66.
+The accounts API provides access to the user's server accounts.
 
 .. role:: permission
 
