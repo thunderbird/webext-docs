@@ -2,9 +2,9 @@
 Changes in Manifest Version 3
 =============================
 
-Thunderbird 128 ESR is the first Thunderbird release which officially supports Manifest Version 3.
+Thunderbird 128 ESR is the first Thunderbird release to officially support Manifest Version 3.
 
-A general introduction to Manifest V3 and the required changes is available on `extensionworkshop.com <https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/>`__. Thunderbird's add-on team made additional changes to its WebExtension APIs, to remove inconsistencies. This page
+A general introduction to Manifest V3 and the required changes is provided by `extensionworkshop.com <https://extensionworkshop.com/documentation/develop/manifest-v3-migration-guide/>`__. Thunderbird's add-on team made additional changes to its WebExtension APIs, to remove inconsistencies. This page
 documents these backward incompatible changes from Manifest V2 to Manifest V3.
 
 Additionally, the examples in our `sample repository <https://github.com/thunderbird/sample-extensions>`__ have been converted to Manifest V3, and might give helpful insights.
