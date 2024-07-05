@@ -6,8 +6,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     var others = [];
     $.each(versions, function (i, version) {
         if (version.slug != running_version.slug && version.slug != highest_version.slug) {
-            let label = version.title;
-            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + title + "</a>");
+            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + version.title + "</a>");
         }
     });
     let other = others.pop();
