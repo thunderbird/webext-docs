@@ -6,11 +6,8 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     var others = [];
     $.each(versions, function (i, version) {
         if (version.slug != running_version.slug && version.slug != highest_version.slug) {
-            let label = version.slug;
-            if (label.startsWith("latest")) {
-                label = "Latest"
-            }
-            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + label + "</a>");
+            let label = version.title;
+            others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + title + "</a>");
         }
     });
     let other = others.pop();
@@ -51,7 +48,7 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
                 .replace("{id_div}", config.banner.id_div)
                 .replace("{banner_title}", title)
                 .replace("{admonition_type}", type)
-                .replace("{newest}", '<a href="' + current_url.replace(running_version.slug, highest_version.slug) + '">' + highest_version.slug + '</a>')
+                .replace("{newest}", '<a href="' + current_url.replace(running_version.slug, highest_version.slug) + '">' + highest_version.title + '</a>')
                 .replace("{this}", running_version.slug)
                 .replace("{other}", other)
         );
@@ -61,19 +58,19 @@ function injectVersionWarningBanner(running_version, highest_version, config, ve
     }
 }
 
-function getHighestVersion(versions) {
+function getHighestVersion(results) {
     console.debug("getHighestVersion");
     var highest_version;
 
-    $.each(versions, function (i, version) {
-        if (isNaN(version.slug)) {
+    $.each(results, function (i, result) {
+        if (isNaN(result.slug)) {
             // Skip versions that are not numbers
         }
         else if (!highest_version) {
-            highest_version = version;
+            highest_version = result;
         }
-        else if (parseInt(version.slug, 10) > parseInt(highest_version.slug, 10)) {
-            highest_version = version;
+        else if (result.version, 10 > highest_version.version) {
+            highest_version = result;
         }
     });
     return highest_version;
