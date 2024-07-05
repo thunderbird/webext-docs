@@ -1,16 +1,51 @@
 {
   "results": [
     {
-      "slug": "91"
+      "slug": "latest",
+      "title": "Beta (Manifest V3)",
+      "version": 0
     },
     {
-      "slug": "102"
+      "slug": "beta-mv2",
+      "title": "Beta (Manifest V2)",
+      "manifest_version": 2,
+      "version": 0
     },
     {
-      "slug": "115"
+      "slug": "beta-mv3",
+      "title": "Beta (Manifest V3)",
+      "manifest_version": 3,
+      "version": 0
     },
     {
-      "slug": "latest"
+      "slug": "91",
+      "title": "91",
+      "manifest_version": 2,
+      "version": 91
+    },
+    {
+      "slug": "102",
+      "title": "102",
+      "manifest_version": 2,
+      "version": 102
+    },
+    {
+      "slug": "115",
+      "title": "115",
+      "manifest_version": 2,
+      "version": 115
+    },
+    {
+      "slug": "128-esr-mv2",
+      "title": "128 (Manifest V2)",
+      "manifest_version": 2,
+      "version": 128
+    },
+    {
+      "slug": "128-esr-mv3",
+      "title": "128 (Manifest V3)",
+      "manifest_version": 3,
+      "version": 128
     }
   ]
 }
