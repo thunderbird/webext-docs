@@ -10,7 +10,7 @@ function injectVersionWarningBanner(running_version_slug, config, versions) {
 
     var others = [];
     $.each(versions, function (i, version) {
-        if (version.slug != running_version.slug && version.slug != highest_version.slug) {
+        if (version.slug != running_version.slug && version.slug != highest_version.slug && version.slug != "latest") {
             others.push("<a href='" + current_url.replace(running_version.slug, version.slug) + "'>" + version.title + "</a>");
         }
     });
