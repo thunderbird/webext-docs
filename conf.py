@@ -43,22 +43,6 @@ html_static_path = ['_static']
 # Configure headers
 versionwarning_body_selector = 'div[itemprop="articleBody"] h1'
 
-versionwarning_latest_type = 'warning'
-versionwarning_latest_title = 'Warning'
-versionwarning_latest_message = 'This is the documentation for Thunderbird Beta (Manifest Version 2). See version {newest} for the current ESR of Thunderbird.'
-
-versionwarning_latest_mv3_type = 'danger'
-versionwarning_latest_mv3_title = 'Warning (Manifest V3)'
-versionwarning_latest_message = 'This is the documentation for Thunderbird Beta (Manifest Version 3). See version {newest} for the current ESR of Thunderbird.'
-
-versionwarning_current_type = 'note'
-versionwarning_current_title = 'Note'
-versionwarning_current_indexmessage = 'This is the documentation for the current ESR of Thunderbird, version {newest}. Other available versions are: {other}'
-
-versionwarning_older_type = 'warning'
-versionwarning_older_title = 'Warning'
-versionwarning_older_message = 'This is an outdated documentation for Thunderbird {this}. See version {newest} for the current ESR of Thunderbird.'
-
 def setup(app):
    app.add_js_file("custom.js")
    app.add_css_file('theme_overrides.css')
