@@ -95,7 +95,7 @@ function checkVersion(config) {
         // Access of API is broken by CORS
         // https://readthedocs.org/api/v2/version/?project__slug=thunderbird-webextension-apis&active=true
         //url: config.meta.api_url + "version/",
-        url: "https://webextension-api.thunderbird.net/en/stable/_static/versions.json",
+        url: "https://webextension-api.thunderbird.net/en/latest/_static/versions.json",
         // Used when working locally for development
         // crossDomain: true,
         // xhrFields: {
@@ -107,6 +107,7 @@ function checkVersion(config) {
             // TODO: fetch more versions if there are more pages (next)
             highest_version = getHighestVersion(versions["results"]);
             console.debug("Highest version: " + highest_version.slug);
+            console.debug({running_version, highest_version, config, versions})
             injectVersionWarningBanner(running_version, highest_version, config, versions["results"]);
         },
         error: function () {
@@ -125,6 +126,7 @@ function init() {
         url: base_url + "../../_static/data/versionwarning-data.json",
         success: function (config) {
             // Check if there is already a banner added statically
+            console.debug({config})
             var banner = document.getElementById(config.banner.id_div);
             if (banner) {
                 console.debug("There is already a banner added. No checking versions.")
