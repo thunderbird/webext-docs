@@ -66,14 +66,11 @@ function injectVersionWarningBanner(running_version_slug, config, versions) {
 }
 
 function getHighestVersion(results) {
-    console.debug("getHighestVersion");
+    console.debug("getHighestVersion", results);
     var highest_version;
 
-    $.each(results, function (i, result) {
-        if (isNaN(result.slug)) {
-            // Skip versions that are not numbers
-        }
-        else if (!highest_version) {
+    results.forEach(result => {
+        if (!highest_version) {
             highest_version = result;
         }
         else if (result.version > highest_version.version) {
