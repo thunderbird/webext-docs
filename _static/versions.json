@@ -3,6 +3,7 @@
     {
       "slug": "latest",
       "title": "Beta (Manifest V3)",
+      "manifest_version": 3,
       "version": 0
     },
     {
