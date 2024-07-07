@@ -57,10 +57,10 @@ folders API
 * The ``favorite`` property of :ref:`folders.MailFolderInfo` has been removed. It is now available as a property of :ref:`folders.MailFolder`.
 * The ``type`` property of the ``queryInfo`` parameter of :ref:`folders.query` has been removed. Use the ``specialUse`` property instead.
 * Default value for the ``includeSubFolders`` parameter of :ref:`folders.get` has been changed from ``true`` to ``false``.
-* :ref:`folders.create` no longer accepts a :ref:`folders.MailFolder` or :ref:`accounts.MailAccount` for its first parameter, but a :ref:`folders.MailFolderId`. Use the accounts ``rootFolder`` to create a new folder at the accounts top level.
+* :ref:`folders.create` no longer accepts a :ref:`folders.MailFolder` or :ref:`accounts.MailAccount` for its first parameter, but a :ref:`folders.MailFolderId`. Use ``MailAccount.rootFolder`` to specify the root of an account.
 * :ref:`folders.rename` no longer accepts a :ref:`folders.MailFolder` for its first parameter, but a :ref:`folders.MailFolderId`.
-* :ref:`folders.move` no longer accepts a :ref:`folders.MailFolder` or :ref:`accounts.MailAccount` for its parameters, but a :ref:`folders.MailFolderId`. Use the accounts ``rootFolder`` to move a folder to the accounts top level.
-* :ref:`folders.copy` no longer accepts a :ref:`folders.MailFolder` or :ref:`accounts.MailAccount` for its parameters, but a :ref:`folders.MailFolderId`. Use the accounts ``rootFolder`` to copy a folder to the accounts top level.
+* :ref:`folders.move` no longer accepts a :ref:`folders.MailFolder` or :ref:`accounts.MailAccount` for its parameters, but a :ref:`folders.MailFolderId`. Use ``MailAccount.rootFolder`` to specify the root of an account.
+* :ref:`folders.copy` no longer accepts a :ref:`folders.MailFolder` or :ref:`accounts.MailAccount` for its parameters, but a :ref:`folders.MailFolderId`. Use ``MailAccount.rootFolder`` to specify the root of an account.
 * :ref:`folders.delete` no longer accepts a :ref:`folders.MailFolder` for its first parameter, but a :ref:`folders.MailFolderId`.
 * :ref:`folders.update` no longer accepts a :ref:`folders.MailFolder` for its first parameter, but a :ref:`folders.MailFolderId`.
 * :ref:`folders.getFolderInfo` no longer accepts a :ref:`folders.MailFolder` for its first parameter, but a :ref:`folders.MailFolderId`.
@@ -80,7 +80,7 @@ mailTabs API
 menus API
 =========
 * The built-in ``_execute_browser_action`` shortcut for the ``command`` property of the ``createProperties`` parameter of :ref:`menus.create` has been renamed to ``_execute_action``.
-* The values ``browser_action`` and ``browser_action_menu`` for :ref:`menus.ContextTypes` have been renamed to ``action`` and ``action_menu``.
+* The values ``browser_action`` and ``browser_action_menu`` of :ref:`menus.ContextType` have been renamed to ``action`` and ``action_menu``.
 * The ``selectedAccount`` and ``selectedFolder`` properties have been removed from :ref:`menus.OnShowData` and :ref:`menus.OnClickData`. Use the ``selectedFolders`` property instead.
 
 messageDisplay API
