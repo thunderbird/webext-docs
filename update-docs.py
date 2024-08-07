@@ -275,13 +275,6 @@ def format_object(name, obj, print_description_only = False, print_enum_only = F
     if obj.get("enumChanges") == None and enumChanges != None:
         obj["enumChanges"] = enumChanges
 
-    # We do not support individual descriptions of the allowed types.
-    if "choices" in obj:
-        for choice in obj["choices"]:
-            if "type" in choice and "description" in choice:
-                for key in choice:
-                    obj[key] = choice[key]
-
     parts =  get_api_member_parts(name, obj)
   
     #enum_only:        fake header + enum

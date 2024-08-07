@@ -14,6 +14,9 @@
           "isVirtual": {
             "added": "121"
           },
+          "isTag": {
+            "added": "121"
+          },
           "isRoot": {
             "added": "121"
           },
@@ -90,6 +93,14 @@
       {
         "name": "copy",
         "added": "91"
+      },
+      {
+        "name": "getUnifiedFolder",
+        "added": "127"
+      },
+      {
+        "name": "getTagFolder",
+        "added": "127"
       }
     ],
     "events": [

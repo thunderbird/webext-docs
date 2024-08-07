@@ -1144,7 +1144,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolderId`, optional)
       :annotation: -- [Added in TB 125]
       
-      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`.
+      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
    
    
    .. api-member::
@@ -1275,7 +1275,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolderId`, optional)
       :annotation: -- [Added in TB 125]
       
-       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`.
+       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
    
    
    .. api-member::

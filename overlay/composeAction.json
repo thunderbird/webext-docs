@@ -67,6 +67,14 @@
         "name": "getLabel",
         "added": "84.0b3",
         "backported": "78.6.1"
+      },
+      {
+        "name": "getBadgeTextColor",
+        "added": "128"
+      },
+      {
+        "name": "setBadgeTextColor",
+        "added": "128"
       }
     ]
   }

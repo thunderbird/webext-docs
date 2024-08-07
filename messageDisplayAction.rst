@@ -244,7 +244,7 @@ Gets the badge text of the messageDisplayAction button.
 getBadgeTextColor(details)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Gets the text color of the badge.
 
@@ -569,7 +569,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
 setBadgeTextColor(details)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Sets the text color for the badge.
 
