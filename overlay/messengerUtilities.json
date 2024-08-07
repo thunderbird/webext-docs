@@ -1,0 +1,19 @@
+[
+    {
+        "namespace": "messengerUtilities",
+        "functions": [
+            {
+                "name": "formatFileSize",
+                "added": "125"
+            },
+            {
+                "name": "parseMailboxString",
+                "added": "125"
+            },
+            {
+                "name": "convertToPlainText",
+                "added": "128"
+            }
+        ]
+    }
+]

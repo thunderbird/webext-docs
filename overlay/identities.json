@@ -16,6 +16,9 @@
           },
           "signatureIsPlainText": {
             "added": "91"
+          },
+          "encryptionCapabilities": {
+            "added": "128"
           }
         }
       }

@@ -39,7 +39,23 @@
       {
         "name": "getRaw",
         "added": "72",
-        "backported": "68.7"
+        "backported": "68.7",
+        "properties": {
+          "data_format": {
+            "added": "117"
+          },
+          "decrypt": {
+            "added": "125"
+          }
+        }
+      },
+      {
+        "name": "getFull",
+        "properties": {
+          "decrypt": {
+            "added": "125"
+          }
+        }
       },
       {
         "name": "getAttachmentFile",
@@ -53,6 +69,11 @@
       {
         "name": "listAttachments",
         "added": "88",
+        "sort": "2"
+      },
+      {
+        "name": "listInlineTextParts",
+        "added": "128",
         "sort": "2"
       },
       {
@@ -168,6 +189,15 @@
       }
     ],
     "types": [
+      {
+        "id": "MessagePart",
+        "type": "object",
+        "properties": {
+          "decryptionStatus": {
+            "added": "125"
+          }
+        }
+      },
       {
         "id": "MessageHeader",
         "type": "object",

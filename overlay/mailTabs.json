@@ -7,6 +7,23 @@
         "properties": {
           "viewType": {
             "added": "91"
+          },
+          "folderMode": {
+            "added": "125"
+          },
+          "folderModesEnabled": {
+            "added": "125"
+          }
+        }
+      },
+      {
+        "id": "MailTabProperties",
+        "properties": {
+          "folderMode": {
+            "added": "125"
+          },
+          "folderModesEnabled": {
+            "added": "125"
           }
         }
       }
@@ -32,6 +49,10 @@
             }
           }
         ]
+      },
+      {
+        "name": "getSelectedFolders",
+        "added": "128"
       }
     ],
     "events": [

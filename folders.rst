@@ -341,7 +341,7 @@ Get the subfolders of the specified folder or account.
 getTagFolder(key)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.
 
@@ -376,7 +376,7 @@ Get one of the special unified mailbox tag folders, which are virtual search fol
 getUnifiedFolder(type, [includeSubFolders])
 -------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts.
 
@@ -1082,6 +1082,7 @@ An object describing a folder.
    .. api-member::
       :name: [``isTag``]
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 121]
       
       Whether this folder is a virtual tag folder.
    

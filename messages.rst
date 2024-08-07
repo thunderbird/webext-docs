@@ -407,41 +407,6 @@ Gets all messages in a folder.
    - :permission:`messagesRead`
    - :permission:`accountsRead`
 
-.. _messages.listInlineTextParts:
-
-listInlineTextParts(messageId)
-------------------------------
-
-.. api-section-annotation-hack:: 
-
-Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText` can be used to retreive a plain text version. 
-
-**Note:** A message usually contains only one inline text part per subtype, but technically messages can contain multiple inline text parts per subtype.
-
-.. api-header::
-   :label: Parameters
-
-   
-   .. api-member::
-      :name: ``messageId``
-      :type: (:ref:`messages.MessageId`)
-   
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   
-   .. api-member::
-      :type: array of :ref:`messages.InlineTextPart`
-   
-   
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _messages.move:
 
 move(messageIds, destination)
@@ -495,9 +460,9 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``accountId``]
-         :type: (:ref:`accounts.MailAccountId`, optional)
+         :type: (:ref:`accounts.MailAccountId` or array of :ref:`accounts.MailAccountId`, optional)
          
-         Limits the search to folders of the account with the specified id.
+         Limits the search to the specified account(s). Accounts are searched in the specified order.
       
       
       .. api-member::
@@ -546,9 +511,9 @@ Gets all messages that have the specified properties, or all messages if no prop
       
       .. api-member::
          :name: [``folderId``]
-         :type: (:ref:`folders.MailFolderId`, optional)
+         :type: (:ref:`folders.MailFolderId` or array of :ref:`folders.MailFolderId`, optional)
          
-         Returns only messages from the folder with the specified id. The :permission:`accountsRead` permission is required.
+         Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
       
       
       .. api-member::
@@ -878,6 +843,41 @@ Lists the attachments of a message.
    
    .. api-member::
       :type: array of :ref:`messages.MessageAttachment`
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.listInlineTextParts:
+
+listInlineTextParts(messageId)
+------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText` can be used to retreive a plain text version. 
+
+**Note:** A message usually contains only one inline text part per subtype, but technically messages can contain multiple inline text parts per subtype.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``messageId``
+      :type: (:ref:`messages.MessageId`)
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of :ref:`messages.InlineTextPart`
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -1291,6 +1291,18 @@ An inline part with content type :value:`text/*`. These parts are not returned b
       The content type of the part. Most common types for inline text parts are :value:`text/plain` and :value:`text/html`. Possible other (deprecated) types are :value:`text/richtext` and :value:`text/enriched`. Some calendaring services include an inline text part with type :value:`text/calendar`.
    
 
+.. _messages.MailBoxHeaderString:
+
+MailBoxHeaderString
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Content may either be a single email address, or a mailbox string (see RFC 5322, section 3.4). Use :ref:`messengerUtilities.parseMailboxString` to extract the name and/or the email from the mailbox string.
+
+.. api-header::
+   :label: string
+
 .. _messages.MessageAttachment:
 
 MessageAttachment
@@ -1361,19 +1373,19 @@ Basic information about a message.
    
    .. api-member::
       :name: ``author``
-      :type: (string)
+      :type: (:ref:`messages.MailBoxHeaderString`)
    
    
    .. api-member::
       :name: ``bccList``
-      :type: (array of string)
+      :type: (array of :ref:`messages.MailBoxHeaderString`)
       
       The Bcc recipients. Not populated for news/nntp messages.
    
    
    .. api-member::
       :name: ``ccList``
-      :type: (array of string)
+      :type: (array of :ref:`messages.MailBoxHeaderString`)
       
       The Cc recipients. Not populated for news/nntp messages.
    
@@ -1445,7 +1457,7 @@ Basic information about a message.
    
    .. api-member::
       :name: ``recipients``
-      :type: (array of string)
+      :type: (array of :ref:`messages.MailBoxHeaderString`)
       
       The To recipients. Not populated for news/nntp messages.
    
@@ -1551,6 +1563,7 @@ Represents an email message "part", which could be the whole message.
    .. api-member::
       :name: [``decryptionStatus``]
       :type: (`string`, optional)
+      :annotation: -- [Added in TB 125]
       
       The decryption status, only available for the root part.
       

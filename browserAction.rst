@@ -295,7 +295,7 @@ Gets the badge text of the action button.
 getBadgeTextColor(details)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Gets the text color of the badge.
 
@@ -620,7 +620,7 @@ Sets the badge text for the action button. The badge is displayed on top of the 
 setBadgeTextColor(details)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Sets the text color for the badge.
 

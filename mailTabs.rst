@@ -155,7 +155,7 @@ Lists the messages in the current view, honoring sort order and filters.
 getSelectedFolders([tabId])
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Lists the selected folders in the folder pane.
 
@@ -608,6 +608,7 @@ MailTab
    .. api-member::
       :name: [``folderMode``]
       :type: (:ref:`mailTabs.FolderMode`, optional)
+      :annotation: -- [Added in TB 125]
       
       The folder mode of the currently displayed folder.
    
@@ -615,6 +616,7 @@ MailTab
    .. api-member::
       :name: [``folderModesEnabled``]
       :type: (array of :ref:`mailTabs.FolderMode`, optional)
+      :annotation: -- [Added in TB 125]
       
       The enabled folder modes in the folder pane, and their sort order.
    
@@ -754,12 +756,13 @@ MailTabProperties
       :name: [``displayedFolder``]
       :type: (:ref:`folders.MailFolderId` or :ref:`folders.MailFolder`, optional)
       
-      Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any. This property is ignored, if :value:`selectedMessages` is specified.
+      Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any.
    
    
    .. api-member::
       :name: [``folderMode``]
       :type: (:ref:`mailTabs.FolderMode`, optional)
+      :annotation: -- [Added in TB 125]
       
       Sets the currently used folder mode, enabling it if required. If used without also specifying :value:`displayedFolder`, the currently selected folder is re-selected in the new folder mode, if possible.
    
@@ -767,6 +770,7 @@ MailTabProperties
    .. api-member::
       :name: [``folderModesEnabled``]
       :type: (array of :ref:`mailTabs.FolderMode`, optional)
+      :annotation: -- [Added in TB 125]
       
       Set the enabled folder modes in the folder pane, and their sort order.
    

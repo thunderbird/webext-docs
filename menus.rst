@@ -84,9 +84,9 @@ Creates a new context menu item. Note that if an error occurs during creation, y
       
       .. api-member::
          :name: [``command``]
-         :type: (string, optional)
+         :type: (string or :ref:`menus.MenuActionCommand`, optional)
          
-         Specifies a command to issue for the context click. Currently supports internal commands :value:`_execute_browser_action`, :value:`_execute_compose_action` and :value:`_execute_message_display_action`.
+         Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined action commands.
       
       
       .. api-member::
@@ -730,6 +730,35 @@ The type of menu item.
             :name: :value:`separator`
    
 
+.. _menus.MenuActionCommand:
+
+MenuActionCommand
+-----------------
+
+.. api-section-annotation-hack:: 
+
+A predefined command to open an action popup.
+
+.. api-header::
+   :label: `string`
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`_execute_browser_action`
+         
+         .. api-member::
+            :name: :value:`_execute_compose_action`
+         
+         .. api-member::
+            :name: :value:`_execute_message_display_action`
+   
+
 .. _menus.MenuIconDictionary:
 
 MenuIconDictionary
@@ -933,6 +962,7 @@ Information sent when a context menu item is clicked.
    .. api-member::
       :name: [``selectedFolders``]
       :type: (array of :ref:`folders.MailFolder`, optional)
+      :annotation: -- [Added in TB 128]
       
       The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
    
@@ -1108,6 +1138,7 @@ Information sent when a context menu is being shown. Some properties are only in
    .. api-member::
       :name: [``selectedFolders``]
       :type: (array of :ref:`folders.MailFolder`, optional)
+      :annotation: -- [Added in TB 128]
       
       The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
    

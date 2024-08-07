@@ -456,6 +456,7 @@ MailIdentity
    .. api-member::
       :name: [``encryptionCapabilities``]
       :type: (object, optional)
+      :annotation: -- [Added in TB 128]
       
       The encryption capabilities of this identity. Read only.
       
