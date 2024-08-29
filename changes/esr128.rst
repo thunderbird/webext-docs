@@ -3,12 +3,42 @@ Changes up to Thunderbird 128 ESR
 =================================
 
 --------------------
+Thunderbird 116 Beta
+--------------------
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 116 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=116&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
+--------------------
 Thunderbird 117 Beta
 --------------------
 
 messages API
 ============
 * Added the optional ``data_format`` parameter to :ref:`messages.getRaw` to request the message as a DOM ``File`` object.
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 117 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=117&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
+--------------------
+Thunderbird 118 Beta
+--------------------
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 118 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=118&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
+
+--------------------
+Thunderbird 119 Beta
+--------------------
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 119 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=119&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
 
 --------------------
 Thunderbird 120 Beta
@@ -21,6 +51,11 @@ messages API
 * Added the ``autoPaginationTimeout`` property to the ``queryInfo`` parameter of :ref:`messages.query`, to allow queries to override the default pagination timeout of ``1000ms``. Long running queries will return pages even if they have not reached the nominal page size, to allow extensions to work with the already received results or terminate the list (and the associated query) using :ref:`messages.abortList`.
 * Added the ``returnMessageListId`` property to the ``queryInfo`` parameter of :ref:`messages.query`, to force queries to immediately return the id of the list associated with the query, instead of waiting for at least one found message and returning the first page.
 * Extend allowed characters for tag names in :ref:`messages.createTag`, :ref:`messages.updateTag` and :ref:`messages.deleteTag` from alpha-numeric characters only, to all characters excluding ``^ ()/{%*<>"``.
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 120 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=120&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
 
 --------------------
 Thunderbird 121 Beta
@@ -65,6 +100,10 @@ tabs API
 ========
 * Allow :ref:`tabs.query` to also provide an array of :ref:`tabs.TabType` for ``queryInfo.type``, for example to find all ``mail`` and ``messageDisplay`` tabs.
 
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 121 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=121&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
 --------------------
 Thunderbird 122 Beta
 --------------------
@@ -78,6 +117,11 @@ messages API
 * Introduction of the :permission:`messagesUpdate` permission, required for :ref:`messages.update`.
 * Introduction of the :permission:`messagesTagsList` permission, required for :ref:`messages.tags.list`.
 
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 122 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=122&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
+
 --------------------
 Thunderbird 123 Beta
 --------------------
@@ -87,6 +131,11 @@ messages API
 
 * Added :ref:`messages.deleteAttachments`, to remove attachments from messages. The new :permission:`messagesModifyPermanent` is required to permanently modify the message content. The content-type of such attachments will be ``text/x-moz-deleted``
 
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 123 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=123&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
+
 --------------------
 Thunderbird 124 Beta
 --------------------
@@ -94,6 +143,11 @@ Thunderbird 124 Beta
 menus API
 =========
 * Officially support remote ``http(s):`` urls for menu icons.
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 124 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=124&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
 
 --------------------
 Thunderbird 125 Beta
@@ -116,6 +170,10 @@ messengerUtilities API
 * Added :ref:`messengerUtilities.formatFileSize` to properly format file sizes (for example ``12 bytes`` or ``11,4 GB``).
 * Added :ref:`messengerUtilities.parseMailboxString`, to parse a mailbox string containing one or more email addresses (see RFC 5322, section 3.4). For example ``User1 <user1@inter.net>, User2 <user2@inter.net>`` will return an array with two :ref:`messengerUtilities.ParsedMailbox` entries, giving access to the ``name`` and ``email`` part of the provided mailbox strings.
 
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 125 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=125&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
 --------------------
 Thunderbird 126 Beta
 --------------------
@@ -123,6 +181,11 @@ Thunderbird 126 Beta
 messageDisplayScripts API
 =========================
 * Added support for ``runAt`` to :ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 126 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=126&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
 
 --------------------
 Thunderbird 127 Beta
@@ -138,6 +201,10 @@ folders API
 mailTabs API
 ============
 * Added ``folderMode`` and ``folderModesEnabled`` properties to :ref:`mailTabs.MailTab` and :ref:`mailTabs.MailTabProperties`.
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 127 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=127&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 ---------------------
 Thunderbird 128.0 ESR
@@ -182,3 +249,8 @@ messages API
 messengerUtilities API
 ======================
 * Addded :ref:`messengerUtilities.convertToPlainText`
+
+Fixed defects
+=============
+* `Fixed WebExtension API defects in Thunderbird 128 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=128&v1=defect&product=Thunderbird&resolution=FIXED>`__
+
