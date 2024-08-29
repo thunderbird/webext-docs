@@ -8,7 +8,7 @@ Thunderbird 116 Beta
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 116 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=116&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 5 WebExtension API defects fixed in Thunderbird 116 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=116&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 --------------------
 Thunderbird 117 Beta
@@ -20,25 +20,7 @@ messages API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 117 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=117&v1=defect&product=Thunderbird&resolution=FIXED>`__
-
---------------------
-Thunderbird 118 Beta
---------------------
-
-Fixed defects
-=============
-* `Fixed WebExtension API defects in Thunderbird 118 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=118&v1=defect&product=Thunderbird&resolution=FIXED>`__
-
-
---------------------
-Thunderbird 119 Beta
---------------------
-
-Fixed defects
-=============
-* `Fixed WebExtension API defects in Thunderbird 119 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=119&v1=defect&product=Thunderbird&resolution=FIXED>`__
-
+* 1 WebExtension API defect fixed in Thunderbird 117 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=117&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 --------------------
 Thunderbird 120 Beta
@@ -54,7 +36,7 @@ messages API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 120 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=120&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 11 WebExtension API defects fixed in Thunderbird 120 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=120&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 
 --------------------
@@ -102,7 +84,7 @@ tabs API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 121 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=121&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 6 WebExtension API defects fixed in Thunderbird 121 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=121&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 --------------------
 Thunderbird 122 Beta
@@ -119,7 +101,7 @@ messages API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 122 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=122&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 2 WebExtension API defects fixed in Thunderbird 122 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=122&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 
 --------------------
@@ -129,11 +111,11 @@ Thunderbird 123 Beta
 messages API
 ============
 
-* Added :ref:`messages.deleteAttachments`, to remove attachments from messages. The new :permission:`messagesModifyPermanent` is required to permanently modify the message content. The content-type of such attachments will be ``text/x-moz-deleted``
+* Added :ref:`messages.deleteAttachments`, to remove attachments from messages. The new :permission:`messagesModifyPermanent` is required to permanently modify the message content. The content-type of such attachments will be ``text/x-moz-deleted``.
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 123 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=123&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 1 WebExtension API defect fixed in Thunderbird 123 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=123&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 
 --------------------
@@ -146,7 +128,7 @@ menus API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 124 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=124&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 7 WebExtension API defects fixed in Thunderbird 124 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=124&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 
 --------------------
@@ -172,7 +154,7 @@ messengerUtilities API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 125 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=125&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 12 WebExtension API defects fixed in Thunderbird 125 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=125&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 --------------------
 Thunderbird 126 Beta
@@ -180,11 +162,11 @@ Thunderbird 126 Beta
 
 messageDisplayScripts API
 =========================
-* Added support for ``runAt`` to :ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`
+* Added support for ``runAt`` to :ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`.
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 126 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=126&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 4 WebExtension API defects fixed in Thunderbird 126 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=126&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
 
 --------------------
@@ -204,11 +186,11 @@ mailTabs API
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 127 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=127&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 3 WebExtension API defects fixed in Thunderbird 127 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=127&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
----------------------
-Thunderbird 128.0 ESR
----------------------
+--------------------
+Thunderbird 128 Beta
+--------------------
 
 browserAction API
 ========================
@@ -244,13 +226,24 @@ messageDisplayAction API
 
 messages API
 ============
-* Added :ref:`messages.listInlineTextParts`
+* Added :ref:`messages.listInlineTextParts`.
 
 messengerUtilities API
 ======================
-* Addded :ref:`messengerUtilities.convertToPlainText`
+* Addded :ref:`messengerUtilities.convertToPlainText`.
 
 Fixed defects
 =============
-* `Fixed WebExtension API defects in Thunderbird 128 <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=128&v1=defect&product=Thunderbird&resolution=FIXED>`__
+* 10 WebExtension API defects fixed in Thunderbird 128 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&o2=anywords&query_format=advanced&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=bug_type&component=Add-Ons%3A%20Extensions%20API&f2=target_milestone&v2=128&v1=defect&product=Thunderbird&resolution=FIXED>`__
 
+-----------------------
+Thunderbird 128.0.1 ESR
+-----------------------
+
+messages API
+============
+* Allow to specify multiple accounts and folders for :ref:`messages.query`.
+
+Fixed defects
+=============
+* 4 WebExtension API defects fixed in Thunderbird 128.0.1 ESR: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=cf_status_thunderbird_esr128&classification=Client%20Software&classification=Developer%20Infrastructure&classification=Components&classification=Server%20Software&classification=Other&v2=Thunderbird%20128.0.1esr%3A&v3=defect&query_format=advanced&resolution=FIXED&emailassigned_to1=1&email1=john%40thunderbird.net&v1=fixed&list_id=17192250&f3=bug_type&f2=longdesc&product=Calendar&product=Chat%20Core&product=MailNews%20Core&product=Thunderbird&product=Toolkit&o3=equals&o2=casesubstring&emailtype1=exact>`__
