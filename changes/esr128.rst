@@ -247,3 +247,11 @@ messages API
 Fixed defects
 =============
 * 3 WebExtension API defects fixed in Thunderbird 128.0.1 ESR: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f1=cf_status_thunderbird_esr128&classification=Client%20Software&classification=Developer%20Infrastructure&classification=Components&classification=Server%20Software&classification=Other&v2=Thunderbird%20128.0.1esr%3A&v3=defect&query_format=advanced&resolution=FIXED&emailassigned_to1=1&email1=john%40thunderbird.net&v1=fixed&list_id=17192250&f3=bug_type&f2=longdesc&product=Calendar&product=Chat%20Core&product=MailNews%20Core&product=Thunderbird&product=Toolkit&o3=equals&o2=casesubstring&emailtype1=exact>`__
+
+-----------------------
+Thunderbird 128.2.0 ESR
+-----------------------
+
+Fixed defects
+=============
+* 3 WebExtension API defects fixed in Thunderbird 128.2.0 ESR: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&v1=fixed&f1=cf_status_thunderbird_esr128&query_format=advanced&resolution=FIXED&emailassigned_to1=1&classification=Client%20Software&classification=Developer%20Infrastructure&classification=Components&classification=Server%20Software&classification=Other&emailtype1=exact&v3=defect&o3=equals&f2=longdesc&email1=john%40thunderbird.net&product=Calendar&product=Chat%20Core&product=MailNews%20Core&product=Thunderbird&product=Toolkit&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v2=Thunderbird%20128.2.0esr%3A&f3=bug_type&o2=casesubstring>`__
