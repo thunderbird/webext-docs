@@ -137,7 +137,7 @@ repository can be used to obtain a copy of the relevant files.
   :maxdepth: 1
   :caption: Changelog
 
-  changes/esr128
+  changes/128
 
 
 Where to get help and more information
