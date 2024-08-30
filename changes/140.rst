@@ -1,0 +1,19 @@
+==================================
+Changes up to Thunderbird 130 Beta
+==================================
+
+--------------------
+Thunderbird 129 Beta
+--------------------
+
+Fixed defects
+=============
+* 2 WebExtension API defects fixed in Thunderbird 129 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?o1=equals&product=Thunderbird&f1=bug_type&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&v2=129&component=Add-Ons%3A%20Extensions%20API&v1=defect&query_format=advanced&o2=anywords&f2=target_milestone&resolution=FIXED>`__
+
+--------------------
+Thunderbird 130 Beta
+--------------------
+
+Fixed defects
+=============
+* 2 WebExtension API defects fixed in Thunderbird 130 Beta: `Bugzilla <https://bugzilla.mozilla.org/buglist.cgi?component=Add-Ons%3A%20Extensions%20API&v2=130&query_format=advanced&f1=bug_type&columnlist=bug_type%2Cshort_desc%2Cproduct%2Ccomponent%2Cassigned_to%2Cbug_status%2Cresolution%2Cchangeddate%2Ctarget_milestone&f2=target_milestone&resolution=FIXED&v1=defect&o2=anywords&product=Thunderbird&o1=equals>`__
