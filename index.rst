@@ -138,11 +138,11 @@ repository can be used to obtain a copy of the relevant files.
   :maxdepth: 1
   :caption: Changelog
 
-  changes/esr128
-  changes/esr115
-  changes/esr102
-  changes/esr91
-  changes/esr78
+  changes/128
+  changes/115
+  changes/102
+  changes/91
+  changes/78
 
 
 Where to get help and more information
