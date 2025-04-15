@@ -107,7 +107,7 @@ getAccount(accountId)
 
 .. api-section-annotation-hack:: 
 
-Retrieve information about a single cloud file account, or :value:`undefined` if it does not exists
+Retrieve information about a single cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
 .. api-header::
    :label: Parameters
@@ -126,8 +126,6 @@ Retrieve information about a single cloud file account, or :value:`undefined` if
    
    .. api-member::
       :type: :ref:`cloudFile.CloudFileAccount`
-      
-      This may return undefined
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -158,7 +156,7 @@ updateAccount(accountId, updateProperties)
 
 .. api-section-annotation-hack:: 
 
-Update a cloud file account.
+Update a cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
 .. api-header::
    :label: Parameters
@@ -217,8 +215,6 @@ Update a cloud file account.
    
    .. api-member::
       :type: :ref:`cloudFile.CloudFileAccount`
-      
-      This may return undefined
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise

@@ -343,7 +343,7 @@ getTagFolder(key)
 
 .. api-section-annotation-hack:: -- [Added in TB 127]
 
-Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.
+Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags. Throws if the requested folder does not exist.
 
 .. api-header::
    :label: Parameters
@@ -378,7 +378,7 @@ getUnifiedFolder(type, [includeSubFolders])
 
 .. api-section-annotation-hack:: -- [Added in TB 127]
 
-Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts.
+Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts. Throws if the requested folder does not exist.
 
 .. api-header::
    :label: Parameters
@@ -629,6 +629,20 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       
       .. api-member::
+         :name: [``lastUsed``]
+         :type: (:ref:`folders.QueryDateRange`, optional)
+         
+         Date the folder was last used (folder was accessed, user moved or copied messages into the folder or folder received new messages).
+      
+      
+      .. api-member::
+         :name: [``lastUsedAsDestination``]
+         :type: (:ref:`folders.QueryDateRange`, optional)
+         
+         Date the folder was last used as a destination (user moved or copied messages into the folder).
+      
+      
+      .. api-member::
          :name: [``limit``]
          :type: (integer, optional)
          
@@ -651,9 +665,30 @@ Gets folders that match the specified properties, or all folders if no propertie
       
       .. api-member::
          :name: [``recent``]
-         :type: (boolean, optional)
+         :type: (boolean, optional) **Deprecated.**
          
-         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by their recentness.
+         Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by :value:`lastUsed`.
+      
+      
+      .. api-member::
+         :name: [``sort``]
+         :type: (`string`, optional)
+         
+         The sort order of the returned folders. If not specified, folders will be sorted by :value:`path`. Sorting by :value:`name` is case-insensitive.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`lastUsed`
+         
+         .. api-member::
+            :name: :value:`lastUsedAsDestination`
+         
+         .. api-member::
+            :name: :value:`name`
+         
+         .. api-member::
+            :name: :value:`path`
       
       
       .. api-member::
@@ -1119,10 +1154,10 @@ An object describing a folder.
    
    .. api-member::
       :name: [``subFolders``]
-      :type: (array of :ref:`folders.MailFolder` or null, optional)
+      :type: (array of :ref:`folders.MailFolder`, optional)
       :annotation: -- [Added in TB 74]
       
-      Subfolders of this folder. The property may be :value:`null`, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
+      Subfolders of this folder. This property is optional and only present if the inclusion of subfolders had been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
    
    
    .. api-member::
@@ -1217,7 +1252,14 @@ An object containing additional information about a folder.
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
       :annotation: -- [Added in TB 121]
       
-      Date the folder was last used (precision: seconds).
+      Date the folder was last used. It is updated every time the folder was accessed, when the user moved or copied messages into the folder and when the folder received new messages. (precision: seconds).
+   
+   
+   .. api-member::
+      :name: [``lastUsedAsDestination``]
+      :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+      
+      Date the folder was last used as a destination. It is updated every time the user moved or copied messages into the folder. (precision: seconds).
    
    
    .. api-member::
@@ -1274,7 +1316,7 @@ An object containing quota information.
       :name: ``type``
       :type: (`string`)
       
-      The type of the quota as defined by RFC2087. A :value:`STORAGE` quota is constraining the available storage in bytes, a :value:`MESSAGE` quota is constraining the number of storable messages.
+      The type of the quota as defined by RFC 2087. A :value:`STORAGE` quota is constraining the available storage in bytes, a :value:`MESSAGE` quota is constraining the number of storable messages.
       
       Supported values:
       
@@ -1343,6 +1385,56 @@ Supported values for the special use of a folder.
             :name: :value:`outbox`
    
 
+.. _folders.QueryDateRange:
+
+QueryDateRange
+--------------
+
+.. api-section-annotation-hack:: 
+
+An object defining a range for a date value to be used in queries.
+
+.. api-header::
+   :label: object
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         .. api-member::
+            :name: ``recent``
+            :type: (boolean)
+            
+            Whether the date must be considered to be recent by Thunderbird (within the last month) or not, to match the query.
+         
+   
+
+OR
+
+.. api-header::
+   :label: object
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         .. api-member::
+            :name: [``after``]
+            :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+            
+            The minimum date required to match the query.
+         
+         
+         .. api-member::
+            :name: [``before``]
+            :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+            
+            The maximum date required to match the query.
+         
+   
+
 .. _folders.QueryRange:
 
 QueryRange
@@ -1350,7 +1442,7 @@ QueryRange
 
 .. api-section-annotation-hack:: 
 
-An object defining a range.
+An object defining a range for an integer value to be used in queries.
 
 .. api-header::
    :label: object
@@ -1407,4 +1499,4 @@ DEFAULT_MOST_RECENT_LIMIT
 
 .. api-section-annotation-hack:: 
 
-The number of most recent folders used in Thunderbird's UI. Controled by the :value:`mail.folder_widget.max_recent` preference.
+The number of most recent folders used in Thunderbird's UI. Controlled by the :value:`mail.folder_widget.max_recent` preference.

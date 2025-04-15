@@ -22,6 +22,12 @@ userScripts API
 
    A manifest entry named :value:`user_scripts` is required to use ``messenger.userScripts.*``.
 
+.. rst-class:: api-permission-info
+
+.. note::
+
+   The permission :permission:`userScripts` is required to use ``messenger.userScripts.*``.
+
 .. rst-class:: api-main-section
 
 Events
@@ -82,3 +88,8 @@ Event called when a new userScript global has been created
          The userScript metadata (as set in userScripts.register)
       
    
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`

@@ -61,14 +61,14 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :name: [``allowScriptsToClose``]
          :type: (boolean, optional)
          
-         Allow scripts running inside the window to close the window by calling :code:`window.close()`.
+         Allow scripts running inside the window to close the window by calling :code:`window.close()`. Defaults to :value:`true` when the given URL points to an extension page (a page included with this extension and loaded with the :value:`moz-extension:` protocol), defaults to :value:`false` otherwise.
       
       
       .. api-member::
          :name: [``cookieStoreId``]
          :type: (string, optional)
          
-         The CookieStoreId to use for all tabs that were created when the window is opened.
+         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons. The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
       
       
       .. api-member::
@@ -95,6 +95,24 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :type: (integer, optional)
          
          The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window.
+      
+      
+      .. api-member::
+         :name: [``linkHandler``]
+         :type: (`string`, optional)
+         
+         Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`strict`
+         
+         .. api-member::
+            :name: :value:`balanced`
+         
+         .. api-member::
+            :name: :value:`relaxed`
       
       
       .. api-member::

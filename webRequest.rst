@@ -2236,6 +2236,9 @@ ResourceType
             :name: :value:`speculative`
          
          .. api-member::
+            :name: :value:`json`
+         
+         .. api-member::
             :name: :value:`other`
    
 
@@ -2544,6 +2547,9 @@ Tracking flags that match our internal tracking classification
          
          .. api-member::
             :name: :value:`emailtracking_content`
+         
+         .. api-member::
+            :name: :value:`consentmanager`
          
          .. api-member::
             :name: :value:`tracking`

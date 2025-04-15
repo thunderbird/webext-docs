@@ -667,6 +667,9 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
             :name: :value:`speculative`
          
          .. api-member::
+            :name: :value:`json`
+         
+         .. api-member::
             :name: :value:`other`
    
 

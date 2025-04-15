@@ -4,6 +4,7 @@
 
   * `Permissions`_
   * `Functions`_
+  * `Events`_
   * `Types`_
 
   .. include:: /overlay/developer-resources.rst
@@ -47,22 +48,22 @@ Functions
 
 .. _messages.tags.create:
 
-create(key, tag, color)
------------------------
+create([key], tag, color, [callback])
+-------------------------------------
 
 .. api-section-annotation-hack:: 
 
-Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
+Creates a new message tag and returns the associated key. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``key``
-      :type: (string)
+      :name: [``key``]
+      :type: (string, optional)
       
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces. Will be auto-generated if not provided.
    
    
    .. api-member::
@@ -76,7 +77,12 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :name: ``color``
       :type: (string)
       
-      Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.
+      Tag color in hex format (i.e.: :value:`#000080` for navy blue).
+   
+   
+   .. api-member::
+      :name: [``callback``]
+      :type: (function, optional)
    
 
 .. api-header::
@@ -155,27 +161,135 @@ Updates a message tag. Throws if the specified tag key does not exist.
    
    .. api-member::
       :name: ``updateProperties``
-      :type: (object)
-      
-      .. api-member::
-         :name: [``color``]
-         :type: (string, optional)
-         
-         Tag color in hex format (i.e.: #000080 for navy blue). Value will be stored as upper case.
-      
-      
-      .. api-member::
-         :name: [``tag``]
-         :type: (string, optional)
-         
-         Human-readable tag name.
-      
+      :type: (:ref:`messages.tags.MessageTagProperties`)
    
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`messagesTags`
+
+.. rst-class:: api-main-section
+
+Events
+======
+
+.. _messages.tags.onCreated:
+
+onCreated
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a new message tag has been created.
+
+.. api-header::
+   :label: Parameters for onCreated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(tag)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``tag``
+      :type: (:ref:`messages.tags.MessageTag`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesTagsList`
+
+.. _messages.tags.onDeleted:
+
+onDeleted
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when a message tag has been deleted.
+
+.. api-header::
+   :label: Parameters for onDeleted.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(key)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Unique tag identifier of the deleted message tag.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`accountsRead`
+
+.. _messages.tags.onUpdated:
+
+onUpdated
+---------
+
+.. api-section-annotation-hack:: 
+
+Fired when one or more properties of a message tag have been updated.
+
+.. api-header::
+   :label: Parameters for onUpdated.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(key, changedProperties, oldProperties)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``key``
+      :type: (string)
+      
+      Unique tag identifier of the updated message tag.
+   
+   
+   .. api-member::
+      :name: ``changedProperties``
+      :type: (:ref:`messages.tags.MessageTagProperties`)
+      
+      The changed message tag properties.
+   
+   
+   .. api-member::
+      :name: ``oldProperties``
+      :type: (:ref:`messages.tags.MessageTagProperties`)
+      
+      The old values of the changed message tag properties.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesTagsList`
 
 .. rst-class:: api-main-section
 
@@ -197,7 +311,7 @@ MessageTag
       :name: ``color``
       :type: (string)
       
-      Tag color.
+      Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
    
    
    .. api-member::
@@ -211,12 +325,44 @@ MessageTag
       :name: ``ordinal``
       :type: (string)
       
-      Custom sort string (usually empty).
+      A custom sort string.
    
    
    .. api-member::
       :name: ``tag``
       :type: (string)
+      
+      Human-readable tag name.
+   
+
+.. _messages.tags.MessageTagProperties:
+
+MessageTagProperties
+--------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``color``]
+      :type: (string, optional)
+      
+      Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
+   
+   
+   .. api-member::
+      :name: [``ordinal``]
+      :type: (string, optional)
+      
+      A custom sort string.
+   
+   
+   .. api-member::
+      :name: [``tag``]
+      :type: (string, optional)
       
       Human-readable tag name.
    

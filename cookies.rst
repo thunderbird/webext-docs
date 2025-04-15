@@ -717,6 +717,13 @@ The description of the storage partition of a cookie. This object may be omitted
 
    
    .. api-member::
+      :name: [``hasCrossSiteAncestor``]
+      :type: (boolean, optional)
+      
+      Whether or not the cookie is in a third-party context, respecting ancestor chains.
+   
+   
+   .. api-member::
       :name: [``topLevelSite``]
       :type: (string, optional)
       
