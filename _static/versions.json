@@ -19,24 +19,6 @@
       "version": 0
     },
     {
-      "slug": "91",
-      "title": "91",
-      "manifest_version": 2,
-      "version": 91
-    },
-    {
-      "slug": "102",
-      "title": "102",
-      "manifest_version": 2,
-      "version": 102
-    },
-    {
-      "slug": "115",
-      "title": "115",
-      "manifest_version": 2,
-      "version": 115
-    },
-    {
       "slug": "128-esr-mv2",
       "title": "128 (Manifest V2)",
       "manifest_version": 2,
@@ -47,6 +29,12 @@
       "title": "128 (Manifest V3)",
       "manifest_version": 3,
       "version": 128
+    },
+    {
+      "slug": "115-esr-mv2",
+      "title": "115 (Manifest V2)",
+      "manifest_version": 2,
+      "version": 115
     }
   ]
 }
