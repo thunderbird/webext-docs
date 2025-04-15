@@ -832,8 +832,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Create WebExtensions documentation from schema files"
     )
-    parser.add_argument("schema", help="""Path to schema files""")
-    parser.add_argument("path", help="""Path to mozilla-central""")
+    parser.add_argument("schema", help="""Path to schema-files folder of the webext-schemas repository""")
     parser.add_argument("file", nargs="*",
                         help="""The name of an API to document, which corresponds
                         to a .json file in the schemas directory""")
@@ -841,8 +840,7 @@ if __name__ == "__main__":
 
     src_dir = args.schema
     permissions_files = [
-        os.path.join(args.path, "toolkit/locales/en-US/toolkit/global/extensionPermissions.ftl"),
-        os.path.join(args.path, "comm/mail/locales/en-US/messenger/extensionPermissions.ftl")
+        os.path.join(src_dir, "permissions.ftl")
     ]
 
     # read additional type defs
