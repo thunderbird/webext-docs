@@ -343,7 +343,7 @@ getTagFolder(key)
 
 .. api-section-annotation-hack:: -- [Added in TB 127]
 
-Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.
+Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.
 
 .. api-header::
    :label: Parameters
@@ -1036,6 +1036,59 @@ An object describing a folder.
 
    
    .. api-member::
+      :name: ``id``
+      :type: (:ref:`folders.MailFolderId`)
+      
+      An identifier for the folder.
+   
+   
+   .. api-member::
+      :name: ``isFavorite``
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+      
+      Whether this folder is a favorite folder.
+   
+   
+   .. api-member::
+      :name: ``isRoot``
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+      
+      Whether this folder is a root folder.
+   
+   
+   .. api-member::
+      :name: ``isTag``
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+      
+      Whether this folder is a virtual tag folder.
+   
+   
+   .. api-member::
+      :name: ``isUnified``
+      :type: (boolean)
+      
+      Whether this folder is a unified mailbox folder.
+   
+   
+   .. api-member::
+      :name: ``isVirtual``
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+      
+      Whether this folder is a virtual search folder.
+   
+   
+   .. api-member::
+      :name: ``name``
+      :type: (string)
+      
+      The human-friendly name of this folder.
+   
+   
+   .. api-member::
       :name: ``path``
       :type: (string)
       
@@ -1043,71 +1096,18 @@ An object describing a folder.
    
    
    .. api-member::
-      :name: [``accountId``]
-      :type: (:ref:`accounts.MailAccountId`, optional)
-      
-      The id of the account this folder belongs to.
-   
-   
-   .. api-member::
-      :name: [``id``]
-      :type: (:ref:`folders.MailFolderId`, optional)
-      
-      An identifier for the folder.
-   
-   
-   .. api-member::
-      :name: [``isFavorite``]
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-      
-      Whether this folder is a favorite folder.
-   
-   
-   .. api-member::
-      :name: [``isRoot``]
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-      
-      Whether this folder is a root folder.
-   
-   
-   .. api-member::
-      :name: [``isTag``]
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-      
-      Whether this folder is a virtual tag folder.
-   
-   
-   .. api-member::
-      :name: [``isUnified``]
-      :type: (boolean, optional)
-      
-      Whether this folder is a unified mailbox folder.
-   
-   
-   .. api-member::
-      :name: [``isVirtual``]
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-      
-      Whether this folder is a virtual search folder.
-   
-   
-   .. api-member::
-      :name: [``name``]
-      :type: (string, optional)
-      
-      The human-friendly name of this folder.
-   
-   
-   .. api-member::
-      :name: [``specialUse``]
-      :type: (array of :ref:`folders.MailFolderSpecialUse`, optional)
+      :name: ``specialUse``
+      :type: (array of :ref:`folders.MailFolderSpecialUse`)
       :annotation: -- [Added in TB 121]
       
       The special use of this folder. A folder can have multiple special uses.
+   
+   
+   .. api-member::
+      :name: [``accountId``]
+      :type: (:ref:`accounts.MailAccountId`, optional)
+      
+      The id of the account this folder belongs to. This property is optional and not available for unified mailbox folders or virtual tag folders.
    
    
    .. api-member::
@@ -1115,7 +1115,7 @@ An object describing a folder.
       :type: (array of :ref:`folders.MailFolder`, optional)
       :annotation: -- [Added in TB 74]
       
-      Subfolders of this folder. The property may be :value:`null`, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
+      Subfolders of this folder. This property is optional and only present if the inclusion of subfolders had been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
    
 
 .. _folders.MailFolderCapabilities:

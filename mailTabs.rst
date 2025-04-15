@@ -136,7 +136,7 @@ getSelectedFolders([tabId])
 
 .. api-section-annotation-hack:: -- [Added in TB 128]
 
-Lists the selected folders in the folder pane.
+Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the :ref:`menus.onClicked` event of the menus API.
 
 .. api-header::
    :label: Parameters
@@ -171,7 +171,7 @@ getSelectedMessages([tabId])
 
 .. api-section-annotation-hack:: 
 
-Lists the selected messages in the current folder.
+Lists the selected messages in the current folder. Includes messages in collapsed threads. Does not include messages which are context-clicked, but not selected. The context-clicked messages are always returned by the :ref:`menus.onClicked` event of the menus API.
 
 .. api-header::
    :label: Parameters
@@ -336,7 +336,7 @@ setSelectedMessages([tabId], messageIds)
 
 .. api-section-annotation-hack:: 
 
-Selects none, one or multiple messages.
+Selects none, one or multiple messages. Opens collapsed threads to show the selection, if required.
 
 .. api-header::
    :label: Parameters
@@ -570,11 +570,6 @@ MailTab
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
-   .. api-member::
-      :name: ``viewType``
-      :annotation: -- [Added in TB 91]
    
    
    .. api-member::

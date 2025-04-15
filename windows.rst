@@ -61,7 +61,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :name: [``allowScriptsToClose``]
          :type: (boolean, optional)
          
-         Allow scripts running inside the window to close the window by calling :code:`window.close()`.
+         Allow scripts running inside the window to close the window by calling :code:`window.close()`. Defaults to :value:`true` when the given URL points to an extension page (a page included with this extension and loaded with the :value:`moz-extension:` protocol), defaults to :value:`false` otherwise.
       
       
       .. api-member::

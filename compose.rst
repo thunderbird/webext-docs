@@ -1316,7 +1316,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`messages.MessageId`, optional)
       :annotation: -- [Added in TB 95]
       
-      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`null` in all other cases or if the original message was opened from file.
+      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file.
    
    
    .. api-member::
