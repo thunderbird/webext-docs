@@ -30,7 +30,7 @@ Permissions
 .. api-member::
    :name: :permission:`nativeMessaging`
 
-   Exchange messages with programs other than { -brand-short-name }
+   Exchange messages with programs other than Thunderbird
 
 .. rst-class:: api-main-section
 

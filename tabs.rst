@@ -100,7 +100,7 @@ create(createProperties)
 
 .. api-section-annotation-hack:: 
 
-Creates a new content tab. Use the :doc:`messageDisplay` to open messages. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
+Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.open`. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
 
 .. api-header::
    :label: Parameters
@@ -162,7 +162,7 @@ Creates a new content tab. Use the :doc:`messageDisplay` to open messages. Only 
    .. api-member::
       :type: :ref:`tabs.Tab`
       
-      Details about the created tab. Will contain the ID of the new tab.
+      A Promise that will be fulfilled with a :ref:`tabs.Tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event before creating the tab.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -280,7 +280,7 @@ getCurrent()
 
 .. api-section-annotation-hack:: 
 
-Gets the tab that this script call is being made from. May be :value:`undefined` if called from a non-tab context (for example: a background page or popup view).
+Gets the tab that this script call is being made from. Returns :value:`undefined` if called from a non-tab context (for example a background page or a popup view).
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -288,8 +288,6 @@ Gets the tab that this script call is being made from. May be :value:`undefined`
    
    .. api-member::
       :type: :ref:`tabs.Tab`
-      
-      This may return undefined
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -796,7 +794,7 @@ onCreated
 
 .. api-section-annotation-hack:: 
 
-Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+Fired when a tab is created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)

@@ -354,6 +354,18 @@ Fired when a property of an account has been modified. Folders and identities of
 Types
 =====
 
+.. _accounts.ExtensionMailAccountType:
+
+ExtensionMailAccountType
+------------------------
+
+.. api-section-annotation-hack:: 
+
+The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
+
+.. api-header::
+   :label: string
+
 .. _accounts.MailAccount:
 
 MailAccount
@@ -405,9 +417,9 @@ An object describing a mail account, as returned for example by the :ref:`accoun
    
    .. api-member::
       :name: ``type``
-      :type: (string)
+      :type: (:ref:`accounts.NativeMailAccountType` or :ref:`accounts.ExtensionMailAccountType`)
       
-      What sort of account this is, e.g. :value:`imap`, :value:`nntp`, or :value:`pop3`.
+      What sort of account this is. Either one of the natively supported account types, or an account type added by an extension.
    
 
 .. _accounts.MailAccountId:
@@ -422,14 +434,14 @@ A unique id representing a :ref:`accounts.MailAccount`.
 .. api-header::
    :label: string
 
-.. _accounts.MailAccountType:
+.. _accounts.NativeMailAccountType:
 
-MailAccountType
----------------
+NativeMailAccountType
+---------------------
 
 .. api-section-annotation-hack:: 
 
-The type of an account.
+The type of an account natively supported by Thunderbird.
 
 .. api-header::
    :label: `string`
@@ -452,6 +464,9 @@ The type of an account.
          
          .. api-member::
             :name: :value:`pop3`
+         
+         .. api-member::
+            :name: :value:`rss`
    
 
 

@@ -343,7 +343,7 @@ getTagFolder(key)
 
 .. api-section-annotation-hack:: -- [Added in TB 127]
 
-Get one of the special unified mailbox tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.
+Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags.
 
 .. api-header::
    :label: Parameters
@@ -1119,10 +1119,10 @@ An object describing a folder.
    
    .. api-member::
       :name: [``subFolders``]
-      :type: (array of :ref:`folders.MailFolder` or null, optional)
+      :type: (array of :ref:`folders.MailFolder`, optional)
       :annotation: -- [Added in TB 74]
       
-      Subfolders of this folder. The property may be :value:`null`, if inclusion of folders had not been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
+      Subfolders of this folder. This property is optional and only present if the inclusion of subfolders had been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
    
    
    .. api-member::
