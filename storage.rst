@@ -94,10 +94,10 @@ StorageArea
    - ``remove(keys, [callback])`` Removes one or more items from storage.
    - ``set(items, [callback])`` Sets multiple items.
 
-.. _storage.StorageAreaSync:
+.. _storage.StorageAreaWithUsage:
 
-StorageAreaSync
----------------
+StorageAreaWithUsage
+--------------------
 
 .. api-section-annotation-hack:: 
 

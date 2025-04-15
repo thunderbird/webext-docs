@@ -64,6 +64,86 @@ Converts the provided body to readable plain text, without tags and leading/trai
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _messengerUtilities.decodeMimeHeader:
+
+decodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
+------------------------------------------------------------
+
+.. api-section-annotation-hack:: 
+
+Decode the provided header into a readable format according to RFC 2047.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``headerName``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``headerValue``
+      :type: (string or array of string)
+   
+   
+   .. api-member::
+      :name: [``isMailBoxHeader``]
+      :type: (boolean, optional)
+      
+      Headers containing multiple mailbox strings need special handling. For example the header :value:`=?UTF-8?Q?H=C3=B6rst=2C_Kenny?= <K.Hoerst@invalid>, new@thunderbird.bug` will be wrongly decoded to :value:`Hörst, Kenny <K.Hoerst@invalid>, new@thunderbird.bug`, corrupting the structure of the first mailbox string. This option overrides the default behavior of treating the headers defined in :ref:`messengerUtilities.MailboxHeaders` as mailbox headers.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _messengerUtilities.encodeMimeHeader:
+
+encodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
+------------------------------------------------------------
+
+.. api-section-annotation-hack:: 
+
+Encode the provided header according to RFC 2047.
+
+.. api-header::
+   :label: Parameters
+
+   
+   .. api-member::
+      :name: ``headerName``
+      :type: (string)
+   
+   
+   .. api-member::
+      :name: ``headerValue``
+      :type: (string or array of string)
+   
+   
+   .. api-member::
+      :name: [``isMailBoxHeader``]
+      :type: (boolean, optional)
+      
+      Headers containing multiple mailbox strings need special handling. This option overrides the default behavior of treating the headers defined in :ref:`messengerUtilities.MailboxHeaders` as mailbox headers.
+   
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   
+   .. api-member::
+      :type: array of string
+   
+   
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _messengerUtilities.formatFileSize:
 
 formatFileSize(sizeInBytes)
@@ -135,6 +215,80 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
 
 Types
 =====
+
+.. _messengerUtilities.MailboxHeaders:
+
+MailboxHeaders
+--------------
+
+.. api-section-annotation-hack:: 
+
+MIME headers, which by default are treated as containing one or more mailbox strings.
+
+.. api-header::
+   :label: `string`
+
+   
+   .. container:: api-member-node
+   
+      .. container:: api-member-description-only
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`bcc`
+         
+         .. api-member::
+            :name: :value:`cc`
+         
+         .. api-member::
+            :name: :value:`from`
+         
+         .. api-member::
+            :name: :value:`reply-to`
+         
+         .. api-member::
+            :name: :value:`resent-bcc`
+         
+         .. api-member::
+            :name: :value:`resent-cc`
+         
+         .. api-member::
+            :name: :value:`resent-from`
+         
+         .. api-member::
+            :name: :value:`resent-reply-to`
+         
+         .. api-member::
+            :name: :value:`resent-sender`
+         
+         .. api-member::
+            :name: :value:`resent-to`
+         
+         .. api-member::
+            :name: :value:`sender`
+         
+         .. api-member::
+            :name: :value:`to`
+         
+         .. api-member::
+            :name: :value:`approved`
+         
+         .. api-member::
+            :name: :value:`disposition-notification-to`
+         
+         .. api-member::
+            :name: :value:`delivered-to`
+         
+         .. api-member::
+            :name: :value:`return-receipt-to`
+         
+         .. api-member::
+            :name: :value:`mail-reply-to`
+         
+         .. api-member::
+            :name: :value:`mail-followup-to`
+   
 
 .. _messengerUtilities.ParsedMailbox:
 

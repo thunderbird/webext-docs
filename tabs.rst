@@ -100,7 +100,7 @@ create(createProperties)
 
 .. api-section-annotation-hack:: 
 
-Creates a new content tab. Use the :doc:`messageDisplay` to open messages. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
+Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.open`. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
 
 .. api-header::
    :label: Parameters
@@ -123,7 +123,7 @@ Creates a new content tab. Use the :doc:`messageDisplay` to open messages. Only 
          :name: [``cookieStoreId``]
          :type: (string, optional)
          
-         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons. The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
       
       
       .. api-member::
@@ -131,6 +131,24 @@ Creates a new content tab. Use the :doc:`messageDisplay` to open messages. Only 
          :type: (integer, optional)
          
          The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
+      
+      
+      .. api-member::
+         :name: [``linkHandler``]
+         :type: (`string`, optional)
+         
+         Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
+         
+         Supported values:
+         
+         .. api-member::
+            :name: :value:`strict`
+         
+         .. api-member::
+            :name: :value:`balanced`
+         
+         .. api-member::
+            :name: :value:`relaxed`
       
       
       .. api-member::
@@ -162,7 +180,7 @@ Creates a new content tab. Use the :doc:`messageDisplay` to open messages. Only 
    .. api-member::
       :type: :ref:`tabs.Tab`
       
-      Details about the created tab. Will contain the ID of the new tab.
+      A Promise that will be fulfilled with a :ref:`tabs.Tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event before creating the tab.
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -234,7 +252,7 @@ getCurrent()
 
 .. api-section-annotation-hack:: 
 
-Gets the tab that this script call is being made from. May be :value:`undefined` if called from a non-tab context (for example: a background page or popup view).
+Gets the tab that this script call is being made from. Returns :value:`undefined` if called from a non-tab context (for example a background page or a popup view).
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -242,8 +260,6 @@ Gets the tab that this script call is being made from. May be :value:`undefined`
    
    .. api-member::
       :type: :ref:`tabs.Tab`
-      
-      This may return undefined
    
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -675,7 +691,7 @@ onCreated
 
 .. api-section-annotation-hack:: 
 
-Fired when a tab is created. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+Fired when a tab is created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)

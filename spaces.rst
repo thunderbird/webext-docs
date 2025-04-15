@@ -27,8 +27,8 @@ Functions
 
 .. _spaces.create:
 
-create(name, defaultUrl, [buttonProperties])
---------------------------------------------
+create(name, tabProperties, [buttonProperties])
+-----------------------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -46,17 +46,17 @@ Creates a new space and adds its button to the spaces toolbar.
    
    
    .. api-member::
-      :name: ``defaultUrl``
-      :type: (string)
+      :name: ``tabProperties``
+      :type: (:ref:`spaces.SpaceTabProperties` or string)
       
-      The default space url, loaded into a tab when the button in the spaces toolbar is clicked. Supported are :value:`https://` and :value:`http://` links, as well as links to WebExtension pages.
+      The properties for the new tab being opened, when the associated button in the spaces toolbar is clicked. Either a *string* specifiying the default URL, or a :ref:`spaces.SpaceTabProperties` object. The URL may point to a WebExtension page or a web page.
    
    
    .. api-member::
       :name: [``buttonProperties``]
       :type: (:ref:`spaces.SpaceButtonProperties`, optional)
       
-      Properties of the button for the new space.
+      Properties of the button in the spaces toolbar for the new space.
    
 
 .. api-header::
@@ -223,8 +223,8 @@ Removes the specified space, closes all its tabs and removes its button from the
 
 .. _spaces.update:
 
-update(spaceId, [defaultUrl], [buttonProperties])
--------------------------------------------------
+update(spaceId, tabProperties, [buttonProperties])
+--------------------------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -242,69 +242,23 @@ Updates the specified space. Throws an exception if the requested space does not
    
    
    .. api-member::
-      :name: [``defaultUrl``]
-      :type: (string, optional)
+      :name: ``tabProperties``
+      :type: (string or :ref:`spaces.SpaceTabProperties` or :ref:`spaces.SpaceButtonProperties`)
       
-      The default space url, loaded into a tab when the button in the spaces toolbar is clicked. Supported are :value:`https://` and :value:`http://` links, as well as links to WebExtension pages.
+      The properties for the new tab being opened, when the associated button in the spaces toolbar is clicked. Either a *string* specifiying the default URL, or a :ref:`spaces.SpaceTabProperties` object. The URL may point to a WebExtension page or a web page.
    
    
    .. api-member::
       :name: [``buttonProperties``]
       :type: (:ref:`spaces.SpaceButtonProperties`, optional)
       
-      Only specified button properties will be updated.
+      Properties of the button in the spaces toolbar for the specified space Only specified button properties will be updated.
    
 
 .. rst-class:: api-main-section
 
 Types
 =====
-
-.. _spaces.ButtonProperties:
-
-ButtonProperties
-----------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``badgeBackgroundColor``]
-      :type: (string or :ref:`spaces.ColorArray`, optional)
-      
-      Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to an empty string.
-   
-   
-   .. api-member::
-      :name: [``badgeText``]
-      :type: (string, optional)
-      
-      Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to an empty string.
-   
-   
-   .. api-member::
-      :name: [``defaultIcons``]
-      :type: (string or :ref:`spaces.IconPath`, optional)
-      
-      The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to an empty string.
-   
-   
-   .. api-member::
-      :name: [``themeIcons``]
-      :type: (array of :ref:`spaces.ThemeIcons`, optional)
-      
-      Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The :value:`light` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified. Reset when set to an empty array.
-   
-   
-   .. api-member::
-      :name: [``title``]
-      :type: (string, optional)
-      
-      The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to an empty string.
-   
 
 .. _spaces.ColorArray:
 
@@ -371,6 +325,8 @@ SpaceButtonProperties
 
 .. api-section-annotation-hack:: 
 
+Properties of a button in the spaces toolbar.
+
 .. api-header::
    :label: object
 
@@ -408,6 +364,51 @@ SpaceButtonProperties
       :type: (string, optional)
       
       The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to :value:`null`.
+   
+
+.. _spaces.SpaceTabProperties:
+
+SpaceTabProperties
+------------------
+
+.. api-section-annotation-hack:: 
+
+Properties for the new tab being opened by clicking on the associated button in the spaces toolbar.
+
+.. api-header::
+   :label: object
+
+   
+   .. api-member::
+      :name: [``cookieStoreId``]
+      :type: (string, optional)
+      
+      The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons. The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
+   
+   
+   .. api-member::
+      :name: [``linkHandler``]
+      :type: (`string`, optional)
+      
+      Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
+      
+      Supported values:
+      
+      .. api-member::
+         :name: :value:`strict`
+      
+      .. api-member::
+         :name: :value:`balanced`
+      
+      .. api-member::
+         :name: :value:`relaxed`
+   
+   
+   .. api-member::
+      :name: [``url``]
+      :type: (string, optional)
+      
+      The default URL. May point to a WebExtension page or a web page.
    
 
 .. rst-class:: api-main-section

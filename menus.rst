@@ -635,6 +635,9 @@ The different contexts a menu can appear in. More information about each context
             Applies when the user context-clicks in a nested iframe.
          
          .. api-member::
+            :name: :value:`header_pane_link`
+         
+         .. api-member::
             :name: :value:`image`
          
             Applies when the user context-clicks an image.

@@ -200,7 +200,7 @@ AnyPermissions
    
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`permissions.Permission`, optional)
+      :type: (array of :ref:`permissions.Permission` or :ref:`permissions.OptionalOnlyPermission`, optional)
    
 
 .. _permissions.Permissions:
@@ -221,5 +221,5 @@ Permissions
    
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`permissions.OptionalPermission`, optional)
+      :type: (array of :ref:`permissions.OptionalPermission` or :ref:`permissions.OptionalOnlyPermission`, optional)
    

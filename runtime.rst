@@ -30,7 +30,7 @@ Permissions
 .. api-member::
    :name: :permission:`nativeMessaging`
 
-   Exchange messages with programs other than { -brand-short-name }
+   Exchange messages with programs other than Thunderbird
 
 .. rst-class:: api-main-section
 
@@ -792,6 +792,96 @@ Fired when an update is available, but isn't installed immediately because the a
       
    
 
+.. _runtime.onUserScriptConnect:
+
+onUserScriptConnect
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Fired when a connection is made from a USER_SCRIPT world registered through the userScripts API.
+
+.. api-header::
+   :label: Parameters for onUserScriptConnect.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(port)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: ``port``
+      :type: (:ref:`runtime.Port`)
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`
+
+.. _runtime.onUserScriptMessage:
+
+onUserScriptMessage
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Fired when a message is sent from a USER_SCRIPT world registered through the userScripts API.
+
+.. api-header::
+   :label: Parameters for onUserScriptMessage.addListener(listener)
+
+   
+   .. api-member::
+      :name: ``listener(message, sender, sendResponse)``
+      
+      A function that will be called when this event occurs.
+   
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   
+   .. api-member::
+      :name: [``message``]
+      :type: (any, optional)
+      
+      The message sent by the calling script.
+   
+   
+   .. api-member::
+      :name: ``sender``
+      :type: (:ref:`runtime.MessageSender`)
+   
+   
+   .. api-member::
+      :name: ``sendResponse``
+      :type: (function)
+      
+      Function to call (at most once) when you have a response. The argument should be any JSON-ifiable object. If you have more than one :code:`onMessage` listener in the same document, then only one may send a response. This function becomes invalid when the event listener returns, unless you return true from the event listener to indicate you wish to send a response asynchronously (this will keep the message channel open to the other end until :code:`sendResponse` is called).
+   
+
+.. api-header::
+   :label: Expected return value of the listener function
+
+   
+   .. api-member::
+      :type: boolean
+      
+      Return true from the event listener if you wish to call :code:`sendResponse` after the event listener returns.
+   
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`
+
 .. rst-class:: api-main-section
 
 Types
@@ -1050,6 +1140,13 @@ An object containing information about the script context that sent a message or
       :type: (string, optional)
       
       The URL of the page or frame that opened the connection. If the sender is in an iframe, it will be iframe's URL not the URL of the page which hosts it.
+   
+   
+   .. api-member::
+      :name: [``userScriptWorldId``]
+      :type: (string, optional)
+      
+      The worldId of the USER_SCRIPT world that sent the message. Only present on onUserScriptMessage and onUserScriptConnect (in port.sender) events.
    
 
 .. _runtime.OnInstalledReason:

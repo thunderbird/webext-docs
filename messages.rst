@@ -116,8 +116,8 @@ Archives messages using the current settings. Archiving external messages will t
 
 .. _messages.copy:
 
-copy(messageIds, folderId)
---------------------------
+copy(messageIds, folderId, [options])
+-------------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -140,6 +140,18 @@ Copies messages to a specified folder.
       
       The folder to copy the messages to.
    
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object, optional)
+      
+      .. api-member::
+         :name: [``isUserAction``]
+         :type: (boolean, optional)
+         
+         Whether this copy operation should be treated as a user action, for example allowing undo.
+      
+   
 
 .. api-header::
    :label: Required permissions
@@ -150,12 +162,12 @@ Copies messages to a specified folder.
 
 .. _messages.delete:
 
-delete(messageIds, [skipTrash])
--------------------------------
+delete(messageIds, [options])
+-----------------------------
 
 .. api-section-annotation-hack:: 
 
-Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an *ExtensionError*. The :value:`skipTrash` parameter allows immediate permanent deletion, bypassing the trash folder.
+Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an *ExtensionError*. The :value:`deletePermanently` parameter allows immediate permanent deletion, bypassing the trash folder.
 
 .. api-header::
    :label: Parameters
@@ -169,10 +181,8 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
    
    
    .. api-member::
-      :name: [``skipTrash``]
-      :type: (boolean, optional)
-      
-      If true, the message will be deleted permanently, regardless of the account's deletion behavior settings.
+      :name: [``options``]
+      :type: (boolean or object, optional)
    
 
 .. api-header::
@@ -237,10 +247,29 @@ Returns the specified message, including all headers and MIME parts. Throws if t
       :type: (object, optional)
       
       .. api-member::
+         :name: [``decodeContent``]
+         :type: (boolean, optional)
+         
+         Whether to decode quoted-printable or base64 encoded content of message parts. Defaults to :value:`true`.
+      
+      
+      .. api-member::
+         :name: [``decodeHeaders``]
+         :type: (boolean, optional)
+         
+         Whether to decode RFC 2047 encoded headers of message parts. Defaults to :value:`true`. **Note:** Automatic decoding of headers containing a list of comma separated mailbox strings can have unwanted side effects. Example: 
+         
+         .. literalinclude:: includes/messages/badHeader.js
+           :language: JavaScript
+         
+         
+      
+      
+      .. api-member::
          :name: [``decrypt``]
          :type: (boolean, optional)
          
-         Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to true.
+         Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to :value:`true`.
       
    
 
@@ -261,20 +290,22 @@ Returns the specified message, including all headers and MIME parts. Throws if t
 
 .. _messages.getRaw:
 
-getRaw(messageId, [options])
-----------------------------
+getRaw(message, [options])
+--------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 72, backported to TB 68.7]
 
-Returns the unmodified source of a message. Throws if the message could not be read, for example due to network issues.
+Returns the raw content of a message. Throws if the message could not be read, for example due to network issues.
 
 .. api-header::
    :label: Parameters
 
    
    .. api-member::
-      :name: ``messageId``
-      :type: (:ref:`messages.MessageId`)
+      :name: ``message``
+      :type: (:ref:`messages.MessageId` or :ref:`messages.MessagePart`)
+      
+      Either a :ref:`messages.MessageId` of an existing message, or a :ref:`messages.MessagePart` with raw header and raw content data representing a full RFC 822 message (the provided data will be used as-is without applying any further encoding). See the :value:`decodeHeaders` and :value:`decodeContent` options of :ref:`messages.getFull` for further details on how to retrieve a :ref:`messages.MessagePart` with raw values. You can use :ref:`messengerUtilities.decodeMimeHeader` and :ref:`messengerUtilities.encodeMimeHeader` to manipulate a raw MessagePart.
    
    
    .. api-member::
@@ -333,7 +364,7 @@ import(file, folderId, [properties])
 
 .. api-section-annotation-hack:: -- [Added in TB 106]
 
-Imports a message into a local Thunderbird folder. To import a message into an IMAP folder, add it to a local folder first and then move it to the IMAP folder.
+Imports a message into a folder. Supports local folders, POP and IMAP folders. Throws, if the destination folder already contains a message with the Message-ID of the message being imported.
 
 .. api-header::
    :label: Parameters
@@ -409,8 +440,8 @@ Gets all messages in a folder.
 
 .. _messages.move:
 
-move(messageIds, folderId)
---------------------------
+move(messageIds, folderId, [options])
+-------------------------------------
 
 .. api-section-annotation-hack:: 
 
@@ -432,6 +463,18 @@ Moves messages to a specified folder. If the messages cannot be removed from the
       :type: (:ref:`folders.MailFolderId`)
       
       The folder to move the messages to.
+   
+   
+   .. api-member::
+      :name: [``options``]
+      :type: (object, optional)
+      
+      .. api-member::
+         :name: [``isUserAction``]
+         :type: (boolean, optional)
+         
+         Whether this move operation should be treated as a user action, for example allowing undo.
+      
    
 
 .. api-header::
@@ -1046,7 +1089,7 @@ onNewMailReceived
 
 .. api-section-annotation-hack:: -- [Added in TB 75]
 
-Fired when a new message is received, and has been through junk classification and message filters.
+Fired when a new message is received, and has been handled by message filters and junk classification. Filters running after junk classification may move the message again.
 
 .. api-header::
    :label: Parameters for onNewMailReceived.addListener(listener, monitorAllFolders)
@@ -1100,7 +1143,7 @@ Fired when one or more properties of a message have been updated.
 
    
    .. api-member::
-      :name: ``listener(message, changedProperties)``
+      :name: ``listener(message, changedProperties, oldProperties)``
       
       A function that will be called when this event occurs.
    
@@ -1116,6 +1159,11 @@ Fired when one or more properties of a message have been updated.
    
    .. api-member::
       :name: ``changedProperties``
+      :type: (:ref:`messages.MessageProperties`)
+   
+   
+   .. api-member::
+      :name: ``oldProperties``
       :type: (:ref:`messages.MessageProperties`)
    
 
@@ -1175,17 +1223,31 @@ MessageAttachment
 
 .. api-section-annotation-hack:: 
 
-Represents an attachment in a message. This includes all MIME parts with a *content-disposition* header set to :value:`attachment`, but also related parts like inline images.
+Represents an attachment in a message.
 
 .. api-header::
    :label: object
 
    
    .. api-member::
+      :name: ``contentDisposition``
+      :type: (string)
+      
+      The content disposition of the attachment, for example :value:`attachment` for normal attachments, or :value:`inline` for inline attachments.
+   
+   
+   .. api-member::
       :name: ``contentType``
       :type: (string)
       
       The content type of the attachment. A value of :value:`text/x-moz-deleted` indicates that the original attachment was permanently deleted and replaced by a placeholder text attachment with some meta information about the original attachment.
+   
+   
+   .. api-member::
+      :name: ``headers``
+      :type: (object)
+      
+      A *dictionary object* of RFC 2047 decoded attachment headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
    
    
    .. api-member::
@@ -1417,7 +1479,7 @@ Represents an email message "part", which could be the whole message.
       :name: [``body``]
       :type: (string, optional)
       
-      The content of the part.
+      The quoted-printable or base64 decoded content of the part. Only present for parts with a content type of :value:`text/*` and only if requested, see the :value:`decodeContent` option of :ref:`messages.getFull`. Use :ref:`messages.getAttachmentFile` to retrieve the content of parts which have a content type other than :value:`text/*`.
    
    
    .. api-member::
@@ -1451,7 +1513,7 @@ Represents an email message "part", which could be the whole message.
       :name: [``headers``]
       :type: (object, optional)
       
-      A *dictionary object* of part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+      A *dictionary object* of RFC 2047 decoded part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.getFull`.
    
    
    .. api-member::
@@ -1473,6 +1535,20 @@ Represents an email message "part", which could be the whole message.
       :type: (array of :ref:`messages.MessagePart`, optional)
       
       Any sub-parts of this part.
+   
+   
+   .. api-member::
+      :name: [``rawBody``]
+      :type: (string, optional)
+      
+      The raw content of the part. Only present if requested, see the :value:`decodeContent` option of :ref:`messages.getFull`.
+   
+   
+   .. api-member::
+      :name: [``rawHeaders``]
+      :type: (object, optional)
+      
+      A *dictionary object* of raw part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.getFull`.
    
    
    .. api-member::

@@ -83,6 +83,15 @@ Returns all the registered extension commands for this extension and their short
    
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _commands.openShortcutSettings:
+
+openShortcutSettings()
+----------------------
+
+.. api-section-annotation-hack:: 
+
+Open extension shortcuts configuration page.
+
 .. _commands.reset:
 
 reset(name)

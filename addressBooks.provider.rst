@@ -66,13 +66,13 @@ onSearchRequest
 
 .. api-section-annotation-hack:: 
 
-Registering this listener will create and list a read-only address book in Thunderbird's address book window, similar to LDAP address books. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
+Registering this listener will create a read-only address book, similar to an LDAP address book. When selecting this address book, users will first see no contacts, but they can search for them, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books. **Ensure all listeners are at the top-level and use the synchronous pattern, otherwise the associated address books will be removed on background termination.**.
 
 The event also fires for each registered listener (for each created read-only address book), when users type something into the mail composer's *To:* field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.
 
 Example: 
 
-.. literalinclude:: includes/addressBooks/onSearchRequest.js
+.. literalinclude:: includes/addressBooks/onSearchRequest_mv3.js
   :language: JavaScript
 
 .. api-header::
@@ -95,14 +95,14 @@ Example:
          :name: [``addressBookName``]
          :type: (string, optional)
          
-         The name of the created address book.
+         The name of the created address book. If not provided, the name of the extension is used.
       
       
       .. api-member::
          :name: [``id``]
          :type: (string, optional)
          
-         The unique ID of the created address book. If several listeners have been added, the :value:`id` allows to identify which address book initiated the search request. If not provided, a unique ID will be generated for you.
+         The unique identifier of the created address book. If not provided, a unique identifier will be generated for you.
       
       
       .. api-member::
