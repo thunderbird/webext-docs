@@ -805,11 +805,17 @@ Information sent when a composeAction button is clicked.
       .. api-member::
          :name: :value:`Command`
 
+         Only available on macOS.
+
       .. api-member::
          :name: :value:`Ctrl`
 
+         Not available on macOS.
+
       .. api-member::
          :name: :value:`MacCtrl`
+
+         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
 
    .. api-member::
       :name: [``button``]

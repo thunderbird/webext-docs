@@ -19,7 +19,7 @@ identity API
 
 .. role:: code
 
-Use the chrome.identity API to get OAuth2 access tokens. 
+Use the chrome.identity API to get OAuth2 access tokens.
 
 .. rst-class:: api-main-section
 
@@ -149,7 +149,7 @@ Generates a redirect URL to be used in |launchWebAuthFlow|.
       :name: [``path``]
       :type: (string, optional)
 
-      The path appended to the end of the generated URL. 
+      The path appended to the end of the generated URL.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -301,7 +301,7 @@ An object encapsulating an OAuth account id.
       :name: ``id``
       :type: (string)
 
-      A unique identifier for the account. This ID will not change for the lifetime of the account. 
+      A unique identifier for the account. This ID will not change for the lifetime of the account.
 
 .. _identity.HttpURL:
 

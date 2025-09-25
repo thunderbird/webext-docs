@@ -706,6 +706,7 @@ Fired when saving a message as draft or template succeeded or failed.
 
          .. api-member::
             :name: :value:`autoSave`
+            :annotation: -- [Added in TB 125]
 
          .. api-member::
             :name: :value:`draft`
@@ -1141,7 +1142,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.MailFolderId`, optional)
       :annotation: -- [Added in TB 127]
 
-       This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+      This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 
    .. api-member::
       :name: [``plainTextBody``]
@@ -1224,6 +1225,7 @@ Used by various functions to represent the state of a message being composed. No
 
       .. api-member::
          :name: :value:`redirect`
+         :annotation: -- [Added in TB 90]
 
       .. api-member::
          :name: :value:`reply`

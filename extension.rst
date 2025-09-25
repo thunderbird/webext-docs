@@ -175,6 +175,7 @@ The type of extension view.
 
          .. api-member::
             :name: :value:`sidebar`
+            :annotation: -- [Added in TB 54]
 
 .. rst-class:: api-main-section
 

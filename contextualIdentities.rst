@@ -125,7 +125,7 @@ Retrieves information about a single contextual identity.
       :name: ``cookieStoreId``
       :type: (string)
 
-      The ID of the contextual identity cookie store. 
+      The ID of the contextual identity cookie store.
 
       .. note::
 
@@ -156,7 +156,7 @@ Reorder one or more contextual identities by their cookieStoreIDs to a given pos
       :name: ``cookieStoreIds``
       :type: (string or array of string)
 
-      The ID or list of IDs of the contextual identity cookie stores. 
+      The ID or list of IDs of the contextual identity cookie stores.
 
    .. api-member::
       :name: ``position``
@@ -234,7 +234,7 @@ Deletes a contextual identity by its cookie Store ID.
       :name: ``cookieStoreId``
       :type: (string)
 
-      The ID of the contextual identity cookie store. 
+      The ID of the contextual identity cookie store.
 
       .. note::
 
@@ -273,7 +273,7 @@ Updates a contextual identity with the given data.
       :name: ``cookieStoreId``
       :type: (string)
 
-      The ID of the contextual identity cookie store. 
+      The ID of the contextual identity cookie store.
 
       .. note::
 

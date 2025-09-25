@@ -816,7 +816,7 @@ onBeforeSendHeaders
 
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
-Fired before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any HTTP data is sent. 
+Fired before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any HTTP data is sent.
 
 .. note::
 
@@ -2259,9 +2259,15 @@ ResourceType
 
          .. api-member::
             :name: :value:`speculative`
+            :annotation: -- [Added in TB 63]
 
          .. api-member::
             :name: :value:`json`
+            :annotation: -- [Added in TB 138]
+
+            .. note::
+
+               The "json" property is supported from Firefox 135, but requests of this type are only available from Firefox 138.
 
          .. api-member::
             :name: :value:`other`

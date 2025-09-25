@@ -349,6 +349,7 @@ The type of an account natively supported by Thunderbird.
 
          .. api-member::
             :name: :value:`ews`
+            :annotation: -- [Added in TB 142]
 
          .. api-member::
             :name: :value:`imap`

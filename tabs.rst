@@ -141,7 +141,7 @@ Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.
          :name: [``url``]
          :type: (string, optional)
 
-         The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension. 
+         The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension.
 
       .. api-member::
          :name: [``windowId``]
@@ -1089,9 +1089,11 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
 
          .. api-member::
             :name: :value:`messageCompose`
+            :annotation: -- [Added in TB 88]
 
          .. api-member::
             :name: :value:`messageDisplay`
+            :annotation: -- [Added in TB 88]
 
 .. rst-class:: api-main-section
 

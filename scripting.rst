@@ -365,6 +365,7 @@ The JavaScript world for a script to execute within. :code:`ISOLATED` is the def
 
          .. api-member::
             :name: :value:`MAIN`
+            :annotation: -- [Added in TB 128]
 
 .. _scripting.InjectionResult:
 

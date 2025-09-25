@@ -1304,6 +1304,7 @@ TransitionQualifier
 
          .. api-member::
             :name: :value:`from_address_bar`
+            :annotation: -- [Added in TB 49]
 
 .. _webNavigation.TransitionType:
 
@@ -1326,20 +1327,31 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`link`
 
+            .. note::
+
+               Partially supported as the default transition type for top-level frames.
+
          .. api-member::
             :name: :value:`typed`
+            :annotation: -- [Added in TB 49]
 
          .. api-member::
             :name: :value:`auto_bookmark`
+            :annotation: -- [Added in TB 49]
 
          .. api-member::
             :name: :value:`auto_subframe`
+
+            .. note::
+
+               Partially supported as the default transition type for subframes.
 
          .. api-member::
             :name: :value:`manual_subframe`
 
          .. api-member::
             :name: :value:`generated`
+            :annotation: -- [Added in TB 49]
 
          .. api-member::
             :name: :value:`start_page`
@@ -1352,6 +1364,7 @@ Cause of the navigation. The same transition types as defined in the history API
 
          .. api-member::
             :name: :value:`keyword`
+            :annotation: -- [Added in TB 49]
 
          .. api-member::
             :name: :value:`keyword_generated`
