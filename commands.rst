@@ -37,9 +37,9 @@ Manifest file properties
 
    The *name* may also be one of the following built-in special shortcuts:
 
-   * :value:`_execute_action`
-   * :value:`_execute_compose_action`
-   * :value:`_execute_message_display_action`
+    * :value:`_execute_action`
+    * :value:`_execute_compose_action`
+    * :value:`_execute_message_display_action`
 
    Example:
 

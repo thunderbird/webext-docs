@@ -140,10 +140,6 @@ Retrieves the JavaScript 'window' object for the background page running inside 
 
       The JavaScript 'window' object for the background page.
 
-      .. note::
-
-         If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then it will always return :code:`null`.
-
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _runtime.getBrowserInfo:
@@ -494,29 +490,18 @@ Fired when the extension is first installed, when the extension is updated to a 
       :name: ``details``
       :type: (object)
 
-      .. note::
-
-         Before version 55, this event is not triggered for temporarily installed add-ons.
-
       .. api-member::
          :name: ``reason``
          :type: (:ref:`runtime.OnInstalledReason`)
 
          The reason that this event is being dispatched.
 
-         .. note::
-
-            Before version 55, this event is not triggered for temporarily installed add-ons.
-
       .. api-member::
          :name: ``temporary``
          :type: (boolean)
+         :annotation: -- [Added in TB 55]
 
          Indicates whether the addon is installed as a temporary extension.
-
-         .. note::
-
-            Before version 55, this event is not triggered for temporarily installed add-ons.
 
       .. api-member::
          :name: [``id``]
@@ -524,19 +509,12 @@ Fired when the extension is first installed, when the extension is updated to a 
 
          Indicates the ID of the imported shared module extension which updated. This is present only if 'reason' is 'shared_module_update'.
 
-         .. note::
-
-            Before version 55, this event is not triggered for temporarily installed add-ons.
-
       .. api-member::
          :name: [``previousVersion``]
          :type: (string, optional)
+         :annotation: -- [Added in TB 55]
 
          Indicates the previous version of the extension, which has just been updated. This is present only if 'reason' is 'update'.
-
-         .. note::
-
-            Before version 55, this event is not triggered for temporarily installed add-ons.
 
 .. _runtime.onMessage:
 
@@ -797,14 +775,6 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
       :name: ``port``
       :type: (:ref:`runtime.Port`)
 
-      .. note::
-
-         Available for use with Manifest V3 only.
-
-      .. note::
-
-         Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
-
 .. api-header::
    :label: Required permissions
 
@@ -843,14 +813,6 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
       :type: (any, optional)
 
       The message sent by the calling script.
-
-      .. note::
-
-         Available for use with Manifest V3 only.
-
-      .. note::
-
-         Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
 
    .. api-member::
       :name: ``sender``

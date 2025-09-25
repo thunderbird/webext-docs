@@ -62,19 +62,11 @@ Creates a contextual identity with the given data.
 
       Details about the contextual identity being created.
 
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
-
       .. api-member::
          :name: ``color``
          :type: (string)
 
          The color of the contextual identity.
-
-         .. note::
-
-            Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
 
       .. api-member::
          :name: ``icon``
@@ -82,19 +74,11 @@ Creates a contextual identity with the given data.
 
          The icon of the contextual identity.
 
-         .. note::
-
-            Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
-
       .. api-member::
          :name: ``name``
          :type: (string)
 
          The name of the contextual identity.
-
-         .. note::
-
-            Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
 
 .. api-header::
    :label: Required permissions
@@ -126,14 +110,6 @@ Retrieves information about a single contextual identity.
       :type: (string)
 
       The ID of the contextual identity cookie store.
-
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
-
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`null` if the given identity is not found.
 
 .. api-header::
    :label: Required permissions
@@ -191,19 +167,11 @@ Retrieves all contextual identities
 
       Information to filter the contextual identities being retrieved.
 
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
-
       .. api-member::
          :name: [``name``]
          :type: (string, optional)
 
          Filters the contextual identity by name.
-
-         .. note::
-
-            Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
 
 .. api-header::
    :label: Required permissions
@@ -236,14 +204,6 @@ Deletes a contextual identity by its cookie Store ID.
 
       The ID of the contextual identity cookie store.
 
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
-
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`null` if the given identity is not found.
-
 .. api-header::
    :label: Required permissions
 
@@ -274,14 +234,6 @@ Updates a contextual identity with the given data.
       :type: (string)
 
       The ID of the contextual identity cookie store.
-
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`false` if the contextual identities feature is disabled.
-
-      .. note::
-
-         Before version 57, this method resolves its promise with :code:`null` if the given identity is not found.
 
    .. api-member::
       :name: ``details``

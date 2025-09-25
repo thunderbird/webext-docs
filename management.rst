@@ -86,10 +86,6 @@ Returns a list of information about installed extensions.
    .. api-member::
       :type: array of :ref:`management.ExtensionInfo`
 
-      .. note::
-
-         Before version 56, only extensions whose 'type' is 'theme' are returned.
-
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -134,29 +130,17 @@ Installs and enables a theme extension from the given url.
       :name: ``options``
       :type: (object)
 
-      .. note::
-
-         The installable file pointed to by :code:`url` must be a `theme <https://developer.mozilla.org/docs/Mozilla/Add-ons/Themes>`__, and not a normal browser extension.
-
       .. api-member::
          :name: ``url``
          :type: (:ref:`management.HttpURL`)
 
          URL pointing to the XPI file on addons.mozilla.org or similar.
 
-         .. note::
-
-            The installable file pointed to by :code:`url` must be a `theme <https://developer.mozilla.org/docs/Mozilla/Add-ons/Themes>`__, and not a normal browser extension.
-
       .. api-member::
          :name: [``hash``]
          :type: (string, optional)
 
          A hash of the XPI file, using sha256 or stronger.
-
-         .. note::
-
-            The installable file pointed to by :code:`url` must be a `theme <https://developer.mozilla.org/docs/Mozilla/Add-ons/Themes>`__, and not a normal browser extension.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -196,10 +180,6 @@ Enables or disables the given add-on.
       :type: (string)
 
       ID of the add-on to enable/disable.
-
-      .. note::
-
-         Only extensions whose 'type' is 'theme' can be enabled and disabled.
 
    .. api-member::
       :name: ``enabled``
@@ -273,10 +253,6 @@ Fired when an addon has been disabled.
       :name: ``info``
       :type: (:ref:`management.ExtensionInfo`)
 
-      .. note::
-
-         Before version 56, only extensions whose :code:`type` is :code:`'theme'` are supported.
-
 .. api-header::
    :label: Required permissions
 
@@ -310,10 +286,6 @@ Fired when an addon has been enabled.
       :name: ``info``
       :type: (:ref:`management.ExtensionInfo`)
 
-      .. note::
-
-         Before version 56, only extensions whose :code:`type` is :code:`'theme'` are supported.
-
 .. api-header::
    :label: Required permissions
 
@@ -346,10 +318,6 @@ Fired when an addon has been installed.
    .. api-member::
       :name: ``info``
       :type: (:ref:`management.ExtensionInfo`)
-
-      .. note::
-
-         Before version 56, only extensions whose :code:`type` is :code:`'theme'` are supported.
 
 .. api-header::
    :label: Required permissions
@@ -387,14 +355,6 @@ Fired when an addon has been uninstalled.
    .. api-member::
       :name: ``info``
       :type: (:ref:`management.ExtensionInfo`)
-
-      .. note::
-
-         Before version 56, only extensions whose :code:`type` is :code:`'theme'` are supported.
-
-      .. note::
-
-         This event is not fired when the extension is in the "pending uninstall" state. The event is fired as expected once the extension is completely removed (for example, when the :code:`about:addons` tab is closed).
 
 .. api-header::
    :label: Required permissions

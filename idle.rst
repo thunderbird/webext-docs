@@ -62,10 +62,6 @@ Returns "idle" if the user has not generated any input for a specified number of
 
       The system is considered idle if detectionIntervalInSeconds seconds have elapsed since the last user input detected.
 
-      .. note::
-
-         Before version 51, Firefox always reports 'active'. After version 51, Firefox reports 'active' or 'idle' as appropriate.
-
 .. api-header::
    :label: Return type (`Promise`_)
 

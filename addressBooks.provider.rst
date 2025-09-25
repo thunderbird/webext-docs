@@ -21,8 +21,8 @@ The address book provider API allows to add address books, which are not stored 
 
 Possible use cases include:
 
-* Implementing a custom storage.
-* Implementing search-only address books that query a remote server.
+ * Implementing a custom storage.
+ * Implementing search-only address books that query a remote server.
 
 So far, only the API for search-only address books has been implemented.
 

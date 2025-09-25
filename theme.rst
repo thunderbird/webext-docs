@@ -179,13 +179,13 @@ Defines a color value.
 
          A string containing a valid `CSS color string <https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_colors/Color_values>`__, including hexadecimal or functional representations. For example the color *crimson* can be specified as: 
 
-         * :value:`crimson` 
+          * :value:`crimson` 
 
-         * :value:`#dc143c` 
+          * :value:`#dc143c` 
 
-         * :value:`rgb(220, 20, 60)` (or :value:`rgba(220, 20, 60, 0.5)` to set 50% opacity) 
+          * :value:`rgb(220, 20, 60)` (or :value:`rgba(220, 20, 60, 0.5)` to set 50% opacity) 
 
-         * :value:`hsl(348, 83%, 47%)` (or :value:`hsla(348, 83%, 47%, 0.5)` to set 50% opacity)
+          * :value:`hsl(348, 83%, 47%)` (or :value:`hsla(348, 83%, 47%, 0.5)` to set 50% opacity)
 
 OR
 

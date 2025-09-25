@@ -61,10 +61,6 @@ Clears various types of browsing data stored in a user's profile.
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
 
-      .. note::
-
-         Specifying :code:`dataTypes.history` will also remove download history and service workers.
-
    .. api-member::
       :name: ``dataToRemove``
       :type: (:ref:`browsingData.DataTypeSet`)
@@ -116,10 +112,6 @@ Clears the browser's cache.
    .. api-member::
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
-
-      .. note::
-
-         :code:`removalOptions.since` is not supported.
 
 .. api-header::
    :label: Required permissions
@@ -230,10 +222,6 @@ Clears the browser's history.
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
 
-      .. note::
-
-         This function also removes download history and service workers.
-
 .. api-header::
    :label: Required permissions
 
@@ -279,10 +267,6 @@ Clears websites' local storage data.
    .. api-member::
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
-
-      .. note::
-
-         :code:`removalOptions.since` is not supported.
 
 .. api-header::
    :label: Required permissions

@@ -137,6 +137,7 @@ Returns the current set of dynamic rules for the extension.
    .. api-member::
       :name: [``filter``]
       :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
+      :annotation: -- [Added in TB 127]
 
       An object to filter the set of dynamic rules for the extension.
 
@@ -192,6 +193,7 @@ Returns the current set of session scoped rules for the extension.
    .. api-member::
       :name: [``filter``]
       :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
+      :annotation: -- [Added in TB 127]
 
       An object to filter the set of session scoped rules for the extension.
 
