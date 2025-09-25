@@ -39,6 +39,10 @@ Manifest file properties
 
       A page for configuring accounts, to be displayed in the preferences UI.
 
+      .. note::
+
+         Within this UI only a limited subset of the WebExtension APIs is available: :value:`cloudFile`, :value:`extension`, :value:`i18n`, :value:`runtime`, :value:`storage`. The id of the to be configured cloud file account can be retrieved via :code:`new URL(location.href).searchParams.get('accountId');`.
+
    .. api-member::
       :name: ``name``
       :type: (string)
@@ -597,6 +601,19 @@ Defines information to be used in the cloud file entry added to the message.
          :annotation: -- [Added in TB 97]
 
          A format options object as used by `Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__.
+
+         Defaults to:
+
+         .. code-block:: JSON
+
+            {
+              "day": "2-digit",
+              "month": "2-digit",
+              "year": "numeric",
+              "hour": "2-digit",
+              "minute": "2-digit",
+              "timeZoneName": "short"
+            }
 
    .. api-member::
       :name: [``download_limit``]

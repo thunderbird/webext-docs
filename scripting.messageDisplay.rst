@@ -79,6 +79,10 @@ registerScripts(scripts)
 
 Registers one or more message display scripts for this extension, which should be injected into displayed messages.
 
+.. note::
+
+   Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`scripting.executeScript` for each of the open :value:`messageDisplay` tabs.
+
 .. api-header::
    :label: Parameters
 
@@ -154,6 +158,8 @@ ExtensionURL
 ------------
 
 .. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
 
 .. api-header::
    :label: string

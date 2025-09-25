@@ -19,7 +19,7 @@ webNavigation API
 
 .. role:: code
 
-Use the <code>browser.webNavigation</code> API to receive notifications about the status of navigation requests in-flight.
+Use the :code:`browser.webNavigation` API to receive notifications about the status of navigation requests in-flight.
 
 .. rst-class:: api-main-section
 
@@ -51,6 +51,10 @@ getAllFrames(details)
 
 Retrieves information about all frames of a given tab.
 
+.. note::
+
+   The returned objects do not include the :code:`errorOccurred` property. See `bug 1248418 <https://bugzil.la/1248418>`__.
+
 .. api-header::
    :label: Parameters
 
@@ -60,11 +64,19 @@ Retrieves information about all frames of a given tab.
 
       Information about the tab to retrieve all frames from.
 
+      .. note::
+
+         The returned objects do not include the :code:`errorOccurred` property. See `bug 1248418 <https://bugzil.la/1248418>`__.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab.
+
+         .. note::
+
+            The returned objects do not include the :code:`errorOccurred` property. See `bug 1248418 <https://bugzil.la/1248418>`__.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -176,6 +188,14 @@ onBeforeNavigate
 
 Fired when a navigation is about to occur.
 
+.. note::
+
+   Filtering is supported from version 50.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
+
 .. api-header::
    :label: Parameters for onBeforeNavigate.addListener(listener, filters)
 
@@ -197,11 +217,27 @@ Fired when a navigation is about to occur.
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Filtering is supported from version 50.
+
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique for a given tab and process.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``parentFrameId``
@@ -209,11 +245,27 @@ Fired when a navigation is about to occur.
 
          ID of frame that wraps the frame. Set to -1 of no parent frame exists.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``processId``
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``tabId``
@@ -221,15 +273,39 @@ Fired when a navigation is about to occur.
 
          The ID of the tab in which the navigation is about to occur.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when the browser was about to start the navigation, in milliseconds since the epoch.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Required permissions
@@ -244,6 +320,14 @@ onCommitted
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Fired when a navigation is committed. The document (and the resources it refers to, such as images and subframes) might still be downloading, but at least part of the document has been received from the server and the browser has decided to switch to the new document.
+
+.. note::
+
+   Filtering is supported from version 50.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Parameters for onCommitted.addListener(listener, filters)
@@ -266,11 +350,27 @@ Fired when a navigation is committed. The document (and the resources it refers 
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Filtering is supported from version 50.
+
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``processId``
@@ -278,11 +378,27 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
          The ID of the process runs the renderer for this tab.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``timeStamp``
@@ -290,11 +406,27 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
          The time when the navigation was committed, in milliseconds since the epoch.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``transitionQualifiers``
          :type: (array of :ref:`webNavigation.TransitionQualifier`)
 
          A list of transition qualifiers.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``transitionType``
@@ -302,9 +434,25 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
          Cause of the navigation.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Required permissions
@@ -319,6 +467,14 @@ onCompleted
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Fired when a document, including the resources it refers to, is completely loaded and initialized.
+
+.. note::
+
+   Filtering is supported from version 50.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Parameters for onCompleted.addListener(listener, filters)
@@ -341,11 +497,27 @@ Fired when a document, including the resources it refers to, is completely loade
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Filtering is supported from version 50.
+
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``processId``
@@ -353,11 +525,27 @@ Fired when a document, including the resources it refers to, is completely loade
 
          The ID of the process runs the renderer for this tab.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``timeStamp``
@@ -365,9 +553,25 @@ Fired when a document, including the resources it refers to, is completely loade
 
          The time when the document finished loading, in milliseconds since the epoch.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Required permissions
@@ -382,6 +586,14 @@ onCreatedNavigationTarget
 .. api-section-annotation-hack:: -- [Added in TB 54]
 
 Fired when a new window, or a new tab in an existing window, is created to host a navigation.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
+
+.. note::
+
+   If a blocked popup is unblocked by the user, the event is then sent.
 
 .. api-header::
    :label: Parameters for onCreatedNavigationTarget.addListener(listener, filters)
@@ -404,11 +616,27 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
+      .. note::
+
+         If a blocked popup is unblocked by the user, the event is then sent.
+
       .. api-member::
          :name: ``sourceFrameId``
          :type: (integer)
 
          The ID of the frame with sourceTabId in which the navigation is triggered. 0 indicates the main frame.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
+         .. note::
+
+            If a blocked popup is unblocked by the user, the event is then sent.
 
       .. api-member::
          :name: ``sourceProcessId``
@@ -416,11 +644,27 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 
          The ID of the process runs the renderer for the source tab.
 
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
+         .. note::
+
+            If a blocked popup is unblocked by the user, the event is then sent.
+
       .. api-member::
          :name: ``sourceTabId``
          :type: (integer)
 
          The ID of the tab in which the navigation is triggered.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
+         .. note::
+
+            If a blocked popup is unblocked by the user, the event is then sent.
 
       .. api-member::
          :name: ``tabId``
@@ -428,17 +672,41 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 
          The ID of the tab in which the url is opened
 
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
+         .. note::
+
+            If a blocked popup is unblocked by the user, the event is then sent.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when the browser was about to create a new view, in milliseconds since the epoch.
 
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
+         .. note::
+
+            If a blocked popup is unblocked by the user, the event is then sent.
+
       .. api-member::
          :name: ``url``
          :type: (string)
 
          The URL to be opened in the new window.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
+         .. note::
+
+            If a blocked popup is unblocked by the user, the event is then sent.
 
 .. api-header::
    :label: Required permissions
@@ -453,6 +721,14 @@ onDOMContentLoaded
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Fired when the page's DOM is fully constructed, but the referenced resources may not finish loading.
+
+.. note::
+
+   Filtering is supported from version 50.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Parameters for onDOMContentLoaded.addListener(listener, filters)
@@ -475,11 +751,27 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Filtering is supported from version 50.
+
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``processId``
@@ -487,11 +779,27 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 
          The ID of the process runs the renderer for this tab.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``timeStamp``
@@ -499,9 +807,25 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 
          The time when the page's DOM was fully constructed, in milliseconds since the epoch.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Required permissions
@@ -516,6 +840,14 @@ onErrorOccurred
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Fired when an error occurs and the navigation is aborted. This can happen if either a network error occurred, or the user aborted the navigation.
+
+.. note::
+
+   Filtering is supported from version 50.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Parameters for onErrorOccurred.addListener(listener, filters)
@@ -538,11 +870,27 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Filtering is supported from version 50.
+
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``error``
          :type: (string) **Unsupported.**
 
          The error description.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``frameId``
@@ -550,11 +898,27 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``processId``
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``tabId``
@@ -562,15 +926,39 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 
          The ID of the tab in which the navigation occurs.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when the error occurred, in milliseconds since the epoch.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Required permissions
@@ -661,6 +1049,14 @@ onReferenceFragmentUpdated
 
 Fired when the reference fragment of a frame was updated. All future events for that frame will use the updated URL.
 
+.. note::
+
+   Filtering is supported from version 50.
+
+.. note::
+
+   If the filter parameter is empty, Firefox raises an exception.
+
 .. api-header::
    :label: Parameters for onReferenceFragmentUpdated.addListener(listener, filters)
 
@@ -682,11 +1078,27 @@ Fired when the reference fragment of a frame was updated. All future events for 
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Filtering is supported from version 50.
+
+      .. note::
+
+         If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``processId``
@@ -694,11 +1106,27 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
          The ID of the process runs the renderer for this tab.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``timeStamp``
@@ -706,11 +1134,27 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
          The time when the navigation was committed, in milliseconds since the epoch.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``transitionQualifiers``
          :type: (array of :ref:`webNavigation.TransitionQualifier`)
 
          A list of transition qualifiers.
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
       .. api-member::
          :name: ``transitionType``
@@ -718,9 +1162,25 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
          Cause of the navigation.
 
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Filtering is supported from version 50.
+
+         .. note::
+
+            If the filter parameter is empty, Firefox raises an exception.
 
 .. api-header::
    :label: Required permissions
@@ -735,6 +1195,10 @@ onTabReplaced
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Fired when the contents of the tab is replaced by a different (usually previously pre-rendered) tab.
+
+.. note::
+
+   Although you can add listeners for this event, it will never fire because the underlying functionality is not supported.
 
 .. api-header::
    :label: Parameters for onTabReplaced.addListener(listener)
@@ -751,11 +1215,19 @@ Fired when the contents of the tab is replaced by a different (usually previousl
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Although you can add listeners for this event, it will never fire because the underlying functionality is not supported.
+
       .. api-member::
          :name: ``replacedTabId``
          :type: (integer)
 
          The ID of the tab that was replaced.
+
+         .. note::
+
+            Although you can add listeners for this event, it will never fire because the underlying functionality is not supported.
 
       .. api-member::
          :name: ``tabId``
@@ -763,11 +1235,19 @@ Fired when the contents of the tab is replaced by a different (usually previousl
 
          The ID of the tab that replaced the old tab.
 
+         .. note::
+
+            Although you can add listeners for this event, it will never fire because the underlying functionality is not supported.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when the replacement happened, in milliseconds since the epoch.
+
+         .. note::
+
+            Although you can add listeners for this event, it will never fire because the underlying functionality is not supported.
 
 .. api-header::
    :label: Required permissions
@@ -799,6 +1279,10 @@ TransitionQualifier
 -------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
+
+.. note::
+
+   'server_redirect' is limited to top-level frames and 'client_redirect' is not supplied when redirections are created by JavaScript.
 
 .. api-header::
    :label: `string`

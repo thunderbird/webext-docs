@@ -17,7 +17,7 @@ browserSettings.colorManagement API
 
 .. role:: code
 
-Use the <code>browserSettings.colorManagement</code> API to query and set items related to color management.
+Use the :code:`browserSettings.colorManagement` API to query and set items related to color management.
 
 .. rst-class:: api-main-section
 

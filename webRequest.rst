@@ -20,7 +20,7 @@ webRequest API
 
 .. role:: code
 
-Use the <code>browser.webRequest</code> API to observe and analyze traffic and to intercept, block, or modify requests in-flight.
+Use the :code:`browser.webRequest` API to observe and analyze traffic and to intercept, block, or modify requests in-flight.
 
 .. rst-class:: api-main-section
 
@@ -139,6 +139,10 @@ onAuthRequired
 
 Fired when an authentication failure is received. The listener has three options: it can provide authentication credentials, it can cancel the request and display the error page, or it can take no action on the challenge. If bad user credentials are provided, this may be called multiple times for the same request.
 
+.. note::
+
+   To handle a request asynchronously, return a Promise from the listener.
+
 .. api-header::
    :label: Parameters for onAuthRequired.addListener(listener, filter, extraInfoSpec)
 
@@ -166,19 +170,35 @@ Fired when an authentication failure is received. The listener has three options
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``challenger``
          :type: (object)
 
          The server requesting authentication.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
          .. api-member::
             :name: ``host``
             :type: (string)
 
+            .. note::
+
+               To handle a request asynchronously, return a Promise from the listener.
+
          .. api-member::
             :name: ``port``
             :type: (integer)
+
+            .. note::
+
+               To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: ``frameId``
@@ -186,11 +206,19 @@ Fired when an authentication failure is received. The listener has three options
 
          The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (:code:`type` is :code:`main_frame` or :code:`sub_frame`), :code:`frameId` indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``isProxy``
          :type: (boolean)
 
          True for Proxy-Authenticate, false for WWW-Authenticate.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: ``method``
@@ -198,11 +226,19 @@ Fired when an authentication failure is received. The listener has three options
 
          Standard HTTP method.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``parentFrameId``
          :type: (integer)
 
          ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: ``requestId``
@@ -210,11 +246,19 @@ Fired when an authentication failure is received. The listener has three options
 
          The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``scheme``
          :type: (string)
 
          The authentication scheme, e.g. Basic or Digest.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: ``statusCode``
@@ -222,11 +266,19 @@ Fired when an authentication failure is received. The listener has three options
 
          Standard HTTP status code returned by the server.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``statusLine``
          :type: (string)
 
          HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line) or an empty string if there are no headers.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: ``tabId``
@@ -234,11 +286,19 @@ Fired when an authentication failure is received. The listener has three options
 
          The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``thirdParty``
          :type: (boolean)
 
          Indicates if this request and its content window hierarchy is third party.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: ``timeStamp``
@@ -246,15 +306,27 @@ Fired when an authentication failure is received. The listener has three options
 
          The time when this signal is triggered, in milliseconds since the epoch.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``type``
          :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -262,11 +334,19 @@ Fired when an authentication failure is received. The listener has three options
 
          The cookie store ID of the contextual identity.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: [``documentUrl``]
          :type: (string, optional)
 
          URL of the page into which the requested resource will be loaded.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: [``incognito``]
@@ -274,11 +354,19 @@ Fired when an authentication failure is received. The listener has three options
 
          True for private browsing requests.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: [``originUrl``]
          :type: (string, optional)
 
          URL of the resource that triggered this request.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
       .. api-member::
          :name: [``realm``]
@@ -286,17 +374,29 @@ Fired when an authentication failure is received. The listener has three options
 
          The authentication realm provided by the server, if there is one.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: [``responseHeaders``]
          :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP response headers that were received along with this response.
 
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
+
       .. api-member::
          :name: [``urlClassification``]
          :type: (:ref:`webRequest.UrlClassification`, optional)
 
          Tracking classification if the request has been classified.
+
+         .. note::
+
+            To handle a request asynchronously, return a Promise from the listener.
 
    .. api-member::
       :name: [``asyncCallback``]
@@ -483,6 +583,10 @@ onBeforeRequest
 
 Fired when a request is about to occur.
 
+.. note::
+
+   Asynchronous event listeners are supported from version 52.
+
 .. api-header::
    :label: Parameters for onBeforeRequest.addListener(listener, filter, extraInfoSpec)
 
@@ -510,11 +614,19 @@ Fired when a request is about to occur.
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (:code:`type` is :code:`main_frame` or :code:`sub_frame`), :code:`frameId` indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``method``
@@ -522,11 +634,19 @@ Fired when a request is about to occur.
 
          Standard HTTP method.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``parentFrameId``
          :type: (integer)
 
          ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``requestId``
@@ -534,11 +654,19 @@ Fired when a request is about to occur.
 
          The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``thirdParty``
@@ -546,11 +674,19 @@ Fired when a request is about to occur.
 
          Indicates if this request and its content window hierarchy is third party.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when this signal is triggered, in milliseconds since the epoch.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``type``
@@ -558,9 +694,17 @@ Fired when a request is about to occur.
 
          How the requested resource will be used.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -568,11 +712,19 @@ Fired when a request is about to occur.
 
          The cookie store ID of the contextual identity.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``documentUrl``]
          :type: (string, optional)
 
          URL of the page into which the requested resource will be loaded.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``incognito``]
@@ -580,11 +732,19 @@ Fired when a request is about to occur.
 
          True for private browsing requests.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``originUrl``]
          :type: (string, optional)
 
          URL of the resource that triggered this request.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``requestBody``]
@@ -592,11 +752,19 @@ Fired when a request is about to occur.
 
          Contains the HTTP request body data. Only provided if extraInfoSpec contains 'requestBody'.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
          .. api-member::
             :name: [``error``]
             :type: (string, optional)
 
             Errors when obtaining request body data.
+
+            .. note::
+
+               Asynchronous event listeners are supported from version 52.
 
          .. api-member::
             :name: [``formData``]
@@ -604,17 +772,29 @@ Fired when a request is about to occur.
 
             If the request method is POST and the body is a sequence of key-value pairs encoded in UTF8, encoded as either multipart/form-data, or application/x-www-form-urlencoded, this dictionary is present and for each key contains the list of all values for that key. If the data is of another media type, or if it is malformed, the dictionary is not present. An example value of this dictionary is {'key': ['value1', 'value2']}.
 
+            .. note::
+
+               Asynchronous event listeners are supported from version 52.
+
          .. api-member::
             :name: [``raw``]
             :type: (array of :ref:`webRequest.UploadData`, optional)
 
             If the request method is PUT or POST, and the body is not already parsed in formData, then the unparsed request body elements are contained in this array.
 
+            .. note::
+
+               Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``urlClassification``]
          :type: (:ref:`webRequest.UrlClassification`, optional)
 
          Tracking classification if the request has been classified.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -637,6 +817,10 @@ onBeforeSendHeaders
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Fired before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any HTTP data is sent. 
+
+.. note::
+
+   Asynchronous event listeners are supported from version 52.
 
 .. api-header::
    :label: Parameters for onBeforeSendHeaders.addListener(listener, filter, extraInfoSpec)
@@ -665,11 +849,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (:code:`type` is :code:`main_frame` or :code:`sub_frame`), :code:`frameId` indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``method``
@@ -677,11 +869,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          Standard HTTP method.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``parentFrameId``
          :type: (integer)
 
          ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``requestId``
@@ -689,11 +889,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``thirdParty``
@@ -701,11 +909,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          Indicates if this request and its content window hierarchy is third party.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when this signal is triggered, in milliseconds since the epoch.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``type``
@@ -713,9 +929,17 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          How the requested resource will be used.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -723,11 +947,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          The cookie store ID of the contextual identity.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``documentUrl``]
          :type: (string, optional)
 
          URL of the page into which the requested resource will be loaded.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``incognito``]
@@ -735,11 +967,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          True for private browsing requests.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``originUrl``]
          :type: (string, optional)
 
          URL of the resource that triggered this request.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``requestHeaders``]
@@ -747,11 +987,19 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          The HTTP request headers that are going to be sent out with this request.
 
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``urlClassification``]
          :type: (:ref:`webRequest.UrlClassification`, optional)
 
          Tracking classification if the request has been classified.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -1075,6 +1323,14 @@ onHeadersReceived
 
 Fired when HTTP response headers of a request have been received.
 
+.. note::
+
+   Modification of the 'Content-Type' header is supported from version 51.
+
+.. note::
+
+   Asynchronous event listeners are supported from version 52.
+
 .. api-header::
    :label: Parameters for onHeadersReceived.addListener(listener, filter, extraInfoSpec)
 
@@ -1102,11 +1358,27 @@ Fired when HTTP response headers of a request have been received.
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Modification of the 'Content-Type' header is supported from version 51.
+
+      .. note::
+
+         Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``frameId``
          :type: (integer)
 
          The value 0 indicates that the request happens in the main frame; a positive value indicates the ID of a subframe in which the request happens. If the document of a (sub-)frame is loaded (:code:`type` is :code:`main_frame` or :code:`sub_frame`), :code:`frameId` indicates the ID of this frame, not the ID of the outer frame. Frame IDs are unique within a tab.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``method``
@@ -1114,11 +1386,27 @@ Fired when HTTP response headers of a request have been received.
 
          Standard HTTP method.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``parentFrameId``
          :type: (integer)
 
          ID of frame that wraps the frame which sent the request. Set to -1 if no parent frame exists.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``requestId``
@@ -1126,11 +1414,27 @@ Fired when HTTP response headers of a request have been received.
 
          The ID of the request. Request IDs are unique within a browser session. As a result, they could be used to relate different events of the same request.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``statusCode``
          :type: (integer)
 
          Standard HTTP status code returned by the server.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``statusLine``
@@ -1138,11 +1442,27 @@ Fired when HTTP response headers of a request have been received.
 
          HTTP status line of the response or the 'HTTP/0.9 200 OK' string for HTTP/0.9 responses (i.e., responses that lack a status line).
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
 
          The ID of the tab in which the request takes place. Set to -1 if the request isn't related to a tab.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``thirdParty``
@@ -1150,11 +1470,27 @@ Fired when HTTP response headers of a request have been received.
 
          Indicates if this request and its content window hierarchy is third party.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``timeStamp``
          :type: (number)
 
          The time when this signal is triggered, in milliseconds since the epoch.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: ``type``
@@ -1162,9 +1498,25 @@ Fired when HTTP response headers of a request have been received.
 
          How the requested resource will be used.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: ``url``
          :type: (string)
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -1172,11 +1524,27 @@ Fired when HTTP response headers of a request have been received.
 
          The cookie store ID of the contextual identity.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``documentUrl``]
          :type: (string, optional)
 
          URL of the page into which the requested resource will be loaded.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``incognito``]
@@ -1184,11 +1552,27 @@ Fired when HTTP response headers of a request have been received.
 
          True for private browsing requests.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``originUrl``]
          :type: (string, optional)
 
          URL of the resource that triggered this request.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
       .. api-member::
          :name: [``responseHeaders``]
@@ -1196,11 +1580,27 @@ Fired when HTTP response headers of a request have been received.
 
          The HTTP response headers that have been received with this response.
 
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
+
       .. api-member::
          :name: [``urlClassification``]
          :type: (:ref:`webRequest.UrlClassification`, optional)
 
          Tracking classification if the request has been classified.
+
+         .. note::
+
+            Modification of the 'Content-Type' header is supported from version 51.
+
+         .. note::
+
+            Asynchronous event listeners are supported from version 52.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -1747,6 +2147,14 @@ RequestFilter
 
 An object describing filters to apply to webRequest events.
 
+.. note::
+
+   From Firefox 78 onwards, if a filter contains unrecognized values in its :code:`types` property, then these values are ignored and :code:`addListener()` proceeds.
+
+.. note::
+
+   Before Firefox 78, if a filter contains unrecognized values in its :code:`types` property, :code:`addListener()` throws an exception.
+
 .. api-header::
    :label: object
 
@@ -1755,6 +2163,10 @@ An object describing filters to apply to webRequest events.
       :type: (array of string)
 
       A list of URLs or URL patterns. Requests that cannot match any of the URLs will be filtered out.
+
+      .. note::
+
+         Before Firefox 56, moz-extension:// URLs were not allowed.
 
    .. api-member::
       :name: [``incognito``]

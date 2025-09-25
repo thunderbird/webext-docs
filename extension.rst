@@ -18,7 +18,7 @@ extension API
 
 .. role:: code
 
-The <code>browser.extension</code> API has utilities that can be used by any extension page. It includes support for exchanging messages between an extension and its content scripts or between extensions, as described in detail in $(topic:messaging)[Message Passing].
+The :code:`browser.extension` API has utilities that can be used by any extension page. It includes support for exchanging messages between an extension and its content scripts or between extensions, as described in detail in $(topic:messaging)[Message Passing].
 
 .. rst-class:: api-main-section
 
@@ -51,6 +51,10 @@ getViews([fetchProperties])
 
 Returns an array of the JavaScript 'window' objects for each of the pages running inside the current extension.
 
+.. note::
+
+   If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then its return value will not include the extension's background page.
+
 .. api-header::
    :label: Parameters
 
@@ -58,11 +62,19 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
       :name: [``fetchProperties``]
       :type: (object, optional)
 
+      .. note::
+
+         If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then its return value will not include the extension's background page.
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
 
          Find a view according to a tab id. If this field is omitted, returns all views.
+
+         .. note::
+
+            If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then its return value will not include the extension's background page.
 
       .. api-member::
          :name: [``type``]
@@ -70,11 +82,19 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 
          The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'popup', 'sidebar'.
 
+         .. note::
+
+            If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then its return value will not include the extension's background page.
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
 
          The window to restrict the search to. If omitted, returns all views.
+
+         .. note::
+
+            If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then its return value will not include the extension's background page.
 
 .. api-header::
    :label: Return type (`Promise`_)

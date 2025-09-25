@@ -89,12 +89,44 @@ request(permissions)
 
 Request the given permissions.
 
+.. note::
+
+   It's not possible to request permissions from within DevTools (`bug 1796933 <https://bugzil.la/1796933>`__).
+
+.. note::
+
+   Before version 101, permissions cannot be requested from a sidebar document (`bug 1493396 <https://bugzil.la/1493396>`__).
+
+.. note::
+
+   Before version 75, permissions cannot be requested from popup panels (see `bug 1432083 <https://bugzil.la/1432083>`__).
+
+.. note::
+
+   Before version 61, permissions cannot be requested from options pages embedded in :code:`about:addons` (see `bug 1382953 <https://bugzil.la/1382953>`__).
+
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``permissions``
       :type: (:ref:`permissions.Permissions`)
+
+      .. note::
+
+         It's not possible to request permissions from within DevTools (`bug 1796933 <https://bugzil.la/1796933>`__).
+
+      .. note::
+
+         Before version 101, permissions cannot be requested from a sidebar document (`bug 1493396 <https://bugzil.la/1493396>`__).
+
+      .. note::
+
+         Before version 75, permissions cannot be requested from popup panels (see `bug 1432083 <https://bugzil.la/1432083>`__).
+
+      .. note::
+
+         Before version 61, permissions cannot be requested from options pages embedded in :code:`about:addons` (see `bug 1382953 <https://bugzil.la/1382953>`__).
 
 .. api-header::
    :label: Return type (`Promise`_)

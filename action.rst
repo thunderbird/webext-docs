@@ -857,6 +857,17 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example:
+
+.. code-block:: JSON
+
+   {
+     "16": "icon16.png",
+     "32": "icon32.png"
+   }
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this topic.
+
 .. api-header::
    :label: object
 

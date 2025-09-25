@@ -21,6 +21,9 @@ The address book provider API allows to add address books, which are not stored 
 
 Possible use cases include:
 
+* Implementing a custom storage.
+* Implementing search-only address books that query a remote server.
+
 So far, only the API for search-only address books has been implemented.
 
 .. rst-class:: api-main-section
@@ -52,6 +55,37 @@ onSearchRequest
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
 Registering this listener will create a read-only address book, similar to an LDAP address book. When selecting this address book, users will first see no contacts, but they can search for contacts, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
+
+.. note::
+
+   Ensure all listeners are registered at the top-level and use the synchronous pattern, otherwise the associated address books will be removed on background termination.
+
+The event also fires for each registered listener (for each created read-only address book), when users type something into the mail composer's *To:* field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.
+
+Example:
+
+.. code-block:: JavaScript
+
+   messenger.addressBooks.provider.onSearchRequest.addListener(
+     async (node, searchString, query) => {
+       const response = await fetch(
+         "https://people.acme.com/?query=" + searchString
+       );
+       const json = await response.json();
+       return {
+         isCompleteResult: true,
+         // Return an array of ContactProperties as results.
+         results: json.map(contact => ({
+           DisplayName: contact.name,
+           PrimaryEmail: contact.email,
+         })),
+       };
+     },
+     {
+       addressBookName: "ACME employees",
+       isSecure: true,
+     }
+   );
 
 .. api-header::
    :label: Parameters for onSearchRequest.addListener(listener, parameters)
@@ -103,6 +137,10 @@ Registering this listener will create a read-only address book, similar to an LD
       :type: (string, optional)
 
       The boolean query expression corresponding to the search.
+
+      .. note::
+
+         This parameter may change in future releases of Thunderbird.
 
 .. api-header::
    :label: Expected return value of the listener function

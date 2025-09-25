@@ -18,7 +18,7 @@ browsingData API
 
 .. role:: code
 
-Use the <code>chrome.browsingData</code> API to remove browsing data from a user's local profile.
+Use the :code:`chrome.browsingData` API to remove browsing data from a user's local profile.
 
 .. rst-class:: api-main-section
 
@@ -50,12 +50,20 @@ remove(options, dataToRemove)
 
 Clears various types of browsing data stored in a user's profile.
 
+.. note::
+
+   Specifying :code:`dataTypes.history` will also remove download history and service workers.
+
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
+
+      .. note::
+
+         Specifying :code:`dataTypes.history` will also remove download history and service workers.
 
    .. api-member::
       :name: ``dataToRemove``
@@ -98,12 +106,20 @@ removeCache(options)
 
 Clears the browser's cache.
 
+.. note::
+
+   :code:`removalOptions.since` is not supported.
+
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
+
+      .. note::
+
+         :code:`removalOptions.since` is not supported.
 
 .. api-header::
    :label: Required permissions
@@ -203,12 +219,20 @@ removeHistory(options)
 
 Clears the browser's history.
 
+.. note::
+
+   This function also removes download history and service workers.
+
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
+
+      .. note::
+
+         This function also removes download history and service workers.
 
 .. api-header::
    :label: Required permissions
@@ -245,12 +269,20 @@ removeLocalStorage(options)
 
 Clears websites' local storage data.
 
+.. note::
+
+   :code:`removalOptions.since` is not supported.
+
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``options``
       :type: (:ref:`browsingData.RemovalOptions`)
+
+      .. note::
+
+         :code:`removalOptions.since` is not supported.
 
 .. api-header::
    :label: Required permissions
@@ -469,6 +501,14 @@ Options that determine exactly what data will be removed.
 
       Only remove data associated with these hostnames (only applies to cookies and localStorage).
 
+      .. note::
+
+         From Firefox 56 supports the specification of hostnames for the deletion of cookies and local storage items.
+
+      .. note::
+
+         From Firefox 77 also supports the specification of hostnames for the deletion of service worker and indexedDB items.
+
    .. api-member::
       :name: [``originTypes``]
       :type: (object, optional)
@@ -498,3 +538,7 @@ Options that determine exactly what data will be removed.
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
 
       Remove data accumulated on or after this date, represented in milliseconds since the epoch (accessible via the :code:`getTime` method of the JavaScript :code:`Date` object). If absent, defaults to 0 (which would remove all browsing data).
+
+      .. note::
+
+         :code:`since` is not supported with the following data types: :code:`cache`, :code:`indexedDB`, :code:`localStorage`, and :code:`serviceWorkers`.

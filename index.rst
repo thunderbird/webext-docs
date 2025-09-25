@@ -1,5 +1,5 @@
 .. container:: sticky-sidebar
-
+  
   ≡ On this page
   
   * `Getting started`_
@@ -10,6 +10,8 @@
 ==================================================
 WebExtension Documentation for Thunderbird 144.0b2
 ==================================================
+
+
 
 Getting started
 ===============

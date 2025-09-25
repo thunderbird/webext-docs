@@ -79,6 +79,10 @@ registerScripts(scripts)
 
 Registers one or more compose scripts for this extension, which should be injected into the message compose editor.
 
+.. note::
+
+   Registered scripts will only be applied to newly opened message compose tabs. To apply the script to already open message compose tabs, manually inject your script by calling :ref:`scripting.executeScript` for each of the open :value:`messageCompose` tabs.
+
 .. api-header::
    :label: Parameters
 
@@ -154,6 +158,8 @@ ExtensionURL
 ------------
 
 .. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
 
 .. api-header::
    :label: string

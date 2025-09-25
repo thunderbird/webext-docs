@@ -22,7 +22,7 @@ menus API
 
 The part of the menus API that is available in all extension contexts, including content scripts.
 
-Thunderbird's menus API is similar to the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus'>Firefox menus API</a>, but has been adapted to better suit Thunderbird's specific needs.
+Thunderbird's menus API is similar to the `Firefox menus API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus>`__, but has been adapted to better suit Thunderbird's specific needs.
 
 .. rst-class:: api-main-section
 
@@ -640,6 +640,17 @@ MenuIconDictionary
 
 A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath`.
 
+Example:
+
+.. code-block:: JSON
+
+   {
+     "16": "icon16.png",
+     "32": "icon32.png"
+   }
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this topic.
+
 .. api-header::
    :label: object
 
@@ -919,17 +930,29 @@ Information sent when a context menu is being shown. Some properties are only in
 
       The URL of the frame of the element where the context menu was clicked, if it was in a frame.
 
+      .. note::
+
+         Host permission is required.
+
    .. api-member::
       :name: [``linkText``]
       :type: (string, optional)
 
       If the element is a link, the text of that link.
 
+      .. note::
+
+         Host permission is required.
+
    .. api-member::
       :name: [``linkUrl``]
       :type: (string, optional)
 
       If the element is a link, the URL it points to.
+
+      .. note::
+
+         Host permission is required.
 
    .. api-member::
       :name: [``mediaType``]
@@ -942,6 +965,10 @@ Information sent when a context menu is being shown. Some properties are only in
       :type: (string, optional)
 
       The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu.
+
+      .. note::
+
+         Host permission is required.
 
    .. api-member::
       :name: [``selectedFolders``]
@@ -962,11 +989,19 @@ Information sent when a context menu is being shown. Some properties are only in
 
       The text for the context selection, if any.
 
+      .. note::
+
+         Host permission is required.
+
    .. api-member::
       :name: [``srcUrl``]
       :type: (string, optional)
 
       Will be present for elements with a *src* URL.
+
+      .. note::
+
+         Host permission is required.
 
    .. api-member::
       :name: [``targetElementId``]

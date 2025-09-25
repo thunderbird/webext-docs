@@ -20,7 +20,7 @@ runtime API
 
 .. role:: code
 
-Use the <code>browser.runtime</code> API to retrieve the background page, return details about the manifest, and listen for and respond to events in the app or extension lifecycle. You can also use this API to convert the relative path of URLs to fully-qualified URLs.
+Use the :code:`browser.runtime` API to retrieve the background page, return details about the manifest, and listen for and respond to events in the app or extension lifecycle. You can also use this API to convert the relative path of URLs to fully-qualified URLs.
 
 .. rst-class:: api-main-section
 
@@ -128,6 +128,10 @@ getBackgroundPage()
 
 Retrieves the JavaScript 'window' object for the background page running inside the current extension/app. If the background page is an event page, the system will ensure it is loaded before calling the callback. If there is no background page, an error is set.
 
+.. note::
+
+   If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then it will always return :code:`null`.
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -135,6 +139,10 @@ Retrieves the JavaScript 'window' object for the background page running inside 
       :type: `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
 
       The JavaScript 'window' object for the background page.
+
+      .. note::
+
+         If this is called from a page that is part of a private browsing window, such as a sidebar in a private window or a popup opened from a private window, then it will always return :code:`null`.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -219,6 +227,10 @@ getManifest()
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 Returns details about the app or extension from the manifest. The object returned is a serialization of the full $(topic:manifest)[manifest file].
+
+.. note::
+
+   Returns null for missing values, and removes unsupported keys.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -463,6 +475,10 @@ onInstalled
 
 Fired when the extension is first installed, when the extension is updated to a new version, and when the browser is updated to a new version.
 
+.. note::
+
+   Before version 55, this event is not triggered for temporarily installed add-ons.
+
 .. api-header::
    :label: Parameters for onInstalled.addListener(listener)
 
@@ -478,11 +494,19 @@ Fired when the extension is first installed, when the extension is updated to a 
       :name: ``details``
       :type: (object)
 
+      .. note::
+
+         Before version 55, this event is not triggered for temporarily installed add-ons.
+
       .. api-member::
          :name: ``reason``
          :type: (:ref:`runtime.OnInstalledReason`)
 
          The reason that this event is being dispatched.
+
+         .. note::
+
+            Before version 55, this event is not triggered for temporarily installed add-ons.
 
       .. api-member::
          :name: ``temporary``
@@ -490,17 +514,29 @@ Fired when the extension is first installed, when the extension is updated to a 
 
          Indicates whether the addon is installed as a temporary extension.
 
+         .. note::
+
+            Before version 55, this event is not triggered for temporarily installed add-ons.
+
       .. api-member::
          :name: [``id``]
          :type: (string, optional) **Unsupported.**
 
          Indicates the ID of the imported shared module extension which updated. This is present only if 'reason' is 'shared_module_update'.
 
+         .. note::
+
+            Before version 55, this event is not triggered for temporarily installed add-ons.
+
       .. api-member::
          :name: [``previousVersion``]
          :type: (string, optional)
 
          Indicates the previous version of the extension, which has just been updated. This is present only if 'reason' is 'update'.
+
+         .. note::
+
+            Before version 55, this event is not triggered for temporarily installed add-ons.
 
 .. _runtime.onMessage:
 
@@ -664,6 +700,10 @@ onSuspend
 
 Sent to the event page just before it is unloaded. This gives the extension opportunity to do some clean up. Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete. If more activity for the event page occurs before it gets unloaded the onSuspendCanceled event will be sent and the page won't be unloaded. 
 
+.. note::
+
+   This event does not fire until Firefox 106, when event pages are available.
+
 .. api-header::
    :label: Parameters for onSuspend.addListener(listener)
 
@@ -680,6 +720,10 @@ onSuspendCanceled
 .. api-section-annotation-hack:: -- [Added in TB 100]
 
 Sent after onSuspend to indicate that the app won't be unloaded after all.
+
+.. note::
+
+   This event does not fire until Firefox 106, when event pages are available.
 
 .. api-header::
    :label: Parameters for onSuspendCanceled.addListener(listener)
@@ -730,6 +774,14 @@ onUserScriptConnect
 
 Fired when a connection is made from a USER_SCRIPT world registered through the userScripts API.
 
+.. note::
+
+   Available for use with Manifest V3 only.
+
+.. note::
+
+   Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
+
 .. api-header::
    :label: Parameters for onUserScriptConnect.addListener(listener)
 
@@ -745,6 +797,14 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
       :name: ``port``
       :type: (:ref:`runtime.Port`)
 
+      .. note::
+
+         Available for use with Manifest V3 only.
+
+      .. note::
+
+         Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
+
 .. api-header::
    :label: Required permissions
 
@@ -758,6 +818,14 @@ onUserScriptMessage
 .. api-section-annotation-hack:: -- [Added in TB 136]
 
 Fired when a message is sent from a USER_SCRIPT world registered through the userScripts API.
+
+.. note::
+
+   Available for use with Manifest V3 only.
+
+.. note::
+
+   Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
 
 .. api-header::
    :label: Parameters for onUserScriptMessage.addListener(listener)
@@ -775,6 +843,14 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
       :type: (any, optional)
 
       The message sent by the calling script.
+
+      .. note::
+
+         Available for use with Manifest V3 only.
+
+      .. note::
+
+         Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
 
    .. api-member::
       :name: ``sender``
@@ -992,6 +1068,10 @@ MessageSender
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
 An object containing information about the script context that sent a message or request.
+
+.. note::
+
+   Before version 54, 'id' was the add-on's internal UUID, not the add-on ID.
 
 .. api-header::
    :label: object

@@ -3,13 +3,14 @@ import sys, os
 # local extension folder
 sys.path.append(os.path.abspath('_extensions'))
 
-project = u'WebExtension Documentation for Thunderbird 144.0b2<br><br>Manifest V3clear'
+project = u'WebExtension Documentation for Thunderbird 144.0b2<br><br>Manifest V3'
 source_suffix = '.rst'
 master_doc = 'index'
 exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
 
 extensions = [
     # ... other extensions here
+    'versionwarning.extension',
     'apiheader',
     'apimember',
     'apisectionannotationhack',

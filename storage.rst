@@ -18,7 +18,7 @@ storage API
 
 .. role:: code
 
-Use the <code>browser.storage</code> API to store, retrieve, and track changes to user data.
+Use the :code:`browser.storage` API to store, retrieve, and track changes to user data.
 
 .. rst-class:: api-main-section
 

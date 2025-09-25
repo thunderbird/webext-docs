@@ -18,7 +18,7 @@ i18n API
 
 .. role:: code
 
-Use the <code>browser.i18n</code> infrastructure to implement internationalization across your whole app or extension.
+Use the :code:`browser.i18n` infrastructure to implement internationalization across your whole app or extension.
 
 .. rst-class:: api-main-section
 
@@ -108,6 +108,10 @@ getMessage(messageName, [substitutions])
 
 Gets the localized string for the specified message. If the message is missing, this method returns an empty string (''). If the format of the :code:`getMessage()` call is wrong — for example, *messageName* is not a string or the *substitutions* array has more than 9 elements — this method returns :code:`undefined`.
 
+.. note::
+
+   Firefox 47 and earlier returns "??" instead of "" if the message is not found in _locales, `bug 1258199 <https://bugzil.la/1258199>`__ changed this act to match Chrome, landed on Firefox 48.
+
 .. api-header::
    :label: Parameters
 
@@ -116,6 +120,10 @@ Gets the localized string for the specified message. If the message is missing, 
       :type: (string)
 
       The name of the message, as specified in the :code:`$(topic:i18n-messages)[messages.json]` file.
+
+      .. note::
+
+         Firefox 47 and earlier returns "??" instead of "" if the message is not found in _locales, `bug 1258199 <https://bugzil.la/1258199>`__ changed this act to match Chrome, landed on Firefox 48.
 
    .. api-member::
       :name: [``substitutions``]
@@ -160,6 +168,10 @@ getUILanguage()
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
 Gets the browser UI language of the browser. This is different from :ref:`i18n.getAcceptLanguages` which returns the preferred user languages.
+
+.. note::
+
+   Firefox 55 and earlier returns a language tag that's separated with the underscore character instead of hyphen, see `bug 1374552 <https://bugzil.la/1374552>`__.
 
 .. api-header::
    :label: Return type (`Promise`_)

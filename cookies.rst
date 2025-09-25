@@ -19,7 +19,7 @@ cookies API
 
 .. role:: code
 
-Use the <code>browser.cookies</code> API to query and modify cookies, and to be notified when they change.
+Use the :code:`browser.cookies` API to query and modify cookies, and to be notified when they change.
 
 .. rst-class:: api-main-section
 
@@ -49,6 +49,14 @@ get(details)
 
 Retrieves information about a single cookie. If more than one cookie of the same name exists for the given URL, the one with the longest path will be returned. For cookies with the same path length, the cookie with the earliest creation time will be returned.
 
+.. note::
+
+   Provides access to cookies from private browsing mode and container tabs since version 52.
+
+.. note::
+
+   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
+
 .. api-header::
    :label: Parameters
 
@@ -58,11 +66,27 @@ Retrieves information about a single cookie. If more than one cookie of the same
 
       Details to identify the cookie being retrieved.
 
+      .. note::
+
+         Provides access to cookies from private browsing mode and container tabs since version 52.
+
+      .. note::
+
+         From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: ``name``
          :type: (string)
 
          The name of the cookie to retrieve.
+
+         .. note::
+
+            Provides access to cookies from private browsing mode and container tabs since version 52.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: ``url``
@@ -70,11 +94,27 @@ Retrieves information about a single cookie. If more than one cookie of the same
 
          The URL with which the cookie to retrieve is associated. This argument may be a full URL, in which case any data following the URL path (e.g. the query string) is simply ignored. If host permissions for this URL are not specified in the manifest file, the API call will fail.
 
+         .. note::
+
+            Provides access to cookies from private browsing mode and container tabs since version 52.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``firstPartyDomain``]
          :type: (string, optional)
 
          The first-party domain which the cookie to retrieve is associated. This attribute is required if First-Party Isolation is enabled.
+
+         .. note::
+
+            Provides access to cookies from private browsing mode and container tabs since version 52.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: [``partitionKey``]
@@ -82,11 +122,27 @@ Retrieves information about a single cookie. If more than one cookie of the same
 
          The storage partition, if the cookie is part of partitioned storage. By default, only non-partitioned cookies are returned.
 
+         .. note::
+
+            Provides access to cookies from private browsing mode and container tabs since version 52.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``storeId``]
          :type: (string, optional)
 
          The ID of the cookie store in which to look for the cookie. By default, the current execution context's cookie store will be used.
+
+         .. note::
+
+            Provides access to cookies from private browsing mode and container tabs since version 52.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -112,6 +168,14 @@ getAll(details)
 
 Retrieves all cookies from a single cookie store that match the given information.  The cookies returned will be sorted, with those with the longest path first.  If multiple cookies have the same path length, those with the earliest creation time will be first.
 
+.. note::
+
+   Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+.. note::
+
+   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+
 .. api-header::
    :label: Parameters
 
@@ -121,11 +185,27 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
       Information to filter the cookies being retrieved.
 
+      .. note::
+
+         Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+      .. note::
+
+         From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+
       .. api-member::
          :name: [``domain``]
          :type: (string, optional)
 
          Restricts the retrieved cookies to those whose domains match or are subdomains of this one.
+
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
 
       .. api-member::
          :name: [``firstPartyDomain``]
@@ -133,11 +213,27 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
          Restricts the retrieved cookies to those whose first-party domains match this one. This attribute is required if First-Party Isolation is enabled. To not filter by a specific first-party domain, use :value:`null` or :value:`undefined`.
 
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+
       .. api-member::
          :name: [``name``]
          :type: (string, optional)
 
          Filters the cookies by name.
+
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
 
       .. api-member::
          :name: [``partitionKey``]
@@ -145,11 +241,27 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
          Selects a specific storage partition to look up cookies. Defaults to null, in which case only non-partitioned cookies are retrieved. If an object iis passed, partitioned cookies are also included, and filtered based on the keys present in the given PartitionKey description. An empty object ({}) returns all cookies (partitioned + unpartitioned), a non-empty object (e.g. {topLevelSite: '...'}) only returns cookies whose partition match all given attributes.
 
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+
       .. api-member::
          :name: [``path``]
          :type: (string, optional)
 
          Restricts the retrieved cookies to those whose path exactly matches this string.
+
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
 
       .. api-member::
          :name: [``secure``]
@@ -157,11 +269,27 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
          Filters the cookies by their Secure property.
 
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+
       .. api-member::
          :name: [``session``]
          :type: (boolean, optional)
 
          Filters out session vs. persistent cookies.
+
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
 
       .. api-member::
          :name: [``storeId``]
@@ -169,11 +297,27 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
          The cookie store to retrieve cookies from. If omitted, the current execution context's cookie store will be used.
 
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
 
          Restricts the retrieved cookies to those that would match the given URL.
+
+         .. note::
+
+            Before version 52, the 'tabIds' list was empty and only cookies from the default cookie store were returned. From version 52 onwards, this has been fixed and the result includes cookies from private browsing mode and container tabs.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -199,6 +343,10 @@ getAllCookieStores()
 
 Lists all existing cookie stores.
 
+.. note::
+
+   Before version 52, only the default cookie store was visible. From version 52 onwards, the cookie stores for private browsing mode and container tabs are also readable.
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -206,6 +354,10 @@ Lists all existing cookie stores.
       :type: array of :ref:`cookies.CookieStore`
 
       All the existing cookie stores.
+
+      .. note::
+
+         Before version 52, only the default cookie store was visible. From version 52 onwards, the cookie stores for private browsing mode and container tabs are also readable.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -223,6 +375,14 @@ remove(details)
 
 Deletes a cookie by name.
 
+.. note::
+
+   Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+.. note::
+
+   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
+
 .. api-header::
    :label: Parameters
 
@@ -232,11 +392,27 @@ Deletes a cookie by name.
 
       Information to identify the cookie to remove.
 
+      .. note::
+
+         Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+      .. note::
+
+         From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
+
       .. api-member::
          :name: ``name``
          :type: (string)
 
          The name of the cookie to remove.
+
+         .. note::
+
+            Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
 
       .. api-member::
          :name: ``url``
@@ -244,11 +420,27 @@ Deletes a cookie by name.
 
          The URL associated with the cookie. If host permissions for this URL are not specified in the manifest file, the API call will fail.
 
+         .. note::
+
+            Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
+
       .. api-member::
          :name: [``firstPartyDomain``]
          :type: (string, optional)
 
          The first-party domain associated with the cookie. This attribute is required if First-Party Isolation is enabled.
+
+         .. note::
+
+            Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
 
       .. api-member::
          :name: [``partitionKey``]
@@ -256,11 +448,27 @@ Deletes a cookie by name.
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
+         .. note::
+
+            Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
+
       .. api-member::
          :name: [``storeId``]
          :type: (string, optional)
 
          The ID of the cookie store to look in for the cookie. If unspecified, the cookie is looked for by default in the current execution context's cookie store.
+
+         .. note::
+
+            Before version 56, this function did not remove cookies from private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -316,6 +524,14 @@ set(details)
 
 Sets a cookie with the given cookie data; may overwrite equivalent cookies if they exist.
 
+.. note::
+
+   Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+.. note::
+
+   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
 .. api-header::
    :label: Parameters
 
@@ -325,11 +541,27 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
       Details about the cookie being set.
 
+      .. note::
+
+         Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+      .. note::
+
+         From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: ``url``
          :type: (string)
 
          The request-URI to associate with the setting of the cookie. This value can affect the default domain and path values of the created cookie. If host permissions for this URL are not specified in the manifest file, the API call will fail.
+
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: [``domain``]
@@ -337,11 +569,27 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
          The domain of the cookie. If omitted, the cookie becomes a host-only cookie.
 
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``expirationDate``]
          :type: (number, optional)
 
          The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted, the cookie becomes a session cookie.
+
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: [``firstPartyDomain``]
@@ -349,11 +597,27 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
          The first-party domain of the cookie. This attribute is required if First-Party Isolation is enabled.
 
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``httpOnly``]
          :type: (boolean, optional)
 
          Whether the cookie should be marked as HttpOnly. Defaults to false.
+
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: [``name``]
@@ -361,11 +625,27 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
          The name of the cookie. Empty by default if omitted.
 
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``partitionKey``]
          :type: (:ref:`cookies.PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
+
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: [``path``]
@@ -373,11 +653,27 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
          The path of the cookie. Defaults to the path portion of the url parameter.
 
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``sameSite``]
          :type: (:ref:`cookies.SameSiteStatus`, optional)
 
          The cookie's same-site status.
+
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
       .. api-member::
          :name: [``secure``]
@@ -385,17 +681,41 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
          Whether the cookie should be marked as Secure. Defaults to false.
 
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``storeId``]
          :type: (string, optional)
 
          The ID of the cookie store in which to set the cookie. By default, the cookie is set in the current execution context's cookie store.
 
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+
       .. api-member::
          :name: [``value``]
          :type: (string, optional)
 
          The value of the cookie. Empty by default if omitted.
+
+         .. note::
+
+            Before version 56, this function did not modify cookies in private browsing mode. From version 56 onwards this is fixed.
+
+         .. note::
+
+            From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
 .. api-header::
    :label: Return type (`Promise`_)

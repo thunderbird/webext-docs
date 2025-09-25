@@ -696,6 +696,10 @@ DownloadItem
 
       Indication of whether this download is thought to be safe or known to be suspicious.
 
+      .. note::
+
+         Always given as 'safe'.
+
    .. api-member::
       :name: ``exists``
       :type: (boolean)
@@ -833,11 +837,19 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Limits results to downloads that ended after the given ms since the epoch.
 
+      .. note::
+
+         The parameter is ignored.
+
    .. api-member::
       :name: [``endedBefore``]
       :type: (:ref:`downloads.DownloadTime`, optional)
 
       Limits results to downloads that ended before the given ms since the epoch.
+
+      .. note::
+
+         The parameter is ignored.
 
    .. api-member::
       :name: [``endTime``]
@@ -1005,6 +1017,10 @@ InterruptReason
 ---------------
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
+
+.. note::
+
+   Only returns these errors: :code:`NETWORK_FAILED`, :code:`FILE_FAILED`, :code:`CRASH`, :code:`USER_CANCELED`, :code:`SERVER_BAD_CONTENT`, :code:`SERVER_FORBIDDEN`, :code:`SERVER_UNAUTHORIZED`, and :code:`SERVER_FAILED`.
 
 .. api-header::
    :label: `string`

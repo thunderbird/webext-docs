@@ -17,7 +17,7 @@ privacy.services API
 
 .. role:: code
 
-Use the <code>browser.privacy</code> API to control usage of the features in the browser that can affect a user's privacy.
+Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
 
 .. rst-class:: api-main-section
 

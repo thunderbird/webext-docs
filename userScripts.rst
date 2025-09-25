@@ -134,6 +134,10 @@ register(scripts)
 
 Registers one or more user scripts for this extension.
 
+.. note::
+
+   An incompatible version of this function is available for Manifest V2. See `userScripts (Legacy) <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/register>`__.
+
 .. api-header::
    :label: Parameters
 
@@ -142,6 +146,10 @@ Registers one or more user scripts for this extension.
       :type: (array of :ref:`userScripts.RegisteredUserScript`)
 
       List of user scripts to be registered.
+
+      .. note::
+
+         An incompatible version of this function is available for Manifest V2. See `userScripts (Legacy) <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/register>`__.
 
 .. api-header::
    :label: Required permissions

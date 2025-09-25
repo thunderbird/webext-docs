@@ -279,6 +279,8 @@ ExtensionURL
 
 .. api-section-annotation-hack:: 
 
+A path relative to the root of the extension.
+
 .. api-header::
    :label: string
 
@@ -484,6 +486,14 @@ RegisteredContentScript
       :type: (boolean, optional)
 
       Specifies if this content script will persist into future sessions. Defaults to true.
+
+      .. note::
+
+         Since Firefox 105, this option is optional and accepts any boolean value.
+
+      .. note::
+
+         Prior to Firefox 105, this option was required and only accepted the :code:`false` value.
 
    .. api-member::
       :name: [``runAt``]

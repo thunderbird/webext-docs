@@ -22,7 +22,7 @@ commands API
 
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
 
-Thunderbird's commands API is largely the same as the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/commands'>Firefox commands API</a>.
+Thunderbird's commands API is largely the same as the `Firefox commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/commands>`__.
 
 .. rst-class:: api-main-section
 
@@ -34,6 +34,34 @@ Manifest file properties
    :type: (object, optional)
 
    A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`CommandsShortcut`.
+
+   The *name* may also be one of the following built-in special shortcuts:
+
+   * :value:`_execute_action`
+   * :value:`_execute_compose_action`
+   * :value:`_execute_message_display_action`
+
+   Example:
+
+   .. code-block:: JSON
+
+      {
+        "commands": {
+          "toggle-feature": {
+            "suggested_key": {
+              "default": "Ctrl+Shift+Y",
+              "linux": "Ctrl+Shift+U"
+            },
+            "description": "Send a 'toggle-feature' event"
+          },
+          "_execute_compose_action": {
+            "suggested_key": {
+              "default": "Alt+F5"
+            },
+            "description": "Open the compose action popup"
+          }
+        }
+      }
 
 .. rst-class:: api-main-section
 

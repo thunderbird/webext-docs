@@ -461,6 +461,10 @@ TemplateType
 
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
+.. note::
+
+   Only the 'basic' type is supported.
+
 .. api-header::
    :label: `string`
 

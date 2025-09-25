@@ -238,6 +238,17 @@ IconPath
 
 .. api-section-annotation-hack:: 
 
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example:
+
+.. code-block:: JSON
+
+   {
+     "16": "icon16.png",
+     "32": "icon32.png"
+   }
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this topic.
+
 .. api-header::
    :label: object
 
@@ -252,6 +263,8 @@ ThemeIcons
 ----------
 
 .. api-section-annotation-hack:: 
+
+Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the :value:`manifest.json` file.
 
 .. api-header::
    :label: object
@@ -385,6 +398,14 @@ Properties for the new tab being opened by clicking on the associated button in 
       :type: (string, optional)
 
       The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+
+      .. note::
+
+         The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+
+      .. note::
+
+          The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
 
    .. api-member::
       :name: [``linkHandler``]

@@ -17,7 +17,7 @@ browserSettings API
 
 .. role:: code
 
-Use the <code>browser.browserSettings</code> API to control global settings of the browser.
+Use the :code:`browser.browserSettings` API to control global settings of the browser.
 
 .. rst-class:: api-main-section
 

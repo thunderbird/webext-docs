@@ -21,6 +21,10 @@ windows API
 
 The windows API supports creating, modifying and interacting with Thunderbird windows.
 
+.. note::
+
+   This API can be used with Thunderbird's main window and popup windows, both of which support web tabs, as well as with other window types like the composer window, which does not. Ensure your code handles each window type appropriately based on its capabilities.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -54,6 +58,14 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :annotation: -- [Added in TB 115]
 
          The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+
+         .. note::
+
+            The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+
+         .. note::
+
+            The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
 
       .. api-member::
          :name: [``focused``]
@@ -394,6 +406,10 @@ onFocusChanged
 .. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`, if all windows have lost focus.
+
+.. note::
+
+   On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one window to another.
 
 .. api-header::
    :label: Parameters for onFocusChanged.addListener(listener)

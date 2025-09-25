@@ -19,7 +19,7 @@ idle API
 
 .. role:: code
 
-Use the <code>browser.idle</code> API to detect when the machine's idle state changes.
+Use the :code:`browser.idle` API to detect when the machine's idle state changes.
 
 .. rst-class:: api-main-section
 
@@ -49,6 +49,10 @@ queryState(detectionIntervalInSeconds)
 
 Returns "idle" if the user has not generated any input for a specified number of seconds, or "active" otherwise.
 
+.. note::
+
+   Before version 51, Firefox always reports 'active'. After version 51, Firefox reports 'active' or 'idle' as appropriate.
+
 .. api-header::
    :label: Parameters
 
@@ -57,6 +61,10 @@ Returns "idle" if the user has not generated any input for a specified number of
       :type: (integer)
 
       The system is considered idle if detectionIntervalInSeconds seconds have elapsed since the last user input detected.
+
+      .. note::
+
+         Before version 51, Firefox always reports 'active'. After version 51, Firefox reports 'active' or 'idle' as appropriate.
 
 .. api-header::
    :label: Return type (`Promise`_)

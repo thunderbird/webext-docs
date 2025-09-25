@@ -21,6 +21,14 @@ messages API
 
 The messages API allows to access and manage the user's messages.
 
+.. note::
+
+   When the term :value:`messageId` is used in these documents, it *doesn't* refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.
+
+.. warning::
+
+   Some functions in this API potentially return a lot of messages. See :doc:`guides/messageLists` for more information.
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -285,6 +293,16 @@ getAttachmentFile(messageId, partName)
 
 Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
 
+The most simple way to get the content of an attachment is to use the `:code:`text()` <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
+
+.. code-block:: JavaScript
+
+   let attachments = await browser.messages.listAttachments(messageId);
+   for (let att of attachments) {
+     let file = await browser.messages.getAttachmentFile(messageId, att.partName);
+     let content = await file.text();
+   }
+
 .. api-header::
    :label: Parameters
 
@@ -395,6 +413,26 @@ Returns the raw content of a message. Throws if the message could not be read, f
          :annotation: -- [Added in TB 117]
 
          The message can either be returned as a DOM File (default) or as a `binary string <https://udn.realityripple.com/docs/Web/API/DOMString/Binary>`__. It is recommended to use the :value:`File` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ and `File.arrayBuffer() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer>`__.
+
+         Working with binary strings is error prone and needs special handling:
+
+         .. code-block:: JavaScript
+
+            /**
+             * Decodes a binary string using the given encoding format and returns a
+             * JavaScript string. Produces mangled output if used with anything but a binary
+             * input string.
+             */
+            function decodeBinaryString(binaryString, inputEncoding = "utf-8") {
+              const buffer = new Uint8Array(binaryString.length);
+              for (let i = 0; i < binaryString.length; i++) {
+                buffer[i] = binaryString.charCodeAt(i) & 0xff;
+              }
+              const decoder = new TextDecoder(inputEncoding);
+              return decoder.decode(buffer);
+            }
+
+          See MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__.
 
          Supported values:
 
@@ -535,6 +573,10 @@ listInlineTextParts(messageId)
 .. api-section-annotation-hack:: -- [Added in TB 128]
 
 Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText` can be used to retreive a plain text version.
+
+.. note::
+
+   A message usually contains only one inline text part per subtype, but technically messages can contain multiple inline text parts per subtype.
 
 .. api-header::
    :label: Parameters

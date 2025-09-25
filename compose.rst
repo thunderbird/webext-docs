@@ -94,6 +94,10 @@ beginForward(messageId, [forwardType], [details])
 
 Open a new message compose window forwarding a given message.
 
+.. note::
+
+   The compose format can be set by :value:`details.isPlainText` or by specifying only one of :value:`details.body` or :value:`details.plainTextBody`. Otherwise the default compose format of the selected identity is used. If no identity is specified, this function is using the default identity and not the identity of the referenced message.
+
 .. api-header::
    :label: Parameters
 
@@ -137,6 +141,10 @@ beginNew([messageId], [details])
 
 Open a new message compose window.
 
+.. note::
+
+   The compose format can be set by :value:`details.isPlainText` or by specifying only one of :value:`details.body` or :value:`details.plainTextBody`. Otherwise the default compose format of the selected identity is used. If no identity is specified, this function is using the default identity and not the identity of the referenced message.
+
 .. api-header::
    :label: Parameters
 
@@ -168,6 +176,10 @@ beginReply(messageId, [replyType], [details])
 .. api-section-annotation-hack:: -- [Added in TB 67]
 
 Open a new message compose window replying to a given message.
+
+.. note::
+
+   The compose format can be set by :value:`details.isPlainText` or by specifying only one of :value:`details.body` or :value:`details.plainTextBody`. Otherwise the default compose format of the selected identity is used. If no identity is specified, this function is using the default identity and not the identity of the referenced message.
 
 .. api-header::
    :label: Parameters
@@ -415,6 +427,10 @@ Saves the message currently being composed as a draft or as a template. If the s
 
          An array with exactly one element, the saved message.
 
+         .. note::
+
+            Starting with Thunderbird version 142, the File Carbon Copy (FCC) configuration is no longer respected during save operations. Regardless of any FCC settings, only one message is saved, and it is stored in the default folder for the given save mode.
+
       .. api-member::
          :name: ``mode``
          :type: (`string`)
@@ -547,6 +563,14 @@ setComposeDetails(tabId, details)
 
 Updates the compose window. The properties of the given :ref:`compose.ComposeDetails` object will be used to overwrite the current values of the specified compose window, so only properties that are to be changed should be included. Modified settings will be treated as user initiated, and turn off further automatic changes on these settings.
 
+.. hint::
+
+   When updating any of the array properties (:value:`customHeaders` and most address fields), make sure to first get the current values to not accidentally remove all existing entries when setting the new value.
+
+.. note::
+
+   The compose format of an existing compose window cannot be changed.
+
 .. api-header::
    :label: Parameters
 
@@ -667,6 +691,10 @@ Fired when saving a message as draft or template succeeded or failed.
          :type: (array of :ref:`messages.MessageHeader`)
 
          An array with exactly one element, the saved message.
+
+         .. note::
+
+            Starting with Thunderbird version 142, the File Carbon Copy (FCC) configuration is no longer respected during save operations. Regardless of any FCC settings, only one message is saved, and it is stored in the default folder for the given save mode.
 
       .. api-member::
          :name: ``mode``
@@ -1017,6 +1045,10 @@ Used by various functions to represent the state of a message being composed. No
 
       Whether or not the vCard of the used identity will be attached to the message during send.
 
+      .. note::
+
+         If the value has not been modified, selecting a different identity will load the default value of the new identity.
+
    .. api-member::
       :name: [``bcc``]
       :type: (:ref:`compose.ComposeRecipientList`, optional)
@@ -1334,6 +1366,10 @@ EncryptionPropertiesOpenPGP
 
       Whether encryption of the message body using the OpenPGP technology is enabled.
 
+      .. note::
+
+         If encryption is enabled, but the `preconditions <https://support.mozilla.org/en-US/kb/thunderbird-help-cannot-encrypt>`__ for sending an encrypted message are not met, the message cannot be sent.
+
    .. api-member::
       :name: ``encryptSubject``
       :type: (boolean)
@@ -1365,6 +1401,10 @@ EncryptionPropertiesSMIME
       :type: (boolean)
 
       Whether encryption of the message body using the S/MIME technology is enabled.
+
+      .. note::
+
+         If encryption is enabled, but the `preconditions <https://support.mozilla.org/en-US/kb/thunderbird-help-cannot-encrypt>`__ for sending an encrypted message are not met, the message cannot be sent.
 
    .. api-member::
       :name: ``name``
