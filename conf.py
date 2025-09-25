@@ -10,7 +10,6 @@ exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
 
 extensions = [
     # ... other extensions here
-    'versionwarning.extension',
     'apiheader',
     'apimember',
     'apisectionannotationhack',
