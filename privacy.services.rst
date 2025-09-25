@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ====================
 privacy.services API
@@ -17,17 +17,12 @@ privacy.services API
 
 .. role:: code
 
-Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
+Use the <code>browser.privacy</code> API to control usage of the features in the browser that can affect a user's privacy.
 
 .. rst-class:: api-main-section
 
 Permissions
 ===========
-
-.. api-member::
-   :name: :permission:`privacy`
-
-   Read and modify privacy settings
 
 .. rst-class:: api-permission-info
 

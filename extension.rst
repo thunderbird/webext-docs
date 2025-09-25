@@ -3,11 +3,10 @@
   ≡ extension API
 
   * `Functions`_
-  * `Events`_
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 =============
 extension API
@@ -19,7 +18,7 @@ extension API
 
 .. role:: code
 
-The :code:`browser.extension` API has utilities that can be used by any extension page. It includes support for exchanging messages between an extension and its content scripts or between extensions, as described in detail in $(topic:messaging)[Message Passing].
+The <code>browser.extension</code> API has utilities that can be used by any extension page. It includes support for exchanging messages between an extension and its content scripts or between extensions, as described in detail in $(topic:messaging)[Message Passing].
 
 .. rst-class:: api-main-section
 
@@ -31,18 +30,16 @@ Functions
 getBackgroundPage()
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 Returns the JavaScript 'window' object for the background page running inside the current extension. Returns null if the extension has no background page.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _extension.getViews:
@@ -50,50 +47,43 @@ Returns the JavaScript 'window' object for the background page running inside th
 getViews([fetchProperties])
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 Returns an array of the JavaScript 'window' objects for each of the pages running inside the current extension.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``fetchProperties``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Find a view according to a tab id. If this field is omitted, returns all views.
-      
-      
+
       .. api-member::
          :name: [``type``]
          :type: (:ref:`extension.ViewType`, optional)
-         
+
          The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'popup', 'sidebar'.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
-         
+
          The window to restrict the search to. If omitted, returns all views.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: array of `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
-      
+
       Array of global objects
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _extension.isAllowedFileSchemeAccess:
@@ -101,20 +91,18 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 isAllowedFileSchemeAccess()
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Retrieves the state of the extension's access to the 'file://' scheme (as determined by the user-controlled 'Allow access to File URLs' checkbox.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: boolean
-      
+
       True if the extension can access the 'file://' scheme, false otherwise.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _extension.isAllowedIncognitoAccess:
@@ -122,26 +110,19 @@ Retrieves the state of the extension's access to the 'file://' scheme (as determ
 isAllowedIncognitoAccess()
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Retrieves the state of the extension's access to Incognito-mode (as determined by the user-controlled 'Allowed in Incognito' checkbox.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: boolean
-      
+
       True if the extension has access to Incognito mode, false otherwise.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. rst-class:: api-main-section
-
-Events
-======
 
 .. rst-class:: api-main-section
 
@@ -153,29 +134,27 @@ Types
 ViewType
 --------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 The type of extension view.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`tab`
-         
+
          .. api-member::
             :name: :value:`popup`
-         
+
          .. api-member::
             :name: :value:`sidebar`
-   
 
 .. rst-class:: api-main-section
 
@@ -190,12 +169,3 @@ inIncognitoContext
 .. api-section-annotation-hack:: 
 
 True for content scripts running inside incognito tabs, and for extension pages running inside an incognito process. The latter only applies to extensions with 'split' incognito_behavior.
-
-.. _extension.lastError:
-
-lastError
----------
-
-.. api-section-annotation-hack:: 
-
-Set for the lifetime of a callback if an ansychronous extension api has resulted in an error. If no error has occured lastError will be :value:`undefined`.

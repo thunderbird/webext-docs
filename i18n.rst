@@ -4,10 +4,9 @@
 
   * `Manifest file properties`_
   * `Functions`_
-  * `Events`_
   * `Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ========
 i18n API
@@ -19,7 +18,7 @@ i18n API
 
 .. role:: code
 
-Use the :code:`browser.i18n` infrastructure to implement internationalization across your whole app or extension.
+Use the <code>browser.i18n</code> infrastructure to implement internationalization across your whole app or extension.
 
 .. rst-class:: api-main-section
 
@@ -29,10 +28,12 @@ Manifest file properties
 .. api-member::
    :name: [``default_locale``]
    :type: (string, optional)
+   :annotation: -- [Added in TB true]
 
 .. api-member::
    :name: [``l10n_resources``]
    :type: (array of string, optional)
+   :annotation: -- [Added in TB true]
 
 .. rst-class:: api-main-section
 
@@ -44,45 +45,39 @@ Functions
 detectLanguage(text)
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Detects the language of the provided text using CLD.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``text``
       :type: (string)
-      
+
       User input string to be translated.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: object
-      
+
       LanguageDetectionResult object that holds detected langugae reliability and array of DetectedLanguage
-      
+
       .. api-member::
          :name: ``isReliable``
          :type: (boolean)
-         
+
          CLD detected language reliability
-      
-      
+
       .. api-member::
          :name: ``languages``
          :type: (array of object)
-         
+
          array of detectedLanguage
-      
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _i18n.getAcceptLanguages:
@@ -90,20 +85,18 @@ Detects the language of the provided text using CLD.
 getAcceptLanguages()
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use :ref:`i18n.getUILanguage`.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: array of :ref:`i18n.LanguageCode`
-      
+
       Array of LanguageCode
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _i18n.getMessage:
@@ -111,38 +104,52 @@ Gets the accept-languages of the browser. This is different from the locale used
 getMessage(messageName, [substitutions])
 ----------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 Gets the localized string for the specified message. If the message is missing, this method returns an empty string (''). If the format of the :code:`getMessage()` call is wrong — for example, *messageName* is not a string or the *substitutions* array has more than 9 elements — this method returns :code:`undefined`.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``messageName``
       :type: (string)
-      
+
       The name of the message, as specified in the :code:`$(topic:i18n-messages)[messages.json]` file.
-   
-   
+
    .. api-member::
       :name: [``substitutions``]
       :type: (any, optional)
-      
+
       Substitution strings, if the message requires any.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-      
+
       Message localized for current locale.
-   
-   
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _i18n.getPreferredSystemLanguages:
+
+getPreferredSystemLanguages()
+-----------------------------
+
+.. api-section-annotation-hack:: 
+
+Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.getAcceptLanguages`.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. api-member::
+      :type: array of :ref:`i18n.LanguageCode`
+
+      Array of LanguageCode
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _i18n.getUILanguage:
@@ -150,26 +157,19 @@ Gets the localized string for the specified message. If the message is missing, 
 getUILanguage()
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Gets the browser UI language of the browser. This is different from :ref:`i18n.getAcceptLanguages` which returns the preferred user languages.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-      
+
       The browser UI language code such as en-US or fr-FR.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. rst-class:: api-main-section
-
-Events
-======
 
 .. rst-class:: api-main-section
 
@@ -181,7 +181,7 @@ Types
 LanguageCode
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 An ISO language code such as :code:`en` or :code:`fr`. For a complete list of languages supported by this method, see `kLanguageInfoTable <http://src.chromium.org/viewvc/chrome/trunk/src/third_party/cld/languages/internal/languages.cc>`__. For an unknown language, :code:`und` will be returned, which means that [percentage] of the text is unknown to CLD
 

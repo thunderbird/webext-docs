@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Functions`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ==========
 pkcs11 API
@@ -43,18 +43,16 @@ Functions
 getModuleSlots(name)
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 Enumerate a module's slots, each with their name and whether a token is present
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``name``
       :type: (string)
-   
 
 .. api-header::
    :label: Required permissions
@@ -66,23 +64,20 @@ Enumerate a module's slots, each with their name and whether a token is present
 installModule(name, [flags])
 ----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 Install a PKCS#11 module with a given name
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``name``
       :type: (string)
-   
-   
+
    .. api-member::
       :name: [``flags``]
       :type: (integer, optional)
-   
 
 .. api-header::
    :label: Required permissions
@@ -94,18 +89,16 @@ Install a PKCS#11 module with a given name
 isModuleInstalled(name)
 -----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 checks whether a PKCS#11 module, given by name, is installed
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``name``
       :type: (string)
-   
 
 .. api-header::
    :label: Required permissions
@@ -117,18 +110,16 @@ checks whether a PKCS#11 module, given by name, is installed
 uninstallModule(name)
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 Remove an installed PKCS#11 module from firefox
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``name``
       :type: (string)
-   
 
 .. api-header::
    :label: Required permissions

@@ -4,19 +4,21 @@
 
   * `Functions`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ============
 sessions API
 ============
-
-The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
 
 .. role:: permission
 
 .. role:: value
 
 .. role:: code
+
+The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
+
+Thunderbird's sessions API is similar to the <a href='https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/sessions'>Firefox sessions API</a>, but it doesn't support accessing or restoring closed tabs.
 
 .. rst-class:: api-main-section
 
@@ -28,36 +30,31 @@ Functions
 getTabValue(tabId, key)
 -----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 115]
 
 Retrieve a previously stored value for a given tab, given its key. Returns :value:`undefined` if the requested :value:`key` does not exist for the given :value:`tabId`.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      
+
       ID of the tab whose data you are trying to retrieve. Error is thrown if ID is invalid.
-   
-   
+
    .. api-member::
       :name: ``key``
       :type: (string)
-      
+
       Key identifying the particular value to retrieve.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _sessions.removeTabValue:
@@ -65,56 +62,49 @@ Retrieve a previously stored value for a given tab, given its key. Returns :valu
 removeTabValue(tabId, key)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 115]
 
 Remove a key/value pair from a given tab.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      
+
       ID of the tab whose data you are trying to remove. Error is thrown if ID is invalid.
-   
-   
+
    .. api-member::
       :name: ``key``
       :type: (string)
-      
+
       Key identifying the particular value to remove.
-   
 
 .. _sessions.setTabValue:
 
 setTabValue(tabId, key, value)
 ------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 115]
 
 Store a key/value pair associated with a given tab.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      
+
       ID of the tab with which you want to associate the data. Error is thrown if ID is invalid.
-   
-   
+
    .. api-member::
       :name: ``key``
       :type: (string)
-      
+
       Key that you can later use to retrieve this particular data value.
-   
-   
+
    .. api-member::
       :name: ``value``
       :type: (string)
-   

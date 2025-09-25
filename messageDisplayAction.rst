@@ -3,24 +3,16 @@
   ≡ messageDisplayAction API
 
   * `Manifest file properties`_
+  * `Permissions`_
   * `Functions`_
   * `Events`_
   * `Types`_
-  * `External Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
-  ≡ Related examples on Github
-
-  * `"Message Display" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplay>`__
-  
 ========================
 messageDisplayAction API
 ========================
-
-The messageDisplayAction API is similar to Firefox's `action API`__, but adds an action button to the message display area. It can be combined with the :doc:`messageDisplay` to determine the currently displayed message.
-
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/action
 
 .. role:: permission
 
@@ -38,71 +30,76 @@ Manifest file properties
 .. api-member::
    :name: [``message_display_action``]
    :type: (object, optional)
-   
+   :annotation: -- [Added in TB 71]
+
    .. api-member::
       :name: [``browser_style``]
       :type: (boolean, optional)
-      
-      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
-   
-   
+      :annotation: -- [Added in TB 71]
+
+      Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+
    .. api-member::
       :name: [``default_area``]
       :type: (string, optional)
-      
+      :annotation: -- [Added in TB 71]
+
       Currently unused.
-   
-   
+
    .. api-member::
       :name: [``default_icon``]
       :type: (:ref:`messageDisplayAction.IconPath`, optional)
-      
+      :annotation: -- [Added in TB 71]
+
       The paths to one or more icons for the messageDisplayAction button.
-   
-   
+
    .. api-member::
       :name: [``default_label``]
       :type: (string, optional)
-      :annotation: -- [Added in TB 84.0b3, backported to TB 78.6.1]
-      
+      :annotation: -- [Added in TB 84]
+
       The label of the messageDisplayAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
-   
-   
+
    .. api-member::
       :name: [``default_popup``]
       :type: (string, optional)
-      
+      :annotation: -- [Added in TB 71]
+
       The html document to be opened as a popup when the user clicks on the messageDisplayAction button. Ignored for action buttons with type :value:`menu`.
-   
-   
+
    .. api-member::
       :name: [``default_title``]
       :type: (string, optional)
-      
+      :annotation: -- [Added in TB 71]
+
       The title of the messageDisplayAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
-   
-   
+
    .. api-member::
       :name: [``theme_icons``]
       :type: (array of :ref:`messageDisplayAction.ThemeIcons`, optional)
-      
-      Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. **Note:** The default theme uses the :value:`default_icon` for light backgrounds (if specified).
-   
-   
+      :annotation: -- [Added in TB 71]
+
+      Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
+
    .. api-member::
       :name: [``type``]
       :type: (`string`, optional)
-      
+      :annotation: -- [Added in TB 90]
+
       Specifies the type of the button. Default type is :value:`button`.
-      
+
       Supported values:
-      
+
       .. api-member::
          :name: :value:`button`
-      
+
       .. api-member::
          :name: :value:`menu`
-   
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
 
 .. rst-class:: api-permission-info
 
@@ -120,81 +117,73 @@ Functions
 disable([tabId])
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Disables the messageDisplayAction button for a specific tab (if a :value:`tabId` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       The id of the tab for which you want to modify the messageDisplayAction button.
-   
 
 .. _messageDisplayAction.enable:
 
 enable([tabId])
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Enables the messageDisplayAction button for a specific tab (if a :value:`tabId` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, a messageDisplayAction button is enabled.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       The id of the tab for which you want to modify the messageDisplayAction button.
-   
 
 .. _messageDisplayAction.getBadgeBackgroundColor:
 
 getBadgeBackgroundColor(details)
 --------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Gets the badge background color of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 108]
+
          Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+         :annotation: -- [Added in TB 108]
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: :ref:`messageDisplayAction.ColorArray`
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.getBadgeText:
@@ -202,41 +191,37 @@ Gets the badge background color of the messageDisplayAction button.
 getBadgeText(details)
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Gets the badge text of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 108]
+
          Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+         :annotation: -- [Added in TB 108]
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.getBadgeTextColor:
@@ -251,34 +236,28 @@ Gets the text color of the badge.
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Specifies for which tab the badge text color should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: :ref:`messageDisplayAction.ColorArray`
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.getLabel:
@@ -286,41 +265,37 @@ Gets the text color of the badge.
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+.. api-section-annotation-hack:: -- [Added in TB 84]
 
 Gets the label of the messageDisplayAction button. Returns :value:`null`, if no label has been set and the title is used.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 108]
+
          Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+         :annotation: -- [Added in TB 108]
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string or null
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.getPopup:
@@ -328,41 +303,37 @@ Gets the label of the messageDisplayAction button. Returns :value:`null`, if no 
 getPopup(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Gets the html document set as the popup for this messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 108]
+
          Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+         :annotation: -- [Added in TB 108]
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.getTitle:
@@ -370,41 +341,37 @@ Gets the html document set as the popup for this messageDisplayAction button.
 getTitle(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Gets the title of the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 108]
+
          Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+         :annotation: -- [Added in TB 108]
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.isEnabled:
@@ -412,41 +379,38 @@ Gets the title of the messageDisplayAction button.
 isEnabled(details)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Checks whether the messageDisplayAction button is enabled.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 108]
+
          Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+         :annotation: -- [Added in TB 108]
+
          Will throw an error if used.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: boolean
-   
-   
+      :annotation: -- [Added in TB 96]
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.openPopup:
@@ -454,36 +418,34 @@ Checks whether the messageDisplayAction button is enabled.
 openPopup([options])
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type :value:`menu`, is disabled or has been removed from the toolbar.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``options``]
       :type: (object, optional)
-      
+      :annotation: -- [Added in TB 113]
+
       An object with information about the popup to open.
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 113]
+
          Defaults to the current window.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: boolean
-   
-   
+      :annotation: -- [Added in TB 113]
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _messageDisplayAction.setBadgeBackgroundColor:
@@ -491,78 +453,68 @@ Opens the action's popup window in the specified window. Defaults to the current
 setBadgeBackgroundColor(details)
 --------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Sets the background color for the badge.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``color``
          :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
-         
+
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the background color for the badge only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. _messageDisplayAction.setBadgeText:
 
 setBadgeText(details)
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Sets the badge text for the messageDisplayAction button. The badge is displayed on top of the icon.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``text``
          :type: (string or null)
-         
+
          Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the badge text only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. _messageDisplayAction.setBadgeTextColor:
 
@@ -576,195 +528,169 @@ Sets the text color for the badge.
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``color``
          :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
-         
+
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the text color for the badge only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. _messageDisplayAction.setIcon:
 
 setIcon(details)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Sets the icon for the messageDisplayAction button. Either the :value:`path` or the :value:`imageData` property must be specified.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: [``imageData``]
          :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`, optional)
-         
+
          The image data for one or more icons for the composeAction button.
-      
-      
+
       .. api-member::
          :name: [``path``]
          :type: (:ref:`messageDisplayAction.IconPath`, optional)
-         
+
          The paths to one or more icons for the messageDisplayAction button.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the icon only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. _messageDisplayAction.setLabel:
 
 setLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84.0b3, backported to TB 78.6.1]
+.. api-section-annotation-hack:: -- [Added in TB 84]
 
 Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``label``
          :type: (string or null)
-         
+
          A string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the label only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. _messageDisplayAction.setPopup:
 
 setPopup(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Sets the html document to be opened as a popup when the user clicks on the messageDisplayAction button.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``popup``
          :type: (string or null)
-         
+
          The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (action will use the popup value defined in the manifest).
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the popup only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. _messageDisplayAction.setTitle:
 
 setTitle(details)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Sets the title of the messageDisplayAction button. Is used as tooltip and as the label.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``title``
          :type: (string or null)
-         
+
          A string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Sets the title only for the given tab.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional) **Unsupported.**
-         
+
          Will throw an error if used.
-      
-   
 
 .. rst-class:: api-main-section
 
@@ -776,47 +702,56 @@ Events
 onClicked
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 Fired when a messageDisplayAction button is clicked. This event will not fire if the messageDisplayAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tab, info)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tab``
       :type: (:ref:`tabs.Tab`)
-      :annotation: -- [Added in TB 74.0b2]
-   
-   
+
    .. api-member::
       :name: [``info``]
       :type: (:ref:`messageDisplayAction.OnClickData`, optional)
-      :annotation: -- [Added in TB 74.0b2]
-   
+      :annotation: -- [Added in TB 74]
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
+.. _messageDisplayAction.IconPath:
+
+IconPath
+--------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+OR
+
+.. api-header::
+   :label: :ref:`messageDisplayAction.ExtensionFileUrl`
+
 .. _messageDisplayAction.ColorArray:
 
 ColorArray
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
 An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
@@ -828,14 +763,9 @@ An array of four integers in the range [0,255] that make up the RGBA color. For 
 ImageDataDictionary
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 90]
 
-A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size. Example: 
-
-.. literalinclude:: includes/ImageDataDictionary.json
-  :language: JavaScript
-
-See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
+A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
 
 .. api-header::
    :label: object
@@ -845,9 +775,9 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 ImageDataType
 -------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 71]
 
-Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas>`__ element).
+Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas>`__ element).
 
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
@@ -857,102 +787,38 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 74.0b2]
+.. api-section-annotation-hack:: -- [Added in TB 74]
 
 Information sent when a messageDisplayAction button is clicked.
 
 .. api-header::
    :label: object
 
-   
    .. api-member::
       :name: ``modifiers``
       :type: (array of `string`)
-      
+
       An array of keyboard modifiers that were held while the menu item was clicked.
-      
+
       Supported values:
-      
+
       .. api-member::
          :name: :value:`Shift`
-      
+
       .. api-member::
          :name: :value:`Alt`
-      
+
       .. api-member::
          :name: :value:`Command`
-      
-         Only available on macOS.
-      
+
       .. api-member::
          :name: :value:`Ctrl`
-      
-         Not available on macOS.
-      
+
       .. api-member::
          :name: :value:`MacCtrl`
-      
-         Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
-   
-   
+
    .. api-member::
       :name: [``button``]
       :type: (integer, optional)
-      
+
       An integer value of button by which menu item was clicked.
-   
-
-.. rst-class:: api-main-section
-
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _messageDisplayAction.IconPath:
-
-IconPath
---------
-
-.. api-section-annotation-hack:: 
-
-Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example: 
-
-.. literalinclude:: includes/IconPath.json
-  :language: JSON
-
-See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this.
-
-.. _messageDisplayAction.ThemeIcons:
-
-ThemeIcons
-----------
-
-.. api-section-annotation-hack:: 
-
-Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the manifest.json file.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``dark``
-      :type: (string)
-      
-      A URL pointing to an icon. This icon displays when a theme using dark text is active (such as the Light theme, and the Default theme if no ``default_icon`` is specified).
-   
-   
-   .. api-member::
-      :name: ``light``
-      :type: (string)
-      
-      A URL pointing to an icon. This icon displays when a theme using light text is active (such as the Dark theme).
-   
-   
-   .. api-member::
-      :name: ``size``
-      :type: (integer)
-      
-      The size of the two icons in pixels, for example :value:`16` or :value:`32`.
-   

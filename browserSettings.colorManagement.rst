@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ===================================
 browserSettings.colorManagement API
@@ -17,17 +17,12 @@ browserSettings.colorManagement API
 
 .. role:: code
 
-Use the :code:`browserSettings.colorManagement` API to query and set items related to color management.
+Use the <code>browserSettings.colorManagement</code> API to query and set items related to color management.
 
 .. rst-class:: api-main-section
 
 Permissions
 ===========
-
-.. api-member::
-   :name: :permission:`browserSettings`
-
-   Read and modify browser settings
 
 .. rst-class:: api-permission-info
 

@@ -3,10 +3,9 @@
   ≡ browserSettings API
 
   * `Permissions`_
-  * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ===================
 browserSettings API
@@ -18,112 +17,18 @@ browserSettings API
 
 .. role:: code
 
-Use the :code:`browser.browserSettings` API to control global settings of the browser.
+Use the <code>browser.browserSettings</code> API to control global settings of the browser.
 
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
-.. api-member::
-   :name: :permission:`browserSettings`
-
-   Read and modify browser settings
-
 .. rst-class:: api-permission-info
 
 .. note::
 
    The permission :permission:`browserSettings` is required to use ``messenger.browserSettings.*``.
-
-.. rst-class:: api-main-section
-
-Types
-=====
-
-.. _browserSettings.ColorManagementMode:
-
-ColorManagementMode
--------------------
-
-.. api-section-annotation-hack:: 
-
-Color management mode.
-
-.. api-header::
-   :label: `string`
-
-   
-   .. container:: api-member-node
-   
-      .. container:: api-member-description-only
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`off`
-         
-         .. api-member::
-            :name: :value:`full`
-         
-         .. api-member::
-            :name: :value:`tagged_only`
-   
-
-.. _browserSettings.ContextMenuMouseEvent:
-
-ContextMenuMouseEvent
----------------------
-
-.. api-section-annotation-hack:: 
-
-After which mouse event context menus should popup.
-
-.. api-header::
-   :label: `string`
-
-   
-   .. container:: api-member-node
-   
-      .. container:: api-member-description-only
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`mouseup`
-         
-         .. api-member::
-            :name: :value:`mousedown`
-   
-
-.. _browserSettings.ImageAnimationBehavior:
-
-ImageAnimationBehavior
-----------------------
-
-.. api-section-annotation-hack:: 
-
-How images should be animated in the browser.
-
-.. api-header::
-   :label: `string`
-
-   
-   .. container:: api-member-node
-   
-      .. container:: api-member-description-only
-         
-         Supported values:
-         
-         .. api-member::
-            :name: :value:`normal`
-         
-         .. api-member::
-            :name: :value:`none`
-         
-         .. api-member::
-            :name: :value:`once`
-   
 
 .. rst-class:: api-main-section
 
@@ -201,6 +106,15 @@ useDocumentFonts
 .. api-section-annotation-hack:: 
 
 This setting controls whether the document's fonts are used.
+
+.. _browserSettings.verticalTabs:
+
+verticalTabs
+------------
+
+.. api-section-annotation-hack:: 
+
+This boolean setting controls whether vertical tabs are enabled.
 
 .. _browserSettings.webNotificationsDisabled:
 

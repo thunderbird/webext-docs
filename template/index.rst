@@ -7,9 +7,9 @@
 
   .. include:: developer-resources.rst
 
-==================================================
-WebExtension Documentation for Thunderbird 144.0b2
-==================================================
+{{TITLE}}
+
+{{VERSION_NOTE}}
 
 Getting started
 ===============
@@ -48,61 +48,7 @@ repository can be used to obtain a copy of the relevant files.
   :hidden:
   :caption: API reference
   
-  accounts
-  action
-  addressBooks
-  addressBooks.contacts
-  addressBooks.mailingLists
-  addressBooks.provider
-  alarms
-  browserSettings
-  browserSettings.colorManagement
-  browsingData
-  clipboard
-  cloudFile
-  commands
-  compose
-  composeAction
-  contextualIdentities
-  cookies
-  declarativeNetRequest
-  dns
-  downloads
-  extension
-  folders
-  i18n
-  identities
-  identity
-  idle
-  mailTabs
-  management
-  menus
-  messageDisplay
-  messageDisplayAction
-  messages
-  messages.tags
-  messengerSettings
-  messengerUtilities
-  notifications
-  permissions
-  pkcs11
-  privacy
-  privacy.network
-  privacy.services
-  privacy.websites
-  runtime
-  scripting
-  scripting.compose
-  scripting.messageDisplay
-  sessions
-  spaces
-  storage
-  tabs
-  theme
-  userScripts
-  webNavigation
-  webRequest
-  windows
+  {{API_LIST}}
 
 Where to get help and more information
 ======================================

@@ -4,7 +4,7 @@
 
   * `Permissions`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /includes/developer-resources.rst
 
 ===========
 privacy API
@@ -20,11 +20,6 @@ privacy API
 
 Permissions
 ===========
-
-.. api-member::
-   :name: :permission:`privacy`
-
-   Read and modify privacy settings
 
 .. rst-class:: api-permission-info
 
