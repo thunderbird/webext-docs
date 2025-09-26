@@ -8,7 +8,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ========================
 messageDisplayAction API
@@ -48,7 +48,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`IconPath`, optional)
+      :type: (:ref:`messageDisplayAction.IconPath`, optional)
       :annotation: -- [Added in TB 71]
 
       The paths to one or more icons for the messageDisplayAction button.
@@ -76,7 +76,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`ThemeIcons`, optional)
+      :type: (array of :ref:`messageDisplayAction.ThemeIcons`, optional)
       :annotation: -- [Added in TB 71]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
@@ -182,7 +182,7 @@ Gets the badge background color of the messageDisplayAction button.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ColorArray`
+      :type: :ref:`messageDisplayAction.ColorArray`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -256,7 +256,7 @@ Gets the text color of the badge.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ColorArray`
+      :type: :ref:`messageDisplayAction.ColorArray`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -466,7 +466,7 @@ Sets the background color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`ColorArray` or null)
+         :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
 
@@ -534,7 +534,7 @@ Sets the text color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`ColorArray` or null)
+         :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
 
@@ -568,13 +568,13 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
 
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`ImageDataType` or :ref:`ImageDataDictionary`, optional)
+         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`, optional)
 
          The image data for one or more icons for the composeAction button.
 
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`IconPath`, optional)
+         :type: (:ref:`messageDisplayAction.IconPath`, optional)
 
          The paths to one or more icons for the messageDisplayAction button.
 
@@ -723,7 +723,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
 
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`OnClickData`, optional)
+      :type: (:ref:`messageDisplayAction.OnClickData`, optional)
       :annotation: -- [Added in TB 74]
 
 .. rst-class:: api-main-section
@@ -813,7 +813,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 OR
 
 .. api-header::
-   :label: :ref:`ExtensionFileUrl`
+   :label: :ref:`messageDisplayAction.ExtensionFileUrl`
 
 .. _messageDisplayAction.OnClickData:
 
@@ -882,7 +882,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``dark``
-      :type: (:ref:`ExtensionURL`)
+      :type: (:ref:`messageDisplayAction.ExtensionURL`)
 
       The dark icon to use for light themes
 
@@ -890,7 +890,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``light``
-      :type: (:ref:`ExtensionURL`)
+      :type: (:ref:`messageDisplayAction.ExtensionURL`)
 
       A light icon to use for dark themes
 

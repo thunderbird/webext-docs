@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =================
 notifications API
@@ -95,7 +95,7 @@ Creates and displays a notification.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`CreateNotificationOptions`)
+      :type: (:ref:`notifications.CreateNotificationOptions`)
 
       Contents of the notification.
 
@@ -151,7 +151,7 @@ Retrieves whether the user has enabled notifications from this app or extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`PermissionLevel`
+      :type: :ref:`notifications.PermissionLevel`
 
       The current permission level.
 
@@ -257,7 +257,7 @@ Fired when the user changes the permission level.
 
    .. api-member::
       :name: ``level``
-      :type: (:ref:`PermissionLevel`)
+      :type: (:ref:`notifications.PermissionLevel`)
 
       The new permission level.
 
@@ -354,7 +354,7 @@ CreateNotificationOptions
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`TemplateType`)
+      :type: (:ref:`notifications.TemplateType`)
 
       Which type of notification to display.
 
@@ -418,7 +418,7 @@ CreateNotificationOptions
 
    .. api-member::
       :name: [``items``]
-      :type: (array of :ref:`NotificationItem`, optional)
+      :type: (array of :ref:`notifications.NotificationItem`, optional)
 
       Items for multi-item notifications.
 

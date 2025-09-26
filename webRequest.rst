@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==============
 webRequest API
@@ -155,13 +155,13 @@ Fired when an authentication failure is received. The listener has three options
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnAuthRequiredOptions`, optional)
+      :type: (array of :ref:`webRequest.OnAuthRequiredOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -259,7 +259,7 @@ Fired when an authentication failure is received. The listener has three options
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -301,13 +301,13 @@ Fired when an authentication failure is received. The listener has three options
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP response headers that were received along with this response.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -324,7 +324,7 @@ Fired when an authentication failure is received. The listener has three options
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`BlockingResponse`
+      :type: :ref:`webRequest.BlockingResponse`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -352,13 +352,13 @@ Fired when a server-initiated redirect is about to occur.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnBeforeRedirectOptions`, optional)
+      :type: (array of :ref:`webRequest.OnBeforeRedirectOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -438,7 +438,7 @@ Fired when a server-initiated redirect is about to occur.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -482,13 +482,13 @@ Fired when a server-initiated redirect is about to occur.
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP response headers that were received along with this redirect.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -525,13 +525,13 @@ Fired when a request is about to occur.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnBeforeRequestOptions`, optional)
+      :type: (array of :ref:`webRequest.OnBeforeRequestOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -587,7 +587,7 @@ Fired when a request is about to occur.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -644,13 +644,13 @@ Fired when a request is about to occur.
 
          .. api-member::
             :name: [``raw``]
-            :type: (array of :ref:`UploadData`, optional)
+            :type: (array of :ref:`webRequest.UploadData`, optional)
 
             If the request method is PUT or POST, and the body is not already parsed in formData, then the unparsed request body elements are contained in this array.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -663,7 +663,7 @@ Fired when a request is about to occur.
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`BlockingResponse`
+      :type: :ref:`webRequest.BlockingResponse`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -695,13 +695,13 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnBeforeSendHeadersOptions`, optional)
+      :type: (array of :ref:`webRequest.OnBeforeSendHeadersOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -757,7 +757,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -795,14 +795,14 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
       .. api-member::
          :name: [``requestHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
          :annotation: -- [Added in TB 53]
 
          The HTTP request headers that are going to be sent out with this request.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -815,7 +815,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`BlockingResponse`
+      :type: :ref:`webRequest.BlockingResponse`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -843,13 +843,13 @@ Fired when a request is completed.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnCompletedOptions`, optional)
+      :type: (array of :ref:`webRequest.OnCompletedOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -935,7 +935,7 @@ Fired when a request is completed.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -945,7 +945,7 @@ Fired when a request is completed.
 
       .. api-member::
          :name: ``urlClassification``
-         :type: (:ref:`UrlClassification`)
+         :type: (:ref:`webRequest.UrlClassification`)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -990,7 +990,7 @@ Fired when a request is completed.
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP response headers that were received along with this response.
 
@@ -1018,7 +1018,7 @@ Fired when an error occurs.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
@@ -1086,7 +1086,7 @@ Fired when an error occurs.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -1130,7 +1130,7 @@ Fired when an error occurs.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1171,13 +1171,13 @@ Fired when HTTP response headers of a request have been received.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnHeadersReceivedOptions`, optional)
+      :type: (array of :ref:`webRequest.OnHeadersReceivedOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -1245,7 +1245,7 @@ Fired when HTTP response headers of a request have been received.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -1283,13 +1283,13 @@ Fired when HTTP response headers of a request have been received.
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP response headers that have been received with this response.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1302,7 +1302,7 @@ Fired when HTTP response headers of a request have been received.
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`BlockingResponse`
+      :type: :ref:`webRequest.BlockingResponse`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -1330,13 +1330,13 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnResponseStartedOptions`, optional)
+      :type: (array of :ref:`webRequest.OnResponseStartedOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -1410,7 +1410,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -1454,13 +1454,13 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP response headers that were received along with this response.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1493,13 +1493,13 @@ Fired just before a request is going to be sent to the server (modifications of 
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`RequestFilter`)
+      :type: (:ref:`webRequest.RequestFilter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`OnSendHeadersOptions`, optional)
+      :type: (array of :ref:`webRequest.OnSendHeadersOptions`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -1555,7 +1555,7 @@ Fired just before a request is going to be sent to the server (modifications of 
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`webRequest.ResourceType`)
 
          How the requested resource will be used.
 
@@ -1593,13 +1593,13 @@ Fired just before a request is going to be sent to the server (modifications of 
 
       .. api-member::
          :name: [``requestHeaders``]
-         :type: (:ref:`HttpHeaders`, optional)
+         :type: (:ref:`webRequest.HttpHeaders`, optional)
 
          The HTTP request headers that have been sent out with this request.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`UrlClassification`, optional)
+         :type: (:ref:`webRequest.UrlClassification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1666,7 +1666,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 
    .. api-member::
       :name: [``requestHeaders``]
-      :type: (:ref:`HttpHeaders`, optional)
+      :type: (:ref:`webRequest.HttpHeaders`, optional)
 
       Only used as a response to the onBeforeSendHeaders event. If set, the request is made with these request headers instead.
 
@@ -1674,7 +1674,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 
    .. api-member::
       :name: [``responseHeaders``]
-      :type: (:ref:`HttpHeaders`, optional)
+      :type: (:ref:`webRequest.HttpHeaders`, optional)
 
       Only used as a response to the onHeadersReceived event. If set, the server is assumed to have responded with these response headers instead. Only return :code:`responseHeaders` if you really want to modify the headers in order to limit the number of conflicts (only one extension may modify :code:`responseHeaders` for each request).
 
@@ -1917,7 +1917,7 @@ An object describing filters to apply to webRequest events.
 
    .. api-member::
       :name: [``types``]
-      :type: (array of :ref:`ResourceType`, optional)
+      :type: (array of :ref:`webRequest.ResourceType`, optional)
 
       A list of request types. Requests that cannot match any of the types will be filtered out.
 
@@ -2052,7 +2052,7 @@ UrlClassification
 
    .. api-member::
       :name: ``firstParty``
-      :type: (:ref:`UrlClassificationParty`)
+      :type: (:ref:`webRequest.UrlClassificationParty`)
 
       Classification flags if the request has been classified and it is first party.
 
@@ -2060,7 +2060,7 @@ UrlClassification
 
    .. api-member::
       :name: ``thirdParty``
-      :type: (:ref:`UrlClassificationParty`)
+      :type: (:ref:`webRequest.UrlClassificationParty`)
 
       Classification flags if the request has been classified and it or its window hierarchy is third party.
 
@@ -2140,7 +2140,7 @@ UrlClassificationParty
 If the request has been classified this is an array of :ref:`UrlClassificationFlags`.
 
 .. api-header::
-   :label: array of :ref:`UrlClassificationFlags`
+   :label: array of :ref:`webRequest.UrlClassificationFlags`
 
 .. rst-class:: api-main-section
 

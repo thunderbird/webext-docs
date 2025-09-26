@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ========================
 contextualIdentities API
@@ -297,7 +297,7 @@ Fired when a new container is created.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`ContextualIdentity`)
+         :type: (:ref:`contextualIdentities.ContextualIdentity`)
 
          Contextual identity that has been created
 
@@ -332,7 +332,7 @@ Fired when a container is removed.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`ContextualIdentity`)
+         :type: (:ref:`contextualIdentities.ContextualIdentity`)
 
          Contextual identity that has been removed
 
@@ -367,7 +367,7 @@ Fired when a container is updated.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`ContextualIdentity`)
+         :type: (:ref:`contextualIdentities.ContextualIdentity`)
 
          Contextual identity that has been updated
 

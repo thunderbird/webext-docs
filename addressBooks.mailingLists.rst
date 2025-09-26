@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =============================
 addressBooks.mailingLists API
@@ -157,7 +157,7 @@ Gets a single mailing list.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailingListNode`
+      :type: :ref:`addressBooks.mailingLists.MailingListNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -186,7 +186,7 @@ Gets all the mailing lists in the address book with id :value:`parentId`.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`MailingListNode`
+      :type: array of :ref:`addressBooks.mailingLists.MailingListNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -313,7 +313,7 @@ Fired when a mailing list is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`MailingListNode`)
+      :type: (:ref:`addressBooks.mailingLists.MailingListNode`)
 
 .. api-header::
    :label: Required permissions
@@ -437,7 +437,7 @@ Fired when a mailing list is changed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`MailingListNode`)
+      :type: (:ref:`addressBooks.mailingLists.MailingListNode`)
 
 .. api-header::
    :label: Required permissions

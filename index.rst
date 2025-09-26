@@ -5,7 +5,7 @@
   * `Getting started`_
   * `Where to get help and more information`_
 
-  .. include:: developer-resources.rst
+  .. include:: _includes/developer-resources.rst
 
 ==================================================
 WebExtension Documentation for Thunderbird 144.0b2

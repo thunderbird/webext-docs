@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =========
 menus API
@@ -95,13 +95,13 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 
       .. api-member::
          :name: [``command``]
-         :type: (string or :ref:`MenuActionCommand`, optional)
+         :type: (string or :ref:`menus.MenuActionCommand`, optional)
 
          Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined action commands.
 
       .. api-member::
          :name: [``contexts``]
-         :type: (array of :ref:`ContextType`, optional)
+         :type: (array of :ref:`menus.ContextType`, optional)
 
          List of contexts this menu item will appear in. Defaults to :value:`['page']` if not specified.
 
@@ -119,7 +119,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`MenuIconPath` or :ref:`MenuIconDictionary`, optional)
+         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
 
          Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
 
@@ -155,7 +155,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`ItemType`, optional)
+         :type: (:ref:`menus.ItemType`, optional)
 
          The type of menu item. Defaults to :value:`normal` if not specified.
 
@@ -349,7 +349,7 @@ Updates a previously created context menu item.
 
       .. api-member::
          :name: [``contexts``]
-         :type: (array of :ref:`ContextType`, optional)
+         :type: (array of :ref:`menus.ContextType`, optional)
 
       .. api-member::
          :name: [``documentUrlPatterns``]
@@ -361,7 +361,7 @@ Updates a previously created context menu item.
 
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`MenuIconPath` or :ref:`MenuIconDictionary`, optional)
+         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
 
       .. api-member::
          :name: [``onclick``]
@@ -383,7 +383,7 @@ Updates a previously created context menu item.
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`ItemType`, optional)
+         :type: (:ref:`menus.ItemType`, optional)
 
       .. api-member::
          :name: [``viewTypes``]
@@ -427,7 +427,7 @@ Fired when a context menu item is clicked. This is a user input event handler. F
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`OnClickData`)
+      :type: (:ref:`menus.OnClickData`)
 
       Information about the item clicked and the context where the click happened.
 
@@ -486,7 +486,7 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`OnShowData`)
+      :type: (:ref:`menus.OnShowData`)
 
       Information about the context of the menu action and the created menu items.
 
@@ -1006,7 +1006,7 @@ Information sent when a context menu is being shown. Some properties are only in
 
    .. api-member::
       :name: ``contexts``
-      :type: (array of :ref:`ContextType`)
+      :type: (array of :ref:`menus.ContextType`)
 
       A list of all contexts that apply to the menu.
 

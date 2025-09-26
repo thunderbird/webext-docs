@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Functions`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==========
 pkcs11 API

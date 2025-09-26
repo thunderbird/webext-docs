@@ -6,7 +6,7 @@
   * `Functions`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ===============
 userScripts API
@@ -61,7 +61,7 @@ Configures the environment for scripts running in a USER_SCRIPT world.
 
    .. api-member::
       :name: ``properties``
-      :type: (:ref:`WorldProperties`)
+      :type: (:ref:`userScripts.WorldProperties`)
 
       The desired configuration for a USER_SCRIPT world.
 
@@ -84,7 +84,7 @@ Returns all dynamically-registered user scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`UserScriptFilter`, optional)
+      :type: (:ref:`userScripts.UserScriptFilter`, optional)
 
       If specified, this method returns only the user scripts that match it.
 
@@ -92,7 +92,7 @@ Returns all dynamically-registered user scripts for this extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`RegisteredUserScript`
+      :type: array of :ref:`userScripts.RegisteredUserScript`
 
       List of registered user scripts.
 
@@ -116,7 +116,7 @@ Returns all registered USER_SCRIPT world configurations.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`WorldProperties`
+      :type: array of :ref:`userScripts.WorldProperties`
 
       All configurations registered with configureWorld().
 
@@ -145,7 +145,7 @@ Registers one or more user scripts for this extension.
 
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`RegisteredUserScript`)
+      :type: (array of :ref:`userScripts.RegisteredUserScript`)
 
       List of user scripts to be registered.
 
@@ -191,7 +191,7 @@ Unregisters all dynamically-registered user scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`UserScriptFilter`, optional)
+      :type: (:ref:`userScripts.UserScriptFilter`, optional)
 
       If specified, this method unregisters only the user scripts that match it.
 
@@ -301,12 +301,12 @@ MatchPattern
 OR
 
 .. api-header::
-   :label: :ref:`MatchPatternRestricted`
+   :label: :ref:`userScripts.MatchPatternRestricted`
 
 OR
 
 .. api-header::
-   :label: :ref:`MatchPatternUnestricted`
+   :label: :ref:`userScripts.MatchPatternUnestricted`
 
 .. _userScripts.MatchPatternRestricted:
 
@@ -361,7 +361,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: ``js``
-      :type: (array of :ref:`ScriptSource`)
+      :type: (array of :ref:`userScripts.ScriptSource`)
 
       The list of ScriptSource objects defining sources of scripts to be injected into matching pages.
 
@@ -383,7 +383,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``excludeMatches``]
-      :type: (array of :ref:`MatchPattern`, optional)
+      :type: (array of :ref:`userScripts.MatchPattern`, optional)
 
    .. _userScripts.RegisteredUserScript.includeGlobs:
 
@@ -397,7 +397,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``matches``]
-      :type: (array of :ref:`MatchPattern`, optional)
+      :type: (array of :ref:`userScripts.MatchPattern`, optional)
 
       At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
 
@@ -405,7 +405,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``runAt``]
-      :type: (:ref:`RunAt`, optional)
+      :type: (:ref:`userScripts.RunAt`, optional)
 
       The soonest that the JavaScript will be injected into the tab. Defaults to "document_idle".
 
@@ -413,7 +413,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``world``]
-      :type: (:ref:`ExecutionWorld`, optional)
+      :type: (:ref:`userScripts.ExecutionWorld`, optional)
 
       The JavaScript script for a script to execute within. Defaults to "USER_SCRIPT".
 

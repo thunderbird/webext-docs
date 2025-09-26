@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ===========
 windows API
@@ -128,7 +128,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`WindowState`, optional)
+         :type: (:ref:`windows.WindowState`, optional)
 
          The initial state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
 
@@ -152,7 +152,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`CreateType`, optional)
+         :type: (:ref:`windows.CreateType`, optional)
 
          Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
 
@@ -172,7 +172,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Window`
+      :type: :ref:`windows.Window`
 
       Contains details about the created window.
 
@@ -196,13 +196,13 @@ Gets details about a window.
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`GetInfo`, optional)
+      :type: (:ref:`windows.GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Window`
+      :type: :ref:`windows.Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -220,13 +220,13 @@ Gets all windows.
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`GetInfo`, optional)
+      :type: (:ref:`windows.GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Window`
+      :type: array of :ref:`windows.Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -244,13 +244,13 @@ Gets the active or topmost window.
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`GetInfo`, optional)
+      :type: (:ref:`windows.GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Window`
+      :type: :ref:`windows.Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -268,13 +268,13 @@ Gets the window that was most recently focused — typically the window 'on top'
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`GetInfo`, optional)
+      :type: (:ref:`windows.GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Window`
+      :type: :ref:`windows.Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -356,7 +356,7 @@ Updates the properties of a window. Specify only the properties that you want to
 
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`WindowState`, optional)
+         :type: (:ref:`windows.WindowState`, optional)
 
          The new state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
 
@@ -382,7 +382,7 @@ Updates the properties of a window. Specify only the properties that you want to
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Window`
+      :type: :ref:`windows.Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -413,7 +413,7 @@ Fired when a window is created.
 
    .. api-member::
       :name: ``window``
-      :type: (:ref:`Window`)
+      :type: (:ref:`windows.Window`)
 
       Details of the window that was created.
 
@@ -540,7 +540,7 @@ Specifies additional requirements for the returned windows.
 
    .. api-member::
       :name: [``windowTypes``]
-      :type: (array of :ref:`WindowType`, optional)
+      :type: (array of :ref:`windows.WindowType`, optional)
 
       If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions.
 
@@ -606,7 +606,7 @@ Window
 
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`WindowState`, optional)
+      :type: (:ref:`windows.WindowState`, optional)
 
       The state of this window.
 
@@ -638,7 +638,7 @@ Window
 
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`WindowType`, optional)
+      :type: (:ref:`windows.WindowType`, optional)
 
       The type of window this is.
 

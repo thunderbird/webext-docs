@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ================
 addressBooks API
@@ -141,7 +141,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`AddressBookNode`
+      :type: :ref:`addressBooks.AddressBookNode`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -173,7 +173,7 @@ Gets a list of the user's address books, optionally including all contacts and m
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`AddressBookNode`
+      :type: array of :ref:`addressBooks.AddressBookNode`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -262,7 +262,7 @@ Fired when an address book is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`AddressBookNode`)
+      :type: (:ref:`addressBooks.AddressBookNode`)
 
 .. api-header::
    :label: Required permissions
@@ -320,7 +320,7 @@ Fired when an address book is renamed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`AddressBookNode`)
+      :type: (:ref:`addressBooks.AddressBookNode`)
 
 .. api-header::
    :label: Required permissions
@@ -362,7 +362,7 @@ A node representing an address book.
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`NodeType`)
+      :type: (:ref:`addressBooks.NodeType`)
 
       Always set to :value:`addressBook`.
 

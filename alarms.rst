@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==========
 alarms API
@@ -166,7 +166,7 @@ Retrieves details about the specified alarm.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Alarm`
+      :type: :ref:`alarms.Alarm`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -188,7 +188,7 @@ Gets an array of all the alarms.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Alarm`
+      :type: array of :ref:`alarms.Alarm`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -224,7 +224,7 @@ Fired when an alarm has expired. Useful for transient background pages.
 
    .. api-member::
       :name: ``name``
-      :type: (:ref:`Alarm`)
+      :type: (:ref:`alarms.Alarm`)
 
       The alarm that has expired.
 

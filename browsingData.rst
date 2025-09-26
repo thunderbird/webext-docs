@@ -6,7 +6,7 @@
   * `Functions`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ================
 browsingData API
@@ -61,11 +61,11 @@ Clears various types of browsing data stored in a user's profile.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
    .. api-member::
       :name: ``dataToRemove``
-      :type: (:ref:`DataTypeSet`)
+      :type: (:ref:`browsingData.DataTypeSet`)
 
       The set of data types to remove.
 
@@ -88,7 +88,7 @@ Clears websites' appcache data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -113,7 +113,7 @@ Clears the browser's cache.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -134,7 +134,7 @@ Clears the browser's cookies and server-bound certificates modified within a par
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -155,7 +155,7 @@ Clears the browser's list of downloaded files (*not* the downloaded files themse
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -176,7 +176,7 @@ Clears websites' file system data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -197,7 +197,7 @@ Clears the browser's stored form data (autofill).
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -222,7 +222,7 @@ Clears the browser's history.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -243,7 +243,7 @@ Clears websites' IndexedDB data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -268,7 +268,7 @@ Clears websites' local storage data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -289,7 +289,7 @@ Clears the browser's stored passwords.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -310,7 +310,7 @@ Clears plugins' data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -331,7 +331,7 @@ Clears websites' WebSQL data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`RemovalOptions`)
+      :type: (:ref:`browsingData.RemovalOptions`)
 
 .. api-header::
    :label: Required permissions
@@ -355,19 +355,19 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
 
       .. api-member::
          :name: ``dataRemovalPermitted``
-         :type: (:ref:`DataTypeSet`)
+         :type: (:ref:`browsingData.DataTypeSet`)
 
          All of the types will be present in the result, with values of :code:`true` if they are permitted to be removed (e.g., by enterprise policy) and :code:`false` if not.
 
       .. api-member::
          :name: ``dataToRemove``
-         :type: (:ref:`DataTypeSet`)
+         :type: (:ref:`browsingData.DataTypeSet`)
 
          All of the types will be present in the result, with values of :code:`true` if they are both selected to be removed and permitted to be removed, otherwise :code:`false`.
 
       .. api-member::
          :name: ``options``
-         :type: (:ref:`RemovalOptions`)
+         :type: (:ref:`browsingData.RemovalOptions`)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 

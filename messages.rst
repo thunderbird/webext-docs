@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============
 messages API
@@ -117,7 +117,7 @@ Archives messages using the current settings. Archiving external messages will t
 
    .. api-member::
       :name: ``messageIds``
-      :type: (array of :ref:`MessageId`)
+      :type: (array of :ref:`messages.MessageId`)
 
       The IDs of the messages to archive.
 
@@ -147,7 +147,7 @@ Returns the next chunk of messages in a list. See :doc:`guides/messageLists` for
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MessageList`
+      :type: :ref:`messages.MessageList`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -171,7 +171,7 @@ Copies messages to a specified folder.
 
    .. api-member::
       :name: ``messageIds``
-      :type: (array of :ref:`MessageId`)
+      :type: (array of :ref:`messages.MessageId`)
 
       The IDs of the messages to copy.
 
@@ -214,7 +214,7 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
 
    .. api-member::
       :name: ``messageIds``
-      :type: (array of :ref:`MessageId`)
+      :type: (array of :ref:`messages.MessageId`)
 
       The IDs of the messages to delete.
 
@@ -270,13 +270,13 @@ Returns the specified message.
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MessageHeader`
+      :type: :ref:`messages.MessageHeader`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -310,7 +310,7 @@ The most simple way to get the content of an attachment is to use the `:code:`te
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
    .. api-member::
       :name: ``partName``
@@ -344,7 +344,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
    .. api-member::
       :name: [``options``]
@@ -376,7 +376,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MessagePart`
+      :type: :ref:`messages.MessagePart`
       :annotation: -- [Added in TB 125]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -400,7 +400,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
 
    .. api-member::
       :name: ``message``
-      :type: (:ref:`MessageId` or :ref:`MessagePart`)
+      :type: (:ref:`messages.MessageId` or :ref:`messages.MessagePart`)
 
       Either a :ref:`messages.MessageId` of an existing message, or a :ref:`messages.MessagePart` with raw header and raw content data representing a full RFC 822 message (the provided data will be used as-is without applying any further encoding). See the :value:`decodeHeaders` and :value:`decodeContent` options of :ref:`messages.getFull` for further details on how to retrieve a :ref:`messages.MessagePart` with raw values. You can use :ref:`messengerUtilities.decodeMimeHeader` and :ref:`messengerUtilities.encodeMimeHeader` to manipulate a raw MessagePart.
 
@@ -489,13 +489,13 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
 
    .. api-member::
       :name: [``properties``]
-      :type: (:ref:`MessageProperties`, optional)
+      :type: (:ref:`messages.MessageProperties`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MessageHeader`
+      :type: :ref:`messages.MessageHeader`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -526,7 +526,7 @@ Gets all messages in a folder.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MessageList`
+      :type: :ref:`messages.MessageList`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -551,13 +551,13 @@ Lists the attachments of a message.
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`MessageAttachment`
+      :type: array of :ref:`messages.MessageAttachment`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -585,13 +585,13 @@ Lists all inline text parts of a message. These parts are not returned by :ref:`
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`InlineTextPart`
+      :type: array of :ref:`messages.InlineTextPart`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -614,7 +614,7 @@ Moves messages to a specified folder. If the messages cannot be removed from the
 
    .. api-member::
       :name: ``messageIds``
-      :type: (array of :ref:`MessageId`)
+      :type: (array of :ref:`messages.MessageId`)
 
       The IDs of the messages to move.
 
@@ -657,7 +657,7 @@ Opens the specified attachment.
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
    .. api-member::
       :name: ``partName``
@@ -699,7 +699,7 @@ Gets all messages that have the specified properties, or all messages if no prop
 
       .. api-member::
          :name: [``attachment``]
-         :type: (boolean or :ref:`QueryRange`, optional)
+         :type: (boolean or :ref:`messages.QueryRange`, optional)
          :annotation: -- [Added in TB 96]
 
          Whether the message has attachments, or not. Supports to specify a :ref:`messages.QueryRange` (min/max) instead of a simple boolean value (none/some).
@@ -777,7 +777,7 @@ Gets all messages that have the specified properties, or all messages if no prop
 
       .. api-member::
          :name: [``junkScore``]
-         :type: (:ref:`QueryRange`, optional)
+         :type: (:ref:`messages.QueryRange`, optional)
          :annotation: -- [Added in TB 121]
 
          Returns only messages with a junk score in the specified range.
@@ -825,7 +825,7 @@ Gets all messages that have the specified properties, or all messages if no prop
 
       .. api-member::
          :name: [``size``]
-         :type: (:ref:`QueryRange`, optional)
+         :type: (:ref:`messages.QueryRange`, optional)
          :annotation: -- [Added in TB 121]
 
          Returns only messages with a size in the specified byte range.
@@ -859,7 +859,7 @@ Gets all messages that have the specified properties, or all messages if no prop
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MessageList` or string
+      :type: :ref:`messages.MessageList` or string
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -883,11 +883,11 @@ Updates message properties and tags. Updating external messages will throw an *E
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
    .. api-member::
       :name: ``newProperties``
-      :type: (:ref:`MessageProperties`)
+      :type: (:ref:`messages.MessageProperties`)
 
 .. api-header::
    :label: Required permissions
@@ -922,11 +922,11 @@ Fired when messages have been copied.
 
    .. api-member::
       :name: ``originalMessages``
-      :type: (:ref:`MessageList`)
+      :type: (:ref:`messages.MessageList`)
 
    .. api-member::
       :name: ``copiedMessages``
-      :type: (:ref:`MessageList`)
+      :type: (:ref:`messages.MessageList`)
 
 .. api-header::
    :label: Required permissions
@@ -956,7 +956,7 @@ Fired when messages have been permanently deleted.
 
    .. api-member::
       :name: ``messages``
-      :type: (:ref:`MessageList`)
+      :type: (:ref:`messages.MessageList`)
 
 .. api-header::
    :label: Required permissions
@@ -986,11 +986,11 @@ Fired when messages have been moved.
 
    .. api-member::
       :name: ``originalMessages``
-      :type: (:ref:`MessageList`)
+      :type: (:ref:`messages.MessageList`)
 
    .. api-member::
       :name: ``movedMessages``
-      :type: (:ref:`MessageList`)
+      :type: (:ref:`messages.MessageList`)
 
 .. api-header::
    :label: Required permissions
@@ -1031,7 +1031,7 @@ Fired when a new message is received, and has been handled by message filters an
 
    .. api-member::
       :name: ``messages``
-      :type: (:ref:`MessageList`)
+      :type: (:ref:`messages.MessageList`)
 
 .. api-header::
    :label: Required permissions
@@ -1061,15 +1061,15 @@ Fired when one or more properties of a message have been updated.
 
    .. api-member::
       :name: ``message``
-      :type: (:ref:`MessageHeader`)
+      :type: (:ref:`messages.MessageHeader`)
 
    .. api-member::
       :name: ``changedProperties``
-      :type: (:ref:`MessageProperties`)
+      :type: (:ref:`messages.MessageProperties`)
 
    .. api-member::
       :name: ``oldProperties``
-      :type: (:ref:`MessageProperties`)
+      :type: (:ref:`messages.MessageProperties`)
       :annotation: -- [Added in TB 137]
 
 .. api-header::
@@ -1197,7 +1197,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: [``message``]
-      :type: (:ref:`MessageHeader`, optional)
+      :type: (:ref:`messages.MessageHeader`, optional)
       :annotation: -- [Added in TB 106]
 
       A MessageHeader, if this attachment is a message.
@@ -1218,13 +1218,13 @@ Basic information about a message.
 
    .. api-member::
       :name: ``author``
-      :type: (:ref:`MailBoxHeaderString`)
+      :type: (:ref:`messages.MailBoxHeaderString`)
 
    .. _messages.MessageHeader.bccList:
 
    .. api-member::
       :name: ``bccList``
-      :type: (array of :ref:`MailBoxHeaderString`)
+      :type: (array of :ref:`messages.MailBoxHeaderString`)
 
       The Bcc recipients. Not populated for news/nntp messages.
 
@@ -1232,7 +1232,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``ccList``
-      :type: (array of :ref:`MailBoxHeaderString`)
+      :type: (array of :ref:`messages.MailBoxHeaderString`)
 
       The Cc recipients. Not populated for news/nntp messages.
 
@@ -1280,7 +1280,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``id``
-      :type: (:ref:`MessageId`)
+      :type: (:ref:`messages.MessageId`)
 
    .. _messages.MessageHeader.junk:
 
@@ -1311,7 +1311,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``recipients``
-      :type: (array of :ref:`MailBoxHeaderString`)
+      :type: (array of :ref:`messages.MailBoxHeaderString`)
 
       The To recipients. Not populated for news/nntp messages.
 
@@ -1392,7 +1392,7 @@ See :doc:`guides/messageLists` for more information.
 
    .. api-member::
       :name: ``messages``
-      :type: (array of :ref:`MessageHeader`)
+      :type: (array of :ref:`messages.MessageHeader`)
 
 .. _messages.MessagePart:
 
@@ -1471,7 +1471,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``parts``]
-      :type: (array of :ref:`MessagePart`, optional)
+      :type: (array of :ref:`messages.MessagePart`, optional)
 
       Any sub-parts of this part.
 

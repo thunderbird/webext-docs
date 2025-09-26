@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =================
 webNavigation API
@@ -200,7 +200,7 @@ Fired when a navigation is about to occur.
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -277,7 +277,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -314,13 +314,13 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
       .. api-member::
          :name: ``transitionQualifiers``
-         :type: (array of :ref:`TransitionQualifier`)
+         :type: (array of :ref:`webNavigation.TransitionQualifier`)
 
          A list of transition qualifiers.
 
       .. api-member::
          :name: ``transitionType``
-         :type: (:ref:`TransitionType`)
+         :type: (:ref:`webNavigation.TransitionType`)
 
          Cause of the navigation.
 
@@ -360,7 +360,7 @@ Fired when a document, including the resources it refers to, is completely loade
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -431,7 +431,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -510,7 +510,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -581,7 +581,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -650,7 +650,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -687,13 +687,13 @@ Fired when the frame's history was updated to a new URL. All future events for t
 
       .. api-member::
          :name: ``transitionQualifiers``
-         :type: (array of :ref:`TransitionQualifier`)
+         :type: (array of :ref:`webNavigation.TransitionQualifier`)
 
          A list of transition qualifiers.
 
       .. api-member::
          :name: ``transitionType``
-         :type: (:ref:`TransitionType`)
+         :type: (:ref:`webNavigation.TransitionType`)
 
          Cause of the navigation.
 
@@ -733,7 +733,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`EventUrlFilters`, optional)
+      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -770,13 +770,13 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
       .. api-member::
          :name: ``transitionQualifiers``
-         :type: (array of :ref:`TransitionQualifier`)
+         :type: (array of :ref:`webNavigation.TransitionQualifier`)
 
          A list of transition qualifiers.
 
       .. api-member::
          :name: ``transitionType``
-         :type: (:ref:`TransitionType`)
+         :type: (:ref:`webNavigation.TransitionType`)
 
          Cause of the navigation.
 

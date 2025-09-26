@@ -8,7 +8,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =========
 theme API
@@ -29,7 +29,7 @@ Manifest file properties
 
 .. api-member::
    :name: [``theme_experiment``]
-   :type: (:ref:`ThemeExperiment`, optional)
+   :type: (:ref:`theme.ThemeExperiment`, optional)
    :annotation: -- [Added in TB 86]
 
    A theme experiment allows modifying the user interface of Thunderbird beyond what is currently possible using the built-in color, image and property keys of :ref:`theme.ThemeType`. These experiments are a precursor to proposing new theme features for inclusion in Thunderbird. Experimentation is done by mapping internal CSS color, image and property variables to new theme keys and using them in :ref:`theme.ThemeType` and by loading additional style sheets to add new CSS variables, extending the theme-able areas of Thunderbird. Can be used in static and dynamic themes.
@@ -71,7 +71,7 @@ Returns the current theme for the specified window or the last focused window.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ThemeType`
+      :type: :ref:`theme.ThemeType`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -119,7 +119,7 @@ Make complete updates to the theme. Resolves when the update has completed.
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`ThemeType`)
+      :type: (:ref:`theme.ThemeType`)
 
       The properties of the theme to update.
 
@@ -155,7 +155,7 @@ Fired when a new theme has been applied
 
    .. api-member::
       :name: ``updateInfo``
-      :type: (:ref:`ThemeUpdateInfo`)
+      :type: (:ref:`theme.ThemeUpdateInfo`)
 
       Details of the theme update
 
@@ -306,7 +306,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
 
    .. api-member::
       :name: [``stylesheet``]
-      :type: (:ref:`ExtensionURL`, optional)
+      :type: (:ref:`theme.ExtensionURL`, optional)
 
       URL to a stylesheet introducing additional CSS variables, extending the theme-able areas of Thunderbird.
 
@@ -368,249 +368,249 @@ Contains the color, image and property settings of a theme.
 
       .. api-member::
          :name: [``accentcolor``]
-         :type: (:ref:`ThemeColor`, optional) **Deprecated.**
+         :type: (:ref:`theme.ThemeColor`, optional) **Deprecated.**
 
       .. api-member::
          :name: [``bookmark_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          Not used in Thunderbird.
 
       .. api-member::
          :name: [``button_background_active``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the background of the pressed toolbar buttons.
 
       .. api-member::
          :name: [``button_background_hover``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the background of the toolbar buttons on hover.
 
       .. api-member::
          :name: [``frame``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of the header area.
 
       .. api-member::
          :name: [``frame_inactive``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of the header area when the window is inactive.
 
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the toolbar icons. Defaults to the color specified by :value:`toolbar_text`.
 
       .. api-member::
          :name: [``icons_attention``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the toolbar icons in attention state such as the chat icon with new messages.
 
       .. api-member::
          :name: [``ntp_background``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          Not used in Thunderbird.
 
       .. api-member::
          :name: [``ntp_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          Not used in Thunderbird.
 
       .. api-member::
          :name: [``popup``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of popups such as the AppMenu.
 
       .. api-member::
          :name: [``popup_border``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The border color of popups.
 
       .. api-member::
          :name: [``popup_highlight``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of items highlighted using the keyboard inside popups.
 
       .. api-member::
          :name: [``popup_highlight_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color of items highlighted using the keyboard inside popups.
 
       .. api-member::
          :name: [``popup_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color of popups.
 
       .. api-member::
          :name: [``sidebar``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of the trees.
 
       .. api-member::
          :name: [``sidebar_border``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The border color of the trees.
 
       .. api-member::
          :name: [``sidebar_highlight``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of highlighted rows in trees.
 
       .. api-member::
          :name: [``sidebar_highlight_border``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The border color of highlighted rows in trees.
 
       .. api-member::
          :name: [``sidebar_highlight_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color of highlighted rows in trees.
 
       .. api-member::
          :name: [``sidebar_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color of the trees. Needed to enable the tree theming.
 
       .. api-member::
          :name: [``tab_background_separator``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the vertical separator of the background tabs.
 
       .. api-member::
          :name: [``tab_background_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color of the unselected tabs.
 
       .. api-member::
          :name: [``tab_line``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the selected tab line.
 
       .. api-member::
          :name: [``tab_loading``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the tab loading indicator.
 
       .. api-member::
          :name: [``tab_selected``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          Background color of the selected tab. Defaults to the color specified by :value:`toolbar`.
 
       .. api-member::
          :name: [``tab_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color for the selected tab. Defaults to the color specified by :value:`toolbar_text`.
 
       .. api-member::
          :name: [``textcolor``]
-         :type: (:ref:`ThemeColor`, optional) **Deprecated.**
+         :type: (:ref:`theme.ThemeColor`, optional) **Deprecated.**
 
       .. api-member::
          :name: [``toolbar``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color of the toolbars. Also used as default value for :value:`tab_selected`.
 
       .. api-member::
          :name: [``toolbar_bottom_separator``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the line separating the bottom of the toolbar from the region below.
 
       .. api-member::
          :name: [``toolbar_field``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color for fields in the toolbar, such as the search field.
 
       .. api-member::
          :name: [``toolbar_field_border``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The border color for fields in the toolbar.
 
       .. api-member::
          :name: [``toolbar_field_border_focus``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The focused border color for fields in the toolbar.
 
       .. api-member::
          :name: [``toolbar_field_focus``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The focused background color for fields in the toolbar.
 
       .. api-member::
          :name: [``toolbar_field_highlight``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The background color used to indicate the current selection of text in the search field.
 
       .. api-member::
          :name: [``toolbar_field_highlight_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color used to draw text that's currently selected in the search field.
 
       .. api-member::
          :name: [``toolbar_field_separator``]
-         :type: (:ref:`ThemeColor`, optional) **Deprecated.**
+         :type: (:ref:`theme.ThemeColor`, optional) **Deprecated.**
 
          Not used in Thunderbird.
 
       .. api-member::
          :name: [``toolbar_field_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color for fields in the toolbar.
 
       .. api-member::
          :name: [``toolbar_field_text_focus``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color in the focused fields in the toolbar.
 
       .. api-member::
          :name: [``toolbar_text``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The text color in the main Thunderbird toolbar. Also used as default value for :value:`icons` and :value:`tab_text`.
 
       .. api-member::
          :name: [``toolbar_top_separator``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the line separating the top of the toolbar from the region above.
 
       .. api-member::
          :name: [``toolbar_vertical_separator``]
-         :type: (:ref:`ThemeColor`, optional)
+         :type: (:ref:`theme.ThemeColor`, optional)
 
          The color of the vertical separators on the toolbars.
 
@@ -624,17 +624,17 @@ Contains the color, image and property settings of a theme.
 
       .. api-member::
          :name: [``additional_backgrounds``]
-         :type: (array of :ref:`ImageDataOrExtensionURL`, optional)
+         :type: (array of :ref:`theme.ImageDataOrExtensionURL`, optional)
 
          Additional images added to the header area and displayed behind the :value:`theme_frame` image.
 
       .. api-member::
          :name: [``headerURL``]
-         :type: (:ref:`ImageDataOrExtensionURL`, optional) **Deprecated.**
+         :type: (:ref:`theme.ImageDataOrExtensionURL`, optional) **Deprecated.**
 
       .. api-member::
          :name: [``theme_frame``]
-         :type: (:ref:`ImageDataOrExtensionURL`, optional)
+         :type: (:ref:`theme.ImageDataOrExtensionURL`, optional)
 
          Foreground image on the header area.
 
@@ -764,7 +764,7 @@ Info provided in the onUpdated listener.
 
    .. api-member::
       :name: ``theme``
-      :type: (:ref:`ThemeType`)
+      :type: (:ref:`theme.ThemeType`)
 
       The new theme after update
 

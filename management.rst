@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==============
 management API
@@ -52,7 +52,7 @@ Returns information about the installed extension that has the given ID.
 
    .. api-member::
       :name: ``id``
-      :type: (:ref:`ExtensionID`)
+      :type: (:ref:`management.ExtensionID`)
 
       The ID from an item of :ref:`management.ExtensionInfo`.
 
@@ -60,7 +60,7 @@ Returns information about the installed extension that has the given ID.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ExtensionInfo`
+      :type: :ref:`management.ExtensionInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -86,7 +86,7 @@ Returns a list of information about installed extensions.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`ExtensionInfo`
+      :type: array of :ref:`management.ExtensionInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -108,7 +108,7 @@ Returns information about the calling extension. Note: This function can be used
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ExtensionInfo`
+      :type: :ref:`management.ExtensionInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -134,7 +134,7 @@ Installs and enables a theme extension from the given url.
 
       .. api-member::
          :name: ``url``
-         :type: (:ref:`HttpURL`)
+         :type: (:ref:`management.HttpURL`)
 
          URL pointing to the XPI file on addons.mozilla.org or similar.
 
@@ -152,7 +152,7 @@ Installs and enables a theme extension from the given url.
 
       .. api-member::
          :name: ``id``
-         :type: (:ref:`ExtensionID`)
+         :type: (:ref:`management.ExtensionID`)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -253,7 +253,7 @@ Fired when an addon has been disabled.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`ExtensionInfo`)
+      :type: (:ref:`management.ExtensionInfo`)
 
 .. api-header::
    :label: Required permissions
@@ -286,7 +286,7 @@ Fired when an addon has been enabled.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`ExtensionInfo`)
+      :type: (:ref:`management.ExtensionInfo`)
 
 .. api-header::
    :label: Required permissions
@@ -319,7 +319,7 @@ Fired when an addon has been installed.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`ExtensionInfo`)
+      :type: (:ref:`management.ExtensionInfo`)
 
 .. api-header::
    :label: Required permissions
@@ -356,7 +356,7 @@ Fired when an addon has been uninstalled.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`ExtensionInfo`)
+      :type: (:ref:`management.ExtensionInfo`)
 
 .. api-header::
    :label: Required permissions
@@ -432,7 +432,7 @@ Information about an installed extension.
 
    .. api-member::
       :name: ``installType``
-      :type: (:ref:`ExtensionInstallType`)
+      :type: (:ref:`management.ExtensionInstallType`)
 
       How the extension was installed.
 
@@ -464,7 +464,7 @@ Information about an installed extension.
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`ExtensionType`)
+      :type: (:ref:`management.ExtensionType`)
       :annotation: -- [Added in TB 55]
 
       The type of this extension, 'extension' or 'theme'.
@@ -481,7 +481,7 @@ Information about an installed extension.
 
    .. api-member::
       :name: [``disabledReason``]
-      :type: (:ref:`ExtensionDisabledReason`, optional)
+      :type: (:ref:`management.ExtensionDisabledReason`, optional)
 
       A reason the item is disabled.
 
@@ -505,7 +505,7 @@ Information about an installed extension.
 
    .. api-member::
       :name: [``icons``]
-      :type: (array of :ref:`IconInfo`, optional)
+      :type: (array of :ref:`management.IconInfo`, optional)
 
       A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the `manifest documentation on icons <manifest/icons>`__ for more details.
 

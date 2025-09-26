@@ -6,7 +6,7 @@
   * `Functions`_
   * `Events`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==================
 messageDisplay API

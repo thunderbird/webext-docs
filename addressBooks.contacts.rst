@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =========================
 addressBooks.contacts API
@@ -123,7 +123,7 @@ Gets a single contact.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ContactNode`
+      :type: :ref:`addressBooks.contacts.ContactNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -181,7 +181,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`ContactNode`
+      :type: array of :ref:`addressBooks.contacts.ContactNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -204,13 +204,13 @@ Gets all contacts matching :value:`queryInfo`.
 
    .. api-member::
       :name: ``queryInfo``
-      :type: (:ref:`QueryInfo`)
+      :type: (:ref:`addressBooks.contacts.QueryInfo`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`ContactNode`
+      :type: array of :ref:`addressBooks.contacts.ContactNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -298,7 +298,7 @@ Fired when a contact is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`ContactNode`)
+      :type: (:ref:`addressBooks.contacts.ContactNode`)
 
 .. api-header::
    :label: Required permissions
@@ -360,7 +360,7 @@ Fired when a contact is changed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`ContactNode`)
+      :type: (:ref:`addressBooks.contacts.ContactNode`)
 
    .. api-member::
       :name: ``oldVCard``

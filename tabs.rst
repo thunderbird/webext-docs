@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ========
 tabs API
@@ -175,7 +175,7 @@ Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Tab`
+      :type: :ref:`tabs.Tab`
 
       A Promise that will be fulfilled with a :ref:`tabs.Tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event before creating the tab.
 
@@ -203,7 +203,7 @@ Duplicates a tab.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Tab`
+      :type: :ref:`tabs.Tab`
 
       Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
 
@@ -229,7 +229,7 @@ Retrieves details about the specified tab.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Tab`
+      :type: :ref:`tabs.Tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -246,7 +246,7 @@ Gets the tab that this script call is being made from. Returns :value:`undefined
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Tab`
+      :type: :ref:`tabs.Tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -288,7 +288,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Tab`
+      :type: array of :ref:`tabs.Tab`
 
       Details about the moved tabs.
 
@@ -360,7 +360,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
       .. api-member::
          :name: [``status``]
-         :type: (:ref:`TabStatus`, optional)
+         :type: (:ref:`tabs.TabStatus`, optional)
 
          Whether the tabs have completed loading.
 
@@ -372,7 +372,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`TabType` or array of :ref:`TabType`, optional)
+         :type: (:ref:`tabs.TabType` or array of :ref:`tabs.TabType`, optional)
          :annotation: -- [Added in TB 91]
 
          Match tabs against the given tab type or types.
@@ -391,7 +391,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
       .. api-member::
          :name: [``windowType``]
-         :type: (:ref:`WindowType`, optional)
+         :type: (:ref:`tabs.WindowType`, optional)
 
          The type of window the tabs are in.
 
@@ -399,7 +399,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Tab`
+      :type: array of :ref:`tabs.Tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -533,7 +533,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Tab`
+      :type: :ref:`tabs.Tab`
 
       Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
 
@@ -645,7 +645,7 @@ Fired when a tab is created. The tab may still be loading, with its title being 
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`Tab`)
+      :type: (:ref:`tabs.Tab`)
 
       Details of the tab that was created.
 
@@ -784,7 +784,7 @@ Fired when a tab is updated.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`UpdateFilter`, optional)
+      :type: (:ref:`tabs.UpdateFilter`, optional)
 
       A set of filters that restricts the events that will be sent to this listener.
 
@@ -821,7 +821,7 @@ Fired when a tab is updated.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`Tab`)
+      :type: (:ref:`tabs.Tab`)
 
       Gives the state of the tab that was updated.
 
@@ -947,7 +947,7 @@ Tab
 
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`TabType`, optional)
+      :type: (:ref:`tabs.TabType`, optional)
       :annotation: -- [Added in TB 91]
 
    .. _tabs.Tab.url:
@@ -1065,7 +1065,7 @@ An object describing filters to apply to :ref:`tabs.onUpdated` events.
 
    .. api-member::
       :name: [``properties``]
-      :type: (array of :ref:`UpdatePropertyName`, optional)
+      :type: (array of :ref:`tabs.UpdatePropertyName`, optional)
 
       A list of property names. Events that do not match any of the names will be filtered out.
 

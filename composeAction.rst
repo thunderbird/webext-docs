@@ -8,7 +8,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =================
 composeAction API
@@ -56,7 +56,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`IconPath`, optional)
+      :type: (:ref:`composeAction.IconPath`, optional)
       :annotation: -- [Added in TB 64]
 
       The paths to one or more icons for the composeAction button.
@@ -84,7 +84,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`ThemeIcons`, optional)
+      :type: (array of :ref:`composeAction.ThemeIcons`, optional)
       :annotation: -- [Added in TB 64]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
@@ -190,7 +190,7 @@ Gets the badge background color of the composeAction button.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ColorArray`
+      :type: :ref:`composeAction.ColorArray`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -264,7 +264,7 @@ Gets the text color of the badge.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`ColorArray`
+      :type: :ref:`composeAction.ColorArray`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -474,7 +474,7 @@ Sets the background color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`ColorArray` or null)
+         :type: (string or :ref:`composeAction.ColorArray` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
 
@@ -542,7 +542,7 @@ Sets the text color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`ColorArray` or null)
+         :type: (string or :ref:`composeAction.ColorArray` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
 
@@ -576,13 +576,13 @@ Sets the icon for the composeAction button. Either the :value:`path` or the :val
 
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`ImageDataType` or :ref:`ImageDataDictionary`, optional)
+         :type: (:ref:`composeAction.ImageDataType` or :ref:`composeAction.ImageDataDictionary`, optional)
 
          The image data for one or more icons for the composeAction button.
 
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`IconPath`, optional)
+         :type: (:ref:`composeAction.IconPath`, optional)
 
          The paths to one or more icons for the composeAction button.
 
@@ -732,7 +732,7 @@ Fired when a composeAction button is clicked. This event will not fire if the co
 
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`OnClickData`, optional)
+      :type: (:ref:`composeAction.OnClickData`, optional)
       :annotation: -- [Added in TB 74]
 
 .. rst-class:: api-main-section
@@ -822,7 +822,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 OR
 
 .. api-header::
-   :label: :ref:`ExtensionFileUrl`
+   :label: :ref:`composeAction.ExtensionFileUrl`
 
 .. _composeAction.OnClickData:
 
@@ -891,7 +891,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``dark``
-      :type: (:ref:`ExtensionURL`)
+      :type: (:ref:`composeAction.ExtensionURL`)
 
       The dark icon to use for light themes
 
@@ -899,7 +899,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``light``
-      :type: (:ref:`ExtensionURL`)
+      :type: (:ref:`composeAction.ExtensionURL`)
 
       A light icon to use for dark themes
 

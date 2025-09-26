@@ -6,7 +6,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =============
 extension API
@@ -70,7 +70,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`ViewType`, optional)
+         :type: (:ref:`extension.ViewType`, optional)
 
          The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'popup', 'sidebar'.
 

@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============
 mailTabs API
@@ -57,13 +57,13 @@ Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.u
 
    .. api-member::
       :name: [``createProperties``]
-      :type: (:ref:`MailTabProperties`, optional)
+      :type: (:ref:`mailTabs.MailTabProperties`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailTab`
+      :type: :ref:`mailTabs.MailTab`
 
       Details about the created mail tab. Will contain the ID of the new tab.
 
@@ -91,7 +91,7 @@ Get the :ref:`mailTabs.MailTab` properties of a mail tab.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailTab`
+      :type: :ref:`mailTabs.MailTab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -233,7 +233,7 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`MailTab`
+      :type: array of :ref:`mailTabs.MailTab`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -293,7 +293,7 @@ Sets the Quick Filter user interface based on the options specified.
 
       .. api-member::
          :name: [``text``]
-         :type: (:ref:`QuickFilterTextDetail`, optional)
+         :type: (:ref:`mailTabs.QuickFilterTextDetail`, optional)
 
          Shows only messages matching the supplied text.
 
@@ -353,13 +353,13 @@ Modifies the properties of a mail tab. Properties that are not specified in :val
 
    .. api-member::
       :name: ``updateProperties``
-      :type: (:ref:`MailTabProperties`)
+      :type: (:ref:`mailTabs.MailTabProperties`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailTab`
+      :type: :ref:`mailTabs.MailTab`
       :annotation: -- [Added in TB 121]
 
       Details about the updated mail tab.
@@ -542,7 +542,7 @@ MailTab
 
    .. api-member::
       :name: [``folderMode``]
-      :type: (:ref:`FolderMode`, optional)
+      :type: (:ref:`mailTabs.FolderMode`, optional)
       :annotation: -- [Added in TB 127]
 
       The folder mode of the currently displayed folder.
@@ -551,7 +551,7 @@ MailTab
 
    .. api-member::
       :name: [``folderModesEnabled``]
-      :type: (array of :ref:`FolderMode`, optional)
+      :type: (array of :ref:`mailTabs.FolderMode`, optional)
       :annotation: -- [Added in TB 127]
 
       The enabled folder modes in the folder pane, and their sort order.
@@ -704,7 +704,7 @@ MailTabProperties
 
    .. api-member::
       :name: [``folderMode``]
-      :type: (:ref:`FolderMode`, optional)
+      :type: (:ref:`mailTabs.FolderMode`, optional)
       :annotation: -- [Added in TB 127]
 
       Sets the currently used folder mode, enabling it if required. If used without also specifying :value:`displayedFolder`, the currently selected folder is re-selected in the new folder mode, if possible.
@@ -713,7 +713,7 @@ MailTabProperties
 
    .. api-member::
       :name: [``folderModesEnabled``]
-      :type: (array of :ref:`FolderMode`, optional)
+      :type: (array of :ref:`mailTabs.FolderMode`, optional)
       :annotation: -- [Added in TB 127]
 
       Set the enabled folder modes in the folder pane, and their sort order.

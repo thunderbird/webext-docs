@@ -6,7 +6,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ===============
 permissions API
@@ -37,7 +37,7 @@ Check if the extension has the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`AnyPermissions`)
+      :type: (:ref:`permissions.AnyPermissions`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -60,7 +60,7 @@ Get a list of all the extension's permissions.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`AnyPermissions`
+      :type: :ref:`permissions.AnyPermissions`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -78,7 +78,7 @@ Relinquish the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`Permissions`)
+      :type: (:ref:`permissions.Permissions`)
 
 .. _permissions.request:
 
@@ -110,7 +110,7 @@ Request the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`Permissions`)
+      :type: (:ref:`permissions.Permissions`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -147,7 +147,7 @@ Fired when the extension acquires new permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`Permissions`)
+      :type: (:ref:`permissions.Permissions`)
 
 .. _permissions.onRemoved:
 
@@ -171,7 +171,7 @@ Fired when permissions are removed from the extension.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`Permissions`)
+      :type: (:ref:`permissions.Permissions`)
 
 .. rst-class:: api-main-section
 
@@ -192,19 +192,19 @@ AnyPermissions
 
    .. api-member::
       :name: [``data_collection``]
-      :type: (array of :ref:`OptionalDataCollectionPermission`, optional)
+      :type: (array of :ref:`permissions.OptionalDataCollectionPermission`, optional)
 
    .. _permissions.AnyPermissions.origins:
 
    .. api-member::
       :name: [``origins``]
-      :type: (array of :ref:`MatchPattern`, optional)
+      :type: (array of :ref:`permissions.MatchPattern`, optional)
 
    .. _permissions.AnyPermissions.permissions:
 
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`Permission` or :ref:`OptionalOnlyPermission`, optional)
+      :type: (array of :ref:`permissions.Permission` or :ref:`permissions.OptionalOnlyPermission`, optional)
 
 .. _permissions.CommonDataCollectionPermission:
 
@@ -277,12 +277,12 @@ MatchPattern
 OR
 
 .. api-header::
-   :label: :ref:`MatchPatternRestricted`
+   :label: :ref:`permissions.MatchPatternRestricted`
 
 OR
 
 .. api-header::
-   :label: :ref:`MatchPatternUnestricted`
+   :label: :ref:`permissions.MatchPatternUnestricted`
 
 .. _permissions.OptionalDataCollectionPermission:
 
@@ -292,7 +292,7 @@ OptionalDataCollectionPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`CommonDataCollectionPermission`
+   :label: :ref:`permissions.CommonDataCollectionPermission`
 
 OR
 
@@ -332,7 +332,7 @@ OptionalPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`OptionalPermissionNoPrompt`
+   :label: :ref:`permissions.OptionalPermissionNoPrompt`
 
 OR
 
@@ -365,12 +365,12 @@ Permission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`PermissionNoPrompt`
+   :label: :ref:`permissions.PermissionNoPrompt`
 
 OR
 
 .. api-header::
-   :label: :ref:`OptionalPermission`
+   :label: :ref:`permissions.OptionalPermission`
 
 .. _permissions.MatchPatternRestricted:
 
@@ -409,7 +409,7 @@ OptionalPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`OptionalPermissionNoPrompt`
+   :label: :ref:`permissions.OptionalPermissionNoPrompt`
 
 OR
 
@@ -461,12 +461,12 @@ PermissionNoPrompt
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`OptionalPermissionNoPrompt`
+   :label: :ref:`permissions.OptionalPermissionNoPrompt`
 
 OR
 
 .. api-header::
-   :label: :ref:`PermissionPrivileged`
+   :label: :ref:`permissions.PermissionPrivileged`
 
 OR
 
@@ -521,16 +521,16 @@ Permissions
 
    .. api-member::
       :name: [``data_collection``]
-      :type: (array of :ref:`OptionalDataCollectionPermission`, optional)
+      :type: (array of :ref:`permissions.OptionalDataCollectionPermission`, optional)
 
    .. _permissions.Permissions.origins:
 
    .. api-member::
       :name: [``origins``]
-      :type: (array of :ref:`MatchPattern`, optional)
+      :type: (array of :ref:`permissions.MatchPattern`, optional)
 
    .. _permissions.Permissions.permissions:
 
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`OptionalPermission` or :ref:`OptionalOnlyPermission`, optional)
+      :type: (array of :ref:`permissions.OptionalPermission` or :ref:`permissions.OptionalOnlyPermission`, optional)

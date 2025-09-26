@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ===========
 cookies API
@@ -88,7 +88,7 @@ Retrieves information about a single cookie. If more than one cookie of the same
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`PartitionKey`, optional)
+         :type: (:ref:`cookies.PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, only non-partitioned cookies are returned.
 
@@ -102,7 +102,7 @@ Retrieves information about a single cookie. If more than one cookie of the same
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Cookie`
+      :type: :ref:`cookies.Cookie`
 
       Contains details about the cookie. This parameter is null if no such cookie was found.
 
@@ -159,7 +159,7 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`PartitionKey`, optional)
+         :type: (:ref:`cookies.PartitionKey`, optional)
 
          Selects a specific storage partition to look up cookies. Defaults to null, in which case only non-partitioned cookies are retrieved. If an object iis passed, partitioned cookies are also included, and filtered based on the keys present in the given PartitionKey description. An empty object ({}) returns all cookies (partitioned + unpartitioned), a non-empty object (e.g. {topLevelSite: '...'}) only returns cookies whose partition match all given attributes.
 
@@ -197,7 +197,7 @@ Retrieves all cookies from a single cookie store that match the given informatio
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Cookie`
+      :type: array of :ref:`cookies.Cookie`
 
       All the existing, unexpired cookies that match the given cookie info.
 
@@ -225,7 +225,7 @@ Lists all existing cookie stores.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`CookieStore`
+      :type: array of :ref:`cookies.CookieStore`
 
       All the existing cookie stores.
 
@@ -282,7 +282,7 @@ Deletes a cookie by name.
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`PartitionKey`, optional)
+         :type: (:ref:`cookies.PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
@@ -326,7 +326,7 @@ Deletes a cookie by name.
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`PartitionKey`, optional)
+         :type: (:ref:`cookies.PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. null if not partitioned.
 
@@ -401,7 +401,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`PartitionKey`, optional)
+         :type: (:ref:`cookies.PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
@@ -413,7 +413,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
       .. api-member::
          :name: [``sameSite``]
-         :type: (:ref:`SameSiteStatus`, optional)
+         :type: (:ref:`cookies.SameSiteStatus`, optional)
 
          The cookie's same-site status.
 
@@ -439,7 +439,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Cookie`
+      :type: :ref:`cookies.Cookie`
 
       Contains details about the cookie that's been set.  If setting failed for any reason, this will be "null", and :ref:`runtime.lastError` will be set.
 
@@ -481,13 +481,13 @@ Fired when a cookie is set or removed. As a special case, note that updating a c
 
       .. api-member::
          :name: ``cause``
-         :type: (:ref:`OnChangedCause`)
+         :type: (:ref:`cookies.OnChangedCause`)
 
          The underlying reason behind the cookie's change.
 
       .. api-member::
          :name: ``cookie``
-         :type: (:ref:`Cookie`)
+         :type: (:ref:`cookies.Cookie`)
 
          Information about the cookie that was set or removed.
 
@@ -572,7 +572,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``sameSite``
-      :type: (:ref:`SameSiteStatus`)
+      :type: (:ref:`cookies.SameSiteStatus`)
       :annotation: -- [Added in TB 63]
 
       The cookie's same-site status (i.e. whether the cookie is sent with cross-site requests).
@@ -621,7 +621,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: [``partitionKey``]
-      :type: (:ref:`PartitionKey`, optional)
+      :type: (:ref:`cookies.PartitionKey`, optional)
       :annotation: -- [Added in TB 94]
 
       The cookie's storage partition, if any. null if not partitioned.

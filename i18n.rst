@@ -6,7 +6,7 @@
   * `Functions`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ========
 i18n API
@@ -93,7 +93,7 @@ Gets the accept-languages of the browser. This is different from the locale used
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`LanguageCode`
+      :type: array of :ref:`i18n.LanguageCode`
 
       Array of LanguageCode
 
@@ -150,7 +150,7 @@ Gets the preferred locales of the operating system. This is different from the l
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`LanguageCode`
+      :type: array of :ref:`i18n.LanguageCode`
 
       Array of LanguageCode
 

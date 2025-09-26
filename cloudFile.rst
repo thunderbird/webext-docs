@@ -8,7 +8,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =============
 cloudFile API
@@ -123,7 +123,7 @@ Retrieve information about a single cloud file account. Returns :value:`undefine
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`CloudFileAccount`
+      :type: :ref:`cloudFile.CloudFileAccount`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -141,7 +141,7 @@ Retrieve all cloud file accounts for the current add-on.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`CloudFileAccount`
+      :type: array of :ref:`cloudFile.CloudFileAccount`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -202,7 +202,7 @@ Update a cloud file account. Returns :value:`undefined`, if the requested accoun
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`CloudFileAccount`
+      :type: :ref:`cloudFile.CloudFileAccount`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -234,7 +234,7 @@ Fired when a cloud file account of this add-on was created.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`CloudFileAccount`)
+      :type: (:ref:`cloudFile.CloudFileAccount`)
 
       The created account.
 
@@ -286,7 +286,7 @@ Fired when a previously uploaded file should be deleted.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`CloudFileAccount`)
+      :type: (:ref:`cloudFile.CloudFileAccount`)
 
       The account used for the file upload.
 
@@ -325,7 +325,7 @@ Fired when a previously uploaded file should be renamed.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`CloudFileAccount`)
+      :type: (:ref:`cloudFile.CloudFileAccount`)
 
       The account used for the file upload.
 
@@ -387,13 +387,13 @@ Fired when a file should be uploaded to the cloud file provider.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`CloudFileAccount`)
+      :type: (:ref:`cloudFile.CloudFileAccount`)
 
       The account used for the file upload.
 
    .. api-member::
       :name: ``fileInfo``
-      :type: (:ref:`CloudFile`)
+      :type: (:ref:`cloudFile.CloudFile`)
 
       The file to upload.
 
@@ -406,7 +406,7 @@ Fired when a file should be uploaded to the cloud file provider.
 
    .. api-member::
       :name: [``relatedFileInfo``]
-      :type: (:ref:`RelatedCloudFile`, optional)
+      :type: (:ref:`cloudFile.RelatedCloudFile`, optional)
       :annotation: -- [Added in TB 98]
 
       Information about an already uploaded file, which is related to this upload.
@@ -432,7 +432,7 @@ Fired when a file should be uploaded to the cloud file provider.
 
       .. api-member::
          :name: [``templateInfo``]
-         :type: (:ref:`CloudFileTemplateInfo`, optional)
+         :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
          :annotation: -- [Added in TB 96]
 
          Additional file information used in the cloud file entry added to the message.
@@ -463,7 +463,7 @@ onFileUploadAbort
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`CloudFileAccount`)
+      :type: (:ref:`cloudFile.CloudFileAccount`)
 
       The account used for the file upload.
 
@@ -719,7 +719,7 @@ Information about an already uploaded cloud file, which is related to a new uplo
 
    .. api-member::
       :name: [``templateInfo``]
-      :type: (:ref:`CloudFileTemplateInfo`, optional)
+      :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
 
       Additional information of the related file, used in the cloud file entry added to the message.
 

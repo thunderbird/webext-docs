@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============
 accounts API
@@ -58,7 +58,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`MailAccountId`)
+      :type: (:ref:`accounts.MailAccountId`)
 
    .. api-member::
       :name: [``includeSubFolders``]
@@ -71,7 +71,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailAccount` or null
+      :type: :ref:`accounts.MailAccount` or null
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -104,7 +104,7 @@ Returns the default account, or :value:`null` if it is not defined.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailAccount` or null
+      :type: :ref:`accounts.MailAccount` or null
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -137,7 +137,7 @@ Returns all mail accounts. They will be returned in the same order as used in Th
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`MailAccount`
+      :type: array of :ref:`accounts.MailAccount`
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -174,11 +174,11 @@ Fired when a new account has been created.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`MailAccountId`)
+      :type: (:ref:`accounts.MailAccountId`)
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`MailAccount`)
+      :type: (:ref:`accounts.MailAccount`)
 
 .. api-header::
    :label: Required permissions
@@ -207,7 +207,7 @@ Fired when an account has been removed.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`MailAccountId`)
+      :type: (:ref:`accounts.MailAccountId`)
 
 .. api-header::
    :label: Required permissions
@@ -236,7 +236,7 @@ Fired when a property of an account has been modified. Folders and identities of
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`MailAccountId`)
+      :type: (:ref:`accounts.MailAccountId`)
 
    .. api-member::
       :name: ``changedValues``
@@ -292,7 +292,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``id``
-      :type: (:ref:`MailAccountId`)
+      :type: (:ref:`accounts.MailAccountId`)
 
       A unique identifier for this account.
 
@@ -325,7 +325,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`NativeMailAccountType` or :ref:`ExtensionMailAccountType`)
+      :type: (:ref:`accounts.NativeMailAccountType` or :ref:`accounts.ExtensionMailAccountType`)
 
       What sort of account this is. Either one of the natively supported account types, or an account type added by an extension.
 

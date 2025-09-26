@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============
 identity API
@@ -55,7 +55,7 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`AccountInfo`
+      :type: array of :ref:`identity.AccountInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -82,7 +82,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 
       .. api-member::
          :name: [``account``]
-         :type: (:ref:`AccountInfo`, optional)
+         :type: (:ref:`identity.AccountInfo`, optional)
 
       .. api-member::
          :name: [``interactive``]
@@ -96,7 +96,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`AccountInfo`
+      :type: array of :ref:`identity.AccountInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -184,7 +184,7 @@ Starts an auth flow at the specified URL.
 
       .. api-member::
          :name: ``url``
-         :type: (:ref:`HttpURL`)
+         :type: (:ref:`identity.HttpURL`)
 
       .. api-member::
          :name: [``interactive``]
@@ -271,7 +271,7 @@ Fired when signin state changes for an account on the user's profile.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`AccountInfo`)
+      :type: (:ref:`identity.AccountInfo`)
 
    .. api-member::
       :name: ``signedIn``

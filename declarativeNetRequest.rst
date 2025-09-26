@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =========================
 declarativeNetRequest API
@@ -138,7 +138,7 @@ Returns the current set of dynamic rules for the extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`GetRulesFilter`, optional)
+      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
       :annotation: -- [Added in TB 127]
 
       An object to filter the set of dynamic rules for the extension.
@@ -147,7 +147,7 @@ Returns the current set of dynamic rules for the extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Rule`
+      :type: array of :ref:`declarativeNetRequest.Rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -194,7 +194,7 @@ Returns the current set of session scoped rules for the extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`GetRulesFilter`, optional)
+      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
       :annotation: -- [Added in TB 127]
 
       An object to filter the set of session scoped rules for the extension.
@@ -203,7 +203,7 @@ Returns the current set of session scoped rules for the extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Rule`
+      :type: array of :ref:`declarativeNetRequest.Rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -261,7 +261,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
 
       .. api-member::
          :name: [``reason``]
-         :type: (:ref:`UnsupportedRegexReason`, optional)
+         :type: (:ref:`declarativeNetRequest.UnsupportedRegexReason`, optional)
 
          Specifies the reason why the regular expression is not supported. Only provided if 'isSupported' is false.
 
@@ -293,7 +293,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`ResourceType`)
+         :type: (:ref:`declarativeNetRequest.ResourceType`)
 
          The resource type of the hypothetical request.
 
@@ -339,7 +339,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
       .. api-member::
          :name: ``matchedRules``
-         :type: (array of :ref:`MatchedRule`)
+         :type: (array of :ref:`declarativeNetRequest.MatchedRule`)
 
          The rules (if any) that match the hypothetical request.
 
@@ -370,7 +370,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
 
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`Rule`, optional)
+         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
 
          Rules to add.
 
@@ -434,7 +434,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
 
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`Rule`, optional)
+         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
 
          Rules to add.
 
@@ -689,7 +689,7 @@ Rule
 
          .. api-member::
             :name: [``transform``]
-            :type: (:ref:`URLTransform`, optional)
+            :type: (:ref:`declarativeNetRequest.URLTransform`, optional)
 
             Url transformations to perform.
 
@@ -753,7 +753,7 @@ Rule
 
       .. api-member::
          :name: [``excludedResourceTypes``]
-         :type: (array of :ref:`ResourceType`, optional)
+         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
 
          List of resource types which the rule won't match. Cannot be specified if 'resourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
 
@@ -795,7 +795,7 @@ Rule
 
       .. api-member::
          :name: [``resourceTypes``]
-         :type: (array of :ref:`ResourceType`, optional)
+         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
 
          List of resource types which the rule can match. When the rule action is 'allowAllRequests', this must be specified and may only contain 'main_frame' or 'sub_frame'. Cannot be specified if 'excludedResourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
 

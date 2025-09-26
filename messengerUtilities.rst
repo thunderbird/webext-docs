@@ -5,7 +5,7 @@
   * `Functions`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ======================
 messengerUtilities API
@@ -182,7 +182,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`ParsedMailbox`
+      :type: array of :ref:`messengerUtilities.ParsedMailbox`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -215,7 +215,7 @@ Representation of a parsed mailbox string (see RFC 5322, section 3.4).
 
    .. api-member::
       :name: [``group``]
-      :type: (array of :ref:`ParsedMailbox`, optional)
+      :type: (array of :ref:`messengerUtilities.ParsedMailbox`, optional)
 
       The members of the group, if available.
 

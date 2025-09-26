@@ -6,7 +6,7 @@
   * `Functions`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =======
 dns API
@@ -59,7 +59,7 @@ Resolves a hostname to a DNS record.
 
    .. api-member::
       :name: [``flags``]
-      :type: (:ref:`ResolveFlags`, optional)
+      :type: (:ref:`dns.ResolveFlags`, optional)
 
 .. api-header::
    :label: Required permissions

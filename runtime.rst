@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ===========
 runtime API
@@ -82,7 +82,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Port`
+      :type: :ref:`runtime.Port`
 
       Port through which messages can be sent and received. The port's :ref:`runtime.Port onDisconnect` event is fired if the extension/app does not exist.
 
@@ -110,7 +110,7 @@ Connects to a native application in the host machine.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`Port`
+      :type: :ref:`runtime.Port`
 
       Port through which messages can be sent and received with the application
 
@@ -157,7 +157,7 @@ Returns information about the current browser.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`BrowserInfo`
+      :type: :ref:`runtime.BrowserInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -175,7 +175,7 @@ Fetches information about active contexts associated with this extension
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`ContextFilter`)
+      :type: (:ref:`runtime.ContextFilter`)
 
       A filter to find matching context.
 
@@ -183,7 +183,7 @@ Fetches information about active contexts associated with this extension
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`ExtensionContext`
+      :type: array of :ref:`runtime.ExtensionContext`
 
       The matching contexts, if any.
 
@@ -253,7 +253,7 @@ Returns information about the current platform.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`PlatformInfo`
+      :type: :ref:`runtime.PlatformInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -438,7 +438,7 @@ Fired when a connection is made from either an extension process or a content sc
 
    .. api-member::
       :name: ``port``
-      :type: (:ref:`Port`)
+      :type: (:ref:`runtime.Port`)
 
 .. _runtime.onConnectExternal:
 
@@ -462,7 +462,7 @@ Fired when a connection is made from another extension.
 
    .. api-member::
       :name: ``port``
-      :type: (:ref:`Port`)
+      :type: (:ref:`runtime.Port`)
 
 .. _runtime.onInstalled:
 
@@ -494,7 +494,7 @@ Fired when the extension is first installed, when the extension is updated to a 
 
       .. api-member::
          :name: ``reason``
-         :type: (:ref:`OnInstalledReason`)
+         :type: (:ref:`runtime.OnInstalledReason`)
 
          The reason that this event is being dispatched.
 
@@ -546,7 +546,7 @@ Fired when a message is sent from either an extension process or a content scrip
 
    .. api-member::
       :name: ``sender``
-      :type: (:ref:`MessageSender`)
+      :type: (:ref:`runtime.MessageSender`)
 
    .. api-member::
       :name: ``sendResponse``
@@ -590,7 +590,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
 
    .. api-member::
       :name: ``sender``
-      :type: (:ref:`MessageSender`)
+      :type: (:ref:`runtime.MessageSender`)
 
    .. api-member::
       :name: ``sendResponse``
@@ -632,7 +632,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
 
       .. api-member::
          :name: ``category``
-         :type: (:ref:`OnPerformanceWarningCategory`)
+         :type: (:ref:`runtime.OnPerformanceWarningCategory`)
 
          The performance warning event category, e.g. 'content_script'.
 
@@ -644,7 +644,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
 
       .. api-member::
          :name: ``severity``
-         :type: (:ref:`OnPerformanceWarningSeverity`)
+         :type: (:ref:`runtime.OnPerformanceWarningSeverity`)
 
          The performance warning event severity, e.g. 'high'.
 
@@ -775,7 +775,7 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
 
    .. api-member::
       :name: ``port``
-      :type: (:ref:`Port`)
+      :type: (:ref:`runtime.Port`)
 
 .. api-header::
    :label: Required permissions
@@ -818,7 +818,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
 
    .. api-member::
       :name: ``sender``
-      :type: (:ref:`MessageSender`)
+      :type: (:ref:`runtime.MessageSender`)
 
    .. api-member::
       :name: ``sendResponse``
@@ -910,7 +910,7 @@ A filter to match against existing extension context. Matching contexts must mat
 
    .. api-member::
       :name: [``contextTypes``]
-      :type: (array of :ref:`ContextType`, optional)
+      :type: (array of :ref:`runtime.ContextType`, optional)
 
    .. _runtime.ContextFilter.documentIds:
 
@@ -1008,7 +1008,7 @@ A context hosting extension content
 
    .. api-member::
       :name: ``contextType``
-      :type: (:ref:`ContextType`)
+      :type: (:ref:`runtime.ContextType`)
 
       The type of the context
 
@@ -1268,7 +1268,7 @@ An object containing information about the current platform.
 
    .. api-member::
       :name: ``arch``
-      :type: (:ref:`PlatformArch`)
+      :type: (:ref:`runtime.PlatformArch`)
 
       The machine's processor architecture.
 
@@ -1276,7 +1276,7 @@ An object containing information about the current platform.
 
    .. api-member::
       :name: ``nacl_arch``
-      :type: (:ref:`PlatformNaclArch`) **Unsupported.**
+      :type: (:ref:`runtime.PlatformNaclArch`) **Unsupported.**
 
       The native client architecture. This may be different from arch on some platforms.
 
@@ -1284,7 +1284,7 @@ An object containing information about the current platform.
 
    .. api-member::
       :name: ``os``
-      :type: (:ref:`PlatformOs`)
+      :type: (:ref:`runtime.PlatformOs`)
 
       The operating system the browser is running on.
 
@@ -1370,7 +1370,7 @@ An object which allows two way communication with other pages.
 
    .. api-member::
       :name: [``sender``]
-      :type: (:ref:`MessageSender`, optional)
+      :type: (:ref:`runtime.MessageSender`, optional)
 
       This property will **only** be present on ports passed to onConnect/onConnectExternal listeners.
 

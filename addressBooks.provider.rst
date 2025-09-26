@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Events`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =========================
 addressBooks.provider API
@@ -126,7 +126,7 @@ Example:
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`AddressBookNode`)
+      :type: (:ref:`addressBooks.provider.AddressBookNode`)
 
    .. api-member::
       :name: [``searchString``]
@@ -157,7 +157,7 @@ Example:
 
       .. api-member::
          :name: ``results``
-         :type: (array of :ref:`ContactProperties`)
+         :type: (array of :ref:`addressBooks.provider.ContactProperties`)
          :annotation: -- [Added in TB 142]
 
 .. api-header::

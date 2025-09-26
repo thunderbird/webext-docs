@@ -8,7 +8,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============
 commands API
@@ -93,7 +93,7 @@ Returns all the registered extension commands for this extension and their short
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`Command`
+      :type: array of :ref:`commands.Command`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 

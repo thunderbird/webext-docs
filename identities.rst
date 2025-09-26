@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==============
 identities API
@@ -67,13 +67,13 @@ Create a new identity in the specified account.
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`MailIdentity`)
+      :type: (:ref:`identities.MailIdentity`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailIdentity`
+      :type: :ref:`identities.MailIdentity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -125,7 +125,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailIdentity` or null
+      :type: :ref:`identities.MailIdentity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -154,7 +154,7 @@ Returns the default identity for the requested account, or :value:`null` if it i
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailIdentity` or null
+      :type: :ref:`identities.MailIdentity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -183,7 +183,7 @@ Returns the identities of the specified account, or all identities if no account
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`MailIdentity`
+      :type: array of :ref:`identities.MailIdentity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -235,13 +235,13 @@ Updates the details of an identity.
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`MailIdentity`)
+      :type: (:ref:`identities.MailIdentity`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`MailIdentity`
+      :type: :ref:`identities.MailIdentity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -282,7 +282,7 @@ Fired when a new identity has been created and added to an account. The event al
 
    .. api-member::
       :name: ``identity``
-      :type: (:ref:`MailIdentity`)
+      :type: (:ref:`identities.MailIdentity`)
 
 .. api-header::
    :label: Required permissions
@@ -344,7 +344,7 @@ Fired when one or more properties of an identity have been modified. The returne
 
    .. api-member::
       :name: ``changedValues``
-      :type: (:ref:`MailIdentity`)
+      :type: (:ref:`identities.MailIdentity`)
 
 .. api-header::
    :label: Required permissions
@@ -427,14 +427,14 @@ MailIdentity
 
       .. api-member::
          :name: ``OpenPGP``
-         :type: (:ref:`EncryptionCapabilities`)
+         :type: (:ref:`identities.EncryptionCapabilities`)
          :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the OpenPGP encryption technology.
 
       .. api-member::
          :name: ``S/MIME``
-         :type: (:ref:`EncryptionCapabilities`)
+         :type: (:ref:`identities.EncryptionCapabilities`)
          :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the S/MIME encryption technology.

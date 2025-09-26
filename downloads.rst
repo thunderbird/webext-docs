@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =============
 downloads API
@@ -108,7 +108,7 @@ Download a URL. If the URL uses the HTTP[S] protocol, then the request will incl
 
       .. api-member::
          :name: [``conflictAction``]
-         :type: (:ref:`FilenameConflictAction`, optional)
+         :type: (:ref:`downloads.FilenameConflictAction`, optional)
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -202,7 +202,7 @@ Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 
    .. api-member::
       :name: ``query``
-      :type: (:ref:`DownloadQuery`)
+      :type: (:ref:`downloads.DownloadQuery`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -359,13 +359,13 @@ Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty obje
 
    .. api-member::
       :name: ``query``
-      :type: (:ref:`DownloadQuery`)
+      :type: (:ref:`downloads.DownloadQuery`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`DownloadItem`
+      :type: array of :ref:`downloads.DownloadItem`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -452,75 +452,75 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
 
       .. api-member::
          :name: [``canResume``]
-         :type: (:ref:`BooleanDelta`, optional)
+         :type: (:ref:`downloads.BooleanDelta`, optional)
 
       .. api-member::
          :name: [``danger``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`danger`.
 
       .. api-member::
          :name: [``endTime``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`endTime`.
 
       .. api-member::
          :name: [``error``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`error`.
 
       .. api-member::
          :name: [``exists``]
-         :type: (:ref:`BooleanDelta`, optional)
+         :type: (:ref:`downloads.BooleanDelta`, optional)
 
       .. api-member::
          :name: [``filename``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`filename`.
 
       .. api-member::
          :name: [``fileSize``]
-         :type: (:ref:`DoubleDelta`, optional)
+         :type: (:ref:`downloads.DoubleDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`fileSize`.
 
       .. api-member::
          :name: [``mime``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`mime`.
 
       .. api-member::
          :name: [``paused``]
-         :type: (:ref:`BooleanDelta`, optional)
+         :type: (:ref:`downloads.BooleanDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`paused`.
 
       .. api-member::
          :name: [``startTime``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`startTime`.
 
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`state`.
 
       .. api-member::
          :name: [``totalBytes``]
-         :type: (:ref:`DoubleDelta`, optional)
+         :type: (:ref:`downloads.DoubleDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`totalBytes`.
 
       .. api-member::
          :name: [``url``]
-         :type: (:ref:`StringDelta`, optional)
+         :type: (:ref:`downloads.StringDelta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`url`.
 
@@ -551,7 +551,7 @@ This event fires with the `DownloadItem <#type-DownloadItem>`__ object when a do
 
    .. api-member::
       :name: ``downloadItem``
-      :type: (:ref:`DownloadItem`)
+      :type: (:ref:`downloads.DownloadItem`)
 
 .. api-header::
    :label: Required permissions
@@ -708,7 +708,7 @@ DownloadItem
 
    .. api-member::
       :name: ``danger``
-      :type: (:ref:`DangerType`)
+      :type: (:ref:`downloads.DangerType`)
 
       Indication of whether this download is thought to be safe or known to be suspicious.
 
@@ -774,7 +774,7 @@ DownloadItem
 
    .. api-member::
       :name: ``state``
-      :type: (:ref:`State`)
+      :type: (:ref:`downloads.State`)
 
       Indicates whether the download is progressing, interrupted, or complete.
 
@@ -827,7 +827,7 @@ DownloadItem
 
    .. api-member::
       :name: [``error``]
-      :type: (:ref:`InterruptReason`, optional)
+      :type: (:ref:`downloads.InterruptReason`, optional)
 
       Number indicating why a download was interrupted.
 
@@ -885,7 +885,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``danger``]
-      :type: (:ref:`DangerType`, optional)
+      :type: (:ref:`downloads.DangerType`, optional)
 
       Indication of whether this download is thought to be safe or known to be suspicious.
 
@@ -893,7 +893,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``endedAfter``]
-      :type: (:ref:`DownloadTime`, optional)
+      :type: (:ref:`downloads.DownloadTime`, optional)
 
       Limits results to downloads that ended after the given ms since the epoch.
 
@@ -905,7 +905,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``endedBefore``]
-      :type: (:ref:`DownloadTime`, optional)
+      :type: (:ref:`downloads.DownloadTime`, optional)
 
       Limits results to downloads that ended before the given ms since the epoch.
 
@@ -923,7 +923,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``error``]
-      :type: (:ref:`InterruptReason`, optional)
+      :type: (:ref:`downloads.InterruptReason`, optional)
 
       Why a download was interrupted.
 
@@ -1007,7 +1007,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``startedAfter``]
-      :type: (:ref:`DownloadTime`, optional)
+      :type: (:ref:`downloads.DownloadTime`, optional)
 
       Limits results to downloads that started after the given ms since the epoch.
 
@@ -1015,7 +1015,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``startedBefore``]
-      :type: (:ref:`DownloadTime`, optional)
+      :type: (:ref:`downloads.DownloadTime`, optional)
 
       Limits results to downloads that started before the given ms since the epoch.
 
@@ -1029,7 +1029,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`State`, optional)
+      :type: (:ref:`downloads.State`, optional)
 
       Indicates whether the download is progressing, interrupted, or complete.
 

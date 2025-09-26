@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ========
 idle API
@@ -68,7 +68,7 @@ Returns "idle" if the user has not generated any input for a specified number of
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`IdleState`
+      :type: :ref:`idle.IdleState`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -127,7 +127,7 @@ Fired when the system changes to an active or idle state. The event fires with "
 
    .. api-member::
       :name: ``newState``
-      :type: (:ref:`IdleState`)
+      :type: (:ref:`idle.IdleState`)
 
 .. api-header::
    :label: Required permissions

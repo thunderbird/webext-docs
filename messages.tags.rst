@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /includes/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =================
 messages.tags API
@@ -124,7 +124,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`MessageTag`
+      :type: array of :ref:`messages.tags.MessageTag`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -153,7 +153,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
 
    .. api-member::
       :name: ``updateProperties``
-      :type: (:ref:`MessageTagProperties`)
+      :type: (:ref:`messages.tags.MessageTagProperties`)
 
 .. api-header::
    :label: Required permissions
@@ -187,7 +187,7 @@ Fired when a new message tag has been created.
 
    .. api-member::
       :name: ``tag``
-      :type: (:ref:`MessageTag`)
+      :type: (:ref:`messages.tags.MessageTag`)
 
 .. api-header::
    :label: Required permissions
@@ -253,13 +253,13 @@ Fired when one or more properties of a message tag have been updated.
 
    .. api-member::
       :name: ``changedProperties``
-      :type: (:ref:`MessageTagProperties`)
+      :type: (:ref:`messages.tags.MessageTagProperties`)
 
       The changed message tag properties.
 
    .. api-member::
       :name: ``oldProperties``
-      :type: (:ref:`MessageTagProperties`)
+      :type: (:ref:`messages.tags.MessageTagProperties`)
 
       The old values of the changed message tag properties.
 
