@@ -26,6 +26,8 @@ The accounts API provides access to the user's server accounts.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`accountsRead`
 
@@ -56,7 +58,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`MailAccountId`)
 
    .. api-member::
       :name: [``includeSubFolders``]
@@ -69,7 +71,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`accounts.MailAccount` or null
+      :type: :ref:`MailAccount` or null
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -102,7 +104,7 @@ Returns the default account, or :value:`null` if it is not defined.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`accounts.MailAccount` or null
+      :type: :ref:`MailAccount` or null
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -135,7 +137,7 @@ Returns all mail accounts. They will be returned in the same order as used in Th
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`accounts.MailAccount`
+      :type: array of :ref:`MailAccount`
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -172,11 +174,11 @@ Fired when a new account has been created.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`MailAccountId`)
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`accounts.MailAccount`)
+      :type: (:ref:`MailAccount`)
 
 .. api-header::
    :label: Required permissions
@@ -205,7 +207,7 @@ Fired when an account has been removed.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`MailAccountId`)
 
 .. api-header::
    :label: Required permissions
@@ -234,7 +236,7 @@ Fired when a property of an account has been modified. Folders and identities of
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`MailAccountId`)
 
    .. api-member::
       :name: ``changedValues``
@@ -286,11 +288,15 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 .. api-header::
    :label: object
 
+   .. _accounts.MailAccount.id:
+
    .. api-member::
       :name: ``id``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`MailAccountId`)
 
       A unique identifier for this account.
+
+   .. _accounts.MailAccount.identities:
 
    .. api-member::
       :name: ``identities``
@@ -298,11 +304,15 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
       The identities associated with this account. The default identity is listed first, others in no particular order.
 
+   .. _accounts.MailAccount.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
 
       The human-friendly name of this account.
+
+   .. _accounts.MailAccount.rootFolder:
 
    .. api-member::
       :name: ``rootFolder``
@@ -311,9 +321,11 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
       The root folder associated with this account.
 
+   .. _accounts.MailAccount.type:
+
    .. api-member::
       :name: ``type``
-      :type: (:ref:`accounts.NativeMailAccountType` or :ref:`accounts.ExtensionMailAccountType`)
+      :type: (:ref:`NativeMailAccountType` or :ref:`ExtensionMailAccountType`)
 
       What sort of account this is. Either one of the natively supported account types, or an account type added by an extension.
 

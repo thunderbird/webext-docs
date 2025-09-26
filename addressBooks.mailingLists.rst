@@ -26,6 +26,8 @@ The mailingLists API allows to access and manage the user's mailing lists.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`addressBooks`
 
@@ -155,7 +157,7 @@ Gets a single mailing list.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`addressBooks.mailingLists.MailingListNode`
+      :type: :ref:`MailingListNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -184,7 +186,7 @@ Gets all the mailing lists in the address book with id :value:`parentId`.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`addressBooks.mailingLists.MailingListNode`
+      :type: array of :ref:`MailingListNode`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -311,7 +313,7 @@ Fired when a mailing list is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.mailingLists.MailingListNode`)
+      :type: (:ref:`MailingListNode`)
 
 .. api-header::
    :label: Required permissions
@@ -435,7 +437,7 @@ Fired when a mailing list is changed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.mailingLists.MailingListNode`)
+      :type: (:ref:`MailingListNode`)
 
 .. api-header::
    :label: Required permissions
@@ -459,9 +461,13 @@ A node representing a mailing list.
 .. api-header::
    :label: object
 
+   .. _addressBooks.mailingLists.MailingListNode.description:
+
    .. api-member::
       :name: ``description``
       :type: (string)
+
+   .. _addressBooks.mailingLists.MailingListNode.id:
 
    .. api-member::
       :name: ``id``
@@ -469,13 +475,19 @@ A node representing a mailing list.
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 
+   .. _addressBooks.mailingLists.MailingListNode.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
 
+   .. _addressBooks.mailingLists.MailingListNode.nickName:
+
    .. api-member::
       :name: ``nickName``
       :type: (string)
+
+   .. _addressBooks.mailingLists.MailingListNode.type:
 
    .. api-member::
       :name: ``type``
@@ -483,11 +495,15 @@ A node representing a mailing list.
 
       Always set to :value:`mailingList`.
 
+   .. _addressBooks.mailingLists.MailingListNode.contacts:
+
    .. api-member::
       :name: [``contacts``]
       :type: (array of :ref:`contacts.ContactNode`, optional)
 
       A list of contacts held by this node's address book or mailing list.
+
+   .. _addressBooks.mailingLists.MailingListNode.parentId:
 
    .. api-member::
       :name: [``parentId``]
@@ -495,11 +511,15 @@ A node representing a mailing list.
 
       The :value:`id` of the parent object.
 
+   .. _addressBooks.mailingLists.MailingListNode.readOnly:
+
    .. api-member::
       :name: [``readOnly``]
       :type: (boolean, optional)
 
       Indicates if the object is read-only.
+
+   .. _addressBooks.mailingLists.MailingListNode.remote:
 
    .. api-member::
       :name: [``remote``]

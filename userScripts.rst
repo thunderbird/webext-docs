@@ -23,6 +23,8 @@ userScripts API
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`userScripts`
 
@@ -59,7 +61,7 @@ Configures the environment for scripts running in a USER_SCRIPT world.
 
    .. api-member::
       :name: ``properties``
-      :type: (:ref:`userScripts.WorldProperties`)
+      :type: (:ref:`WorldProperties`)
 
       The desired configuration for a USER_SCRIPT world.
 
@@ -82,7 +84,7 @@ Returns all dynamically-registered user scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`userScripts.UserScriptFilter`, optional)
+      :type: (:ref:`UserScriptFilter`, optional)
 
       If specified, this method returns only the user scripts that match it.
 
@@ -90,7 +92,7 @@ Returns all dynamically-registered user scripts for this extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`userScripts.RegisteredUserScript`
+      :type: array of :ref:`RegisteredUserScript`
 
       List of registered user scripts.
 
@@ -114,7 +116,7 @@ Returns all registered USER_SCRIPT world configurations.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`userScripts.WorldProperties`
+      :type: array of :ref:`WorldProperties`
 
       All configurations registered with configureWorld().
 
@@ -143,7 +145,7 @@ Registers one or more user scripts for this extension.
 
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`userScripts.RegisteredUserScript`)
+      :type: (array of :ref:`RegisteredUserScript`)
 
       List of user scripts to be registered.
 
@@ -189,7 +191,7 @@ Unregisters all dynamically-registered user scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`userScripts.UserScriptFilter`, optional)
+      :type: (:ref:`UserScriptFilter`, optional)
 
       If specified, this method unregisters only the user scripts that match it.
 
@@ -225,6 +227,30 @@ Updates one or more user scripts for this extension.
 
 Types
 =====
+
+.. _userScripts.ExecutionWorld:
+
+ExecutionWorld
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+The JavaScript world for a script to execute within. :code:`USER_SCRIPT` is the default execution environment of user scripts, :code:`MAIN` is the web page's execution environment.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`MAIN`
+
+         .. api-member::
+            :name: :value:`USER_SCRIPT`
 
 .. _userScripts.RunAt:
 
@@ -275,36 +301,41 @@ MatchPattern
 OR
 
 .. api-header::
-   :label: :ref:`userScripts.MatchPatternRestricted`
+   :label: :ref:`MatchPatternRestricted`
 
 OR
 
 .. api-header::
-   :label: :ref:`userScripts.MatchPatternUnestricted`
+   :label: :ref:`MatchPatternUnestricted`
 
-.. _userScripts.ExecutionWorld:
+.. _userScripts.MatchPatternRestricted:
 
-ExecutionWorld
---------------
+MatchPatternRestricted
+----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: 
 
-The JavaScript world for a script to execute within. :code:`USER_SCRIPT` is the default execution environment of user scripts, :code:`MAIN` is the web page's execution environment.
+Same as MatchPattern above, but excludes <all_urls>
 
 .. api-header::
-   :label: `string`
+   :label: string
 
-   .. container:: api-member-node
+OR
 
-      .. container:: api-member-description-only
+.. api-header::
+   :label: string
 
-         Supported values:
+.. _userScripts.MatchPatternUnestricted:
 
-         .. api-member::
-            :name: :value:`MAIN`
+MatchPatternUnestricted
+-----------------------
 
-         .. api-member::
-            :name: :value:`USER_SCRIPT`
+.. api-section-annotation-hack:: 
+
+Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.
+
+.. api-header::
+   :label: string
 
 .. _userScripts.RegisteredUserScript:
 
@@ -318,17 +349,23 @@ An object that represents a user script registered programmatically
 .. api-header::
    :label: object
 
+   .. _userScripts.RegisteredUserScript.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
 
       The ID of the user script specified in the API call. This property must not start with a '_' as it's reserved as a prefix for generated script IDs.
 
+   .. _userScripts.RegisteredUserScript.js:
+
    .. api-member::
       :name: ``js``
-      :type: (array of :ref:`userScripts.ScriptSource`)
+      :type: (array of :ref:`ScriptSource`)
 
       The list of ScriptSource objects defining sources of scripts to be injected into matching pages.
+
+   .. _userScripts.RegisteredUserScript.allFrames:
 
    .. api-member::
       :name: [``allFrames``]
@@ -336,13 +373,19 @@ An object that represents a user script registered programmatically
 
       If allFrames is :code:`true`, implies that the JavaScript should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
 
+   .. _userScripts.RegisteredUserScript.excludeGlobs:
+
    .. api-member::
       :name: [``excludeGlobs``]
       :type: (array of string, optional)
 
+   .. _userScripts.RegisteredUserScript.excludeMatches:
+
    .. api-member::
       :name: [``excludeMatches``]
-      :type: (array of :ref:`userScripts.MatchPattern`, optional)
+      :type: (array of :ref:`MatchPattern`, optional)
+
+   .. _userScripts.RegisteredUserScript.includeGlobs:
 
    .. api-member::
       :name: [``includeGlobs``]
@@ -350,23 +393,31 @@ An object that represents a user script registered programmatically
 
       At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
 
+   .. _userScripts.RegisteredUserScript.matches:
+
    .. api-member::
       :name: [``matches``]
-      :type: (array of :ref:`userScripts.MatchPattern`, optional)
+      :type: (array of :ref:`MatchPattern`, optional)
 
       At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
 
+   .. _userScripts.RegisteredUserScript.runAt:
+
    .. api-member::
       :name: [``runAt``]
-      :type: (:ref:`userScripts.RunAt`, optional)
+      :type: (:ref:`RunAt`, optional)
 
       The soonest that the JavaScript will be injected into the tab. Defaults to "document_idle".
 
+   .. _userScripts.RegisteredUserScript.world:
+
    .. api-member::
       :name: [``world``]
-      :type: (:ref:`userScripts.ExecutionWorld`, optional)
+      :type: (:ref:`ExecutionWorld`, optional)
 
       The JavaScript script for a script to execute within. Defaults to "USER_SCRIPT".
+
+   .. _userScripts.RegisteredUserScript.worldId:
 
    .. api-member::
       :name: [``worldId``]
@@ -421,6 +472,8 @@ Optional filter to use with getScripts() and unregister().
 .. api-header::
    :label: object
 
+   .. _userScripts.UserScriptFilter.ids:
+
    .. api-member::
       :name: [``ids``]
       :type: (array of string, optional)
@@ -437,17 +490,23 @@ The configuration of a USER_SCRIPT world.
 .. api-header::
    :label: object
 
+   .. _userScripts.WorldProperties.csp:
+
    .. api-member::
       :name: [``csp``]
       :type: (string, optional)
 
       The world's Content Security Policy. Defaults to the CSP of regular content scripts, which prohibits dynamic code execution such as eval.
 
+   .. _userScripts.WorldProperties.messaging:
+
    .. api-member::
       :name: [``messaging``]
       :type: (boolean, optional)
 
       Whether the runtime.sendMessage and runtime.connect methods are exposed. Defaults to not exposing these messaging APIs.
+
+   .. _userScripts.WorldProperties.worldId:
 
    .. api-member::
       :name: [``worldId``]

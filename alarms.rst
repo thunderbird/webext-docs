@@ -24,6 +24,8 @@ alarms API
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`alarms`
 
@@ -164,7 +166,7 @@ Retrieves details about the specified alarm.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`alarms.Alarm`
+      :type: :ref:`Alarm`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -186,7 +188,7 @@ Gets an array of all the alarms.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`alarms.Alarm`
+      :type: array of :ref:`Alarm`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -222,7 +224,7 @@ Fired when an alarm has expired. Useful for transient background pages.
 
    .. api-member::
       :name: ``name``
-      :type: (:ref:`alarms.Alarm`)
+      :type: (:ref:`Alarm`)
 
       The alarm that has expired.
 
@@ -246,17 +248,23 @@ Alarm
 .. api-header::
    :label: object
 
+   .. _alarms.Alarm.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
 
       Name of this alarm.
 
+   .. _alarms.Alarm.scheduledTime:
+
    .. api-member::
       :name: ``scheduledTime``
       :type: (number)
 
       Time when the alarm is scheduled to fire, in milliseconds past the epoch.
+
+   .. _alarms.Alarm.periodInMinutes:
 
    .. api-member::
       :name: [``periodInMinutes``]

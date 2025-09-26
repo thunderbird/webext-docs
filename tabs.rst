@@ -2,6 +2,7 @@
 
   ≡ tabs API
 
+  * `Permissions`_
   * `Functions`_
   * `Events`_
   * `Types`_
@@ -20,6 +21,27 @@ tabs API
 .. role:: code
 
 The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
+.. api-member::
+   :name: :permission:`activeTab`
+
+.. api-member::
+   :name: :permission:`contextualIdentities`
+
+.. api-member::
+   :name: :permission:`cookies`
+
+.. api-member::
+   :name: :permission:`tabs`
+
+   Access browser tabs
 
 .. rst-class:: api-main-section
 
@@ -153,7 +175,7 @@ Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`Tab`
 
       A Promise that will be fulfilled with a :ref:`tabs.Tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event before creating the tab.
 
@@ -181,7 +203,7 @@ Duplicates a tab.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`Tab`
 
       Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
 
@@ -207,7 +229,7 @@ Retrieves details about the specified tab.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`Tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -224,7 +246,7 @@ Gets the tab that this script call is being made from. Returns :value:`undefined
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`Tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -266,7 +288,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`tabs.Tab`
+      :type: array of :ref:`Tab`
 
       Details about the moved tabs.
 
@@ -338,7 +360,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
       .. api-member::
          :name: [``status``]
-         :type: (:ref:`tabs.TabStatus`, optional)
+         :type: (:ref:`TabStatus`, optional)
 
          Whether the tabs have completed loading.
 
@@ -350,7 +372,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`tabs.TabType` or array of :ref:`tabs.TabType`, optional)
+         :type: (:ref:`TabType` or array of :ref:`TabType`, optional)
          :annotation: -- [Added in TB 91]
 
          Match tabs against the given tab type or types.
@@ -369,7 +391,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
       .. api-member::
          :name: [``windowType``]
-         :type: (:ref:`tabs.WindowType`, optional)
+         :type: (:ref:`WindowType`, optional)
 
          The type of window the tabs are in.
 
@@ -377,7 +399,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`tabs.Tab`
+      :type: array of :ref:`Tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -511,7 +533,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`Tab`
 
       Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
 
@@ -623,7 +645,7 @@ Fired when a tab is created. The tab may still be loading, with its title being 
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`Tab`)
 
       Details of the tab that was created.
 
@@ -762,7 +784,7 @@ Fired when a tab is updated.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`tabs.UpdateFilter`, optional)
+      :type: (:ref:`UpdateFilter`, optional)
 
       A set of filters that restricts the events that will be sent to this listener.
 
@@ -799,7 +821,7 @@ Fired when a tab is updated.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`Tab`)
 
       Gives the state of the tab that was updated.
 
@@ -818,11 +840,15 @@ Tab
 .. api-header::
    :label: object
 
+   .. _tabs.Tab.active:
+
    .. api-member::
       :name: ``active``
       :type: (boolean)
 
       Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
+
+   .. _tabs.Tab.highlighted:
 
    .. api-member::
       :name: ``highlighted``
@@ -830,17 +856,23 @@ Tab
 
       Whether the tab is highlighted. Works as an alias of active
 
+   .. _tabs.Tab.index:
+
    .. api-member::
       :name: ``index``
       :type: (integer)
 
       The zero-based index of the tab within its window.
 
+   .. _tabs.Tab.selected:
+
    .. api-member::
       :name: ``selected``
       :type: (boolean) **Unsupported.**
 
       Whether the tab is selected.
+
+   .. _tabs.Tab.cookieStoreId:
 
    .. api-member::
       :name: [``cookieStoreId``]
@@ -853,11 +885,15 @@ Tab
 
          The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
 
+   .. _tabs.Tab.favIconUrl:
+
    .. api-member::
       :name: [``favIconUrl``]
       :type: (string, optional)
 
       The URL of the tab's favicon. This property is only present if the extension's manifest includes the :permission:`tabs` permission. It may also be an empty string if the tab is loading.
+
+   .. _tabs.Tab.groupId:
 
    .. api-member::
       :name: [``groupId``]
@@ -866,17 +902,23 @@ Tab
 
       The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
 
+   .. _tabs.Tab.height:
+
    .. api-member::
       :name: [``height``]
       :type: (integer, optional)
 
       The height of the tab in pixels.
 
+   .. _tabs.Tab.id:
+
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
 
       The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
+
+   .. _tabs.Tab.spaceId:
 
    .. api-member::
       :name: [``spaceId``]
@@ -885,11 +927,15 @@ Tab
 
       The id of the space.
 
+   .. _tabs.Tab.status:
+
    .. api-member::
       :name: [``status``]
       :type: (string, optional)
 
       Either :value:`loading` or :value:`complete`.
+
+   .. _tabs.Tab.title:
 
    .. api-member::
       :name: [``title``]
@@ -897,10 +943,14 @@ Tab
 
       The title of the tab. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
 
+   .. _tabs.Tab.type:
+
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`tabs.TabType`, optional)
+      :type: (:ref:`TabType`, optional)
       :annotation: -- [Added in TB 91]
+
+   .. _tabs.Tab.url:
 
    .. api-member::
       :name: [``url``]
@@ -908,11 +958,15 @@ Tab
 
       The URL the tab is displaying. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
 
+   .. _tabs.Tab.width:
+
    .. api-member::
       :name: [``width``]
       :type: (integer, optional)
 
       The width of the tab in pixels.
+
+   .. _tabs.Tab.windowId:
 
    .. api-member::
       :name: [``windowId``]
@@ -1007,21 +1061,29 @@ An object describing filters to apply to :ref:`tabs.onUpdated` events.
 .. api-header::
    :label: object
 
+   .. _tabs.UpdateFilter.properties:
+
    .. api-member::
       :name: [``properties``]
-      :type: (array of :ref:`tabs.UpdatePropertyName`, optional)
+      :type: (array of :ref:`UpdatePropertyName`, optional)
 
       A list of property names. Events that do not match any of the names will be filtered out.
+
+   .. _tabs.UpdateFilter.tabId:
 
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
+
+   .. _tabs.UpdateFilter.urls:
 
    .. api-member::
       :name: [``urls``]
       :type: (array of string, optional)
 
       A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or :permission:`activeTab` permission.
+
+   .. _tabs.UpdateFilter.windowId:
 
    .. api-member::
       :name: [``windowId``]

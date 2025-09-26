@@ -2,6 +2,7 @@
 
   ≡ spaces API
 
+  * `Permissions`_
   * `Functions`_
   * `Types`_
 
@@ -18,6 +19,24 @@ spaces API
 .. role:: code
 
 The spaces API allows to manage built-in and custom spaces, and to add buttons for custom spaces to Thunderbird's spaces toolbar.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
+.. api-member::
+   :name: :permission:`contextualIdentities`
+
+.. api-member::
+   :name: :permission:`cookies`
+
+.. api-member::
+   :name: :permission:`management`
+
+   Monitor extension usage and manage themes
 
 .. rst-class:: api-main-section
 
@@ -44,13 +63,13 @@ Creates a new space and adds its button to the spaces toolbar.
 
    .. api-member::
       :name: ``tabProperties``
-      :type: (string or :ref:`spaces.SpaceTabProperties`)
+      :type: (string or :ref:`SpaceTabProperties`)
 
       The properties for the new tab being opened, when the associated button in the spaces toolbar is clicked. Either a *string* specifying the default URL, or a :ref:`spaces.SpaceTabProperties` object. The URL may point to a WebExtension page or a web page.
 
    .. api-member::
       :name: [``buttonProperties``]
-      :type: (:ref:`spaces.SpaceButtonProperties`, optional)
+      :type: (:ref:`SpaceButtonProperties`, optional)
 
       Properties of the button in the spaces toolbar for the new space.
 
@@ -58,7 +77,7 @@ Creates a new space and adds its button to the spaces toolbar.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`spaces.Space`
+      :type: :ref:`Space`
       :annotation: -- [Added in TB 115]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -85,7 +104,7 @@ Retrieves details about the specified space.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`spaces.Space`
+      :type: :ref:`Space`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -174,7 +193,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`spaces.Space`
+      :type: array of :ref:`Space`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -216,13 +235,13 @@ Updates the specified space. Throws an exception if the requested space does not
 
    .. api-member::
       :name: ``tabProperties``
-      :type: (string or :ref:`spaces.SpaceTabProperties` or :ref:`spaces.SpaceButtonProperties`)
+      :type: (string or :ref:`SpaceTabProperties` or :ref:`SpaceButtonProperties`)
 
       The properties for the new tab being opened, when the associated button in the spaces toolbar is clicked. Either a *string* specifying the default URL, or a :ref:`spaces.SpaceTabProperties` object. The URL may point to a WebExtension page or a web page.
 
    .. api-member::
       :name: [``buttonProperties``]
-      :type: (:ref:`spaces.SpaceButtonProperties`, optional)
+      :type: (:ref:`SpaceButtonProperties`, optional)
 
       Properties of the button in the spaces toolbar for the specified space Only specified button properties will be updated.
 
@@ -230,6 +249,40 @@ Updates the specified space. Throws an exception if the requested space does not
 
 Types
 =====
+
+.. _spaces.ColorArray:
+
+ColorArray
+----------
+
+.. api-section-annotation-hack:: -- [Added in TB 114]
+
+An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
+
+.. api-header::
+   :label: array of integer
+
+.. _spaces.ExtensionFileUrl:
+
+ExtensionFileUrl
+----------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string
+
+.. _spaces.ExtensionURL:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
 
 .. _spaces.IconPath:
 
@@ -255,7 +308,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 OR
 
 .. api-header::
-   :label: :ref:`spaces.ExtensionFileUrl`
+   :label: :ref:`ExtensionFileUrl`
 
 .. _spaces.ThemeIcons:
 
@@ -269,35 +322,29 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 .. api-header::
    :label: object
 
+   .. _spaces.ThemeIcons.dark:
+
    .. api-member::
       :name: ``dark``
-      :type: (:ref:`spaces.ExtensionURL`)
+      :type: (:ref:`ExtensionURL`)
 
       The dark icon to use for light themes
 
+   .. _spaces.ThemeIcons.light:
+
    .. api-member::
       :name: ``light``
-      :type: (:ref:`spaces.ExtensionURL`)
+      :type: (:ref:`ExtensionURL`)
 
       A light icon to use for dark themes
+
+   .. _spaces.ThemeIcons.size:
 
    .. api-member::
       :name: ``size``
       :type: (integer)
 
       The size of the icons
-
-.. _spaces.ColorArray:
-
-ColorArray
-----------
-
-.. api-section-annotation-hack:: -- [Added in TB 114]
-
-An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
-
-.. api-header::
-   :label: array of integer
 
 .. _spaces.Space:
 
@@ -309,11 +356,15 @@ Space
 .. api-header::
    :label: object
 
+   .. _spaces.Space.id:
+
    .. api-member::
       :name: ``id``
       :type: (integer)
 
       The id of the space.
+
+   .. _spaces.Space.isBuiltIn:
 
    .. api-member::
       :name: ``isBuiltIn``
@@ -321,17 +372,23 @@ Space
 
       Whether this space is one of the default Thunderbird spaces, or an extension space.
 
+   .. _spaces.Space.isSelfOwned:
+
    .. api-member::
       :name: ``isSelfOwned``
       :type: (boolean)
 
       Whether this space was created by this extension.
 
+   .. _spaces.Space.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
 
       The name of the space. Names are unique for a single extension, but different extensions may use the same name.
+
+   .. _spaces.Space.extensionId:
 
    .. api-member::
       :name: [``extensionId``]
@@ -351,11 +408,15 @@ Properties of a button in the spaces toolbar.
 .. api-header::
    :label: object
 
+   .. _spaces.SpaceButtonProperties.badgeBackgroundColor:
+
    .. api-member::
       :name: [``badgeBackgroundColor``]
-      :type: (string or :ref:`spaces.ColorArray`, optional)
+      :type: (string or :ref:`ColorArray`, optional)
 
       Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to :value:`null`.
+
+   .. _spaces.SpaceButtonProperties.badgeText:
 
    .. api-member::
       :name: [``badgeText``]
@@ -363,17 +424,23 @@ Properties of a button in the spaces toolbar.
 
       Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to :value:`null`.
 
+   .. _spaces.SpaceButtonProperties.defaultIcons:
+
    .. api-member::
       :name: [``defaultIcons``]
-      :type: (:ref:`spaces.IconPath`, optional)
+      :type: (:ref:`IconPath`, optional)
 
       The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to :value:`null`.
 
+   .. _spaces.SpaceButtonProperties.themeIcons:
+
    .. api-member::
       :name: [``themeIcons``]
-      :type: (array of :ref:`spaces.ThemeIcons`, optional)
+      :type: (array of :ref:`ThemeIcons`, optional)
 
       Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The :value:`light` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified. Reset when set to :value:`null`.
+
+   .. _spaces.SpaceButtonProperties.title:
 
    .. api-member::
       :name: [``title``]
@@ -393,6 +460,8 @@ Properties for the new tab being opened by clicking on the associated button in 
 .. api-header::
    :label: object
 
+   .. _spaces.SpaceTabProperties.cookieStoreId:
+
    .. api-member::
       :name: [``cookieStoreId``]
       :type: (string, optional)
@@ -406,6 +475,8 @@ Properties for the new tab being opened by clicking on the associated button in 
       .. note::
 
           The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
+
+   .. _spaces.SpaceTabProperties.linkHandler:
 
    .. api-member::
       :name: [``linkHandler``]
@@ -424,6 +495,8 @@ Properties for the new tab being opened by clicking on the associated button in 
 
       .. api-member::
          :name: :value:`relaxed`
+
+   .. _spaces.SpaceTabProperties.url:
 
    .. api-member::
       :name: [``url``]

@@ -30,6 +30,7 @@ Manifest file properties
 .. api-member::
    :name: [``action``]
    :type: (object, optional)
+   :annotation: -- [Added in TB 105]
 
    .. api-member::
       :name: [``allowed_spaces``]
@@ -77,7 +78,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`action.IconPath`, optional)
+      :type: (:ref:`IconPath`, optional)
       :annotation: -- [Added in TB 115]
 
       The paths to one or more icons for the action button.
@@ -120,7 +121,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`action.ThemeIcons`, optional)
+      :type: (array of :ref:`ThemeIcons`, optional)
       :annotation: -- [Added in TB 115]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
@@ -226,7 +227,7 @@ Gets the badge background color of the action button.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`action.ColorArray`
+      :type: :ref:`ColorArray`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -300,7 +301,7 @@ Gets the text color of the badge.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`action.ColorArray`
+      :type: :ref:`ColorArray`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -509,7 +510,7 @@ Sets the background color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`action.ColorArray` or null)
+         :type: (string or :ref:`ColorArray` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
 
@@ -577,7 +578,7 @@ Sets the text color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`action.ColorArray` or null)
+         :type: (string or :ref:`ColorArray` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
 
@@ -611,13 +612,13 @@ Sets the icon for the action button. Either the :value:`path` or the :value:`ima
 
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`action.ImageDataType` or :ref:`action.ImageDataDictionary`, optional)
+         :type: (:ref:`ImageDataType` or :ref:`ImageDataDictionary`, optional)
 
          The image data for one or more icons for the action button.
 
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`action.IconPath`, optional)
+         :type: (:ref:`IconPath`, optional)
 
          The paths to one or more icons for the action button.
 
@@ -766,7 +767,7 @@ Fired when an action button is clicked. This event will not fire if the action h
 
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`action.OnClickData`, optional)
+      :type: (:ref:`OnClickData`, optional)
 
 .. rst-class:: api-main-section
 
@@ -784,6 +785,28 @@ An array of four integers in the range [0,255] that make up the RGBA color. For 
 
 .. api-header::
    :label: array of integer
+
+.. _action.ExtensionFileUrl:
+
+ExtensionFileUrl
+----------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string
+
+.. _action.ExtensionURL:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
 
 .. _action.ImageDataDictionary:
 
@@ -809,6 +832,32 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
 
+.. _action.IconPath:
+
+IconPath
+--------
+
+.. api-section-annotation-hack:: 
+
+Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example:
+
+.. code-block:: JSON
+
+   {
+     "16": "icon16.png",
+     "32": "icon32.png"
+   }
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this topic.
+
+.. api-header::
+   :label: object
+
+OR
+
+.. api-header::
+   :label: :ref:`ExtensionFileUrl`
+
 .. _action.OnClickData:
 
 OnClickData
@@ -820,6 +869,8 @@ Information sent when an action button is clicked.
 
 .. api-header::
    :label: object
+
+   .. _action.OnClickData.modifiers:
 
    .. api-member::
       :name: ``modifiers``
@@ -850,34 +901,46 @@ Information sent when an action button is clicked.
 
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
 
+   .. _action.OnClickData.button:
+
    .. api-member::
       :name: [``button``]
       :type: (integer, optional)
 
       An integer value of button by which menu item was clicked.
 
-.. _action.IconPath:
+.. _action.ThemeIcons:
 
-IconPath
---------
+ThemeIcons
+----------
 
 .. api-section-annotation-hack:: 
 
-Either a *string* to specify a relative path of a single icon to be used for all sizes, or a *dictionary object* to specify paths for multiple icons in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being a relative path to an icon file, and *name* its size. Example:
-
-.. code-block:: JSON
-
-   {
-     "16": "icon16.png",
-     "32": "icon32.png"
-   }
-
-See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this topic.
+Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the :value:`manifest.json` file.
 
 .. api-header::
    :label: object
 
-OR
+   .. _action.ThemeIcons.dark:
 
-.. api-header::
-   :label: :ref:`action.ExtensionFileUrl`
+   .. api-member::
+      :name: ``dark``
+      :type: (:ref:`ExtensionURL`)
+
+      The dark icon to use for light themes
+
+   .. _action.ThemeIcons.light:
+
+   .. api-member::
+      :name: ``light``
+      :type: (:ref:`ExtensionURL`)
+
+      A light icon to use for dark themes
+
+   .. _action.ThemeIcons.size:
+
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+
+      The size of the icons

@@ -23,6 +23,8 @@ scripting.messageDisplay API
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`messagesRead`
 
@@ -53,7 +55,7 @@ Returns all registered message display scripts for this extension that match the
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.messageDisplay.MessageDisplayScriptFilter`, optional)
+      :type: (:ref:`MessageDisplayScriptFilter`, optional)
 
       An object to filter the extension's registered message display scripts.
 
@@ -61,7 +63,7 @@ Returns all registered message display scripts for this extension that match the
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`scripting.messageDisplay.MessageDisplayScriptDetails`
+      :type: array of :ref:`MessageDisplayScriptDetails`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -88,7 +90,7 @@ Registers one or more message display scripts for this extension, which should b
 
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`scripting.messageDisplay.MessageDisplayScriptDetails`)
+      :type: (array of :ref:`MessageDisplayScriptDetails`)
 
       Contains a list of message display scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
 
@@ -111,7 +113,7 @@ Unregisters one or more message display scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.messageDisplay.MessageDisplayScriptFilter`, optional)
+      :type: (:ref:`MessageDisplayScriptFilter`, optional)
 
       If specified, only unregisters message display scripts which match the filter. Otherwise, all of the extension's message display scripts are unregistered.
 
@@ -174,27 +176,35 @@ MessageDisplayScriptDetails
 .. api-header::
    :label: object
 
+   .. _scripting.messageDisplay.MessageDisplayScriptDetails.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
 
       The id of the message display script, specified in the API call.
 
+   .. _scripting.messageDisplay.MessageDisplayScriptDetails.css:
+
    .. api-member::
       :name: [``css``]
-      :type: (array of :ref:`scripting.messageDisplay.ExtensionURL`, optional)
+      :type: (array of :ref:`ExtensionURL`, optional)
 
       The list of CSS files to be injected. These are injected in the order they appear in this array.
 
+   .. _scripting.messageDisplay.MessageDisplayScriptDetails.js:
+
    .. api-member::
       :name: [``js``]
-      :type: (array of :ref:`scripting.messageDisplay.ExtensionURL`, optional)
+      :type: (array of :ref:`ExtensionURL`, optional)
 
       The list of JavaScript files to be injected. These are injected in the order they appear in this array.
 
+   .. _scripting.messageDisplay.MessageDisplayScriptDetails.runAt:
+
    .. api-member::
       :name: [``runAt``]
-      :type: (:ref:`scripting.messageDisplay.RunAt`, optional)
+      :type: (:ref:`RunAt`, optional)
 
       Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
 
@@ -207,6 +217,8 @@ MessageDisplayScriptFilter
 
 .. api-header::
    :label: object
+
+   .. _scripting.messageDisplay.MessageDisplayScriptFilter.ids:
 
    .. api-member::
       :name: [``ids``]

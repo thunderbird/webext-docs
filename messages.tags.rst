@@ -26,6 +26,13 @@ The messages.tags API allows to manage the user's message tags.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
+.. api-member::
+   :name: :permission:`accountsRead`
+
+   See your mail accounts, their identities and their folders
+
 .. api-member::
    :name: :permission:`messagesTags`
 
@@ -35,11 +42,6 @@ Permissions
    :name: :permission:`messagesTagsList`
 
    List message tags
-
-.. api-member::
-   :name: :permission:`accountsRead`
-
-   See your mail accounts, their identities and their folders
 
 .. rst-class:: api-main-section
 
@@ -122,7 +124,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`messages.tags.MessageTag`
+      :type: array of :ref:`MessageTag`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -151,7 +153,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
 
    .. api-member::
       :name: ``updateProperties``
-      :type: (:ref:`messages.tags.MessageTagProperties`)
+      :type: (:ref:`MessageTagProperties`)
 
 .. api-header::
    :label: Required permissions
@@ -185,7 +187,7 @@ Fired when a new message tag has been created.
 
    .. api-member::
       :name: ``tag``
-      :type: (:ref:`messages.tags.MessageTag`)
+      :type: (:ref:`MessageTag`)
 
 .. api-header::
    :label: Required permissions
@@ -251,13 +253,13 @@ Fired when one or more properties of a message tag have been updated.
 
    .. api-member::
       :name: ``changedProperties``
-      :type: (:ref:`messages.tags.MessageTagProperties`)
+      :type: (:ref:`MessageTagProperties`)
 
       The changed message tag properties.
 
    .. api-member::
       :name: ``oldProperties``
-      :type: (:ref:`messages.tags.MessageTagProperties`)
+      :type: (:ref:`MessageTagProperties`)
 
       The old values of the changed message tag properties.
 
@@ -281,11 +283,15 @@ MessageTag
 .. api-header::
    :label: object
 
+   .. _messages.tags.MessageTag.color:
+
    .. api-member::
       :name: ``color``
       :type: (string)
 
       Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
+
+   .. _messages.tags.MessageTag.key:
 
    .. api-member::
       :name: ``key``
@@ -293,11 +299,15 @@ MessageTag
 
       Unique tag identifier.
 
+   .. _messages.tags.MessageTag.ordinal:
+
    .. api-member::
       :name: ``ordinal``
       :type: (string)
 
       A custom sort string.
+
+   .. _messages.tags.MessageTag.tag:
 
    .. api-member::
       :name: ``tag``
@@ -315,17 +325,23 @@ MessageTagProperties
 .. api-header::
    :label: object
 
+   .. _messages.tags.MessageTagProperties.color:
+
    .. api-member::
       :name: [``color``]
       :type: (string, optional)
 
       Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
 
+   .. _messages.tags.MessageTagProperties.ordinal:
+
    .. api-member::
       :name: [``ordinal``]
       :type: (string, optional)
 
       A custom sort string.
+
+   .. _messages.tags.MessageTagProperties.tag:
 
    .. api-member::
       :name: [``tag``]

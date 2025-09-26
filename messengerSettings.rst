@@ -24,6 +24,13 @@ The messengerSettings API allows to access global messenger settings.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
+.. api-member::
+   :name: :permission:`messengerSettings`
+
+   Read Thunderbird settings
+
 .. rst-class:: api-permission-info
 
 .. note::

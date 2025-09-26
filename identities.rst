@@ -26,15 +26,17 @@ The identities API allows to manage the user's identities (each account can have
 Permissions
 ===========
 
-.. api-member::
-   :name: :permission:`accountsRead`
-
-   See your mail accounts, their identities and their folders
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
 
 .. api-member::
    :name: :permission:`accountsIdentities`
 
    Create, modify or delete your mail account identities
+
+.. api-member::
+   :name: :permission:`accountsRead`
+
+   See your mail accounts, their identities and their folders
 
 .. rst-class:: api-permission-info
 
@@ -65,13 +67,13 @@ Create a new identity in the specified account.
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`MailIdentity`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity`
+      :type: :ref:`MailIdentity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -123,7 +125,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity` or null
+      :type: :ref:`MailIdentity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -152,7 +154,7 @@ Returns the default identity for the requested account, or :value:`null` if it i
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity` or null
+      :type: :ref:`MailIdentity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -181,7 +183,7 @@ Returns the identities of the specified account, or all identities if no account
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`identities.MailIdentity`
+      :type: array of :ref:`MailIdentity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -233,13 +235,13 @@ Updates the details of an identity.
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`MailIdentity`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity`
+      :type: :ref:`MailIdentity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -280,7 +282,7 @@ Fired when a new identity has been created and added to an account. The event al
 
    .. api-member::
       :name: ``identity``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`MailIdentity`)
 
 .. api-header::
    :label: Required permissions
@@ -342,7 +344,7 @@ Fired when one or more properties of an identity have been modified. The returne
 
    .. api-member::
       :name: ``changedValues``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`MailIdentity`)
 
 .. api-header::
    :label: Required permissions
@@ -364,11 +366,15 @@ EncryptionCapabilities
 .. api-header::
    :label: object
 
+   .. _identities.EncryptionCapabilities.canEncrypt:
+
    .. api-member::
       :name: ``canEncrypt``
       :type: (boolean)
 
       Whether the encryption technology is configured to support message encryption.
+
+   .. _identities.EncryptionCapabilities.canSign:
 
    .. api-member::
       :name: ``canSign``
@@ -386,11 +392,15 @@ MailIdentity
 .. api-header::
    :label: object
 
+   .. _identities.MailIdentity.accountId:
+
    .. api-member::
       :name: [``accountId``]
       :type: (:ref:`accounts.MailAccountId`, optional)
 
       The id of the :ref:`accounts.MailAccount` this identity belongs to. The :value:`accountId` property is read-only.
+
+   .. _identities.MailIdentity.composeHtml:
 
    .. api-member::
       :name: [``composeHtml``]
@@ -398,11 +408,15 @@ MailIdentity
 
       If the identity uses HTML as the default compose format.
 
+   .. _identities.MailIdentity.email:
+
    .. api-member::
       :name: [``email``]
       :type: (string, optional)
 
       The user's email address as used when messages are sent from this identity.
+
+   .. _identities.MailIdentity.encryptionCapabilities:
 
    .. api-member::
       :name: [``encryptionCapabilities``]
@@ -413,17 +427,19 @@ MailIdentity
 
       .. api-member::
          :name: ``OpenPGP``
-         :type: (:ref:`identities.EncryptionCapabilities`)
+         :type: (:ref:`EncryptionCapabilities`)
          :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the OpenPGP encryption technology.
 
       .. api-member::
          :name: ``S/MIME``
-         :type: (:ref:`identities.EncryptionCapabilities`)
+         :type: (:ref:`EncryptionCapabilities`)
          :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the S/MIME encryption technology.
+
+   .. _identities.MailIdentity.id:
 
    .. api-member::
       :name: [``id``]
@@ -431,11 +447,15 @@ MailIdentity
 
       A unique identifier for this identity. The :value:`id` property is read-only.
 
+   .. _identities.MailIdentity.label:
+
    .. api-member::
       :name: [``label``]
       :type: (string, optional)
 
       A user-defined label for this identity.
+
+   .. _identities.MailIdentity.name:
 
    .. api-member::
       :name: [``name``]
@@ -443,11 +463,15 @@ MailIdentity
 
       The user's name as used when messages are sent from this identity.
 
+   .. _identities.MailIdentity.organization:
+
    .. api-member::
       :name: [``organization``]
       :type: (string, optional)
 
       The organization associated with this identity.
+
+   .. _identities.MailIdentity.replyTo:
 
    .. api-member::
       :name: [``replyTo``]
@@ -455,11 +479,15 @@ MailIdentity
 
       The reply-to email address associated with this identity.
 
+   .. _identities.MailIdentity.signature:
+
    .. api-member::
       :name: [``signature``]
       :type: (string, optional)
 
       The signature of the identity.
+
+   .. _identities.MailIdentity.signatureIsPlainText:
 
    .. api-member::
       :name: [``signatureIsPlainText``]

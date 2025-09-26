@@ -26,6 +26,8 @@ Use the chrome.identity API to get OAuth2 access tokens.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`identity`
 
@@ -53,7 +55,7 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`identity.AccountInfo`
+      :type: array of :ref:`AccountInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -80,7 +82,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 
       .. api-member::
          :name: [``account``]
-         :type: (:ref:`identity.AccountInfo`, optional)
+         :type: (:ref:`AccountInfo`, optional)
 
       .. api-member::
          :name: [``interactive``]
@@ -94,7 +96,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`identity.AccountInfo`
+      :type: array of :ref:`AccountInfo`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -182,7 +184,7 @@ Starts an auth flow at the specified URL.
 
       .. api-member::
          :name: ``url``
-         :type: (:ref:`identity.HttpURL`)
+         :type: (:ref:`HttpURL`)
 
       .. api-member::
          :name: [``interactive``]
@@ -269,7 +271,7 @@ Fired when signin state changes for an account on the user's profile.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`identity.AccountInfo`)
+      :type: (:ref:`AccountInfo`)
 
    .. api-member::
       :name: ``signedIn``
@@ -296,6 +298,8 @@ An object encapsulating an OAuth account id.
 
 .. api-header::
    :label: object
+
+   .. _identity.AccountInfo.id:
 
    .. api-member::
       :name: ``id``

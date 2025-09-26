@@ -31,6 +31,8 @@ So far, only the API for search-only address books has been implemented.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`addressBooks`
 
@@ -124,7 +126,7 @@ Example:
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.provider.AddressBookNode`)
+      :type: (:ref:`AddressBookNode`)
 
    .. api-member::
       :name: [``searchString``]
@@ -155,7 +157,7 @@ Example:
 
       .. api-member::
          :name: ``results``
-         :type: (array of :ref:`addressBooks.provider.ContactProperties`)
+         :type: (array of :ref:`ContactProperties`)
          :annotation: -- [Added in TB 142]
 
 .. api-header::

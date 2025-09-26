@@ -26,6 +26,8 @@ The addressBooks API allows to access and manage the user's address books.
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`addressBooks`
 
@@ -139,7 +141,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`addressBooks.AddressBookNode`
+      :type: :ref:`AddressBookNode`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -171,7 +173,7 @@ Gets a list of the user's address books, optionally including all contacts and m
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`addressBooks.AddressBookNode`
+      :type: array of :ref:`AddressBookNode`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -260,7 +262,7 @@ Fired when an address book is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.AddressBookNode`)
+      :type: (:ref:`AddressBookNode`)
 
 .. api-header::
    :label: Required permissions
@@ -318,7 +320,7 @@ Fired when an address book is renamed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.AddressBookNode`)
+      :type: (:ref:`AddressBookNode`)
 
 .. api-header::
    :label: Required permissions
@@ -342,21 +344,29 @@ A node representing an address book.
 .. api-header::
    :label: object
 
+   .. _addressBooks.AddressBookNode.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 
+   .. _addressBooks.AddressBookNode.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
 
+   .. _addressBooks.AddressBookNode.type:
+
    .. api-member::
       :name: ``type``
-      :type: (:ref:`addressBooks.NodeType`)
+      :type: (:ref:`NodeType`)
 
       Always set to :value:`addressBook`.
+
+   .. _addressBooks.AddressBookNode.contacts:
 
    .. api-member::
       :name: [``contacts``]
@@ -364,11 +374,15 @@ A node representing an address book.
 
       A list of contacts held by this node's address book or mailing list.
 
+   .. _addressBooks.AddressBookNode.mailingLists:
+
    .. api-member::
       :name: [``mailingLists``]
       :type: (array of :ref:`mailingLists.MailingListNode`, optional)
 
       A list of mailingLists in this node's address book.
+
+   .. _addressBooks.AddressBookNode.parentId:
 
    .. api-member::
       :name: [``parentId``]
@@ -376,11 +390,15 @@ A node representing an address book.
 
       The :value:`id` of the parent object.
 
+   .. _addressBooks.AddressBookNode.readOnly:
+
    .. api-member::
       :name: [``readOnly``]
       :type: (boolean, optional)
 
       Indicates if the object is read-only.
+
+   .. _addressBooks.AddressBookNode.remote:
 
    .. api-member::
       :name: [``remote``]

@@ -37,7 +37,7 @@ Check if the extension has the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.AnyPermissions`)
+      :type: (:ref:`AnyPermissions`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -60,7 +60,7 @@ Get a list of all the extension's permissions.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`permissions.AnyPermissions`
+      :type: :ref:`AnyPermissions`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -78,7 +78,7 @@ Relinquish the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`Permissions`)
 
 .. _permissions.request:
 
@@ -110,7 +110,7 @@ Request the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`Permissions`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -147,7 +147,7 @@ Fired when the extension acquires new permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`Permissions`)
 
 .. _permissions.onRemoved:
 
@@ -171,12 +171,89 @@ Fired when permissions are removed from the extension.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`Permissions`)
 
 .. rst-class:: api-main-section
 
 Types
 =====
+
+.. _permissions.AnyPermissions:
+
+AnyPermissions
+--------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   .. _permissions.AnyPermissions.data_collection:
+
+   .. api-member::
+      :name: [``data_collection``]
+      :type: (array of :ref:`OptionalDataCollectionPermission`, optional)
+
+   .. _permissions.AnyPermissions.origins:
+
+   .. api-member::
+      :name: [``origins``]
+      :type: (array of :ref:`MatchPattern`, optional)
+
+   .. _permissions.AnyPermissions.permissions:
+
+   .. api-member::
+      :name: [``permissions``]
+      :type: (array of :ref:`Permission` or :ref:`OptionalOnlyPermission`, optional)
+
+.. _permissions.CommonDataCollectionPermission:
+
+CommonDataCollectionPermission
+------------------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`authenticationInfo`
+
+         .. api-member::
+            :name: :value:`bookmarksInfo`
+
+         .. api-member::
+            :name: :value:`browsingActivity`
+
+         .. api-member::
+            :name: :value:`financialAndPaymentInfo`
+
+         .. api-member::
+            :name: :value:`healthInfo`
+
+         .. api-member::
+            :name: :value:`locationInfo`
+
+         .. api-member::
+            :name: :value:`personalCommunications`
+
+         .. api-member::
+            :name: :value:`personallyIdentifyingInfo`
+
+         .. api-member::
+            :name: :value:`searchTerms`
+
+         .. api-member::
+            :name: :value:`websiteActivity`
+
+         .. api-member::
+            :name: :value:`websiteContent`
 
 .. _permissions.MatchPattern:
 
@@ -200,12 +277,12 @@ MatchPattern
 OR
 
 .. api-header::
-   :label: :ref:`permissions.MatchPatternRestricted`
+   :label: :ref:`MatchPatternRestricted`
 
 OR
 
 .. api-header::
-   :label: :ref:`permissions.MatchPatternUnestricted`
+   :label: :ref:`MatchPatternUnestricted`
 
 .. _permissions.OptionalDataCollectionPermission:
 
@@ -215,7 +292,7 @@ OptionalDataCollectionPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.CommonDataCollectionPermission`
+   :label: :ref:`CommonDataCollectionPermission`
 
 OR
 
@@ -255,7 +332,7 @@ OptionalPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.OptionalPermissionNoPrompt`
+   :label: :ref:`OptionalPermissionNoPrompt`
 
 OR
 
@@ -288,34 +365,147 @@ Permission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.PermissionNoPrompt`
+   :label: :ref:`PermissionNoPrompt`
 
 OR
 
 .. api-header::
-   :label: :ref:`permissions.OptionalPermission`
+   :label: :ref:`OptionalPermission`
 
-.. _permissions.AnyPermissions:
+.. _permissions.MatchPatternRestricted:
 
-AnyPermissions
---------------
+MatchPatternRestricted
+----------------------
+
+.. api-section-annotation-hack:: 
+
+Same as MatchPattern above, but excludes <all_urls>
+
+.. api-header::
+   :label: string
+
+OR
+
+.. api-header::
+   :label: string
+
+.. _permissions.MatchPatternUnestricted:
+
+MatchPatternUnestricted
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.
+
+.. api-header::
+   :label: string
+
+.. _permissions.OptionalPermission:
+
+OptionalPermission
+------------------
 
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: object
+   :label: :ref:`OptionalPermissionNoPrompt`
 
-   .. api-member::
-      :name: [``data_collection``]
-      :type: (array of :ref:`permissions.OptionalDataCollectionPermission`, optional)
+OR
 
-   .. api-member::
-      :name: [``origins``]
-      :type: (array of :ref:`permissions.MatchPattern`, optional)
+.. api-header::
+   :label: `string`
 
-   .. api-member::
-      :name: [``permissions``]
-      :type: (array of :ref:`permissions.Permission` or :ref:`permissions.OptionalOnlyPermission`, optional)
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`clipboardRead`
+
+         .. api-member::
+            :name: :value:`clipboardWrite`
+
+         .. api-member::
+            :name: :value:`geolocation`
+
+         .. api-member::
+            :name: :value:`notifications`
+
+.. _permissions.OptionalPermissionNoPrompt:
+
+OptionalPermissionNoPrompt
+--------------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`idle`
+
+.. _permissions.PermissionNoPrompt:
+
+PermissionNoPrompt
+------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: :ref:`OptionalPermissionNoPrompt`
+
+OR
+
+.. api-header::
+   :label: :ref:`PermissionPrivileged`
+
+OR
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`alarms`
+
+         .. api-member::
+            :name: :value:`storage`
+
+         .. api-member::
+            :name: :value:`unlimitedStorage`
+
+.. _permissions.PermissionPrivileged:
+
+PermissionPrivileged
+--------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`mozillaAddons`
 
 .. _permissions.Permissions:
 
@@ -327,14 +517,20 @@ Permissions
 .. api-header::
    :label: object
 
+   .. _permissions.Permissions.data_collection:
+
    .. api-member::
       :name: [``data_collection``]
-      :type: (array of :ref:`permissions.OptionalDataCollectionPermission`, optional)
+      :type: (array of :ref:`OptionalDataCollectionPermission`, optional)
+
+   .. _permissions.Permissions.origins:
 
    .. api-member::
       :name: [``origins``]
-      :type: (array of :ref:`permissions.MatchPattern`, optional)
+      :type: (array of :ref:`MatchPattern`, optional)
+
+   .. _permissions.Permissions.permissions:
 
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`permissions.OptionalPermission` or :ref:`permissions.OptionalOnlyPermission`, optional)
+      :type: (array of :ref:`OptionalPermission` or :ref:`OptionalOnlyPermission`, optional)

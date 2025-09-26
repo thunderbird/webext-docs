@@ -26,6 +26,8 @@ Use the :code:`browser.contextualIdentities` API to query and modify contextual 
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`contextualIdentities`
 
@@ -295,7 +297,7 @@ Fired when a new container is created.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`contextualIdentities.ContextualIdentity`)
+         :type: (:ref:`ContextualIdentity`)
 
          Contextual identity that has been created
 
@@ -330,7 +332,7 @@ Fired when a container is removed.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`contextualIdentities.ContextualIdentity`)
+         :type: (:ref:`ContextualIdentity`)
 
          Contextual identity that has been removed
 
@@ -365,7 +367,7 @@ Fired when a container is updated.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`contextualIdentities.ContextualIdentity`)
+         :type: (:ref:`ContextualIdentity`)
 
          Contextual identity that has been updated
 
@@ -391,11 +393,15 @@ Represents information about a contextual identity.
 .. api-header::
    :label: object
 
+   .. _contextualIdentities.ContextualIdentity.color:
+
    .. api-member::
       :name: ``color``
       :type: (string)
 
       The color name of the contextual identity.
+
+   .. _contextualIdentities.ContextualIdentity.colorCode:
 
    .. api-member::
       :name: ``colorCode``
@@ -404,11 +410,15 @@ Represents information about a contextual identity.
 
       The color hash of the contextual identity.
 
+   .. _contextualIdentities.ContextualIdentity.cookieStoreId:
+
    .. api-member::
       :name: ``cookieStoreId``
       :type: (string)
 
       The cookie store ID of the contextual identity.
+
+   .. _contextualIdentities.ContextualIdentity.icon:
 
    .. api-member::
       :name: ``icon``
@@ -416,12 +426,16 @@ Represents information about a contextual identity.
 
       The icon name of the contextual identity.
 
+   .. _contextualIdentities.ContextualIdentity.iconUrl:
+
    .. api-member::
       :name: ``iconUrl``
       :type: (string)
       :annotation: -- [Added in TB 57]
 
       The icon url of the contextual identity.
+
+   .. _contextualIdentities.ContextualIdentity.name:
 
    .. api-member::
       :name: ``name``

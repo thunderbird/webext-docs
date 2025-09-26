@@ -2,6 +2,7 @@
 
   ≡ windows API
 
+  * `Permissions`_
   * `Functions`_
   * `Events`_
   * `Types`_
@@ -24,6 +25,24 @@ The windows API supports creating, modifying and interacting with Thunderbird wi
 .. note::
 
    This API can be used with Thunderbird's main window and popup windows, both of which support web tabs, as well as with other window types like the composer window, which does not. Ensure your code handles each window type appropriately based on its capabilities.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
+.. api-member::
+   :name: :permission:`contextualIdentities`
+
+.. api-member::
+   :name: :permission:`cookies`
+
+.. api-member::
+   :name: :permission:`tabs`
+
+   Access browser tabs
 
 .. rst-class:: api-main-section
 
@@ -109,7 +128,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`windows.WindowState`, optional)
+         :type: (:ref:`WindowState`, optional)
 
          The initial state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
 
@@ -133,7 +152,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`windows.CreateType`, optional)
+         :type: (:ref:`CreateType`, optional)
 
          Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
 
@@ -153,7 +172,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`windows.Window`
+      :type: :ref:`Window`
 
       Contains details about the created window.
 
@@ -177,13 +196,13 @@ Gets details about a window.
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
+      :type: (:ref:`GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`windows.Window`
+      :type: :ref:`Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -201,13 +220,13 @@ Gets all windows.
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
+      :type: (:ref:`GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`windows.Window`
+      :type: array of :ref:`Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -225,13 +244,13 @@ Gets the active or topmost window.
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
+      :type: (:ref:`GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`windows.Window`
+      :type: :ref:`Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -249,13 +268,13 @@ Gets the window that was most recently focused — typically the window 'on top'
 
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
+      :type: (:ref:`GetInfo`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`windows.Window`
+      :type: :ref:`Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -337,7 +356,7 @@ Updates the properties of a window. Specify only the properties that you want to
 
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`windows.WindowState`, optional)
+         :type: (:ref:`WindowState`, optional)
 
          The new state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
 
@@ -363,7 +382,7 @@ Updates the properties of a window. Specify only the properties that you want to
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`windows.Window`
+      :type: :ref:`Window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -394,7 +413,7 @@ Fired when a window is created.
 
    .. api-member::
       :name: ``window``
-      :type: (:ref:`windows.Window`)
+      :type: (:ref:`Window`)
 
       Details of the window that was created.
 
@@ -509,15 +528,19 @@ Specifies additional requirements for the returned windows.
 .. api-header::
    :label: object
 
+   .. _windows.GetInfo.populate:
+
    .. api-member::
       :name: [``populate``]
       :type: (boolean, optional)
 
       If true, the :ref:`windows.Window` returned will have a :value:`tabs` property that contains an array of :ref:`tabs.Tab` objects representing the tabs inside the window. The :ref:`tabs.Tab` objects only contain the :value:`url`, :value:`title` and :value:`favIconUrl` properties if the extension's manifest file includes the :permission:`tabs` permission.
 
+   .. _windows.GetInfo.windowTypes:
+
    .. api-member::
       :name: [``windowTypes``]
-      :type: (array of :ref:`windows.WindowType`, optional)
+      :type: (array of :ref:`WindowType`, optional)
 
       If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions.
 
@@ -531,11 +554,15 @@ Window
 .. api-header::
    :label: object
 
+   .. _windows.Window.alwaysOnTop:
+
    .. api-member::
       :name: ``alwaysOnTop``
       :type: (boolean)
 
       Whether the window is set to be always on top.
+
+   .. _windows.Window.focused:
 
    .. api-member::
       :name: ``focused``
@@ -543,11 +570,15 @@ Window
 
       Whether the window is currently the focused window.
 
+   .. _windows.Window.incognito:
+
    .. api-member::
       :name: ``incognito``
       :type: (boolean)
 
       Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always :value:`false`.
+
+   .. _windows.Window.height:
 
    .. api-member::
       :name: [``height``]
@@ -555,11 +586,15 @@ Window
 
       The height of the window, including the frame, in pixels.
 
+   .. _windows.Window.id:
+
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
 
       The ID of the window. Window IDs are unique within a session.
+
+   .. _windows.Window.left:
 
    .. api-member::
       :name: [``left``]
@@ -567,11 +602,15 @@ Window
 
       The offset of the window from the left edge of the screen in pixels.
 
+   .. _windows.Window.state:
+
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`windows.WindowState`, optional)
+      :type: (:ref:`WindowState`, optional)
 
       The state of this window.
+
+   .. _windows.Window.tabs:
 
    .. api-member::
       :name: [``tabs``]
@@ -579,11 +618,15 @@ Window
 
       Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused`, and the optional :ref:`windows.GetInfo` parameter has its :value:`populate` member set to :value:`true`.
 
+   .. _windows.Window.title:
+
    .. api-member::
       :name: [``title``]
       :type: (string, optional)
 
       The title of the window. Read-only.
+
+   .. _windows.Window.top:
 
    .. api-member::
       :name: [``top``]
@@ -591,11 +634,15 @@ Window
 
       The offset of the window from the top edge of the screen in pixels.
 
+   .. _windows.Window.type:
+
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`windows.WindowType`, optional)
+      :type: (:ref:`WindowType`, optional)
 
       The type of window this is.
+
+   .. _windows.Window.width:
 
    .. api-member::
       :name: [``width``]

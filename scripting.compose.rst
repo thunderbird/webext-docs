@@ -23,6 +23,8 @@ scripting.compose API
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`compose`
 
@@ -53,7 +55,7 @@ Returns all registered compose scripts for this extension that match the given f
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.compose.ComposeScriptFilter`, optional)
+      :type: (:ref:`ComposeScriptFilter`, optional)
 
       An object to filter the extension's registered compose scripts.
 
@@ -61,7 +63,7 @@ Returns all registered compose scripts for this extension that match the given f
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`scripting.compose.ComposeScriptDetails`
+      :type: array of :ref:`ComposeScriptDetails`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -88,7 +90,7 @@ Registers one or more compose scripts for this extension, which should be inject
 
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`scripting.compose.ComposeScriptDetails`)
+      :type: (array of :ref:`ComposeScriptDetails`)
 
       Contains a list of compose scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
 
@@ -111,7 +113,7 @@ Unregisters one or more compose scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.compose.ComposeScriptFilter`, optional)
+      :type: (:ref:`ComposeScriptFilter`, optional)
 
       If specified, only unregisters compose scripts which match the filter. Otherwise, all of the extension's compose scripts are unregistered.
 
@@ -124,6 +126,66 @@ Unregisters one or more compose scripts for this extension.
 
 Types
 =====
+
+.. _scripting.compose.ComposeScriptDetails:
+
+ComposeScriptDetails
+--------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+.. api-header::
+   :label: object
+
+   .. _scripting.compose.ComposeScriptDetails.id:
+
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+
+      The id of the compose script, specified in the API call.
+
+   .. _scripting.compose.ComposeScriptDetails.css:
+
+   .. api-member::
+      :name: [``css``]
+      :type: (array of :ref:`ExtensionURL`, optional)
+
+      The list of CSS files to be injected. These are injected in the order they appear in this array.
+
+   .. _scripting.compose.ComposeScriptDetails.js:
+
+   .. api-member::
+      :name: [``js``]
+      :type: (array of :ref:`ExtensionURL`, optional)
+
+      The list of JavaScript files to be injected. These are injected in the order they appear in this array.
+
+   .. _scripting.compose.ComposeScriptDetails.runAt:
+
+   .. api-member::
+      :name: [``runAt``]
+      :type: (:ref:`RunAt`, optional)
+
+      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
+
+.. _scripting.compose.ComposeScriptFilter:
+
+ComposeScriptFilter
+-------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+.. api-header::
+   :label: object
+
+   .. _scripting.compose.ComposeScriptFilter.ids:
+
+   .. api-member::
+      :name: [``ids``]
+      :type: (array of string, optional)
+
+      The IDs of specific compose scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
 
 .. _scripting.compose.RunAt:
 
@@ -163,53 +225,3 @@ A path relative to the root of the extension.
 
 .. api-header::
    :label: string
-
-.. _scripting.compose.ComposeScriptDetails:
-
-ComposeScriptDetails
---------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 128]
-
-.. api-header::
-   :label: object
-
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-
-      The id of the compose script, specified in the API call.
-
-   .. api-member::
-      :name: [``css``]
-      :type: (array of :ref:`scripting.compose.ExtensionURL`, optional)
-
-      The list of CSS files to be injected. These are injected in the order they appear in this array.
-
-   .. api-member::
-      :name: [``js``]
-      :type: (array of :ref:`scripting.compose.ExtensionURL`, optional)
-
-      The list of JavaScript files to be injected. These are injected in the order they appear in this array.
-
-   .. api-member::
-      :name: [``runAt``]
-      :type: (:ref:`scripting.compose.RunAt`, optional)
-
-      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
-
-.. _scripting.compose.ComposeScriptFilter:
-
-ComposeScriptFilter
--------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 128]
-
-.. api-header::
-   :label: object
-
-   .. api-member::
-      :name: [``ids``]
-      :type: (array of string, optional)
-
-      The IDs of specific compose scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.

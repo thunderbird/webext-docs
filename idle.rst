@@ -26,6 +26,8 @@ Use the :code:`browser.idle` API to detect when the machine's idle state changes
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`idle`
 
@@ -66,7 +68,7 @@ Returns "idle" if the user has not generated any input for a specified number of
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`idle.IdleState`
+      :type: :ref:`IdleState`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -125,7 +127,7 @@ Fired when the system changes to an active or idle state. The event fires with "
 
    .. api-member::
       :name: ``newState``
-      :type: (:ref:`idle.IdleState`)
+      :type: (:ref:`IdleState`)
 
 .. api-header::
    :label: Required permissions

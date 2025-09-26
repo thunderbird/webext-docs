@@ -26,6 +26,8 @@ Use the :code:`browser.cookies` API to query and modify cookies, and to be notif
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`cookies`
 
@@ -86,7 +88,7 @@ Retrieves information about a single cookie. If more than one cookie of the same
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`cookies.PartitionKey`, optional)
+         :type: (:ref:`PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, only non-partitioned cookies are returned.
 
@@ -100,7 +102,7 @@ Retrieves information about a single cookie. If more than one cookie of the same
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`cookies.Cookie`
+      :type: :ref:`Cookie`
 
       Contains details about the cookie. This parameter is null if no such cookie was found.
 
@@ -157,7 +159,7 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`cookies.PartitionKey`, optional)
+         :type: (:ref:`PartitionKey`, optional)
 
          Selects a specific storage partition to look up cookies. Defaults to null, in which case only non-partitioned cookies are retrieved. If an object iis passed, partitioned cookies are also included, and filtered based on the keys present in the given PartitionKey description. An empty object ({}) returns all cookies (partitioned + unpartitioned), a non-empty object (e.g. {topLevelSite: '...'}) only returns cookies whose partition match all given attributes.
 
@@ -195,7 +197,7 @@ Retrieves all cookies from a single cookie store that match the given informatio
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`cookies.Cookie`
+      :type: array of :ref:`Cookie`
 
       All the existing, unexpired cookies that match the given cookie info.
 
@@ -223,7 +225,7 @@ Lists all existing cookie stores.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`cookies.CookieStore`
+      :type: array of :ref:`CookieStore`
 
       All the existing cookie stores.
 
@@ -280,7 +282,7 @@ Deletes a cookie by name.
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`cookies.PartitionKey`, optional)
+         :type: (:ref:`PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
@@ -324,7 +326,7 @@ Deletes a cookie by name.
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`cookies.PartitionKey`, optional)
+         :type: (:ref:`PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. null if not partitioned.
 
@@ -399,7 +401,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
       .. api-member::
          :name: [``partitionKey``]
-         :type: (:ref:`cookies.PartitionKey`, optional)
+         :type: (:ref:`PartitionKey`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
@@ -411,7 +413,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
       .. api-member::
          :name: [``sameSite``]
-         :type: (:ref:`cookies.SameSiteStatus`, optional)
+         :type: (:ref:`SameSiteStatus`, optional)
 
          The cookie's same-site status.
 
@@ -437,7 +439,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`cookies.Cookie`
+      :type: :ref:`Cookie`
 
       Contains details about the cookie that's been set.  If setting failed for any reason, this will be "null", and :ref:`runtime.lastError` will be set.
 
@@ -479,13 +481,13 @@ Fired when a cookie is set or removed. As a special case, note that updating a c
 
       .. api-member::
          :name: ``cause``
-         :type: (:ref:`cookies.OnChangedCause`)
+         :type: (:ref:`OnChangedCause`)
 
          The underlying reason behind the cookie's change.
 
       .. api-member::
          :name: ``cookie``
-         :type: (:ref:`cookies.Cookie`)
+         :type: (:ref:`Cookie`)
 
          Information about the cookie that was set or removed.
 
@@ -517,11 +519,15 @@ Represents information about an HTTP cookie.
 .. api-header::
    :label: object
 
+   .. _cookies.Cookie.domain:
+
    .. api-member::
       :name: ``domain``
       :type: (string)
 
       The domain of the cookie (e.g. "www.google.com", "example.com").
+
+   .. _cookies.Cookie.firstPartyDomain:
 
    .. api-member::
       :name: ``firstPartyDomain``
@@ -530,11 +536,15 @@ Represents information about an HTTP cookie.
 
       The first-party domain of the cookie.
 
+   .. _cookies.Cookie.hostOnly:
+
    .. api-member::
       :name: ``hostOnly``
       :type: (boolean)
 
       True if the cookie is a host-only cookie (i.e. a request's host must exactly match the domain of the cookie).
+
+   .. _cookies.Cookie.httpOnly:
 
    .. api-member::
       :name: ``httpOnly``
@@ -542,11 +552,15 @@ Represents information about an HTTP cookie.
 
       True if the cookie is marked as HttpOnly (i.e. the cookie is inaccessible to client-side scripts).
 
+   .. _cookies.Cookie.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
 
       The name of the cookie.
+
+   .. _cookies.Cookie.path:
 
    .. api-member::
       :name: ``path``
@@ -554,12 +568,16 @@ Represents information about an HTTP cookie.
 
       The path of the cookie.
 
+   .. _cookies.Cookie.sameSite:
+
    .. api-member::
       :name: ``sameSite``
-      :type: (:ref:`cookies.SameSiteStatus`)
+      :type: (:ref:`SameSiteStatus`)
       :annotation: -- [Added in TB 63]
 
       The cookie's same-site status (i.e. whether the cookie is sent with cross-site requests).
+
+   .. _cookies.Cookie.secure:
 
    .. api-member::
       :name: ``secure``
@@ -567,11 +585,15 @@ Represents information about an HTTP cookie.
 
       True if the cookie is marked as Secure (i.e. its scope is limited to secure channels, typically HTTPS).
 
+   .. _cookies.Cookie.session:
+
    .. api-member::
       :name: ``session``
       :type: (boolean)
 
       True if the cookie is a session cookie, as opposed to a persistent cookie with an expiration date.
+
+   .. _cookies.Cookie.storeId:
 
    .. api-member::
       :name: ``storeId``
@@ -579,11 +601,15 @@ Represents information about an HTTP cookie.
 
       The ID of the cookie store containing this cookie, as provided in getAllCookieStores().
 
+   .. _cookies.Cookie.value:
+
    .. api-member::
       :name: ``value``
       :type: (string)
 
       The value of the cookie.
+
+   .. _cookies.Cookie.expirationDate:
 
    .. api-member::
       :name: [``expirationDate``]
@@ -591,9 +617,11 @@ Represents information about an HTTP cookie.
 
       The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
 
+   .. _cookies.Cookie.partitionKey:
+
    .. api-member::
       :name: [``partitionKey``]
-      :type: (:ref:`cookies.PartitionKey`, optional)
+      :type: (:ref:`PartitionKey`, optional)
       :annotation: -- [Added in TB 94]
 
       The cookie's storage partition, if any. null if not partitioned.
@@ -610,11 +638,15 @@ Represents a cookie store in the browser. An incognito mode window, for instance
 .. api-header::
    :label: object
 
+   .. _cookies.CookieStore.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
 
       The unique identifier for the cookie store.
+
+   .. _cookies.CookieStore.incognito:
 
    .. api-member::
       :name: ``incognito``
@@ -622,6 +654,8 @@ Represents a cookie store in the browser. An incognito mode window, for instance
       :annotation: -- [Added in TB 52]
 
       Indicates if this is an incognito cookie store
+
+   .. _cookies.CookieStore.tabIds:
 
    .. api-member::
       :name: ``tabIds``
@@ -675,11 +709,15 @@ The description of the storage partition of a cookie. This object may be omitted
 .. api-header::
    :label: object
 
+   .. _cookies.PartitionKey.hasCrossSiteAncestor:
+
    .. api-member::
       :name: [``hasCrossSiteAncestor``]
       :type: (boolean, optional)
 
       Whether or not the cookie is in a third-party context, respecting ancestor chains.
+
+   .. _cookies.PartitionKey.topLevelSite:
 
    .. api-member::
       :name: [``topLevelSite``]

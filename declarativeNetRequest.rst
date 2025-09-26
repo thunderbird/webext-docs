@@ -41,18 +41,20 @@ Manifest file properties
 Permissions
 ===========
 
+The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+
 .. api-member::
    :name: :permission:`declarativeNetRequest`
 
    Block content on any page
 
 .. api-member::
-   :name: :permission:`declarativeNetRequestWithHostAccess`
-
-.. api-member::
    :name: :permission:`declarativeNetRequestFeedback`
 
    Read your browsing history
+
+.. api-member::
+   :name: :permission:`declarativeNetRequestWithHostAccess`
 
 .. rst-class:: api-permission-info
 
@@ -136,7 +138,7 @@ Returns the current set of dynamic rules for the extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
+      :type: (:ref:`GetRulesFilter`, optional)
       :annotation: -- [Added in TB 127]
 
       An object to filter the set of dynamic rules for the extension.
@@ -145,7 +147,7 @@ Returns the current set of dynamic rules for the extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`declarativeNetRequest.Rule`
+      :type: array of :ref:`Rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -192,7 +194,7 @@ Returns the current set of session scoped rules for the extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
+      :type: (:ref:`GetRulesFilter`, optional)
       :annotation: -- [Added in TB 127]
 
       An object to filter the set of session scoped rules for the extension.
@@ -201,7 +203,7 @@ Returns the current set of session scoped rules for the extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`declarativeNetRequest.Rule`
+      :type: array of :ref:`Rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -259,7 +261,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
 
       .. api-member::
          :name: [``reason``]
-         :type: (:ref:`declarativeNetRequest.UnsupportedRegexReason`, optional)
+         :type: (:ref:`UnsupportedRegexReason`, optional)
 
          Specifies the reason why the regular expression is not supported. Only provided if 'isSupported' is false.
 
@@ -291,7 +293,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`declarativeNetRequest.ResourceType`)
+         :type: (:ref:`ResourceType`)
 
          The resource type of the hypothetical request.
 
@@ -337,7 +339,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
       .. api-member::
          :name: ``matchedRules``
-         :type: (array of :ref:`declarativeNetRequest.MatchedRule`)
+         :type: (array of :ref:`MatchedRule`)
 
          The rules (if any) that match the hypothetical request.
 
@@ -368,7 +370,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
 
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
+         :type: (array of :ref:`Rule`, optional)
 
          Rules to add.
 
@@ -432,7 +434,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
 
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
+         :type: (array of :ref:`Rule`, optional)
 
          Rules to add.
 
@@ -497,6 +499,8 @@ GetRulesFilter
 .. api-header::
    :label: object
 
+   .. _declarativeNetRequest.GetRulesFilter.ruleIds:
+
    .. api-member::
       :name: [``ruleIds``]
       :type: (array of integer, optional)
@@ -513,17 +517,23 @@ MatchedRule
 .. api-header::
    :label: object
 
+   .. _declarativeNetRequest.MatchedRule.ruleId:
+
    .. api-member::
       :name: ``ruleId``
       :type: (integer)
 
       A matching rule's ID.
 
+   .. _declarativeNetRequest.MatchedRule.rulesetId:
+
    .. api-member::
       :name: ``rulesetId``
       :type: (string)
 
       ID of the Ruleset this rule belongs to.
+
+   .. _declarativeNetRequest.MatchedRule.extensionId:
 
    .. api-member::
       :name: [``extensionId``]
@@ -627,6 +637,8 @@ Rule
 .. api-header::
    :label: object
 
+   .. _declarativeNetRequest.Rule.action:
+
    .. api-member::
       :name: ``action``
       :type: (object)
@@ -677,7 +689,7 @@ Rule
 
          .. api-member::
             :name: [``transform``]
-            :type: (:ref:`declarativeNetRequest.URLTransform`, optional)
+            :type: (:ref:`URLTransform`, optional)
 
             Url transformations to perform.
 
@@ -698,6 +710,8 @@ Rule
          :type: (array of object, optional)
 
          The response headers to modify for the request. Only valid when type is 'modifyHeaders'.
+
+   .. _declarativeNetRequest.Rule.condition:
 
    .. api-member::
       :name: ``condition``
@@ -739,7 +753,7 @@ Rule
 
       .. api-member::
          :name: [``excludedResourceTypes``]
-         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
+         :type: (array of :ref:`ResourceType`, optional)
 
          List of resource types which the rule won't match. Cannot be specified if 'resourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
 
@@ -781,7 +795,7 @@ Rule
 
       .. api-member::
          :name: [``resourceTypes``]
-         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
+         :type: (array of :ref:`ResourceType`, optional)
 
          List of resource types which the rule can match. When the rule action is 'allowAllRequests', this must be specified and may only contain 'main_frame' or 'sub_frame'. Cannot be specified if 'excludedResourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
 
@@ -797,11 +811,15 @@ Rule
 
          TODO: link to doc explaining supported pattern. The pattern which is matched against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.
 
+   .. _declarativeNetRequest.Rule.id:
+
    .. api-member::
       :name: ``id``
       :type: (integer)
 
       An id which uniquely identifies a rule. Mandatory and should be >= 1.
+
+   .. _declarativeNetRequest.Rule.priority:
 
    .. api-member::
       :name: [``priority``]
@@ -845,11 +863,15 @@ Describes the type of the Rule.action.redirect.transform property.
 .. api-header::
    :label: object
 
+   .. _declarativeNetRequest.URLTransform.fragment:
+
    .. api-member::
       :name: [``fragment``]
       :type: (string, optional)
 
       The new fragment for the request. Should be either empty, in which case the existing fragment is cleared; or should begin with '#'.
+
+   .. _declarativeNetRequest.URLTransform.host:
 
    .. api-member::
       :name: [``host``]
@@ -857,11 +879,15 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new host name for the request.
 
+   .. _declarativeNetRequest.URLTransform.password:
+
    .. api-member::
       :name: [``password``]
       :type: (string, optional)
 
       The new password for the request.
+
+   .. _declarativeNetRequest.URLTransform.path:
 
    .. api-member::
       :name: [``path``]
@@ -869,17 +895,23 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new path for the request. If empty, the existing path is cleared.
 
+   .. _declarativeNetRequest.URLTransform.port:
+
    .. api-member::
       :name: [``port``]
       :type: (string, optional)
 
       The new port for the request. If empty, the existing port is cleared.
 
+   .. _declarativeNetRequest.URLTransform.query:
+
    .. api-member::
       :name: [``query``]
       :type: (string, optional)
 
       The new query for the request. Should be either empty, in which case the existing query is cleared; or should begin with '?'. Cannot be specified if 'queryTransform' is specified.
+
+   .. _declarativeNetRequest.URLTransform.queryTransform:
 
    .. api-member::
       :name: [``queryTransform``]
@@ -899,6 +931,8 @@ Describes the type of the Rule.action.redirect.transform property.
 
          The list of query keys to be removed.
 
+   .. _declarativeNetRequest.URLTransform.scheme:
+
    .. api-member::
       :name: [``scheme``]
       :type: (`string`, optional)
@@ -915,6 +949,8 @@ Describes the type of the Rule.action.redirect.transform property.
 
       .. api-member::
          :name: :value:`moz-extension`
+
+   .. _declarativeNetRequest.URLTransform.username:
 
    .. api-member::
       :name: [``username``]

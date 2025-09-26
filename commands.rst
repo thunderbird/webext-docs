@@ -32,6 +32,7 @@ Manifest file properties
 .. api-member::
    :name: [``commands``]
    :type: (object, optional)
+   :annotation: -- [Added in TB 66]
 
    A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`CommandsShortcut`.
 
@@ -92,7 +93,7 @@ Returns all the registered extension commands for this extension and their short
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`commands.Command`
+      :type: array of :ref:`Command`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -252,17 +253,23 @@ Command
 .. api-header::
    :label: object
 
+   .. _commands.Command.description:
+
    .. api-member::
       :name: [``description``]
       :type: (string, optional)
 
       The description of the Extension Command
 
+   .. _commands.Command.name:
+
    .. api-member::
       :name: [``name``]
       :type: (string, optional)
 
       The name of the Extension Command
+
+   .. _commands.Command.shortcut:
 
    .. api-member::
       :name: [``shortcut``]
