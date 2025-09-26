@@ -897,7 +897,7 @@ TransitionType
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Cause of the navigation. The same transition types as defined in the history API are used. These are the same transition types as defined in the $(topic:transition_types)[history API] except with :code:`"start_page"` in place of :code:`"auto_toplevel"` (for backwards compatibility).
+Cause of the navigation. The same transition types as defined in the history API are used. These are the same transition types as defined in the history API except with :code:`"start_page"` in place of :code:`"auto_toplevel"` (for backwards compatibility).
 
 .. api-header::
    :label: `string`

@@ -119,7 +119,7 @@ Gets the localized string for the specified message. If the message is missing, 
       :name: ``messageName``
       :type: (string)
 
-      The name of the message, as specified in the :code:`$(topic:i18n-messages)[messages.json]` file.
+      The name of the message, as specified in the :code:`messages.json` file.
 
    .. api-member::
       :name: [``substitutions``]

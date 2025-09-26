@@ -49,7 +49,7 @@ connect([extensionId], [connectInfo])
 
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
-Attempts to connect to connect listeners within an extension/app (such as the background page), or other extensions/apps. This is useful for content scripts connecting to their extension processes, inter-app/extension communication, and $(topic:manifest/externally_connectable)[web messaging]. Note that this does not connect to any listeners in a content script. Extensions may connect to content scripts embedded in tabs via :ref:`tabs.connect`.
+Attempts to connect to connect listeners within an extension/app (such as the background page), or other extensions/apps. This is useful for content scripts connecting to their extension processes, inter-app/extension communication, and web messaging. Note that this does not connect to any listeners in a content script. Extensions may connect to content scripts embedded in tabs via :ref:`tabs.connect`.
 
 .. api-header::
    :label: Parameters
@@ -58,7 +58,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
       :name: [``extensionId``]
       :type: (string, optional)
 
-      The ID of the extension or app to connect to. If omitted, a connection will be attempted with your own extension. Required if sending messages from a web page for $(topic:manifest/externally_connectable)[web messaging].
+      The ID of the extension or app to connect to. If omitted, a connection will be attempted with your own extension. Required if sending messages from a web page for web messaging.
 
    .. api-member::
       :name: [``connectInfo``]
@@ -222,7 +222,7 @@ getManifest()
 
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
-Returns details about the app or extension from the manifest. The object returned is a serialization of the full $(topic:manifest)[manifest file].
+Returns details about the app or extension from the manifest. The object returned is a serialization of the full manifest file.
 
 .. note::
 
@@ -290,7 +290,7 @@ openOptionsPage()
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`$(topic:optionsV2)[options_ui]` or :code:`$(topic:options)[options_page]` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`lastError`.
+Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`options_ui` or :code:`options_page` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`lastError`.
 
 .. _runtime.reload:
 
@@ -326,7 +326,7 @@ Sends a single message to event listeners within your extension/app or a differe
       :name: [``extensionId``]
       :type: (string, optional)
 
-      The ID of the extension/app to send the message to. If omitted, the message will be sent to your own extension/app. Required if sending messages from a web page for $(topic:manifest/externally_connectable)[web messaging].
+      The ID of the extension/app to send the message to. If omitted, the message will be sent to your own extension/app. Required if sending messages from a web page for web messaging.
 
    .. api-member::
       :name: ``message``
@@ -1042,7 +1042,7 @@ An object containing information about the script context that sent a message or
       :name: [``frameId``]
       :type: (integer, optional)
 
-      The $(topic:frame_ids)[frame] that opened the connection. 0 for top-level frames, positive for child frames. This will only be set when :code:`tab` is set.
+      The frame that opened the connection. 0 for top-level frames, positive for child frames. This will only be set when :code:`tab` is set.
 
    .. api-member::
       :name: [``id``]
