@@ -612,7 +612,7 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
 
             .. note::
 
-               The "json" property is supported from Firefox 135, but requests of this type are only available from Firefox 138.
+               The "json" property is supported from Thunderbird 135, but requests of this type are only available from Thunderbird 138.
 
          .. api-member::
             :name: :value:`other`
@@ -673,7 +673,7 @@ Rule
             :name: [``regexSubstitution``]
             :type: (string, optional)
 
-            Substitution pattern for rules which specify a 'regexFilter'. The first match of regexFilter within the url will be replaced with this pattern. Within regexSubstitution, backslash-escaped digits (\1 to \9) can be used to insert the corresponding capture groups. \0 refers to the entire matching text.
+            Substitution pattern for rules which specify a 'regexFilter'. The first match of regexFilter within the url will be replaced with this pattern. Within regexSubstitution, backslash-escaped digits (\\1 to \\9) can be used to insert the corresponding capture groups. \\0 refers to the entire matching text.
 
          .. api-member::
             :name: [``transform``]
@@ -962,6 +962,10 @@ MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 .. api-section-annotation-hack:: 
 
 Deprecated property returning the maximum number of dynamic and session rules an extension can add, replaced by MAX_NUMBER_OF_DYNAMIC_RULES/MAX_NUMBER_OF_SESSION_RULES.
+
+.. note::
+
+   Deprecated in Thunderbird 128. Use :code:`MAX_NUMBER_OF_DYNAMIC_RULES` and :code:`MAX_NUMBER_OF_SESSION_RULES` instead.
 
 .. _declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES:
 

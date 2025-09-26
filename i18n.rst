@@ -110,7 +110,7 @@ Gets the localized string for the specified message. If the message is missing, 
 
 .. note::
 
-   Firefox 47 and earlier returns "??" instead of "" if the message is not found in _locales, `bug 1258199 <https://bugzil.la/1258199>`__ changed this act to match Chrome, landed on Firefox 48.
+   Thunderbird 47 and earlier returns "??" instead of "" if the message is not found in _locales, `bug 1258199 <https://bugzil.la/1258199>`__ changed this act to match Chrome, landed on Thunderbird 48.
 
 .. api-header::
    :label: Parameters
@@ -167,7 +167,7 @@ Gets the browser UI language of the browser. This is different from :ref:`i18n.g
 
 .. note::
 
-   Firefox 55 and earlier returns a language tag that's separated with the underscore character instead of hyphen, see `bug 1374552 <https://bugzil.la/1374552>`__.
+   Thunderbird 55 and earlier returns a language tag that's separated with the underscore character instead of hyphen, see `bug 1374552 <https://bugzil.la/1374552>`__.
 
 .. api-header::
    :label: Return type (`Promise`_)

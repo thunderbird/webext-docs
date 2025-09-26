@@ -490,11 +490,11 @@ RegisteredContentScript
 
       .. note::
 
-         Since Firefox 105, this option is optional and accepts any boolean value.
+         Since Thunderbird 105, this option is optional and accepts any boolean value.
 
       .. note::
 
-         Prior to Firefox 105, this option was required and only accepted the :code:`false` value.
+         Prior to Thunderbird 105, this option was required and only accepted the :code:`false` value.
 
    .. api-member::
       :name: [``runAt``]

@@ -186,7 +186,7 @@ Fired when a navigation is about to occur.
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. api-header::
    :label: Parameters for onBeforeNavigate.addListener(listener, filters)
@@ -263,7 +263,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. api-header::
    :label: Parameters for onCommitted.addListener(listener, filters)
@@ -346,7 +346,7 @@ Fired when a document, including the resources it refers to, is completely loade
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. api-header::
    :label: Parameters for onCompleted.addListener(listener, filters)
@@ -413,7 +413,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. note::
 
@@ -496,7 +496,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. api-header::
    :label: Parameters for onDOMContentLoaded.addListener(listener, filters)
@@ -567,7 +567,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. api-header::
    :label: Parameters for onErrorOccurred.addListener(listener, filters)
@@ -719,7 +719,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
 .. note::
 
-   If the filter parameter is empty, Firefox raises an exception.
+   If the filter parameter is empty, Thunderbird raises an exception.
 
 .. api-header::
    :label: Parameters for onReferenceFragmentUpdated.addListener(listener, filters)

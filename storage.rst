@@ -90,6 +90,10 @@ local
 
 Items in the :code:`local` storage area are local to each machine.
 
+.. note::
+
+   The storage API is supported in content scripts from version 48.
+
 .. _storage.managed:
 
 managed
@@ -98,6 +102,18 @@ managed
 .. api-section-annotation-hack:: 
 
 Items in the :code:`managed` storage area are set by administrators or native applications, and are read-only for the extension; trying to modify this namespace results in an error.
+
+.. note::
+
+   Platform-specific storage backends, such as Windows registry keys, are not supported.
+
+.. note::
+
+   Enforcement of extension-provided storage schemas is not supported.
+
+.. note::
+
+   The :code:`onChanged` event is not supported.
 
 .. _storage.session:
 
@@ -116,3 +132,7 @@ sync
 .. api-section-annotation-hack:: 
 
 Items in the :code:`sync` storage area are synced by the browser.
+
+.. note::
+
+   Before version 79, storage quota limits are not enforced.

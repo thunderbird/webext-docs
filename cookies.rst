@@ -55,7 +55,7 @@ Retrieves information about a single cookie. If more than one cookie of the same
 
 .. note::
 
-   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
+   From Thunderbird 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned; previously, the earliest created cookie was returned.
 
 .. api-header::
    :label: Parameters
@@ -126,7 +126,7 @@ Retrieves all cookies from a single cookie store that match the given informatio
 
 .. note::
 
-   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
+   From Thunderbird 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is returned first: previously, the earliest created cookie was returned first.
 
 .. api-header::
    :label: Parameters
@@ -249,7 +249,7 @@ Deletes a cookie by name.
 
 .. note::
 
-   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
+   From Thunderbird 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie with the longest matching path is deleted: previously, the earliest created cookie was deleted.
 
 .. api-header::
    :label: Parameters
@@ -350,7 +350,7 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 
 .. note::
 
-   From Firefox 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
+   From Thunderbird 133, sorts cookies according to `RFC 6265, section 5.4 <https://datatracker.ietf.org/doc/html/rfc6265#section-5.4>`__. This means the cookie returned by the promise is the one with the longest matching path: previously, the earliest created cookie was returned.
 
 .. api-header::
    :label: Parameters

@@ -487,11 +487,11 @@ Options that determine exactly what data will be removed.
 
       .. note::
 
-         From Firefox 56 supports the specification of hostnames for the deletion of cookies and local storage items.
+         From Thunderbird 56 supports the specification of hostnames for the deletion of cookies and local storage items.
 
       .. note::
 
-         From Firefox 77 also supports the specification of hostnames for the deletion of service worker and indexedDB items.
+         From Thunderbird 77 also supports the specification of hostnames for the deletion of service worker and indexedDB items.
 
    .. api-member::
       :name: [``originTypes``]

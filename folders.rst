@@ -1309,7 +1309,7 @@ RegularExpression
       :name: ``regexp``
       :type: (string)
 
-      A regular expression, for example :value:`^Projects \d{4}$`.
+      A regular expression, for example :value:`^Projects \\d{4}$`.
 
    .. api-member::
       :name: [``flags``]

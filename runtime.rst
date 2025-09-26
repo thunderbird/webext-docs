@@ -290,7 +290,7 @@ openOptionsPage()
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-<p>Open your Extension's options page, if possible.</p><p>The precise behavior may depend on your manifest's :code:`$(topic:optionsV2)[options_ui]` or :code:`$(topic:options)[options_page]` key, or what the browser happens to support at the time.</p><p>If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`lastError`.</p>
+Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`$(topic:optionsV2)[options_ui]` or :code:`$(topic:options)[options_page]` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`lastError`.
 
 .. _runtime.reload:
 
@@ -680,7 +680,7 @@ Sent to the event page just before it is unloaded. This gives the extension oppo
 
 .. note::
 
-   This event does not fire until Firefox 106, when event pages are available.
+   This event does not fire until Thunderbird 106, when event pages are available.
 
 .. api-header::
    :label: Parameters for onSuspend.addListener(listener)
@@ -701,7 +701,7 @@ Sent after onSuspend to indicate that the app won't be unloaded after all.
 
 .. note::
 
-   This event does not fire until Firefox 106, when event pages are available.
+   This event does not fire until Thunderbird 106, when event pages are available.
 
 .. api-header::
    :label: Parameters for onSuspendCanceled.addListener(listener)
@@ -864,7 +864,7 @@ An object containing information about the current browser.
       :name: ``name``
       :type: (string)
 
-      The name of the browser, for example 'Firefox'.
+      The name of the browser, for example 'Thunderbird'.
 
    .. api-member::
       :name: ``vendor``

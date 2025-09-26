@@ -150,7 +150,7 @@ Download a URL. If the URL uses the HTTP[S] protocol, then the request will incl
          :name: [``saveAs``]
          :type: (boolean, optional)
 
-         Use a file-chooser to allow the user to select a filename. If the option is not specified, the file chooser will be shown only if the Firefox "Always ask you where to save files" option is enabled (i.e. the pref :code:`browser.download.useDownloadDir` is set to :code:`false`).
+         Use a file-chooser to allow the user to select a filename. If the option is not specified, the file chooser will be shown only if the Thunderbird "Always ask you where to save files" option is enabled (i.e. the pref :code:`browser.download.useDownloadDir` is set to :code:`false`).
 
 .. api-header::
    :label: Return type (`Promise`_)

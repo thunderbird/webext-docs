@@ -312,7 +312,7 @@ Fired when an authentication failure is received. The listener has three options
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
    .. api-member::
       :name: [``asyncCallback``]
@@ -493,7 +493,7 @@ Fired when a server-initiated redirect is about to occur.
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Required permissions
@@ -655,7 +655,7 @@ Fired when a request is about to occur.
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -807,7 +807,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -950,7 +950,7 @@ Fired when a request is completed.
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -1135,7 +1135,7 @@ Fired when an error occurs.
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Required permissions
@@ -1294,7 +1294,7 @@ Fired when HTTP response headers of a request have been received.
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -1465,7 +1465,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Required permissions
@@ -1604,7 +1604,7 @@ Fired just before a request is going to be sent to the server (modifications of 
 
          .. note::
 
-            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Firefox 104.
+            Classification flags :code:`emailtracking` and :code:`emailtracking_content` added in Thunderbird 104.
 
 .. api-header::
    :label: Required permissions
@@ -1863,11 +1863,11 @@ An object describing filters to apply to webRequest events.
 
 .. note::
 
-   From Firefox 78 onwards, if a filter contains unrecognized values in its :code:`types` property, then these values are ignored and :code:`addListener()` proceeds.
+   From Thunderbird 78 onwards, if a filter contains unrecognized values in its :code:`types` property, then these values are ignored and :code:`addListener()` proceeds.
 
 .. note::
 
-   Before Firefox 78, if a filter contains unrecognized values in its :code:`types` property, :code:`addListener()` throws an exception.
+   Before Thunderbird 78, if a filter contains unrecognized values in its :code:`types` property, :code:`addListener()` throws an exception.
 
 .. api-header::
    :label: object
@@ -1880,7 +1880,7 @@ An object describing filters to apply to webRequest events.
 
       .. note::
 
-         Before Firefox 56, moz-extension:// URLs were not allowed.
+         Before Thunderbird 56, moz-extension:// URLs were not allowed.
 
    .. api-member::
       :name: [``incognito``]
@@ -1981,7 +1981,7 @@ ResourceType
 
             .. note::
 
-               The "json" property is supported from Firefox 135, but requests of this type are only available from Firefox 138.
+               The "json" property is supported from Thunderbird 135, but requests of this type are only available from Thunderbird 138.
 
          .. api-member::
             :name: :value:`other`

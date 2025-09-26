@@ -71,6 +71,10 @@ ftpProtocolEnabled
 
 Returns whether the FTP protocol is enabled. Read-only.
 
+.. note::
+
+   From version 88, this setting is read-only (see `bug 1626365 <https://bugzil.la/1626365>`__).
+
 .. _browserSettings.imageAnimationBehavior:
 
 imageAnimationBehavior
