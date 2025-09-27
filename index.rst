@@ -43,12 +43,12 @@ __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Obje
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
 The documentation for the APIs listed in the left side panel is generated automatically from
-Thunderbird's schema files. The `webext-schemas <https://github.com/thunderbird/webext-schemas>`__
+Thunderbird's schema files. The `webext-schemas <https://github.com/thunderbird/webext-annotated-schemas>`__
 repository can be used to obtain a copy of the relevant files.
 
 .. toctree::
   :hidden:
-  :caption: API reference
+  :caption: Thunderbird API reference
   
   accounts
   action
@@ -56,28 +56,14 @@ repository can be used to obtain a copy of the relevant files.
   addressBooks.contacts
   addressBooks.mailingLists
   addressBooks.provider
-  alarms
-  browserSettings
-  browserSettings.colorManagement
-  browsingData
-  clipboard
   cloudFile
   commands
   compose
   composeAction
-  contextualIdentities
   cookies
-  declarativeNetRequest
-  dns
-  downloads
-  extension
   folders
-  i18n
   identities
-  identity
-  idle
   mailTabs
-  management
   menus
   messageDisplay
   messageDisplayAction
@@ -85,6 +71,32 @@ repository can be used to obtain a copy of the relevant files.
   messages.tags
   messengerSettings
   messengerUtilities
+  scripting.compose
+  scripting.messageDisplay
+  sessions
+  spaces
+  tabs
+  theme
+  windows
+
+.. toctree::
+  :hidden:
+  :caption: Mozilla API reference
+  
+  alarms
+  browserSettings
+  browserSettings.colorManagement
+  browsingData
+  clipboard
+  contextualIdentities
+  declarativeNetRequest
+  dns
+  downloads
+  extension
+  i18n
+  identity
+  idle
+  management
   notifications
   permissions
   pkcs11
@@ -94,17 +106,11 @@ repository can be used to obtain a copy of the relevant files.
   privacy.websites
   runtime
   scripting
-  scripting.compose
-  scripting.messageDisplay
-  sessions
-  spaces
   storage
-  tabs
-  theme
   userScripts
   webNavigation
   webRequest
-  windows
+
 
 Where to get help and more information
 ======================================

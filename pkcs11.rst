@@ -17,6 +17,10 @@ pkcs11 API
 
 .. role:: code
 
+.. hint::
+
+   The pkcs11 API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/pkcs11>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 PKCS#11 module management API
 
 .. rst-class:: api-main-section

@@ -18,7 +18,15 @@ storage API
 
 .. role:: code
 
+.. hint::
+
+   The storage API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/storage>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 Use the :code:`browser.storage` API to store, retrieve, and track changes to user data.
+
+.. note::
+
+   The storage API is supported in content scripts from version 48.
 
 .. rst-class:: api-main-section
 

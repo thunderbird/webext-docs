@@ -19,6 +19,10 @@ identity API
 
 .. role:: code
 
+.. hint::
+
+   The identity API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/identity>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 Use the chrome.identity API to get OAuth2 access tokens.
 
 .. rst-class:: api-main-section

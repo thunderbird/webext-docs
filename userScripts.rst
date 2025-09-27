@@ -18,6 +18,18 @@ userScripts API
 
 .. role:: code
 
+.. hint::
+
+   The userScripts API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
+.. note::
+
+   Available for use with Manifest V3 only.
+
+.. note::
+
+   An incompatible version of this API is available for Manifest V2. See `userScripts (Legacy) <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy>`__.
+
 .. rst-class:: api-main-section
 
 Permissions
