@@ -35,6 +35,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Read and modify privacy settings
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -89,7 +91,7 @@ tlsVersionRestriction
 
 .. api-section-annotation-hack:: 
 
-This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`tlsVersionRestrictionConfig`.
+This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.network.tlsVersionRestrictionConfig`.
 
 .. _privacy.network.webRTCIPHandlingPolicy:
 

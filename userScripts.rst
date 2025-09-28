@@ -42,6 +42,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Allow unverified third-party scripts to access your data
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::

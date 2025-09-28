@@ -60,6 +60,10 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`declarativeNetRequestWithHostAccess`
 
+   Allows blocking or upgrading requests to hosts for which host permissions have already been granted.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::

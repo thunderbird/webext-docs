@@ -30,6 +30,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Read your email messages
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::

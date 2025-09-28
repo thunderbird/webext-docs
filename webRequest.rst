@@ -36,8 +36,14 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`webRequest`
 
+   Grant access to some or all methods of the webRequest API.
+
 .. api-member::
    :name: :permission:`webRequestBlocking`
+
+   Allows to use the blocking features of the webRequest API. With this permission, listeners can synchronously modify or cancel requests before they are sent or before a response is delivered. Without it, listeners can only observe requests without blocking or altering them.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-permission-info
 
@@ -2141,7 +2147,7 @@ UrlClassificationParty
 
 .. api-section-annotation-hack:: 
 
-If the request has been classified this is an array of :ref:`UrlClassificationFlags`.
+If the request has been classified this is an array of :ref:`webRequest.UrlClassificationFlags`.
 
 .. api-header::
    :label: array of :ref:`webRequest.UrlClassificationFlags`

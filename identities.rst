@@ -38,6 +38,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    See your mail accounts, their identities and their folders
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::

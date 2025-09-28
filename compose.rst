@@ -48,6 +48,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Send composed email messages on your behalf
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-main-section
 
 Functions

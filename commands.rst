@@ -34,7 +34,7 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 66]
 
-   A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`CommandsShortcut`.
+   A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`commands.CommandsShortcut`.
 
    The *name* may also be one of the following built-in special shortcuts:
 
@@ -276,3 +276,61 @@ Command
       :type: (string, optional)
 
       The shortcut active for this command, or blank if not active.
+
+.. _commands.CommandsShortcut:
+
+CommandsShortcut
+----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 140]
+
+.. api-header::
+   :label: object
+
+   .. _commands.CommandsShortcut.description:
+
+   .. api-member::
+      :name: [``description``]
+      :type: (string, optional)
+
+   .. _commands.CommandsShortcut.suggested_key:
+
+   .. api-member::
+      :name: [``suggested_key``]
+      :type: (object, optional)
+
+      .. api-member::
+         :name: [``default``]
+         :type: (:ref:`commands.KeyName`, optional)
+
+         Default key combination.
+
+      .. api-member::
+         :name: [``linux``]
+         :type: (:ref:`commands.KeyName`, optional)
+
+         Key combination on Linux.
+
+      .. api-member::
+         :name: [``mac``]
+         :type: (:ref:`commands.KeyName`, optional)
+
+         Key combination on Mac.
+
+      .. api-member::
+         :name: [``windows``]
+         :type: (:ref:`commands.KeyName`, optional)
+
+         Key combination on Windows.
+
+.. _commands.KeyName:
+
+KeyName
+-------
+
+.. api-section-annotation-hack:: -- [Added in TB 66]
+
+Definition of a shortcut, for example :value:`Alt+F5`. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__.
+
+.. api-header::
+   :label: string

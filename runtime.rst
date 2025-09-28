@@ -43,6 +43,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Allow unverified third-party scripts to access your data
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -296,7 +298,7 @@ openOptionsPage()
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`options_ui` or :code:`options_page` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`lastError`.
+Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`options_ui` or :code:`options_page` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`runtime.lastError`.
 
 .. _runtime.reload:
 

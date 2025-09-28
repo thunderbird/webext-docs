@@ -34,6 +34,10 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`dns`
 
+   Grant access to some or all methods of the dns API.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::

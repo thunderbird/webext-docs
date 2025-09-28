@@ -288,6 +288,35 @@ OR
 .. api-header::
    :label: :ref:`permissions.MatchPatternUnestricted`
 
+.. _permissions.MatchPatternRestricted:
+
+MatchPatternRestricted
+----------------------
+
+.. api-section-annotation-hack:: 
+
+Same as MatchPattern above, but excludes <all_urls>
+
+.. api-header::
+   :label: string
+
+OR
+
+.. api-header::
+   :label: string
+
+.. _permissions.MatchPatternUnestricted:
+
+MatchPatternUnestricted
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.
+
+.. api-header::
+   :label: string
+
 .. _permissions.OptionalDataCollectionPermission:
 
 OptionalDataCollectionPermission
@@ -361,83 +390,6 @@ OR
          .. api-member::
             :name: :value:`notifications`
 
-.. _permissions.Permission:
-
-Permission
-----------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: :ref:`permissions.PermissionNoPrompt`
-
-OR
-
-.. api-header::
-   :label: :ref:`permissions.OptionalPermission`
-
-.. _permissions.MatchPatternRestricted:
-
-MatchPatternRestricted
-----------------------
-
-.. api-section-annotation-hack:: 
-
-Same as MatchPattern above, but excludes <all_urls>
-
-.. api-header::
-   :label: string
-
-OR
-
-.. api-header::
-   :label: string
-
-.. _permissions.MatchPatternUnestricted:
-
-MatchPatternUnestricted
------------------------
-
-.. api-section-annotation-hack:: 
-
-Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.
-
-.. api-header::
-   :label: string
-
-.. _permissions.OptionalPermission:
-
-OptionalPermission
-------------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: :ref:`permissions.OptionalPermissionNoPrompt`
-
-OR
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. api-member::
-            :name: :value:`clipboardRead`
-
-         .. api-member::
-            :name: :value:`clipboardWrite`
-
-         .. api-member::
-            :name: :value:`geolocation`
-
-         .. api-member::
-            :name: :value:`notifications`
-
 .. _permissions.OptionalPermissionNoPrompt:
 
 OptionalPermissionNoPrompt
@@ -456,6 +408,21 @@ OptionalPermissionNoPrompt
 
          .. api-member::
             :name: :value:`idle`
+
+.. _permissions.Permission:
+
+Permission
+----------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: :ref:`permissions.PermissionNoPrompt`
+
+OR
+
+.. api-header::
+   :label: :ref:`permissions.OptionalPermission`
 
 .. _permissions.PermissionNoPrompt:
 

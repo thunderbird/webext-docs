@@ -37,6 +37,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Monitor extension usage and manage themes
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -396,6 +398,21 @@ A reason the item is disabled.
          .. api-member::
             :name: :value:`permissions_increase`
 
+.. _management.ExtensionID:
+
+ExtensionID
+-----------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string
+
+OR
+
+.. api-header::
+   :label: string
+
 .. _management.ExtensionInfo:
 
 ExtensionInfo
@@ -602,6 +619,16 @@ The type of this extension, 'extension' or 'theme'.
          .. api-member::
             :name: :value:`theme`
 
+.. _management.HttpURL:
+
+HttpURL
+-------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string
+
 .. _management.IconInfo:
 
 IconInfo
@@ -629,28 +656,3 @@ Information about an icon belonging to an extension.
       :type: (string)
 
       The URL for this icon image. To display a grayscale version of the icon (to indicate that an extension is disabled, for example), append :code:`?grayscale=true` to the URL.
-
-.. _management.ExtensionID:
-
-ExtensionID
------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: string
-
-OR
-
-.. api-header::
-   :label: string
-
-.. _management.HttpURL:
-
-HttpURL
--------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: string

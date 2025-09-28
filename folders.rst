@@ -44,6 +44,8 @@ The following permissions influence the behavior of the API: depending on which 
 
    Permanently delete your email messages
 
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -326,7 +328,7 @@ Get one of the special virtual tag folders, which are virtual search folders and
       :name: ``key``
       :type: (string)
 
-      The tag key of the requested folder. See :ref:`messages.tags.list(`) for the available tags. Throws when specifying an invalid tag key.
+      The tag key of the requested folder. See :ref:`messages.tags.list` for the available tags. Throws when specifying an invalid tag key.
 
 .. api-header::
    :label: Return type (`Promise`_)

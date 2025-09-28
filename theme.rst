@@ -44,6 +44,10 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`theme`
 
+   Grant access to some or all methods of the theme API.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -345,6 +349,56 @@ Defines additional color, image and property keys to be used in :ref:`theme.Them
              }
            }
          }
+
+.. _theme.ThemeManifest:
+
+ThemeManifest
+-------------
+
+.. api-section-annotation-hack:: -- [Added in TB 86]
+
+Contents of manifest.json for a static theme
+
+.. api-header::
+   :label: object
+
+   .. _theme.ThemeManifest.theme:
+
+   .. api-member::
+      :name: ``theme``
+      :type: (:ref:`theme.ThemeType`)
+
+      Properties for a static theme. A static theme must not contain any other WebExtension logic. If additional logic is required, request the :permission:`theme` permission and load/update the theme dynamically. More information about themes can be found in the `theme guide <https://developer.thunderbird.net/add-ons/web-extension-themes>`__
+
+   .. _theme.ThemeManifest.dark_theme:
+
+   .. api-member::
+      :name: [``dark_theme``]
+      :type: (:ref:`theme.ThemeType`, optional)
+
+      Fallback properties for the dark system theme in a static theme.
+
+   .. _theme.ThemeManifest.default_locale:
+
+   .. api-member::
+      :name: [``default_locale``]
+      :type: (string, optional)
+
+   .. _theme.ThemeManifest.icons:
+
+   .. api-member::
+      :name: [``icons``]
+      :type: (object, optional)
+
+      Icons shown in the Add-ons Manager.
+
+   .. _theme.ThemeManifest.theme_experiment:
+
+   .. api-member::
+      :name: [``theme_experiment``]
+      :type: (:ref:`theme.ThemeExperiment`, optional)
+
+      CSS file with additional styles.
 
 .. _theme.ThemeType:
 

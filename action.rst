@@ -808,30 +808,6 @@ A path relative to the root of the extension.
 .. api-header::
    :label: string
 
-.. _action.ImageDataDictionary:
-
-ImageDataDictionary
--------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 105]
-
-A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
-
-.. api-header::
-   :label: object
-
-.. _action.ImageDataType:
-
-ImageDataType
--------------
-
-.. api-section-annotation-hack:: -- [Added in TB 105]
-
-Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas>`__ element).
-
-.. api-header::
-   :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
-
 .. _action.IconPath:
 
 IconPath
@@ -857,6 +833,30 @@ OR
 
 .. api-header::
    :label: :ref:`action.ExtensionFileUrl`
+
+.. _action.ImageDataDictionary:
+
+ImageDataDictionary
+-------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 105]
+
+A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+
+.. api-header::
+   :label: object
+
+.. _action.ImageDataType:
+
+ImageDataType
+-------------
+
+.. api-section-annotation-hack:: -- [Added in TB 105]
+
+Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas>`__ element).
+
+.. api-header::
+   :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
 
 .. _action.OnClickData:
 

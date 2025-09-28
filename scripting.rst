@@ -34,6 +34,10 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`scripting`
 
+   Grant access to some or all methods of the scripting API.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -371,6 +375,18 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          .. api-member::
             :name: :value:`document_idle`
 
+.. _scripting.ExtensionURL:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
+
 .. _scripting.InjectionResult:
 
 InjectionResult
@@ -440,18 +456,6 @@ InjectionTarget
       :type: (array of number, optional)
 
       The IDs of specific frames to inject into.
-
-.. _scripting.ExtensionURL:
-
-ExtensionURL
-------------
-
-.. api-section-annotation-hack:: 
-
-A path relative to the root of the extension.
-
-.. api-header::
-   :label: string
 
 .. _scripting.RegisteredContentScript:
 

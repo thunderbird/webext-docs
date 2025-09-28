@@ -35,6 +35,10 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`idle`
 
+   Grant access to some or all methods of the idle API.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. rst-class:: api-permission-info
 
 .. note::

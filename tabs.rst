@@ -32,16 +32,24 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`activeTab`
 
+   Grant host permission to the currently active tab, allowing to read <var>title</var>, <var>url</var> and <var>favIconUrl</var> properties, or to inject content scripts.
+
 .. api-member::
    :name: :permission:`contextualIdentities`
+
+   Grant access to some or all methods of the contextualIdentities API.
 
 .. api-member::
    :name: :permission:`cookies`
 
+   Grant access to some or all methods of the cookies API.
+
 .. api-member::
    :name: :permission:`tabs`
 
-   Access browser tabs
+   Grant host permission to all active and inactive tabs, allowing to read <var>title</var>, <var>url</var> and <var>favIconUrl</var> properties, or to inject content scripts.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-main-section
 

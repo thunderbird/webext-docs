@@ -39,6 +39,8 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`activeTab`
 
+   Grant host permission to the currently active tab, allowing to read <var>title</var>, <var>url</var> and <var>favIconUrl</var> properties, or to inject content scripts.
+
 .. api-member::
    :name: :permission:`compose`
 
@@ -47,8 +49,12 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`menus`
 
+   Grant access to some or all methods of the menus API.
+
 .. api-member::
    :name: :permission:`menus.overrideContext`
+
+   Grant access to the :code:`menus.overrideContext()` method, hiding all default context menu entries and overriding the entire context menu.
 
 .. api-member::
    :name: :permission:`messagesRead`
@@ -58,7 +64,9 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`tabs`
 
-   Access browser tabs
+   Grant host permission to all active and inactive tabs, allowing to read <var>title</var>, <var>url</var> and <var>favIconUrl</var> properties, or to inject content scripts.
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-permission-info
 

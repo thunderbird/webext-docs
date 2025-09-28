@@ -30,13 +30,19 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`contextualIdentities`
 
+   Grant access to some or all methods of the contextualIdentities API.
+
 .. api-member::
    :name: :permission:`cookies`
+
+   Grant access to some or all methods of the cookies API.
 
 .. api-member::
    :name: :permission:`management`
 
    Monitor extension usage and manage themes
+
+Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-main-section
 
@@ -310,42 +316,6 @@ OR
 .. api-header::
    :label: :ref:`spaces.ExtensionFileUrl`
 
-.. _spaces.ThemeIcons:
-
-ThemeIcons
-----------
-
-.. api-section-annotation-hack:: 
-
-Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the :value:`manifest.json` file.
-
-.. api-header::
-   :label: object
-
-   .. _spaces.ThemeIcons.dark:
-
-   .. api-member::
-      :name: ``dark``
-      :type: (:ref:`spaces.ExtensionURL`)
-
-      The dark icon to use for light themes
-
-   .. _spaces.ThemeIcons.light:
-
-   .. api-member::
-      :name: ``light``
-      :type: (:ref:`spaces.ExtensionURL`)
-
-      A light icon to use for dark themes
-
-   .. _spaces.ThemeIcons.size:
-
-   .. api-member::
-      :name: ``size``
-      :type: (integer)
-
-      The size of the icons
-
 .. _spaces.Space:
 
 Space
@@ -503,3 +473,39 @@ Properties for the new tab being opened by clicking on the associated button in 
       :type: (string, optional)
 
       The default URL. May point to a WebExtension page or a web page.
+
+.. _spaces.ThemeIcons:
+
+ThemeIcons
+----------
+
+.. api-section-annotation-hack:: 
+
+Define a set of icons for themes depending on whether Thunderbird detects that the theme uses dark or light text. All provided URLs must be relative to the :value:`manifest.json` file.
+
+.. api-header::
+   :label: object
+
+   .. _spaces.ThemeIcons.dark:
+
+   .. api-member::
+      :name: ``dark``
+      :type: (:ref:`spaces.ExtensionURL`)
+
+      The dark icon to use for light themes
+
+   .. _spaces.ThemeIcons.light:
+
+   .. api-member::
+      :name: ``light``
+      :type: (:ref:`spaces.ExtensionURL`)
+
+      A light icon to use for dark themes
+
+   .. _spaces.ThemeIcons.size:
+
+   .. api-member::
+      :name: ``size``
+      :type: (integer)
+
+      The size of the icons
