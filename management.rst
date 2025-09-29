@@ -571,7 +571,7 @@ ExtensionInstallType
 
 .. api-section-annotation-hack:: 
 
-How the extension was installed. One of<br>:value:`development`: The extension was loaded unpacked in developer mode,<br>:value:`normal`: The extension was installed normally via an .xpi file,<br>:value:`sideload`: The extension was installed by other software on the machine,<br>:value:`admin`: The extension was installed by policy,<br>:value:`other`: The extension was installed by other means.
+How the extension was installed. One of :value:`development`: The extension was loaded unpacked in developer mode, :value:`normal`: The extension was installed normally via an .xpi file, :value:`sideload`: The extension was installed by other software on the machine, :value:`admin`: The extension was installed by policy, :value:`other`: The extension was installed by other means.
 
 .. api-header::
    :label: `string`
