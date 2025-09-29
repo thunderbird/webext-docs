@@ -29,7 +29,7 @@ Use the :code:`browser.privacy` API to control usage of the features in the brow
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -51,7 +51,7 @@ The following permissions influence the behavior of the API: depending on which 
 Types
 =====
 
-.. _privacy.network.HTTPSOnlyModeOption:
+.. _privacy.network.^h^t^t^p^s^only^mode^option:
 
 HTTPSOnlyModeOption
 -------------------
@@ -78,7 +78,7 @@ The mode for https-only mode.
          .. api-member::
             :name: :value:`never`
 
-.. _privacy.network.IPHandlingPolicy:
+.. _privacy.network.^i^p^handling^policy:
 
 IPHandlingPolicy
 ----------------
@@ -111,7 +111,7 @@ The IP handling policy of WebRTC.
          .. api-member::
             :name: :value:`proxy_only`
 
-.. _privacy.network.tlsVersionRestrictionConfig:
+.. _privacy.network.tls^version^restriction^config:
 
 tlsVersionRestrictionConfig
 ---------------------------
@@ -123,7 +123,7 @@ An object which describes TLS minimum and maximum versions.
 .. api-header::
    :label: object
 
-   .. _privacy.network.tlsVersionRestrictionConfig.maximum:
+   .. _privacy.network.tls^version^restriction^config.maximum:
 
    .. api-member::
       :name: [``maximum``]
@@ -148,7 +148,7 @@ An object which describes TLS minimum and maximum versions.
       .. api-member::
          :name: :value:`unknown`
 
-   .. _privacy.network.tlsVersionRestrictionConfig.minimum:
+   .. _privacy.network.tls^version^restriction^config.minimum:
 
    .. api-member::
       :name: [``minimum``]
@@ -178,7 +178,7 @@ An object which describes TLS minimum and maximum versions.
 Properties
 ==========
 
-.. _privacy.network.globalPrivacyControl:
+.. _privacy.network.global^privacy^control:
 
 globalPrivacyControl
 --------------------
@@ -187,7 +187,7 @@ globalPrivacyControl
 
 Allow users to query the status of 'Global Privacy Control'. This setting's value is of type boolean, defaulting to :code:`false`.
 
-.. _privacy.network.httpsOnlyMode:
+.. _privacy.network.https^only^mode:
 
 httpsOnlyMode
 -------------
@@ -196,7 +196,7 @@ httpsOnlyMode
 
 Allow users to query the mode for 'HTTPS-Only Mode'. This setting's value is of type HTTPSOnlyModeOption, defaulting to :code:`never`.
 
-.. _privacy.network.networkPredictionEnabled:
+.. _privacy.network.network^prediction^enabled:
 
 networkPredictionEnabled
 ------------------------
@@ -205,7 +205,7 @@ networkPredictionEnabled
 
 If enabled, the browser attempts to speed up your web browsing experience by pre-resolving DNS entries, prerendering sites (:code:`&lt;link rel='prefetch' ...&gt;`), and preemptively opening TCP and SSL connections to servers.  This preference's value is a boolean, defaulting to :code:`true`.
 
-.. _privacy.network.peerConnectionEnabled:
+.. _privacy.network.peer^connection^enabled:
 
 peerConnectionEnabled
 ---------------------
@@ -214,16 +214,16 @@ peerConnectionEnabled
 
 Allow users to enable and disable RTCPeerConnections (aka WebRTC).
 
-.. _privacy.network.tlsVersionRestriction:
+.. _privacy.network.tls^version^restriction:
 
 tlsVersionRestriction
 ---------------------
 
 .. api-section-annotation-hack:: 
 
-This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.tlsVersionRestrictionConfig`.
+This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.network.tls^version^restriction^config`.
 
-.. _privacy.network.webRTCIPHandlingPolicy:
+.. _privacy.network.web^r^t^c^i^p^handling^policy:
 
 webRTCIPHandlingPolicy
 ----------------------

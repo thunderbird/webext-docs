@@ -28,7 +28,7 @@ Use the :code:`browserSettings.colorManagement` API to query and set items relat
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -50,16 +50,16 @@ The following permissions influence the behavior of the API: depending on which 
 Properties
 ==========
 
-.. _browserSettings.colorManagement.mode:
+.. _browser^settings.color^management.mode:
 
 mode
 ----
 
 .. api-section-annotation-hack:: 
 
-This setting controls the mode used for color management and must be a string from :ref:`browserSettings.ColorManagementMode`
+This setting controls the mode used for color management and must be a string from :ref:`browser^settings.^color^management^mode`
 
-.. _browserSettings.colorManagement.useNativeSRGB:
+.. _browser^settings.color^management.use^native^s^r^g^b:
 
 useNativeSRGB
 -------------
@@ -68,7 +68,7 @@ useNativeSRGB
 
 This boolean setting controls whether or not native sRGB color management is used.
 
-.. _browserSettings.colorManagement.useWebRenderCompositor:
+.. _browser^settings.color^management.use^web^render^compositor:
 
 useWebRenderCompositor
 ----------------------

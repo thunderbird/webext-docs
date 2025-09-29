@@ -28,7 +28,7 @@ notifications API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -103,7 +103,7 @@ Creates and displays a notification.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`notifications.CreateNotificationOptions`)
+      :type: (:ref:`notifications.^create^notification^options`)
 
       Contents of the notification.
 
@@ -122,7 +122,7 @@ Creates and displays a notification.
 
    - :permission:`notifications`
 
-.. _notifications.getAll:
+.. _notifications.get^all:
 
 getAll()
 --------
@@ -146,7 +146,7 @@ Retrieves all the notifications.
 
    - :permission:`notifications`
 
-.. _notifications.getPermissionLevel:
+.. _notifications.get^permission^level:
 
 getPermissionLevel()
 --------------------
@@ -159,7 +159,7 @@ Retrieves whether the user has enabled notifications from this app or extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`notifications.PermissionLevel`
+      :type: :ref:`notifications.^permission^level`
 
       The current permission level.
 
@@ -175,7 +175,7 @@ Retrieves whether the user has enabled notifications from this app or extension.
 Events
 ======
 
-.. _notifications.onClicked:
+.. _notifications.on^clicked:
 
 onClicked
 ---------
@@ -206,7 +206,7 @@ Fired when the user clicked in a non-button area of the notification.
 
    - :permission:`notifications`
 
-.. _notifications.onClosed:
+.. _notifications.on^closed:
 
 onClosed
 --------
@@ -243,7 +243,7 @@ Fired when the notification closed, either by the system or by user action.
 
    - :permission:`notifications`
 
-.. _notifications.onPermissionLevelChanged:
+.. _notifications.on^permission^level^changed:
 
 onPermissionLevelChanged
 ------------------------
@@ -265,7 +265,7 @@ Fired when the user changes the permission level.
 
    .. api-member::
       :name: ``level``
-      :type: (:ref:`notifications.PermissionLevel`)
+      :type: (:ref:`notifications.^permission^level`)
 
       The new permission level.
 
@@ -274,7 +274,7 @@ Fired when the user changes the permission level.
 
    - :permission:`notifications`
 
-.. _notifications.onShown:
+.. _notifications.on^shown:
 
 onShown
 -------
@@ -305,7 +305,7 @@ Fired when the notification is shown.
 
    - :permission:`notifications`
 
-.. _notifications.onShowSettings:
+.. _notifications.on^show^settings:
 
 onShowSettings
 --------------
@@ -332,7 +332,7 @@ Fired when the user clicked on a link for the app's notification settings.
 Types
 =====
 
-.. _notifications.CreateNotificationOptions:
+.. _notifications.^create^notification^options:
 
 CreateNotificationOptions
 -------------------------
@@ -342,7 +342,7 @@ CreateNotificationOptions
 .. api-header::
    :label: object
 
-   .. _notifications.CreateNotificationOptions.message:
+   .. _notifications.^create^notification^options.message:
 
    .. api-member::
       :name: ``message``
@@ -350,7 +350,7 @@ CreateNotificationOptions
 
       Main notification content.
 
-   .. _notifications.CreateNotificationOptions.title:
+   .. _notifications.^create^notification^options.title:
 
    .. api-member::
       :name: ``title``
@@ -358,15 +358,15 @@ CreateNotificationOptions
 
       Title of the notification (e.g. sender name for email).
 
-   .. _notifications.CreateNotificationOptions.type:
+   .. _notifications.^create^notification^options.type:
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`notifications.TemplateType`)
+      :type: (:ref:`notifications.^template^type`)
 
       Which type of notification to display.
 
-   .. _notifications.CreateNotificationOptions.appIconMaskUrl:
+   .. _notifications.^create^notification^options.app^icon^mask^url:
 
    .. api-member::
       :name: [``appIconMaskUrl``]
@@ -374,7 +374,7 @@ CreateNotificationOptions
 
       A URL to the app icon mask.
 
-   .. _notifications.CreateNotificationOptions.buttons:
+   .. _notifications.^create^notification^options.buttons:
 
    .. api-member::
       :name: [``buttons``]
@@ -382,7 +382,7 @@ CreateNotificationOptions
 
       Text and icons for up to two notification action buttons.
 
-   .. _notifications.CreateNotificationOptions.contextMessage:
+   .. _notifications.^create^notification^options.context^message:
 
    .. api-member::
       :name: [``contextMessage``]
@@ -390,7 +390,7 @@ CreateNotificationOptions
 
       Alternate notification content with a lower-weight font.
 
-   .. _notifications.CreateNotificationOptions.eventTime:
+   .. _notifications.^create^notification^options.event^time:
 
    .. api-member::
       :name: [``eventTime``]
@@ -398,7 +398,7 @@ CreateNotificationOptions
 
       A timestamp associated with the notification, in milliseconds past the epoch.
 
-   .. _notifications.CreateNotificationOptions.iconUrl:
+   .. _notifications.^create^notification^options.icon^url:
 
    .. api-member::
       :name: [``iconUrl``]
@@ -406,7 +406,7 @@ CreateNotificationOptions
 
       A URL to the sender's avatar, app icon, or a thumbnail for image notifications.
 
-   .. _notifications.CreateNotificationOptions.imageUrl:
+   .. _notifications.^create^notification^options.image^url:
 
    .. api-member::
       :name: [``imageUrl``]
@@ -414,7 +414,7 @@ CreateNotificationOptions
 
       A URL to the image thumbnail for image-type notifications.
 
-   .. _notifications.CreateNotificationOptions.isClickable:
+   .. _notifications.^create^notification^options.is^clickable:
 
    .. api-member::
       :name: [``isClickable``]
@@ -422,15 +422,15 @@ CreateNotificationOptions
 
       Whether to show UI indicating that the app will visibly respond to clicks on the body of a notification.
 
-   .. _notifications.CreateNotificationOptions.items:
+   .. _notifications.^create^notification^options.items:
 
    .. api-member::
       :name: [``items``]
-      :type: (array of :ref:`notifications.NotificationItem`, optional)
+      :type: (array of :ref:`notifications.^notification^item`, optional)
 
       Items for multi-item notifications.
 
-   .. _notifications.CreateNotificationOptions.priority:
+   .. _notifications.^create^notification^options.priority:
 
    .. api-member::
       :name: [``priority``]
@@ -438,7 +438,7 @@ CreateNotificationOptions
 
       Priority ranges from -2 to 2. -2 is lowest priority. 2 is highest. Zero is default.
 
-   .. _notifications.CreateNotificationOptions.progress:
+   .. _notifications.^create^notification^options.progress:
 
    .. api-member::
       :name: [``progress``]
@@ -446,7 +446,7 @@ CreateNotificationOptions
 
       Current progress ranges from 0 to 100.
 
-.. _notifications.NotificationItem:
+.. _notifications.^notification^item:
 
 NotificationItem
 ----------------
@@ -456,7 +456,7 @@ NotificationItem
 .. api-header::
    :label: object
 
-   .. _notifications.NotificationItem.message:
+   .. _notifications.^notification^item.message:
 
    .. api-member::
       :name: ``message``
@@ -464,7 +464,7 @@ NotificationItem
 
       Additional details about this item.
 
-   .. _notifications.NotificationItem.title:
+   .. _notifications.^notification^item.title:
 
    .. api-member::
       :name: ``title``
@@ -472,7 +472,7 @@ NotificationItem
 
       Title of one item of a list notification.
 
-.. _notifications.PermissionLevel:
+.. _notifications.^permission^level:
 
 PermissionLevel
 ---------------
@@ -494,7 +494,7 @@ PermissionLevel
          .. api-member::
             :name: :value:`denied`
 
-.. _notifications.TemplateType:
+.. _notifications.^template^type:
 
 TemplateType
 ------------
@@ -526,7 +526,7 @@ TemplateType
          .. api-member::
             :name: :value:`progress`
 
-.. _notifications.UpdateNotificationOptions:
+.. _notifications.^update^notification^options:
 
 UpdateNotificationOptions
 -------------------------
@@ -536,7 +536,7 @@ UpdateNotificationOptions
 .. api-header::
    :label: object
 
-   .. _notifications.UpdateNotificationOptions.appIconMaskUrl:
+   .. _notifications.^update^notification^options.app^icon^mask^url:
 
    .. api-member::
       :name: [``appIconMaskUrl``]
@@ -544,7 +544,7 @@ UpdateNotificationOptions
 
       A URL to the app icon mask.
 
-   .. _notifications.UpdateNotificationOptions.buttons:
+   .. _notifications.^update^notification^options.buttons:
 
    .. api-member::
       :name: [``buttons``]
@@ -552,7 +552,7 @@ UpdateNotificationOptions
 
       Text and icons for up to two notification action buttons.
 
-   .. _notifications.UpdateNotificationOptions.contextMessage:
+   .. _notifications.^update^notification^options.context^message:
 
    .. api-member::
       :name: [``contextMessage``]
@@ -560,7 +560,7 @@ UpdateNotificationOptions
 
       Alternate notification content with a lower-weight font.
 
-   .. _notifications.UpdateNotificationOptions.eventTime:
+   .. _notifications.^update^notification^options.event^time:
 
    .. api-member::
       :name: [``eventTime``]
@@ -568,7 +568,7 @@ UpdateNotificationOptions
 
       A timestamp associated with the notification, in milliseconds past the epoch.
 
-   .. _notifications.UpdateNotificationOptions.iconUrl:
+   .. _notifications.^update^notification^options.icon^url:
 
    .. api-member::
       :name: [``iconUrl``]
@@ -576,7 +576,7 @@ UpdateNotificationOptions
 
       A URL to the sender's avatar, app icon, or a thumbnail for image notifications.
 
-   .. _notifications.UpdateNotificationOptions.imageUrl:
+   .. _notifications.^update^notification^options.image^url:
 
    .. api-member::
       :name: [``imageUrl``]
@@ -584,7 +584,7 @@ UpdateNotificationOptions
 
       A URL to the image thumbnail for image-type notifications.
 
-   .. _notifications.UpdateNotificationOptions.isClickable:
+   .. _notifications.^update^notification^options.is^clickable:
 
    .. api-member::
       :name: [``isClickable``]
@@ -592,15 +592,15 @@ UpdateNotificationOptions
 
       Whether to show UI indicating that the app will visibly respond to clicks on the body of a notification.
 
-   .. _notifications.UpdateNotificationOptions.items:
+   .. _notifications.^update^notification^options.items:
 
    .. api-member::
       :name: [``items``]
-      :type: (array of :ref:`notifications.NotificationItem`, optional)
+      :type: (array of :ref:`notifications.^notification^item`, optional)
 
       Items for multi-item notifications.
 
-   .. _notifications.UpdateNotificationOptions.message:
+   .. _notifications.^update^notification^options.message:
 
    .. api-member::
       :name: [``message``]
@@ -608,7 +608,7 @@ UpdateNotificationOptions
 
       Main notification content.
 
-   .. _notifications.UpdateNotificationOptions.priority:
+   .. _notifications.^update^notification^options.priority:
 
    .. api-member::
       :name: [``priority``]
@@ -616,7 +616,7 @@ UpdateNotificationOptions
 
       Priority ranges from -2 to 2. -2 is lowest priority. 2 is highest. Zero is default.
 
-   .. _notifications.UpdateNotificationOptions.progress:
+   .. _notifications.^update^notification^options.progress:
 
    .. api-member::
       :name: [``progress``]
@@ -624,7 +624,7 @@ UpdateNotificationOptions
 
       Current progress ranges from 0 to 100.
 
-   .. _notifications.UpdateNotificationOptions.title:
+   .. _notifications.^update^notification^options.title:
 
    .. api-member::
       :name: [``title``]
@@ -632,10 +632,10 @@ UpdateNotificationOptions
 
       Title of the notification (e.g. sender name for email).
 
-   .. _notifications.UpdateNotificationOptions.type:
+   .. _notifications.^update^notification^options.type:
 
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`notifications.TemplateType`, optional)
+      :type: (:ref:`notifications.^template^type`, optional)
 
       Which type of notification to display.

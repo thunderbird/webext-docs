@@ -34,7 +34,7 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 66]
 
-   A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`commands.CommandsShortcut`.
+   A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`commands.^commands^shortcut`.
 
    The *name* may also be one of the following built-in special shortcuts:
 
@@ -80,7 +80,7 @@ Permissions
 Functions
 =========
 
-.. _commands.getAll:
+.. _commands.get^all:
 
 getAll()
 --------
@@ -93,11 +93,11 @@ Returns all the registered extension commands for this extension and their short
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`commands.Command`
+      :type: array of :ref:`commands.^command`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _commands.openShortcutSettings:
+.. _commands.open^shortcut^settings:
 
 openShortcutSettings()
 ----------------------
@@ -165,7 +165,7 @@ Update the details of an already defined command.
 Events
 ======
 
-.. _commands.onChanged:
+.. _commands.on^changed:
 
 onChanged
 ---------
@@ -207,7 +207,7 @@ Fired when a registered command's shortcut is changed.
 
          The old shortcut which is no longer active for this command, or blank if the shortcut was previously inactive.
 
-.. _commands.onCommand:
+.. _commands.on^command:
 
 onCommand
 ---------
@@ -233,7 +233,7 @@ Fired when a registered command is activated using a keyboard shortcut. This is 
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 106]
 
       The details of the active tab while the command occurred.
@@ -243,7 +243,7 @@ Fired when a registered command is activated using a keyboard shortcut. This is 
 Types
 =====
 
-.. _commands.Command:
+.. _commands.^command:
 
 Command
 -------
@@ -253,7 +253,7 @@ Command
 .. api-header::
    :label: object
 
-   .. _commands.Command.description:
+   .. _commands.^command.description:
 
    .. api-member::
       :name: [``description``]
@@ -261,7 +261,7 @@ Command
 
       The description of the Extension Command
 
-   .. _commands.Command.name:
+   .. _commands.^command.name:
 
    .. api-member::
       :name: [``name``]
@@ -269,7 +269,7 @@ Command
 
       The name of the Extension Command
 
-   .. _commands.Command.shortcut:
+   .. _commands.^command.shortcut:
 
    .. api-member::
       :name: [``shortcut``]
@@ -277,7 +277,7 @@ Command
 
       The shortcut active for this command, or blank if not active.
 
-.. _commands.CommandsShortcut:
+.. _commands.^commands^shortcut:
 
 CommandsShortcut
 ----------------
@@ -287,13 +287,13 @@ CommandsShortcut
 .. api-header::
    :label: object
 
-   .. _commands.CommandsShortcut.description:
+   .. _commands.^commands^shortcut.description:
 
    .. api-member::
       :name: [``description``]
       :type: (string, optional)
 
-   .. _commands.CommandsShortcut.suggested_key:
+   .. _commands.^commands^shortcut.suggested_key:
 
    .. api-member::
       :name: [``suggested_key``]
@@ -301,29 +301,29 @@ CommandsShortcut
 
       .. api-member::
          :name: [``default``]
-         :type: (:ref:`commands.KeyName`, optional)
+         :type: (:ref:`commands.^key^name`, optional)
 
          Default key combination.
 
       .. api-member::
          :name: [``linux``]
-         :type: (:ref:`commands.KeyName`, optional)
+         :type: (:ref:`commands.^key^name`, optional)
 
          Key combination on Linux.
 
       .. api-member::
          :name: [``mac``]
-         :type: (:ref:`commands.KeyName`, optional)
+         :type: (:ref:`commands.^key^name`, optional)
 
          Key combination on Mac.
 
       .. api-member::
          :name: [``windows``]
-         :type: (:ref:`commands.KeyName`, optional)
+         :type: (:ref:`commands.^key^name`, optional)
 
          Key combination on Windows.
 
-.. _commands.KeyName:
+.. _commands.^key^name:
 
 KeyName
 -------

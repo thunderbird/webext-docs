@@ -23,7 +23,7 @@ scripting.messageDisplay API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -45,7 +45,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _scripting.messageDisplay.getRegisteredScripts:
+.. _scripting.message^display.get^registered^scripts:
 
 getRegisteredScripts([filter])
 ------------------------------
@@ -59,7 +59,7 @@ Returns all registered message display scripts for this extension that match the
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.messageDisplay.MessageDisplayScriptFilter`, optional)
+      :type: (:ref:`scripting.message^display.^message^display^script^filter`, optional)
 
       An object to filter the extension's registered message display scripts.
 
@@ -67,7 +67,7 @@ Returns all registered message display scripts for this extension that match the
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`scripting.messageDisplay.MessageDisplayScriptDetails`
+      :type: array of :ref:`scripting.message^display.^message^display^script^details`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -76,7 +76,7 @@ Returns all registered message display scripts for this extension that match the
 
    - :permission:`messagesRead`
 
-.. _scripting.messageDisplay.registerScripts:
+.. _scripting.message^display.register^scripts:
 
 registerScripts(scripts)
 ------------------------
@@ -87,14 +87,14 @@ Registers one or more message display scripts for this extension, which should b
 
 .. note::
 
-   Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`scripting.executeScript` for each of the open :value:`messageDisplay` tabs.
+   Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`scripting.execute^script` for each of the open :value:`messageDisplay` tabs.
 
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`scripting.messageDisplay.MessageDisplayScriptDetails`)
+      :type: (array of :ref:`scripting.message^display.^message^display^script^details`)
 
       Contains a list of message display scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
 
@@ -103,7 +103,7 @@ Registers one or more message display scripts for this extension, which should b
 
    - :permission:`messagesRead`
 
-.. _scripting.messageDisplay.unregisterScripts:
+.. _scripting.message^display.unregister^scripts:
 
 unregisterScripts([filter])
 ---------------------------
@@ -117,7 +117,7 @@ Unregisters one or more message display scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.messageDisplay.MessageDisplayScriptFilter`, optional)
+      :type: (:ref:`scripting.message^display.^message^display^script^filter`, optional)
 
       If specified, only unregisters message display scripts which match the filter. Otherwise, all of the extension's message display scripts are unregistered.
 
@@ -131,7 +131,79 @@ Unregisters one or more message display scripts for this extension.
 Types
 =====
 
-.. _scripting.messageDisplay.RunAt:
+.. _scripting.message^display.^extension^u^r^l:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
+
+.. _scripting.message^display.^message^display^script^details:
+
+MessageDisplayScriptDetails
+---------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+.. api-header::
+   :label: object
+
+   .. _scripting.message^display.^message^display^script^details.id:
+
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+
+      The id of the message display script, specified in the API call.
+
+   .. _scripting.message^display.^message^display^script^details.css:
+
+   .. api-member::
+      :name: [``css``]
+      :type: (array of :ref:`scripting.message^display.^extension^u^r^l`, optional)
+
+      The list of CSS files to be injected. These are injected in the order they appear in this array.
+
+   .. _scripting.message^display.^message^display^script^details.js:
+
+   .. api-member::
+      :name: [``js``]
+      :type: (array of :ref:`scripting.message^display.^extension^u^r^l`, optional)
+
+      The list of JavaScript files to be injected. These are injected in the order they appear in this array.
+
+   .. _scripting.message^display.^message^display^script^details.run^at:
+
+   .. api-member::
+      :name: [``runAt``]
+      :type: (:ref:`scripting.message^display.^run^at`, optional)
+
+      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
+
+.. _scripting.message^display.^message^display^script^filter:
+
+MessageDisplayScriptFilter
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+.. api-header::
+   :label: object
+
+   .. _scripting.message^display.^message^display^script^filter.ids:
+
+   .. api-member::
+      :name: [``ids``]
+      :type: (array of string, optional)
+
+      The IDs of specific message display scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
+
+.. _scripting.message^display.^run^at:
 
 RunAt
 -----
@@ -157,75 +229,3 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 
          .. api-member::
             :name: :value:`document_idle`
-
-.. _scripting.messageDisplay.ExtensionURL:
-
-ExtensionURL
-------------
-
-.. api-section-annotation-hack:: 
-
-A path relative to the root of the extension.
-
-.. api-header::
-   :label: string
-
-.. _scripting.messageDisplay.MessageDisplayScriptDetails:
-
-MessageDisplayScriptDetails
----------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 128]
-
-.. api-header::
-   :label: object
-
-   .. _scripting.messageDisplay.MessageDisplayScriptDetails.id:
-
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-
-      The id of the message display script, specified in the API call.
-
-   .. _scripting.messageDisplay.MessageDisplayScriptDetails.css:
-
-   .. api-member::
-      :name: [``css``]
-      :type: (array of :ref:`scripting.messageDisplay.ExtensionURL`, optional)
-
-      The list of CSS files to be injected. These are injected in the order they appear in this array.
-
-   .. _scripting.messageDisplay.MessageDisplayScriptDetails.js:
-
-   .. api-member::
-      :name: [``js``]
-      :type: (array of :ref:`scripting.messageDisplay.ExtensionURL`, optional)
-
-      The list of JavaScript files to be injected. These are injected in the order they appear in this array.
-
-   .. _scripting.messageDisplay.MessageDisplayScriptDetails.runAt:
-
-   .. api-member::
-      :name: [``runAt``]
-      :type: (:ref:`scripting.messageDisplay.RunAt`, optional)
-
-      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
-
-.. _scripting.messageDisplay.MessageDisplayScriptFilter:
-
-MessageDisplayScriptFilter
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 128]
-
-.. api-header::
-   :label: object
-
-   .. _scripting.messageDisplay.MessageDisplayScriptFilter.ids:
-
-   .. api-member::
-      :name: [``ids``]
-      :type: (array of string, optional)
-
-      The IDs of specific message display scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.

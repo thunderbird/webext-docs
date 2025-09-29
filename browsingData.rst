@@ -29,7 +29,7 @@ Use the :code:`chrome.browsingData` API to remove browsing data from a user's lo
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -51,7 +51,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _browsingData.remove:
+.. _browsing^data.remove:
 
 remove(options, dataToRemove)
 -----------------------------
@@ -69,11 +69,11 @@ Clears various types of browsing data stored in a user's profile.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
    .. api-member::
       :name: ``dataToRemove``
-      :type: (:ref:`browsingData.DataTypeSet`)
+      :type: (:ref:`browsing^data.^data^type^set`)
 
       The set of data types to remove.
 
@@ -82,7 +82,7 @@ Clears various types of browsing data stored in a user's profile.
 
    - :permission:`browsingData`
 
-.. _browsingData.removeAppcache:
+.. _browsing^data.remove^appcache:
 
 removeAppcache(options)
 -----------------------
@@ -96,14 +96,14 @@ Clears websites' appcache data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeCache:
+.. _browsing^data.remove^cache:
 
 removeCache(options)
 --------------------
@@ -121,14 +121,14 @@ Clears the browser's cache.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeCookies:
+.. _browsing^data.remove^cookies:
 
 removeCookies(options)
 ----------------------
@@ -142,14 +142,14 @@ Clears the browser's cookies and server-bound certificates modified within a par
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeDownloads:
+.. _browsing^data.remove^downloads:
 
 removeDownloads(options)
 ------------------------
@@ -163,14 +163,14 @@ Clears the browser's list of downloaded files (*not* the downloaded files themse
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeFileSystems:
+.. _browsing^data.remove^file^systems:
 
 removeFileSystems(options)
 --------------------------
@@ -184,14 +184,14 @@ Clears websites' file system data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeFormData:
+.. _browsing^data.remove^form^data:
 
 removeFormData(options)
 -----------------------
@@ -205,14 +205,14 @@ Clears the browser's stored form data (autofill).
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeHistory:
+.. _browsing^data.remove^history:
 
 removeHistory(options)
 ----------------------
@@ -230,14 +230,14 @@ Clears the browser's history.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeIndexedDB:
+.. _browsing^data.remove^indexed^d^b:
 
 removeIndexedDB(options)
 ------------------------
@@ -251,14 +251,14 @@ Clears websites' IndexedDB data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeLocalStorage:
+.. _browsing^data.remove^local^storage:
 
 removeLocalStorage(options)
 ---------------------------
@@ -276,14 +276,14 @@ Clears websites' local storage data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removePasswords:
+.. _browsing^data.remove^passwords:
 
 removePasswords(options)
 ------------------------
@@ -297,14 +297,14 @@ Clears the browser's stored passwords.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removePluginData:
+.. _browsing^data.remove^plugin^data:
 
 removePluginData(options)
 -------------------------
@@ -318,14 +318,14 @@ Clears plugins' data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.removeWebSQL:
+.. _browsing^data.remove^web^s^q^l:
 
 removeWebSQL(options)
 ---------------------
@@ -339,14 +339,14 @@ Clears websites' WebSQL data.
 
    .. api-member::
       :name: ``options``
-      :type: (:ref:`browsingData.RemovalOptions`)
+      :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`browsingData`
 
-.. _browsingData.settings:
+.. _browsing^data.settings:
 
 settings()
 ----------
@@ -363,19 +363,19 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
 
       .. api-member::
          :name: ``dataRemovalPermitted``
-         :type: (:ref:`browsingData.DataTypeSet`)
+         :type: (:ref:`browsing^data.^data^type^set`)
 
          All of the types will be present in the result, with values of :code:`true` if they are permitted to be removed (e.g., by enterprise policy) and :code:`false` if not.
 
       .. api-member::
          :name: ``dataToRemove``
-         :type: (:ref:`browsingData.DataTypeSet`)
+         :type: (:ref:`browsing^data.^data^type^set`)
 
          All of the types will be present in the result, with values of :code:`true` if they are both selected to be removed and permitted to be removed, otherwise :code:`false`.
 
       .. api-member::
          :name: ``options``
-         :type: (:ref:`browsingData.RemovalOptions`)
+         :type: (:ref:`browsing^data.^removal^options`)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -389,7 +389,7 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
 Types
 =====
 
-.. _browsingData.DataTypeSet:
+.. _browsing^data.^data^type^set:
 
 DataTypeSet
 -----------
@@ -401,7 +401,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 .. api-header::
    :label: object
 
-   .. _browsingData.DataTypeSet.cache:
+   .. _browsing^data.^data^type^set.cache:
 
    .. api-member::
       :name: [``cache``]
@@ -409,7 +409,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       The browser's cache. Note: when removing data, this clears the *entire* cache: it is not limited to the range you specify.
 
-   .. _browsingData.DataTypeSet.cookies:
+   .. _browsing^data.^data^type^set.cookies:
 
    .. api-member::
       :name: [``cookies``]
@@ -417,7 +417,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       The browser's cookies.
 
-   .. _browsingData.DataTypeSet.downloads:
+   .. _browsing^data.^data^type^set.downloads:
 
    .. api-member::
       :name: [``downloads``]
@@ -425,7 +425,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       The browser's download list.
 
-   .. _browsingData.DataTypeSet.formData:
+   .. _browsing^data.^data^type^set.form^data:
 
    .. api-member::
       :name: [``formData``]
@@ -433,7 +433,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       The browser's stored form data.
 
-   .. _browsingData.DataTypeSet.history:
+   .. _browsing^data.^data^type^set.history:
 
    .. api-member::
       :name: [``history``]
@@ -441,7 +441,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       The browser's history.
 
-   .. _browsingData.DataTypeSet.indexedDB:
+   .. _browsing^data.^data^type^set.indexed^d^b:
 
    .. api-member::
       :name: [``indexedDB``]
@@ -450,7 +450,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       Websites' IndexedDB data.
 
-   .. _browsingData.DataTypeSet.localStorage:
+   .. _browsing^data.^data^type^set.local^storage:
 
    .. api-member::
       :name: [``localStorage``]
@@ -459,7 +459,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       Websites' local storage data.
 
-   .. _browsingData.DataTypeSet.passwords:
+   .. _browsing^data.^data^type^set.passwords:
 
    .. api-member::
       :name: [``passwords``]
@@ -467,7 +467,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       Stored passwords.
 
-   .. _browsingData.DataTypeSet.pluginData:
+   .. _browsing^data.^data^type^set.plugin^data:
 
    .. api-member::
       :name: [``pluginData``]
@@ -475,7 +475,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       Plugins' data.
 
-   .. _browsingData.DataTypeSet.serverBoundCertificates:
+   .. _browsing^data.^data^type^set.server^bound^certificates:
 
    .. api-member::
       :name: [``serverBoundCertificates``]
@@ -483,7 +483,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       Server-bound certificates.
 
-   .. _browsingData.DataTypeSet.serviceWorkers:
+   .. _browsing^data.^data^type^set.service^workers:
 
    .. api-member::
       :name: [``serviceWorkers``]
@@ -491,7 +491,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 
       Service Workers.
 
-.. _browsingData.RemovalOptions:
+.. _browsing^data.^removal^options:
 
 RemovalOptions
 --------------
@@ -503,7 +503,7 @@ Options that determine exactly what data will be removed.
 .. api-header::
    :label: object
 
-   .. _browsingData.RemovalOptions.cookieStoreId:
+   .. _browsing^data.^removal^options.cookie^store^id:
 
    .. api-member::
       :name: [``cookieStoreId``]
@@ -512,7 +512,7 @@ Options that determine exactly what data will be removed.
 
       Only remove data associated with this specific cookieStoreId.
 
-   .. _browsingData.RemovalOptions.hostnames:
+   .. _browsing^data.^removal^options.hostnames:
 
    .. api-member::
       :name: [``hostnames``]
@@ -529,7 +529,7 @@ Options that determine exactly what data will be removed.
 
          From Thunderbird 77 also supports the specification of hostnames for the deletion of service worker and indexedDB items.
 
-   .. _browsingData.RemovalOptions.originTypes:
+   .. _browsing^data.^removal^options.origin^types:
 
    .. api-member::
       :name: [``originTypes``]
@@ -555,7 +555,7 @@ Options that determine exactly what data will be removed.
 
          Normal websites.
 
-   .. _browsingData.RemovalOptions.since:
+   .. _browsing^data.^removal^options.since:
 
    .. api-member::
       :name: [``since``]

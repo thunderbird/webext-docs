@@ -28,7 +28,7 @@ alarms API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -83,7 +83,7 @@ Clears the alarm with the given name.
 
    - :permission:`alarms`
 
-.. _alarms.clearAll:
+.. _alarms.clear^all:
 
 clearAll()
 ----------
@@ -176,7 +176,7 @@ Retrieves details about the specified alarm.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`alarms.Alarm`
+      :type: :ref:`alarms.^alarm`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -185,7 +185,7 @@ Retrieves details about the specified alarm.
 
    - :permission:`alarms`
 
-.. _alarms.getAll:
+.. _alarms.get^all:
 
 getAll()
 --------
@@ -198,7 +198,7 @@ Gets an array of all the alarms.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`alarms.Alarm`
+      :type: array of :ref:`alarms.^alarm`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -212,7 +212,7 @@ Gets an array of all the alarms.
 Events
 ======
 
-.. _alarms.onAlarm:
+.. _alarms.on^alarm:
 
 onAlarm
 -------
@@ -234,7 +234,7 @@ Fired when an alarm has expired. Useful for transient background pages.
 
    .. api-member::
       :name: ``name``
-      :type: (:ref:`alarms.Alarm`)
+      :type: (:ref:`alarms.^alarm`)
 
       The alarm that has expired.
 
@@ -248,7 +248,7 @@ Fired when an alarm has expired. Useful for transient background pages.
 Types
 =====
 
-.. _alarms.Alarm:
+.. _alarms.^alarm:
 
 Alarm
 -----
@@ -258,7 +258,7 @@ Alarm
 .. api-header::
    :label: object
 
-   .. _alarms.Alarm.name:
+   .. _alarms.^alarm.name:
 
    .. api-member::
       :name: ``name``
@@ -266,7 +266,7 @@ Alarm
 
       Name of this alarm.
 
-   .. _alarms.Alarm.scheduledTime:
+   .. _alarms.^alarm.scheduled^time:
 
    .. api-member::
       :name: ``scheduledTime``
@@ -274,7 +274,7 @@ Alarm
 
       Time when the alarm is scheduled to fire, in milliseconds past the epoch.
 
-   .. _alarms.Alarm.periodInMinutes:
+   .. _alarms.^alarm.period^in^minutes:
 
    .. api-member::
       :name: [``periodInMinutes``]

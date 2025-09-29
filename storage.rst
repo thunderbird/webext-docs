@@ -34,7 +34,7 @@ Use the :code:`browser.storage` API to store, retrieve, and track changes to use
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -56,7 +56,7 @@ The following permissions influence the behavior of the API: depending on which 
 Events
 ======
 
-.. _storage.onChanged:
+.. _storage.on^changed:
 
 onChanged
 ---------
@@ -80,7 +80,7 @@ Fired when one or more items change.
       :name: ``changes``
       :type: (object)
 
-      Object mapping each key that changed to its corresponding :ref:`storage.StorageChange` for that item.
+      Object mapping each key that changed to its corresponding :ref:`storage.^storage^change` for that item.
 
    .. api-member::
       :name: ``areaName``
@@ -98,7 +98,7 @@ Fired when one or more items change.
 Types
 =====
 
-.. _storage.StorageArea:
+.. _storage.^storage^area:
 
 StorageArea
 -----------
@@ -108,7 +108,7 @@ StorageArea
 .. api-header::
    :label: object
 
-.. _storage.StorageChange:
+.. _storage.^storage^change:
 
 StorageChange
 -------------
@@ -118,7 +118,7 @@ StorageChange
 .. api-header::
    :label: object
 
-   .. _storage.StorageChange.newValue:
+   .. _storage.^storage^change.new^value:
 
    .. api-member::
       :name: [``newValue``]
@@ -126,7 +126,7 @@ StorageChange
 
       The new value of the item, if there is a new value.
 
-   .. _storage.StorageChange.oldValue:
+   .. _storage.^storage^change.old^value:
 
    .. api-member::
       :name: [``oldValue``]

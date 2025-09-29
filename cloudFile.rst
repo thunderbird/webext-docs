@@ -62,7 +62,7 @@ Manifest file properties
       :type: (string, optional) **Deprecated.**
       :annotation: -- [Added in TB 71]
 
-      This property is no longer used. The only supported data format for the :value:`data` argument in :ref:`cloudFile.onFileUpload` is `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__.
+      This property is no longer used. The only supported data format for the :value:`data` argument in :ref:`cloud^file.on^file^upload` is `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__.
 
    .. api-member::
       :name: [``new_account_url``]
@@ -76,14 +76,14 @@ Manifest file properties
       :type: (boolean, optional)
       :annotation: -- [Added in TB 98]
 
-      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
+      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloud^file.on^file^upload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloud^file.on^file^upload` event, to let the provider decide how to handle these cases.
 
    .. api-member::
       :name: [``service_url``]
       :type: (string, optional) **Deprecated.**
       :annotation: -- [Added in TB 64]
 
-      This property is no longer used. The :value:`service_url` property of the :ref:`cloudFile.CloudFileTemplateInfo` object returned by the :ref:`cloudFile.onFileUpload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
+      This property is no longer used. The :value:`service_url` property of the :ref:`cloud^file.^cloud^file^template^info` object returned by the :ref:`cloud^file.on^file^upload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
 
 .. rst-class:: api-main-section
 
@@ -101,7 +101,7 @@ Permissions
 Functions
 =========
 
-.. _cloudFile.getAccount:
+.. _cloud^file.get^account:
 
 getAccount(accountId)
 ---------------------
@@ -123,12 +123,12 @@ Retrieve information about a single cloud file account. Returns :value:`undefine
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`cloudFile.CloudFileAccount`
+      :type: :ref:`cloud^file.^cloud^file^account`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _cloudFile.getAllAccounts:
+.. _cloud^file.get^all^accounts:
 
 getAllAccounts()
 ----------------
@@ -141,12 +141,12 @@ Retrieve all cloud file accounts for the current add-on.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`cloudFile.CloudFileAccount`
+      :type: array of :ref:`cloud^file.^cloud^file^account`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _cloudFile.updateAccount:
+.. _cloud^file.update^account:
 
 updateAccount(accountId, updateProperties)
 ------------------------------------------
@@ -202,7 +202,7 @@ Update a cloud file account. Returns :value:`undefined`, if the requested accoun
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`cloudFile.CloudFileAccount`
+      :type: :ref:`cloud^file.^cloud^file^account`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -212,7 +212,7 @@ Update a cloud file account. Returns :value:`undefined`, if the requested accoun
 Events
 ======
 
-.. _cloudFile.onAccountAdded:
+.. _cloud^file.on^account^added:
 
 onAccountAdded
 --------------
@@ -234,11 +234,11 @@ Fired when a cloud file account of this add-on was created.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
+      :type: (:ref:`cloud^file.^cloud^file^account`)
 
       The created account.
 
-.. _cloudFile.onAccountDeleted:
+.. _cloud^file.on^account^deleted:
 
 onAccountDeleted
 ----------------
@@ -264,7 +264,7 @@ Fired when a cloud file account of this add-on was deleted.
 
       The id of the removed account.
 
-.. _cloudFile.onFileDeleted:
+.. _cloud^file.on^file^deleted:
 
 onFileDeleted
 -------------
@@ -286,7 +286,7 @@ Fired when a previously uploaded file should be deleted.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
+      :type: (:ref:`cloud^file.^cloud^file^account`)
 
       The account used for the file upload.
 
@@ -298,12 +298,12 @@ Fired when a previously uploaded file should be deleted.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 91]
 
       The tab where the upload was initiated. Currently only available for the message composer.
 
-.. _cloudFile.onFileRename:
+.. _cloud^file.on^file^rename:
 
 onFileRename
 ------------
@@ -325,7 +325,7 @@ Fired when a previously uploaded file should be renamed.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
+      :type: (:ref:`cloud^file.^cloud^file^account`)
 
       The account used for the file upload.
 
@@ -343,7 +343,7 @@ Fired when a previously uploaded file should be renamed.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
       The tab where the rename was initiated. Currently only available for the message composer.
 
@@ -365,7 +365,7 @@ Fired when a previously uploaded file should be renamed.
 
          The URL where the renamed file can be accessed.
 
-.. _cloudFile.onFileUpload:
+.. _cloud^file.on^file^upload:
 
 onFileUpload
 ------------
@@ -387,26 +387,26 @@ Fired when a file should be uploaded to the cloud file provider.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
+      :type: (:ref:`cloud^file.^cloud^file^account`)
 
       The account used for the file upload.
 
    .. api-member::
       :name: ``fileInfo``
-      :type: (:ref:`cloudFile.CloudFile`)
+      :type: (:ref:`cloud^file.^cloud^file`)
 
       The file to upload.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 91]
 
       The tab where the upload was initiated. Currently only available for the message composer.
 
    .. api-member::
       :name: [``relatedFileInfo``]
-      :type: (:ref:`cloudFile.RelatedCloudFile`, optional)
+      :type: (:ref:`cloud^file.^related^cloud^file`, optional)
       :annotation: -- [Added in TB 98]
 
       Information about an already uploaded file, which is related to this upload.
@@ -421,7 +421,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :name: [``aborted``]
          :type: (boolean, optional)
 
-         Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
+         Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloud^file.on^file^upload^abort` event has been received. No error message will be shown to the user.
 
       .. api-member::
          :name: [``error``]
@@ -432,7 +432,7 @@ Fired when a file should be uploaded to the cloud file provider.
 
       .. api-member::
          :name: [``templateInfo``]
-         :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
+         :type: (:ref:`cloud^file.^cloud^file^template^info`, optional)
          :annotation: -- [Added in TB 96]
 
          Additional file information used in the cloud file entry added to the message.
@@ -443,7 +443,7 @@ Fired when a file should be uploaded to the cloud file provider.
 
          The URL where the uploaded file can be accessed.
 
-.. _cloudFile.onFileUploadAbort:
+.. _cloud^file.on^file^upload^abort:
 
 onFileUploadAbort
 -----------------
@@ -463,7 +463,7 @@ onFileUploadAbort
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
+      :type: (:ref:`cloud^file.^cloud^file^account`)
 
       The account used for the file upload.
 
@@ -475,7 +475,7 @@ onFileUploadAbort
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 91]
 
       The tab where the upload was initiated. Currently only available for the message composer.
@@ -485,7 +485,7 @@ onFileUploadAbort
 Types
 =====
 
-.. _cloudFile.CloudFile:
+.. _cloud^file.^cloud^file:
 
 CloudFile
 ---------
@@ -497,7 +497,7 @@ Information about a cloud file.
 .. api-header::
    :label: object
 
-   .. _cloudFile.CloudFile.data:
+   .. _cloud^file.^cloud^file.data:
 
    .. api-member::
       :name: ``data``
@@ -505,7 +505,7 @@ Information about a cloud file.
 
       Contents of the file to be transferred.
 
-   .. _cloudFile.CloudFile.id:
+   .. _cloud^file.^cloud^file.id:
 
    .. api-member::
       :name: ``id``
@@ -513,7 +513,7 @@ Information about a cloud file.
 
       An identifier for this file.
 
-   .. _cloudFile.CloudFile.name:
+   .. _cloud^file.^cloud^file.name:
 
    .. api-member::
       :name: ``name``
@@ -521,7 +521,7 @@ Information about a cloud file.
 
       Filename of the file to be transferred.
 
-.. _cloudFile.CloudFileAccount:
+.. _cloud^file.^cloud^file^account:
 
 CloudFileAccount
 ----------------
@@ -533,7 +533,7 @@ Information about a cloud file account.
 .. api-header::
    :label: object
 
-   .. _cloudFile.CloudFileAccount.configured:
+   .. _cloud^file.^cloud^file^account.configured:
 
    .. api-member::
       :name: ``configured``
@@ -541,7 +541,7 @@ Information about a cloud file account.
 
       If true, the account is configured and ready to use. Only configured accounts are offered to the user.
 
-   .. _cloudFile.CloudFileAccount.id:
+   .. _cloud^file.^cloud^file^account.id:
 
    .. api-member::
       :name: ``id``
@@ -549,7 +549,7 @@ Information about a cloud file account.
 
       Unique identifier of the account.
 
-   .. _cloudFile.CloudFileAccount.managementUrl:
+   .. _cloud^file.^cloud^file^account.management^url:
 
    .. api-member::
       :name: ``managementUrl``
@@ -557,7 +557,7 @@ Information about a cloud file account.
 
       A page for configuring accounts, to be displayed in the preferences UI.
 
-   .. _cloudFile.CloudFileAccount.name:
+   .. _cloud^file.^cloud^file^account.name:
 
    .. api-member::
       :name: ``name``
@@ -565,7 +565,7 @@ Information about a cloud file account.
 
       A user-friendly name for this account.
 
-   .. _cloudFile.CloudFileAccount.spaceRemaining:
+   .. _cloud^file.^cloud^file^account.space^remaining:
 
    .. api-member::
       :name: [``spaceRemaining``]
@@ -573,7 +573,7 @@ Information about a cloud file account.
 
       The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
 
-   .. _cloudFile.CloudFileAccount.spaceUsed:
+   .. _cloud^file.^cloud^file^account.space^used:
 
    .. api-member::
       :name: [``spaceUsed``]
@@ -581,7 +581,7 @@ Information about a cloud file account.
 
       The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
 
-   .. _cloudFile.CloudFileAccount.uploadSizeLimit:
+   .. _cloud^file.^cloud^file^account.upload^size^limit:
 
    .. api-member::
       :name: [``uploadSizeLimit``]
@@ -589,7 +589,7 @@ Information about a cloud file account.
 
       The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
 
-.. _cloudFile.CloudFileTemplateInfo:
+.. _cloud^file.^cloud^file^template^info:
 
 CloudFileTemplateInfo
 ---------------------
@@ -601,7 +601,7 @@ Defines information to be used in the cloud file entry added to the message.
 .. api-header::
    :label: object
 
-   .. _cloudFile.CloudFileTemplateInfo.download_expiry_date:
+   .. _cloud^file.^cloud^file^template^info.download_expiry_date:
 
    .. api-member::
       :name: [``download_expiry_date``]
@@ -637,7 +637,7 @@ Defines information to be used in the cloud file entry added to the message.
               "timeZoneName": "short"
             }
 
-   .. _cloudFile.CloudFileTemplateInfo.download_limit:
+   .. _cloud^file.^cloud^file^template^info.download_limit:
 
    .. api-member::
       :name: [``download_limit``]
@@ -646,7 +646,7 @@ Defines information to be used in the cloud file entry added to the message.
 
       If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
 
-   .. _cloudFile.CloudFileTemplateInfo.download_password_protected:
+   .. _cloud^file.^cloud^file^template^info.download_password_protected:
 
    .. api-member::
       :name: [``download_password_protected``]
@@ -655,7 +655,7 @@ Defines information to be used in the cloud file entry added to the message.
 
       If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
 
-   .. _cloudFile.CloudFileTemplateInfo.service_icon:
+   .. _cloud^file.^cloud^file^template^info.service_icon:
 
    .. api-member::
       :name: [``service_icon``]
@@ -663,7 +663,7 @@ Defines information to be used in the cloud file entry added to the message.
 
       A URL pointing to an icon to represent the used cloud file service. Defaults to the icon of the provider add-on.
 
-   .. _cloudFile.CloudFileTemplateInfo.service_name:
+   .. _cloud^file.^cloud^file^template^info.service_name:
 
    .. api-member::
       :name: [``service_name``]
@@ -671,7 +671,7 @@ Defines information to be used in the cloud file entry added to the message.
 
       A name to represent the used cloud file service. Defaults to the associated cloud file account name.
 
-   .. _cloudFile.CloudFileTemplateInfo.service_url:
+   .. _cloud^file.^cloud^file^template^info.service_url:
 
    .. api-member::
       :name: [``service_url``]
@@ -679,7 +679,7 @@ Defines information to be used in the cloud file entry added to the message.
 
       A URL pointing to a web page of the used cloud file service. Will be used in a *Learn more about* link in the footer of the cloud file attachment element.
 
-.. _cloudFile.RelatedCloudFile:
+.. _cloud^file.^related^cloud^file:
 
 RelatedCloudFile
 ----------------
@@ -691,7 +691,7 @@ Information about an already uploaded cloud file, which is related to a new uplo
 .. api-header::
    :label: object
 
-   .. _cloudFile.RelatedCloudFile.dataChanged:
+   .. _cloud^file.^related^cloud^file.data^changed:
 
    .. api-member::
       :name: ``dataChanged``
@@ -699,7 +699,7 @@ Information about an already uploaded cloud file, which is related to a new uplo
 
       The content of the new upload differs from the related file.
 
-   .. _cloudFile.RelatedCloudFile.name:
+   .. _cloud^file.^related^cloud^file.name:
 
    .. api-member::
       :name: ``name``
@@ -707,7 +707,7 @@ Information about an already uploaded cloud file, which is related to a new uplo
 
       Filename of the related file.
 
-   .. _cloudFile.RelatedCloudFile.id:
+   .. _cloud^file.^related^cloud^file.id:
 
    .. api-member::
       :name: [``id``]
@@ -715,15 +715,15 @@ Information about an already uploaded cloud file, which is related to a new uplo
 
       The identifier for the related file. In some circumstances, the id is unavailable.
 
-   .. _cloudFile.RelatedCloudFile.templateInfo:
+   .. _cloud^file.^related^cloud^file.template^info:
 
    .. api-member::
       :name: [``templateInfo``]
-      :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
+      :type: (:ref:`cloud^file.^cloud^file^template^info`, optional)
 
       Additional information of the related file, used in the cloud file entry added to the message.
 
-   .. _cloudFile.RelatedCloudFile.url:
+   .. _cloud^file.^related^cloud^file.url:
 
    .. api-member::
       :name: [``url``]

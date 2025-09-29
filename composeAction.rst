@@ -56,7 +56,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`composeAction.IconPath`, optional)
+      :type: (:ref:`compose^action.^icon^path`, optional)
       :annotation: -- [Added in TB 64]
 
       The paths to one or more icons for the composeAction button.
@@ -84,7 +84,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`composeAction.ThemeIcons`, optional)
+      :type: (array of :ref:`compose^action.^theme^icons`, optional)
       :annotation: -- [Added in TB 64]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
@@ -120,7 +120,7 @@ Permissions
 Functions
 =========
 
-.. _composeAction.disable:
+.. _compose^action.disable:
 
 disable([tabId])
 ----------------
@@ -138,7 +138,7 @@ Disables the composeAction button for a specific tab (if a :value:`tabId` is pro
 
       The id of the tab for which you want to modify the composeAction button.
 
-.. _composeAction.enable:
+.. _compose^action.enable:
 
 enable([tabId])
 ---------------
@@ -156,7 +156,7 @@ Enables the composeAction button for a specific tab (if a :value:`tabId` is prov
 
       The id of the tab for which you want to modify the composeAction button.
 
-.. _composeAction.getBadgeBackgroundColor:
+.. _compose^action.get^badge^background^color:
 
 getBadgeBackgroundColor(details)
 --------------------------------
@@ -190,11 +190,11 @@ Gets the badge background color of the composeAction button.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`composeAction.ColorArray`
+      :type: :ref:`compose^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.getBadgeText:
+.. _compose^action.get^badge^text:
 
 getBadgeText(details)
 ---------------------
@@ -232,7 +232,7 @@ Gets the badge text of the composeAction button.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.getBadgeTextColor:
+.. _compose^action.get^badge^text^color:
 
 getBadgeTextColor(details)
 --------------------------
@@ -264,11 +264,11 @@ Gets the text color of the badge.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`composeAction.ColorArray`
+      :type: :ref:`compose^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.getLabel:
+.. _compose^action.get^label:
 
 getLabel(details)
 -----------------
@@ -306,7 +306,7 @@ Gets the label of the composeAction button. Returns :value:`null`, if no label h
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.getPopup:
+.. _compose^action.get^popup:
 
 getPopup(details)
 -----------------
@@ -344,7 +344,7 @@ Gets the html document set as the popup for this composeAction button.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.getTitle:
+.. _compose^action.get^title:
 
 getTitle(details)
 -----------------
@@ -382,7 +382,7 @@ Gets the title of the composeAction button.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.isEnabled:
+.. _compose^action.is^enabled:
 
 isEnabled(details)
 ------------------
@@ -421,7 +421,7 @@ Checks whether the composeAction button is enabled.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.openPopup:
+.. _compose^action.open^popup:
 
 openPopup([options])
 --------------------
@@ -456,7 +456,7 @@ Opens the action's popup window in the specified window. Defaults to the current
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _composeAction.setBadgeBackgroundColor:
+.. _compose^action.set^badge^background^color:
 
 setBadgeBackgroundColor(details)
 --------------------------------
@@ -474,7 +474,7 @@ Sets the background color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`composeAction.ColorArray` or null)
+         :type: (string or :ref:`compose^action.^color^array` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
 
@@ -490,7 +490,7 @@ Sets the background color for the badge.
 
          Will throw an error if used.
 
-.. _composeAction.setBadgeText:
+.. _compose^action.set^badge^text:
 
 setBadgeText(details)
 ---------------------
@@ -524,7 +524,7 @@ Sets the badge text for the composeAction button. The badge is displayed on top 
 
          Will throw an error if used.
 
-.. _composeAction.setBadgeTextColor:
+.. _compose^action.set^badge^text^color:
 
 setBadgeTextColor(details)
 --------------------------
@@ -542,7 +542,7 @@ Sets the text color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`composeAction.ColorArray` or null)
+         :type: (string or :ref:`compose^action.^color^array` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
 
@@ -558,7 +558,7 @@ Sets the text color for the badge.
 
          Will throw an error if used.
 
-.. _composeAction.setIcon:
+.. _compose^action.set^icon:
 
 setIcon(details)
 ----------------
@@ -576,13 +576,13 @@ Sets the icon for the composeAction button. Either the :value:`path` or the :val
 
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`composeAction.ImageDataType` or :ref:`composeAction.ImageDataDictionary`, optional)
+         :type: (:ref:`compose^action.^image^data^type` or :ref:`compose^action.^image^data^dictionary`, optional)
 
          The image data for one or more icons for the composeAction button.
 
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`composeAction.IconPath`, optional)
+         :type: (:ref:`compose^action.^icon^path`, optional)
 
          The paths to one or more icons for the composeAction button.
 
@@ -598,7 +598,7 @@ Sets the icon for the composeAction button. Either the :value:`path` or the :val
 
          Will throw an error if used.
 
-.. _composeAction.setLabel:
+.. _compose^action.set^label:
 
 setLabel(details)
 -----------------
@@ -632,7 +632,7 @@ Sets the label of the composeAction button. Can be used to set different values 
 
          Will throw an error if used.
 
-.. _composeAction.setPopup:
+.. _compose^action.set^popup:
 
 setPopup(details)
 -----------------
@@ -666,7 +666,7 @@ Sets the html document to be opened as a popup when the user clicks on the compo
 
          Will throw an error if used.
 
-.. _composeAction.setTitle:
+.. _compose^action.set^title:
 
 setTitle(details)
 -----------------
@@ -705,7 +705,7 @@ Sets the title of the composeAction button. Is used as tooltip and as the label.
 Events
 ======
 
-.. _composeAction.onClicked:
+.. _compose^action.on^clicked:
 
 onClicked
 ---------
@@ -727,12 +727,12 @@ Fired when a composeAction button is clicked. This event will not fire if the co
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 74]
 
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`composeAction.OnClickData`, optional)
+      :type: (:ref:`compose^action.^on^click^data`, optional)
       :annotation: -- [Added in TB 74]
 
 .. rst-class:: api-main-section
@@ -740,7 +740,7 @@ Fired when a composeAction button is clicked. This event will not fire if the co
 Types
 =====
 
-.. _composeAction.ColorArray:
+.. _compose^action.^color^array:
 
 ColorArray
 ----------
@@ -752,7 +752,7 @@ An array of four integers in the range [0,255] that make up the RGBA color. For 
 .. api-header::
    :label: array of integer
 
-.. _composeAction.ExtensionFileUrl:
+.. _compose^action.^extension^file^url:
 
 ExtensionFileUrl
 ----------------
@@ -762,7 +762,7 @@ ExtensionFileUrl
 .. api-header::
    :label: string
 
-.. _composeAction.ExtensionURL:
+.. _compose^action.^extension^u^r^l:
 
 ExtensionURL
 ------------
@@ -774,7 +774,7 @@ A path relative to the root of the extension.
 .. api-header::
    :label: string
 
-.. _composeAction.IconPath:
+.. _compose^action.^icon^path:
 
 IconPath
 --------
@@ -798,9 +798,9 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 OR
 
 .. api-header::
-   :label: :ref:`composeAction.ExtensionFileUrl`
+   :label: :ref:`compose^action.^extension^file^url`
 
-.. _composeAction.ImageDataDictionary:
+.. _compose^action.^image^data^dictionary:
 
 ImageDataDictionary
 -------------------
@@ -812,7 +812,7 @@ A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.
 .. api-header::
    :label: object
 
-.. _composeAction.ImageDataType:
+.. _compose^action.^image^data^type:
 
 ImageDataType
 -------------
@@ -824,7 +824,7 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
 
-.. _composeAction.OnClickData:
+.. _compose^action.^on^click^data:
 
 OnClickData
 -----------
@@ -836,7 +836,7 @@ Information sent when a composeAction button is clicked.
 .. api-header::
    :label: object
 
-   .. _composeAction.OnClickData.modifiers:
+   .. _compose^action.^on^click^data.modifiers:
 
    .. api-member::
       :name: ``modifiers``
@@ -867,7 +867,7 @@ Information sent when a composeAction button is clicked.
 
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
 
-   .. _composeAction.OnClickData.button:
+   .. _compose^action.^on^click^data.button:
 
    .. api-member::
       :name: [``button``]
@@ -875,7 +875,7 @@ Information sent when a composeAction button is clicked.
 
       An integer value of button by which menu item was clicked.
 
-.. _composeAction.ThemeIcons:
+.. _compose^action.^theme^icons:
 
 ThemeIcons
 ----------
@@ -887,23 +887,23 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 .. api-header::
    :label: object
 
-   .. _composeAction.ThemeIcons.dark:
+   .. _compose^action.^theme^icons.dark:
 
    .. api-member::
       :name: ``dark``
-      :type: (:ref:`composeAction.ExtensionURL`)
+      :type: (:ref:`compose^action.^extension^u^r^l`)
 
       The dark icon to use for light themes
 
-   .. _composeAction.ThemeIcons.light:
+   .. _compose^action.^theme^icons.light:
 
    .. api-member::
       :name: ``light``
-      :type: (:ref:`composeAction.ExtensionURL`)
+      :type: (:ref:`compose^action.^extension^u^r^l`)
 
       A light icon to use for dark themes
 
-   .. _composeAction.ThemeIcons.size:
+   .. _compose^action.^theme^icons.size:
 
    .. api-member::
       :name: ``size``

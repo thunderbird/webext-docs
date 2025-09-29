@@ -23,7 +23,7 @@ scripting.compose API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -45,7 +45,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _scripting.compose.getRegisteredScripts:
+.. _scripting.compose.get^registered^scripts:
 
 getRegisteredScripts([filter])
 ------------------------------
@@ -59,7 +59,7 @@ Returns all registered compose scripts for this extension that match the given f
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.compose.ComposeScriptFilter`, optional)
+      :type: (:ref:`scripting.compose.^compose^script^filter`, optional)
 
       An object to filter the extension's registered compose scripts.
 
@@ -67,7 +67,7 @@ Returns all registered compose scripts for this extension that match the given f
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`scripting.compose.ComposeScriptDetails`
+      :type: array of :ref:`scripting.compose.^compose^script^details`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -76,7 +76,7 @@ Returns all registered compose scripts for this extension that match the given f
 
    - :permission:`compose`
 
-.. _scripting.compose.registerScripts:
+.. _scripting.compose.register^scripts:
 
 registerScripts(scripts)
 ------------------------
@@ -87,14 +87,14 @@ Registers one or more compose scripts for this extension, which should be inject
 
 .. note::
 
-   Registered scripts will only be applied to newly opened message compose tabs. To apply the script to already open message compose tabs, manually inject your script by calling :ref:`scripting.executeScript` for each of the open :value:`messageCompose` tabs.
+   Registered scripts will only be applied to newly opened message compose tabs. To apply the script to already open message compose tabs, manually inject your script by calling :ref:`scripting.execute^script` for each of the open :value:`messageCompose` tabs.
 
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`scripting.compose.ComposeScriptDetails`)
+      :type: (array of :ref:`scripting.compose.^compose^script^details`)
 
       Contains a list of compose scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
 
@@ -103,7 +103,7 @@ Registers one or more compose scripts for this extension, which should be inject
 
    - :permission:`compose`
 
-.. _scripting.compose.unregisterScripts:
+.. _scripting.compose.unregister^scripts:
 
 unregisterScripts([filter])
 ---------------------------
@@ -117,7 +117,7 @@ Unregisters one or more compose scripts for this extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.compose.ComposeScriptFilter`, optional)
+      :type: (:ref:`scripting.compose.^compose^script^filter`, optional)
 
       If specified, only unregisters compose scripts which match the filter. Otherwise, all of the extension's compose scripts are unregistered.
 
@@ -131,7 +131,7 @@ Unregisters one or more compose scripts for this extension.
 Types
 =====
 
-.. _scripting.compose.ComposeScriptDetails:
+.. _scripting.compose.^compose^script^details:
 
 ComposeScriptDetails
 --------------------
@@ -141,7 +141,7 @@ ComposeScriptDetails
 .. api-header::
    :label: object
 
-   .. _scripting.compose.ComposeScriptDetails.id:
+   .. _scripting.compose.^compose^script^details.id:
 
    .. api-member::
       :name: ``id``
@@ -149,31 +149,31 @@ ComposeScriptDetails
 
       The id of the compose script, specified in the API call.
 
-   .. _scripting.compose.ComposeScriptDetails.css:
+   .. _scripting.compose.^compose^script^details.css:
 
    .. api-member::
       :name: [``css``]
-      :type: (array of :ref:`scripting.compose.ExtensionURL`, optional)
+      :type: (array of :ref:`scripting.compose.^extension^u^r^l`, optional)
 
       The list of CSS files to be injected. These are injected in the order they appear in this array.
 
-   .. _scripting.compose.ComposeScriptDetails.js:
+   .. _scripting.compose.^compose^script^details.js:
 
    .. api-member::
       :name: [``js``]
-      :type: (array of :ref:`scripting.compose.ExtensionURL`, optional)
+      :type: (array of :ref:`scripting.compose.^extension^u^r^l`, optional)
 
       The list of JavaScript files to be injected. These are injected in the order they appear in this array.
 
-   .. _scripting.compose.ComposeScriptDetails.runAt:
+   .. _scripting.compose.^compose^script^details.run^at:
 
    .. api-member::
       :name: [``runAt``]
-      :type: (:ref:`scripting.compose.RunAt`, optional)
+      :type: (:ref:`scripting.compose.^run^at`, optional)
 
       Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
 
-.. _scripting.compose.ComposeScriptFilter:
+.. _scripting.compose.^compose^script^filter:
 
 ComposeScriptFilter
 -------------------
@@ -183,7 +183,7 @@ ComposeScriptFilter
 .. api-header::
    :label: object
 
-   .. _scripting.compose.ComposeScriptFilter.ids:
+   .. _scripting.compose.^compose^script^filter.ids:
 
    .. api-member::
       :name: [``ids``]
@@ -191,7 +191,19 @@ ComposeScriptFilter
 
       The IDs of specific compose scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
 
-.. _scripting.compose.RunAt:
+.. _scripting.compose.^extension^u^r^l:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
+
+.. _scripting.compose.^run^at:
 
 RunAt
 -----
@@ -217,15 +229,3 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 
          .. api-member::
             :name: :value:`document_idle`
-
-.. _scripting.compose.ExtensionURL:
-
-ExtensionURL
-------------
-
-.. api-section-annotation-hack:: 
-
-A path relative to the root of the extension.
-
-.. api-header::
-   :label: string

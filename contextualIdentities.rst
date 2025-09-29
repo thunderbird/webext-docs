@@ -30,7 +30,7 @@ Use the :code:`browser.contextualIdentities` API to query and modify contextual 
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -52,7 +52,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _contextualIdentities.create:
+.. _contextual^identities.create:
 
 create(details)
 ---------------
@@ -97,7 +97,7 @@ Creates a contextual identity with the given data.
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.get:
+.. _contextual^identities.get:
 
 get(cookieStoreId)
 ------------------
@@ -128,7 +128,7 @@ Retrieves information about a single contextual identity.
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.move:
+.. _contextual^identities.move:
 
 move(cookieStoreIds, position)
 ------------------------------
@@ -157,7 +157,7 @@ Reorder one or more contextual identities by their cookieStoreIDs to a given pos
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.query:
+.. _contextual^identities.query:
 
 query(details)
 --------------
@@ -190,7 +190,7 @@ Retrieves all contextual identities
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.remove:
+.. _contextual^identities.remove:
 
 remove(cookieStoreId)
 ---------------------
@@ -221,7 +221,7 @@ Deletes a contextual identity by its cookie Store ID.
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.update:
+.. _contextual^identities.update:
 
 update(cookieStoreId, details)
 ------------------------------
@@ -281,7 +281,7 @@ Updates a contextual identity with the given data.
 Events
 ======
 
-.. _contextualIdentities.onCreated:
+.. _contextual^identities.on^created:
 
 onCreated
 ---------
@@ -307,7 +307,7 @@ Fired when a new container is created.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`contextualIdentities.ContextualIdentity`)
+         :type: (:ref:`contextual^identities.^contextual^identity`)
 
          Contextual identity that has been created
 
@@ -316,7 +316,7 @@ Fired when a new container is created.
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.onRemoved:
+.. _contextual^identities.on^removed:
 
 onRemoved
 ---------
@@ -342,7 +342,7 @@ Fired when a container is removed.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`contextualIdentities.ContextualIdentity`)
+         :type: (:ref:`contextual^identities.^contextual^identity`)
 
          Contextual identity that has been removed
 
@@ -351,7 +351,7 @@ Fired when a container is removed.
 
    - :permission:`contextualIdentities`
 
-.. _contextualIdentities.onUpdated:
+.. _contextual^identities.on^updated:
 
 onUpdated
 ---------
@@ -377,7 +377,7 @@ Fired when a container is updated.
 
       .. api-member::
          :name: ``contextualIdentity``
-         :type: (:ref:`contextualIdentities.ContextualIdentity`)
+         :type: (:ref:`contextual^identities.^contextual^identity`)
 
          Contextual identity that has been updated
 
@@ -391,7 +391,7 @@ Fired when a container is updated.
 Types
 =====
 
-.. _contextualIdentities.ContextualIdentity:
+.. _contextual^identities.^contextual^identity:
 
 ContextualIdentity
 ------------------
@@ -403,7 +403,7 @@ Represents information about a contextual identity.
 .. api-header::
    :label: object
 
-   .. _contextualIdentities.ContextualIdentity.color:
+   .. _contextual^identities.^contextual^identity.color:
 
    .. api-member::
       :name: ``color``
@@ -411,7 +411,7 @@ Represents information about a contextual identity.
 
       The color name of the contextual identity.
 
-   .. _contextualIdentities.ContextualIdentity.colorCode:
+   .. _contextual^identities.^contextual^identity.color^code:
 
    .. api-member::
       :name: ``colorCode``
@@ -420,7 +420,7 @@ Represents information about a contextual identity.
 
       The color hash of the contextual identity.
 
-   .. _contextualIdentities.ContextualIdentity.cookieStoreId:
+   .. _contextual^identities.^contextual^identity.cookie^store^id:
 
    .. api-member::
       :name: ``cookieStoreId``
@@ -428,7 +428,7 @@ Represents information about a contextual identity.
 
       The cookie store ID of the contextual identity.
 
-   .. _contextualIdentities.ContextualIdentity.icon:
+   .. _contextual^identities.^contextual^identity.icon:
 
    .. api-member::
       :name: ``icon``
@@ -436,7 +436,7 @@ Represents information about a contextual identity.
 
       The icon name of the contextual identity.
 
-   .. _contextualIdentities.ContextualIdentity.iconUrl:
+   .. _contextual^identities.^contextual^identity.icon^url:
 
    .. api-member::
       :name: ``iconUrl``
@@ -445,7 +445,7 @@ Represents information about a contextual identity.
 
       The icon url of the contextual identity.
 
-   .. _contextualIdentities.ContextualIdentity.name:
+   .. _contextual^identities.^contextual^identity.name:
 
    .. api-member::
       :name: ``name``

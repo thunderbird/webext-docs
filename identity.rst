@@ -30,7 +30,7 @@ Use the chrome.identity API to get OAuth2 access tokens.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -52,7 +52,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _identity.getAccounts:
+.. _identity.get^accounts:
 
 getAccounts()
 -------------
@@ -65,7 +65,7 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`identity.AccountInfo`
+      :type: array of :ref:`identity.^account^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -74,7 +74,7 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
 
    - :permission:`identity`
 
-.. _identity.getAuthToken:
+.. _identity.get^auth^token:
 
 getAuthToken([details])
 -----------------------
@@ -92,7 +92,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 
       .. api-member::
          :name: [``account``]
-         :type: (:ref:`identity.AccountInfo`, optional)
+         :type: (:ref:`identity.^account^info`, optional)
 
       .. api-member::
          :name: [``interactive``]
@@ -106,7 +106,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`identity.AccountInfo`
+      :type: array of :ref:`identity.^account^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -115,7 +115,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 
    - :permission:`identity`
 
-.. _identity.getProfileUserInfo:
+.. _identity.get^profile^user^info:
 
 getProfileUserInfo()
 --------------------
@@ -145,14 +145,14 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
 
    - :permission:`identity`
 
-.. _identity.getRedirectURL:
+.. _identity.get^redirect^u^r^l:
 
 getRedirectURL([path])
 ----------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 53]
 
-Generates a redirect URL to be used in |launchWebAuthFlow|.
+Generates a redirect URL to be used in :ref:`identity.launch^web^auth^flow`.
 
 .. api-header::
    :label: Parameters
@@ -176,7 +176,7 @@ Generates a redirect URL to be used in |launchWebAuthFlow|.
 
    - :permission:`identity`
 
-.. _identity.launchWebAuthFlow:
+.. _identity.launch^web^auth^flow:
 
 launchWebAuthFlow(details)
 --------------------------
@@ -194,7 +194,7 @@ Starts an auth flow at the specified URL.
 
       .. api-member::
          :name: ``url``
-         :type: (:ref:`identity.HttpURL`)
+         :type: (:ref:`identity.^http^u^r^l`)
 
       .. api-member::
          :name: [``interactive``]
@@ -213,7 +213,7 @@ Starts an auth flow at the specified URL.
 
    - :permission:`identity`
 
-.. _identity.removeCachedAuthToken:
+.. _identity.remove^cached^auth^token:
 
 removeCachedAuthToken(details)
 ------------------------------
@@ -259,7 +259,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
 Events
 ======
 
-.. _identity.onSignInChanged:
+.. _identity.on^sign^in^changed:
 
 onSignInChanged
 ---------------
@@ -281,7 +281,7 @@ Fired when signin state changes for an account on the user's profile.
 
    .. api-member::
       :name: ``account``
-      :type: (:ref:`identity.AccountInfo`)
+      :type: (:ref:`identity.^account^info`)
 
    .. api-member::
       :name: ``signedIn``
@@ -297,7 +297,7 @@ Fired when signin state changes for an account on the user's profile.
 Types
 =====
 
-.. _identity.AccountInfo:
+.. _identity.^account^info:
 
 AccountInfo
 -----------
@@ -309,7 +309,7 @@ An object encapsulating an OAuth account id.
 .. api-header::
    :label: object
 
-   .. _identity.AccountInfo.id:
+   .. _identity.^account^info.id:
 
    .. api-member::
       :name: ``id``
@@ -317,7 +317,7 @@ An object encapsulating an OAuth account id.
 
       A unique identifier for the account. This ID will not change for the lifetime of the account.
 
-.. _identity.HttpURL:
+.. _identity.^http^u^r^l:
 
 HttpURL
 -------

@@ -28,7 +28,7 @@ PKCS#11 module management API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -50,7 +50,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _pkcs11.getModuleSlots:
+.. _pkcs11.get^module^slots:
 
 getModuleSlots(name)
 --------------------
@@ -71,7 +71,7 @@ Enumerate a module's slots, each with their name and whether a token is present
 
    - :permission:`pkcs11`
 
-.. _pkcs11.installModule:
+.. _pkcs11.install^module:
 
 installModule(name, [flags])
 ----------------------------
@@ -96,7 +96,7 @@ Install a PKCS#11 module with a given name
 
    - :permission:`pkcs11`
 
-.. _pkcs11.isModuleInstalled:
+.. _pkcs11.is^module^installed:
 
 isModuleInstalled(name)
 -----------------------
@@ -117,7 +117,7 @@ checks whether a PKCS#11 module, given by name, is installed
 
    - :permission:`pkcs11`
 
-.. _pkcs11.uninstallModule:
+.. _pkcs11.uninstall^module:
 
 uninstallModule(name)
 ---------------------

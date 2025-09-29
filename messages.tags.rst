@@ -26,7 +26,7 @@ The messages.tags API allows to manage the user's message tags.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -128,7 +128,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`messages.tags.MessageTag`
+      :type: array of :ref:`messages.tags.^message^tag`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -157,7 +157,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
 
    .. api-member::
       :name: ``updateProperties``
-      :type: (:ref:`messages.tags.MessageTagProperties`)
+      :type: (:ref:`messages.tags.^message^tag^properties`)
 
 .. api-header::
    :label: Required permissions
@@ -169,7 +169,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
 Events
 ======
 
-.. _messages.tags.onCreated:
+.. _messages.tags.on^created:
 
 onCreated
 ---------
@@ -191,14 +191,14 @@ Fired when a new message tag has been created.
 
    .. api-member::
       :name: ``tag``
-      :type: (:ref:`messages.tags.MessageTag`)
+      :type: (:ref:`messages.tags.^message^tag`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`messagesTagsList`
 
-.. _messages.tags.onDeleted:
+.. _messages.tags.on^deleted:
 
 onDeleted
 ---------
@@ -229,7 +229,7 @@ Fired when a message tag has been deleted.
 
    - :permission:`accountsRead`
 
-.. _messages.tags.onUpdated:
+.. _messages.tags.on^updated:
 
 onUpdated
 ---------
@@ -257,13 +257,13 @@ Fired when one or more properties of a message tag have been updated.
 
    .. api-member::
       :name: ``changedProperties``
-      :type: (:ref:`messages.tags.MessageTagProperties`)
+      :type: (:ref:`messages.tags.^message^tag^properties`)
 
       The changed message tag properties.
 
    .. api-member::
       :name: ``oldProperties``
-      :type: (:ref:`messages.tags.MessageTagProperties`)
+      :type: (:ref:`messages.tags.^message^tag^properties`)
 
       The old values of the changed message tag properties.
 
@@ -277,7 +277,7 @@ Fired when one or more properties of a message tag have been updated.
 Types
 =====
 
-.. _messages.tags.MessageTag:
+.. _messages.tags.^message^tag:
 
 MessageTag
 ----------
@@ -287,7 +287,7 @@ MessageTag
 .. api-header::
    :label: object
 
-   .. _messages.tags.MessageTag.color:
+   .. _messages.tags.^message^tag.color:
 
    .. api-member::
       :name: ``color``
@@ -295,7 +295,7 @@ MessageTag
 
       Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
 
-   .. _messages.tags.MessageTag.key:
+   .. _messages.tags.^message^tag.key:
 
    .. api-member::
       :name: ``key``
@@ -303,7 +303,7 @@ MessageTag
 
       Unique tag identifier.
 
-   .. _messages.tags.MessageTag.ordinal:
+   .. _messages.tags.^message^tag.ordinal:
 
    .. api-member::
       :name: ``ordinal``
@@ -311,7 +311,7 @@ MessageTag
 
       A custom sort string.
 
-   .. _messages.tags.MessageTag.tag:
+   .. _messages.tags.^message^tag.tag:
 
    .. api-member::
       :name: ``tag``
@@ -319,7 +319,7 @@ MessageTag
 
       Human-readable tag name.
 
-.. _messages.tags.MessageTagProperties:
+.. _messages.tags.^message^tag^properties:
 
 MessageTagProperties
 --------------------
@@ -329,7 +329,7 @@ MessageTagProperties
 .. api-header::
    :label: object
 
-   .. _messages.tags.MessageTagProperties.color:
+   .. _messages.tags.^message^tag^properties.color:
 
    .. api-member::
       :name: [``color``]
@@ -337,7 +337,7 @@ MessageTagProperties
 
       Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
 
-   .. _messages.tags.MessageTagProperties.ordinal:
+   .. _messages.tags.^message^tag^properties.ordinal:
 
    .. api-member::
       :name: [``ordinal``]
@@ -345,7 +345,7 @@ MessageTagProperties
 
       A custom sort string.
 
-   .. _messages.tags.MessageTagProperties.tag:
+   .. _messages.tags.^message^tag^properties.tag:
 
    .. api-member::
       :name: [``tag``]
@@ -353,7 +353,7 @@ MessageTagProperties
 
       Human-readable tag name.
 
-.. _messages.tags.TagsDetail:
+.. _messages.tags.^tags^detail:
 
 TagsDetail
 ----------
@@ -365,7 +365,7 @@ Used for filtering messages by tag in various methods. Note that functions using
 .. api-header::
    :label: object
 
-   .. _messages.tags.TagsDetail.mode:
+   .. _messages.tags.^tags^detail.mode:
 
    .. api-member::
       :name: ``mode``
@@ -381,7 +381,7 @@ Used for filtering messages by tag in various methods. Note that functions using
       .. api-member::
          :name: :value:`any`
 
-   .. _messages.tags.TagsDetail.tags:
+   .. _messages.tags.^tags^detail.tags:
 
    .. api-member::
       :name: ``tags``

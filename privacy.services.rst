@@ -28,7 +28,7 @@ Use the :code:`browser.privacy` API to control usage of the features in the brow
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -50,7 +50,7 @@ The following permissions influence the behavior of the API: depending on which 
 Properties
 ==========
 
-.. _privacy.services.passwordSavingEnabled:
+.. _privacy.services.password^saving^enabled:
 
 passwordSavingEnabled
 ---------------------

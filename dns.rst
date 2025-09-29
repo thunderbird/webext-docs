@@ -29,7 +29,7 @@ Asynchronous DNS API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -69,7 +69,7 @@ Resolves a hostname to a DNS record.
 
    .. api-member::
       :name: [``flags``]
-      :type: (:ref:`dns.ResolveFlags`, optional)
+      :type: (:ref:`dns.^resolve^flags`, optional)
 
 .. api-header::
    :label: Required permissions
@@ -81,7 +81,7 @@ Resolves a hostname to a DNS record.
 Types
 =====
 
-.. _dns.DNSRecord:
+.. _dns.^d^n^s^record:
 
 DNSRecord
 ---------
@@ -93,13 +93,13 @@ An object encapsulating a DNS Record.
 .. api-header::
    :label: object
 
-   .. _dns.DNSRecord.addresses:
+   .. _dns.^d^n^s^record.addresses:
 
    .. api-member::
       :name: ``addresses``
       :type: (array of string)
 
-   .. _dns.DNSRecord.isTRR:
+   .. _dns.^d^n^s^record.is^t^r^r:
 
    .. api-member::
       :name: ``isTRR``
@@ -107,7 +107,7 @@ An object encapsulating a DNS Record.
 
       Record retreived with TRR.
 
-   .. _dns.DNSRecord.canonicalName:
+   .. _dns.^d^n^s^record.canonical^name:
 
    .. api-member::
       :name: [``canonicalName``]
@@ -115,7 +115,7 @@ An object encapsulating a DNS Record.
 
       The canonical hostname for this record.  this value is empty if the record was not fetched with the 'canonical_name' flag.
 
-.. _dns.ResolveFlags:
+.. _dns.^resolve^flags:
 
 ResolveFlags
 ------------

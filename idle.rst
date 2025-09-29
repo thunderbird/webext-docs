@@ -30,7 +30,7 @@ Use the :code:`browser.idle` API to detect when the machine's idle state changes
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -52,7 +52,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _idle.queryState:
+.. _idle.query^state:
 
 queryState(detectionIntervalInSeconds)
 --------------------------------------
@@ -78,7 +78,7 @@ Returns "idle" if the user has not generated any input for a specified number of
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`idle.IdleState`
+      :type: :ref:`idle.^idle^state`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -87,7 +87,7 @@ Returns "idle" if the user has not generated any input for a specified number of
 
    - :permission:`idle`
 
-.. _idle.setDetectionInterval:
+.. _idle.set^detection^interval:
 
 setDetectionInterval(intervalInSeconds)
 ---------------------------------------
@@ -115,7 +115,7 @@ Sets the interval, in seconds, used to determine when the system is in an idle s
 Events
 ======
 
-.. _idle.onStateChanged:
+.. _idle.on^state^changed:
 
 onStateChanged
 --------------
@@ -137,7 +137,7 @@ Fired when the system changes to an active or idle state. The event fires with "
 
    .. api-member::
       :name: ``newState``
-      :type: (:ref:`idle.IdleState`)
+      :type: (:ref:`idle.^idle^state`)
 
 .. api-header::
    :label: Required permissions
@@ -149,7 +149,7 @@ Fired when the system changes to an active or idle state. The event fires with "
 Types
 =====
 
-.. _idle.IdleState:
+.. _idle.^idle^state:
 
 IdleState
 ---------

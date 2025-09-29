@@ -41,7 +41,7 @@ Check if the extension has the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.AnyPermissions`)
+      :type: (:ref:`permissions.^any^permissions`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -51,7 +51,7 @@ Check if the extension has the given permissions.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _permissions.getAll:
+.. _permissions.get^all:
 
 getAll()
 --------
@@ -64,7 +64,7 @@ Get a list of all the extension's permissions.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`permissions.AnyPermissions`
+      :type: :ref:`permissions.^any^permissions`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -82,7 +82,7 @@ Relinquish the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`permissions.^permissions`)
 
 .. _permissions.request:
 
@@ -114,7 +114,7 @@ Request the given permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`permissions.^permissions`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -129,7 +129,7 @@ Request the given permissions.
 Events
 ======
 
-.. _permissions.onAdded:
+.. _permissions.on^added:
 
 onAdded
 -------
@@ -151,9 +151,9 @@ Fired when the extension acquires new permissions.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`permissions.^permissions`)
 
-.. _permissions.onRemoved:
+.. _permissions.on^removed:
 
 onRemoved
 ---------
@@ -175,14 +175,14 @@ Fired when permissions are removed from the extension.
 
    .. api-member::
       :name: ``permissions``
-      :type: (:ref:`permissions.Permissions`)
+      :type: (:ref:`permissions.^permissions`)
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
-.. _permissions.AnyPermissions:
+.. _permissions.^any^permissions:
 
 AnyPermissions
 --------------
@@ -192,25 +192,25 @@ AnyPermissions
 .. api-header::
    :label: object
 
-   .. _permissions.AnyPermissions.data_collection:
+   .. _permissions.^any^permissions.data_collection:
 
    .. api-member::
       :name: [``data_collection``]
-      :type: (array of :ref:`permissions.OptionalDataCollectionPermission`, optional)
+      :type: (array of :ref:`permissions.^optional^data^collection^permission`, optional)
 
-   .. _permissions.AnyPermissions.origins:
+   .. _permissions.^any^permissions.origins:
 
    .. api-member::
       :name: [``origins``]
-      :type: (array of :ref:`permissions.MatchPattern`, optional)
+      :type: (array of :ref:`permissions.^match^pattern`, optional)
 
-   .. _permissions.AnyPermissions.permissions:
+   .. _permissions.^any^permissions.permissions:
 
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`permissions.Permission` or :ref:`permissions.OptionalOnlyPermission`, optional)
+      :type: (array of :ref:`permissions.^permission` or :ref:`permissions.^optional^only^permission`, optional)
 
-.. _permissions.CommonDataCollectionPermission:
+.. _permissions.^common^data^collection^permission:
 
 CommonDataCollectionPermission
 ------------------------------
@@ -259,7 +259,7 @@ CommonDataCollectionPermission
          .. api-member::
             :name: :value:`websiteContent`
 
-.. _permissions.MatchPattern:
+.. _permissions.^match^pattern:
 
 MatchPattern
 ------------
@@ -281,14 +281,14 @@ MatchPattern
 OR
 
 .. api-header::
-   :label: :ref:`permissions.MatchPatternRestricted`
+   :label: :ref:`permissions.^match^pattern^restricted`
 
 OR
 
 .. api-header::
-   :label: :ref:`permissions.MatchPatternUnestricted`
+   :label: :ref:`permissions.^match^pattern^unestricted`
 
-.. _permissions.MatchPatternRestricted:
+.. _permissions.^match^pattern^restricted:
 
 MatchPatternRestricted
 ----------------------
@@ -305,7 +305,7 @@ OR
 .. api-header::
    :label: string
 
-.. _permissions.MatchPatternUnestricted:
+.. _permissions.^match^pattern^unestricted:
 
 MatchPatternUnestricted
 -----------------------
@@ -317,7 +317,7 @@ Mostly unrestricted match patterns for privileged add-ons. This should technical
 .. api-header::
    :label: string
 
-.. _permissions.OptionalDataCollectionPermission:
+.. _permissions.^optional^data^collection^permission:
 
 OptionalDataCollectionPermission
 --------------------------------
@@ -325,7 +325,7 @@ OptionalDataCollectionPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.CommonDataCollectionPermission`
+   :label: :ref:`permissions.^common^data^collection^permission`
 
 OR
 
@@ -341,7 +341,7 @@ OR
          .. api-member::
             :name: :value:`technicalAndInteraction`
 
-.. _permissions.OptionalOnlyPermission:
+.. _permissions.^optional^only^permission:
 
 OptionalOnlyPermission
 ----------------------
@@ -357,7 +357,7 @@ OptionalOnlyPermission
 
          Supported values:
 
-.. _permissions.OptionalPermission:
+.. _permissions.^optional^permission:
 
 OptionalPermission
 ------------------
@@ -365,7 +365,7 @@ OptionalPermission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.OptionalPermissionNoPrompt`
+   :label: :ref:`permissions.^optional^permission^no^prompt`
 
 OR
 
@@ -390,7 +390,7 @@ OR
          .. api-member::
             :name: :value:`notifications`
 
-.. _permissions.OptionalPermissionNoPrompt:
+.. _permissions.^optional^permission^no^prompt:
 
 OptionalPermissionNoPrompt
 --------------------------
@@ -409,7 +409,7 @@ OptionalPermissionNoPrompt
          .. api-member::
             :name: :value:`idle`
 
-.. _permissions.Permission:
+.. _permissions.^permission:
 
 Permission
 ----------
@@ -417,14 +417,14 @@ Permission
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.PermissionNoPrompt`
+   :label: :ref:`permissions.^permission^no^prompt`
 
 OR
 
 .. api-header::
-   :label: :ref:`permissions.OptionalPermission`
+   :label: :ref:`permissions.^optional^permission`
 
-.. _permissions.PermissionNoPrompt:
+.. _permissions.^permission^no^prompt:
 
 PermissionNoPrompt
 ------------------
@@ -432,12 +432,12 @@ PermissionNoPrompt
 .. api-section-annotation-hack:: 
 
 .. api-header::
-   :label: :ref:`permissions.OptionalPermissionNoPrompt`
+   :label: :ref:`permissions.^optional^permission^no^prompt`
 
 OR
 
 .. api-header::
-   :label: :ref:`permissions.PermissionPrivileged`
+   :label: :ref:`permissions.^permission^privileged`
 
 OR
 
@@ -459,7 +459,7 @@ OR
          .. api-member::
             :name: :value:`unlimitedStorage`
 
-.. _permissions.PermissionPrivileged:
+.. _permissions.^permission^privileged:
 
 PermissionPrivileged
 --------------------
@@ -478,7 +478,7 @@ PermissionPrivileged
          .. api-member::
             :name: :value:`mozillaAddons`
 
-.. _permissions.Permissions:
+.. _permissions.^permissions:
 
 Permissions
 -----------
@@ -488,20 +488,20 @@ Permissions
 .. api-header::
    :label: object
 
-   .. _permissions.Permissions.data_collection:
+   .. _permissions.^permissions.data_collection:
 
    .. api-member::
       :name: [``data_collection``]
-      :type: (array of :ref:`permissions.OptionalDataCollectionPermission`, optional)
+      :type: (array of :ref:`permissions.^optional^data^collection^permission`, optional)
 
-   .. _permissions.Permissions.origins:
+   .. _permissions.^permissions.origins:
 
    .. api-member::
       :name: [``origins``]
-      :type: (array of :ref:`permissions.MatchPattern`, optional)
+      :type: (array of :ref:`permissions.^match^pattern`, optional)
 
-   .. _permissions.Permissions.permissions:
+   .. _permissions.^permissions.permissions:
 
    .. api-member::
       :name: [``permissions``]
-      :type: (array of :ref:`permissions.OptionalPermission` or :ref:`permissions.OptionalOnlyPermission`, optional)
+      :type: (array of :ref:`permissions.^optional^permission` or :ref:`permissions.^optional^only^permission`, optional)

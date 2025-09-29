@@ -48,7 +48,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``default_icon``]
-      :type: (:ref:`messageDisplayAction.IconPath`, optional)
+      :type: (:ref:`message^display^action.^icon^path`, optional)
       :annotation: -- [Added in TB 71]
 
       The paths to one or more icons for the messageDisplayAction button.
@@ -76,7 +76,7 @@ Manifest file properties
 
    .. api-member::
       :name: [``theme_icons``]
-      :type: (array of :ref:`messageDisplayAction.ThemeIcons`, optional)
+      :type: (array of :ref:`message^display^action.^theme^icons`, optional)
       :annotation: -- [Added in TB 71]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
@@ -112,7 +112,7 @@ Permissions
 Functions
 =========
 
-.. _messageDisplayAction.disable:
+.. _message^display^action.disable:
 
 disable([tabId])
 ----------------
@@ -130,7 +130,7 @@ Disables the messageDisplayAction button for a specific tab (if a :value:`tabId`
 
       The id of the tab for which you want to modify the messageDisplayAction button.
 
-.. _messageDisplayAction.enable:
+.. _message^display^action.enable:
 
 enable([tabId])
 ---------------
@@ -148,7 +148,7 @@ Enables the messageDisplayAction button for a specific tab (if a :value:`tabId` 
 
       The id of the tab for which you want to modify the messageDisplayAction button.
 
-.. _messageDisplayAction.getBadgeBackgroundColor:
+.. _message^display^action.get^badge^background^color:
 
 getBadgeBackgroundColor(details)
 --------------------------------
@@ -182,11 +182,11 @@ Gets the badge background color of the messageDisplayAction button.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`messageDisplayAction.ColorArray`
+      :type: :ref:`message^display^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.getBadgeText:
+.. _message^display^action.get^badge^text:
 
 getBadgeText(details)
 ---------------------
@@ -224,7 +224,7 @@ Gets the badge text of the messageDisplayAction button.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.getBadgeTextColor:
+.. _message^display^action.get^badge^text^color:
 
 getBadgeTextColor(details)
 --------------------------
@@ -256,11 +256,11 @@ Gets the text color of the badge.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`messageDisplayAction.ColorArray`
+      :type: :ref:`message^display^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.getLabel:
+.. _message^display^action.get^label:
 
 getLabel(details)
 -----------------
@@ -298,7 +298,7 @@ Gets the label of the messageDisplayAction button. Returns :value:`null`, if no 
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.getPopup:
+.. _message^display^action.get^popup:
 
 getPopup(details)
 -----------------
@@ -336,7 +336,7 @@ Gets the html document set as the popup for this messageDisplayAction button.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.getTitle:
+.. _message^display^action.get^title:
 
 getTitle(details)
 -----------------
@@ -374,7 +374,7 @@ Gets the title of the messageDisplayAction button.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.isEnabled:
+.. _message^display^action.is^enabled:
 
 isEnabled(details)
 ------------------
@@ -413,7 +413,7 @@ Checks whether the messageDisplayAction button is enabled.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.openPopup:
+.. _message^display^action.open^popup:
 
 openPopup([options])
 --------------------
@@ -448,7 +448,7 @@ Opens the action's popup window in the specified window. Defaults to the current
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messageDisplayAction.setBadgeBackgroundColor:
+.. _message^display^action.set^badge^background^color:
 
 setBadgeBackgroundColor(details)
 --------------------------------
@@ -466,7 +466,7 @@ Sets the background color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
+         :type: (string or :ref:`message^display^action.^color^array` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
 
@@ -482,7 +482,7 @@ Sets the background color for the badge.
 
          Will throw an error if used.
 
-.. _messageDisplayAction.setBadgeText:
+.. _message^display^action.set^badge^text:
 
 setBadgeText(details)
 ---------------------
@@ -516,7 +516,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
 
          Will throw an error if used.
 
-.. _messageDisplayAction.setBadgeTextColor:
+.. _message^display^action.set^badge^text^color:
 
 setBadgeTextColor(details)
 --------------------------
@@ -534,7 +534,7 @@ Sets the text color for the badge.
 
       .. api-member::
          :name: ``color``
-         :type: (string or :ref:`messageDisplayAction.ColorArray` or null)
+         :type: (string or :ref:`message^display^action.^color^array` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
 
@@ -550,7 +550,7 @@ Sets the text color for the badge.
 
          Will throw an error if used.
 
-.. _messageDisplayAction.setIcon:
+.. _message^display^action.set^icon:
 
 setIcon(details)
 ----------------
@@ -568,13 +568,13 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
 
       .. api-member::
          :name: [``imageData``]
-         :type: (:ref:`messageDisplayAction.ImageDataType` or :ref:`messageDisplayAction.ImageDataDictionary`, optional)
+         :type: (:ref:`message^display^action.^image^data^type` or :ref:`message^display^action.^image^data^dictionary`, optional)
 
          The image data for one or more icons for the composeAction button.
 
       .. api-member::
          :name: [``path``]
-         :type: (:ref:`messageDisplayAction.IconPath`, optional)
+         :type: (:ref:`message^display^action.^icon^path`, optional)
 
          The paths to one or more icons for the messageDisplayAction button.
 
@@ -590,7 +590,7 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
 
          Will throw an error if used.
 
-.. _messageDisplayAction.setLabel:
+.. _message^display^action.set^label:
 
 setLabel(details)
 -----------------
@@ -624,7 +624,7 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
 
          Will throw an error if used.
 
-.. _messageDisplayAction.setPopup:
+.. _message^display^action.set^popup:
 
 setPopup(details)
 -----------------
@@ -658,7 +658,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
 
          Will throw an error if used.
 
-.. _messageDisplayAction.setTitle:
+.. _message^display^action.set^title:
 
 setTitle(details)
 -----------------
@@ -697,7 +697,7 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
 Events
 ======
 
-.. _messageDisplayAction.onClicked:
+.. _message^display^action.on^clicked:
 
 onClicked
 ---------
@@ -719,11 +719,11 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: [``info``]
-      :type: (:ref:`messageDisplayAction.OnClickData`, optional)
+      :type: (:ref:`message^display^action.^on^click^data`, optional)
       :annotation: -- [Added in TB 74]
 
 .. rst-class:: api-main-section
@@ -731,7 +731,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
 Types
 =====
 
-.. _messageDisplayAction.ColorArray:
+.. _message^display^action.^color^array:
 
 ColorArray
 ----------
@@ -743,7 +743,7 @@ An array of four integers in the range [0,255] that make up the RGBA color. For 
 .. api-header::
    :label: array of integer
 
-.. _messageDisplayAction.ExtensionFileUrl:
+.. _message^display^action.^extension^file^url:
 
 ExtensionFileUrl
 ----------------
@@ -753,7 +753,7 @@ ExtensionFileUrl
 .. api-header::
    :label: string
 
-.. _messageDisplayAction.ExtensionURL:
+.. _message^display^action.^extension^u^r^l:
 
 ExtensionURL
 ------------
@@ -765,7 +765,7 @@ A path relative to the root of the extension.
 .. api-header::
    :label: string
 
-.. _messageDisplayAction.IconPath:
+.. _message^display^action.^icon^path:
 
 IconPath
 --------
@@ -789,9 +789,9 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 OR
 
 .. api-header::
-   :label: :ref:`messageDisplayAction.ExtensionFileUrl`
+   :label: :ref:`message^display^action.^extension^file^url`
 
-.. _messageDisplayAction.ImageDataDictionary:
+.. _message^display^action.^image^data^dictionary:
 
 ImageDataDictionary
 -------------------
@@ -803,7 +803,7 @@ A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.
 .. api-header::
    :label: object
 
-.. _messageDisplayAction.ImageDataType:
+.. _message^display^action.^image^data^type:
 
 ImageDataType
 -------------
@@ -815,7 +815,7 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 .. api-header::
    :label: `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__
 
-.. _messageDisplayAction.OnClickData:
+.. _message^display^action.^on^click^data:
 
 OnClickData
 -----------
@@ -827,7 +827,7 @@ Information sent when a messageDisplayAction button is clicked.
 .. api-header::
    :label: object
 
-   .. _messageDisplayAction.OnClickData.modifiers:
+   .. _message^display^action.^on^click^data.modifiers:
 
    .. api-member::
       :name: ``modifiers``
@@ -858,7 +858,7 @@ Information sent when a messageDisplayAction button is clicked.
 
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
 
-   .. _messageDisplayAction.OnClickData.button:
+   .. _message^display^action.^on^click^data.button:
 
    .. api-member::
       :name: [``button``]
@@ -866,7 +866,7 @@ Information sent when a messageDisplayAction button is clicked.
 
       An integer value of button by which menu item was clicked.
 
-.. _messageDisplayAction.ThemeIcons:
+.. _message^display^action.^theme^icons:
 
 ThemeIcons
 ----------
@@ -878,23 +878,23 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 .. api-header::
    :label: object
 
-   .. _messageDisplayAction.ThemeIcons.dark:
+   .. _message^display^action.^theme^icons.dark:
 
    .. api-member::
       :name: ``dark``
-      :type: (:ref:`messageDisplayAction.ExtensionURL`)
+      :type: (:ref:`message^display^action.^extension^u^r^l`)
 
       The dark icon to use for light themes
 
-   .. _messageDisplayAction.ThemeIcons.light:
+   .. _message^display^action.^theme^icons.light:
 
    .. api-member::
       :name: ``light``
-      :type: (:ref:`messageDisplayAction.ExtensionURL`)
+      :type: (:ref:`message^display^action.^extension^u^r^l`)
 
       A light icon to use for dark themes
 
-   .. _messageDisplayAction.ThemeIcons.size:
+   .. _message^display^action.^theme^icons.size:
 
    .. api-member::
       :name: ``size``

@@ -26,7 +26,7 @@ The compose API allows to interact with the message composition window.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -57,7 +57,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _compose.addAttachment:
+.. _compose.add^attachment:
 
 addAttachment(tabId, attachment)
 --------------------------------
@@ -75,13 +75,13 @@ Adds an attachment to the message being composed in the specified tab.
 
    .. api-member::
       :name: ``attachment``
-      :type: (:ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`)
+      :type: (:ref:`compose.^file^attachment` or :ref:`compose.^compose^attachment`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`compose.ComposeAttachment`
+      :type: :ref:`compose.^compose^attachment`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -91,7 +91,7 @@ Adds an attachment to the message being composed in the specified tab.
 
    - :permission:`compose`
 
-.. _compose.beginForward:
+.. _compose.begin^forward:
 
 beginForward(messageId, [forwardType], [details])
 -------------------------------------------------
@@ -109,7 +109,7 @@ Open a new message compose window forwarding a given message.
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`messages.MessageId`)
+      :type: (:ref:`messages.^message^id`)
 
       The message to forward, as retrieved using other APIs.
 
@@ -127,18 +127,18 @@ Open a new message compose window forwarding a given message.
 
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`, optional)
+      :type: (:ref:`compose.^compose^details`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _compose.beginNew:
+.. _compose.begin^new:
 
 beginNew([messageId], [details])
 --------------------------------
@@ -156,25 +156,25 @@ Open a new message compose window.
 
    .. api-member::
       :name: [``messageId``]
-      :type: (:ref:`messages.MessageId`, optional)
+      :type: (:ref:`messages.^message^id`, optional)
 
       If specified, the message or template to edit as a new message.
 
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`, optional)
+      :type: (:ref:`compose.^compose^details`, optional)
       :annotation: -- [Added in TB 84]
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _compose.beginReply:
+.. _compose.begin^reply:
 
 beginReply(messageId, [replyType], [details])
 ---------------------------------------------
@@ -192,7 +192,7 @@ Open a new message compose window replying to a given message.
 
    .. api-member::
       :name: ``messageId``
-      :type: (:ref:`messages.MessageId`)
+      :type: (:ref:`messages.^message^id`)
 
       The message to reply to, as retrieved using other APIs.
 
@@ -213,26 +213,26 @@ Open a new message compose window replying to a given message.
 
    .. api-member::
       :name: [``details``]
-      :type: (:ref:`compose.ComposeDetails`, optional)
+      :type: (:ref:`compose.^compose^details`, optional)
       :annotation: -- [Added in TB 76]
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _compose.getActiveDictionaries:
+.. _compose.get^active^dictionaries:
 
 getActiveDictionaries(tabId)
 ----------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 102]
 
-Returns a :ref:`compose.ComposeDictionaries` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+Returns a :ref:`compose.^compose^dictionaries` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
 
 .. api-header::
    :label: Parameters
@@ -245,7 +245,7 @@ Returns a :ref:`compose.ComposeDictionaries` object, listing all installed dicti
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`compose.ComposeDictionaries`
+      :type: :ref:`compose.^compose^dictionaries`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -254,14 +254,14 @@ Returns a :ref:`compose.ComposeDictionaries` object, listing all installed dicti
 
    - :permission:`compose`
 
-.. _compose.getAttachmentFile:
+.. _compose.get^attachment^file:
 
 getAttachmentFile(id)
 ---------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 98]
 
-Gets the content of a :ref:`compose.ComposeAttachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+Gets the content of a :ref:`compose.^compose^attachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
 
 .. api-header::
    :label: Parameters
@@ -280,7 +280,7 @@ Gets the content of a :ref:`compose.ComposeAttachment` as a `File <https://devel
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _compose.getComposeDetails:
+.. _compose.get^compose^details:
 
 getComposeDetails(tabId)
 ------------------------
@@ -300,7 +300,7 @@ Fetches the current state of a compose window. Currently only a limited amount o
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`compose.ComposeDetails`
+      :type: :ref:`compose.^compose^details`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -310,7 +310,7 @@ Fetches the current state of a compose window. Currently only a limited amount o
 
    - :permission:`compose`
 
-.. _compose.getComposeState:
+.. _compose.get^compose^state:
 
 getComposeState(tabId)
 ----------------------
@@ -330,11 +330,11 @@ Returns information about the current state of the message composer.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`compose.ComposeState`
+      :type: :ref:`compose.^compose^state`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _compose.listAttachments:
+.. _compose.list^attachments:
 
 listAttachments(tabId)
 ----------------------
@@ -354,7 +354,7 @@ Lists all of the attachments of the message being composed in the specified tab.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`compose.ComposeAttachment`
+      :type: array of :ref:`compose.^compose^attachment`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -364,7 +364,7 @@ Lists all of the attachments of the message being composed in the specified tab.
 
    - :permission:`compose`
 
-.. _compose.removeAttachment:
+.. _compose.remove^attachment:
 
 removeAttachment(tabId, attachmentId)
 -------------------------------------
@@ -389,7 +389,7 @@ Removes an attachment from the message being composed in the specified tab.
 
    - :permission:`compose`
 
-.. _compose.saveMessage:
+.. _compose.save^message:
 
 saveMessage(tabId, [options])
 -----------------------------
@@ -429,7 +429,7 @@ Saves the message currently being composed as a draft or as a template. If the s
 
       .. api-member::
          :name: ``messages``
-         :type: (array of :ref:`messages.MessageHeader`)
+         :type: (array of :ref:`messages.^message^header`)
 
          An array with exactly one element, the saved message.
 
@@ -458,14 +458,14 @@ Saves the message currently being composed as a draft or as a template. If the s
 
    - :permission:`compose.save`
 
-.. _compose.sendMessage:
+.. _compose.send^message:
 
 sendMessage(tabId, [options])
 -----------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 90]
 
-Sends the message currently being composed. If the send mode is not specified or set to :value:`default`, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an :ref:`compose.onBeforeSend` event or if there has been an error while sending the message to the outgoing mail server.
+Sends the message currently being composed. If the send mode is not specified or set to :value:`default`, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an :ref:`compose.on^before^send` event or if there has been an error while sending the message to the outgoing mail server.
 
 .. api-header::
    :label: Parameters
@@ -501,7 +501,7 @@ Sends the message currently being composed. If the send mode is not specified or
 
       .. api-member::
          :name: ``messages``
-         :type: (array of :ref:`messages.MessageHeader`)
+         :type: (array of :ref:`messages.^message^header`)
          :annotation: -- [Added in TB 102]
 
          Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
@@ -535,7 +535,7 @@ Sends the message currently being composed. If the send mode is not specified or
 
    - :permission:`compose.send`
 
-.. _compose.setActiveDictionaries:
+.. _compose.set^active^dictionaries:
 
 setActiveDictionaries(tabId, activeDictionaries)
 ------------------------------------------------
@@ -560,14 +560,14 @@ Updates the active dictionaries. Throws if the :value:`activeDictionaries` array
 
    - :permission:`compose`
 
-.. _compose.setComposeDetails:
+.. _compose.set^compose^details:
 
 setComposeDetails(tabId, details)
 ---------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
-Updates the compose window. The properties of the given :ref:`compose.ComposeDetails` object will be used to overwrite the current values of the specified compose window, so only properties that are to be changed should be included. Modified settings will be treated as user initiated, and turn off further automatic changes on these settings.
+Updates the compose window. The properties of the given :ref:`compose.^compose^details` object will be used to overwrite the current values of the specified compose window, so only properties that are to be changed should be included. Modified settings will be treated as user initiated, and turn off further automatic changes on these settings.
 
 .. hint::
 
@@ -586,14 +586,14 @@ Updates the compose window. The properties of the given :ref:`compose.ComposeDet
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.^compose^details`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`compose`
 
-.. _compose.updateAttachment:
+.. _compose.update^attachment:
 
 updateAttachment(tabId, attachmentId, attachment)
 -------------------------------------------------
@@ -615,13 +615,13 @@ Updates the name and/or the content of an attachment in the message being compos
 
    .. api-member::
       :name: ``attachment``
-      :type: (:ref:`compose.FileAttachment`)
+      :type: (:ref:`compose.^file^attachment`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`compose.ComposeAttachment`
+      :type: :ref:`compose.^compose^attachment`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -636,7 +636,7 @@ Updates the name and/or the content of an attachment in the message being compos
 Events
 ======
 
-.. _compose.onActiveDictionariesChanged:
+.. _compose.on^active^dictionaries^changed:
 
 onActiveDictionariesChanged
 ---------------------------
@@ -658,13 +658,13 @@ Fired when one or more dictionaries have been activated or deactivated.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``dictionaries``
-      :type: (:ref:`compose.ComposeDictionaries`)
+      :type: (:ref:`compose.^compose^dictionaries`)
 
-.. _compose.onAfterSave:
+.. _compose.on^after^save:
 
 onAfterSave
 -----------
@@ -686,7 +686,7 @@ Fired when saving a message as draft or template succeeded or failed.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``saveInfo``
@@ -694,7 +694,7 @@ Fired when saving a message as draft or template succeeded or failed.
 
       .. api-member::
          :name: ``messages``
-         :type: (array of :ref:`messages.MessageHeader`)
+         :type: (array of :ref:`messages.^message^header`)
 
          An array with exactly one element, the saved message.
 
@@ -731,7 +731,7 @@ Fired when saving a message as draft or template succeeded or failed.
 
    - :permission:`compose`
 
-.. _compose.onAfterSend:
+.. _compose.on^after^send:
 
 onAfterSend
 -----------
@@ -753,7 +753,7 @@ Fired when sending a message succeeded or failed.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``sendInfo``
@@ -761,7 +761,7 @@ Fired when sending a message succeeded or failed.
 
       .. api-member::
          :name: ``messages``
-         :type: (array of :ref:`messages.MessageHeader`)
+         :type: (array of :ref:`messages.^message^header`)
 
          Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
 
@@ -796,7 +796,7 @@ Fired when sending a message succeeded or failed.
 
    - :permission:`compose`
 
-.. _compose.onAttachmentAdded:
+.. _compose.on^attachment^added:
 
 onAttachmentAdded
 -----------------
@@ -818,18 +818,18 @@ Fired when an attachment is added to a message being composed.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``attachment``
-      :type: (:ref:`compose.ComposeAttachment`)
+      :type: (:ref:`compose.^compose^attachment`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`compose`
 
-.. _compose.onAttachmentRemoved:
+.. _compose.on^attachment^removed:
 
 onAttachmentRemoved
 -------------------
@@ -851,7 +851,7 @@ Fired when an attachment is removed from a message being composed.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``attachmentId``
@@ -862,7 +862,7 @@ Fired when an attachment is removed from a message being composed.
 
    - :permission:`compose`
 
-.. _compose.onBeforeSend:
+.. _compose.on^before^send:
 
 onBeforeSend
 ------------
@@ -884,13 +884,13 @@ Fired when a message is about to be sent from the compose window. This is a user
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`compose.ComposeDetails`)
+      :type: (:ref:`compose.^compose^details`)
 
-      The current state of the compose window. This is functionally the same as calling the :ref:`compose.getComposeDetails` function.
+      The current state of the compose window. This is functionally the same as calling the :ref:`compose.get^compose^details` function.
 
 .. api-header::
    :label: Expected return value of the listener function
@@ -906,16 +906,16 @@ Fired when a message is about to be sent from the compose window. This is a user
 
       .. api-member::
          :name: [``details``]
-         :type: (:ref:`compose.ComposeDetails`, optional)
+         :type: (:ref:`compose.^compose^details`, optional)
 
-         Updates the compose window. This is functionally the same as calling the :ref:`compose.setComposeDetails` function.
+         Updates the compose window. This is functionally the same as calling the :ref:`compose.set^compose^details` function.
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`compose`
 
-.. _compose.onComposeStateChanged:
+.. _compose.on^compose^state^changed:
 
 onComposeStateChanged
 ---------------------
@@ -937,13 +937,13 @@ Fired when the state of the message composer changed.
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``state``
-      :type: (:ref:`compose.ComposeState`)
+      :type: (:ref:`compose.^compose^state`)
 
-.. _compose.onIdentityChanged:
+.. _compose.on^identity^changed:
 
 onIdentityChanged
 -----------------
@@ -965,7 +965,7 @@ Fired when the user changes the identity that will be used to send a message bei
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``identityId``
@@ -981,7 +981,7 @@ Fired when the user changes the identity that will be used to send a message bei
 Types
 =====
 
-.. _compose.ComposeAttachment:
+.. _compose.^compose^attachment:
 
 ComposeAttachment
 -----------------
@@ -993,7 +993,7 @@ Represents an attachment in a message being composed.
 .. api-header::
    :label: object
 
-   .. _compose.ComposeAttachment.id:
+   .. _compose.^compose^attachment.id:
 
    .. api-member::
       :name: ``id``
@@ -1001,7 +1001,7 @@ Represents an attachment in a message being composed.
 
       A unique identifier for this attachment.
 
-   .. _compose.ComposeAttachment.name:
+   .. _compose.^compose^attachment.name:
 
    .. api-member::
       :name: [``name``]
@@ -1009,7 +1009,7 @@ Represents an attachment in a message being composed.
 
       The name of this attachment, as displayed to the user.
 
-   .. _compose.ComposeAttachment.size:
+   .. _compose.^compose^attachment.size:
 
    .. api-member::
       :name: [``size``]
@@ -1018,7 +1018,7 @@ Represents an attachment in a message being composed.
 
       The size in bytes of this attachment. Read-only.
 
-.. _compose.ComposeDetails:
+.. _compose.^compose^details:
 
 ComposeDetails
 --------------
@@ -1030,25 +1030,25 @@ Used by various functions to represent the state of a message being composed. No
 .. api-header::
    :label: object
 
-   .. _compose.ComposeDetails.additionalFccFolderId:
+   .. _compose.^compose^details.additional^fcc^folder^id:
 
    .. api-member::
       :name: [``additionalFccFolderId``]
-      :type: (:ref:`folders.MailFolderId`, optional)
+      :type: (:ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 127]
 
       An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 
-   .. _compose.ComposeDetails.attachments:
+   .. _compose.^compose^details.attachments:
 
    .. api-member::
       :name: [``attachments``]
-      :type: (array of :ref:`compose.FileAttachment` or :ref:`compose.ComposeAttachment`, optional)
+      :type: (array of :ref:`compose.^file^attachment` or :ref:`compose.^compose^attachment`, optional)
       :annotation: -- [Added in TB 82]
 
       Only used in the begin* functions. Attachments to add to the message.
 
-   .. _compose.ComposeDetails.attachPublicPGPKey:
+   .. _compose.^compose^details.attach^public^p^g^p^key:
 
    .. api-member::
       :name: [``attachPublicPGPKey``]
@@ -1057,7 +1057,7 @@ Used by various functions to represent the state of a message being composed. No
 
       Whether the public OpenPGP key of the sending identity should be attached to the message.
 
-   .. _compose.ComposeDetails.attachVCard:
+   .. _compose.^compose^details.attach^v^card:
 
    .. api-member::
       :name: [``attachVCard``]
@@ -1070,13 +1070,13 @@ Used by various functions to represent the state of a message being composed. No
 
          If the value has not been modified, selecting a different identity will load the default value of the new identity.
 
-   .. _compose.ComposeDetails.bcc:
+   .. _compose.^compose^details.bcc:
 
    .. api-member::
       :name: [``bcc``]
-      :type: (:ref:`compose.ComposeRecipientList`, optional)
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
 
-   .. _compose.ComposeDetails.body:
+   .. _compose.^compose^details.body:
 
    .. api-member::
       :name: [``body``]
@@ -1084,22 +1084,22 @@ Used by various functions to represent the state of a message being composed. No
 
       The HTML content of the message.
 
-   .. _compose.ComposeDetails.cc:
+   .. _compose.^compose^details.cc:
 
    .. api-member::
       :name: [``cc``]
-      :type: (:ref:`compose.ComposeRecipientList`, optional)
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
 
-   .. _compose.ComposeDetails.customHeaders:
+   .. _compose.^compose^details.custom^headers:
 
    .. api-member::
       :name: [``customHeaders``]
-      :type: (array of :ref:`compose.CustomHeader`, optional)
+      :type: (array of :ref:`compose.^custom^header`, optional)
       :annotation: -- [Added in TB 100]
 
       Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
 
-   .. _compose.ComposeDetails.deliveryFormat:
+   .. _compose.^compose^details.delivery^format:
 
    .. api-member::
       :name: [``deliveryFormat``]
@@ -1122,7 +1122,7 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`both`
 
-   .. _compose.ComposeDetails.deliveryStatusNotification:
+   .. _compose.^compose^details.delivery^status^notification:
 
    .. api-member::
       :name: [``deliveryStatusNotification``]
@@ -1131,22 +1131,22 @@ Used by various functions to represent the state of a message being composed. No
 
       Let the sender know when the recipient's server received the message. Not supported by all servers.
 
-   .. _compose.ComposeDetails.followupTo:
+   .. _compose.^compose^details.followup^to:
 
    .. api-member::
       :name: [``followupTo``]
-      :type: (:ref:`compose.ComposeRecipientList`, optional)
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
 
-   .. _compose.ComposeDetails.from:
+   .. _compose.^compose^details.from:
 
    .. api-member::
       :name: [``from``]
-      :type: (:ref:`compose.ComposeRecipient`, optional)
+      :type: (:ref:`compose.^compose^recipient`, optional)
       :annotation: -- [Added in TB 88]
 
       *Caution*: Setting a value for :value:`from` does not change the used identity, it overrides the *From* header. Many email servers do not accept emails where the *From* header does not match the sender identity. Must be set to exactly one valid email address.
 
-   .. _compose.ComposeDetails.identityId:
+   .. _compose.^compose^details.identity^id:
 
    .. api-member::
       :name: [``identityId``]
@@ -1155,7 +1155,7 @@ Used by various functions to represent the state of a message being composed. No
 
       The ID of an identity from the :doc:`accounts`. The settings from the identity will be used in the composed message. If :value:`replyTo` is also specified, the :value:`replyTo` property of the identity is overridden. The permission :permission:`accountsRead` is required to include the :value:`identityId`.
 
-   .. _compose.ComposeDetails.isModified:
+   .. _compose.^compose^details.is^modified:
 
    .. api-member::
       :name: [``isModified``]
@@ -1164,7 +1164,7 @@ Used by various functions to represent the state of a message being composed. No
 
       Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.
 
-   .. _compose.ComposeDetails.isPlainText:
+   .. _compose.^compose^details.is^plain^text:
 
    .. api-member::
       :name: [``isPlainText``]
@@ -1173,7 +1173,7 @@ Used by various functions to represent the state of a message being composed. No
 
       Whether the message is an HTML message or a plain text message.
 
-   .. _compose.ComposeDetails.newsgroups:
+   .. _compose.^compose^details.newsgroups:
 
    .. api-member::
       :name: [``newsgroups``]
@@ -1181,16 +1181,16 @@ Used by various functions to represent the state of a message being composed. No
 
       A single newsgroup name or an array of newsgroup names.
 
-   .. _compose.ComposeDetails.overrideDefaultFccFolderId:
+   .. _compose.^compose^details.override^default^fcc^folder^id:
 
    .. api-member::
       :name: [``overrideDefaultFccFolderId``]
-      :type: (:ref:`folders.MailFolderId`, optional)
+      :type: (:ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 127]
 
-      This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+      This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.^mail^folder^id` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 
-   .. _compose.ComposeDetails.plainTextBody:
+   .. _compose.^compose^details.plain^text^body:
 
    .. api-member::
       :name: [``plainTextBody``]
@@ -1199,7 +1199,7 @@ Used by various functions to represent the state of a message being composed. No
 
       The plain text content of the message.
 
-   .. _compose.ComposeDetails.priority:
+   .. _compose.^compose^details.priority:
 
    .. api-member::
       :name: [``priority``]
@@ -1225,22 +1225,22 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`highest`
 
-   .. _compose.ComposeDetails.relatedMessageId:
+   .. _compose.^compose^details.related^message^id:
 
    .. api-member::
       :name: [``relatedMessageId``]
-      :type: (:ref:`messages.MessageId`, optional)
+      :type: (:ref:`messages.^message^id`, optional)
       :annotation: -- [Added in TB 95]
 
       The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file.
 
-   .. _compose.ComposeDetails.replyTo:
+   .. _compose.^compose^details.reply^to:
 
    .. api-member::
       :name: [``replyTo``]
-      :type: (:ref:`compose.ComposeRecipientList`, optional)
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
 
-   .. _compose.ComposeDetails.returnReceipt:
+   .. _compose.^compose^details.return^receipt:
 
    .. api-member::
       :name: [``returnReceipt``]
@@ -1249,28 +1249,28 @@ Used by various functions to represent the state of a message being composed. No
 
       Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
 
-   .. _compose.ComposeDetails.selectedEncryptionTechnology:
+   .. _compose.^compose^details.selected^encryption^technology:
 
    .. api-member::
       :name: [``selectedEncryptionTechnology``]
-      :type: (:ref:`compose.EncryptionPropertiesSMIME` or :ref:`compose.EncryptionPropertiesOpenPGP`, optional)
+      :type: (:ref:`compose.^encryption^properties^s^m^i^m^e` or :ref:`compose.^encryption^properties^open^p^g^p`, optional)
       :annotation: -- [Added in TB 128]
 
       The selected encryption technology (:value:`OpenPGP` or :value:`S/MIME`) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be :value:`undefined`.
 
-   .. _compose.ComposeDetails.subject:
+   .. _compose.^compose^details.subject:
 
    .. api-member::
       :name: [``subject``]
       :type: (string, optional)
 
-   .. _compose.ComposeDetails.to:
+   .. _compose.^compose^details.to:
 
    .. api-member::
       :name: [``to``]
-      :type: (:ref:`compose.ComposeRecipientList`, optional)
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
 
-   .. _compose.ComposeDetails.type:
+   .. _compose.^compose^details.type:
 
    .. api-member::
       :name: [``type``]
@@ -1297,7 +1297,7 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`forward`
 
-.. _compose.ComposeDictionaries:
+.. _compose.^compose^dictionaries:
 
 ComposeDictionaries
 -------------------
@@ -1309,7 +1309,7 @@ A *dictionary object* with entries for all installed dictionaries, having a lang
 .. api-header::
    :label: object
 
-.. _compose.ComposeRecipient:
+.. _compose.^compose^recipient:
 
 ComposeRecipient
 ----------------
@@ -1355,7 +1355,7 @@ OR
             .. api-member::
                :name: :value:`mailingList`
 
-.. _compose.ComposeRecipientList:
+.. _compose.^compose^recipient^list:
 
 ComposeRecipientList
 --------------------
@@ -1363,14 +1363,14 @@ ComposeRecipientList
 .. api-section-annotation-hack:: -- [Added in TB 74]
 
 .. api-header::
-   :label: :ref:`compose.ComposeRecipient`
+   :label: :ref:`compose.^compose^recipient`
 
 OR
 
 .. api-header::
-   :label: array of :ref:`compose.ComposeRecipient`
+   :label: array of :ref:`compose.^compose^recipient`
 
-.. _compose.ComposeState:
+.. _compose.^compose^state:
 
 ComposeState
 ------------
@@ -1382,7 +1382,7 @@ Represent the state of the message composer.
 .. api-header::
    :label: object
 
-   .. _compose.ComposeState.canSendLater:
+   .. _compose.^compose^state.can^send^later:
 
    .. api-member::
       :name: ``canSendLater``
@@ -1390,7 +1390,7 @@ Represent the state of the message composer.
 
       The message can be send later.
 
-   .. _compose.ComposeState.canSendNow:
+   .. _compose.^compose^state.can^send^now:
 
    .. api-member::
       :name: ``canSendNow``
@@ -1398,7 +1398,7 @@ Represent the state of the message composer.
 
       The message can be send now.
 
-.. _compose.CustomHeader:
+.. _compose.^custom^header:
 
 CustomHeader
 ------------
@@ -1410,7 +1410,7 @@ A custom header definition.
 .. api-header::
    :label: object
 
-   .. _compose.CustomHeader.name:
+   .. _compose.^custom^header.name:
 
    .. api-member::
       :name: ``name``
@@ -1418,13 +1418,13 @@ A custom header definition.
 
       Name of a custom header, must be prefixed by :value:`X-` (but not by :value:`X-Mozilla-`) or be one of the explicitly allowed headers (:value:`MSIP_Labels`)
 
-   .. _compose.CustomHeader.value:
+   .. _compose.^custom^header.value:
 
    .. api-member::
       :name: ``value``
       :type: (string)
 
-.. _compose.EncryptionPropertiesOpenPGP:
+.. _compose.^encryption^properties^open^p^g^p:
 
 EncryptionPropertiesOpenPGP
 ---------------------------
@@ -1434,7 +1434,7 @@ EncryptionPropertiesOpenPGP
 .. api-header::
    :label: object
 
-   .. _compose.EncryptionPropertiesOpenPGP.encryptBody:
+   .. _compose.^encryption^properties^open^p^g^p.encrypt^body:
 
    .. api-member::
       :name: ``encryptBody``
@@ -1446,7 +1446,7 @@ EncryptionPropertiesOpenPGP
 
          If encryption is enabled, but the `preconditions <https://support.mozilla.org/en-US/kb/thunderbird-help-cannot-encrypt>`__ for sending an encrypted message are not met, the message cannot be sent.
 
-   .. _compose.EncryptionPropertiesOpenPGP.encryptSubject:
+   .. _compose.^encryption^properties^open^p^g^p.encrypt^subject:
 
    .. api-member::
       :name: ``encryptSubject``
@@ -1454,13 +1454,13 @@ EncryptionPropertiesOpenPGP
 
       Whether encryption of the message subject using the OpenPGP technology is enabled (only supported if encryption of the body is enabled a well).
 
-   .. _compose.EncryptionPropertiesOpenPGP.name:
+   .. _compose.^encryption^properties^open^p^g^p.name:
 
    .. api-member::
       :name: ``name``
       :type: (string)
 
-   .. _compose.EncryptionPropertiesOpenPGP.signMessage:
+   .. _compose.^encryption^properties^open^p^g^p.sign^message:
 
    .. api-member::
       :name: ``signMessage``
@@ -1468,7 +1468,7 @@ EncryptionPropertiesOpenPGP
 
       Whether the message will be signed using the OpenPGP technology.
 
-.. _compose.EncryptionPropertiesSMIME:
+.. _compose.^encryption^properties^s^m^i^m^e:
 
 EncryptionPropertiesSMIME
 -------------------------
@@ -1478,7 +1478,7 @@ EncryptionPropertiesSMIME
 .. api-header::
    :label: object
 
-   .. _compose.EncryptionPropertiesSMIME.encryptBody:
+   .. _compose.^encryption^properties^s^m^i^m^e.encrypt^body:
 
    .. api-member::
       :name: ``encryptBody``
@@ -1490,13 +1490,13 @@ EncryptionPropertiesSMIME
 
          If encryption is enabled, but the `preconditions <https://support.mozilla.org/en-US/kb/thunderbird-help-cannot-encrypt>`__ for sending an encrypted message are not met, the message cannot be sent.
 
-   .. _compose.EncryptionPropertiesSMIME.name:
+   .. _compose.^encryption^properties^s^m^i^m^e.name:
 
    .. api-member::
       :name: ``name``
       :type: (string)
 
-   .. _compose.EncryptionPropertiesSMIME.signMessage:
+   .. _compose.^encryption^properties^s^m^i^m^e.sign^message:
 
    .. api-member::
       :name: ``signMessage``
@@ -1504,7 +1504,7 @@ EncryptionPropertiesSMIME
 
       Whether the message will be signed using the S/MIME technology
 
-.. _compose.FileAttachment:
+.. _compose.^file^attachment:
 
 FileAttachment
 --------------
@@ -1516,7 +1516,7 @@ Object used to add, update or rename an attachment in a message being composed.
 .. api-header::
    :label: object
 
-   .. _compose.FileAttachment.file:
+   .. _compose.^file^attachment.file:
 
    .. api-member::
       :name: [``file``]
@@ -1524,7 +1524,7 @@ Object used to add, update or rename an attachment in a message being composed.
 
       The new content for the attachment.
 
-   .. _compose.FileAttachment.name:
+   .. _compose.^file^attachment.name:
 
    .. api-member::
       :name: [``name``]

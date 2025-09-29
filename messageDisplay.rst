@@ -25,7 +25,7 @@ A message can be displayed in either Thunderbird's main mail tab (a.k.a 3-pane t
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -47,7 +47,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _messageDisplay.getDisplayedMessages:
+.. _message^display.get^displayed^messages:
 
 getDisplayedMessages([tabId])
 -----------------------------
@@ -67,7 +67,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`messages.MessageList`
+      :type: :ref:`messages.^message^list`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -77,7 +77,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
 
    - :permission:`messagesRead`
 
-.. _messageDisplay.open:
+.. _message^display.open:
 
 open(openProperties)
 --------------------
@@ -130,7 +130,7 @@ Opens a message in a new tab or in a new window.
 
       .. api-member::
          :name: [``messageId``]
-         :type: (:ref:`messages.MessageId`, optional)
+         :type: (:ref:`messages.^message^id`, optional)
 
          The id of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`messageId` is unknown or invalid.
 
@@ -144,7 +144,7 @@ Opens a message in a new tab or in a new window.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -158,7 +158,7 @@ Opens a message in a new tab or in a new window.
 Events
 ======
 
-.. _messageDisplay.onMessagesDisplayed:
+.. _message^display.on^messages^displayed:
 
 onMessagesDisplayed
 -------------------
@@ -180,11 +180,11 @@ Fired when either a single message is displayed or when multiple messages are di
 
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
 
    .. api-member::
       :name: ``displayedMessages``
-      :type: (:ref:`messages.MessageList`)
+      :type: (:ref:`messages.^message^list`)
 
 .. api-header::
    :label: Required permissions

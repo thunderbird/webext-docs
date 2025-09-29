@@ -44,7 +44,7 @@ Manifest file properties
 Functions
 =========
 
-.. _i18n.detectLanguage:
+.. _i18n.detect^language:
 
 detectLanguage(text)
 --------------------
@@ -84,26 +84,26 @@ Detects the language of the provided text using CLD.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getAcceptLanguages:
+.. _i18n.get^accept^languages:
 
 getAcceptLanguages()
 --------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use :ref:`i18n.getUILanguage`.
+Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use :ref:`i18n.get^u^i^language`.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`i18n.LanguageCode`
+      :type: array of :ref:`i18n.^language^code`
 
       Array of LanguageCode
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getMessage:
+.. _i18n.get^message:
 
 getMessage(messageName, [substitutions])
 ----------------------------------------
@@ -141,33 +141,33 @@ Gets the localized string for the specified message. If the message is missing, 
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getPreferredSystemLanguages:
+.. _i18n.get^preferred^system^languages:
 
 getPreferredSystemLanguages()
 -----------------------------
 
 .. api-section-annotation-hack:: 
 
-Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.getAcceptLanguages`.
+Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.get^accept^languages`.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`i18n.LanguageCode`
+      :type: array of :ref:`i18n.^language^code`
 
       Array of LanguageCode
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getUILanguage:
+.. _i18n.get^u^i^language:
 
 getUILanguage()
 ---------------
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-Gets the browser UI language of the browser. This is different from :ref:`i18n.getAcceptLanguages` which returns the preferred user languages.
+Gets the browser UI language of the browser. This is different from :ref:`i18n.get^accept^languages` which returns the preferred user languages.
 
 .. note::
 
@@ -188,7 +188,7 @@ Gets the browser UI language of the browser. This is different from :ref:`i18n.g
 Types
 =====
 
-.. _i18n.LanguageCode:
+.. _i18n.^language^code:
 
 LanguageCode
 ------------

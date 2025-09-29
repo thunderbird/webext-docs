@@ -28,7 +28,7 @@ Offers the ability to write to the clipboard. Reading is not supported because t
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -50,7 +50,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _clipboard.setImageData:
+.. _clipboard.set^image^data:
 
 setImageData(imageData, imageType)
 ----------------------------------

@@ -29,7 +29,7 @@ Thunderbird's sessions API is similar to the `Firefox sessions API <https://deve
 Functions
 =========
 
-.. _sessions.getTabValue:
+.. _sessions.get^tab^value:
 
 getTabValue(tabId, key)
 -----------------------
@@ -61,7 +61,7 @@ Retrieve a previously stored value for a given tab, given its key. Returns :valu
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _sessions.removeTabValue:
+.. _sessions.remove^tab^value:
 
 removeTabValue(tabId, key)
 --------------------------
@@ -85,7 +85,7 @@ Remove a key/value pair from a given tab.
 
       Key identifying the particular value to remove.
 
-.. _sessions.setTabValue:
+.. _sessions.set^tab^value:
 
 setTabValue(tabId, key, value)
 ------------------------------

@@ -26,7 +26,7 @@ The identities API allows to manage the user's identities (each account can have
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -67,17 +67,17 @@ Create a new identity in the specified account.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`accounts.^mail^account^id`)
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity`
+      :type: :ref:`identities.^mail^identity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -129,7 +129,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity` or null
+      :type: :ref:`identities.^mail^identity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -138,7 +138,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
 
    - :permission:`accountsRead`
 
-.. _identities.getDefault:
+.. _identities.get^default:
 
 getDefault(accountId)
 ---------------------
@@ -152,13 +152,13 @@ Returns the default identity for the requested account, or :value:`null` if it i
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`accounts.^mail^account^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity` or null
+      :type: :ref:`identities.^mail^identity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -174,20 +174,20 @@ list([accountId])
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Returns the identities of the specified account, or all identities if no account is specified. Do not expect the returned identities to be in any specific order. Use :ref:`identities.getDefault` to get the default identity of an account.
+Returns the identities of the specified account, or all identities if no account is specified. Do not expect the returned identities to be in any specific order. Use :ref:`identities.get^default` to get the default identity of an account.
 
 .. api-header::
    :label: Parameters
 
    .. api-member::
       :name: [``accountId``]
-      :type: (:ref:`accounts.MailAccountId`, optional)
+      :type: (:ref:`accounts.^mail^account^id`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`identities.MailIdentity`
+      :type: array of :ref:`identities.^mail^identity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -196,7 +196,7 @@ Returns the identities of the specified account, or all identities if no account
 
    - :permission:`accountsRead`
 
-.. _identities.setDefault:
+.. _identities.set^default:
 
 setDefault(accountId, identityId)
 ---------------------------------
@@ -210,7 +210,7 @@ Sets the default identity for the requested account.
 
    .. api-member::
       :name: ``accountId``
-      :type: (:ref:`accounts.MailAccountId`)
+      :type: (:ref:`accounts.^mail^account^id`)
 
    .. api-member::
       :name: ``identityId``
@@ -239,13 +239,13 @@ Updates the details of an identity.
 
    .. api-member::
       :name: ``details``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`identities.MailIdentity`
+      :type: :ref:`identities.^mail^identity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -260,7 +260,7 @@ Updates the details of an identity.
 Events
 ======
 
-.. _identities.onCreated:
+.. _identities.on^created:
 
 onCreated
 ---------
@@ -286,14 +286,14 @@ Fired when a new identity has been created and added to an account. The event al
 
    .. api-member::
       :name: ``identity``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`accountsRead`
 
-.. _identities.onDeleted:
+.. _identities.on^deleted:
 
 onDeleted
 ---------
@@ -322,14 +322,14 @@ Fired when an identity has been removed from an account.
 
    - :permission:`accountsRead`
 
-.. _identities.onUpdated:
+.. _identities.on^updated:
 
 onUpdated
 ---------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Fired when one or more properties of an identity have been modified. The returned :ref:`identities.MailIdentity` includes only the changed values.
+Fired when one or more properties of an identity have been modified. The returned :ref:`identities.^mail^identity` includes only the changed values.
 
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
@@ -348,7 +348,7 @@ Fired when one or more properties of an identity have been modified. The returne
 
    .. api-member::
       :name: ``changedValues``
-      :type: (:ref:`identities.MailIdentity`)
+      :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
    :label: Required permissions
@@ -360,7 +360,7 @@ Fired when one or more properties of an identity have been modified. The returne
 Types
 =====
 
-.. _identities.EncryptionCapabilities:
+.. _identities.^encryption^capabilities:
 
 EncryptionCapabilities
 ----------------------
@@ -370,7 +370,7 @@ EncryptionCapabilities
 .. api-header::
    :label: object
 
-   .. _identities.EncryptionCapabilities.canEncrypt:
+   .. _identities.^encryption^capabilities.can^encrypt:
 
    .. api-member::
       :name: ``canEncrypt``
@@ -378,7 +378,7 @@ EncryptionCapabilities
 
       Whether the encryption technology is configured to support message encryption.
 
-   .. _identities.EncryptionCapabilities.canSign:
+   .. _identities.^encryption^capabilities.can^sign:
 
    .. api-member::
       :name: ``canSign``
@@ -386,7 +386,7 @@ EncryptionCapabilities
 
       Whether the encryption technology is configured to support message signing.
 
-.. _identities.MailIdentity:
+.. _identities.^mail^identity:
 
 MailIdentity
 ------------
@@ -396,15 +396,15 @@ MailIdentity
 .. api-header::
    :label: object
 
-   .. _identities.MailIdentity.accountId:
+   .. _identities.^mail^identity.account^id:
 
    .. api-member::
       :name: [``accountId``]
-      :type: (:ref:`accounts.MailAccountId`, optional)
+      :type: (:ref:`accounts.^mail^account^id`, optional)
 
-      The id of the :ref:`accounts.MailAccount` this identity belongs to. The :value:`accountId` property is read-only.
+      The id of the :ref:`accounts.^mail^account` this identity belongs to. The :value:`accountId` property is read-only.
 
-   .. _identities.MailIdentity.composeHtml:
+   .. _identities.^mail^identity.compose^html:
 
    .. api-member::
       :name: [``composeHtml``]
@@ -412,7 +412,7 @@ MailIdentity
 
       If the identity uses HTML as the default compose format.
 
-   .. _identities.MailIdentity.email:
+   .. _identities.^mail^identity.email:
 
    .. api-member::
       :name: [``email``]
@@ -420,7 +420,7 @@ MailIdentity
 
       The user's email address as used when messages are sent from this identity.
 
-   .. _identities.MailIdentity.encryptionCapabilities:
+   .. _identities.^mail^identity.encryption^capabilities:
 
    .. api-member::
       :name: [``encryptionCapabilities``]
@@ -431,19 +431,19 @@ MailIdentity
 
       .. api-member::
          :name: ``OpenPGP``
-         :type: (:ref:`identities.EncryptionCapabilities`)
+         :type: (:ref:`identities.^encryption^capabilities`)
          :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the OpenPGP encryption technology.
 
       .. api-member::
          :name: ``S/MIME``
-         :type: (:ref:`identities.EncryptionCapabilities`)
+         :type: (:ref:`identities.^encryption^capabilities`)
          :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the S/MIME encryption technology.
 
-   .. _identities.MailIdentity.id:
+   .. _identities.^mail^identity.id:
 
    .. api-member::
       :name: [``id``]
@@ -451,7 +451,7 @@ MailIdentity
 
       A unique identifier for this identity. The :value:`id` property is read-only.
 
-   .. _identities.MailIdentity.label:
+   .. _identities.^mail^identity.label:
 
    .. api-member::
       :name: [``label``]
@@ -459,7 +459,7 @@ MailIdentity
 
       A user-defined label for this identity.
 
-   .. _identities.MailIdentity.name:
+   .. _identities.^mail^identity.name:
 
    .. api-member::
       :name: [``name``]
@@ -467,7 +467,7 @@ MailIdentity
 
       The user's name as used when messages are sent from this identity.
 
-   .. _identities.MailIdentity.organization:
+   .. _identities.^mail^identity.organization:
 
    .. api-member::
       :name: [``organization``]
@@ -475,7 +475,7 @@ MailIdentity
 
       The organization associated with this identity.
 
-   .. _identities.MailIdentity.replyTo:
+   .. _identities.^mail^identity.reply^to:
 
    .. api-member::
       :name: [``replyTo``]
@@ -483,7 +483,7 @@ MailIdentity
 
       The reply-to email address associated with this identity.
 
-   .. _identities.MailIdentity.signature:
+   .. _identities.^mail^identity.signature:
 
    .. api-member::
       :name: [``signature``]
@@ -491,7 +491,7 @@ MailIdentity
 
       The signature of the identity.
 
-   .. _identities.MailIdentity.signatureIsPlainText:
+   .. _identities.^mail^identity.signature^is^plain^text:
 
    .. api-member::
       :name: [``signatureIsPlainText``]

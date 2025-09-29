@@ -28,7 +28,7 @@ downloads API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -116,7 +116,7 @@ Download a URL. If the URL uses the HTTP[S] protocol, then the request will incl
 
       .. api-member::
          :name: [``conflictAction``]
-         :type: (:ref:`downloads.FilenameConflictAction`, optional)
+         :type: (:ref:`downloads.^filename^conflict^action`, optional)
 
       .. api-member::
          :name: [``cookieStoreId``]
@@ -210,7 +210,7 @@ Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 
    .. api-member::
       :name: ``query``
-      :type: (:ref:`downloads.DownloadQuery`)
+      :type: (:ref:`downloads.^download^query`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -225,7 +225,7 @@ Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 
    - :permission:`downloads`
 
-.. _downloads.getFileIcon:
+.. _downloads.get^file^icon:
 
 getFileIcon(downloadId, [options])
 ----------------------------------
@@ -311,7 +311,7 @@ Pause the download. If the request was successful the download is in a paused st
 
    - :permission:`downloads`
 
-.. _downloads.removeFile:
+.. _downloads.remove^file:
 
 removeFile(downloadId)
 ----------------------
@@ -367,13 +367,13 @@ Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty obje
 
    .. api-member::
       :name: ``query``
-      :type: (:ref:`downloads.DownloadQuery`)
+      :type: (:ref:`downloads.^download^query`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`downloads.DownloadItem`
+      :type: array of :ref:`downloads.^download^item`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -411,7 +411,7 @@ Show the downloaded file in its folder in a file manager.
 
    - :permission:`downloads`
 
-.. _downloads.showDefaultFolder:
+.. _downloads.show^default^folder:
 
 showDefaultFolder()
 -------------------
@@ -428,7 +428,7 @@ showDefaultFolder()
 Events
 ======
 
-.. _downloads.onChanged:
+.. _downloads.on^changed:
 
 onChanged
 ---------
@@ -460,75 +460,75 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
 
       .. api-member::
          :name: [``canResume``]
-         :type: (:ref:`downloads.BooleanDelta`, optional)
+         :type: (:ref:`downloads.^boolean^delta`, optional)
 
       .. api-member::
          :name: [``danger``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`danger`.
 
       .. api-member::
          :name: [``endTime``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`endTime`.
 
       .. api-member::
          :name: [``error``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`error`.
 
       .. api-member::
          :name: [``exists``]
-         :type: (:ref:`downloads.BooleanDelta`, optional)
+         :type: (:ref:`downloads.^boolean^delta`, optional)
 
       .. api-member::
          :name: [``filename``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`filename`.
 
       .. api-member::
          :name: [``fileSize``]
-         :type: (:ref:`downloads.DoubleDelta`, optional)
+         :type: (:ref:`downloads.^double^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`fileSize`.
 
       .. api-member::
          :name: [``mime``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`mime`.
 
       .. api-member::
          :name: [``paused``]
-         :type: (:ref:`downloads.BooleanDelta`, optional)
+         :type: (:ref:`downloads.^boolean^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`paused`.
 
       .. api-member::
          :name: [``startTime``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`startTime`.
 
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`state`.
 
       .. api-member::
          :name: [``totalBytes``]
-         :type: (:ref:`downloads.DoubleDelta`, optional)
+         :type: (:ref:`downloads.^double^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`totalBytes`.
 
       .. api-member::
          :name: [``url``]
-         :type: (:ref:`downloads.StringDelta`, optional)
+         :type: (:ref:`downloads.^string^delta`, optional)
 
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`url`.
 
@@ -537,7 +537,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
 
    - :permission:`downloads`
 
-.. _downloads.onCreated:
+.. _downloads.on^created:
 
 onCreated
 ---------
@@ -559,14 +559,14 @@ This event fires with the `DownloadItem <#type-DownloadItem>`__ object when a do
 
    .. api-member::
       :name: ``downloadItem``
-      :type: (:ref:`downloads.DownloadItem`)
+      :type: (:ref:`downloads.^download^item`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`downloads`
 
-.. _downloads.onErased:
+.. _downloads.on^erased:
 
 onErased
 --------
@@ -602,7 +602,7 @@ Fires with the :code:`downloadId` when a download is erased from history.
 Types
 =====
 
-.. _downloads.BooleanDelta:
+.. _downloads.^boolean^delta:
 
 BooleanDelta
 ------------
@@ -612,19 +612,19 @@ BooleanDelta
 .. api-header::
    :label: object
 
-   .. _downloads.BooleanDelta.current:
+   .. _downloads.^boolean^delta.current:
 
    .. api-member::
       :name: [``current``]
       :type: (boolean, optional)
 
-   .. _downloads.BooleanDelta.previous:
+   .. _downloads.^boolean^delta.previous:
 
    .. api-member::
       :name: [``previous``]
       :type: (boolean, optional)
 
-.. _downloads.DangerType:
+.. _downloads.^danger^type:
 
 DangerType
 ----------
@@ -676,7 +676,7 @@ These string constants will never change, however the set of DangerTypes may cha
          .. api-member::
             :name: :value:`accepted`
 
-.. _downloads.DoubleDelta:
+.. _downloads.^double^delta:
 
 DoubleDelta
 -----------
@@ -686,19 +686,19 @@ DoubleDelta
 .. api-header::
    :label: object
 
-   .. _downloads.DoubleDelta.current:
+   .. _downloads.^double^delta.current:
 
    .. api-member::
       :name: [``current``]
       :type: (number, optional)
 
-   .. _downloads.DoubleDelta.previous:
+   .. _downloads.^double^delta.previous:
 
    .. api-member::
       :name: [``previous``]
       :type: (number, optional)
 
-.. _downloads.DownloadItem:
+.. _downloads.^download^item:
 
 DownloadItem
 ------------
@@ -708,7 +708,7 @@ DownloadItem
 .. api-header::
    :label: object
 
-   .. _downloads.DownloadItem.bytesReceived:
+   .. _downloads.^download^item.bytes^received:
 
    .. api-member::
       :name: ``bytesReceived``
@@ -716,17 +716,17 @@ DownloadItem
 
       Number of bytes received so far from the host, without considering file compression.
 
-   .. _downloads.DownloadItem.canResume:
+   .. _downloads.^download^item.can^resume:
 
    .. api-member::
       :name: ``canResume``
       :type: (boolean)
 
-   .. _downloads.DownloadItem.danger:
+   .. _downloads.^download^item.danger:
 
    .. api-member::
       :name: ``danger``
-      :type: (:ref:`downloads.DangerType`)
+      :type: (:ref:`downloads.^danger^type`)
 
       Indication of whether this download is thought to be safe or known to be suspicious.
 
@@ -734,13 +734,13 @@ DownloadItem
 
          Always given as 'safe'.
 
-   .. _downloads.DownloadItem.exists:
+   .. _downloads.^download^item.exists:
 
    .. api-member::
       :name: ``exists``
       :type: (boolean)
 
-   .. _downloads.DownloadItem.filename:
+   .. _downloads.^download^item.filename:
 
    .. api-member::
       :name: ``filename``
@@ -748,7 +748,7 @@ DownloadItem
 
       Absolute local path.
 
-   .. _downloads.DownloadItem.fileSize:
+   .. _downloads.^download^item.file^size:
 
    .. api-member::
       :name: ``fileSize``
@@ -756,7 +756,7 @@ DownloadItem
 
       Number of bytes in the whole file post-decompression, or -1 if unknown.
 
-   .. _downloads.DownloadItem.id:
+   .. _downloads.^download^item.id:
 
    .. api-member::
       :name: ``id``
@@ -764,7 +764,7 @@ DownloadItem
 
       An identifier that is persistent across browser sessions.
 
-   .. _downloads.DownloadItem.incognito:
+   .. _downloads.^download^item.incognito:
 
    .. api-member::
       :name: ``incognito``
@@ -772,7 +772,7 @@ DownloadItem
 
       False if this download is recorded in the history, true if it is not recorded.
 
-   .. _downloads.DownloadItem.paused:
+   .. _downloads.^download^item.paused:
 
    .. api-member::
       :name: ``paused``
@@ -780,7 +780,7 @@ DownloadItem
 
       True if the download has stopped reading data from the host, but kept the connection open.
 
-   .. _downloads.DownloadItem.startTime:
+   .. _downloads.^download^item.start^time:
 
    .. api-member::
       :name: ``startTime``
@@ -788,15 +788,15 @@ DownloadItem
 
       Number of milliseconds between the unix epoch and when this download began.
 
-   .. _downloads.DownloadItem.state:
+   .. _downloads.^download^item.state:
 
    .. api-member::
       :name: ``state``
-      :type: (:ref:`downloads.State`)
+      :type: (:ref:`downloads.^state`)
 
       Indicates whether the download is progressing, interrupted, or complete.
 
-   .. _downloads.DownloadItem.totalBytes:
+   .. _downloads.^download^item.total^bytes:
 
    .. api-member::
       :name: ``totalBytes``
@@ -804,7 +804,7 @@ DownloadItem
 
       Number of bytes in the whole file, without considering file compression, or -1 if unknown.
 
-   .. _downloads.DownloadItem.url:
+   .. _downloads.^download^item.url:
 
    .. api-member::
       :name: ``url``
@@ -812,19 +812,19 @@ DownloadItem
 
       Absolute URL.
 
-   .. _downloads.DownloadItem.byExtensionId:
+   .. _downloads.^download^item.by^extension^id:
 
    .. api-member::
       :name: [``byExtensionId``]
       :type: (string, optional)
 
-   .. _downloads.DownloadItem.byExtensionName:
+   .. _downloads.^download^item.by^extension^name:
 
    .. api-member::
       :name: [``byExtensionName``]
       :type: (string, optional)
 
-   .. _downloads.DownloadItem.cookieStoreId:
+   .. _downloads.^download^item.cookie^store^id:
 
    .. api-member::
       :name: [``cookieStoreId``]
@@ -833,7 +833,7 @@ DownloadItem
 
       The cookie store ID of the contextual identity.
 
-   .. _downloads.DownloadItem.endTime:
+   .. _downloads.^download^item.end^time:
 
    .. api-member::
       :name: [``endTime``]
@@ -841,22 +841,22 @@ DownloadItem
 
       Number of milliseconds between the unix epoch and when this download ended.
 
-   .. _downloads.DownloadItem.error:
+   .. _downloads.^download^item.error:
 
    .. api-member::
       :name: [``error``]
-      :type: (:ref:`downloads.InterruptReason`, optional)
+      :type: (:ref:`downloads.^interrupt^reason`, optional)
 
       Number indicating why a download was interrupted.
 
-   .. _downloads.DownloadItem.estimatedEndTime:
+   .. _downloads.^download^item.estimated^end^time:
 
    .. api-member::
       :name: [``estimatedEndTime``]
       :type: (string, optional)
       :annotation: -- [Added in TB 57]
 
-   .. _downloads.DownloadItem.mime:
+   .. _downloads.^download^item.mime:
 
    .. api-member::
       :name: [``mime``]
@@ -864,13 +864,13 @@ DownloadItem
 
       The file's MIME type.
 
-   .. _downloads.DownloadItem.referrer:
+   .. _downloads.^download^item.referrer:
 
    .. api-member::
       :name: [``referrer``]
       :type: (string, optional)
 
-.. _downloads.DownloadQuery:
+.. _downloads.^download^query:
 
 DownloadQuery
 -------------
@@ -882,7 +882,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 .. api-header::
    :label: object
 
-   .. _downloads.DownloadQuery.bytesReceived:
+   .. _downloads.^download^query.bytes^received:
 
    .. api-member::
       :name: [``bytesReceived``]
@@ -890,7 +890,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Number of bytes received so far from the host, without considering file compression.
 
-   .. _downloads.DownloadQuery.cookieStoreId:
+   .. _downloads.^download^query.cookie^store^id:
 
    .. api-member::
       :name: [``cookieStoreId``]
@@ -899,19 +899,19 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       The cookie store ID of the contextual identity.
 
-   .. _downloads.DownloadQuery.danger:
+   .. _downloads.^download^query.danger:
 
    .. api-member::
       :name: [``danger``]
-      :type: (:ref:`downloads.DangerType`, optional)
+      :type: (:ref:`downloads.^danger^type`, optional)
 
       Indication of whether this download is thought to be safe or known to be suspicious.
 
-   .. _downloads.DownloadQuery.endedAfter:
+   .. _downloads.^download^query.ended^after:
 
    .. api-member::
       :name: [``endedAfter``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
+      :type: (:ref:`downloads.^download^time`, optional)
 
       Limits results to downloads that ended after the given ms since the epoch.
 
@@ -919,11 +919,11 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
          The parameter is ignored.
 
-   .. _downloads.DownloadQuery.endedBefore:
+   .. _downloads.^download^query.ended^before:
 
    .. api-member::
       :name: [``endedBefore``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
+      :type: (:ref:`downloads.^download^time`, optional)
 
       Limits results to downloads that ended before the given ms since the epoch.
 
@@ -931,27 +931,27 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
          The parameter is ignored.
 
-   .. _downloads.DownloadQuery.endTime:
+   .. _downloads.^download^query.end^time:
 
    .. api-member::
       :name: [``endTime``]
       :type: (string, optional)
 
-   .. _downloads.DownloadQuery.error:
+   .. _downloads.^download^query.error:
 
    .. api-member::
       :name: [``error``]
-      :type: (:ref:`downloads.InterruptReason`, optional)
+      :type: (:ref:`downloads.^interrupt^reason`, optional)
 
       Why a download was interrupted.
 
-   .. _downloads.DownloadQuery.exists:
+   .. _downloads.^download^query.exists:
 
    .. api-member::
       :name: [``exists``]
       :type: (boolean, optional)
 
-   .. _downloads.DownloadQuery.filename:
+   .. _downloads.^download^query.filename:
 
    .. api-member::
       :name: [``filename``]
@@ -959,7 +959,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Absolute local path.
 
-   .. _downloads.DownloadQuery.filenameRegex:
+   .. _downloads.^download^query.filename^regex:
 
    .. api-member::
       :name: [``filenameRegex``]
@@ -967,7 +967,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`filename` matches the given regular expression.
 
-   .. _downloads.DownloadQuery.fileSize:
+   .. _downloads.^download^query.file^size:
 
    .. api-member::
       :name: [``fileSize``]
@@ -975,13 +975,13 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Number of bytes in the whole file post-decompression, or -1 if unknown.
 
-   .. _downloads.DownloadQuery.id:
+   .. _downloads.^download^query.id:
 
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
 
-   .. _downloads.DownloadQuery.limit:
+   .. _downloads.^download^query.limit:
 
    .. api-member::
       :name: [``limit``]
@@ -989,7 +989,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Setting this integer limits the number of results. Otherwise, all matching `DownloadItems <#type-DownloadItem>`__ will be returned.
 
-   .. _downloads.DownloadQuery.mime:
+   .. _downloads.^download^query.mime:
 
    .. api-member::
       :name: [``mime``]
@@ -997,7 +997,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       The file's MIME type.
 
-   .. _downloads.DownloadQuery.orderBy:
+   .. _downloads.^download^query.order^by:
 
    .. api-member::
       :name: [``orderBy``]
@@ -1005,7 +1005,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Setting elements of this array to `DownloadItem <#type-DownloadItem>`__ properties in order to sort the search results. For example, setting :code:`orderBy='startTime'` sorts the `DownloadItems <#type-DownloadItem>`__ by their start time in ascending order. To specify descending order, prefix :code:`orderBy` with a hyphen: '-startTime'.
 
-   .. _downloads.DownloadQuery.paused:
+   .. _downloads.^download^query.paused:
 
    .. api-member::
       :name: [``paused``]
@@ -1013,7 +1013,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       True if the download has stopped reading data from the host, but kept the connection open.
 
-   .. _downloads.DownloadQuery.query:
+   .. _downloads.^download^query.query:
 
    .. api-member::
       :name: [``query``]
@@ -1021,37 +1021,37 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       This array of search terms limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`filename` or :code:`url` contain all of the search terms that do not begin with a dash '-' and none of the search terms that do begin with a dash.
 
-   .. _downloads.DownloadQuery.startedAfter:
+   .. _downloads.^download^query.started^after:
 
    .. api-member::
       :name: [``startedAfter``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
+      :type: (:ref:`downloads.^download^time`, optional)
 
       Limits results to downloads that started after the given ms since the epoch.
 
-   .. _downloads.DownloadQuery.startedBefore:
+   .. _downloads.^download^query.started^before:
 
    .. api-member::
       :name: [``startedBefore``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
+      :type: (:ref:`downloads.^download^time`, optional)
 
       Limits results to downloads that started before the given ms since the epoch.
 
-   .. _downloads.DownloadQuery.startTime:
+   .. _downloads.^download^query.start^time:
 
    .. api-member::
       :name: [``startTime``]
       :type: (string, optional)
 
-   .. _downloads.DownloadQuery.state:
+   .. _downloads.^download^query.state:
 
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`downloads.State`, optional)
+      :type: (:ref:`downloads.^state`, optional)
 
       Indicates whether the download is progressing, interrupted, or complete.
 
-   .. _downloads.DownloadQuery.totalBytes:
+   .. _downloads.^download^query.total^bytes:
 
    .. api-member::
       :name: [``totalBytes``]
@@ -1059,7 +1059,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Number of bytes in the whole file, without considering file compression, or -1 if unknown.
 
-   .. _downloads.DownloadQuery.totalBytesGreater:
+   .. _downloads.^download^query.total^bytes^greater:
 
    .. api-member::
       :name: [``totalBytesGreater``]
@@ -1067,7 +1067,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Limits results to downloads whose totalBytes is greater than the given integer.
 
-   .. _downloads.DownloadQuery.totalBytesLess:
+   .. _downloads.^download^query.total^bytes^less:
 
    .. api-member::
       :name: [``totalBytesLess``]
@@ -1075,7 +1075,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Limits results to downloads whose totalBytes is less than the given integer.
 
-   .. _downloads.DownloadQuery.url:
+   .. _downloads.^download^query.url:
 
    .. api-member::
       :name: [``url``]
@@ -1083,7 +1083,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Absolute URL.
 
-   .. _downloads.DownloadQuery.urlRegex:
+   .. _downloads.^download^query.url^regex:
 
    .. api-member::
       :name: [``urlRegex``]
@@ -1091,7 +1091,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 
       Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`url` matches the given regular expression.
 
-.. _downloads.DownloadTime:
+.. _downloads.^download^time:
 
 DownloadTime
 ------------
@@ -1108,7 +1108,7 @@ OR
 .. api-header::
    :label: `Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__
 
-.. _downloads.FilenameConflictAction:
+.. _downloads.^filename^conflict^action:
 
 FilenameConflictAction
 ----------------------
@@ -1133,7 +1133,7 @@ FilenameConflictAction
          .. api-member::
             :name: :value:`prompt`
 
-.. _downloads.InterruptReason:
+.. _downloads.^interrupt^reason:
 
 InterruptReason
 ---------------
@@ -1225,7 +1225,7 @@ InterruptReason
          .. api-member::
             :name: :value:`CRASH`
 
-.. _downloads.State:
+.. _downloads.^state:
 
 State
 -----
@@ -1258,7 +1258,7 @@ These string constants will never change, however the set of States may change.
 
             The download completed successfully.
 
-.. _downloads.StringDelta:
+.. _downloads.^string^delta:
 
 StringDelta
 -----------
@@ -1268,13 +1268,13 @@ StringDelta
 .. api-header::
    :label: object
 
-   .. _downloads.StringDelta.current:
+   .. _downloads.^string^delta.current:
 
    .. api-member::
       :name: [``current``]
       :type: (string, optional)
 
-   .. _downloads.StringDelta.previous:
+   .. _downloads.^string^delta.previous:
 
    .. api-member::
       :name: [``previous``]

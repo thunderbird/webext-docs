@@ -26,7 +26,7 @@ The contacts API allows to access and manage the user's contacts.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -48,7 +48,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _addressBooks.contacts.create:
+.. _address^books.contacts.create:
 
 create(parentId, vCard)
 -----------------------
@@ -86,7 +86,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.delete:
+.. _address^books.contacts.delete:
 
 delete(id)
 ----------
@@ -107,7 +107,7 @@ Removes a contact from the address book. The contact is also removed from any ma
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.get:
+.. _address^books.contacts.get:
 
 get(id)
 -------
@@ -127,7 +127,7 @@ Gets a single contact.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`addressBooks.contacts.ContactNode`
+      :type: :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -136,7 +136,7 @@ Gets a single contact.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.getPhoto:
+.. _address^books.contacts.get^photo:
 
 getPhoto(id)
 ------------
@@ -165,7 +165,7 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.list:
+.. _address^books.contacts.list:
 
 list(parentId)
 --------------
@@ -185,7 +185,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`addressBooks.contacts.ContactNode`
+      :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -194,7 +194,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.query:
+.. _address^books.contacts.query:
 
 query(queryInfo)
 ----------------
@@ -208,13 +208,13 @@ Gets all contacts matching :value:`queryInfo`.
 
    .. api-member::
       :name: ``queryInfo``
-      :type: (:ref:`addressBooks.contacts.QueryInfo`)
+      :type: (:ref:`address^books.contacts.^query^info`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`addressBooks.contacts.ContactNode`
+      :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -223,7 +223,7 @@ Gets all contacts matching :value:`queryInfo`.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.setPhoto:
+.. _address^books.contacts.set^photo:
 
 setPhoto(id, file)
 ------------------
@@ -248,7 +248,7 @@ Sets the photo associated with this contact.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.update:
+.. _address^books.contacts.update:
 
 update(id, vCard)
 -----------------
@@ -280,7 +280,7 @@ Updates a contact.
 Events
 ======
 
-.. _addressBooks.contacts.onCreated:
+.. _address^books.contacts.on^created:
 
 onCreated
 ---------
@@ -302,14 +302,14 @@ Fired when a contact is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.contacts.ContactNode`)
+      :type: (:ref:`address^books.contacts.^contact^node`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.onDeleted:
+.. _address^books.contacts.on^deleted:
 
 onDeleted
 ---------
@@ -342,7 +342,7 @@ Fired when a contact is removed from an address book.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.contacts.onUpdated:
+.. _address^books.contacts.on^updated:
 
 onUpdated
 ---------
@@ -364,7 +364,7 @@ Fired when a contact is changed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.contacts.ContactNode`)
+      :type: (:ref:`address^books.contacts.^contact^node`)
 
    .. api-member::
       :name: ``oldVCard``
@@ -380,7 +380,7 @@ Fired when a contact is changed.
 Types
 =====
 
-.. _addressBooks.contacts.ContactNode:
+.. _address^books.contacts.^contact^node:
 
 ContactNode
 -----------
@@ -392,7 +392,7 @@ A node representing a contact in an address book.
 .. api-header::
    :label: object
 
-   .. _addressBooks.contacts.ContactNode.id:
+   .. _address^books.contacts.^contact^node.id:
 
    .. api-member::
       :name: ``id``
@@ -400,22 +400,22 @@ A node representing a contact in an address book.
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 
-   .. _addressBooks.contacts.ContactNode.type:
+   .. _address^books.contacts.^contact^node.type:
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`addressBooks.NodeType`)
+      :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`contact`.
 
-   .. _addressBooks.contacts.ContactNode.vCard:
+   .. _address^books.contacts.^contact^node.v^card:
 
    .. api-member::
       :name: ``vCard``
       :type: (string)
       :annotation: -- [Added in TB 128]
 
-   .. _addressBooks.contacts.ContactNode.parentId:
+   .. _address^books.contacts.^contact^node.parent^id:
 
    .. api-member::
       :name: [``parentId``]
@@ -423,7 +423,7 @@ A node representing a contact in an address book.
 
       The :value:`id` of the parent object.
 
-   .. _addressBooks.contacts.ContactNode.readOnly:
+   .. _address^books.contacts.^contact^node.read^only:
 
    .. api-member::
       :name: [``readOnly``]
@@ -431,7 +431,7 @@ A node representing a contact in an address book.
 
       Indicates if the object is read-only.
 
-   .. _addressBooks.contacts.ContactNode.remote:
+   .. _address^books.contacts.^contact^node.remote:
 
    .. api-member::
       :name: [``remote``]
@@ -439,7 +439,7 @@ A node representing a contact in an address book.
 
       Indicates if the object came from a remote address book.
 
-.. _addressBooks.contacts.ContactProperties:
+.. _address^books.contacts.^contact^properties:
 
 ContactProperties
 -----------------
@@ -451,7 +451,7 @@ A set of individual properties for a particular contact, and its vCard string. F
 .. api-header::
    :label: object
 
-.. _addressBooks.contacts.PropertyChange:
+.. _address^books.contacts.^property^change:
 
 PropertyChange
 --------------
@@ -463,19 +463,19 @@ A dictionary of changed properties. Keys are the property name that changed, val
 .. api-header::
    :label: object
 
-.. _addressBooks.contacts.QueryInfo:
+.. _address^books.contacts.^query^info:
 
 QueryInfo
 ---------
 
 .. api-section-annotation-hack:: -- [Added in TB 127]
 
-Object defining a query for :ref:`contacts.quickSearch`.
+Object defining a query for :ref:`address^books.contacts.quick^search`.
 
 .. api-header::
    :label: object
 
-   .. _addressBooks.contacts.QueryInfo.includeLocal:
+   .. _address^books.contacts.^query^info.include^local:
 
    .. api-member::
       :name: [``includeLocal``]
@@ -483,7 +483,7 @@ Object defining a query for :ref:`contacts.quickSearch`.
 
       Whether to include results from local address books. Defaults to :value:`true`.
 
-   .. _addressBooks.contacts.QueryInfo.includeReadOnly:
+   .. _address^books.contacts.^query^info.include^read^only:
 
    .. api-member::
       :name: [``includeReadOnly``]
@@ -491,7 +491,7 @@ Object defining a query for :ref:`contacts.quickSearch`.
 
       Whether to include results from read-only address books. Defaults to :value:`true`.
 
-   .. _addressBooks.contacts.QueryInfo.includeReadWrite:
+   .. _address^books.contacts.^query^info.include^read^write:
 
    .. api-member::
       :name: [``includeReadWrite``]
@@ -499,7 +499,7 @@ Object defining a query for :ref:`contacts.quickSearch`.
 
       Whether to include results from read-write address books. Defaults to :value:`true`.
 
-   .. _addressBooks.contacts.QueryInfo.includeRemote:
+   .. _address^books.contacts.^query^info.include^remote:
 
    .. api-member::
       :name: [``includeRemote``]
@@ -507,7 +507,7 @@ Object defining a query for :ref:`contacts.quickSearch`.
 
       Whether to include results from remote address books. Defaults to :value:`true`.
 
-   .. _addressBooks.contacts.QueryInfo.parentId:
+   .. _address^books.contacts.^query^info.parent^id:
 
    .. api-member::
       :name: [``parentId``]
@@ -515,7 +515,7 @@ Object defining a query for :ref:`contacts.quickSearch`.
 
       The id of the address book to search. If not specified, all address books are searched.
 
-   .. _addressBooks.contacts.QueryInfo.searchString:
+   .. _address^books.contacts.^query^info.search^string:
 
    .. api-member::
       :name: [``searchString``]

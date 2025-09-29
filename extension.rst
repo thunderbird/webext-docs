@@ -29,7 +29,7 @@ The :code:`browser.extension` API has utilities that can be used by any extensio
 Functions
 =========
 
-.. _extension.getBackgroundPage:
+.. _extension.get^background^page:
 
 getBackgroundPage()
 -------------------
@@ -46,7 +46,7 @@ Returns the JavaScript 'window' object for the background page running inside th
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _extension.getViews:
+.. _extension.get^views:
 
 getViews([fetchProperties])
 ---------------------------
@@ -74,7 +74,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`extension.ViewType`, optional)
+         :type: (:ref:`extension.^view^type`, optional)
 
          The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'popup', 'sidebar'.
 
@@ -94,7 +94,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _extension.isAllowedFileSchemeAccess:
+.. _extension.is^allowed^file^scheme^access:
 
 isAllowedFileSchemeAccess()
 ---------------------------
@@ -113,7 +113,7 @@ Retrieves the state of the extension's access to the 'file://' scheme (as determ
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _extension.isAllowedIncognitoAccess:
+.. _extension.is^allowed^incognito^access:
 
 isAllowedIncognitoAccess()
 --------------------------
@@ -137,7 +137,7 @@ Retrieves the state of the extension's access to Incognito-mode (as determined b
 Types
 =====
 
-.. _extension.ViewType:
+.. _extension.^view^type:
 
 ViewType
 --------
@@ -170,7 +170,7 @@ The type of extension view.
 Properties
 ==========
 
-.. _extension.inIncognitoContext:
+.. _extension.in^incognito^context:
 
 inIncognitoContext
 ------------------

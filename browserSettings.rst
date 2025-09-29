@@ -29,7 +29,7 @@ Use the :code:`browser.browserSettings` API to control global settings of the br
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -51,7 +51,7 @@ The following permissions influence the behavior of the API: depending on which 
 Types
 =====
 
-.. _browserSettings.ColorManagementMode:
+.. _browser^settings.^color^management^mode:
 
 ColorManagementMode
 -------------------
@@ -78,7 +78,7 @@ Color management mode.
          .. api-member::
             :name: :value:`tagged_only`
 
-.. _browserSettings.ContextMenuMouseEvent:
+.. _browser^settings.^context^menu^mouse^event:
 
 ContextMenuMouseEvent
 ---------------------
@@ -102,7 +102,7 @@ After which mouse event context menus should popup.
          .. api-member::
             :name: :value:`mousedown`
 
-.. _browserSettings.ImageAnimationBehavior:
+.. _browser^settings.^image^animation^behavior:
 
 ImageAnimationBehavior
 ----------------------
@@ -134,7 +134,7 @@ How images should be animated in the browser.
 Properties
 ==========
 
-.. _browserSettings.allowPopupsForUserEvents:
+.. _browser^settings.allow^popups^for^user^events:
 
 allowPopupsForUserEvents
 ------------------------
@@ -143,7 +143,7 @@ allowPopupsForUserEvents
 
 Allows or disallows pop-up windows from opening in response to user events.
 
-.. _browserSettings.cacheEnabled:
+.. _browser^settings.cache^enabled:
 
 cacheEnabled
 ------------
@@ -152,7 +152,7 @@ cacheEnabled
 
 Enables or disables the browser cache.
 
-.. _browserSettings.contextMenuShowEvent:
+.. _browser^settings.context^menu^show^event:
 
 contextMenuShowEvent
 --------------------
@@ -161,7 +161,7 @@ contextMenuShowEvent
 
 Controls after which mouse event context menus popup. This setting's value is of type ContextMenuMouseEvent, which has possible values of :code:`mouseup` and :code:`mousedown`.
 
-.. _browserSettings.ftpProtocolEnabled:
+.. _browser^settings.ftp^protocol^enabled:
 
 ftpProtocolEnabled
 ------------------
@@ -174,7 +174,7 @@ Returns whether the FTP protocol is enabled. Read-only.
 
    From version 88, this setting is read-only (see `bug 1626365 <https://bugzil.la/1626365>`__).
 
-.. _browserSettings.imageAnimationBehavior:
+.. _browser^settings.image^animation^behavior:
 
 imageAnimationBehavior
 ----------------------
@@ -183,7 +183,7 @@ imageAnimationBehavior
 
 Controls the behaviour of image animation in the browser. This setting's value is of type ImageAnimationBehavior, defaulting to :code:`normal`.
 
-.. _browserSettings.overrideContentColorScheme:
+.. _browser^settings.override^content^color^scheme:
 
 overrideContentColorScheme
 --------------------------
@@ -192,7 +192,7 @@ overrideContentColorScheme
 
 This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
 
-.. _browserSettings.overrideDocumentColors:
+.. _browser^settings.override^document^colors:
 
 overrideDocumentColors
 ----------------------
@@ -201,7 +201,7 @@ overrideDocumentColors
 
 This setting controls whether the user-chosen colors override the page's colors.
 
-.. _browserSettings.useDocumentFonts:
+.. _browser^settings.use^document^fonts:
 
 useDocumentFonts
 ----------------
@@ -210,7 +210,7 @@ useDocumentFonts
 
 This setting controls whether the document's fonts are used.
 
-.. _browserSettings.verticalTabs:
+.. _browser^settings.vertical^tabs:
 
 verticalTabs
 ------------
@@ -219,7 +219,7 @@ verticalTabs
 
 This boolean setting controls whether vertical tabs are enabled.
 
-.. _browserSettings.webNotificationsDisabled:
+.. _browser^settings.web^notifications^disabled:
 
 webNotificationsDisabled
 ------------------------
@@ -228,7 +228,7 @@ webNotificationsDisabled
 
 Disables webAPI notifications.
 
-.. _browserSettings.zoomFullPage:
+.. _browser^settings.zoom^full^page:
 
 zoomFullPage
 ------------

@@ -26,7 +26,7 @@ The addressBooks API allows to access and manage the user's address books.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -48,7 +48,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _addressBooks.closeUI:
+.. _address^books.close^u^i:
 
 closeUI()
 ---------
@@ -62,7 +62,7 @@ Closes the address book user interface.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.create:
+.. _address^books.create:
 
 create(properties)
 ------------------
@@ -98,7 +98,7 @@ Creates a new, empty address book.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.delete:
+.. _address^books.delete:
 
 delete(id)
 ----------
@@ -119,7 +119,7 @@ Removes an address book, and all associated contacts and mailing lists.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.get:
+.. _address^books.get:
 
 get(id, [complete])
 -------------------
@@ -145,7 +145,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`addressBooks.AddressBookNode`
+      :type: :ref:`address^books.^address^book^node`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -155,7 +155,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.list:
+.. _address^books.list:
 
 list([complete])
 ----------------
@@ -177,7 +177,7 @@ Gets a list of the user's address books, optionally including all contacts and m
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`addressBooks.AddressBookNode`
+      :type: array of :ref:`address^books.^address^book^node`
       :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -187,7 +187,7 @@ Gets a list of the user's address books, optionally including all contacts and m
 
    - :permission:`addressBooks`
 
-.. _addressBooks.openUI:
+.. _address^books.open^u^i:
 
 openUI()
 --------
@@ -200,7 +200,7 @@ Opens the address book user interface.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`tabs.Tab`
+      :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 114]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -210,7 +210,7 @@ Opens the address book user interface.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.update:
+.. _address^books.update:
 
 update(id, properties)
 ----------------------
@@ -244,7 +244,7 @@ Renames an address book.
 Events
 ======
 
-.. _addressBooks.onCreated:
+.. _address^books.on^created:
 
 onCreated
 ---------
@@ -266,14 +266,14 @@ Fired when an address book is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.AddressBookNode`)
+      :type: (:ref:`address^books.^address^book^node`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`addressBooks`
 
-.. _addressBooks.onDeleted:
+.. _address^books.on^deleted:
 
 onDeleted
 ---------
@@ -302,7 +302,7 @@ Fired when an addressBook is deleted.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.onUpdated:
+.. _address^books.on^updated:
 
 onUpdated
 ---------
@@ -324,7 +324,7 @@ Fired when an address book is renamed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.AddressBookNode`)
+      :type: (:ref:`address^books.^address^book^node`)
 
 .. api-header::
    :label: Required permissions
@@ -336,7 +336,7 @@ Fired when an address book is renamed.
 Types
 =====
 
-.. _addressBooks.AddressBookNode:
+.. _address^books.^address^book^node:
 
 AddressBookNode
 ---------------
@@ -348,7 +348,7 @@ A node representing an address book.
 .. api-header::
    :label: object
 
-   .. _addressBooks.AddressBookNode.id:
+   .. _address^books.^address^book^node.id:
 
    .. api-member::
       :name: ``id``
@@ -356,37 +356,37 @@ A node representing an address book.
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 
-   .. _addressBooks.AddressBookNode.name:
+   .. _address^books.^address^book^node.name:
 
    .. api-member::
       :name: ``name``
       :type: (string)
 
-   .. _addressBooks.AddressBookNode.type:
+   .. _address^books.^address^book^node.type:
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`addressBooks.NodeType`)
+      :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`addressBook`.
 
-   .. _addressBooks.AddressBookNode.contacts:
+   .. _address^books.^address^book^node.contacts:
 
    .. api-member::
       :name: [``contacts``]
-      :type: (array of :ref:`contacts.ContactNode`, optional)
+      :type: (array of :ref:`address^books.contacts.^contact^node`, optional)
 
       A list of contacts held by this node's address book or mailing list.
 
-   .. _addressBooks.AddressBookNode.mailingLists:
+   .. _address^books.^address^book^node.mailing^lists:
 
    .. api-member::
       :name: [``mailingLists``]
-      :type: (array of :ref:`mailingLists.MailingListNode`, optional)
+      :type: (array of :ref:`address^books.mailing^lists.^mailing^list^node`, optional)
 
       A list of mailingLists in this node's address book.
 
-   .. _addressBooks.AddressBookNode.parentId:
+   .. _address^books.^address^book^node.parent^id:
 
    .. api-member::
       :name: [``parentId``]
@@ -394,7 +394,7 @@ A node representing an address book.
 
       The :value:`id` of the parent object.
 
-   .. _addressBooks.AddressBookNode.readOnly:
+   .. _address^books.^address^book^node.read^only:
 
    .. api-member::
       :name: [``readOnly``]
@@ -402,7 +402,7 @@ A node representing an address book.
 
       Indicates if the object is read-only.
 
-   .. _addressBooks.AddressBookNode.remote:
+   .. _address^books.^address^book^node.remote:
 
    .. api-member::
       :name: [``remote``]
@@ -411,7 +411,7 @@ A node representing an address book.
 
       Indicates if the address book is accessed via remote look-up.
 
-.. _addressBooks.NodeType:
+.. _address^books.^node^type:
 
 NodeType
 --------

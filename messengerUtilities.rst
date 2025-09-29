@@ -24,7 +24,7 @@ The messengerUtilities API provides helpful methods for working with messages an
 Functions
 =========
 
-.. _messengerUtilities.convertToPlainText:
+.. _messenger^utilities.convert^to^plain^text:
 
 convertToPlainText(body, [options])
 -----------------------------------
@@ -60,7 +60,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messengerUtilities.decodeMimeHeader:
+.. _messenger^utilities.decode^mime^header:
 
 decodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
 ------------------------------------------------------------
@@ -84,7 +84,7 @@ Decode the provided header into a readable format according to RFC 2047.
       :name: [``isMailBoxHeader``]
       :type: (boolean, optional)
 
-      Headers containing multiple mailbox strings need special handling. For example the header :value:`=?UTF-8?Q?H=C3=B6rst=2C_Kenny?= <K.Hoerst@invalid>, new@thunderbird.bug` will be wrongly decoded to :value:`Hörst, Kenny <K.Hoerst@invalid>, new@thunderbird.bug`, corrupting the structure of the first mailbox string. This option overrides the default behavior of treating the headers defined in :ref:`messengerUtilities.MailboxHeaders` as mailbox headers.
+      Headers containing multiple mailbox strings need special handling. For example the header :value:`=?UTF-8?Q?H=C3=B6rst=2C_Kenny?= <K.Hoerst@invalid>, new@thunderbird.bug` will be wrongly decoded to :value:`Hörst, Kenny <K.Hoerst@invalid>, new@thunderbird.bug`, corrupting the structure of the first mailbox string. This option overrides the default behavior of treating the headers defined in :ref:`messenger^utilities.^mailbox^headers` as mailbox headers.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -94,7 +94,7 @@ Decode the provided header into a readable format according to RFC 2047.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messengerUtilities.encodeMimeHeader:
+.. _messenger^utilities.encode^mime^header:
 
 encodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
 ------------------------------------------------------------
@@ -118,7 +118,7 @@ Encode the provided header according to RFC 2047.
       :name: [``isMailBoxHeader``]
       :type: (boolean, optional)
 
-      Headers containing multiple mailbox strings need special handling. This option overrides the default behavior of treating the headers defined in :ref:`messengerUtilities.MailboxHeaders` as mailbox headers.
+      Headers containing multiple mailbox strings need special handling. This option overrides the default behavior of treating the headers defined in :ref:`messenger^utilities.^mailbox^headers` as mailbox headers.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -128,7 +128,7 @@ Encode the provided header according to RFC 2047.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messengerUtilities.formatFileSize:
+.. _messenger^utilities.format^file^size:
 
 formatFileSize(sizeInBytes)
 ---------------------------
@@ -154,7 +154,7 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _messengerUtilities.parseMailboxString:
+.. _messenger^utilities.parse^mailbox^string:
 
 parseMailboxString(mailboxString, [preserveGroups])
 ---------------------------------------------------
@@ -182,7 +182,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`messengerUtilities.ParsedMailbox`
+      :type: array of :ref:`messenger^utilities.^parsed^mailbox`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -191,7 +191,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
 Types
 =====
 
-.. _messengerUtilities.MailboxHeaders:
+.. _messenger^utilities.^mailbox^headers:
 
 MailboxHeaders
 --------------
@@ -263,7 +263,7 @@ MIME headers, which by default are treated as containing one or more mailbox str
          .. api-member::
             :name: :value:`mail-followup-to`
 
-.. _messengerUtilities.ParsedMailbox:
+.. _messenger^utilities.^parsed^mailbox:
 
 ParsedMailbox
 -------------
@@ -275,7 +275,7 @@ Representation of a parsed mailbox string (see RFC 5322, section 3.4).
 .. api-header::
    :label: object
 
-   .. _messengerUtilities.ParsedMailbox.email:
+   .. _messenger^utilities.^parsed^mailbox.email:
 
    .. api-member::
       :name: [``email``]
@@ -283,15 +283,15 @@ Representation of a parsed mailbox string (see RFC 5322, section 3.4).
 
       The :value:`addr-spec` associated with the provided address, if available.
 
-   .. _messengerUtilities.ParsedMailbox.group:
+   .. _messenger^utilities.^parsed^mailbox.group:
 
    .. api-member::
       :name: [``group``]
-      :type: (array of :ref:`messengerUtilities.ParsedMailbox`, optional)
+      :type: (array of :ref:`messenger^utilities.^parsed^mailbox`, optional)
 
       The members of the group, if available.
 
-   .. _messengerUtilities.ParsedMailbox.name:
+   .. _messenger^utilities.^parsed^mailbox.name:
 
    .. api-member::
       :name: [``name``]

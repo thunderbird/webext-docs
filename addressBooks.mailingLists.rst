@@ -26,7 +26,7 @@ The mailingLists API allows to access and manage the user's mailing lists.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -48,7 +48,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _addressBooks.mailingLists.addMember:
+.. _address^books.mailing^lists.add^member:
 
 addMember(id, contactId)
 ------------------------
@@ -73,7 +73,7 @@ Adds a contact to the mailing list with id :value:`id`. If the contact and maili
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.create:
+.. _address^books.mailing^lists.create:
 
 create(parentId, properties)
 ----------------------------
@@ -120,7 +120,7 @@ Creates a new mailing list in the address book with id :value:`parentId`.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.delete:
+.. _address^books.mailing^lists.delete:
 
 delete(id)
 ----------
@@ -141,7 +141,7 @@ Removes the mailing list.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.get:
+.. _address^books.mailing^lists.get:
 
 get(id)
 -------
@@ -161,7 +161,7 @@ Gets a single mailing list.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`addressBooks.mailingLists.MailingListNode`
+      :type: :ref:`address^books.mailing^lists.^mailing^list^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -170,7 +170,7 @@ Gets a single mailing list.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.list:
+.. _address^books.mailing^lists.list:
 
 list(parentId)
 --------------
@@ -190,7 +190,7 @@ Gets all the mailing lists in the address book with id :value:`parentId`.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`addressBooks.mailingLists.MailingListNode`
+      :type: array of :ref:`address^books.mailing^lists.^mailing^list^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -199,7 +199,7 @@ Gets all the mailing lists in the address book with id :value:`parentId`.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.listMembers:
+.. _address^books.mailing^lists.list^members:
 
 listMembers(id)
 ---------------
@@ -219,7 +219,7 @@ Gets all contacts that are members of the mailing list with id :value:`id`.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`contacts.ContactNode`
+      :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -228,7 +228,7 @@ Gets all contacts that are members of the mailing list with id :value:`id`.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.removeMember:
+.. _address^books.mailing^lists.remove^member:
 
 removeMember(id, contactId)
 ---------------------------
@@ -253,7 +253,7 @@ Removes a contact from the mailing list with id :value:`id`. This does not delet
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.update:
+.. _address^books.mailing^lists.update:
 
 update(id, properties)
 ----------------------
@@ -295,7 +295,7 @@ Edits the properties of a mailing list.
 Events
 ======
 
-.. _addressBooks.mailingLists.onCreated:
+.. _address^books.mailing^lists.on^created:
 
 onCreated
 ---------
@@ -317,14 +317,14 @@ Fired when a mailing list is created.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.mailingLists.MailingListNode`)
+      :type: (:ref:`address^books.mailing^lists.^mailing^list^node`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.onDeleted:
+.. _address^books.mailing^lists.on^deleted:
 
 onDeleted
 ---------
@@ -357,7 +357,7 @@ Fired when a mailing list is deleted.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.onMemberAdded:
+.. _address^books.mailing^lists.on^member^added:
 
 onMemberAdded
 -------------
@@ -379,14 +379,14 @@ Fired when a contact is added to the mailing list.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`contacts.ContactNode`)
+      :type: (:ref:`address^books.contacts.^contact^node`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.onMemberRemoved:
+.. _address^books.mailing^lists.on^member^removed:
 
 onMemberRemoved
 ---------------
@@ -419,7 +419,7 @@ Fired when a contact is removed from the mailing list.
 
    - :permission:`addressBooks`
 
-.. _addressBooks.mailingLists.onUpdated:
+.. _address^books.mailing^lists.on^updated:
 
 onUpdated
 ---------
@@ -441,7 +441,7 @@ Fired when a mailing list is changed.
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`addressBooks.mailingLists.MailingListNode`)
+      :type: (:ref:`address^books.mailing^lists.^mailing^list^node`)
 
 .. api-header::
    :label: Required permissions
@@ -453,7 +453,7 @@ Fired when a mailing list is changed.
 Types
 =====
 
-.. _addressBooks.mailingLists.MailingListNode:
+.. _address^books.mailing^lists.^mailing^list^node:
 
 MailingListNode
 ---------------
@@ -465,13 +465,13 @@ A node representing a mailing list.
 .. api-header::
    :label: object
 
-   .. _addressBooks.mailingLists.MailingListNode.description:
+   .. _address^books.mailing^lists.^mailing^list^node.description:
 
    .. api-member::
       :name: ``description``
       :type: (string)
 
-   .. _addressBooks.mailingLists.MailingListNode.id:
+   .. _address^books.mailing^lists.^mailing^list^node.id:
 
    .. api-member::
       :name: ``id``
@@ -479,35 +479,35 @@ A node representing a mailing list.
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 
-   .. _addressBooks.mailingLists.MailingListNode.name:
+   .. _address^books.mailing^lists.^mailing^list^node.name:
 
    .. api-member::
       :name: ``name``
       :type: (string)
 
-   .. _addressBooks.mailingLists.MailingListNode.nickName:
+   .. _address^books.mailing^lists.^mailing^list^node.nick^name:
 
    .. api-member::
       :name: ``nickName``
       :type: (string)
 
-   .. _addressBooks.mailingLists.MailingListNode.type:
+   .. _address^books.mailing^lists.^mailing^list^node.type:
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`addressBooks.NodeType`)
+      :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`mailingList`.
 
-   .. _addressBooks.mailingLists.MailingListNode.contacts:
+   .. _address^books.mailing^lists.^mailing^list^node.contacts:
 
    .. api-member::
       :name: [``contacts``]
-      :type: (array of :ref:`contacts.ContactNode`, optional)
+      :type: (array of :ref:`address^books.contacts.^contact^node`, optional)
 
       A list of contacts held by this node's address book or mailing list.
 
-   .. _addressBooks.mailingLists.MailingListNode.parentId:
+   .. _address^books.mailing^lists.^mailing^list^node.parent^id:
 
    .. api-member::
       :name: [``parentId``]
@@ -515,7 +515,7 @@ A node representing a mailing list.
 
       The :value:`id` of the parent object.
 
-   .. _addressBooks.mailingLists.MailingListNode.readOnly:
+   .. _address^books.mailing^lists.^mailing^list^node.read^only:
 
    .. api-member::
       :name: [``readOnly``]
@@ -523,7 +523,7 @@ A node representing a mailing list.
 
       Indicates if the object is read-only.
 
-   .. _addressBooks.mailingLists.MailingListNode.remote:
+   .. _address^books.mailing^lists.^mailing^list^node.remote:
 
    .. api-member::
       :name: [``remote``]

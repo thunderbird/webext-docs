@@ -45,7 +45,7 @@ Manifest file properties
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -77,7 +77,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _declarativeNetRequest.getAvailableStaticRuleCount:
+.. _declarative^net^request.get^available^static^rule^count:
 
 getAvailableStaticRuleCount()
 -----------------------------
@@ -100,7 +100,7 @@ Returns the remaining number of static rules an extension can enable
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getDisabledRuleIds:
+.. _declarative^net^request.get^disabled^rule^ids:
 
 getDisabledRuleIds(options)
 ---------------------------
@@ -134,7 +134,7 @@ Returns the list of individual disabled static rules from a given static ruleset
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getDynamicRules:
+.. _declarative^net^request.get^dynamic^rules:
 
 getDynamicRules([filter])
 -------------------------
@@ -148,7 +148,7 @@ Returns the current set of dynamic rules for the extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
+      :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
       :annotation: -- [Added in TB 127]
 
       An object to filter the set of dynamic rules for the extension.
@@ -157,7 +157,7 @@ Returns the current set of dynamic rules for the extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`declarativeNetRequest.Rule`
+      :type: array of :ref:`declarative^net^request.^rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -167,7 +167,7 @@ Returns the current set of dynamic rules for the extension.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getEnabledRulesets:
+.. _declarative^net^request.get^enabled^rulesets:
 
 getEnabledRulesets()
 --------------------
@@ -190,7 +190,7 @@ Returns the ids for the current set of enabled static rulesets.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getSessionRules:
+.. _declarative^net^request.get^session^rules:
 
 getSessionRules([filter])
 -------------------------
@@ -204,7 +204,7 @@ Returns the current set of session scoped rules for the extension.
 
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
+      :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
       :annotation: -- [Added in TB 127]
 
       An object to filter the set of session scoped rules for the extension.
@@ -213,7 +213,7 @@ Returns the current set of session scoped rules for the extension.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`declarativeNetRequest.Rule`
+      :type: array of :ref:`declarative^net^request.^rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -223,7 +223,7 @@ Returns the current set of session scoped rules for the extension.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.isRegexSupported:
+.. _declarative^net^request.is^regex^supported:
 
 isRegexSupported(regexOptions)
 ------------------------------
@@ -271,7 +271,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
 
       .. api-member::
          :name: [``reason``]
-         :type: (:ref:`declarativeNetRequest.UnsupportedRegexReason`, optional)
+         :type: (:ref:`declarative^net^request.^unsupported^regex^reason`, optional)
 
          Specifies the reason why the regular expression is not supported. Only provided if 'isSupported' is false.
 
@@ -283,7 +283,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.testMatchOutcome:
+.. _declarative^net^request.test^match^outcome:
 
 testMatchOutcome(request, [options])
 ------------------------------------
@@ -303,7 +303,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`declarativeNetRequest.ResourceType`)
+         :type: (:ref:`declarative^net^request.^resource^type`)
 
          The resource type of the hypothetical request.
 
@@ -349,7 +349,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
       .. api-member::
          :name: ``matchedRules``
-         :type: (array of :ref:`declarativeNetRequest.MatchedRule`)
+         :type: (array of :ref:`declarative^net^request.^matched^rule`)
 
          The rules (if any) that match the hypothetical request.
 
@@ -362,7 +362,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
    - :permission:`declarativeNetRequestFeedback`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateDynamicRules:
+.. _declarative^net^request.update^dynamic^rules:
 
 updateDynamicRules(options)
 ---------------------------
@@ -380,7 +380,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
 
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
+         :type: (array of :ref:`declarative^net^request.^rule`, optional)
 
          Rules to add.
 
@@ -396,7 +396,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateEnabledRulesets:
+.. _declarative^net^request.update^enabled^rulesets:
 
 updateEnabledRulesets(updateRulesetOptions)
 -------------------------------------------
@@ -426,7 +426,7 @@ Modifies the static rulesets enabled/disabled state.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateSessionRules:
+.. _declarative^net^request.update^session^rules:
 
 updateSessionRules(options)
 ---------------------------
@@ -444,7 +444,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
 
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
+         :type: (array of :ref:`declarative^net^request.^rule`, optional)
 
          Rules to add.
 
@@ -460,7 +460,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateStaticRules:
+.. _declarative^net^request.update^static^rules:
 
 updateStaticRules(options)
 --------------------------
@@ -499,7 +499,7 @@ Modified individual static rules enabled/disabled state. Changes to rules belong
 Types
 =====
 
-.. _declarativeNetRequest.GetRulesFilter:
+.. _declarative^net^request.^get^rules^filter:
 
 GetRulesFilter
 --------------
@@ -509,7 +509,7 @@ GetRulesFilter
 .. api-header::
    :label: object
 
-   .. _declarativeNetRequest.GetRulesFilter.ruleIds:
+   .. _declarative^net^request.^get^rules^filter.rule^ids:
 
    .. api-member::
       :name: [``ruleIds``]
@@ -517,7 +517,7 @@ GetRulesFilter
 
       If specified, only rules with matching IDs are included.
 
-.. _declarativeNetRequest.MatchedRule:
+.. _declarative^net^request.^matched^rule:
 
 MatchedRule
 -----------
@@ -527,7 +527,7 @@ MatchedRule
 .. api-header::
    :label: object
 
-   .. _declarativeNetRequest.MatchedRule.ruleId:
+   .. _declarative^net^request.^matched^rule.rule^id:
 
    .. api-member::
       :name: ``ruleId``
@@ -535,7 +535,7 @@ MatchedRule
 
       A matching rule's ID.
 
-   .. _declarativeNetRequest.MatchedRule.rulesetId:
+   .. _declarative^net^request.^matched^rule.ruleset^id:
 
    .. api-member::
       :name: ``rulesetId``
@@ -543,7 +543,7 @@ MatchedRule
 
       ID of the Ruleset this rule belongs to.
 
-   .. _declarativeNetRequest.MatchedRule.extensionId:
+   .. _declarative^net^request.^matched^rule.extension^id:
 
    .. api-member::
       :name: [``extensionId``]
@@ -551,7 +551,7 @@ MatchedRule
 
       ID of the extension, if this rule belongs to a different extension.
 
-.. _declarativeNetRequest.ResourceType:
+.. _declarative^net^request.^resource^type:
 
 ResourceType
 ------------
@@ -637,7 +637,7 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
          .. api-member::
             :name: :value:`other`
 
-.. _declarativeNetRequest.Rule:
+.. _declarative^net^request.^rule:
 
 Rule
 ----
@@ -647,7 +647,7 @@ Rule
 .. api-header::
    :label: object
 
-   .. _declarativeNetRequest.Rule.action:
+   .. _declarative^net^request.^rule.action:
 
    .. api-member::
       :name: ``action``
@@ -699,7 +699,7 @@ Rule
 
          .. api-member::
             :name: [``transform``]
-            :type: (:ref:`declarativeNetRequest.URLTransform`, optional)
+            :type: (:ref:`declarative^net^request.^u^r^l^transform`, optional)
 
             Url transformations to perform.
 
@@ -721,7 +721,7 @@ Rule
 
          The response headers to modify for the request. Only valid when type is 'modifyHeaders'.
 
-   .. _declarativeNetRequest.Rule.condition:
+   .. _declarative^net^request.^rule.condition:
 
    .. api-member::
       :name: ``condition``
@@ -763,7 +763,7 @@ Rule
 
       .. api-member::
          :name: [``excludedResourceTypes``]
-         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
+         :type: (array of :ref:`declarative^net^request.^resource^type`, optional)
 
          List of resource types which the rule won't match. Cannot be specified if 'resourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
 
@@ -805,7 +805,7 @@ Rule
 
       .. api-member::
          :name: [``resourceTypes``]
-         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
+         :type: (array of :ref:`declarative^net^request.^resource^type`, optional)
 
          List of resource types which the rule can match. When the rule action is 'allowAllRequests', this must be specified and may only contain 'main_frame' or 'sub_frame'. Cannot be specified if 'excludedResourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
 
@@ -821,7 +821,7 @@ Rule
 
          TODO: link to doc explaining supported pattern. The pattern which is matched against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.
 
-   .. _declarativeNetRequest.Rule.id:
+   .. _declarative^net^request.^rule.id:
 
    .. api-member::
       :name: ``id``
@@ -829,7 +829,7 @@ Rule
 
       An id which uniquely identifies a rule. Mandatory and should be >= 1.
 
-   .. _declarativeNetRequest.Rule.priority:
+   .. _declarative^net^request.^rule.priority:
 
    .. api-member::
       :name: [``priority``]
@@ -837,7 +837,7 @@ Rule
 
       Rule priority. Defaults to 1. When specified, should be >= 1
 
-.. _declarativeNetRequest.UnsupportedRegexReason:
+.. _declarative^net^request.^unsupported^regex^reason:
 
 UnsupportedRegexReason
 ----------------------
@@ -861,7 +861,7 @@ Describes the reason why a given regular expression isn't supported.
          .. api-member::
             :name: :value:`memoryLimitExceeded`
 
-.. _declarativeNetRequest.URLTransform:
+.. _declarative^net^request.^u^r^l^transform:
 
 URLTransform
 ------------
@@ -873,7 +873,7 @@ Describes the type of the Rule.action.redirect.transform property.
 .. api-header::
    :label: object
 
-   .. _declarativeNetRequest.URLTransform.fragment:
+   .. _declarative^net^request.^u^r^l^transform.fragment:
 
    .. api-member::
       :name: [``fragment``]
@@ -881,7 +881,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new fragment for the request. Should be either empty, in which case the existing fragment is cleared; or should begin with '#'.
 
-   .. _declarativeNetRequest.URLTransform.host:
+   .. _declarative^net^request.^u^r^l^transform.host:
 
    .. api-member::
       :name: [``host``]
@@ -889,7 +889,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new host name for the request.
 
-   .. _declarativeNetRequest.URLTransform.password:
+   .. _declarative^net^request.^u^r^l^transform.password:
 
    .. api-member::
       :name: [``password``]
@@ -897,7 +897,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new password for the request.
 
-   .. _declarativeNetRequest.URLTransform.path:
+   .. _declarative^net^request.^u^r^l^transform.path:
 
    .. api-member::
       :name: [``path``]
@@ -905,7 +905,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new path for the request. If empty, the existing path is cleared.
 
-   .. _declarativeNetRequest.URLTransform.port:
+   .. _declarative^net^request.^u^r^l^transform.port:
 
    .. api-member::
       :name: [``port``]
@@ -913,7 +913,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new port for the request. If empty, the existing port is cleared.
 
-   .. _declarativeNetRequest.URLTransform.query:
+   .. _declarative^net^request.^u^r^l^transform.query:
 
    .. api-member::
       :name: [``query``]
@@ -921,7 +921,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
       The new query for the request. Should be either empty, in which case the existing query is cleared; or should begin with '?'. Cannot be specified if 'queryTransform' is specified.
 
-   .. _declarativeNetRequest.URLTransform.queryTransform:
+   .. _declarative^net^request.^u^r^l^transform.query^transform:
 
    .. api-member::
       :name: [``queryTransform``]
@@ -941,7 +941,7 @@ Describes the type of the Rule.action.redirect.transform property.
 
          The list of query keys to be removed.
 
-   .. _declarativeNetRequest.URLTransform.scheme:
+   .. _declarative^net^request.^u^r^l^transform.scheme:
 
    .. api-member::
       :name: [``scheme``]
@@ -960,7 +960,7 @@ Describes the type of the Rule.action.redirect.transform property.
       .. api-member::
          :name: :value:`moz-extension`
 
-   .. _declarativeNetRequest.URLTransform.username:
+   .. _declarative^net^request.^u^r^l^transform.username:
 
    .. api-member::
       :name: [``username``]
@@ -973,7 +973,7 @@ Describes the type of the Rule.action.redirect.transform property.
 Properties
 ==========
 
-.. _declarativeNetRequest.DYNAMIC_RULESET_ID:
+.. _declarative^net^request.^d^y^n^a^m^i^c_^r^u^l^e^s^e^t_^i^d:
 
 DYNAMIC_RULESET_ID
 ------------------
@@ -982,7 +982,7 @@ DYNAMIC_RULESET_ID
 
 Ruleset ID for the dynamic rules added by the extension.
 
-.. _declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES:
+.. _declarative^net^request.^g^u^a^r^a^n^t^e^e^d_^m^i^n^i^m^u^m_^s^t^a^t^i^c_^r^u^l^e^s:
 
 GUARANTEED_MINIMUM_STATIC_RULES
 -------------------------------
@@ -991,7 +991,7 @@ GUARANTEED_MINIMUM_STATIC_RULES
 
 The minimum number of static rules guaranteed to an extension across its enabled static rulesets. Any rules above this limit will count towards the global static rule limit.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^i^s^a^b^l^e^d_^s^t^a^t^i^c_^r^u^l^e^s:
 
 MAX_NUMBER_OF_DISABLED_STATIC_RULES
 -----------------------------------
@@ -1000,7 +1000,7 @@ MAX_NUMBER_OF_DISABLED_STATIC_RULES
 
 The maximum number of static rules that can be disabled on each static ruleset.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^y^n^a^m^i^c_^a^n^d_^s^e^s^s^i^o^n_^r^u^l^e^s:
 
 MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 ---------------------------------------
@@ -1013,7 +1013,7 @@ Deprecated property returning the maximum number of dynamic and session rules an
 
    Deprecated in Thunderbird 128. Use :code:`MAX_NUMBER_OF_DYNAMIC_RULES` and :code:`MAX_NUMBER_OF_SESSION_RULES` instead.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^y^n^a^m^i^c_^r^u^l^e^s:
 
 MAX_NUMBER_OF_DYNAMIC_RULES
 ---------------------------
@@ -1022,7 +1022,7 @@ MAX_NUMBER_OF_DYNAMIC_RULES
 
 The maximum number of dynamic session rules an extension can add.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^e^n^a^b^l^e^d_^s^t^a^t^i^c_^r^u^l^e^s^e^t^s:
 
 MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 -------------------------------------
@@ -1031,7 +1031,7 @@ MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 
 The maximum number of static Rulesets an extension can enable at any one time.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_REGEX_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^r^e^g^e^x_^r^u^l^e^s:
 
 MAX_NUMBER_OF_REGEX_RULES
 -------------------------
@@ -1040,7 +1040,7 @@ MAX_NUMBER_OF_REGEX_RULES
 
 The maximum number of regular expression rules that an extension can add. This limit is evaluated separately for the set of session rules, dynamic rules and those specified in the rule_resources file.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^s^e^s^s^i^o^n_^r^u^l^e^s:
 
 MAX_NUMBER_OF_SESSION_RULES
 ---------------------------
@@ -1049,7 +1049,7 @@ MAX_NUMBER_OF_SESSION_RULES
 
 The maximum number of dynamic session rules an extension can add.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_STATIC_RULESETS:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^s^t^a^t^i^c_^r^u^l^e^s^e^t^s:
 
 MAX_NUMBER_OF_STATIC_RULESETS
 -----------------------------
@@ -1058,7 +1058,7 @@ MAX_NUMBER_OF_STATIC_RULESETS
 
 The maximum number of static Rulesets an extension can specify as part of the rule_resources manifest key.
 
-.. _declarativeNetRequest.SESSION_RULESET_ID:
+.. _declarative^net^request.^s^e^s^s^i^o^n_^r^u^l^e^s^e^t_^i^d:
 
 SESSION_RULESET_ID
 ------------------

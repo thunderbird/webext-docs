@@ -31,7 +31,7 @@ Use the :code:`browser.webRequest` API to observe and analyze traffic and to int
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -58,7 +58,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _webRequest.filterResponseData:
+.. _web^request.filter^response^data:
 
 filterResponseData(requestId)
 -----------------------------
@@ -88,7 +88,7 @@ filterResponseData(requestId)
    - :permission:`webRequest`
    - :permission:`webRequestBlocking`
 
-.. _webRequest.getSecurityInfo:
+.. _web^request.get^security^info:
 
 getSecurityInfo(requestId, [options])
 -------------------------------------
@@ -125,7 +125,7 @@ Retrieves the security information for the request.  Returns a promise that will
 
    - :permission:`webRequest`
 
-.. _webRequest.handlerBehaviorChanged:
+.. _web^request.handler^behavior^changed:
 
 handlerBehaviorChanged()
 ------------------------
@@ -144,7 +144,7 @@ Needs to be called when the behavior of the webRequest handlers has changed to p
 Events
 ======
 
-.. _webRequest.onAuthRequired:
+.. _web^request.on^auth^required:
 
 onAuthRequired
 --------------
@@ -167,13 +167,13 @@ Fired when an authentication failure is received. The listener has three options
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnAuthRequiredOptions`, optional)
+      :type: (array of :ref:`web^request.^on^auth^required^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -271,7 +271,7 @@ Fired when an authentication failure is received. The listener has three options
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -313,13 +313,13 @@ Fired when an authentication failure is received. The listener has three options
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
 
          The HTTP response headers that were received along with this response.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -336,7 +336,7 @@ Fired when an authentication failure is received. The listener has three options
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`webRequest.BlockingResponse`
+      :type: :ref:`web^request.^blocking^response`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -345,7 +345,7 @@ Fired when an authentication failure is received. The listener has three options
 
    - :permission:`webRequest`
 
-.. _webRequest.onBeforeRedirect:
+.. _web^request.on^before^redirect:
 
 onBeforeRedirect
 ----------------
@@ -364,13 +364,13 @@ Fired when a server-initiated redirect is about to occur.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnBeforeRedirectOptions`, optional)
+      :type: (array of :ref:`web^request.^on^before^redirect^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -450,7 +450,7 @@ Fired when a server-initiated redirect is about to occur.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -494,13 +494,13 @@ Fired when a server-initiated redirect is about to occur.
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
 
          The HTTP response headers that were received along with this redirect.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -514,7 +514,7 @@ Fired when a server-initiated redirect is about to occur.
 
    - :permission:`webRequest`
 
-.. _webRequest.onBeforeRequest:
+.. _web^request.on^before^request:
 
 onBeforeRequest
 ---------------
@@ -537,13 +537,13 @@ Fired when a request is about to occur.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnBeforeRequestOptions`, optional)
+      :type: (array of :ref:`web^request.^on^before^request^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -599,7 +599,7 @@ Fired when a request is about to occur.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -656,13 +656,13 @@ Fired when a request is about to occur.
 
          .. api-member::
             :name: [``raw``]
-            :type: (array of :ref:`webRequest.UploadData`, optional)
+            :type: (array of :ref:`web^request.^upload^data`, optional)
 
             If the request method is PUT or POST, and the body is not already parsed in formData, then the unparsed request body elements are contained in this array.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -675,7 +675,7 @@ Fired when a request is about to occur.
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`webRequest.BlockingResponse`
+      :type: :ref:`web^request.^blocking^response`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -684,7 +684,7 @@ Fired when a request is about to occur.
 
    - :permission:`webRequest`
 
-.. _webRequest.onBeforeSendHeaders:
+.. _web^request.on^before^send^headers:
 
 onBeforeSendHeaders
 -------------------
@@ -707,13 +707,13 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnBeforeSendHeadersOptions`, optional)
+      :type: (array of :ref:`web^request.^on^before^send^headers^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -769,7 +769,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -807,14 +807,14 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
       .. api-member::
          :name: [``requestHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
          :annotation: -- [Added in TB 53]
 
          The HTTP request headers that are going to be sent out with this request.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -827,7 +827,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`webRequest.BlockingResponse`
+      :type: :ref:`web^request.^blocking^response`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -836,7 +836,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
    - :permission:`webRequest`
 
-.. _webRequest.onCompleted:
+.. _web^request.on^completed:
 
 onCompleted
 -----------
@@ -855,13 +855,13 @@ Fired when a request is completed.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnCompletedOptions`, optional)
+      :type: (array of :ref:`web^request.^on^completed^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -947,7 +947,7 @@ Fired when a request is completed.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -957,7 +957,7 @@ Fired when a request is completed.
 
       .. api-member::
          :name: ``urlClassification``
-         :type: (:ref:`webRequest.UrlClassification`)
+         :type: (:ref:`web^request.^url^classification`)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1002,7 +1002,7 @@ Fired when a request is completed.
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
 
          The HTTP response headers that were received along with this response.
 
@@ -1011,7 +1011,7 @@ Fired when a request is completed.
 
    - :permission:`webRequest`
 
-.. _webRequest.onErrorOccurred:
+.. _web^request.on^error^occurred:
 
 onErrorOccurred
 ---------------
@@ -1030,7 +1030,7 @@ Fired when an error occurs.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
@@ -1098,7 +1098,7 @@ Fired when an error occurs.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -1142,7 +1142,7 @@ Fired when an error occurs.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1156,7 +1156,7 @@ Fired when an error occurs.
 
    - :permission:`webRequest`
 
-.. _webRequest.onHeadersReceived:
+.. _web^request.on^headers^received:
 
 onHeadersReceived
 -----------------
@@ -1183,13 +1183,13 @@ Fired when HTTP response headers of a request have been received.
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnHeadersReceivedOptions`, optional)
+      :type: (array of :ref:`web^request.^on^headers^received^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -1257,7 +1257,7 @@ Fired when HTTP response headers of a request have been received.
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -1295,13 +1295,13 @@ Fired when HTTP response headers of a request have been received.
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
 
          The HTTP response headers that have been received with this response.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1314,7 +1314,7 @@ Fired when HTTP response headers of a request have been received.
    :label: Expected return value of the listener function
 
    .. api-member::
-      :type: :ref:`webRequest.BlockingResponse`
+      :type: :ref:`web^request.^blocking^response`
 
       If "blocking" is specified in the "extraInfoSpec" parameter, the event listener should return an object of this type.
 
@@ -1323,7 +1323,7 @@ Fired when HTTP response headers of a request have been received.
 
    - :permission:`webRequest`
 
-.. _webRequest.onResponseStarted:
+.. _web^request.on^response^started:
 
 onResponseStarted
 -----------------
@@ -1342,13 +1342,13 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnResponseStartedOptions`, optional)
+      :type: (array of :ref:`web^request.^on^response^started^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -1422,7 +1422,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -1466,13 +1466,13 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
       .. api-member::
          :name: [``responseHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
 
          The HTTP response headers that were received along with this response.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1486,7 +1486,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
    - :permission:`webRequest`
 
-.. _webRequest.onSendHeaders:
+.. _web^request.on^send^headers:
 
 onSendHeaders
 -------------
@@ -1505,13 +1505,13 @@ Fired just before a request is going to be sent to the server (modifications of 
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`webRequest.RequestFilter`)
+      :type: (:ref:`web^request.^request^filter`)
 
       A set of filters that restricts the events that will be sent to this listener.
 
    .. api-member::
       :name: [``extraInfoSpec``]
-      :type: (array of :ref:`webRequest.OnSendHeadersOptions`, optional)
+      :type: (array of :ref:`web^request.^on^send^headers^options`, optional)
 
       Array of extra information that should be passed to the listener function.
 
@@ -1567,7 +1567,7 @@ Fired just before a request is going to be sent to the server (modifications of 
 
       .. api-member::
          :name: ``type``
-         :type: (:ref:`webRequest.ResourceType`)
+         :type: (:ref:`web^request.^resource^type`)
 
          How the requested resource will be used.
 
@@ -1605,13 +1605,13 @@ Fired just before a request is going to be sent to the server (modifications of 
 
       .. api-member::
          :name: [``requestHeaders``]
-         :type: (:ref:`webRequest.HttpHeaders`, optional)
+         :type: (:ref:`web^request.^http^headers`, optional)
 
          The HTTP request headers that have been sent out with this request.
 
       .. api-member::
          :name: [``urlClassification``]
-         :type: (:ref:`webRequest.UrlClassification`, optional)
+         :type: (:ref:`web^request.^url^classification`, optional)
          :annotation: -- [Added in TB 74]
 
          Tracking classification if the request has been classified.
@@ -1630,7 +1630,7 @@ Fired just before a request is going to be sent to the server (modifications of 
 Types
 =====
 
-.. _webRequest.BlockingResponse:
+.. _web^request.^blocking^response:
 
 BlockingResponse
 ----------------
@@ -1642,7 +1642,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 .. api-header::
    :label: object
 
-   .. _webRequest.BlockingResponse.authCredentials:
+   .. _web^request.^blocking^response.auth^credentials:
 
    .. api-member::
       :name: [``authCredentials``]
@@ -1658,7 +1658,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
          :name: ``username``
          :type: (string)
 
-   .. _webRequest.BlockingResponse.cancel:
+   .. _web^request.^blocking^response.cancel:
 
    .. api-member::
       :name: [``cancel``]
@@ -1666,7 +1666,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 
       If true, the request is cancelled. Used in onBeforeRequest, this prevents the request from being sent.
 
-   .. _webRequest.BlockingResponse.redirectUrl:
+   .. _web^request.^blocking^response.redirect^url:
 
    .. api-member::
       :name: [``redirectUrl``]
@@ -1674,23 +1674,23 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 
       Only used as a response to the onBeforeRequest and onHeadersReceived events. If set, the original request is prevented from being sent/completed and is instead redirected to the given URL. Redirections to non-HTTP schemes such as data: are allowed. Redirects initiated by a redirect action use the original request method for the redirect, with one exception: If the redirect is initiated at the onHeadersReceived stage, then the redirect will be issued using the GET method.
 
-   .. _webRequest.BlockingResponse.requestHeaders:
+   .. _web^request.^blocking^response.request^headers:
 
    .. api-member::
       :name: [``requestHeaders``]
-      :type: (:ref:`webRequest.HttpHeaders`, optional)
+      :type: (:ref:`web^request.^http^headers`, optional)
 
       Only used as a response to the onBeforeSendHeaders event. If set, the request is made with these request headers instead.
 
-   .. _webRequest.BlockingResponse.responseHeaders:
+   .. _web^request.^blocking^response.response^headers:
 
    .. api-member::
       :name: [``responseHeaders``]
-      :type: (:ref:`webRequest.HttpHeaders`, optional)
+      :type: (:ref:`web^request.^http^headers`, optional)
 
       Only used as a response to the onHeadersReceived event. If set, the server is assumed to have responded with these response headers instead. Only return :code:`responseHeaders` if you really want to modify the headers in order to limit the number of conflicts (only one extension may modify :code:`responseHeaders` for each request).
 
-   .. _webRequest.BlockingResponse.upgradeToSecure:
+   .. _web^request.^blocking^response.upgrade^to^secure:
 
    .. api-member::
       :name: [``upgradeToSecure``]
@@ -1699,7 +1699,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 
       Only used as a response to the onBeforeRequest event. If set, the original request is prevented from being sent/completed and is instead upgraded to a secure request.  If any extension returns :code:`redirectUrl` during onBeforeRequest, :code:`upgradeToSecure` will have no affect.
 
-.. _webRequest.CertificateInfo:
+.. _web^request.^certificate^info:
 
 CertificateInfo
 ---------------
@@ -1711,7 +1711,7 @@ Contains the certificate properties of the request if it is a secure request.
 .. api-header::
    :label: object
 
-   .. _webRequest.CertificateInfo.fingerprint:
+   .. _web^request.^certificate^info.fingerprint:
 
    .. api-member::
       :name: ``fingerprint``
@@ -1725,31 +1725,31 @@ Contains the certificate properties of the request if it is a secure request.
          :name: ``sha256``
          :type: (string)
 
-   .. _webRequest.CertificateInfo.isBuiltInRoot:
+   .. _web^request.^certificate^info.is^built^in^root:
 
    .. api-member::
       :name: ``isBuiltInRoot``
       :type: (boolean)
 
-   .. _webRequest.CertificateInfo.issuer:
+   .. _web^request.^certificate^info.issuer:
 
    .. api-member::
       :name: ``issuer``
       :type: (string)
 
-   .. _webRequest.CertificateInfo.serialNumber:
+   .. _web^request.^certificate^info.serial^number:
 
    .. api-member::
       :name: ``serialNumber``
       :type: (string)
 
-   .. _webRequest.CertificateInfo.subject:
+   .. _web^request.^certificate^info.subject:
 
    .. api-member::
       :name: ``subject``
       :type: (string)
 
-   .. _webRequest.CertificateInfo.subjectPublicKeyInfoDigest:
+   .. _web^request.^certificate^info.subject^public^key^info^digest:
 
    .. api-member::
       :name: ``subjectPublicKeyInfoDigest``
@@ -1759,7 +1759,7 @@ Contains the certificate properties of the request if it is a secure request.
          :name: ``sha256``
          :type: (string)
 
-   .. _webRequest.CertificateInfo.validity:
+   .. _web^request.^certificate^info.validity:
 
    .. api-member::
       :name: ``validity``
@@ -1775,13 +1775,13 @@ Contains the certificate properties of the request if it is a secure request.
          :name: ``start``
          :type: (integer)
 
-   .. _webRequest.CertificateInfo.rawDER:
+   .. _web^request.^certificate^info.raw^d^e^r:
 
    .. api-member::
       :name: [``rawDER``]
       :type: (array of integer, optional)
 
-.. _webRequest.CertificateTransparencyStatus:
+.. _web^request.^certificate^transparency^status:
 
 CertificateTransparencyStatus
 -----------------------------
@@ -1809,7 +1809,7 @@ CertificateTransparencyStatus
          .. api-member::
             :name: :value:`policy_not_diverse_scts`
 
-.. _webRequest.HttpHeaders:
+.. _web^request.^http^headers:
 
 HttpHeaders
 -----------
@@ -1821,7 +1821,7 @@ An array of HTTP headers. Each header is represented as a dictionary containing 
 .. api-header::
    :label: array of object
 
-.. _webRequest.OnAuthRequiredOptions:
+.. _web^request.^on^auth^required^options:
 
 OnAuthRequiredOptions
 ---------------------
@@ -1846,7 +1846,7 @@ OnAuthRequiredOptions
          .. api-member::
             :name: :value:`asyncBlocking`
 
-.. _webRequest.OnBeforeRedirectOptions:
+.. _web^request.^on^before^redirect^options:
 
 OnBeforeRedirectOptions
 -----------------------
@@ -1865,7 +1865,7 @@ OnBeforeRedirectOptions
          .. api-member::
             :name: :value:`responseHeaders`
 
-.. _webRequest.OnBeforeRequestOptions:
+.. _web^request.^on^before^request^options:
 
 OnBeforeRequestOptions
 ----------------------
@@ -1887,7 +1887,7 @@ OnBeforeRequestOptions
          .. api-member::
             :name: :value:`requestBody`
 
-.. _webRequest.OnBeforeSendHeadersOptions:
+.. _web^request.^on^before^send^headers^options:
 
 OnBeforeSendHeadersOptions
 --------------------------
@@ -1909,7 +1909,7 @@ OnBeforeSendHeadersOptions
          .. api-member::
             :name: :value:`blocking`
 
-.. _webRequest.OnCompletedOptions:
+.. _web^request.^on^completed^options:
 
 OnCompletedOptions
 ------------------
@@ -1928,7 +1928,7 @@ OnCompletedOptions
          .. api-member::
             :name: :value:`responseHeaders`
 
-.. _webRequest.OnHeadersReceivedOptions:
+.. _web^request.^on^headers^received^options:
 
 OnHeadersReceivedOptions
 ------------------------
@@ -1950,7 +1950,7 @@ OnHeadersReceivedOptions
          .. api-member::
             :name: :value:`responseHeaders`
 
-.. _webRequest.OnResponseStartedOptions:
+.. _web^request.^on^response^started^options:
 
 OnResponseStartedOptions
 ------------------------
@@ -1969,7 +1969,7 @@ OnResponseStartedOptions
          .. api-member::
             :name: :value:`responseHeaders`
 
-.. _webRequest.OnSendHeadersOptions:
+.. _web^request.^on^send^headers^options:
 
 OnSendHeadersOptions
 --------------------
@@ -1988,7 +1988,7 @@ OnSendHeadersOptions
          .. api-member::
             :name: :value:`requestHeaders`
 
-.. _webRequest.RequestFilter:
+.. _web^request.^request^filter:
 
 RequestFilter
 -------------
@@ -2008,7 +2008,7 @@ An object describing filters to apply to webRequest events.
 .. api-header::
    :label: object
 
-   .. _webRequest.RequestFilter.urls:
+   .. _web^request.^request^filter.urls:
 
    .. api-member::
       :name: ``urls``
@@ -2020,7 +2020,7 @@ An object describing filters to apply to webRequest events.
 
          Before Thunderbird 56, moz-extension:// URLs were not allowed.
 
-   .. _webRequest.RequestFilter.incognito:
+   .. _web^request.^request^filter.incognito:
 
    .. api-member::
       :name: [``incognito``]
@@ -2028,29 +2028,29 @@ An object describing filters to apply to webRequest events.
 
       If provided, requests that do not match the incognito state will be filtered out.
 
-   .. _webRequest.RequestFilter.tabId:
+   .. _web^request.^request^filter.tab^id:
 
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
       :annotation: -- [Added in TB 53]
 
-   .. _webRequest.RequestFilter.types:
+   .. _web^request.^request^filter.types:
 
    .. api-member::
       :name: [``types``]
-      :type: (array of :ref:`webRequest.ResourceType`, optional)
+      :type: (array of :ref:`web^request.^resource^type`, optional)
 
       A list of request types. Requests that cannot match any of the types will be filtered out.
 
-   .. _webRequest.RequestFilter.windowId:
+   .. _web^request.^request^filter.window^id:
 
    .. api-member::
       :name: [``windowId``]
       :type: (integer, optional)
       :annotation: -- [Added in TB 53]
 
-.. _webRequest.ResourceType:
+.. _web^request.^resource^type:
 
 ResourceType
 ------------
@@ -2132,7 +2132,7 @@ ResourceType
          .. api-member::
             :name: :value:`other`
 
-.. _webRequest.SecurityInfo:
+.. _web^request.^security^info:
 
 SecurityInfo
 ------------
@@ -2144,15 +2144,15 @@ Contains the security properties of the request (ie. SSL/TLS information).
 .. api-header::
    :label: object
 
-   .. _webRequest.SecurityInfo.certificates:
+   .. _web^request.^security^info.certificates:
 
    .. api-member::
       :name: ``certificates``
-      :type: (array of :ref:`webRequest.CertificateInfo`)
+      :type: (array of :ref:`web^request.^certificate^info`)
 
       Certificate data if state is "secure".  Will only contain one entry unless :code:`certificateChain` is passed as an option.
 
-   .. _webRequest.SecurityInfo.state:
+   .. _web^request.^security^info.state:
 
    .. api-member::
       :name: ``state``
@@ -2172,15 +2172,15 @@ Contains the security properties of the request (ie. SSL/TLS information).
       .. api-member::
          :name: :value:`secure`
 
-   .. _webRequest.SecurityInfo.certificateTransparencyStatus:
+   .. _web^request.^security^info.certificate^transparency^status:
 
    .. api-member::
       :name: [``certificateTransparencyStatus``]
-      :type: (:ref:`webRequest.CertificateTransparencyStatus`, optional)
+      :type: (:ref:`web^request.^certificate^transparency^status`, optional)
 
       Certificate transparency compliance per RFC 6962.  See :code:`https://www.certificate-transparency.org/what-is-ct` for more information.
 
-   .. _webRequest.SecurityInfo.cipherSuite:
+   .. _web^request.^security^info.cipher^suite:
 
    .. api-member::
       :name: [``cipherSuite``]
@@ -2188,7 +2188,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       The cipher suite used in this request if state is "secure".
 
-   .. _webRequest.SecurityInfo.errorMessage:
+   .. _web^request.^security^info.error^message:
 
    .. api-member::
       :name: [``errorMessage``]
@@ -2196,7 +2196,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       Error message if state is "broken"
 
-   .. _webRequest.SecurityInfo.hpkp:
+   .. _web^request.^security^info.hpkp:
 
    .. api-member::
       :name: [``hpkp``]
@@ -2204,7 +2204,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       True if host uses Public Key Pinning and state is "secure".
 
-   .. _webRequest.SecurityInfo.hsts:
+   .. _web^request.^security^info.hsts:
 
    .. api-member::
       :name: [``hsts``]
@@ -2212,7 +2212,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       True if host uses Strict Transport Security and state is "secure".
 
-   .. _webRequest.SecurityInfo.isDomainMismatch:
+   .. _web^request.^security^info.is^domain^mismatch:
 
    .. api-member::
       :name: [``isDomainMismatch``]
@@ -2220,13 +2220,13 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       The domain name does not match the certificate domain.
 
-   .. _webRequest.SecurityInfo.isExtendedValidation:
+   .. _web^request.^security^info.is^extended^validation:
 
    .. api-member::
       :name: [``isExtendedValidation``]
       :type: (boolean, optional)
 
-   .. _webRequest.SecurityInfo.isNotValidAtThisTime:
+   .. _web^request.^security^info.is^not^valid^at^this^time:
 
    .. api-member::
       :name: [``isNotValidAtThisTime``]
@@ -2234,13 +2234,13 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       The certificate is either expired or is not yet valid.  See :code:`CertificateInfo.validity` for start and end dates.
 
-   .. _webRequest.SecurityInfo.isUntrusted:
+   .. _web^request.^security^info.is^untrusted:
 
    .. api-member::
       :name: [``isUntrusted``]
       :type: (boolean, optional) **Deprecated.**
 
-   .. _webRequest.SecurityInfo.keaGroupName:
+   .. _web^request.^security^info.kea^group^name:
 
    .. api-member::
       :name: [``keaGroupName``]
@@ -2248,7 +2248,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       The key exchange algorithm used in this request if state is "secure".
 
-   .. _webRequest.SecurityInfo.overridableErrorCategory:
+   .. _web^request.^security^info.overridable^error^category:
 
    .. api-member::
       :name: [``overridableErrorCategory``]
@@ -2267,7 +2267,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       .. api-member::
          :name: :value:`expired_or_not_yet_valid`
 
-   .. _webRequest.SecurityInfo.protocolVersion:
+   .. _web^request.^security^info.protocol^version:
 
    .. api-member::
       :name: [``protocolVersion``]
@@ -2292,7 +2292,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       .. api-member::
          :name: :value:`unknown`
 
-   .. _webRequest.SecurityInfo.secretKeyLength:
+   .. _web^request.^security^info.secret^key^length:
 
    .. api-member::
       :name: [``secretKeyLength``]
@@ -2301,7 +2301,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       The length (in bits) of the secret key.
 
-   .. _webRequest.SecurityInfo.signatureSchemeName:
+   .. _web^request.^security^info.signature^scheme^name:
 
    .. api-member::
       :name: [``signatureSchemeName``]
@@ -2309,7 +2309,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       The signature scheme used in this request if state is "secure".
 
-   .. _webRequest.SecurityInfo.usedDelegatedCredentials:
+   .. _web^request.^security^info.used^delegated^credentials:
 
    .. api-member::
       :name: [``usedDelegatedCredentials``]
@@ -2318,7 +2318,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       True if the TLS connection used Delegated Credentials.
 
-   .. _webRequest.SecurityInfo.usedEch:
+   .. _web^request.^security^info.used^ech:
 
    .. api-member::
       :name: [``usedEch``]
@@ -2327,7 +2327,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       True if the TLS connection used Encrypted Client Hello.
 
-   .. _webRequest.SecurityInfo.usedOcsp:
+   .. _web^request.^security^info.used^ocsp:
 
    .. api-member::
       :name: [``usedOcsp``]
@@ -2336,7 +2336,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       True if the TLS connection made OCSP requests.
 
-   .. _webRequest.SecurityInfo.usedPrivateDns:
+   .. _web^request.^security^info.used^private^dns:
 
    .. api-member::
       :name: [``usedPrivateDns``]
@@ -2345,15 +2345,15 @@ Contains the security properties of the request (ie. SSL/TLS information).
 
       True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.
 
-   .. _webRequest.SecurityInfo.weaknessReasons:
+   .. _web^request.^security^info.weakness^reasons:
 
    .. api-member::
       :name: [``weaknessReasons``]
-      :type: (array of :ref:`webRequest.TransportWeaknessReasons`, optional)
+      :type: (array of :ref:`web^request.^transport^weakness^reasons`, optional)
 
       list of reasons that cause the request to be considered weak, if state is "weak"
 
-.. _webRequest.TransportWeaknessReasons:
+.. _web^request.^transport^weakness^reasons:
 
 TransportWeaknessReasons
 ------------------------
@@ -2372,7 +2372,7 @@ TransportWeaknessReasons
          .. api-member::
             :name: :value:`cipher`
 
-.. _webRequest.UploadData:
+.. _web^request.^upload^data:
 
 UploadData
 ----------
@@ -2384,7 +2384,7 @@ Contains data uploaded in a URL request.
 .. api-header::
    :label: object
 
-   .. _webRequest.UploadData.bytes:
+   .. _web^request.^upload^data.bytes:
 
    .. api-member::
       :name: [``bytes``]
@@ -2392,7 +2392,7 @@ Contains data uploaded in a URL request.
 
       An ArrayBuffer with a copy of the data.
 
-   .. _webRequest.UploadData.file:
+   .. _web^request.^upload^data.file:
 
    .. api-member::
       :name: [``file``]
@@ -2400,7 +2400,7 @@ Contains data uploaded in a URL request.
 
       A string with the file's path and name.
 
-.. _webRequest.UrlClassification:
+.. _web^request.^url^classification:
 
 UrlClassification
 -----------------
@@ -2410,23 +2410,23 @@ UrlClassification
 .. api-header::
    :label: object
 
-   .. _webRequest.UrlClassification.firstParty:
+   .. _web^request.^url^classification.first^party:
 
    .. api-member::
       :name: ``firstParty``
-      :type: (:ref:`webRequest.UrlClassificationParty`)
+      :type: (:ref:`web^request.^url^classification^party`)
 
       Classification flags if the request has been classified and it is first party.
 
-   .. _webRequest.UrlClassification.thirdParty:
+   .. _web^request.^url^classification.third^party:
 
    .. api-member::
       :name: ``thirdParty``
-      :type: (:ref:`webRequest.UrlClassificationParty`)
+      :type: (:ref:`web^request.^url^classification^party`)
 
       Classification flags if the request has been classified and it or its window hierarchy is third party.
 
-.. _webRequest.UrlClassificationFlags:
+.. _web^request.^url^classification^flags:
 
 UrlClassificationFlags
 ----------------------
@@ -2492,24 +2492,24 @@ Tracking flags that match our internal tracking classification
          .. api-member::
             :name: :value:`antifraud`
 
-.. _webRequest.UrlClassificationParty:
+.. _web^request.^url^classification^party:
 
 UrlClassificationParty
 ----------------------
 
 .. api-section-annotation-hack:: 
 
-If the request has been classified this is an array of :ref:`webRequest.UrlClassificationFlags`.
+If the request has been classified this is an array of :ref:`web^request.^url^classification^flags`.
 
 .. api-header::
-   :label: array of :ref:`webRequest.UrlClassificationFlags`
+   :label: array of :ref:`web^request.^url^classification^flags`
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _webRequest.MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES:
+.. _web^request.^m^a^x_^h^a^n^d^l^e^r_^b^e^h^a^v^i^o^r_^c^h^a^n^g^e^d_^c^a^l^l^s_^p^e^r_10_^m^i^n^u^t^e^s:
 
 MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
 -------------------------------------------------

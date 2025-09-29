@@ -30,7 +30,7 @@ Use the :code:`browser.webNavigation` API to receive notifications about the sta
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -52,7 +52,7 @@ The following permissions influence the behavior of the API: depending on which 
 Functions
 =========
 
-.. _webNavigation.getAllFrames:
+.. _web^navigation.get^all^frames:
 
 getAllFrames(details)
 ---------------------
@@ -95,7 +95,7 @@ Retrieves information about all frames of a given tab.
 
    - :permission:`webNavigation`
 
-.. _webNavigation.getFrame:
+.. _web^navigation.get^frame:
 
 getFrame(details)
 -----------------
@@ -181,7 +181,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
 Events
 ======
 
-.. _webNavigation.onBeforeNavigate:
+.. _web^navigation.on^before^navigate:
 
 onBeforeNavigate
 ----------------
@@ -208,7 +208,7 @@ Fired when a navigation is about to occur.
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -258,7 +258,7 @@ Fired when a navigation is about to occur.
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onCommitted:
+.. _web^navigation.on^committed:
 
 onCommitted
 -----------
@@ -285,7 +285,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -322,13 +322,13 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
       .. api-member::
          :name: ``transitionQualifiers``
-         :type: (array of :ref:`webNavigation.TransitionQualifier`)
+         :type: (array of :ref:`web^navigation.^transition^qualifier`)
 
          A list of transition qualifiers.
 
       .. api-member::
          :name: ``transitionType``
-         :type: (:ref:`webNavigation.TransitionType`)
+         :type: (:ref:`web^navigation.^transition^type`)
 
          Cause of the navigation.
 
@@ -341,7 +341,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onCompleted:
+.. _web^navigation.on^completed:
 
 onCompleted
 -----------
@@ -368,7 +368,7 @@ Fired when a document, including the resources it refers to, is completely loade
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -412,7 +412,7 @@ Fired when a document, including the resources it refers to, is completely loade
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onCreatedNavigationTarget:
+.. _web^navigation.on^created^navigation^target:
 
 onCreatedNavigationTarget
 -------------------------
@@ -439,7 +439,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -491,7 +491,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onDOMContentLoaded:
+.. _web^navigation.on^d^o^m^content^loaded:
 
 onDOMContentLoaded
 ------------------
@@ -518,7 +518,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -562,7 +562,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onErrorOccurred:
+.. _web^navigation.on^error^occurred:
 
 onErrorOccurred
 ---------------
@@ -589,7 +589,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -639,7 +639,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onHistoryStateUpdated:
+.. _web^navigation.on^history^state^updated:
 
 onHistoryStateUpdated
 ---------------------
@@ -658,7 +658,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -695,13 +695,13 @@ Fired when the frame's history was updated to a new URL. All future events for t
 
       .. api-member::
          :name: ``transitionQualifiers``
-         :type: (array of :ref:`webNavigation.TransitionQualifier`)
+         :type: (array of :ref:`web^navigation.^transition^qualifier`)
 
          A list of transition qualifiers.
 
       .. api-member::
          :name: ``transitionType``
-         :type: (:ref:`webNavigation.TransitionType`)
+         :type: (:ref:`web^navigation.^transition^type`)
 
          Cause of the navigation.
 
@@ -714,7 +714,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onReferenceFragmentUpdated:
+.. _web^navigation.on^reference^fragment^updated:
 
 onReferenceFragmentUpdated
 --------------------------
@@ -741,7 +741,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
    .. api-member::
       :name: [``filters``]
-      :type: (:ref:`webNavigation.EventUrlFilters`, optional)
+      :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
 
@@ -778,13 +778,13 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
       .. api-member::
          :name: ``transitionQualifiers``
-         :type: (array of :ref:`webNavigation.TransitionQualifier`)
+         :type: (array of :ref:`web^navigation.^transition^qualifier`)
 
          A list of transition qualifiers.
 
       .. api-member::
          :name: ``transitionType``
-         :type: (:ref:`webNavigation.TransitionType`)
+         :type: (:ref:`web^navigation.^transition^type`)
 
          Cause of the navigation.
 
@@ -797,7 +797,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
 
    - :permission:`webNavigation`
 
-.. _webNavigation.onTabReplaced:
+.. _web^navigation.on^tab^replaced:
 
 onTabReplaced
 -------------
@@ -853,7 +853,7 @@ Fired when the contents of the tab is replaced by a different (usually previousl
 Types
 =====
 
-.. _webNavigation.EventUrlFilters:
+.. _web^navigation.^event^url^filters:
 
 EventUrlFilters
 ---------------
@@ -863,13 +863,13 @@ EventUrlFilters
 .. api-header::
    :label: object
 
-   .. _webNavigation.EventUrlFilters.url:
+   .. _web^navigation.^event^url^filters.url:
 
    .. api-member::
       :name: ``url``
-      :type: (array of :ref:`events.UrlFilter`)
+      :type: (array of :ref:`web^navigation.^url^filter`)
 
-.. _webNavigation.TransitionQualifier:
+.. _web^navigation.^transition^qualifier:
 
 TransitionQualifier
 -------------------
@@ -902,7 +902,7 @@ TransitionQualifier
             :name: :value:`from_address_bar`
             :annotation: -- [Added in TB 49]
 
-.. _webNavigation.TransitionType:
+.. _web^navigation.^transition^type:
 
 TransitionType
 --------------
@@ -964,3 +964,175 @@ Cause of the navigation. The same transition types as defined in the history API
 
          .. api-member::
             :name: :value:`keyword_generated`
+
+.. _web^navigation.^url^filter:
+
+UrlFilter
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 50]
+
+Filters URLs for various criteria. See `event filtering <events#filtered>`__. All criteria are case sensitive.
+
+.. api-header::
+   :label: object
+
+   .. _web^navigation.^url^filter.host^contains:
+
+   .. api-member::
+      :name: [``hostContains``]
+      :type: (string, optional)
+
+      Matches if the host name of the URL contains a specified string. To test whether a host name component has a prefix 'foo', use hostContains: '.foo'. This matches 'www.foobar.com' and 'foo.com', because an implicit dot is added at the beginning of the host name. Similarly, hostContains can be used to match against component suffix ('foo.') and to exactly match against components ('.foo.'). Suffix- and exact-matching for the last components need to be done separately using hostSuffix, because no implicit dot is added at the end of the host name.
+
+   .. _web^navigation.^url^filter.host^equals:
+
+   .. api-member::
+      :name: [``hostEquals``]
+      :type: (string, optional)
+
+      Matches if the host name of the URL is equal to a specified string.
+
+   .. _web^navigation.^url^filter.host^prefix:
+
+   .. api-member::
+      :name: [``hostPrefix``]
+      :type: (string, optional)
+
+      Matches if the host name of the URL starts with a specified string.
+
+   .. _web^navigation.^url^filter.host^suffix:
+
+   .. api-member::
+      :name: [``hostSuffix``]
+      :type: (string, optional)
+
+      Matches if the host name of the URL ends with a specified string.
+
+   .. _web^navigation.^url^filter.origin^and^path^matches:
+
+   .. api-member::
+      :name: [``originAndPathMatches``]
+      :type: (string, optional)
+
+      Matches if the URL without query segment and fragment identifier matches a specified regular expression. Port numbers are stripped from the URL if they match the default port number. The regular expressions use the `RE2 syntax <https://github.com/google/re2/blob/master/doc/syntax.txt>`__.
+
+   .. _web^navigation.^url^filter.path^contains:
+
+   .. api-member::
+      :name: [``pathContains``]
+      :type: (string, optional)
+
+      Matches if the path segment of the URL contains a specified string.
+
+   .. _web^navigation.^url^filter.path^equals:
+
+   .. api-member::
+      :name: [``pathEquals``]
+      :type: (string, optional)
+
+      Matches if the path segment of the URL is equal to a specified string.
+
+   .. _web^navigation.^url^filter.path^prefix:
+
+   .. api-member::
+      :name: [``pathPrefix``]
+      :type: (string, optional)
+
+      Matches if the path segment of the URL starts with a specified string.
+
+   .. _web^navigation.^url^filter.path^suffix:
+
+   .. api-member::
+      :name: [``pathSuffix``]
+      :type: (string, optional)
+
+      Matches if the path segment of the URL ends with a specified string.
+
+   .. _web^navigation.^url^filter.ports:
+
+   .. api-member::
+      :name: [``ports``]
+      :type: (array of integer or array of integer, optional)
+
+      Matches if the port of the URL is contained in any of the specified port lists. For example :code:`[80, 443, [1000, 1200]]` matches all requests on port 80, 443 and in the range 1000-1200.
+
+   .. _web^navigation.^url^filter.query^contains:
+
+   .. api-member::
+      :name: [``queryContains``]
+      :type: (string, optional)
+
+      Matches if the query segment of the URL contains a specified string.
+
+   .. _web^navigation.^url^filter.query^equals:
+
+   .. api-member::
+      :name: [``queryEquals``]
+      :type: (string, optional)
+
+      Matches if the query segment of the URL is equal to a specified string.
+
+   .. _web^navigation.^url^filter.query^prefix:
+
+   .. api-member::
+      :name: [``queryPrefix``]
+      :type: (string, optional)
+
+      Matches if the query segment of the URL starts with a specified string.
+
+   .. _web^navigation.^url^filter.query^suffix:
+
+   .. api-member::
+      :name: [``querySuffix``]
+      :type: (string, optional)
+
+      Matches if the query segment of the URL ends with a specified string.
+
+   .. _web^navigation.^url^filter.schemes:
+
+   .. api-member::
+      :name: [``schemes``]
+      :type: (array of string, optional)
+
+      Matches if the scheme of the URL is equal to any of the schemes specified in the array.
+
+   .. _web^navigation.^url^filter.url^contains:
+
+   .. api-member::
+      :name: [``urlContains``]
+      :type: (string, optional)
+
+      Matches if the URL (without fragment identifier) contains a specified string. Port numbers are stripped from the URL if they match the default port number.
+
+   .. _web^navigation.^url^filter.url^equals:
+
+   .. api-member::
+      :name: [``urlEquals``]
+      :type: (string, optional)
+
+      Matches if the URL (without fragment identifier) is equal to a specified string. Port numbers are stripped from the URL if they match the default port number.
+
+   .. _web^navigation.^url^filter.url^matches:
+
+   .. api-member::
+      :name: [``urlMatches``]
+      :type: (string, optional)
+
+      Matches if the URL (without fragment identifier) matches a specified regular expression. Port numbers are stripped from the URL if they match the default port number. The regular expressions use the `RE2 syntax <https://github.com/google/re2/blob/master/doc/syntax.txt>`__.
+
+   .. _web^navigation.^url^filter.url^prefix:
+
+   .. api-member::
+      :name: [``urlPrefix``]
+      :type: (string, optional)
+
+      Matches if the URL (without fragment identifier) starts with a specified string. Port numbers are stripped from the URL if they match the default port number.
+
+   .. _web^navigation.^url^filter.url^suffix:
+
+   .. api-member::
+      :name: [``urlSuffix``]
+      :type: (string, optional)
+
+      Matches if the URL (without fragment identifier) ends with a specified string. Port numbers are stripped from the URL if they match the default port number.

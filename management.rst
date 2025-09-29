@@ -30,7 +30,7 @@ The :code:`browser.management` API provides ways to manage the list of extension
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -60,15 +60,15 @@ Returns information about the installed extension that has the given ID.
 
    .. api-member::
       :name: ``id``
-      :type: (:ref:`management.ExtensionID`)
+      :type: (:ref:`management.^extension^i^d`)
 
-      The ID from an item of :ref:`management.ExtensionInfo`.
+      The ID from an item of :ref:`management.^extension^info`.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`management.ExtensionInfo`
+      :type: :ref:`management.^extension^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -77,7 +77,7 @@ Returns information about the installed extension that has the given ID.
 
    - :permission:`management`
 
-.. _management.getAll:
+.. _management.get^all:
 
 getAll()
 --------
@@ -94,7 +94,7 @@ Returns a list of information about installed extensions.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`management.ExtensionInfo`
+      :type: array of :ref:`management.^extension^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -103,7 +103,7 @@ Returns a list of information about installed extensions.
 
    - :permission:`management`
 
-.. _management.getSelf:
+.. _management.get^self:
 
 getSelf()
 ---------
@@ -116,7 +116,7 @@ Returns information about the calling extension. Note: This function can be used
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`management.ExtensionInfo`
+      :type: :ref:`management.^extension^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -142,7 +142,7 @@ Installs and enables a theme extension from the given url.
 
       .. api-member::
          :name: ``url``
-         :type: (:ref:`management.HttpURL`)
+         :type: (:ref:`management.^http^u^r^l`)
 
          URL pointing to the XPI file on addons.mozilla.org or similar.
 
@@ -160,7 +160,7 @@ Installs and enables a theme extension from the given url.
 
       .. api-member::
          :name: ``id``
-         :type: (:ref:`management.ExtensionID`)
+         :type: (:ref:`management.^extension^i^d`)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -169,7 +169,7 @@ Installs and enables a theme extension from the given url.
 
    - :permission:`management`
 
-.. _management.setEnabled:
+.. _management.set^enabled:
 
 setEnabled(id, enabled)
 -----------------------
@@ -202,7 +202,7 @@ Enables or disables the given add-on.
 
    - :permission:`management`
 
-.. _management.uninstallSelf:
+.. _management.uninstall^self:
 
 uninstallSelf([options])
 ------------------------
@@ -235,7 +235,7 @@ Uninstalls the calling extension. Note: This function can be used without reques
 Events
 ======
 
-.. _management.onDisabled:
+.. _management.on^disabled:
 
 onDisabled
 ----------
@@ -261,14 +261,14 @@ Fired when an addon has been disabled.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`management.ExtensionInfo`)
+      :type: (:ref:`management.^extension^info`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`management`
 
-.. _management.onEnabled:
+.. _management.on^enabled:
 
 onEnabled
 ---------
@@ -294,14 +294,14 @@ Fired when an addon has been enabled.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`management.ExtensionInfo`)
+      :type: (:ref:`management.^extension^info`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`management`
 
-.. _management.onInstalled:
+.. _management.on^installed:
 
 onInstalled
 -----------
@@ -327,14 +327,14 @@ Fired when an addon has been installed.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`management.ExtensionInfo`)
+      :type: (:ref:`management.^extension^info`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`management`
 
-.. _management.onUninstalled:
+.. _management.on^uninstalled:
 
 onUninstalled
 -------------
@@ -364,7 +364,7 @@ Fired when an addon has been uninstalled.
 
    .. api-member::
       :name: ``info``
-      :type: (:ref:`management.ExtensionInfo`)
+      :type: (:ref:`management.^extension^info`)
 
 .. api-header::
    :label: Required permissions
@@ -376,7 +376,7 @@ Fired when an addon has been uninstalled.
 Types
 =====
 
-.. _management.ExtensionDisabledReason:
+.. _management.^extension^disabled^reason:
 
 ExtensionDisabledReason
 -----------------------
@@ -400,7 +400,7 @@ A reason the item is disabled.
          .. api-member::
             :name: :value:`permissions_increase`
 
-.. _management.ExtensionID:
+.. _management.^extension^i^d:
 
 ExtensionID
 -----------
@@ -415,7 +415,7 @@ OR
 .. api-header::
    :label: string
 
-.. _management.ExtensionInfo:
+.. _management.^extension^info:
 
 ExtensionInfo
 -------------
@@ -427,7 +427,7 @@ Information about an installed extension.
 .. api-header::
    :label: object
 
-   .. _management.ExtensionInfo.description:
+   .. _management.^extension^info.description:
 
    .. api-member::
       :name: ``description``
@@ -435,7 +435,7 @@ Information about an installed extension.
 
       The description of this extension.
 
-   .. _management.ExtensionInfo.enabled:
+   .. _management.^extension^info.enabled:
 
    .. api-member::
       :name: ``enabled``
@@ -443,7 +443,7 @@ Information about an installed extension.
 
       Whether it is currently enabled or disabled.
 
-   .. _management.ExtensionInfo.id:
+   .. _management.^extension^info.id:
 
    .. api-member::
       :name: ``id``
@@ -451,15 +451,15 @@ Information about an installed extension.
 
       The extension's unique identifier.
 
-   .. _management.ExtensionInfo.installType:
+   .. _management.^extension^info.install^type:
 
    .. api-member::
       :name: ``installType``
-      :type: (:ref:`management.ExtensionInstallType`)
+      :type: (:ref:`management.^extension^install^type`)
 
       How the extension was installed.
 
-   .. _management.ExtensionInfo.mayDisable:
+   .. _management.^extension^info.may^disable:
 
    .. api-member::
       :name: ``mayDisable``
@@ -467,7 +467,7 @@ Information about an installed extension.
 
       Whether this extension can be disabled or uninstalled by the user.
 
-   .. _management.ExtensionInfo.name:
+   .. _management.^extension^info.name:
 
    .. api-member::
       :name: ``name``
@@ -475,7 +475,7 @@ Information about an installed extension.
 
       The name of this extension.
 
-   .. _management.ExtensionInfo.optionsUrl:
+   .. _management.^extension^info.options^url:
 
    .. api-member::
       :name: ``optionsUrl``
@@ -483,16 +483,16 @@ Information about an installed extension.
 
       The url for the item's options page, if it has one.
 
-   .. _management.ExtensionInfo.type:
+   .. _management.^extension^info.type:
 
    .. api-member::
       :name: ``type``
-      :type: (:ref:`management.ExtensionType`)
+      :type: (:ref:`management.^extension^type`)
       :annotation: -- [Added in TB 55]
 
       The type of this extension, 'extension' or 'theme'.
 
-   .. _management.ExtensionInfo.version:
+   .. _management.^extension^info.version:
 
    .. api-member::
       :name: ``version``
@@ -500,15 +500,15 @@ Information about an installed extension.
 
       The `version <manifest/version>`__ of this extension.
 
-   .. _management.ExtensionInfo.disabledReason:
+   .. _management.^extension^info.disabled^reason:
 
    .. api-member::
       :name: [``disabledReason``]
-      :type: (:ref:`management.ExtensionDisabledReason`, optional)
+      :type: (:ref:`management.^extension^disabled^reason`, optional)
 
       A reason the item is disabled.
 
-   .. _management.ExtensionInfo.homepageUrl:
+   .. _management.^extension^info.homepage^url:
 
    .. api-member::
       :name: [``homepageUrl``]
@@ -516,7 +516,7 @@ Information about an installed extension.
 
       The URL of the homepage of this extension.
 
-   .. _management.ExtensionInfo.hostPermissions:
+   .. _management.^extension^info.host^permissions:
 
    .. api-member::
       :name: [``hostPermissions``]
@@ -524,15 +524,15 @@ Information about an installed extension.
 
       Returns a list of host based permissions.
 
-   .. _management.ExtensionInfo.icons:
+   .. _management.^extension^info.icons:
 
    .. api-member::
       :name: [``icons``]
-      :type: (array of :ref:`management.IconInfo`, optional)
+      :type: (array of :ref:`management.^icon^info`, optional)
 
       A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the `manifest documentation on icons <manifest/icons>`__ for more details.
 
-   .. _management.ExtensionInfo.permissions:
+   .. _management.^extension^info.permissions:
 
    .. api-member::
       :name: [``permissions``]
@@ -540,7 +540,7 @@ Information about an installed extension.
 
       Returns a list of API based permissions.
 
-   .. _management.ExtensionInfo.shortName:
+   .. _management.^extension^info.short^name:
 
    .. api-member::
       :name: [``shortName``]
@@ -548,7 +548,7 @@ Information about an installed extension.
 
       A short version of the name of this extension.
 
-   .. _management.ExtensionInfo.updateUrl:
+   .. _management.^extension^info.update^url:
 
    .. api-member::
       :name: [``updateUrl``]
@@ -556,7 +556,7 @@ Information about an installed extension.
 
       The update URL of this extension.
 
-   .. _management.ExtensionInfo.versionName:
+   .. _management.^extension^info.version^name:
 
    .. api-member::
       :name: [``versionName``]
@@ -564,7 +564,7 @@ Information about an installed extension.
 
       The `version name <manifest/version#version_name>`__ of this extension if the manifest specified one.
 
-.. _management.ExtensionInstallType:
+.. _management.^extension^install^type:
 
 ExtensionInstallType
 --------------------
@@ -597,7 +597,7 @@ How the extension was installed. One of :value:`development`: The extension was 
          .. api-member::
             :name: :value:`other`
 
-.. _management.ExtensionType:
+.. _management.^extension^type:
 
 ExtensionType
 -------------
@@ -621,7 +621,7 @@ The type of this extension, 'extension' or 'theme'.
          .. api-member::
             :name: :value:`theme`
 
-.. _management.HttpURL:
+.. _management.^http^u^r^l:
 
 HttpURL
 -------
@@ -631,7 +631,7 @@ HttpURL
 .. api-header::
    :label: string
 
-.. _management.IconInfo:
+.. _management.^icon^info:
 
 IconInfo
 --------
@@ -643,7 +643,7 @@ Information about an icon belonging to an extension.
 .. api-header::
    :label: object
 
-   .. _management.IconInfo.size:
+   .. _management.^icon^info.size:
 
    .. api-member::
       :name: ``size``
@@ -651,7 +651,7 @@ Information about an icon belonging to an extension.
 
       A number representing the width and height of the icon. Likely values include (but are not limited to) 128, 48, 24, and 16.
 
-   .. _management.IconInfo.url:
+   .. _management.^icon^info.url:
 
    .. api-member::
       :name: ``url``

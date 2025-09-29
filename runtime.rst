@@ -31,7 +31,7 @@ Use the :code:`browser.runtime` API to retrieve the background page, return deta
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
 .. hint::
 
@@ -90,13 +90,13 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`runtime.Port`
+      :type: :ref:`runtime.^port`
 
-      Port through which messages can be sent and received. The port's :ref:`runtime.Port onDisconnect` event is fired if the extension/app does not exist.
+      Port through which messages can be sent and received. The port's :ref:`runtime.^porton^disconnect` event is fired if the extension/app does not exist.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.connectNative:
+.. _runtime.connect^native:
 
 connectNative(application)
 --------------------------
@@ -118,7 +118,7 @@ Connects to a native application in the host machine.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`runtime.Port`
+      :type: :ref:`runtime.^port`
 
       Port through which messages can be sent and received with the application
 
@@ -129,7 +129,7 @@ Connects to a native application in the host machine.
 
    - :permission:`nativeMessaging`
 
-.. _runtime.getBackgroundPage:
+.. _runtime.get^background^page:
 
 getBackgroundPage()
 -------------------
@@ -152,7 +152,7 @@ Retrieves the JavaScript 'window' object for the background page running inside 
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.getBrowserInfo:
+.. _runtime.get^browser^info:
 
 getBrowserInfo()
 ----------------
@@ -165,11 +165,11 @@ Returns information about the current browser.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`runtime.BrowserInfo`
+      :type: :ref:`runtime.^browser^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.getContexts:
+.. _runtime.get^contexts:
 
 getContexts(filter)
 -------------------
@@ -183,7 +183,7 @@ Fetches information about active contexts associated with this extension
 
    .. api-member::
       :name: ``filter``
-      :type: (:ref:`runtime.ContextFilter`)
+      :type: (:ref:`runtime.^context^filter`)
 
       A filter to find matching context.
 
@@ -191,13 +191,13 @@ Fetches information about active contexts associated with this extension
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: array of :ref:`runtime.ExtensionContext`
+      :type: array of :ref:`runtime.^extension^context`
 
       The matching contexts, if any.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.getFrameId:
+.. _runtime.get^frame^id:
 
 getFrameId(target)
 ------------------
@@ -225,7 +225,7 @@ Get the frameId of any window global or frame element.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.getManifest:
+.. _runtime.get^manifest:
 
 getManifest()
 -------------
@@ -248,7 +248,7 @@ Returns details about the app or extension from the manifest. The object returne
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.getPlatformInfo:
+.. _runtime.get^platform^info:
 
 getPlatformInfo()
 -----------------
@@ -261,11 +261,11 @@ Returns information about the current platform.
    :label: Return type (`Promise`_)
 
    .. api-member::
-      :type: :ref:`runtime.PlatformInfo`
+      :type: :ref:`runtime.^platform^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.getURL:
+.. _runtime.get^u^r^l:
 
 getURL(path)
 ------------
@@ -293,14 +293,14 @@ Converts a relative path within an app/extension install directory to a fully-qu
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.openOptionsPage:
+.. _runtime.open^options^page:
 
 openOptionsPage()
 -----------------
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`options_ui` or :code:`options_page` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`runtime.lastError`.
+Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`options_ui` or :code:`options_page` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`runtime.last^error`.
 
 .. _runtime.reload:
 
@@ -320,14 +320,14 @@ restart()
 
 Restart the device when the app runs in kiosk mode. Otherwise, it's no-op.
 
-.. _runtime.sendMessage:
+.. _runtime.send^message:
 
 sendMessage([extensionId], message, [options])
 ----------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 45]
 
-Sends a single message to event listeners within your extension/app or a different extension/app. Similar to :ref:`runtime.connect` but only sends a single message, with an optional response. If sending to your extension, the :ref:`runtime.onMessage` event will be fired in each page, or :ref:`runtime.onMessageExternal`, if a different extension. Note that extensions cannot send messages to content scripts using this method. To send messages to content scripts, use :ref:`tabs.sendMessage`.
+Sends a single message to event listeners within your extension/app or a different extension/app. Similar to :ref:`runtime.connect` but only sends a single message, with an optional response. If sending to your extension, the :ref:`runtime.on^message` event will be fired in each page, or :ref:`runtime.on^message^external`, if a different extension. Note that extensions cannot send messages to content scripts using this method. To send messages to content scripts, use :ref:`tabs.send^message`.
 
 .. api-header::
    :label: Parameters
@@ -358,11 +358,11 @@ Sends a single message to event listeners within your extension/app or a differe
    .. api-member::
       :type: any
 
-      The JSON response object sent by the handler of the message. If an error occurs while connecting to the extension, the callback will be called with no arguments and :ref:`runtime.lastError` will be set to the error message.
+      The JSON response object sent by the handler of the message. If an error occurs while connecting to the extension, the callback will be called with no arguments and :ref:`runtime.last^error` will be set to the error message.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _runtime.sendNativeMessage:
+.. _runtime.send^native^message:
 
 sendNativeMessage(application, message)
 ---------------------------------------
@@ -392,7 +392,7 @@ Send a single message to a native application.
    .. api-member::
       :type: any
 
-      The response message sent by the native messaging host. If an error occurs while connecting to the native messaging host, the callback will be called with no arguments and :ref:`runtime.lastError` will be set to the error message.
+      The response message sent by the native messaging host. If an error occurs while connecting to the native messaging host, the callback will be called with no arguments and :ref:`runtime.last^error` will be set to the error message.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -401,7 +401,7 @@ Send a single message to a native application.
 
    - :permission:`nativeMessaging`
 
-.. _runtime.setUninstallURL:
+.. _runtime.set^uninstall^u^r^l:
 
 setUninstallURL([url])
 ----------------------
@@ -424,7 +424,7 @@ Sets the URL to be visited upon uninstallation. This may be used to clean up ser
 Events
 ======
 
-.. _runtime.onConnect:
+.. _runtime.on^connect:
 
 onConnect
 ---------
@@ -446,9 +446,9 @@ Fired when a connection is made from either an extension process or a content sc
 
    .. api-member::
       :name: ``port``
-      :type: (:ref:`runtime.Port`)
+      :type: (:ref:`runtime.^port`)
 
-.. _runtime.onConnectExternal:
+.. _runtime.on^connect^external:
 
 onConnectExternal
 -----------------
@@ -470,9 +470,9 @@ Fired when a connection is made from another extension.
 
    .. api-member::
       :name: ``port``
-      :type: (:ref:`runtime.Port`)
+      :type: (:ref:`runtime.^port`)
 
-.. _runtime.onInstalled:
+.. _runtime.on^installed:
 
 onInstalled
 -----------
@@ -502,7 +502,7 @@ Fired when the extension is first installed, when the extension is updated to a 
 
       .. api-member::
          :name: ``reason``
-         :type: (:ref:`runtime.OnInstalledReason`)
+         :type: (:ref:`runtime.^on^installed^reason`)
 
          The reason that this event is being dispatched.
 
@@ -526,7 +526,7 @@ Fired when the extension is first installed, when the extension is updated to a 
 
          Indicates the previous version of the extension, which has just been updated. This is present only if 'reason' is 'update'.
 
-.. _runtime.onMessage:
+.. _runtime.on^message:
 
 onMessage
 ---------
@@ -554,7 +554,7 @@ Fired when a message is sent from either an extension process or a content scrip
 
    .. api-member::
       :name: ``sender``
-      :type: (:ref:`runtime.MessageSender`)
+      :type: (:ref:`runtime.^message^sender`)
 
    .. api-member::
       :name: ``sendResponse``
@@ -570,7 +570,7 @@ Fired when a message is sent from either an extension process or a content scrip
 
       Return true from the event listener if you wish to call :code:`sendResponse` after the event listener returns.
 
-.. _runtime.onMessageExternal:
+.. _runtime.on^message^external:
 
 onMessageExternal
 -----------------
@@ -598,7 +598,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
 
    .. api-member::
       :name: ``sender``
-      :type: (:ref:`runtime.MessageSender`)
+      :type: (:ref:`runtime.^message^sender`)
 
    .. api-member::
       :name: ``sendResponse``
@@ -614,7 +614,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
 
       Return true from the event listener if you wish to call :code:`sendResponse` after the event listener returns.
 
-.. _runtime.onPerformanceWarning:
+.. _runtime.on^performance^warning:
 
 onPerformanceWarning
 --------------------
@@ -640,7 +640,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
 
       .. api-member::
          :name: ``category``
-         :type: (:ref:`runtime.OnPerformanceWarningCategory`)
+         :type: (:ref:`runtime.^on^performance^warning^category`)
 
          The performance warning event category, e.g. 'content_script'.
 
@@ -652,7 +652,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
 
       .. api-member::
          :name: ``severity``
-         :type: (:ref:`runtime.OnPerformanceWarningSeverity`)
+         :type: (:ref:`runtime.^on^performance^warning^severity`)
 
          The performance warning event severity, e.g. 'high'.
 
@@ -660,9 +660,9 @@ Fired when a runtime performance issue is detected with the extension. Observe t
          :name: [``tabId``]
          :type: (integer, optional)
 
-         The :ref:`tabs.Tab` that the performance warning relates to, if any.
+         The :ref:`tabs.^tab` that the performance warning relates to, if any.
 
-.. _runtime.onStartup:
+.. _runtime.on^startup:
 
 onStartup
 ---------
@@ -679,7 +679,7 @@ Fired when a profile that has this extension installed first starts up. This eve
 
       A function that will be called when this event occurs.
 
-.. _runtime.onSuspend:
+.. _runtime.on^suspend:
 
 onSuspend
 ---------
@@ -700,7 +700,7 @@ Sent to the event page just before it is unloaded. This gives the extension oppo
 
       A function that will be called when this event occurs.
 
-.. _runtime.onSuspendCanceled:
+.. _runtime.on^suspend^canceled:
 
 onSuspendCanceled
 -----------------
@@ -721,7 +721,7 @@ Sent after onSuspend to indicate that the app won't be unloaded after all.
 
       A function that will be called when this event occurs.
 
-.. _runtime.onUpdateAvailable:
+.. _runtime.on^update^available:
 
 onUpdateAvailable
 -----------------
@@ -753,7 +753,7 @@ Fired when an update is available, but isn't installed immediately because the a
 
          The version number of the available update.
 
-.. _runtime.onUserScriptConnect:
+.. _runtime.on^user^script^connect:
 
 onUserScriptConnect
 -------------------
@@ -783,14 +783,14 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
 
    .. api-member::
       :name: ``port``
-      :type: (:ref:`runtime.Port`)
+      :type: (:ref:`runtime.^port`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`userScripts`
 
-.. _runtime.onUserScriptMessage:
+.. _runtime.on^user^script^message:
 
 onUserScriptMessage
 -------------------
@@ -826,7 +826,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
 
    .. api-member::
       :name: ``sender``
-      :type: (:ref:`runtime.MessageSender`)
+      :type: (:ref:`runtime.^message^sender`)
 
    .. api-member::
       :name: ``sendResponse``
@@ -852,7 +852,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
 Types
 =====
 
-.. _runtime.BrowserInfo:
+.. _runtime.^browser^info:
 
 BrowserInfo
 -----------
@@ -864,7 +864,7 @@ An object containing information about the current browser.
 .. api-header::
    :label: object
 
-   .. _runtime.BrowserInfo.buildID:
+   .. _runtime.^browser^info.build^i^d:
 
    .. api-member::
       :name: ``buildID``
@@ -872,7 +872,7 @@ An object containing information about the current browser.
 
       The browser's build ID/date, for example '20160101'.
 
-   .. _runtime.BrowserInfo.name:
+   .. _runtime.^browser^info.name:
 
    .. api-member::
       :name: ``name``
@@ -880,7 +880,7 @@ An object containing information about the current browser.
 
       The name of the browser, for example 'Thunderbird'.
 
-   .. _runtime.BrowserInfo.vendor:
+   .. _runtime.^browser^info.vendor:
 
    .. api-member::
       :name: ``vendor``
@@ -888,7 +888,7 @@ An object containing information about the current browser.
 
       The name of the browser vendor, for example 'Mozilla'.
 
-   .. _runtime.BrowserInfo.version:
+   .. _runtime.^browser^info.version:
 
    .. api-member::
       :name: ``version``
@@ -896,7 +896,7 @@ An object containing information about the current browser.
 
       The browser's version, for example '42.0.0' or '0.8.1pre'.
 
-.. _runtime.ContextFilter:
+.. _runtime.^context^filter:
 
 ContextFilter
 -------------
@@ -908,61 +908,61 @@ A filter to match against existing extension context. Matching contexts must mat
 .. api-header::
    :label: object
 
-   .. _runtime.ContextFilter.contextIds:
+   .. _runtime.^context^filter.context^ids:
 
    .. api-member::
       :name: [``contextIds``]
       :type: (array of string, optional)
 
-   .. _runtime.ContextFilter.contextTypes:
+   .. _runtime.^context^filter.context^types:
 
    .. api-member::
       :name: [``contextTypes``]
-      :type: (array of :ref:`runtime.ContextType`, optional)
+      :type: (array of :ref:`runtime.^context^type`, optional)
 
-   .. _runtime.ContextFilter.documentIds:
+   .. _runtime.^context^filter.document^ids:
 
    .. api-member::
       :name: [``documentIds``]
       :type: (array of string, optional)
 
-   .. _runtime.ContextFilter.documentOrigins:
+   .. _runtime.^context^filter.document^origins:
 
    .. api-member::
       :name: [``documentOrigins``]
       :type: (array of string, optional)
 
-   .. _runtime.ContextFilter.documentUrls:
+   .. _runtime.^context^filter.document^urls:
 
    .. api-member::
       :name: [``documentUrls``]
       :type: (array of string, optional)
 
-   .. _runtime.ContextFilter.frameIds:
+   .. _runtime.^context^filter.frame^ids:
 
    .. api-member::
       :name: [``frameIds``]
       :type: (array of integer, optional)
 
-   .. _runtime.ContextFilter.incognito:
+   .. _runtime.^context^filter.incognito:
 
    .. api-member::
       :name: [``incognito``]
       :type: (boolean, optional)
 
-   .. _runtime.ContextFilter.tabIds:
+   .. _runtime.^context^filter.tab^ids:
 
    .. api-member::
       :name: [``tabIds``]
       :type: (array of integer, optional)
 
-   .. _runtime.ContextFilter.windowIds:
+   .. _runtime.^context^filter.window^ids:
 
    .. api-member::
       :name: [``windowIds``]
       :type: (array of integer, optional)
 
-.. _runtime.ContextType:
+.. _runtime.^context^type:
 
 ContextType
 -----------
@@ -992,7 +992,19 @@ The type of extension view.
          .. api-member::
             :name: :value:`TAB`
 
-.. _runtime.ExtensionContext:
+.. _runtime.^event:
+
+Event
+-----
+
+.. api-section-annotation-hack:: -- [Added in TB ≤53]
+
+An object which allows the addition and removal of listeners for a Chrome event.
+
+.. api-header::
+   :label: object
+
+.. _runtime.^extension^context:
 
 ExtensionContext
 ----------------
@@ -1004,7 +1016,7 @@ A context hosting extension content
 .. api-header::
    :label: object
 
-   .. _runtime.ExtensionContext.contextId:
+   .. _runtime.^extension^context.context^id:
 
    .. api-member::
       :name: ``contextId``
@@ -1012,15 +1024,15 @@ A context hosting extension content
 
       An unique identifier associated to this context
 
-   .. _runtime.ExtensionContext.contextType:
+   .. _runtime.^extension^context.context^type:
 
    .. api-member::
       :name: ``contextType``
-      :type: (:ref:`runtime.ContextType`)
+      :type: (:ref:`runtime.^context^type`)
 
       The type of the context
 
-   .. _runtime.ExtensionContext.frameId:
+   .. _runtime.^extension^context.frame^id:
 
    .. api-member::
       :name: ``frameId``
@@ -1028,7 +1040,7 @@ A context hosting extension content
 
       The frame ID for this context, or -1 if it is not hosted in a frame.
 
-   .. _runtime.ExtensionContext.incognito:
+   .. _runtime.^extension^context.incognito:
 
    .. api-member::
       :name: ``incognito``
@@ -1036,7 +1048,7 @@ A context hosting extension content
 
       Whether the context is associated with an private browsing context.
 
-   .. _runtime.ExtensionContext.tabId:
+   .. _runtime.^extension^context.tab^id:
 
    .. api-member::
       :name: ``tabId``
@@ -1044,7 +1056,7 @@ A context hosting extension content
 
       The tab ID for this context, or -1 if it is not hosted in a tab.
 
-   .. _runtime.ExtensionContext.windowId:
+   .. _runtime.^extension^context.window^id:
 
    .. api-member::
       :name: ``windowId``
@@ -1052,7 +1064,7 @@ A context hosting extension content
 
       The window ID for this context, or -1 if it is not hosted in a window.
 
-   .. _runtime.ExtensionContext.documentId:
+   .. _runtime.^extension^context.document^id:
 
    .. api-member::
       :name: [``documentId``]
@@ -1060,7 +1072,7 @@ A context hosting extension content
 
       An UUID for the document associated with this context, or undefined if it is not hosted in a document
 
-   .. _runtime.ExtensionContext.documentOrigin:
+   .. _runtime.^extension^context.document^origin:
 
    .. api-member::
       :name: [``documentOrigin``]
@@ -1068,7 +1080,7 @@ A context hosting extension content
 
       The origin of the document associated with this context, or undefined if it is not hosted in a document
 
-   .. _runtime.ExtensionContext.documentUrl:
+   .. _runtime.^extension^context.document^url:
 
    .. api-member::
       :name: [``documentUrl``]
@@ -1076,7 +1088,7 @@ A context hosting extension content
 
       The URL of the document associated with this context, or undefined if it is not hosted in a document
 
-.. _runtime.MessageSender:
+.. _runtime.^message^sender:
 
 MessageSender
 -------------
@@ -1092,7 +1104,7 @@ An object containing information about the script context that sent a message or
 .. api-header::
    :label: object
 
-   .. _runtime.MessageSender.frameId:
+   .. _runtime.^message^sender.frame^id:
 
    .. api-member::
       :name: [``frameId``]
@@ -1100,7 +1112,7 @@ An object containing information about the script context that sent a message or
 
       The frame that opened the connection. 0 for top-level frames, positive for child frames. This will only be set when :code:`tab` is set.
 
-   .. _runtime.MessageSender.id:
+   .. _runtime.^message^sender.id:
 
    .. api-member::
       :name: [``id``]
@@ -1108,15 +1120,15 @@ An object containing information about the script context that sent a message or
 
       The ID of the extension or app that opened the connection, if any.
 
-   .. _runtime.MessageSender.tab:
+   .. _runtime.^message^sender.tab:
 
    .. api-member::
       :name: [``tab``]
-      :type: (:ref:`tabs.Tab`, optional)
+      :type: (:ref:`tabs.^tab`, optional)
 
-      The :ref:`tabs.Tab` which opened the connection, if any. This property will <strong>only</strong> be present when the connection was opened from a tab (including content scripts), and <strong>only</strong> if the receiver is an extension, not an app.
+      The :ref:`tabs.^tab` which opened the connection, if any. This property will <strong>only</strong> be present when the connection was opened from a tab (including content scripts), and <strong>only</strong> if the receiver is an extension, not an app.
 
-   .. _runtime.MessageSender.tlsChannelId:
+   .. _runtime.^message^sender.tls^channel^id:
 
    .. api-member::
       :name: [``tlsChannelId``]
@@ -1124,7 +1136,7 @@ An object containing information about the script context that sent a message or
 
       The TLS channel ID of the page or frame that opened the connection, if requested by the extension or app, and if available.
 
-   .. _runtime.MessageSender.url:
+   .. _runtime.^message^sender.url:
 
    .. api-member::
       :name: [``url``]
@@ -1132,7 +1144,7 @@ An object containing information about the script context that sent a message or
 
       The URL of the page or frame that opened the connection. If the sender is in an iframe, it will be iframe's URL not the URL of the page which hosts it.
 
-   .. _runtime.MessageSender.userScriptWorldId:
+   .. _runtime.^message^sender.user^script^world^id:
 
    .. api-member::
       :name: [``userScriptWorldId``]
@@ -1140,7 +1152,7 @@ An object containing information about the script context that sent a message or
 
       The worldId of the USER_SCRIPT world that sent the message. Only present on onUserScriptMessage and onUserScriptConnect (in port.sender) events.
 
-.. _runtime.OnInstalledReason:
+.. _runtime.^on^installed^reason:
 
 OnInstalledReason
 -----------------
@@ -1167,7 +1179,7 @@ The reason that this event is being dispatched.
          .. api-member::
             :name: :value:`browser_update`
 
-.. _runtime.OnPerformanceWarningCategory:
+.. _runtime.^on^performance^warning^category:
 
 OnPerformanceWarningCategory
 ----------------------------
@@ -1188,7 +1200,7 @@ The performance warning event category, e.g. 'content_script'.
          .. api-member::
             :name: :value:`content_script`
 
-.. _runtime.OnPerformanceWarningSeverity:
+.. _runtime.^on^performance^warning^severity:
 
 OnPerformanceWarningSeverity
 ----------------------------
@@ -1215,7 +1227,7 @@ The performance warning event severity. Will be 'high' for serious and user-visi
          .. api-member::
             :name: :value:`high`
 
-.. _runtime.OnRestartRequiredReason:
+.. _runtime.^on^restart^required^reason:
 
 OnRestartRequiredReason
 -----------------------
@@ -1242,7 +1254,7 @@ The reason that the event is being dispatched. 'app_update' is used when the res
          .. api-member::
             :name: :value:`periodic`
 
-.. _runtime.PlatformArch:
+.. _runtime.^platform^arch:
 
 PlatformArch
 ------------
@@ -1287,7 +1299,7 @@ The machine's processor architecture.
          .. api-member::
             :name: :value:`noarch`
 
-.. _runtime.PlatformInfo:
+.. _runtime.^platform^info:
 
 PlatformInfo
 ------------
@@ -1299,31 +1311,31 @@ An object containing information about the current platform.
 .. api-header::
    :label: object
 
-   .. _runtime.PlatformInfo.arch:
+   .. _runtime.^platform^info.arch:
 
    .. api-member::
       :name: ``arch``
-      :type: (:ref:`runtime.PlatformArch`)
+      :type: (:ref:`runtime.^platform^arch`)
 
       The machine's processor architecture.
 
-   .. _runtime.PlatformInfo.nacl_arch:
+   .. _runtime.^platform^info.nacl_arch:
 
    .. api-member::
       :name: ``nacl_arch``
-      :type: (:ref:`runtime.PlatformNaclArch`) **Unsupported.**
+      :type: (:ref:`runtime.^platform^nacl^arch`) **Unsupported.**
 
       The native client architecture. This may be different from arch on some platforms.
 
-   .. _runtime.PlatformInfo.os:
+   .. _runtime.^platform^info.os:
 
    .. api-member::
       :name: ``os``
-      :type: (:ref:`runtime.PlatformOs`)
+      :type: (:ref:`runtime.^platform^os`)
 
       The operating system the browser is running on.
 
-.. _runtime.PlatformOs:
+.. _runtime.^platform^os:
 
 PlatformOs
 ----------
@@ -1359,7 +1371,7 @@ The operating system the browser is running on.
          .. api-member::
             :name: :value:`openbsd`
 
-.. _runtime.Port:
+.. _runtime.^port:
 
 Port
 ----
@@ -1371,45 +1383,45 @@ An object which allows two way communication with other pages.
 .. api-header::
    :label: object
 
-   .. _runtime.Port.disconnect:
+   .. _runtime.^port.disconnect:
 
    .. api-member::
       :name: ``disconnect``
       :type: (function)
 
-   .. _runtime.Port.name:
+   .. _runtime.^port.name:
 
    .. api-member::
       :name: ``name``
       :type: (string)
 
-   .. _runtime.Port.onDisconnect:
+   .. _runtime.^port.on^disconnect:
 
    .. api-member::
       :name: ``onDisconnect``
-      :type: (:ref:`events.Event`)
+      :type: (:ref:`runtime.^event`)
 
-   .. _runtime.Port.onMessage:
+   .. _runtime.^port.on^message:
 
    .. api-member::
       :name: ``onMessage``
-      :type: (:ref:`events.Event`)
+      :type: (:ref:`runtime.^event`)
 
-   .. _runtime.Port.postMessage:
+   .. _runtime.^port.post^message:
 
    .. api-member::
       :name: ``postMessage``
       :type: (function)
 
-   .. _runtime.Port.sender:
+   .. _runtime.^port.sender:
 
    .. api-member::
       :name: [``sender``]
-      :type: (:ref:`runtime.MessageSender`, optional)
+      :type: (:ref:`runtime.^message^sender`, optional)
 
       This property will **only** be present on ports passed to onConnect/onConnectExternal listeners.
 
-.. _runtime.RequestUpdateCheckStatus:
+.. _runtime.^request^update^check^status:
 
 RequestUpdateCheckStatus
 ------------------------
@@ -1450,7 +1462,7 @@ id
 
 The ID of the extension/app.
 
-.. _runtime.lastError:
+.. _runtime.last^error:
 
 lastError
 ---------
