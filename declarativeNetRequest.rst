@@ -45,24 +45,26 @@ Manifest file properties
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`declarativeNetRequest`
 
-   Block content on any page
+   Block content on any page.
 
 .. api-member::
    :name: :permission:`declarativeNetRequestFeedback`
 
-   Read your browsing history
+   Read your browsing history.
 
 .. api-member::
    :name: :permission:`declarativeNetRequestWithHostAccess`
 
    Allows blocking or upgrading requests to hosts for which host permissions have already been granted.
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-permission-info
 

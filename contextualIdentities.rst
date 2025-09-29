@@ -30,14 +30,16 @@ Use the :code:`browser.contextualIdentities` API to query and modify contextual 
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`contextualIdentities`
 
    Grant access to some or all methods of the contextualIdentities API.
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-permission-info
 

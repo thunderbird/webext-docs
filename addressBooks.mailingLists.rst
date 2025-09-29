@@ -26,14 +26,16 @@ The mailingLists API allows to access and manage the user's mailing lists.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`addressBooks`
 
-   Read and modify your address books and contacts
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Read and modify your address books and contacts.
 
 .. rst-class:: api-permission-info
 

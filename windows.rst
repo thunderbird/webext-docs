@@ -31,7 +31,11 @@ The windows API supports creating, modifying and interacting with Thunderbird wi
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`contextualIdentities`
@@ -46,9 +50,7 @@ The following permissions influence the behavior of the API: depending on which 
 .. api-member::
    :name: :permission:`tabs`
 
-   Grant host permission to all active and inactive tabs, allowing to read <var>title</var>, <var>url</var> and <var>favIconUrl</var> properties, or to inject content scripts.
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Grant host permission to all active and inactive tabs, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
 .. rst-class:: api-main-section
 

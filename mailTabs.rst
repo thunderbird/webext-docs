@@ -26,19 +26,21 @@ The mailTabs API allows to interact with Thunderbird's main mail tab (a.k.a 3-pa
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`accountsRead`
 
-   See your mail accounts, their identities and their folders
+   See your mail accounts, their identities and their folders.
 
 .. api-member::
    :name: :permission:`messagesRead`
 
-   Read your email messages
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Read your email messages.
 
 .. rst-class:: api-main-section
 

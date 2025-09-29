@@ -27,24 +27,26 @@ The folders API allows to access and manage the user's message folders.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`accountsFolders`
 
-   Create, rename, or delete your mail account folders
+   Create, rename, or delete your mail account folders.
 
 .. api-member::
    :name: :permission:`accountsRead`
 
-   See your mail accounts, their identities and their folders
+   See your mail accounts, their identities and their folders.
 
 .. api-member::
    :name: :permission:`messagesDelete`
 
-   Permanently delete your email messages
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Permanently delete your email messages.
 
 .. rst-class:: api-permission-info
 

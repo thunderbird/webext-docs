@@ -26,29 +26,31 @@ The compose API allows to interact with the message composition window.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`accountsRead`
 
-   See your mail accounts, their identities and their folders
+   See your mail accounts, their identities and their folders.
 
 .. api-member::
    :name: :permission:`compose`
 
-   Read and modify your email messages as you compose and send them
+   Read and modify your email messages as you compose and send them.
 
 .. api-member::
    :name: :permission:`compose.save`
 
-   Save composed email messages as drafts or templates
+   Save composed email messages as drafts or templates.
 
 .. api-member::
    :name: :permission:`compose.send`
 
-   Send composed email messages on your behalf
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Send composed email messages on your behalf.
 
 .. rst-class:: api-main-section
 

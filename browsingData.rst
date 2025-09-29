@@ -29,14 +29,16 @@ Use the :code:`chrome.browsingData` API to remove browsing data from a user's lo
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`browsingData`
 
-   Clear recent browsing history, cookies, and related data
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Clear recent browsing history, cookies, and related data.
 
 .. rst-class:: api-permission-info
 

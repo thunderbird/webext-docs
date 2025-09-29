@@ -26,14 +26,16 @@ The accounts API provides access to the user's server accounts.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`accountsRead`
 
-   See your mail accounts, their identities and their folders
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   See your mail accounts, their identities and their folders.
 
 .. rst-class:: api-permission-info
 

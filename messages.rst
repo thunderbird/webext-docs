@@ -34,44 +34,46 @@ The messages API allows to access and manage the user's messages.
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`accountsRead`
 
-   See your mail accounts, their identities and their folders
+   See your mail accounts, their identities and their folders.
 
 .. api-member::
    :name: :permission:`messagesDelete`
 
-   Permanently delete your email messages
+   Permanently delete your email messages.
 
 .. api-member::
    :name: :permission:`messagesImport`
 
-   Import messages into Thunderbird
+   Import messages into Thunderbird.
 
 .. api-member::
    :name: :permission:`messagesModifyPermanent`
 
-   Permanently modify the source of your messages (including headers, body and attachments)
+   Permanently modify the source of your messages (including headers, body and attachments).
 
 .. api-member::
    :name: :permission:`messagesMove`
 
-   Copy or move your email messages (including moving them to the trash folder)
+   Copy or move your email messages (including moving them to the trash folder).
 
 .. api-member::
    :name: :permission:`messagesRead`
 
-   Read your email messages
+   Read your email messages.
 
 .. api-member::
    :name: :permission:`messagesUpdate`
 
-   Change properties and tags of your email messages
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Change properties and tags of your email messages.
 
 .. rst-class:: api-permission-info
 

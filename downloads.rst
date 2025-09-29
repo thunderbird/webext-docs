@@ -28,19 +28,21 @@ downloads API
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`downloads`
 
-   Download files and read and modify the browser’s download history
+   Download files and read and modify the browser’s download history.
 
 .. api-member::
    :name: :permission:`downloads.open`
 
-   Open files downloaded to your computer
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+   Open files downloaded to your computer.
 
 .. rst-class:: api-permission-info
 
@@ -629,7 +631,7 @@ DangerType
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-<dl><dt>file</dt><dd>The download's filename is suspicious.</dd><dt>url</dt><dd>The download's URL is known to be malicious.</dd><dt>content</dt><dd>The downloaded file is known to be malicious.</dd><dt>uncommon</dt><dd>The download's URL is not commonly downloaded and could be dangerous.</dd><dt>safe</dt><dd>The download presents no known danger to the user's computer.</dd></dl>These string constants will never change, however the set of DangerTypes may change.
+These string constants will never change, however the set of DangerTypes may change.
 
 .. api-header::
    :label: `string`
@@ -643,14 +645,22 @@ DangerType
          .. api-member::
             :name: :value:`file`
 
+            The download's filename is suspicious.
+
          .. api-member::
             :name: :value:`url`
+
+            The download's URL is known to be malicious.
 
          .. api-member::
             :name: :value:`content`
 
+            The downloaded file is known to be malicious.
+
          .. api-member::
             :name: :value:`uncommon`
+
+            The download's URL is not commonly downloaded and could be dangerous.
 
          .. api-member::
             :name: :value:`host`
@@ -660,6 +670,8 @@ DangerType
 
          .. api-member::
             :name: :value:`safe`
+
+            The download presents no known danger to the user's computer.
 
          .. api-member::
             :name: :value:`accepted`
@@ -1220,7 +1232,7 @@ State
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-<dl><dt>in_progress</dt><dd>The download is currently receiving data from the server.</dd><dt>interrupted</dt><dd>An error broke the connection with the file host.</dd><dt>complete</dt><dd>The download completed successfully.</dd></dl>These string constants will never change, however the set of States may change.
+These string constants will never change, however the set of States may change.
 
 .. api-header::
    :label: `string`
@@ -1234,11 +1246,17 @@ State
          .. api-member::
             :name: :value:`in_progress`
 
+            The download is currently receiving data from the server.
+
          .. api-member::
             :name: :value:`interrupted`
 
+            An error broke the connection with the file host.
+
          .. api-member::
             :name: :value:`complete`
+
+            The download completed successfully.
 
 .. _downloads.StringDelta:
 

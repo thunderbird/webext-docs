@@ -31,7 +31,11 @@ Use the :code:`browser.webRequest` API to observe and analyze traffic and to int
 Permissions
 ===========
 
-The following permissions influence the behavior of the API: depending on which permissions are requested, certain functions may be unavailable or some data may be omitted from responses.
+The following permissions influence the behavior of the API: depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. api-member::
    :name: :permission:`webRequest`
@@ -42,8 +46,6 @@ The following permissions influence the behavior of the API: depending on which 
    :name: :permission:`webRequestBlocking`
 
    Allows to use the blocking features of the webRequest API. With this permission, listeners can synchronously modify or cancel requests before they are sent or before a response is delivered. Without it, listeners can only observe requests without blocking or altering them.
-
-Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
 .. rst-class:: api-permission-info
 
