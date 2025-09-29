@@ -330,7 +330,7 @@ Get one of the special virtual tag folders, which are virtual search folders and
       :name: ``key``
       :type: (string)
 
-      The tag key of the requested folder. See :ref:`messages.tags.list(`) for the available tags. Throws when specifying an invalid tag key.
+      The tag key of the requested folder. See :ref:`messages.tags.list` for the available tags. Throws when specifying an invalid tag key.
 
 .. api-header::
    :label: Return type (`Promise`_)
