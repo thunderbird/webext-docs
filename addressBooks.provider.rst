@@ -130,7 +130,7 @@ Example:
 
    .. api-member::
       :name: ``node``
-      :type: (:ref:`address^books.provider.^address^book^node`)
+      :type: (:ref:`address^books.^address^book^node`)
 
    .. api-member::
       :name: [``searchString``]
@@ -161,7 +161,7 @@ Example:
 
       .. api-member::
          :name: ``results``
-         :type: (array of :ref:`address^books.provider.^contact^properties`)
+         :type: (array of :ref:`address^books.contacts.^contact^properties`)
          :annotation: -- [Added in TB 142]
 
 .. api-header::
