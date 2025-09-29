@@ -766,7 +766,7 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
 
 .. note::
 
-   Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
+   Requires the `userScripts permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
 
 .. api-header::
    :label: Parameters for onUserScriptConnect.addListener(listener)
@@ -803,7 +803,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
 
 .. note::
 
-   Requires the `:code:`userScripts` permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
+   Requires the `userScripts permission <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts#permissions>`__.
 
 .. api-header::
    :label: Parameters for onUserScriptMessage.addListener(listener)

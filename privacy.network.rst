@@ -91,7 +91,7 @@ tlsVersionRestriction
 
 .. api-section-annotation-hack:: 
 
-This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.network.tlsVersionRestrictionConfig`.
+This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.tlsVersionRestrictionConfig`.
 
 .. _privacy.network.webRTCIPHandlingPolicy:
 

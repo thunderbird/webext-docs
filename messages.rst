@@ -297,7 +297,7 @@ getAttachmentFile(messageId, partName)
 
 Gets the content of a :ref:`messages.MessageAttachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
 
-The most simple way to get the content of an attachment is to use the `:code:`text()` <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
+The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
 
 .. code-block:: JavaScript
 
