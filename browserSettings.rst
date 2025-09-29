@@ -3,6 +3,7 @@
   ≡ browserSettings API
 
   * `Permissions`_
+  * `Types`_
   * `Properties`_
 
   .. include:: /_includes/developer-resources.rst
@@ -42,6 +43,89 @@ Request permissions only when needed. Unnecessary requests may result in rejecti
 .. note::
 
    The permission :permission:`browserSettings` is required to use ``messenger.browserSettings.*``.
+
+.. rst-class:: api-main-section
+
+Types
+=====
+
+.. _browserSettings.ColorManagementMode:
+
+ColorManagementMode
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Color management mode.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`off`
+
+         .. api-member::
+            :name: :value:`full`
+
+         .. api-member::
+            :name: :value:`tagged_only`
+
+.. _browserSettings.ContextMenuMouseEvent:
+
+ContextMenuMouseEvent
+---------------------
+
+.. api-section-annotation-hack:: 
+
+After which mouse event context menus should popup.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`mouseup`
+
+         .. api-member::
+            :name: :value:`mousedown`
+
+.. _browserSettings.ImageAnimationBehavior:
+
+ImageAnimationBehavior
+----------------------
+
+.. api-section-annotation-hack:: 
+
+How images should be animated in the browser.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`normal`
+
+         .. api-member::
+            :name: :value:`none`
+
+         .. api-member::
+            :name: :value:`once`
 
 .. rst-class:: api-main-section
 

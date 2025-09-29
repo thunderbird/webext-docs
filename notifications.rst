@@ -523,3 +523,117 @@ TemplateType
 
          .. api-member::
             :name: :value:`progress`
+
+.. _notifications.UpdateNotificationOptions:
+
+UpdateNotificationOptions
+-------------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: object
+
+   .. _notifications.UpdateNotificationOptions.appIconMaskUrl:
+
+   .. api-member::
+      :name: [``appIconMaskUrl``]
+      :type: (string, optional)
+
+      A URL to the app icon mask.
+
+   .. _notifications.UpdateNotificationOptions.buttons:
+
+   .. api-member::
+      :name: [``buttons``]
+      :type: (array of object, optional) **Unsupported.**
+
+      Text and icons for up to two notification action buttons.
+
+   .. _notifications.UpdateNotificationOptions.contextMessage:
+
+   .. api-member::
+      :name: [``contextMessage``]
+      :type: (string, optional)
+
+      Alternate notification content with a lower-weight font.
+
+   .. _notifications.UpdateNotificationOptions.eventTime:
+
+   .. api-member::
+      :name: [``eventTime``]
+      :type: (number, optional)
+
+      A timestamp associated with the notification, in milliseconds past the epoch.
+
+   .. _notifications.UpdateNotificationOptions.iconUrl:
+
+   .. api-member::
+      :name: [``iconUrl``]
+      :type: (string, optional)
+
+      A URL to the sender's avatar, app icon, or a thumbnail for image notifications.
+
+   .. _notifications.UpdateNotificationOptions.imageUrl:
+
+   .. api-member::
+      :name: [``imageUrl``]
+      :type: (string, optional)
+
+      A URL to the image thumbnail for image-type notifications.
+
+   .. _notifications.UpdateNotificationOptions.isClickable:
+
+   .. api-member::
+      :name: [``isClickable``]
+      :type: (boolean, optional)
+
+      Whether to show UI indicating that the app will visibly respond to clicks on the body of a notification.
+
+   .. _notifications.UpdateNotificationOptions.items:
+
+   .. api-member::
+      :name: [``items``]
+      :type: (array of :ref:`notifications.NotificationItem`, optional)
+
+      Items for multi-item notifications.
+
+   .. _notifications.UpdateNotificationOptions.message:
+
+   .. api-member::
+      :name: [``message``]
+      :type: (string, optional)
+
+      Main notification content.
+
+   .. _notifications.UpdateNotificationOptions.priority:
+
+   .. api-member::
+      :name: [``priority``]
+      :type: (integer, optional)
+
+      Priority ranges from -2 to 2. -2 is lowest priority. 2 is highest. Zero is default.
+
+   .. _notifications.UpdateNotificationOptions.progress:
+
+   .. api-member::
+      :name: [``progress``]
+      :type: (integer, optional)
+
+      Current progress ranges from 0 to 100.
+
+   .. _notifications.UpdateNotificationOptions.title:
+
+   .. api-member::
+      :name: [``title``]
+      :type: (string, optional)
+
+      Title of the notification (e.g. sender name for email).
+
+   .. _notifications.UpdateNotificationOptions.type:
+
+   .. api-member::
+      :name: [``type``]
+      :type: (:ref:`notifications.TemplateType`, optional)
+
+      Which type of notification to display.

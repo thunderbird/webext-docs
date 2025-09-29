@@ -3,6 +3,7 @@
   ≡ privacy.websites API
 
   * `Permissions`_
+  * `Types`_
   * `Properties`_
 
   .. include:: /_includes/developer-resources.rst
@@ -42,6 +43,86 @@ Request permissions only when needed. Unnecessary requests may result in rejecti
 .. note::
 
    The permission :permission:`privacy` is required to use ``messenger.privacy.websites.*``.
+
+.. rst-class:: api-main-section
+
+Types
+=====
+
+.. _privacy.websites.CookieConfig:
+
+CookieConfig
+------------
+
+.. api-section-annotation-hack:: 
+
+The settings for cookies.
+
+.. api-header::
+   :label: object
+
+   .. _privacy.websites.CookieConfig.behavior:
+
+   .. api-member::
+      :name: [``behavior``]
+      :type: (`string`, optional)
+
+      The type of cookies to allow.
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`allow_all`
+
+      .. api-member::
+         :name: :value:`reject_all`
+
+      .. api-member::
+         :name: :value:`reject_third_party`
+
+      .. api-member::
+         :name: :value:`allow_visited`
+
+      .. api-member::
+         :name: :value:`reject_trackers`
+
+      .. api-member::
+         :name: :value:`reject_trackers_and_partition_foreign`
+
+   .. _privacy.websites.CookieConfig.nonPersistentCookies:
+
+   .. api-member::
+      :name: [``nonPersistentCookies``]
+      :type: (boolean, optional) **Deprecated.**
+
+      Whether to create all cookies as nonPersistent (i.e., session) cookies.
+
+.. _privacy.websites.TrackingProtectionModeOption:
+
+TrackingProtectionModeOption
+----------------------------
+
+.. api-section-annotation-hack:: 
+
+The mode for tracking protection.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`always`
+
+         .. api-member::
+            :name: :value:`never`
+
+         .. api-member::
+            :name: :value:`private_browsing`
 
 .. rst-class:: api-main-section
 

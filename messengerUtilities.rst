@@ -191,6 +191,78 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
 Types
 =====
 
+.. _messengerUtilities.MailboxHeaders:
+
+MailboxHeaders
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 137]
+
+MIME headers, which by default are treated as containing one or more mailbox strings.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`bcc`
+
+         .. api-member::
+            :name: :value:`cc`
+
+         .. api-member::
+            :name: :value:`from`
+
+         .. api-member::
+            :name: :value:`reply-to`
+
+         .. api-member::
+            :name: :value:`resent-bcc`
+
+         .. api-member::
+            :name: :value:`resent-cc`
+
+         .. api-member::
+            :name: :value:`resent-from`
+
+         .. api-member::
+            :name: :value:`resent-reply-to`
+
+         .. api-member::
+            :name: :value:`resent-sender`
+
+         .. api-member::
+            :name: :value:`resent-to`
+
+         .. api-member::
+            :name: :value:`sender`
+
+         .. api-member::
+            :name: :value:`to`
+
+         .. api-member::
+            :name: :value:`approved`
+
+         .. api-member::
+            :name: :value:`disposition-notification-to`
+
+         .. api-member::
+            :name: :value:`delivered-to`
+
+         .. api-member::
+            :name: :value:`return-receipt-to`
+
+         .. api-member::
+            :name: :value:`mail-reply-to`
+
+         .. api-member::
+            :name: :value:`mail-followup-to`
+
 .. _messengerUtilities.ParsedMailbox:
 
 ParsedMailbox

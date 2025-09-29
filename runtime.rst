@@ -1213,6 +1213,33 @@ The performance warning event severity. Will be 'high' for serious and user-visi
          .. api-member::
             :name: :value:`high`
 
+.. _runtime.OnRestartRequiredReason:
+
+OnRestartRequiredReason
+-----------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+The reason that the event is being dispatched. 'app_update' is used when the restart is needed because the application is updated to a newer version. 'os_update' is used when the restart is needed because the browser/OS is updated to a newer version. 'periodic' is used when the system runs for more than the permitted uptime set in the enterprise policy.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`app_update`
+
+         .. api-member::
+            :name: :value:`os_update`
+
+         .. api-member::
+            :name: :value:`periodic`
+
 .. _runtime.PlatformArch:
 
 PlatformArch
@@ -1379,6 +1406,33 @@ An object which allows two way communication with other pages.
       :type: (:ref:`runtime.MessageSender`, optional)
 
       This property will **only** be present on ports passed to onConnect/onConnectExternal listeners.
+
+.. _runtime.RequestUpdateCheckStatus:
+
+RequestUpdateCheckStatus
+------------------------
+
+.. api-section-annotation-hack:: 
+
+Result of the update check.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`throttled`
+
+         .. api-member::
+            :name: :value:`no_update`
+
+         .. api-member::
+            :name: :value:`update_available`
 
 .. rst-class:: api-main-section
 

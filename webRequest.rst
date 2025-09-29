@@ -1697,6 +1697,116 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 
       Only used as a response to the onBeforeRequest event. If set, the original request is prevented from being sent/completed and is instead upgraded to a secure request.  If any extension returns :code:`redirectUrl` during onBeforeRequest, :code:`upgradeToSecure` will have no affect.
 
+.. _webRequest.CertificateInfo:
+
+CertificateInfo
+---------------
+
+.. api-section-annotation-hack:: -- [Added in TB 62]
+
+Contains the certificate properties of the request if it is a secure request.
+
+.. api-header::
+   :label: object
+
+   .. _webRequest.CertificateInfo.fingerprint:
+
+   .. api-member::
+      :name: ``fingerprint``
+      :type: (object)
+
+      .. api-member::
+         :name: ``sha1``
+         :type: (string)
+
+      .. api-member::
+         :name: ``sha256``
+         :type: (string)
+
+   .. _webRequest.CertificateInfo.isBuiltInRoot:
+
+   .. api-member::
+      :name: ``isBuiltInRoot``
+      :type: (boolean)
+
+   .. _webRequest.CertificateInfo.issuer:
+
+   .. api-member::
+      :name: ``issuer``
+      :type: (string)
+
+   .. _webRequest.CertificateInfo.serialNumber:
+
+   .. api-member::
+      :name: ``serialNumber``
+      :type: (string)
+
+   .. _webRequest.CertificateInfo.subject:
+
+   .. api-member::
+      :name: ``subject``
+      :type: (string)
+
+   .. _webRequest.CertificateInfo.subjectPublicKeyInfoDigest:
+
+   .. api-member::
+      :name: ``subjectPublicKeyInfoDigest``
+      :type: (object)
+
+      .. api-member::
+         :name: ``sha256``
+         :type: (string)
+
+   .. _webRequest.CertificateInfo.validity:
+
+   .. api-member::
+      :name: ``validity``
+      :type: (object)
+
+      Contains start and end timestamps.
+
+      .. api-member::
+         :name: ``end``
+         :type: (integer)
+
+      .. api-member::
+         :name: ``start``
+         :type: (integer)
+
+   .. _webRequest.CertificateInfo.rawDER:
+
+   .. api-member::
+      :name: [``rawDER``]
+      :type: (array of integer, optional)
+
+.. _webRequest.CertificateTransparencyStatus:
+
+CertificateTransparencyStatus
+-----------------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`not_applicable`
+
+         .. api-member::
+            :name: :value:`policy_compliant`
+
+         .. api-member::
+            :name: :value:`policy_not_enough_scts`
+
+         .. api-member::
+            :name: :value:`policy_not_diverse_scts`
+
 .. _webRequest.HttpHeaders:
 
 HttpHeaders
@@ -2019,6 +2129,246 @@ ResourceType
 
          .. api-member::
             :name: :value:`other`
+
+.. _webRequest.SecurityInfo:
+
+SecurityInfo
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 62]
+
+Contains the security properties of the request (ie. SSL/TLS information).
+
+.. api-header::
+   :label: object
+
+   .. _webRequest.SecurityInfo.certificates:
+
+   .. api-member::
+      :name: ``certificates``
+      :type: (array of :ref:`webRequest.CertificateInfo`)
+
+      Certificate data if state is "secure".  Will only contain one entry unless :code:`certificateChain` is passed as an option.
+
+   .. _webRequest.SecurityInfo.state:
+
+   .. api-member::
+      :name: ``state``
+      :type: (`string`)
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`insecure`
+
+      .. api-member::
+         :name: :value:`weak`
+
+      .. api-member::
+         :name: :value:`broken`
+
+      .. api-member::
+         :name: :value:`secure`
+
+   .. _webRequest.SecurityInfo.certificateTransparencyStatus:
+
+   .. api-member::
+      :name: [``certificateTransparencyStatus``]
+      :type: (:ref:`webRequest.CertificateTransparencyStatus`, optional)
+
+      Certificate transparency compliance per RFC 6962.  See :code:`https://www.certificate-transparency.org/what-is-ct` for more information.
+
+   .. _webRequest.SecurityInfo.cipherSuite:
+
+   .. api-member::
+      :name: [``cipherSuite``]
+      :type: (string, optional)
+
+      The cipher suite used in this request if state is "secure".
+
+   .. _webRequest.SecurityInfo.errorMessage:
+
+   .. api-member::
+      :name: [``errorMessage``]
+      :type: (string, optional)
+
+      Error message if state is "broken"
+
+   .. _webRequest.SecurityInfo.hpkp:
+
+   .. api-member::
+      :name: [``hpkp``]
+      :type: (string, optional)
+
+      True if host uses Public Key Pinning and state is "secure".
+
+   .. _webRequest.SecurityInfo.hsts:
+
+   .. api-member::
+      :name: [``hsts``]
+      :type: (boolean, optional)
+
+      True if host uses Strict Transport Security and state is "secure".
+
+   .. _webRequest.SecurityInfo.isDomainMismatch:
+
+   .. api-member::
+      :name: [``isDomainMismatch``]
+      :type: (boolean, optional) **Deprecated.**
+
+      The domain name does not match the certificate domain.
+
+   .. _webRequest.SecurityInfo.isExtendedValidation:
+
+   .. api-member::
+      :name: [``isExtendedValidation``]
+      :type: (boolean, optional)
+
+   .. _webRequest.SecurityInfo.isNotValidAtThisTime:
+
+   .. api-member::
+      :name: [``isNotValidAtThisTime``]
+      :type: (boolean, optional) **Deprecated.**
+
+      The certificate is either expired or is not yet valid.  See :code:`CertificateInfo.validity` for start and end dates.
+
+   .. _webRequest.SecurityInfo.isUntrusted:
+
+   .. api-member::
+      :name: [``isUntrusted``]
+      :type: (boolean, optional) **Deprecated.**
+
+   .. _webRequest.SecurityInfo.keaGroupName:
+
+   .. api-member::
+      :name: [``keaGroupName``]
+      :type: (string, optional)
+
+      The key exchange algorithm used in this request if state is "secure".
+
+   .. _webRequest.SecurityInfo.overridableErrorCategory:
+
+   .. api-member::
+      :name: [``overridableErrorCategory``]
+      :type: (`string`, optional)
+
+      The type of certificate error that was overridden for this connection, if any.
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`trust_error`
+
+      .. api-member::
+         :name: :value:`domain_mismatch`
+
+      .. api-member::
+         :name: :value:`expired_or_not_yet_valid`
+
+   .. _webRequest.SecurityInfo.protocolVersion:
+
+   .. api-member::
+      :name: [``protocolVersion``]
+      :type: (`string`, optional)
+
+      Protocol version if state is "secure"
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`TLSv1`
+
+      .. api-member::
+         :name: :value:`TLSv1.1`
+
+      .. api-member::
+         :name: :value:`TLSv1.2`
+
+      .. api-member::
+         :name: :value:`TLSv1.3`
+
+      .. api-member::
+         :name: :value:`unknown`
+
+   .. _webRequest.SecurityInfo.secretKeyLength:
+
+   .. api-member::
+      :name: [``secretKeyLength``]
+      :type: (number, optional)
+      :annotation: -- [Added in TB 109]
+
+      The length (in bits) of the secret key.
+
+   .. _webRequest.SecurityInfo.signatureSchemeName:
+
+   .. api-member::
+      :name: [``signatureSchemeName``]
+      :type: (string, optional)
+
+      The signature scheme used in this request if state is "secure".
+
+   .. _webRequest.SecurityInfo.usedDelegatedCredentials:
+
+   .. api-member::
+      :name: [``usedDelegatedCredentials``]
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 112]
+
+      True if the TLS connection used Delegated Credentials.
+
+   .. _webRequest.SecurityInfo.usedEch:
+
+   .. api-member::
+      :name: [``usedEch``]
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 112]
+
+      True if the TLS connection used Encrypted Client Hello.
+
+   .. _webRequest.SecurityInfo.usedOcsp:
+
+   .. api-member::
+      :name: [``usedOcsp``]
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 112]
+
+      True if the TLS connection made OCSP requests.
+
+   .. _webRequest.SecurityInfo.usedPrivateDns:
+
+   .. api-member::
+      :name: [``usedPrivateDns``]
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 112]
+
+      True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.
+
+   .. _webRequest.SecurityInfo.weaknessReasons:
+
+   .. api-member::
+      :name: [``weaknessReasons``]
+      :type: (array of :ref:`webRequest.TransportWeaknessReasons`, optional)
+
+      list of reasons that cause the request to be considered weak, if state is "weak"
+
+.. _webRequest.TransportWeaknessReasons:
+
+TransportWeaknessReasons
+------------------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`cipher`
 
 .. _webRequest.UploadData:
 

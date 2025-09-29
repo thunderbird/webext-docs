@@ -4,6 +4,7 @@
 
   * `Permissions`_
   * `Events`_
+  * `Types`_
   * `Properties`_
 
   .. include:: /_includes/developer-resources.rst
@@ -89,6 +90,47 @@ Fired when one or more items change.
    :label: Required permissions
 
    - :permission:`storage`
+
+.. rst-class:: api-main-section
+
+Types
+=====
+
+.. _storage.StorageArea:
+
+StorageArea
+-----------
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+.. api-header::
+   :label: object
+
+.. _storage.StorageChange:
+
+StorageChange
+-------------
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+.. api-header::
+   :label: object
+
+   .. _storage.StorageChange.newValue:
+
+   .. api-member::
+      :name: [``newValue``]
+      :type: (any, optional)
+
+      The new value of the item, if there is a new value.
+
+   .. _storage.StorageChange.oldValue:
+
+   .. api-member::
+      :name: [``oldValue``]
+      :type: (any, optional)
+
+      The old value of the item, if there was an old value.
 
 .. rst-class:: api-main-section
 

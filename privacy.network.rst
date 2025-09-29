@@ -3,6 +3,7 @@
   ≡ privacy.network API
 
   * `Permissions`_
+  * `Types`_
   * `Properties`_
 
   .. include:: /_includes/developer-resources.rst
@@ -42,6 +43,133 @@ Request permissions only when needed. Unnecessary requests may result in rejecti
 .. note::
 
    The permission :permission:`privacy` is required to use ``messenger.privacy.network.*``.
+
+.. rst-class:: api-main-section
+
+Types
+=====
+
+.. _privacy.network.HTTPSOnlyModeOption:
+
+HTTPSOnlyModeOption
+-------------------
+
+.. api-section-annotation-hack:: 
+
+The mode for https-only mode.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`always`
+
+         .. api-member::
+            :name: :value:`private_browsing`
+
+         .. api-member::
+            :name: :value:`never`
+
+.. _privacy.network.IPHandlingPolicy:
+
+IPHandlingPolicy
+----------------
+
+.. api-section-annotation-hack:: 
+
+The IP handling policy of WebRTC.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`default`
+
+         .. api-member::
+            :name: :value:`default_public_and_private_interfaces`
+
+         .. api-member::
+            :name: :value:`default_public_interface_only`
+
+         .. api-member::
+            :name: :value:`disable_non_proxied_udp`
+
+         .. api-member::
+            :name: :value:`proxy_only`
+
+.. _privacy.network.tlsVersionRestrictionConfig:
+
+tlsVersionRestrictionConfig
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+An object which describes TLS minimum and maximum versions.
+
+.. api-header::
+   :label: object
+
+   .. _privacy.network.tlsVersionRestrictionConfig.maximum:
+
+   .. api-member::
+      :name: [``maximum``]
+      :type: (`string`, optional)
+
+      The maximum TLS version supported.
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`TLSv1`
+
+      .. api-member::
+         :name: :value:`TLSv1.1`
+
+      .. api-member::
+         :name: :value:`TLSv1.2`
+
+      .. api-member::
+         :name: :value:`TLSv1.3`
+
+      .. api-member::
+         :name: :value:`unknown`
+
+   .. _privacy.network.tlsVersionRestrictionConfig.minimum:
+
+   .. api-member::
+      :name: [``minimum``]
+      :type: (`string`, optional)
+
+      The minimum TLS version supported.
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`TLSv1`
+
+      .. api-member::
+         :name: :value:`TLSv1.1`
+
+      .. api-member::
+         :name: :value:`TLSv1.2`
+
+      .. api-member::
+         :name: :value:`TLSv1.3`
+
+      .. api-member::
+         :name: :value:`unknown`
 
 .. rst-class:: api-main-section
 

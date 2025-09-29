@@ -350,3 +350,39 @@ MessageTagProperties
       :type: (string, optional)
 
       Human-readable tag name.
+
+.. _messages.tags.TagsDetail:
+
+TagsDetail
+----------
+
+.. api-section-annotation-hack:: -- [Added in TB 121]
+
+Used for filtering messages by tag in various methods. Note that functions using this type may have a partial implementation.
+
+.. api-header::
+   :label: object
+
+   .. _messages.tags.TagsDetail.mode:
+
+   .. api-member::
+      :name: ``mode``
+      :type: (`string`)
+
+      Whether all of the tag filters must apply, or any of them.
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`all`
+
+      .. api-member::
+         :name: :value:`any`
+
+   .. _messages.tags.TagsDetail.tags:
+
+   .. api-member::
+      :name: ``tags``
+      :type: (object)
+
+      A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.tags.list` method.

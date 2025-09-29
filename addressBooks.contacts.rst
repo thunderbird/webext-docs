@@ -437,6 +437,30 @@ A node representing a contact in an address book.
 
       Indicates if the object came from a remote address book.
 
+.. _addressBooks.contacts.ContactProperties:
+
+ContactProperties
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 127]
+
+A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`guides/vcard`.
+
+.. api-header::
+   :label: object
+
+.. _addressBooks.contacts.PropertyChange:
+
+PropertyChange
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 127]
+
+A dictionary of changed properties. Keys are the property name that changed, values are an object containing :value:`oldValue` and :value:`newValue`. Values can be either a string or :value:`null`.
+
+.. api-header::
+   :label: object
+
 .. _addressBooks.contacts.QueryInfo:
 
 QueryInfo

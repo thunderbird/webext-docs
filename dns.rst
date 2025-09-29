@@ -79,6 +79,40 @@ Resolves a hostname to a DNS record.
 Types
 =====
 
+.. _dns.DNSRecord:
+
+DNSRecord
+---------
+
+.. api-section-annotation-hack:: 
+
+An object encapsulating a DNS Record.
+
+.. api-header::
+   :label: object
+
+   .. _dns.DNSRecord.addresses:
+
+   .. api-member::
+      :name: ``addresses``
+      :type: (array of string)
+
+   .. _dns.DNSRecord.isTRR:
+
+   .. api-member::
+      :name: ``isTRR``
+      :type: (string)
+
+      Record retreived with TRR.
+
+   .. _dns.DNSRecord.canonicalName:
+
+   .. api-member::
+      :name: [``canonicalName``]
+      :type: (string, optional)
+
+      The canonical hostname for this record.  this value is empty if the record was not fetched with the 'canonical_name' flag.
+
 .. _dns.ResolveFlags:
 
 ResolveFlags
