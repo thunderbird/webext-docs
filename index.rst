@@ -7,9 +7,9 @@
 
   .. include:: _includes/developer-resources.rst
 
-==================================================
-WebExtension Documentation for Thunderbird 143.0.1
-==================================================
+=====================================
+WebExtension APIs for Thunderbird 143
+=====================================
 
 
 
