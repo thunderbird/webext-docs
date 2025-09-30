@@ -210,13 +210,28 @@ MIME headers, which by default are treated as containing one or more mailbox str
          Supported values:
 
          .. api-member::
+            :name: :value:`approved`
+
+         .. api-member::
             :name: :value:`bcc`
 
          .. api-member::
             :name: :value:`cc`
 
          .. api-member::
+            :name: :value:`delivered-to`
+
+         .. api-member::
+            :name: :value:`disposition-notification-to`
+
+         .. api-member::
             :name: :value:`from`
+
+         .. api-member::
+            :name: :value:`mail-followup-to`
+
+         .. api-member::
+            :name: :value:`mail-reply-to`
 
          .. api-member::
             :name: :value:`reply-to`
@@ -240,28 +255,13 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :name: :value:`resent-to`
 
          .. api-member::
+            :name: :value:`return-receipt-to`
+
+         .. api-member::
             :name: :value:`sender`
 
          .. api-member::
             :name: :value:`to`
-
-         .. api-member::
-            :name: :value:`approved`
-
-         .. api-member::
-            :name: :value:`disposition-notification-to`
-
-         .. api-member::
-            :name: :value:`delivered-to`
-
-         .. api-member::
-            :name: :value:`return-receipt-to`
-
-         .. api-member::
-            :name: :value:`mail-reply-to`
-
-         .. api-member::
-            :name: :value:`mail-followup-to`
 
 .. _messenger^utilities.^parsed^mailbox:
 

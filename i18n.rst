@@ -32,12 +32,10 @@ Manifest file properties
 .. api-member::
    :name: [``default_locale``]
    :type: (string, optional)
-   :annotation: -- [Added in TB true]
 
 .. api-member::
    :name: [``l10n_resources``]
    :type: (array of string, optional)
-   :annotation: -- [Added in TB true]
 
 .. rst-class:: api-main-section
 

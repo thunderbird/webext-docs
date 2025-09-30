@@ -70,10 +70,10 @@ Color management mode.
          Supported values:
 
          .. api-member::
-            :name: :value:`off`
+            :name: :value:`full`
 
          .. api-member::
-            :name: :value:`full`
+            :name: :value:`off`
 
          .. api-member::
             :name: :value:`tagged_only`
@@ -97,10 +97,10 @@ After which mouse event context menus should popup.
          Supported values:
 
          .. api-member::
-            :name: :value:`mouseup`
+            :name: :value:`mousedown`
 
          .. api-member::
-            :name: :value:`mousedown`
+            :name: :value:`mouseup`
 
 .. _browser^settings.^image^animation^behavior:
 
@@ -121,10 +121,10 @@ How images should be animated in the browser.
          Supported values:
 
          .. api-member::
-            :name: :value:`normal`
+            :name: :value:`none`
 
          .. api-member::
-            :name: :value:`none`
+            :name: :value:`normal`
 
          .. api-member::
             :name: :value:`once`

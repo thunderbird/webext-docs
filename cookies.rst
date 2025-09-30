@@ -695,10 +695,10 @@ The underlying reason behind the cookie's change. If a cookie was inserted, or r
             :name: :value:`expired`
 
          .. api-member::
-            :name: :value:`explicit`
+            :name: :value:`expired_overwrite`
 
          .. api-member::
-            :name: :value:`expired_overwrite`
+            :name: :value:`explicit`
 
          .. api-member::
             :name: :value:`overwrite`
@@ -750,13 +750,13 @@ A cookie's 'SameSite' state (https://tools.ietf.org/html/draft-west-first-party-
          Supported values:
 
          .. api-member::
-            :name: :value:`unspecified`
+            :name: :value:`lax`
 
          .. api-member::
             :name: :value:`no_restriction`
 
          .. api-member::
-            :name: :value:`lax`
+            :name: :value:`strict`
 
          .. api-member::
-            :name: :value:`strict`
+            :name: :value:`unspecified`

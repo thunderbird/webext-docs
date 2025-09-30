@@ -48,7 +48,7 @@ repository can be used to obtain a copy of the relevant files.
 
 .. toctree::
   :hidden:
-  :caption: Thunderbird API reference
+  :caption: WebExtension API reference
   
   accounts
   action
@@ -56,14 +56,28 @@ repository can be used to obtain a copy of the relevant files.
   addressBooks.contacts
   addressBooks.mailingLists
   addressBooks.provider
+  alarms
+  browserSettings
+  browserSettings.colorManagement
+  browsingData
+  clipboard
   cloudFile
   commands
   compose
   composeAction
+  contextualIdentities
   cookies
+  declarativeNetRequest
+  dns
+  downloads
+  extension
   folders
+  i18n
   identities
+  identity
+  idle
   mailTabs
+  management
   menus
   messageDisplay
   messageDisplayAction
@@ -71,32 +85,6 @@ repository can be used to obtain a copy of the relevant files.
   messages.tags
   messengerSettings
   messengerUtilities
-  scripting.compose
-  scripting.messageDisplay
-  sessions
-  spaces
-  tabs
-  theme
-  windows
-
-.. toctree::
-  :hidden:
-  :caption: Mozilla API reference
-  
-  alarms
-  browserSettings
-  browserSettings.colorManagement
-  browsingData
-  clipboard
-  contextualIdentities
-  declarativeNetRequest
-  dns
-  downloads
-  extension
-  i18n
-  identity
-  idle
-  management
   notifications
   permissions
   pkcs11
@@ -106,11 +94,17 @@ repository can be used to obtain a copy of the relevant files.
   privacy.websites
   runtime
   scripting
+  scripting.compose
+  scripting.messageDisplay
+  sessions
+  spaces
   storage
+  tabs
+  theme
   userScripts
   webNavigation
   webRequest
-
+  windows
 
 Where to get help and more information
 ======================================

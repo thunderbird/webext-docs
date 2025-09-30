@@ -688,10 +688,10 @@ The type of menu item.
          Supported values:
 
          .. api-member::
-            :name: :value:`normal`
+            :name: :value:`checkbox`
 
          .. api-member::
-            :name: :value:`checkbox`
+            :name: :value:`normal`
 
          .. api-member::
             :name: :value:`radio`
@@ -761,7 +761,7 @@ The path for a menu icon may be a relative path to an icon file, a :value:`moz-e
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: string
@@ -805,9 +805,6 @@ Information sent when a context menu item is clicked.
       Supported values:
 
       .. api-member::
-         :name: :value:`Shift`
-
-      .. api-member::
          :name: :value:`Alt`
 
       .. api-member::
@@ -818,6 +815,9 @@ Information sent when a context menu item is clicked.
 
       .. api-member::
          :name: :value:`MacCtrl`
+
+      .. api-member::
+         :name: :value:`Shift`
 
    .. _menus.^on^click^data.attachments:
 
@@ -864,11 +864,7 @@ Information sent when a context menu item is clicked.
       Supported values:
 
       .. api-member::
-         :name: :value:`composeSubject`
-         :annotation: -- [Added in TB 90]
-
-      .. api-member::
-         :name: :value:`composeTo`
+         :name: :value:`composeBcc`
          :annotation: -- [Added in TB 90]
 
       .. api-member::
@@ -876,7 +872,7 @@ Information sent when a context menu item is clicked.
          :annotation: -- [Added in TB 90]
 
       .. api-member::
-         :name: :value:`composeBcc`
+         :name: :value:`composeNewsgroupTo`
          :annotation: -- [Added in TB 90]
 
       .. api-member::
@@ -884,7 +880,11 @@ Information sent when a context menu item is clicked.
          :annotation: -- [Added in TB 90]
 
       .. api-member::
-         :name: :value:`composeNewsgroupTo`
+         :name: :value:`composeSubject`
+         :annotation: -- [Added in TB 90]
+
+      .. api-member::
+         :name: :value:`composeTo`
          :annotation: -- [Added in TB 90]
 
    .. _menus.^on^click^data.frame^id:
@@ -1064,11 +1064,7 @@ Information sent when a context menu is being shown. Some properties are only in
       Supported values:
 
       .. api-member::
-         :name: :value:`composeSubject`
-         :annotation: -- [Added in TB 98]
-
-      .. api-member::
-         :name: :value:`composeTo`
+         :name: :value:`composeBcc`
          :annotation: -- [Added in TB 98]
 
       .. api-member::
@@ -1076,7 +1072,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :annotation: -- [Added in TB 98]
 
       .. api-member::
-         :name: :value:`composeBcc`
+         :name: :value:`composeNewsgroupTo`
          :annotation: -- [Added in TB 98]
 
       .. api-member::
@@ -1084,7 +1080,11 @@ Information sent when a context menu is being shown. Some properties are only in
          :annotation: -- [Added in TB 98]
 
       .. api-member::
-         :name: :value:`composeNewsgroupTo`
+         :name: :value:`composeSubject`
+         :annotation: -- [Added in TB 98]
+
+      .. api-member::
+         :name: :value:`composeTo`
          :annotation: -- [Added in TB 98]
 
    .. _menus.^on^show^data.frame^url:

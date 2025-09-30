@@ -893,14 +893,14 @@ TransitionQualifier
             :name: :value:`client_redirect`
 
          .. api-member::
-            :name: :value:`server_redirect`
-
-         .. api-member::
             :name: :value:`forward_back`
 
          .. api-member::
             :name: :value:`from_address_bar`
             :annotation: -- [Added in TB 49]
+
+         .. api-member::
+            :name: :value:`server_redirect`
 
 .. _web^navigation.^transition^type:
 
@@ -921,17 +921,6 @@ Cause of the navigation. The same transition types as defined in the history API
          Supported values:
 
          .. api-member::
-            :name: :value:`link`
-
-            .. note::
-
-               Partially supported as the default transition type for top-level frames.
-
-         .. api-member::
-            :name: :value:`typed`
-            :annotation: -- [Added in TB 49]
-
-         .. api-member::
             :name: :value:`auto_bookmark`
             :annotation: -- [Added in TB 49]
 
@@ -943,20 +932,11 @@ Cause of the navigation. The same transition types as defined in the history API
                Partially supported as the default transition type for subframes.
 
          .. api-member::
-            :name: :value:`manual_subframe`
+            :name: :value:`form_submit`
 
          .. api-member::
             :name: :value:`generated`
             :annotation: -- [Added in TB 49]
-
-         .. api-member::
-            :name: :value:`start_page`
-
-         .. api-member::
-            :name: :value:`form_submit`
-
-         .. api-member::
-            :name: :value:`reload`
 
          .. api-member::
             :name: :value:`keyword`
@@ -964,6 +944,26 @@ Cause of the navigation. The same transition types as defined in the history API
 
          .. api-member::
             :name: :value:`keyword_generated`
+
+         .. api-member::
+            :name: :value:`link`
+
+            .. note::
+
+               Partially supported as the default transition type for top-level frames.
+
+         .. api-member::
+            :name: :value:`manual_subframe`
+
+         .. api-member::
+            :name: :value:`reload`
+
+         .. api-member::
+            :name: :value:`start_page`
+
+         .. api-member::
+            :name: :value:`typed`
+            :annotation: -- [Added in TB 49]
 
 .. _web^navigation.^url^filter:
 

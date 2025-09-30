@@ -156,14 +156,14 @@ The type of extension view.
          Supported values:
 
          .. api-member::
-            :name: :value:`tab`
-
-         .. api-member::
             :name: :value:`popup`
 
          .. api-member::
             :name: :value:`sidebar`
             :annotation: -- [Added in TB 54]
+
+         .. api-member::
+            :name: :value:`tab`
 
 .. rst-class:: api-main-section
 

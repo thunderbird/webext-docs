@@ -472,19 +472,19 @@ A supported folder mode in the folder pane.
             :name: :value:`all`
 
          .. api-member::
-            :name: :value:`unified`
+            :name: :value:`favorite`
+
+         .. api-member::
+            :name: :value:`recent`
 
          .. api-member::
             :name: :value:`tags`
 
          .. api-member::
+            :name: :value:`unified`
+
+         .. api-member::
             :name: :value:`unread`
-
-         .. api-member::
-            :name: :value:`favorite`
-
-         .. api-member::
-            :name: :value:`recent`
 
 .. _mail^tabs.^mail^tab:
 
@@ -516,10 +516,10 @@ MailTab
          :name: :value:`standard`
 
       .. api-member::
-         :name: :value:`wide`
+         :name: :value:`vertical`
 
       .. api-member::
-         :name: :value:`vertical`
+         :name: :value:`wide`
 
    .. _mail^tabs.^mail^tab.tab^id:
 
@@ -580,13 +580,13 @@ MailTab
       Supported values:
 
       .. api-member::
-         :name: :value:`ungrouped`
+         :name: :value:`groupedBySortType`
 
       .. api-member::
          :name: :value:`groupedByThread`
 
       .. api-member::
-         :name: :value:`groupedBySortType`
+         :name: :value:`ungrouped`
 
    .. _mail^tabs.^mail^tab.message^pane^visible:
 
@@ -607,13 +607,13 @@ MailTab
       Supported values:
 
       .. api-member::
-         :name: :value:`none`
-
-      .. api-member::
          :name: :value:`ascending`
 
       .. api-member::
          :name: :value:`descending`
+
+      .. api-member::
+         :name: :value:`none`
 
    .. _mail^tabs.^mail^tab.sort^type:
 
@@ -626,64 +626,64 @@ MailTab
       Supported values:
 
       .. api-member::
-         :name: :value:`none`
-
-      .. api-member::
-         :name: :value:`date`
-
-      .. api-member::
-         :name: :value:`subject`
-
-      .. api-member::
-         :name: :value:`author`
-
-      .. api-member::
-         :name: :value:`id`
-
-      .. api-member::
-         :name: :value:`thread`
-
-      .. api-member::
-         :name: :value:`priority`
-
-      .. api-member::
-         :name: :value:`status`
-
-      .. api-member::
-         :name: :value:`size`
-
-      .. api-member::
-         :name: :value:`flagged`
-
-      .. api-member::
-         :name: :value:`unread`
-
-      .. api-member::
-         :name: :value:`recipient`
-
-      .. api-member::
-         :name: :value:`location`
-
-      .. api-member::
-         :name: :value:`tags`
-
-      .. api-member::
-         :name: :value:`junkStatus`
+         :name: :value:`account`
 
       .. api-member::
          :name: :value:`attachments`
 
       .. api-member::
-         :name: :value:`account`
+         :name: :value:`author`
+
+      .. api-member::
+         :name: :value:`correspondent`
 
       .. api-member::
          :name: :value:`custom`
 
       .. api-member::
+         :name: :value:`date`
+
+      .. api-member::
+         :name: :value:`flagged`
+
+      .. api-member::
+         :name: :value:`id`
+
+      .. api-member::
+         :name: :value:`junkStatus`
+
+      .. api-member::
+         :name: :value:`location`
+
+      .. api-member::
+         :name: :value:`none`
+
+      .. api-member::
+         :name: :value:`priority`
+
+      .. api-member::
          :name: :value:`received`
 
       .. api-member::
-         :name: :value:`correspondent`
+         :name: :value:`recipient`
+
+      .. api-member::
+         :name: :value:`size`
+
+      .. api-member::
+         :name: :value:`status`
+
+      .. api-member::
+         :name: :value:`subject`
+
+      .. api-member::
+         :name: :value:`tags`
+
+      .. api-member::
+         :name: :value:`thread`
+
+      .. api-member::
+         :name: :value:`unread`
 
 .. _mail^tabs.^mail^tab^properties:
 
@@ -742,13 +742,13 @@ MailTabProperties
       Supported values:
 
       .. api-member::
-         :name: :value:`ungrouped`
+         :name: :value:`groupedBySortType`
 
       .. api-member::
          :name: :value:`groupedByThread`
 
       .. api-member::
-         :name: :value:`groupedBySortType`
+         :name: :value:`ungrouped`
 
    .. _mail^tabs.^mail^tab^properties.layout:
 
@@ -764,10 +764,10 @@ MailTabProperties
          :name: :value:`standard`
 
       .. api-member::
-         :name: :value:`wide`
+         :name: :value:`vertical`
 
       .. api-member::
-         :name: :value:`vertical`
+         :name: :value:`wide`
 
    .. _mail^tabs.^mail^tab^properties.message^pane^visible:
 
@@ -788,13 +788,13 @@ MailTabProperties
       Supported values:
 
       .. api-member::
-         :name: :value:`none`
-
-      .. api-member::
          :name: :value:`ascending`
 
       .. api-member::
          :name: :value:`descending`
+
+      .. api-member::
+         :name: :value:`none`
 
    .. _mail^tabs.^mail^tab^properties.sort^type:
 
@@ -807,64 +807,64 @@ MailTabProperties
       Supported values:
 
       .. api-member::
-         :name: :value:`none`
-
-      .. api-member::
-         :name: :value:`date`
-
-      .. api-member::
-         :name: :value:`subject`
-
-      .. api-member::
-         :name: :value:`author`
-
-      .. api-member::
-         :name: :value:`id`
-
-      .. api-member::
-         :name: :value:`thread`
-
-      .. api-member::
-         :name: :value:`priority`
-
-      .. api-member::
-         :name: :value:`status`
-
-      .. api-member::
-         :name: :value:`size`
-
-      .. api-member::
-         :name: :value:`flagged`
-
-      .. api-member::
-         :name: :value:`unread`
-
-      .. api-member::
-         :name: :value:`recipient`
-
-      .. api-member::
-         :name: :value:`location`
-
-      .. api-member::
-         :name: :value:`tags`
-
-      .. api-member::
-         :name: :value:`junkStatus`
+         :name: :value:`account`
 
       .. api-member::
          :name: :value:`attachments`
 
       .. api-member::
-         :name: :value:`account`
+         :name: :value:`author`
+
+      .. api-member::
+         :name: :value:`correspondent`
 
       .. api-member::
          :name: :value:`custom`
 
       .. api-member::
+         :name: :value:`date`
+
+      .. api-member::
+         :name: :value:`flagged`
+
+      .. api-member::
+         :name: :value:`id`
+
+      .. api-member::
+         :name: :value:`junkStatus`
+
+      .. api-member::
+         :name: :value:`location`
+
+      .. api-member::
+         :name: :value:`none`
+
+      .. api-member::
+         :name: :value:`priority`
+
+      .. api-member::
          :name: :value:`received`
 
       .. api-member::
-         :name: :value:`correspondent`
+         :name: :value:`recipient`
+
+      .. api-member::
+         :name: :value:`size`
+
+      .. api-member::
+         :name: :value:`status`
+
+      .. api-member::
+         :name: :value:`subject`
+
+      .. api-member::
+         :name: :value:`tags`
+
+      .. api-member::
+         :name: :value:`thread`
+
+      .. api-member::
+         :name: :value:`unread`
 
 .. _mail^tabs.^quick^filter^text^detail:
 

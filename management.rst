@@ -395,10 +395,10 @@ A reason the item is disabled.
          Supported values:
 
          .. api-member::
-            :name: :value:`unknown`
+            :name: :value:`permissions_increase`
 
          .. api-member::
-            :name: :value:`permissions_increase`
+            :name: :value:`unknown`
 
 .. _management.^extension^i^d:
 
@@ -410,7 +410,7 @@ ExtensionID
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: string
@@ -583,19 +583,19 @@ How the extension was installed. One of :value:`development`: The extension was 
          Supported values:
 
          .. api-member::
+            :name: :value:`admin`
+
+         .. api-member::
             :name: :value:`development`
 
          .. api-member::
             :name: :value:`normal`
 
          .. api-member::
-            :name: :value:`sideload`
-
-         .. api-member::
-            :name: :value:`admin`
-
-         .. api-member::
             :name: :value:`other`
+
+         .. api-member::
+            :name: :value:`sideload`
 
 .. _management.^extension^type:
 

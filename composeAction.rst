@@ -49,10 +49,10 @@ Manifest file properties
       Supported values:
 
       .. api-member::
-         :name: :value:`maintoolbar`
+         :name: :value:`formattoolbar`
 
       .. api-member::
-         :name: :value:`formattoolbar`
+         :name: :value:`maintoolbar`
 
    .. api-member::
       :name: [``default_icon``]
@@ -795,7 +795,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 .. api-header::
    :label: object
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`compose^action.^extension^file^url`
@@ -847,9 +847,6 @@ Information sent when a composeAction button is clicked.
       Supported values:
 
       .. api-member::
-         :name: :value:`Shift`
-
-      .. api-member::
          :name: :value:`Alt`
 
       .. api-member::
@@ -866,6 +863,9 @@ Information sent when a composeAction button is clicked.
          :name: :value:`MacCtrl`
 
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
+
+      .. api-member::
+         :name: :value:`Shift`
 
    .. _compose^action.^on^click^data.button:
 

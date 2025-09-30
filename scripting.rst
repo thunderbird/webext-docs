@@ -296,10 +296,10 @@ CSSInjection
       Supported values:
 
       .. api-member::
-         :name: :value:`USER`
+         :name: :value:`AUTHOR`
 
       .. api-member::
-         :name: :value:`AUTHOR`
+         :name: :value:`USER`
 
 .. _scripting.^c^s^s^origin:
 
@@ -320,10 +320,10 @@ The origin of the CSS to inject, this affects the cascading order (priority) of 
          Supported values:
 
          .. api-member::
-            :name: :value:`user`
+            :name: :value:`author`
 
          .. api-member::
-            :name: :value:`author`
+            :name: :value:`user`
 
 .. _scripting.^execution^world:
 
@@ -557,13 +557,13 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          Supported values:
 
          .. api-member::
-            :name: :value:`document_start`
-
-         .. api-member::
             :name: :value:`document_end`
 
          .. api-member::
             :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`
 
 .. _scripting.^script^injection:
 

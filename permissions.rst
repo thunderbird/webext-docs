@@ -278,12 +278,12 @@ MatchPattern
          .. api-member::
             :name: :value:`<all_urls>`
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`permissions.^match^pattern^restricted`
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`permissions.^match^pattern^unestricted`
@@ -300,7 +300,7 @@ Same as MatchPattern above, but excludes <all_urls>
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: string
@@ -327,7 +327,7 @@ OptionalDataCollectionPermission
 .. api-header::
    :label: :ref:`permissions.^common^data^collection^permission`
 
-OR
+*or*
 
 .. api-header::
    :label: `string`
@@ -355,7 +355,7 @@ OptionalOnlyPermission
 
       .. container:: api-member-description-only
 
-         Supported values:
+         No supported values.
 
 .. _permissions.^optional^permission:
 
@@ -367,7 +367,7 @@ OptionalPermission
 .. api-header::
    :label: :ref:`permissions.^optional^permission^no^prompt`
 
-OR
+*or*
 
 .. api-header::
    :label: `string`
@@ -379,16 +379,122 @@ OR
          Supported values:
 
          .. api-member::
+            :name: :value:`accountsFolders`
+            :annotation: -- [Added in TB 68]
+
+         .. api-member::
+            :name: :value:`accountsIdentities`
+            :annotation: -- [Added in TB 91]
+
+         .. api-member::
+            :name: :value:`accountsRead`
+            :annotation: -- [Added in TB 66]
+
+         .. api-member::
+            :name: :value:`addressBooks`
+            :annotation: -- [Added in TB 64]
+
+         .. api-member::
+            :name: :value:`browserSettings`
+
+         .. api-member::
+            :name: :value:`browsingData`
+
+         .. api-member::
             :name: :value:`clipboardRead`
 
          .. api-member::
             :name: :value:`clipboardWrite`
 
          .. api-member::
+            :name: :value:`compose`
+            :annotation: -- [Added in TB 74]
+
+         .. api-member::
+            :name: :value:`compose.save`
+            :annotation: -- [Added in TB 102]
+
+         .. api-member::
+            :name: :value:`compose.send`
+            :annotation: -- [Added in TB 90]
+
+         .. api-member::
+            :name: :value:`declarativeNetRequestFeedback`
+
+         .. api-member::
+            :name: :value:`downloads`
+
+         .. api-member::
+            :name: :value:`downloads.open`
+
+         .. api-member::
             :name: :value:`geolocation`
 
          .. api-member::
+            :name: :value:`management`
+
+         .. api-member::
+            :name: :value:`messagesDelete`
+            :annotation: -- [Added in TB 91]
+
+         .. api-member::
+            :name: :value:`messagesImport`
+            :annotation: -- [Added in TB 106]
+
+         .. api-member::
+            :name: :value:`messagesModifyPermanent`
+            :annotation: -- [Added in TB 123]
+
+         .. api-member::
+            :name: :value:`messagesMove`
+            :annotation: -- [Added in TB 66]
+
+         .. api-member::
+            :name: :value:`messagesRead`
+            :annotation: -- [Added in TB 66]
+
+         .. api-member::
+            :name: :value:`messagesTags`
+            :annotation: -- [Added in TB 102]
+
+         .. api-member::
+            :name: :value:`messagesTagsList`
+            :annotation: -- [Added in TB 122]
+
+         .. api-member::
+            :name: :value:`messagesUpdate`
+            :annotation: -- [Added in TB 122]
+
+         .. api-member::
+            :name: :value:`messengerSettings`
+            :annotation: -- [Added in TB 137]
+
+         .. api-member::
+            :name: :value:`nativeMessaging`
+
+         .. api-member::
             :name: :value:`notifications`
+
+         .. api-member::
+            :name: :value:`pkcs11`
+
+         .. api-member::
+            :name: :value:`privacy`
+
+         .. api-member::
+            :name: :value:`sensitiveDataUpload`
+            :annotation: -- [Added in TB 115]
+
+         .. api-member::
+            :name: :value:`sessions`
+            :annotation: -- [Added in TB 140]
+
+         .. api-member::
+            :name: :value:`tabs`
+            :annotation: -- [Added in TB 62]
+
+         .. api-member::
+            :name: :value:`webNavigation`
 
 .. _permissions.^optional^permission^no^prompt:
 
@@ -419,10 +525,24 @@ Permission
 .. api-header::
    :label: :ref:`permissions.^permission^no^prompt`
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`permissions.^optional^permission`
+
+*or*
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`declarativeNetRequest`
 
 .. _permissions.^permission^no^prompt:
 
@@ -434,12 +554,12 @@ PermissionNoPrompt
 .. api-header::
    :label: :ref:`permissions.^optional^permission^no^prompt`
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`permissions.^permission^privileged`
 
-OR
+*or*
 
 .. api-header::
    :label: `string`
@@ -454,7 +574,27 @@ OR
             :name: :value:`alarms`
 
          .. api-member::
+            :name: :value:`contextualIdentities`
+
+         .. api-member::
+            :name: :value:`declarativeNetRequestWithHostAccess`
+
+         .. api-member::
+            :name: :value:`dns`
+
+         .. api-member::
+            :name: :value:`identity`
+
+         .. api-member::
+            :name: :value:`menus`
+            :annotation: -- [Added in TB 77]
+
+         .. api-member::
             :name: :value:`storage`
+
+         .. api-member::
+            :name: :value:`theme`
+            :annotation: -- [Added in TB 86]
 
          .. api-member::
             :name: :value:`unlimitedStorage`

@@ -42,25 +42,25 @@ Manifest file properties
       Supported values:
 
       .. api-member::
-         :name: :value:`mail`
-
-      .. api-member::
          :name: :value:`addressbook`
 
       .. api-member::
          :name: :value:`calendar`
 
       .. api-member::
-         :name: :value:`tasks`
+         :name: :value:`chat`
 
       .. api-member::
-         :name: :value:`chat`
+         :name: :value:`default`
+
+      .. api-member::
+         :name: :value:`mail`
 
       .. api-member::
          :name: :value:`settings`
 
       .. api-member::
-         :name: :value:`default`
+         :name: :value:`tasks`
 
    .. api-member::
       :name: [``browser_style``]
@@ -114,10 +114,10 @@ Manifest file properties
       Supported values:
 
       .. api-member::
-         :name: :value:`normal`
+         :name: :value:`messageDisplay`
 
       .. api-member::
-         :name: :value:`messageDisplay`
+         :name: :value:`normal`
 
    .. api-member::
       :name: [``theme_icons``]
@@ -829,7 +829,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 .. api-header::
    :label: object
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`action.^extension^file^url`
@@ -881,9 +881,6 @@ Information sent when an action button is clicked.
       Supported values:
 
       .. api-member::
-         :name: :value:`Shift`
-
-      .. api-member::
          :name: :value:`Alt`
 
       .. api-member::
@@ -900,6 +897,9 @@ Information sent when an action button is clicked.
          :name: :value:`MacCtrl`
 
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
+
+      .. api-member::
+         :name: :value:`Shift`
 
    .. _action.^on^click^data.button:
 
