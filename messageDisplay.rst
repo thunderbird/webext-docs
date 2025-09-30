@@ -2,30 +2,39 @@
 
   ≡ messageDisplay API
 
+  * `Permissions`_
   * `Functions`_
   * `Events`_
 
-  .. include:: /overlay/developer-resources.rst
-
-  ≡ Related examples on Github
-
-  * `"Message Display" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/messageDisplay>`__
-  
-.. _messageDisplay_api:
+  .. include:: /_includes/developer-resources.rst
 
 ==================
 messageDisplay API
 ==================
-
-A message can be displayed in either a 3-pane tab, a tab of its own, or in a window of its own.
-All are referenced by ``tabId`` in this API. Display windows are considered to have exactly one
-tab, which has limited functionality compared to tabs from the main window.
 
 .. role:: permission
 
 .. role:: value
 
 .. role:: code
+
+A message can be displayed in either Thunderbird's main mail tab (a.k.a 3-pane tab), a tab of its own, or in a window of its own. All are referenced by :value:`tabId` in this API. Display windows are considered to have exactly one tab, which has limited functionality compared to tabs from the main window.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. api-member::
+   :name: :permission:`messagesRead`
+
+   Read your email messages.
 
 .. rst-class:: api-permission-info
 
@@ -38,32 +47,29 @@ tab, which has limited functionality compared to tabs from the main window.
 Functions
 =========
 
-.. _messageDisplay.getDisplayedMessages:
+.. _message^display.get^displayed^messages:
 
 getDisplayedMessages([tabId])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 81, backported to TB 78.4.0]
+.. api-section-annotation-hack:: -- [Added in TB 81]
 
 Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`messages.MessageList`
-   
-   
+      :type: :ref:`messages.^message^list`
+      :annotation: -- [Added in TB 96]
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -71,7 +77,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
 
    - :permission:`messagesRead`
 
-.. _messageDisplay.open:
+.. _message^display.open:
 
 open(openProperties)
 --------------------
@@ -83,72 +89,63 @@ Opens a message in a new tab or in a new window.
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``openProperties``
       :type: (object)
-      
+
       Settings for opening the message. Exactly one of messageId, headerMessageId or file must be specified.
-      
+
       .. api-member::
          :name: [``active``]
          :type: (boolean, optional)
-         
+
          Whether the new tab should become the active tab in the window. Only applicable to messages opened in tabs.
-      
-      
+
       .. api-member::
          :name: [``file``]
          :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
-         
+         :annotation: -- [Added in TB 114]
+
          The DOM file object of a message to be opened.
-      
-      
+
       .. api-member::
          :name: [``headerMessageId``]
          :type: (string, optional)
-         
+
          The headerMessageId of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`headerMessageId` is unknown or invalid. Not supported for external messages.
-      
-      
+
       .. api-member::
          :name: [``location``]
          :type: (`string`, optional)
-         
+
          Where to open the message. If not specified, the users preference is honoured.
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`tab`
-         
+
          .. api-member::
             :name: :value:`window`
-      
-      
+
       .. api-member::
          :name: [``messageId``]
-         :type: (:ref:`messages.MessageId`, optional)
-         
+         :type: (:ref:`messages.^message^id`, optional)
+
          The id of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`messageId` is unknown or invalid.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
-         
+
          The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`tabs.Tab`
-   
-   
+      :type: :ref:`tabs.^tab`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -161,38 +158,33 @@ Opens a message in a new tab or in a new window.
 Events
 ======
 
-.. _messageDisplay.onMessagesDisplayed:
+.. _message^display.on^messages^displayed:
 
 onMessagesDisplayed
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 81, backported to TB 78.4.0]
+.. api-section-annotation-hack:: -- [Added in TB 81]
 
 Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
 
 .. api-header::
    :label: Parameters for onMessagesDisplayed.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tab, displayedMessages)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-   
-   
+      :type: (:ref:`tabs.^tab`)
+
    .. api-member::
       :name: ``displayedMessages``
-      :type: (:ref:`messages.MessageList`)
-   
+      :type: (:ref:`messages.^message^list`)
 
 .. api-header::
    :label: Required permissions

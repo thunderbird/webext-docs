@@ -3,31 +3,24 @@
   ≡ cloudFile API
 
   * `Manifest file properties`_
+  * `Permissions`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
-  .. include:: /overlay/developer-resources.rst
-
-  ≡ Related information
-
-  * :doc:`/examples/eventListeners`
-
-  ≡ Related examples on Github
-
-  * `"DropBox Uploader" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v3/dropbox>`__
+  .. include:: /_includes/developer-resources.rst
 
 =============
 cloudFile API
 =============
-
-The cloudFile (a.k.a. fileLink) API allows to create a provider to store large attachments in the cloud instead of attaching them directly to the message.
 
 .. role:: permission
 
 .. role:: value
 
 .. role:: code
+
+The cloudFile (a.k.a. fileLink) API allows to create a provider to store large attachments in the cloud instead of attaching them directly to the message.
 
 .. rst-class:: api-main-section
 
@@ -37,57 +30,65 @@ Manifest file properties
 .. api-member::
    :name: [``cloud_file``]
    :type: (object, optional)
-   
+   :annotation: -- [Added in TB 64]
+
    .. api-member::
       :name: ``management_url``
       :type: (string)
-      
-      A page for configuring accounts, to be displayed in the preferences UI. **Note:** Within this UI only a limited subset of the WebExtension APIs is available: :value:`cloudFile`, :value:`extension`, :value:`i18n`, :value:`runtime`, :value:`storage`, :value:`test`.
-   
-   
+      :annotation: -- [Added in TB 64]
+
+      A page for configuring accounts, to be displayed in the preferences UI.
+
+      .. note::
+
+         Within this UI only a limited subset of the WebExtension APIs is available: :value:`cloudFile`, :value:`extension`, :value:`i18n`, :value:`runtime`, :value:`storage`. The id of the to be configured cloud file account can be retrieved via :code:`new URL(location.href).searchParams.get('accountId');`.
+
    .. api-member::
       :name: ``name``
       :type: (string)
-      
+      :annotation: -- [Added in TB 64]
+
       Name of the cloud file service.
-   
-   
+
    .. api-member::
       :name: [``browser_style``]
       :type: (boolean, optional)
       :annotation: -- [Added in TB 90]
-      
-      Enable browser styles in the :value:`management_url` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
-   
-   
+
+      Enable browser styles in the :value:`management_url` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+
    .. api-member::
       :name: [``data_format``]
       :type: (string, optional) **Deprecated.**
-      
-      This property is no longer used. The only supported data format for the :value:`data` argument in :ref:`cloudFile.onFileUpload` is `File <https://developer.mozilla.org/docs/Web/API/File>`__.
-   
-   
+      :annotation: -- [Added in TB 71]
+
+      This property is no longer used. The only supported data format for the :value:`data` argument in :ref:`cloud^file.on^file^upload` is `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__.
+
    .. api-member::
       :name: [``new_account_url``]
       :type: (string, optional) **Deprecated.**
-      
+      :annotation: -- [Added in TB 64]
+
       This property was never used.
-   
-   
+
    .. api-member::
       :name: [``reuse_uploads``]
       :type: (boolean, optional)
       :annotation: -- [Added in TB 98]
-      
-      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloudFile.onFileUpload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloudFile.onFileUpload` event, to let the provider decide how to handle these cases.
-   
-   
+
+      If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloud^file.on^file^upload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloud^file.on^file^upload` event, to let the provider decide how to handle these cases.
+
    .. api-member::
       :name: [``service_url``]
       :type: (string, optional) **Deprecated.**
-      
-      This property is no longer used. The :value:`service_url` property of the :ref:`cloudFile.CloudFileTemplateInfo` object returned by the :ref:`cloudFile.onFileUpload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
-   
+      :annotation: -- [Added in TB 64]
+
+      This property is no longer used. The :value:`service_url` property of the :ref:`cloud^file.^cloud^file^template^info` object returned by the :ref:`cloud^file.on^file^upload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
 
 .. rst-class:: api-permission-info
 
@@ -100,123 +101,110 @@ Manifest file properties
 Functions
 =========
 
-.. _cloudFile.getAccount:
+.. _cloud^file.get^account:
 
 getAccount(accountId)
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Retrieve information about a single cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      
+
       Unique identifier of the account.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`cloudFile.CloudFileAccount`
-   
-   
+      :type: :ref:`cloud^file.^cloud^file^account`
+      :annotation: -- [Added in TB 89]
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _cloudFile.getAllAccounts:
+.. _cloud^file.get^all^accounts:
 
 getAllAccounts()
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Retrieve all cloud file accounts for the current add-on.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`cloudFile.CloudFileAccount`
-   
-   
+      :type: array of :ref:`cloud^file.^cloud^file^account`
+      :annotation: -- [Added in TB 89]
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _cloudFile.updateAccount:
+.. _cloud^file.update^account:
 
 updateAccount(accountId, updateProperties)
 ------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Update a cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      
+
       Unique identifier of the account.
-   
-   
+
    .. api-member::
       :name: ``updateProperties``
       :type: (object)
-      
+
       .. api-member::
          :name: [``configured``]
          :type: (boolean, optional)
-         
+
          If true, the account is configured and ready to use. Only configured accounts are offered to the user.
-      
-      
+
       .. api-member::
          :name: [``managementUrl``]
          :type: (string, optional)
-         
+
          A page for configuring accounts, to be displayed in the preferences UI.
-      
-      
+
       .. api-member::
          :name: [``spaceRemaining``]
          :type: (integer, optional)
-         
+
          The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
-      
-      
+
       .. api-member::
          :name: [``spaceUsed``]
          :type: (integer, optional)
-         
+
          The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
-      
-      
+
       .. api-member::
          :name: [``uploadSizeLimit``]
          :type: (integer, optional)
-         
+
          The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`cloudFile.CloudFileAccount`
-   
-   
+      :type: :ref:`cloud^file.^cloud^file^account`
+      :annotation: -- [Added in TB 89]
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
@@ -224,540 +212,521 @@ Update a cloud file account. Returns :value:`undefined`, if the requested accoun
 Events
 ======
 
-.. _cloudFile.onAccountAdded:
+.. _cloud^file.on^account^added:
 
 onAccountAdded
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Fired when a cloud file account of this add-on was created.
 
 .. api-header::
    :label: Parameters for onAccountAdded.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(account)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
-      The created account.
-   
+      :type: (:ref:`cloud^file.^cloud^file^account`)
 
-.. _cloudFile.onAccountDeleted:
+      The created account.
+
+.. _cloud^file.on^account^deleted:
 
 onAccountDeleted
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Fired when a cloud file account of this add-on was deleted.
 
 .. api-header::
    :label: Parameters for onAccountDeleted.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(accountId)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``accountId``
       :type: (string)
-      
-      The id of the removed account.
-   
 
-.. _cloudFile.onFileDeleted:
+      The id of the removed account.
+
+.. _cloud^file.on^file^deleted:
 
 onFileDeleted
 -------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Fired when a previously uploaded file should be deleted.
 
 .. api-header::
    :label: Parameters for onFileDeleted.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(account, fileId, tab)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
+      :type: (:ref:`cloud^file.^cloud^file^account`)
+
       The account used for the file upload.
-   
-   
+
    .. api-member::
       :name: ``fileId``
       :type: (integer)
-      
+
       An identifier for this file.
-   
-   
+
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 91]
-      
-      The tab where the upload was initiated. Currently only available for the message composer.
-   
 
-.. _cloudFile.onFileRename:
+      The tab where the upload was initiated. Currently only available for the message composer.
+
+.. _cloud^file.on^file^rename:
 
 onFileRename
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 96, backported to TB 91.4.1]
+.. api-section-annotation-hack:: -- [Added in TB 97]
 
 Fired when a previously uploaded file should be renamed.
 
 .. api-header::
    :label: Parameters for onFileRename.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(account, fileId, newName, tab)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
+      :type: (:ref:`cloud^file.^cloud^file^account`)
+
       The account used for the file upload.
-   
-   
+
    .. api-member::
       :name: ``fileId``
       :type: (integer)
-      
+
       An identifier for the file which should be renamed.
-   
-   
+
    .. api-member::
       :name: ``newName``
       :type: (string)
-      
+
       The new name of the file.
-   
-   
+
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      
+      :type: (:ref:`tabs.^tab`)
+
       The tab where the rename was initiated. Currently only available for the message composer.
-   
 
 .. api-header::
    :label: Expected return value of the listener function
 
-   
    .. api-member::
       :type: object
-      
+
       .. api-member::
          :name: [``error``]
          :type: (boolean or string, optional)
-         
+
          Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
-         
-         The URL where the renamed file can be accessed.
-      
-   
 
-.. _cloudFile.onFileUpload:
+         The URL where the renamed file can be accessed.
+
+.. _cloud^file.on^file^upload:
 
 onFileUpload
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Fired when a file should be uploaded to the cloud file provider.
 
 .. api-header::
    :label: Parameters for onFileUpload.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(account, fileInfo, tab, relatedFileInfo)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
+      :type: (:ref:`cloud^file.^cloud^file^account`)
+
       The account used for the file upload.
-   
-   
+
    .. api-member::
       :name: ``fileInfo``
-      :type: (:ref:`cloudFile.CloudFile`)
-      
+      :type: (:ref:`cloud^file.^cloud^file`)
+
       The file to upload.
-   
-   
+
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 91]
-      
+
       The tab where the upload was initiated. Currently only available for the message composer.
-   
-   
+
    .. api-member::
       :name: [``relatedFileInfo``]
-      :type: (:ref:`cloudFile.RelatedCloudFile`, optional)
+      :type: (:ref:`cloud^file.^related^cloud^file`, optional)
       :annotation: -- [Added in TB 98]
-      
+
       Information about an already uploaded file, which is related to this upload.
-   
 
 .. api-header::
    :label: Expected return value of the listener function
 
-   
    .. api-member::
       :type: object
-      
+
       .. api-member::
          :name: [``aborted``]
          :type: (boolean, optional)
-         
-         Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloudFile.onFileUploadAbort` event has been received. No error message will be shown to the user.
-      
-      
+
+         Set this to :value:`true` if the file upload was aborted by the user and an :ref:`cloud^file.on^file^upload^abort` event has been received. No error message will be shown to the user.
+
       .. api-member::
          :name: [``error``]
          :type: (boolean or string, optional)
-         :annotation: -- [Added in TB 96]
-         
+         :annotation: -- [Added in TB 97]
+
          Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
-      
-      
+
       .. api-member::
          :name: [``templateInfo``]
-         :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
-         :annotation: -- [Added in TB 96, backported to TB 91.4.1]
-         
+         :type: (:ref:`cloud^file.^cloud^file^template^info`, optional)
+         :annotation: -- [Added in TB 96]
+
          Additional file information used in the cloud file entry added to the message.
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
-         
-         The URL where the uploaded file can be accessed.
-      
-   
 
-.. _cloudFile.onFileUploadAbort:
+         The URL where the uploaded file can be accessed.
+
+.. _cloud^file.on^file^upload^abort:
 
 onFileUploadAbort
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 .. api-header::
    :label: Parameters for onFileUploadAbort.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(account, fileId, tab)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``account``
-      :type: (:ref:`cloudFile.CloudFileAccount`)
-      
+      :type: (:ref:`cloud^file.^cloud^file^account`)
+
       The account used for the file upload.
-   
-   
+
    .. api-member::
       :name: ``fileId``
       :type: (integer)
-      
+
       An identifier for this file.
-   
-   
+
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
+      :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 91]
-      
+
       The tab where the upload was initiated. Currently only available for the message composer.
-   
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
-.. _cloudFile.CloudFile:
+.. _cloud^file.^cloud^file:
 
 CloudFile
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Information about a cloud file.
 
 .. api-header::
    :label: object
 
-   
+   .. _cloud^file.^cloud^file.data:
+
    .. api-member::
       :name: ``data``
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
-      
+
       Contents of the file to be transferred.
-   
-   
+
+   .. _cloud^file.^cloud^file.id:
+
    .. api-member::
       :name: ``id``
       :type: (integer)
-      
+
       An identifier for this file.
-   
-   
+
+   .. _cloud^file.^cloud^file.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
-      
-      Filename of the file to be transferred.
-   
 
-.. _cloudFile.CloudFileAccount:
+      Filename of the file to be transferred.
+
+.. _cloud^file.^cloud^file^account:
 
 CloudFileAccount
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 64]
 
 Information about a cloud file account.
 
 .. api-header::
    :label: object
 
-   
+   .. _cloud^file.^cloud^file^account.configured:
+
    .. api-member::
       :name: ``configured``
       :type: (boolean)
-      
+
       If true, the account is configured and ready to use. Only configured accounts are offered to the user.
-   
-   
+
+   .. _cloud^file.^cloud^file^account.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
-      
+
       Unique identifier of the account.
-   
-   
+
+   .. _cloud^file.^cloud^file^account.management^url:
+
    .. api-member::
       :name: ``managementUrl``
       :type: (string)
-      
+
       A page for configuring accounts, to be displayed in the preferences UI.
-   
-   
+
+   .. _cloud^file.^cloud^file^account.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
-      
+
       A user-friendly name for this account.
-   
-   
+
+   .. _cloud^file.^cloud^file^account.space^remaining:
+
    .. api-member::
       :name: [``spaceRemaining``]
       :type: (integer, optional)
-      
+
       The amount of remaining space on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
-   
-   
+
+   .. _cloud^file.^cloud^file^account.space^used:
+
    .. api-member::
       :name: [``spaceUsed``]
       :type: (integer, optional)
-      
+
       The amount of space already used on the cloud provider, in bytes. Set to :value:`-1` if unsupported.
-   
-   
+
+   .. _cloud^file.^cloud^file^account.upload^size^limit:
+
    .. api-member::
       :name: [``uploadSizeLimit``]
       :type: (integer, optional)
-      
-      The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
-   
 
-.. _cloudFile.CloudFileTemplateInfo:
+      The maximum size in bytes for a single file to upload. Set to :value:`-1` if unlimited.
+
+.. _cloud^file.^cloud^file^template^info:
 
 CloudFileTemplateInfo
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 97]
+.. api-section-annotation-hack:: -- [Added in TB 96]
 
 Defines information to be used in the cloud file entry added to the message.
 
 .. api-header::
    :label: object
 
-   
+   .. _cloud^file.^cloud^file^template^info.download_expiry_date:
+
    .. api-member::
       :name: [``download_expiry_date``]
       :type: (object, optional)
-      :annotation: -- [Added in TB 98]
-      
+      :annotation: -- [Added in TB 97]
+
       If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
-      
+
       .. api-member::
          :name: ``timestamp``
          :type: (integer)
-         
+         :annotation: -- [Added in TB 97]
+
          The expiry date of the link as the number of milliseconds since the UNIX epoch.
-      
-      
+
       .. api-member::
          :name: [``format``]
          :type: (object, optional)
-         
-         A format options object as used by `Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__. Defaults to: 
-         
-         .. literalinclude:: includes/cloudFile/defaultDateFormat.js
-           :language: JavaScript
-         
-         
-      
-   
-   
+         :annotation: -- [Added in TB 97]
+
+         A format options object as used by `Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__.
+
+         Defaults to:
+
+         .. code-block:: JSON
+
+            {
+              "day": "2-digit",
+              "month": "2-digit",
+              "year": "numeric",
+              "hour": "2-digit",
+              "minute": "2-digit",
+              "timeZoneName": "short"
+            }
+
+   .. _cloud^file.^cloud^file^template^info.download_limit:
+
    .. api-member::
       :name: [``download_limit``]
       :type: (integer, optional)
-      :annotation: -- [Added in TB 98]
-      
+      :annotation: -- [Added in TB 97]
+
       If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
-   
-   
+
+   .. _cloud^file.^cloud^file^template^info.download_password_protected:
+
    .. api-member::
       :name: [``download_password_protected``]
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 98]
-      
+      :annotation: -- [Added in TB 97]
+
       If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
-   
-   
+
+   .. _cloud^file.^cloud^file^template^info.service_icon:
+
    .. api-member::
       :name: [``service_icon``]
       :type: (string, optional)
-      
+
       A URL pointing to an icon to represent the used cloud file service. Defaults to the icon of the provider add-on.
-   
-   
+
+   .. _cloud^file.^cloud^file^template^info.service_name:
+
    .. api-member::
       :name: [``service_name``]
       :type: (string, optional)
-      
+
       A name to represent the used cloud file service. Defaults to the associated cloud file account name.
-   
-   
+
+   .. _cloud^file.^cloud^file^template^info.service_url:
+
    .. api-member::
       :name: [``service_url``]
       :type: (string, optional)
-      
-      A URL pointing to a web page of the used cloud file service. Will be used in a *Learn more about* link in the footer of the cloud file attachment element.
-   
 
-.. _cloudFile.RelatedCloudFile:
+      A URL pointing to a web page of the used cloud file service. Will be used in a *Learn more about* link in the footer of the cloud file attachment element.
+
+.. _cloud^file.^related^cloud^file:
 
 RelatedCloudFile
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 98]
 
 Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
 
 .. api-header::
    :label: object
 
-   
+   .. _cloud^file.^related^cloud^file.data^changed:
+
    .. api-member::
       :name: ``dataChanged``
       :type: (boolean)
-      
+
       The content of the new upload differs from the related file.
-   
-   
+
+   .. _cloud^file.^related^cloud^file.name:
+
    .. api-member::
       :name: ``name``
       :type: (string)
-      
+
       Filename of the related file.
-   
-   
+
+   .. _cloud^file.^related^cloud^file.id:
+
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
-      
+
       The identifier for the related file. In some circumstances, the id is unavailable.
-   
-   
+
+   .. _cloud^file.^related^cloud^file.template^info:
+
    .. api-member::
       :name: [``templateInfo``]
-      :type: (:ref:`cloudFile.CloudFileTemplateInfo`, optional)
-      
+      :type: (:ref:`cloud^file.^cloud^file^template^info`, optional)
+
       Additional information of the related file, used in the cloud file entry added to the message.
-   
-   
+
+   .. _cloud^file.^related^cloud^file.url:
+
    .. api-member::
       :name: [``url``]
       :type: (string, optional)
-      
+
       The URL where the upload of the related file can be accessed.
-   
