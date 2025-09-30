@@ -19,8 +19,6 @@ compose API
 
 .. role:: code
 
-The compose API allows to interact with the message composition window.
-
 .. rst-class:: api-main-section
 
 Permissions
@@ -120,10 +118,10 @@ Open a new message compose window forwarding a given message.
       Supported values:
 
       .. api-member::
-         :name: :value:`forwardInline`
+         :name: :value:`forwardAsAttachment`
 
       .. api-member::
-         :name: :value:`forwardAsAttachment`
+         :name: :value:`forwardInline`
 
    .. api-member::
       :name: [``details``]
@@ -203,13 +201,13 @@ Open a new message compose window replying to a given message.
       Supported values:
 
       .. api-member::
-         :name: :value:`replyToSender`
+         :name: :value:`replyToAll`
 
       .. api-member::
          :name: :value:`replyToList`
 
       .. api-member::
-         :name: :value:`replyToAll`
+         :name: :value:`replyToSender`
 
    .. api-member::
       :name: [``details``]
@@ -488,10 +486,10 @@ Sends the message currently being composed. If the send mode is not specified or
             :name: :value:`default`
 
          .. api-member::
-            :name: :value:`sendNow`
+            :name: :value:`sendLater`
 
          .. api-member::
-            :name: :value:`sendLater`
+            :name: :value:`sendNow`
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -516,10 +514,10 @@ Sends the message currently being composed. If the send mode is not specified or
          Supported values:
 
          .. api-member::
-            :name: :value:`sendNow`
+            :name: :value:`sendLater`
 
          .. api-member::
-            :name: :value:`sendLater`
+            :name: :value:`sendNow`
 
       .. api-member::
          :name: [``headerMessageId``]
@@ -774,10 +772,10 @@ Fired when sending a message succeeded or failed.
          Supported values:
 
          .. api-member::
-            :name: :value:`sendNow`
+            :name: :value:`sendLater`
 
          .. api-member::
-            :name: :value:`sendLater`
+            :name: :value:`sendNow`
 
       .. api-member::
          :name: [``error``]
@@ -1114,13 +1112,13 @@ Used by various functions to represent the state of a message being composed. No
          :name: :value:`auto`
 
       .. api-member::
-         :name: :value:`plaintext`
+         :name: :value:`both`
 
       .. api-member::
          :name: :value:`html`
 
       .. api-member::
-         :name: :value:`both`
+         :name: :value:`plaintext`
 
    .. _compose.^compose^details.delivery^status^notification:
 
@@ -1211,19 +1209,19 @@ Used by various functions to represent the state of a message being composed. No
       Supported values:
 
       .. api-member::
-         :name: :value:`lowest`
+         :name: :value:`high`
+
+      .. api-member::
+         :name: :value:`highest`
 
       .. api-member::
          :name: :value:`low`
 
       .. api-member::
+         :name: :value:`lowest`
+
+      .. api-member::
          :name: :value:`normal`
-
-      .. api-member::
-         :name: :value:`high`
-
-      .. api-member::
-         :name: :value:`highest`
 
    .. _compose.^compose^details.related^message^id:
 
@@ -1285,6 +1283,9 @@ Used by various functions to represent the state of a message being composed. No
          :name: :value:`draft`
 
       .. api-member::
+         :name: :value:`forward`
+
+      .. api-member::
          :name: :value:`new`
 
       .. api-member::
@@ -1293,9 +1294,6 @@ Used by various functions to represent the state of a message being composed. No
 
       .. api-member::
          :name: :value:`reply`
-
-      .. api-member::
-         :name: :value:`forward`
 
 .. _compose.^compose^dictionaries:
 
@@ -1325,7 +1323,7 @@ ComposeRecipient
 
          A name and email address in the format :value:`Name <email@example.com>`, or just an email address.
 
-OR
+*or*
 
 .. api-header::
    :label: object
@@ -1365,7 +1363,7 @@ ComposeRecipientList
 .. api-header::
    :label: :ref:`compose.^compose^recipient`
 
-OR
+*or*
 
 .. api-header::
    :label: array of :ref:`compose.^compose^recipient`

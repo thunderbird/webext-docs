@@ -1804,10 +1804,10 @@ CertificateTransparencyStatus
             :name: :value:`policy_compliant`
 
          .. api-member::
-            :name: :value:`policy_not_enough_scts`
+            :name: :value:`policy_not_diverse_scts`
 
          .. api-member::
-            :name: :value:`policy_not_diverse_scts`
+            :name: :value:`policy_not_enough_scts`
 
 .. _web^request.^http^headers:
 
@@ -1838,13 +1838,13 @@ OnAuthRequiredOptions
          Supported values:
 
          .. api-member::
-            :name: :value:`responseHeaders`
+            :name: :value:`asyncBlocking`
 
          .. api-member::
             :name: :value:`blocking`
 
          .. api-member::
-            :name: :value:`asyncBlocking`
+            :name: :value:`responseHeaders`
 
 .. _web^request.^on^before^redirect^options:
 
@@ -1904,10 +1904,10 @@ OnBeforeSendHeadersOptions
          Supported values:
 
          .. api-member::
-            :name: :value:`requestHeaders`
+            :name: :value:`blocking`
 
          .. api-member::
-            :name: :value:`blocking`
+            :name: :value:`requestHeaders`
 
 .. _web^request.^on^completed^options:
 
@@ -2067,59 +2067,19 @@ ResourceType
          Supported values:
 
          .. api-member::
-            :name: :value:`main_frame`
-
-         .. api-member::
-            :name: :value:`sub_frame`
-
-         .. api-member::
-            :name: :value:`stylesheet`
-
-         .. api-member::
-            :name: :value:`script`
-
-         .. api-member::
-            :name: :value:`image`
-
-         .. api-member::
-            :name: :value:`object`
-
-         .. api-member::
-            :name: :value:`xmlhttprequest`
-
-         .. api-member::
-            :name: :value:`xslt`
-
-         .. api-member::
-            :name: :value:`ping`
-
-         .. api-member::
             :name: :value:`beacon`
-
-         .. api-member::
-            :name: :value:`xml_dtd`
-
-         .. api-member::
-            :name: :value:`font`
-
-         .. api-member::
-            :name: :value:`media`
-
-         .. api-member::
-            :name: :value:`websocket`
 
          .. api-member::
             :name: :value:`csp_report`
 
          .. api-member::
+            :name: :value:`font`
+
+         .. api-member::
+            :name: :value:`image`
+
+         .. api-member::
             :name: :value:`imageset`
-
-         .. api-member::
-            :name: :value:`web_manifest`
-
-         .. api-member::
-            :name: :value:`speculative`
-            :annotation: -- [Added in TB 63]
 
          .. api-member::
             :name: :value:`json`
@@ -2130,7 +2090,47 @@ ResourceType
                The "json" property is supported from Thunderbird 135, but requests of this type are only available from Thunderbird 138.
 
          .. api-member::
+            :name: :value:`main_frame`
+
+         .. api-member::
+            :name: :value:`media`
+
+         .. api-member::
+            :name: :value:`object`
+
+         .. api-member::
             :name: :value:`other`
+
+         .. api-member::
+            :name: :value:`ping`
+
+         .. api-member::
+            :name: :value:`script`
+
+         .. api-member::
+            :name: :value:`speculative`
+            :annotation: -- [Added in TB 63]
+
+         .. api-member::
+            :name: :value:`stylesheet`
+
+         .. api-member::
+            :name: :value:`sub_frame`
+
+         .. api-member::
+            :name: :value:`web_manifest`
+
+         .. api-member::
+            :name: :value:`websocket`
+
+         .. api-member::
+            :name: :value:`xml_dtd`
+
+         .. api-member::
+            :name: :value:`xmlhttprequest`
+
+         .. api-member::
+            :name: :value:`xslt`
 
 .. _web^request.^security^info:
 
@@ -2161,16 +2161,16 @@ Contains the security properties of the request (ie. SSL/TLS information).
       Supported values:
 
       .. api-member::
-         :name: :value:`insecure`
-
-      .. api-member::
-         :name: :value:`weak`
-
-      .. api-member::
          :name: :value:`broken`
 
       .. api-member::
+         :name: :value:`insecure`
+
+      .. api-member::
          :name: :value:`secure`
+
+      .. api-member::
+         :name: :value:`weak`
 
    .. _web^request.^security^info.certificate^transparency^status:
 
@@ -2259,13 +2259,13 @@ Contains the security properties of the request (ie. SSL/TLS information).
       Supported values:
 
       .. api-member::
-         :name: :value:`trust_error`
-
-      .. api-member::
          :name: :value:`domain_mismatch`
 
       .. api-member::
          :name: :value:`expired_or_not_yet_valid`
+
+      .. api-member::
+         :name: :value:`trust_error`
 
    .. _web^request.^security^info.protocol^version:
 
@@ -2445,10 +2445,19 @@ Tracking flags that match our internal tracking classification
          Supported values:
 
          .. api-member::
-            :name: :value:`fingerprinting`
+            :name: :value:`antifraud`
 
          .. api-member::
-            :name: :value:`fingerprinting_content`
+            :name: :value:`any_basic_tracking`
+
+         .. api-member::
+            :name: :value:`any_social_tracking`
+
+         .. api-member::
+            :name: :value:`any_strict_tracking`
+
+         .. api-member::
+            :name: :value:`consentmanager`
 
          .. api-member::
             :name: :value:`cryptomining`
@@ -2463,6 +2472,12 @@ Tracking flags that match our internal tracking classification
             :name: :value:`emailtracking_content`
 
          .. api-member::
+            :name: :value:`fingerprinting`
+
+         .. api-member::
+            :name: :value:`fingerprinting_content`
+
+         .. api-member::
             :name: :value:`tracking`
 
          .. api-member::
@@ -2472,25 +2487,10 @@ Tracking flags that match our internal tracking classification
             :name: :value:`tracking_analytics`
 
          .. api-member::
-            :name: :value:`tracking_social`
-
-         .. api-member::
             :name: :value:`tracking_content`
 
          .. api-member::
-            :name: :value:`any_basic_tracking`
-
-         .. api-member::
-            :name: :value:`any_strict_tracking`
-
-         .. api-member::
-            :name: :value:`any_social_tracking`
-
-         .. api-member::
-            :name: :value:`consentmanager`
-
-         .. api-member::
-            :name: :value:`antifraud`
+            :name: :value:`tracking_social`
 
 .. _web^request.^url^classification^party:
 

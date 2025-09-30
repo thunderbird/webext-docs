@@ -313,7 +313,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 .. api-header::
    :label: object
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`spaces.^extension^file^url`
@@ -460,13 +460,13 @@ Properties for the new tab being opened by clicking on the associated button in 
       Supported values:
 
       .. api-member::
-         :name: :value:`strict`
-
-      .. api-member::
          :name: :value:`balanced`
 
       .. api-member::
          :name: :value:`relaxed`
+
+      .. api-member::
+         :name: :value:`strict`
 
    .. _spaces.^space^tab^properties.url:
 

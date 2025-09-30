@@ -34,7 +34,6 @@ Manifest file properties
 .. api-member::
    :name: [``declarative_net_request``]
    :type: (object, optional)
-   :annotation: -- [Added in TB true]
 
    .. api-member::
       :name: ``rule_resources``
@@ -570,61 +569,19 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
          Supported values:
 
          .. api-member::
-            :name: :value:`main_frame`
-
-         .. api-member::
-            :name: :value:`sub_frame`
-
-         .. api-member::
-            :name: :value:`stylesheet`
-
-         .. api-member::
-            :name: :value:`script`
-
-         .. api-member::
-            :name: :value:`image`
-
-         .. api-member::
-            :name: :value:`object`
-
-         .. api-member::
-            :name: :value:`object_subrequest`
-
-         .. api-member::
-            :name: :value:`xmlhttprequest`
-
-         .. api-member::
-            :name: :value:`xslt`
-
-         .. api-member::
-            :name: :value:`ping`
-
-         .. api-member::
             :name: :value:`beacon`
-
-         .. api-member::
-            :name: :value:`xml_dtd`
-
-         .. api-member::
-            :name: :value:`font`
-
-         .. api-member::
-            :name: :value:`media`
-
-         .. api-member::
-            :name: :value:`websocket`
 
          .. api-member::
             :name: :value:`csp_report`
 
          .. api-member::
+            :name: :value:`font`
+
+         .. api-member::
+            :name: :value:`image`
+
+         .. api-member::
             :name: :value:`imageset`
-
-         .. api-member::
-            :name: :value:`web_manifest`
-
-         .. api-member::
-            :name: :value:`speculative`
 
          .. api-member::
             :name: :value:`json`
@@ -635,7 +592,49 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
                The "json" property is supported from Thunderbird 135, but requests of this type are only available from Thunderbird 138.
 
          .. api-member::
+            :name: :value:`main_frame`
+
+         .. api-member::
+            :name: :value:`media`
+
+         .. api-member::
+            :name: :value:`object`
+
+         .. api-member::
+            :name: :value:`object_subrequest`
+
+         .. api-member::
             :name: :value:`other`
+
+         .. api-member::
+            :name: :value:`ping`
+
+         .. api-member::
+            :name: :value:`script`
+
+         .. api-member::
+            :name: :value:`speculative`
+
+         .. api-member::
+            :name: :value:`stylesheet`
+
+         .. api-member::
+            :name: :value:`sub_frame`
+
+         .. api-member::
+            :name: :value:`web_manifest`
+
+         .. api-member::
+            :name: :value:`websocket`
+
+         .. api-member::
+            :name: :value:`xml_dtd`
+
+         .. api-member::
+            :name: :value:`xmlhttprequest`
+
+         .. api-member::
+            :name: :value:`xslt`
 
 .. _declarative^net^request.^rule:
 
@@ -662,22 +661,22 @@ Rule
          Supported values:
 
          .. api-member::
-            :name: :value:`block`
-
-         .. api-member::
-            :name: :value:`redirect`
-
-         .. api-member::
             :name: :value:`allow`
 
          .. api-member::
-            :name: :value:`upgradeScheme`
+            :name: :value:`allowAllRequests`
+
+         .. api-member::
+            :name: :value:`block`
 
          .. api-member::
             :name: :value:`modifyHeaders`
 
          .. api-member::
-            :name: :value:`allowAllRequests`
+            :name: :value:`redirect`
+
+         .. api-member::
+            :name: :value:`upgradeScheme`
 
       .. api-member::
          :name: [``redirect``]
@@ -856,10 +855,10 @@ Describes the reason why a given regular expression isn't supported.
          Supported values:
 
          .. api-member::
-            :name: :value:`syntaxError`
+            :name: :value:`memoryLimitExceeded`
 
          .. api-member::
-            :name: :value:`memoryLimitExceeded`
+            :name: :value:`syntaxError`
 
 .. _declarative^net^request.^u^r^l^transform:
 

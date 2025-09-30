@@ -176,7 +176,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
       :name: [``preserveGroups``]
       :type: (boolean, optional)
 
-      Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+      Keep grouped hierachies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -210,13 +210,28 @@ MIME headers, which by default are treated as containing one or more mailbox str
          Supported values:
 
          .. api-member::
+            :name: :value:`approved`
+
+         .. api-member::
             :name: :value:`bcc`
 
          .. api-member::
             :name: :value:`cc`
 
          .. api-member::
+            :name: :value:`delivered-to`
+
+         .. api-member::
+            :name: :value:`disposition-notification-to`
+
+         .. api-member::
             :name: :value:`from`
+
+         .. api-member::
+            :name: :value:`mail-followup-to`
+
+         .. api-member::
+            :name: :value:`mail-reply-to`
 
          .. api-member::
             :name: :value:`reply-to`
@@ -240,28 +255,13 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :name: :value:`resent-to`
 
          .. api-member::
+            :name: :value:`return-receipt-to`
+
+         .. api-member::
             :name: :value:`sender`
 
          .. api-member::
             :name: :value:`to`
-
-         .. api-member::
-            :name: :value:`approved`
-
-         .. api-member::
-            :name: :value:`disposition-notification-to`
-
-         .. api-member::
-            :name: :value:`delivered-to`
-
-         .. api-member::
-            :name: :value:`return-receipt-to`
-
-         .. api-member::
-            :name: :value:`mail-reply-to`
-
-         .. api-member::
-            :name: :value:`mail-followup-to`
 
 .. _messenger^utilities.^parsed^mailbox:
 

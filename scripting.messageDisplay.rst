@@ -222,10 +222,10 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          Supported values:
 
          .. api-member::
-            :name: :value:`document_start`
-
-         .. api-member::
             :name: :value:`document_end`
 
          .. api-member::
             :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`

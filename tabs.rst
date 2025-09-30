@@ -155,13 +155,13 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
          Supported values:
 
          .. api-member::
-            :name: :value:`strict`
-
-         .. api-member::
             :name: :value:`balanced`
 
          .. api-member::
             :name: :value:`relaxed`
+
+         .. api-member::
+            :name: :value:`strict`
 
       .. api-member::
          :name: [``selected``]
@@ -1003,10 +1003,10 @@ Whether the tabs have completed loading.
          Supported values:
 
          .. api-member::
-            :name: :value:`loading`
+            :name: :value:`complete`
 
          .. api-member::
-            :name: :value:`complete`
+            :name: :value:`loading`
 
 .. _tabs.^tab^type:
 
@@ -1145,15 +1145,6 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
          Supported values:
 
          .. api-member::
-            :name: :value:`normal`
-
-         .. api-member::
-            :name: :value:`popup`
-
-         .. api-member::
-            :name: :value:`panel`
-
-         .. api-member::
             :name: :value:`app`
 
          .. api-member::
@@ -1166,6 +1157,15 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
          .. api-member::
             :name: :value:`messageDisplay`
             :annotation: -- [Added in TB 88]
+
+         .. api-member::
+            :name: :value:`normal`
+
+         .. api-member::
+            :name: :value:`panel`
+
+         .. api-member::
+            :name: :value:`popup`
 
 .. rst-class:: api-main-section
 

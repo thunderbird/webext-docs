@@ -92,7 +92,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
    .. api-member::
       :type: :ref:`runtime.^port`
 
-      Port through which messages can be sent and received. The port's :ref:`runtime.^porton^disconnect` event is fired if the extension/app does not exist.
+      Port through which messages can be sent and received. The port's :ref:`runtime.^port on^disconnect` event is fired if the extension/app does not exist.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -1171,13 +1171,13 @@ The reason that this event is being dispatched.
          Supported values:
 
          .. api-member::
+            :name: :value:`browser_update`
+
+         .. api-member::
             :name: :value:`install`
 
          .. api-member::
             :name: :value:`update`
-
-         .. api-member::
-            :name: :value:`browser_update`
 
 .. _runtime.^on^performance^warning^category:
 
@@ -1219,13 +1219,13 @@ The performance warning event severity. Will be 'high' for serious and user-visi
          Supported values:
 
          .. api-member::
+            :name: :value:`high`
+
+         .. api-member::
             :name: :value:`low`
 
          .. api-member::
             :name: :value:`medium`
-
-         .. api-member::
-            :name: :value:`high`
 
 .. _runtime.^on^restart^required^reason:
 
@@ -1279,10 +1279,10 @@ The machine's processor architecture.
             :name: :value:`arm`
 
          .. api-member::
-            :name: :value:`ppc64`
+            :name: :value:`noarch`
 
          .. api-member::
-            :name: :value:`riscv64`
+            :name: :value:`ppc64`
 
          .. api-member::
             :name: :value:`s390x`
@@ -1295,9 +1295,6 @@ The machine's processor architecture.
 
          .. api-member::
             :name: :value:`x86-64`
-
-         .. api-member::
-            :name: :value:`noarch`
 
 .. _runtime.^platform^info:
 
@@ -1354,12 +1351,6 @@ The operating system the browser is running on.
          Supported values:
 
          .. api-member::
-            :name: :value:`mac`
-
-         .. api-member::
-            :name: :value:`win`
-
-         .. api-member::
             :name: :value:`android`
 
          .. api-member::
@@ -1369,7 +1360,13 @@ The operating system the browser is running on.
             :name: :value:`linux`
 
          .. api-member::
+            :name: :value:`mac`
+
+         .. api-member::
             :name: :value:`openbsd`
+
+         .. api-member::
+            :name: :value:`win`
 
 .. _runtime.^port:
 
@@ -1440,10 +1437,10 @@ Result of the update check.
          Supported values:
 
          .. api-member::
-            :name: :value:`throttled`
+            :name: :value:`no_update`
 
          .. api-member::
-            :name: :value:`no_update`
+            :name: :value:`throttled`
 
          .. api-member::
             :name: :value:`update_available`

@@ -296,34 +296,10 @@ CSSInjection
       Supported values:
 
       .. api-member::
-         :name: :value:`USER`
-
-      .. api-member::
          :name: :value:`AUTHOR`
 
-.. _scripting.^c^s^s^origin:
-
-CSSOrigin
----------
-
-.. api-section-annotation-hack:: -- [Added in TB 53]
-
-The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. api-member::
-            :name: :value:`user`
-
-         .. api-member::
-            :name: :value:`author`
+      .. api-member::
+         :name: :value:`USER`
 
 .. _scripting.^execution^world:
 
@@ -466,12 +442,6 @@ RegisteredContentScript
 
       The list of CSS files to be injected into matching pages. These are injected in the order they appear in this array.
 
-   .. _scripting.^registered^content^script.css^origin:
-
-   .. api-member::
-      :name: [``cssOrigin``]
-      :type: (:ref:`scripting.^c^s^s^origin`, optional)
-
    .. _scripting.^registered^content^script.exclude^matches:
 
    .. api-member::
@@ -557,13 +527,13 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          Supported values:
 
          .. api-member::
-            :name: :value:`document_start`
-
-         .. api-member::
             :name: :value:`document_end`
 
          .. api-member::
             :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`
 
 .. _scripting.^script^injection:
 

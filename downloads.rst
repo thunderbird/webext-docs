@@ -643,14 +643,7 @@ These string constants will never change, however the set of DangerTypes may cha
          Supported values:
 
          .. api-member::
-            :name: :value:`file`
-
-            The download's filename is suspicious.
-
-         .. api-member::
-            :name: :value:`url`
-
-            The download's URL is known to be malicious.
+            :name: :value:`accepted`
 
          .. api-member::
             :name: :value:`content`
@@ -658,15 +651,12 @@ These string constants will never change, however the set of DangerTypes may cha
             The downloaded file is known to be malicious.
 
          .. api-member::
-            :name: :value:`uncommon`
+            :name: :value:`file`
 
-            The download's URL is not commonly downloaded and could be dangerous.
+            The download's filename is suspicious.
 
          .. api-member::
             :name: :value:`host`
-
-         .. api-member::
-            :name: :value:`unwanted`
 
          .. api-member::
             :name: :value:`safe`
@@ -674,7 +664,17 @@ These string constants will never change, however the set of DangerTypes may cha
             The download presents no known danger to the user's computer.
 
          .. api-member::
-            :name: :value:`accepted`
+            :name: :value:`uncommon`
+
+            The download's URL is not commonly downloaded and could be dangerous.
+
+         .. api-member::
+            :name: :value:`unwanted`
+
+         .. api-member::
+            :name: :value:`url`
+
+            The download's URL is known to be malicious.
 
 .. _downloads.^double^delta:
 
@@ -1103,7 +1103,7 @@ A time specified as a Date object, a number or string representing milliseconds 
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: `Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__
@@ -1125,13 +1125,13 @@ FilenameConflictAction
          Supported values:
 
          .. api-member::
-            :name: :value:`uniquify`
-
-         .. api-member::
             :name: :value:`overwrite`
 
          .. api-member::
             :name: :value:`prompt`
+
+         .. api-member::
+            :name: :value:`uniquify`
 
 .. _downloads.^interrupt^reason:
 
@@ -1154,76 +1154,76 @@ InterruptReason
          Supported values:
 
          .. api-member::
-            :name: :value:`FILE_FAILED`
+            :name: :value:`CRASH`
 
          .. api-member::
             :name: :value:`FILE_ACCESS_DENIED`
 
          .. api-member::
-            :name: :value:`FILE_NO_SPACE`
+            :name: :value:`FILE_BLOCKED`
+
+         .. api-member::
+            :name: :value:`FILE_FAILED`
 
          .. api-member::
             :name: :value:`FILE_NAME_TOO_LONG`
 
          .. api-member::
-            :name: :value:`FILE_TOO_LARGE`
-
-         .. api-member::
-            :name: :value:`FILE_VIRUS_INFECTED`
-
-         .. api-member::
-            :name: :value:`FILE_TRANSIENT_ERROR`
-
-         .. api-member::
-            :name: :value:`FILE_BLOCKED`
+            :name: :value:`FILE_NO_SPACE`
 
          .. api-member::
             :name: :value:`FILE_SECURITY_CHECK_FAILED`
 
          .. api-member::
+            :name: :value:`FILE_TOO_LARGE`
+
+         .. api-member::
             :name: :value:`FILE_TOO_SHORT`
 
          .. api-member::
-            :name: :value:`NETWORK_FAILED`
+            :name: :value:`FILE_TRANSIENT_ERROR`
 
          .. api-member::
-            :name: :value:`NETWORK_TIMEOUT`
+            :name: :value:`FILE_VIRUS_INFECTED`
 
          .. api-member::
             :name: :value:`NETWORK_DISCONNECTED`
 
          .. api-member::
-            :name: :value:`NETWORK_SERVER_DOWN`
+            :name: :value:`NETWORK_FAILED`
 
          .. api-member::
             :name: :value:`NETWORK_INVALID_REQUEST`
 
          .. api-member::
-            :name: :value:`SERVER_FAILED`
+            :name: :value:`NETWORK_SERVER_DOWN`
 
          .. api-member::
-            :name: :value:`SERVER_NO_RANGE`
+            :name: :value:`NETWORK_TIMEOUT`
 
          .. api-member::
             :name: :value:`SERVER_BAD_CONTENT`
 
          .. api-member::
-            :name: :value:`SERVER_UNAUTHORIZED`
-
-         .. api-member::
             :name: :value:`SERVER_CERT_PROBLEM`
 
          .. api-member::
+            :name: :value:`SERVER_FAILED`
+
+         .. api-member::
             :name: :value:`SERVER_FORBIDDEN`
+
+         .. api-member::
+            :name: :value:`SERVER_NO_RANGE`
+
+         .. api-member::
+            :name: :value:`SERVER_UNAUTHORIZED`
 
          .. api-member::
             :name: :value:`USER_CANCELED`
 
          .. api-member::
             :name: :value:`USER_SHUTDOWN`
-
-         .. api-member::
-            :name: :value:`CRASH`
 
 .. _downloads.^state:
 
@@ -1244,6 +1244,11 @@ These string constants will never change, however the set of States may change.
          Supported values:
 
          .. api-member::
+            :name: :value:`complete`
+
+            The download completed successfully.
+
+         .. api-member::
             :name: :value:`in_progress`
 
             The download is currently receiving data from the server.
@@ -1252,11 +1257,6 @@ These string constants will never change, however the set of States may change.
             :name: :value:`interrupted`
 
             An error broke the connection with the file host.
-
-         .. api-member::
-            :name: :value:`complete`
-
-            The download completed successfully.
 
 .. _downloads.^string^delta:
 

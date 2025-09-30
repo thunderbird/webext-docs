@@ -1436,6 +1436,9 @@ Represents an email message "part", which could be the whole message.
       Supported values:
 
       .. api-member::
+         :name: :value:`fail`
+
+      .. api-member::
          :name: :value:`none`
 
       .. api-member::
@@ -1443,9 +1446,6 @@ Represents an email message "part", which could be the whole message.
 
       .. api-member::
          :name: :value:`success`
-
-      .. api-member::
-         :name: :value:`fail`
 
    .. _messages.^message^part.headers:
 

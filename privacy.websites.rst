@@ -77,13 +77,13 @@ The settings for cookies.
          :name: :value:`allow_all`
 
       .. api-member::
+         :name: :value:`allow_visited`
+
+      .. api-member::
          :name: :value:`reject_all`
 
       .. api-member::
          :name: :value:`reject_third_party`
-
-      .. api-member::
-         :name: :value:`allow_visited`
 
       .. api-member::
          :name: :value:`reject_trackers`

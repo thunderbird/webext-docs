@@ -126,13 +126,13 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          Supported values:
 
          .. api-member::
-            :name: :value:`strict`
-
-         .. api-member::
             :name: :value:`balanced`
 
          .. api-member::
             :name: :value:`relaxed`
+
+         .. api-member::
+            :name: :value:`strict`
 
       .. api-member::
          :name: [``state``]
@@ -291,7 +291,7 @@ Gets the window that was most recently focused — typically the window 'on top'
 openDefaultBrowser(url)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84]
+.. api-section-annotation-hack:: -- [Added in TB 85]
 
 Opens the provided URL in the default system browser.
 
@@ -505,14 +505,14 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          Supported values:
 
          .. api-member::
+            :name: :value:`detached_panel`
+
+            Not supported, same as :value:`popup`
+
+         .. api-member::
             :name: :value:`normal`
 
             A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
-
-         .. api-member::
-            :name: :value:`popup`
-
-            A non-modal stand-alone popup window.
 
          .. api-member::
             :name: :value:`panel`
@@ -520,9 +520,9 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
             Not supported, same as :value:`popup`
 
          .. api-member::
-            :name: :value:`detached_panel`
+            :name: :value:`popup`
 
-            Not supported, same as :value:`popup`
+            A non-modal stand-alone popup window.
 
 .. _windows.^get^info:
 
@@ -677,19 +677,19 @@ The state of this window.
          Supported values:
 
          .. api-member::
-            :name: :value:`normal`
-
-         .. api-member::
-            :name: :value:`minimized`
-
-         .. api-member::
-            :name: :value:`maximized`
+            :name: :value:`docked`
 
          .. api-member::
             :name: :value:`fullscreen`
 
          .. api-member::
-            :name: :value:`docked`
+            :name: :value:`maximized`
+
+         .. api-member::
+            :name: :value:`minimized`
+
+         .. api-member::
+            :name: :value:`normal`
 
 .. _windows.^window^type:
 
@@ -710,16 +710,6 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          Supported values:
 
          .. api-member::
-            :name: :value:`normal`
-
-            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
-
-         .. api-member::
-            :name: :value:`popup`
-
-            A non-modal stand-alone popup window.
-
-         .. api-member::
             :name: :value:`messageCompose`
             :annotation: -- [Added in TB 70]
 
@@ -730,6 +720,16 @@ The type of a window. Under some circumstances a window may not be assigned a ty
             :annotation: -- [Added in TB 70]
 
             A non-modal stand-alone message display window, viewing a single message.
+
+         .. api-member::
+            :name: :value:`normal`
+
+            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
+
+         .. api-member::
+            :name: :value:`popup`
+
+            A non-modal stand-alone popup window.
 
 .. rst-class:: api-main-section
 

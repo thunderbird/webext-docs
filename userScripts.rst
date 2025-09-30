@@ -287,12 +287,12 @@ MatchPattern
          .. api-member::
             :name: :value:`<all_urls>`
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`user^scripts.^match^pattern^restricted`
 
-OR
+*or*
 
 .. api-header::
    :label: :ref:`user^scripts.^match^pattern^unestricted`
@@ -309,7 +309,7 @@ Same as MatchPattern above, but excludes <all_urls>
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: string
@@ -433,13 +433,13 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          Supported values:
 
          .. api-member::
-            :name: :value:`document_start`
-
-         .. api-member::
             :name: :value:`document_end`
 
          .. api-member::
             :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`
 
 .. _user^scripts.^script^source:
 
@@ -463,7 +463,7 @@ Object with file xor code property. Equivalent to the ExtensionFileOrCode, excep
 
             The path of the JavaScript file to inject relative to the extension's root directory.
 
-OR
+*or*
 
 .. api-header::
    :label: object

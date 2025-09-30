@@ -489,10 +489,10 @@ PermissionLevel
          Supported values:
 
          .. api-member::
-            :name: :value:`granted`
+            :name: :value:`denied`
 
          .. api-member::
-            :name: :value:`denied`
+            :name: :value:`granted`
 
 .. _notifications.^template^type:
 

@@ -73,10 +73,10 @@ The mode for https-only mode.
             :name: :value:`always`
 
          .. api-member::
-            :name: :value:`private_browsing`
+            :name: :value:`never`
 
          .. api-member::
-            :name: :value:`never`
+            :name: :value:`private_browsing`
 
 .. _privacy.network.^i^p^handling^policy:
 

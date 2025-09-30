@@ -226,7 +226,7 @@ Defines a color value.
 
           * :value:`hsl(348, 83%, 47%)` (or :value:`hsla(348, 83%, 47%, 0.5)` to set 50% opacity)
 
-OR
+*or*
 
 .. api-header::
    :label: array of integer
@@ -237,7 +237,7 @@ OR
 
          An RGB array of 3 integers. For example :value:`[220, 20, 60]` for the color *crimson*.
 
-OR
+*or*
 
 .. api-header::
    :label: array of number
@@ -715,15 +715,6 @@ Contains the color, image and property settings of a theme.
             :name: :value:`center`
 
          .. api-member::
-            :name: :value:`left`
-
-         .. api-member::
-            :name: :value:`right`
-
-         .. api-member::
-            :name: :value:`top`
-
-         .. api-member::
             :name: :value:`center bottom`
 
          .. api-member::
@@ -731,6 +722,9 @@ Contains the color, image and property settings of a theme.
 
          .. api-member::
             :name: :value:`center top`
+
+         .. api-member::
+            :name: :value:`left`
 
          .. api-member::
             :name: :value:`left bottom`
@@ -742,6 +736,9 @@ Contains the color, image and property settings of a theme.
             :name: :value:`left top`
 
          .. api-member::
+            :name: :value:`right`
+
+         .. api-member::
             :name: :value:`right bottom`
 
          .. api-member::
@@ -749,6 +746,9 @@ Contains the color, image and property settings of a theme.
 
          .. api-member::
             :name: :value:`right top`
+
+         .. api-member::
+            :name: :value:`top`
 
       .. api-member::
          :name: [``additional_backgrounds_tiling``]
@@ -778,13 +778,13 @@ Contains the color, image and property settings of a theme.
          Supported values:
 
          .. api-member::
-            :name: :value:`light`
+            :name: :value:`auto`
 
          .. api-member::
             :name: :value:`dark`
 
          .. api-member::
-            :name: :value:`auto`
+            :name: :value:`light`
 
       .. api-member::
          :name: [``content_color_scheme``]
@@ -796,13 +796,13 @@ Contains the color, image and property settings of a theme.
          Supported values:
 
          .. api-member::
-            :name: :value:`light`
+            :name: :value:`auto`
 
          .. api-member::
             :name: :value:`dark`
 
          .. api-member::
-            :name: :value:`auto`
+            :name: :value:`light`
 
 .. _theme.^theme^update^info:
 

@@ -366,25 +366,25 @@ Get one of the special unified mailbox folders, which are virtual search folders
       Supported values:
 
       .. api-member::
-         :name: :value:`inbox`
+         :name: :value:`archives`
 
       .. api-member::
          :name: :value:`drafts`
 
       .. api-member::
-         :name: :value:`sent`
+         :name: :value:`inbox`
 
       .. api-member::
-         :name: :value:`trash`
+         :name: :value:`junk`
+
+      .. api-member::
+         :name: :value:`sent`
 
       .. api-member::
          :name: :value:`templates`
 
       .. api-member::
-         :name: :value:`archives`
-
-      .. api-member::
-         :name: :value:`junk`
+         :name: :value:`trash`
 
    .. api-member::
       :name: [``includeSubFolders``]
@@ -1223,10 +1223,10 @@ An object containing quota information.
       Supported values:
 
       .. api-member::
-         :name: :value:`STORAGE`
+         :name: :value:`MESSAGE`
 
       .. api-member::
-         :name: :value:`MESSAGE`
+         :name: :value:`STORAGE`
 
    .. _folders.^mail^folder^quota.unused:
 
@@ -1263,28 +1263,28 @@ Supported values for the special use of a folder.
          Supported values:
 
          .. api-member::
-            :name: :value:`inbox`
+            :name: :value:`archives`
 
          .. api-member::
             :name: :value:`drafts`
 
          .. api-member::
-            :name: :value:`sent`
-
-         .. api-member::
-            :name: :value:`trash`
-
-         .. api-member::
-            :name: :value:`templates`
-
-         .. api-member::
-            :name: :value:`archives`
+            :name: :value:`inbox`
 
          .. api-member::
             :name: :value:`junk`
 
          .. api-member::
             :name: :value:`outbox`
+
+         .. api-member::
+            :name: :value:`sent`
+
+         .. api-member::
+            :name: :value:`templates`
+
+         .. api-member::
+            :name: :value:`trash`
 
 .. _folders.^query^date^range:
 
@@ -1308,7 +1308,7 @@ An object defining a range for a date value to be used in queries.
 
             Whether the date must be considered to be recent by Thunderbird (within the last month) or not, to match the query.
 
-OR
+*or*
 
 .. api-header::
    :label: object

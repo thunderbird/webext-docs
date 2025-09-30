@@ -688,10 +688,10 @@ The type of menu item.
          Supported values:
 
          .. api-member::
-            :name: :value:`normal`
+            :name: :value:`checkbox`
 
          .. api-member::
-            :name: :value:`checkbox`
+            :name: :value:`normal`
 
          .. api-member::
             :name: :value:`radio`
@@ -761,7 +761,7 @@ The path for a menu icon may be a relative path to an icon file, a :value:`moz-e
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: string
@@ -805,9 +805,6 @@ Information sent when a context menu item is clicked.
       Supported values:
 
       .. api-member::
-         :name: :value:`Shift`
-
-      .. api-member::
          :name: :value:`Alt`
 
       .. api-member::
@@ -818,6 +815,9 @@ Information sent when a context menu item is clicked.
 
       .. api-member::
          :name: :value:`MacCtrl`
+
+      .. api-member::
+         :name: :value:`Shift`
 
    .. _menus.^on^click^data.attachments:
 
@@ -864,11 +864,7 @@ Information sent when a context menu item is clicked.
       Supported values:
 
       .. api-member::
-         :name: :value:`composeSubject`
-         :annotation: -- [Added in TB 90]
-
-      .. api-member::
-         :name: :value:`composeTo`
+         :name: :value:`composeBcc`
          :annotation: -- [Added in TB 90]
 
       .. api-member::
@@ -876,7 +872,7 @@ Information sent when a context menu item is clicked.
          :annotation: -- [Added in TB 90]
 
       .. api-member::
-         :name: :value:`composeBcc`
+         :name: :value:`composeNewsgroupTo`
          :annotation: -- [Added in TB 90]
 
       .. api-member::
@@ -884,7 +880,11 @@ Information sent when a context menu item is clicked.
          :annotation: -- [Added in TB 90]
 
       .. api-member::
-         :name: :value:`composeNewsgroupTo`
+         :name: :value:`composeSubject`
+         :annotation: -- [Added in TB 90]
+
+      .. api-member::
+         :name: :value:`composeTo`
          :annotation: -- [Added in TB 90]
 
    .. _menus.^on^click^data.frame^id:
@@ -950,7 +950,7 @@ Information sent when a context menu item is clicked.
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128]
 
-      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
    .. _menus.^on^click^data.selected^messages:
 
@@ -958,7 +958,7 @@ Information sent when a context menu item is clicked.
       :name: [``selectedMessages``]
       :type: (:ref:`messages.^message^list`, optional)
 
-      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbird's UI, which may not be the currently selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
+      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
 
    .. _menus.^on^click^data.selection^text:
 
@@ -1064,11 +1064,7 @@ Information sent when a context menu is being shown. Some properties are only in
       Supported values:
 
       .. api-member::
-         :name: :value:`composeSubject`
-         :annotation: -- [Added in TB 98]
-
-      .. api-member::
-         :name: :value:`composeTo`
+         :name: :value:`composeBcc`
          :annotation: -- [Added in TB 98]
 
       .. api-member::
@@ -1076,7 +1072,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :annotation: -- [Added in TB 98]
 
       .. api-member::
-         :name: :value:`composeBcc`
+         :name: :value:`composeNewsgroupTo`
          :annotation: -- [Added in TB 98]
 
       .. api-member::
@@ -1084,7 +1080,11 @@ Information sent when a context menu is being shown. Some properties are only in
          :annotation: -- [Added in TB 98]
 
       .. api-member::
-         :name: :value:`composeNewsgroupTo`
+         :name: :value:`composeSubject`
+         :annotation: -- [Added in TB 98]
+
+      .. api-member::
+         :name: :value:`composeTo`
          :annotation: -- [Added in TB 98]
 
    .. _menus.^on^show^data.frame^url:
@@ -1150,7 +1150,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128]
 
-      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
    .. _menus.^on^show^data.selected^messages:
 
@@ -1158,7 +1158,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :name: [``selectedMessages``]
       :type: (:ref:`messages.^message^list`, optional)
 
-      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbird's UI, which may not be the currently selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
+      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
 
    .. _menus.^on^show^data.selection^text:
 
