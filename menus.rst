@@ -8,25 +8,11 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
-
-  ≡ Related information
-  
-  * :doc:`/examples/eventListeners`
-
-  ≡ Related examples on Github
-
-  * `"Quickfilter" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/quickfilter>`__
-  * `"Menu" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/menu>`__
+  .. include:: /_includes/developer-resources.rst
 
 =========
 menus API
 =========
-
-The menus API is basically the same as the `Firefox menus API`__, but modified to suit Thunderbird.
-Note that Thunderbird does not include the *contextMenus* alias for this API.
-
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus
 
 .. role:: permission
 
@@ -34,18 +20,55 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/me
 
 .. role:: code
 
-The menus API allows to add items to Thunderbird's menus. You can choose what types of objects your context menu additions apply to, such as images, hyperlinks, and pages.
+The part of the menus API that is available in all extension contexts, including content scripts.
+
+Thunderbird's menus API is similar to the `Firefox menus API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus>`__, but has been adapted to better suit Thunderbird's specific needs.
 
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. api-member::
+   :name: :permission:`accountsRead`
+
+   See your mail accounts, their identities and their folders.
+
+.. api-member::
+   :name: :permission:`activeTab`
+
+   Grant host permission to the currently active tab, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
+
+.. api-member::
+   :name: :permission:`compose`
+
+   Read and modify your email messages as you compose and send them.
+
 .. api-member::
    :name: :permission:`menus`
 
+   Grant access to some or all methods of the menus API.
+
 .. api-member::
    :name: :permission:`menus.overrideContext`
+
+   Grant access to the :code:`menus.overrideContext()` method, hiding all default context menu entries and overriding the entire context menu.
+
+.. api-member::
+   :name: :permission:`messagesRead`
+
+   Read your email messages.
+
+.. api-member::
+   :name: :permission:`tabs`
+
+   Grant host permission to all active and inactive tabs, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
 .. rst-class:: api-permission-info
 
@@ -63,134 +86,115 @@ Functions
 create(createProperties, [callback])
 ------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__).
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``createProperties``
       :type: (object)
-      
+
       .. api-member::
          :name: [``checked``]
          :type: (boolean, optional)
-         
+
          The initial state of a checkbox or radio item: :value:`true` for selected and :value:`false` for unselected. Only one radio item can be selected at a time in a given group of radio items.
-      
-      
+
       .. api-member::
          :name: [``command``]
-         :type: (string or :ref:`menus.MenuActionCommand`, optional)
-         
+         :type: (string or :ref:`menus.^menu^action^command`, optional)
+
          Specifies a command to issue for the context click. Can either be a user defined command, or one of the predefined action commands.
-      
-      
+
       .. api-member::
          :name: [``contexts``]
-         :type: (array of :ref:`menus.ContextType`, optional)
-         
+         :type: (array of :ref:`menus.^context^type`, optional)
+
          List of contexts this menu item will appear in. Defaults to :value:`['page']` if not specified.
-      
-      
+
       .. api-member::
          :name: [``documentUrlPatterns``]
          :type: (array of string, optional)
-         
+
          Lets you restrict the item to apply only to documents whose URL matches one of the given patterns. (This applies to frames as well.) For details on the format of a pattern, see `Match Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__.
-      
-      
+
       .. api-member::
          :name: [``enabled``]
          :type: (boolean, optional)
-         
+
          Whether this context menu item is enabled or disabled. Defaults to true.
-      
-      
+
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
-         
+         :type: (:ref:`menus.^menu^icon^path` or :ref:`menus.^menu^icon^dictionary`, optional)
+
          Custom icons to display next to the menu item. Custom icons can only be set for items appearing in submenus.
-      
-      
+
       .. api-member::
          :name: [``id``]
          :type: (string, optional)
-         
+
          The unique ID to assign to this item. Mandatory for event pages. Cannot be the same as another ID for this extension.
-      
-      
+
       .. api-member::
          :name: [``onclick``]
          :type: (function, optional)
-         
+
          A function that will be called back when the menu item is clicked. Event pages cannot use this.
-      
-      
+
       .. api-member::
          :name: [``parentId``]
          :type: (integer or string, optional)
-         
+
          The ID of a parent menu item; this makes the item a child of a previously added item.
-      
-      
+
       .. api-member::
          :name: [``targetUrlPatterns``]
          :type: (array of string, optional)
-         
+
          Similar to documentUrlPatterns, but lets you filter based on the src attribute of img/audio/video tags and the href of anchor tags.
-      
-      
+
       .. api-member::
          :name: [``title``]
          :type: (string, optional)
-         
+
          The text to be displayed in the item; this is *required* unless :value:`type` is :value:`separator`. When the context is :value:`selection`, you can use :value:`%s` within the string to show the selected text. For example, if this parameter's value is :value:`Translate '%s' to Latin` and the user selects the word :value:`cool`, the context menu item for the selection is :value:`Translate 'cool' to Latin`. To specify an access key for the new menu entry, include a :value:`&` before the desired letter in the title. For example :value:`&Help`.
-      
-      
+
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`menus.ItemType`, optional)
-         
+         :type: (:ref:`menus.^item^type`, optional)
+
          The type of menu item. Defaults to :value:`normal` if not specified.
-      
-      
+
       .. api-member::
          :name: [``viewTypes``]
-         :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__, optional)
-         
+         :type: (array of :ref:`extension.^view^type`, optional)
+
          List of view types where the menu item will be shown. Defaults to any view, including those without a viewType.
-      
-      
+
       .. api-member::
          :name: [``visible``]
          :type: (boolean, optional)
-         
+
          Whether the item is visible in the menu.
-      
-   
-   
+
    .. api-member::
       :name: [``callback``]
       :type: (function, optional)
-      
+
       Called when the item has been created in the browser. If there were any problems creating the item, details will be available in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: integer or string
-      
+
       The ID of the newly created item.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -198,34 +202,30 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 
    - :permission:`menus`
 
-.. _menus.getTargetElement:
+.. _menus.get^target^element:
 
 getTargetElement(targetElementId)
 ---------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``targetElementId``
       :type: (integer)
-      
-      The identifier of the clicked element, available as :value:`info.targetElementId` in the :ref:`menus.onShown` and :ref:`menus.onClicked` events.
-   
+
+      The identifier of the clicked element, available as :value:`info.targetElementId` in the :ref:`menus.on^shown` and :ref:`menus.on^clicked` events.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: `Element <https://developer.mozilla.org/en-US/docs/Web/API/Element>`__
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -233,49 +233,44 @@ Retrieve the element that was associated with a recent `contextmenu <https://dev
 
    - :permission:`menus`
 
-.. _menus.overrideContext:
+.. _menus.override^context:
 
 overrideContext(contextOptions)
 -------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``contextOptions``
       :type: (object)
-      
+
       .. api-member::
          :name: [``context``]
          :type: (`string`, optional)
-         
+
          ContextType to override, to allow menu items from other extensions in the menu. Currently only :value:`tab` is supported. :value:`contextOptions.showDefaults` cannot be used with this option.
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`tab`
-      
-      
+
       .. api-member::
          :name: [``showDefaults``]
          :type: (boolean, optional)
-         
+
          Whether to also include default menu items in the menu.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          Required when context is :value:`tab`. Requires the :permission:`tabs` permission.
-      
-   
 
 .. api-header::
    :label: Required permissions
@@ -288,7 +283,7 @@ Show the matching menu items from this extension instead of the default menu. Th
 refresh()
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Updates the extension items in the shown menu, including changes that have been made since the menu was shown. Has no effect if the menu is hidden. Rebuilding a shown menu is an expensive operation, only invoke this method when necessary.
 
@@ -302,32 +297,30 @@ Updates the extension items in the shown menu, including changes that have been 
 remove(menuItemId)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Removes a context menu item.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``menuItemId``
       :type: (integer or string)
-      
+
       The ID of the context menu item to remove.
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`menus`
 
-.. _menus.removeAll:
+.. _menus.remove^all:
 
 removeAll()
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Removes all context menu items added by this extension.
 
@@ -341,91 +334,76 @@ Removes all context menu items added by this extension.
 update(id, updateProperties)
 ----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Updates a previously created context menu item.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``id``
       :type: (integer or string)
-      
+
       The ID of the item to update.
-   
-   
+
    .. api-member::
       :name: ``updateProperties``
       :type: (object)
-      
+
       The properties to update. Accepts the same values as the create function.
-      
+
       .. api-member::
          :name: [``checked``]
          :type: (boolean, optional)
-      
-      
+
       .. api-member::
          :name: [``contexts``]
-         :type: (array of :ref:`menus.ContextType`, optional)
-      
-      
+         :type: (array of :ref:`menus.^context^type`, optional)
+
       .. api-member::
          :name: [``documentUrlPatterns``]
          :type: (array of string, optional)
-      
-      
+
       .. api-member::
          :name: [``enabled``]
          :type: (boolean, optional)
-      
-      
+
       .. api-member::
          :name: [``icons``]
-         :type: (:ref:`menus.MenuIconPath` or :ref:`menus.MenuIconDictionary`, optional)
-      
-      
+         :type: (:ref:`menus.^menu^icon^path` or :ref:`menus.^menu^icon^dictionary`, optional)
+
       .. api-member::
          :name: [``onclick``]
          :type: (function, optional)
-      
-      
+
       .. api-member::
          :name: [``parentId``]
          :type: (integer or string, optional)
-         
-         **Note:** You cannot change an item to be a child of one of its own descendants.
-      
-      
+
+         The hierarchical parent of the element. Updating an element to become a child of its own descendants is not supported.
+
       .. api-member::
          :name: [``targetUrlPatterns``]
          :type: (array of string, optional)
-      
-      
+
       .. api-member::
          :name: [``title``]
          :type: (string, optional)
-      
-      
+
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`menus.ItemType`, optional)
-      
-      
+         :type: (:ref:`menus.^item^type`, optional)
+
       .. api-member::
          :name: [``viewTypes``]
-         :type: (array of `ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__, optional)
-      
-      
+         :type: (array of :ref:`extension.^view^type`, optional)
+
       .. api-member::
          :name: [``visible``]
          :type: (boolean, optional)
-         
+
          Whether the item is visible in the menu.
-      
-   
 
 .. api-header::
    :label: Required permissions
@@ -437,108 +415,96 @@ Updates a previously created context menu item.
 Events
 ======
 
-.. _menus.onClicked:
+.. _menus.on^clicked:
 
 onClicked
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(info, tab)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``info``
-      :type: (:ref:`menus.OnClickData`)
-      
+      :type: (:ref:`menus.^on^click^data`)
+
       Information about the item clicked and the context where the click happened.
-   
-   
+
    .. api-member::
       :name: [``tab``]
-      :type: (:ref:`tabs.Tab`, optional)
-      
+      :type: (:ref:`tabs.^tab`, optional)
+
       The details of the tab where the click took place. If the click did not take place in a tab, this parameter will be missing.
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`menus`
 
-.. _menus.onHidden:
+.. _menus.on^hidden:
 
 onHidden
 --------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Fired when a menu is hidden. This event is only fired if onShown has fired before.
 
 .. api-header::
    :label: Parameters for onHidden.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener()``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`menus`
 
-.. _menus.onShown:
+.. _menus.on^shown:
 
 onShown
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Fired when a menu is shown. The extension can add, modify or remove menu items and call :ref:`menus.refresh` to update the menu.
 
 .. api-header::
    :label: Parameters for onShown.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(info, tab)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``info``
-      :type: (:ref:`menus.OnShowData`)
-      
+      :type: (:ref:`menus.^on^show^data`)
+
       Information about the context of the menu action and the created menu items.
-   
-   
+
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      
+      :type: (:ref:`tabs.^tab`)
+
       The details of the tab where the menu was opened.
-   
 
 .. api-header::
    :label: Required permissions
@@ -550,640 +516,728 @@ Fired when a menu is shown. The extension can add, modify or remove menu items a
 Types
 =====
 
-.. _menus.ContextType:
+.. _menus.^context^type:
 
 ContextType
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`all`
-         
+
             Equivalent to the combination of all other contexts except for :value:`tab` and :value:`tools_menu`.
-         
+
          .. api-member::
             :name: :value:`all_message_attachments`
-         
+            :annotation: -- [Added in TB 98]
+
             Applies when the user context-clicks the summary of the message attachments of a displayed message with more than one attachment.
-         
+
          .. api-member::
             :name: :value:`audio`
-         
+
             Applies when the user context-clicks an audio element.
-         
+
          .. api-member::
             :name: :value:`browser_action`
-         
+
             Applies when the user context-clicks a browserAction button.
-         
+
          .. api-member::
             :name: :value:`browser_action_menu`
-            :annotation: -- [Added in TB 115]
-         
+            :annotation: -- [Added in TB 90]
+
             Applies when the user opened a browserAction button of type :value:`menu`.
-         
+
          .. api-member::
             :name: :value:`compose_action`
             :annotation: -- [Added in TB 89]
-         
+
             Applies when the user context-clicks a composeAction button.
-         
+
          .. api-member::
             :name: :value:`compose_action_menu`
-            :annotation: -- [Added in TB 115]
-         
+            :annotation: -- [Added in TB 90]
+
             Applies when the user opened a composeAction button of type :value:`menu`.
-         
+
          .. api-member::
             :name: :value:`compose_attachments`
-            :annotation: -- [Added in TB 83, backported to TB 78.5.0]
-         
+            :annotation: -- [Added in TB 83]
+
             Applies when the user context-clicks an attachment in the compose window.
-         
+
          .. api-member::
             :name: :value:`compose_body`
-            :annotation: -- [Added in TB 115]
-         
+            :annotation: -- [Added in TB 111]
+
             Applies when the user context-clicks in the compose editor.
-         
+
          .. api-member::
             :name: :value:`editable`
-         
+
             Applies when the user context-clicks an editable element, like a textarea.
-         
+
          .. api-member::
             :name: :value:`folder_pane`
-         
+
             Applies when the user context-clicks in the folder pane of the main Thunderbird window.
-         
+
          .. api-member::
             :name: :value:`frame`
-         
+
             Applies when the user context-clicks in a nested iframe.
-         
+
+         .. api-member::
+            :name: :value:`header_pane_link`
+            :annotation: -- [Added in TB 137]
+
          .. api-member::
             :name: :value:`image`
-         
+
             Applies when the user context-clicks an image.
-         
+
          .. api-member::
             :name: :value:`link`
-         
+
             Applies when the user context-clicks on a link.
-         
+
          .. api-member::
             :name: :value:`message_attachments`
-         
+            :annotation: -- [Added in TB 98]
+
             Applies when the user context-clicks a single attachment of a displayed message.
-         
+
          .. api-member::
             :name: :value:`message_display_action`
             :annotation: -- [Added in TB 89]
-         
+
             Applies when the user context-clicks a messageDisplayAction button.
-         
+
          .. api-member::
             :name: :value:`message_display_action_menu`
-            :annotation: -- [Added in TB 115]
-         
+            :annotation: -- [Added in TB 90]
+
             Applies when the user opened a messageDisplayAction button of type :value:`menu`.
-         
+
          .. api-member::
             :name: :value:`message_list`
-         
+
             Applies when the user context-clicks in the message list (a.k.a. thread pane) of the main Thunderbird window.
-         
+
          .. api-member::
             :name: :value:`page`
-         
+
             Applies when the user context-clicks in the page, but none of the other page contexts apply (for example, the click is not on an image or a nested iframe or a link).
-         
+
          .. api-member::
             :name: :value:`password`
-         
+
             Applies when the user context-clicks on a password input element.
-         
+
          .. api-member::
             :name: :value:`selection`
-         
+
             Applies when part of the page is selected.
-         
+
          .. api-member::
             :name: :value:`tab`
-         
+
             Applies when the user context-clicks on a tab (specifically, this refers to the tab-strip or other user interface element enabling the user to switch from one tab to another, not to the page itself).
-         
+
          .. api-member::
             :name: :value:`tools_menu`
             :annotation: -- [Added in TB 88]
-         
+
             Applies when the user opens the :value:`Tools` menu of Thunderbird's main menu.
-         
+
          .. api-member::
             :name: :value:`video`
-         
-            Applies when the user context-clicks a video element.
-   
 
-.. _menus.ItemType:
+            Applies when the user context-clicks a video element.
+
+.. _menus.^item^type:
 
 ItemType
 --------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 The type of menu item.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`normal`
-         
+
          .. api-member::
             :name: :value:`checkbox`
-         
+
+         .. api-member::
+            :name: :value:`normal`
+
          .. api-member::
             :name: :value:`radio`
-         
+
          .. api-member::
             :name: :value:`separator`
-   
 
-.. _menus.MenuActionCommand:
+.. _menus.^menu^action^command:
 
 MenuActionCommand
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 131]
 
 A predefined command to open an action popup.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`_execute_browser_action`
-         
+
          .. api-member::
             :name: :value:`_execute_compose_action`
-         
+
          .. api-member::
             :name: :value:`_execute_message_display_action`
-   
 
-.. _menus.MenuIconDictionary:
+.. _menus.^menu^icon^dictionary:
 
 MenuIconDictionary
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 124]
 
-A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath`. Example: 
+A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.^menu^icon^path`.
 
-.. literalinclude:: includes/IconPath.json
-  :language: JSON
+Example:
 
-See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this. 
+.. code-block:: JSON
+
+   {
+     "16": "icon16.png",
+     "32": "icon32.png"
+   }
+
+See the `MDN documentation about choosing icon sizes <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/browser_action#choosing_icon_sizes>`__ for more information on this topic.
 
 .. api-header::
    :label: object
 
-.. _menus.MenuIconPath:
+.. _menus.^menu^icon^path:
 
 MenuIconPath
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 122]
 
 The path for a menu icon may be a relative path to an icon file, a :value:`moz-extension:` URL, an image :value:`data:` URL, a :value:`blob:` URL, or a remote :value:`http(s):` URL.
 
 .. api-header::
    :label: string
 
-.. _menus.OnClickData:
+*or*
+
+.. api-header::
+   :label: string
+
+.. _menus.^on^click^data:
 
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Information sent when a context menu item is clicked.
 
 .. api-header::
    :label: object
 
-   
+   .. _menus.^on^click^data.editable:
+
    .. api-member::
       :name: ``editable``
       :type: (boolean)
-      
+
       A flag indicating whether the element is editable (text input, textarea, etc.).
-   
-   
+
+   .. _menus.^on^click^data.menu^item^id:
+
    .. api-member::
       :name: ``menuItemId``
       :type: (integer or string)
-      
+
       The ID of the menu item that was clicked.
-   
-   
+
+   .. _menus.^on^click^data.modifiers:
+
    .. api-member::
       :name: ``modifiers``
       :type: (array of `string`)
-      
+
       An array of keyboard modifiers that were held while the menu item was clicked.
-      
+
       Supported values:
-      
-      .. api-member::
-         :name: :value:`Shift`
-      
+
       .. api-member::
          :name: :value:`Alt`
-      
+
       .. api-member::
          :name: :value:`Command`
-      
+
       .. api-member::
          :name: :value:`Ctrl`
-      
+
       .. api-member::
          :name: :value:`MacCtrl`
-   
-   
+
+      .. api-member::
+         :name: :value:`Shift`
+
+   .. _menus.^on^click^data.attachments:
+
    .. api-member::
       :name: [``attachments``]
-      :type: (array of :ref:`compose.ComposeAttachment` or :ref:`messages.MessageAttachment`, optional)
+      :type: (array of :ref:`compose.^compose^attachment` or :ref:`messages.^message^attachment`, optional)
       :annotation: -- [Added in TB 83]
-      
+
       The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.
-   
-   
+
+   .. _menus.^on^click^data.button:
+
    .. api-member::
       :name: [``button``]
       :type: (integer, optional)
-      
+
       An integer value of button by which menu item was clicked.
-   
-   
+
+   .. _menus.^on^click^data.checked:
+
    .. api-member::
       :name: [``checked``]
       :type: (boolean, optional)
-      
+
       A flag indicating the state of a checkbox or radio item after it is clicked.
-   
-   
+
+   .. _menus.^on^click^data.displayed^folder:
+
    .. api-member::
       :name: [``displayedFolder``]
-      :type: (:ref:`folders.MailFolder`, optional)
-      
+      :type: (:ref:`folders.^mail^folder`, optional)
+
       The displayed folder. Only available for the :value:`message_list` context. The :permission:`accountsRead` permission is required.
-   
-   
+
+   .. _menus.^on^click^data.field^id:
+
    .. api-member::
       :name: [``fieldId``]
       :type: (`string`, optional)
       :annotation: -- [Added in TB 89]
-      
+
       An identifier of the clicked Thunderbird UI element, if any.
-      
+
       Supported values:
-      
-      .. api-member::
-         :name: :value:`composeSubject`
-      
-      .. api-member::
-         :name: :value:`composeTo`
-      
-      .. api-member::
-         :name: :value:`composeCc`
-      
+
       .. api-member::
          :name: :value:`composeBcc`
-      
+         :annotation: -- [Added in TB 90]
+
       .. api-member::
-         :name: :value:`composeReplyTo`
-      
+         :name: :value:`composeCc`
+         :annotation: -- [Added in TB 90]
+
       .. api-member::
          :name: :value:`composeNewsgroupTo`
-   
-   
+         :annotation: -- [Added in TB 90]
+
+      .. api-member::
+         :name: :value:`composeReplyTo`
+         :annotation: -- [Added in TB 90]
+
+      .. api-member::
+         :name: :value:`composeSubject`
+         :annotation: -- [Added in TB 90]
+
+      .. api-member::
+         :name: :value:`composeTo`
+         :annotation: -- [Added in TB 90]
+
+   .. _menus.^on^click^data.frame^id:
+
    .. api-member::
       :name: [``frameId``]
       :type: (integer, optional)
-      
+
       The id of the frame of the element where the context menu was clicked.
-   
-   
+
+   .. _menus.^on^click^data.frame^url:
+
    .. api-member::
       :name: [``frameUrl``]
       :type: (string, optional)
-      
+
       The URL of the frame of the element where the context menu was clicked, if it was in a frame.
-   
-   
+
+   .. _menus.^on^click^data.link^text:
+
    .. api-member::
       :name: [``linkText``]
       :type: (string, optional)
-      
+
       If the element is a link, the text of that link.
-   
-   
+
+   .. _menus.^on^click^data.link^url:
+
    .. api-member::
       :name: [``linkUrl``]
       :type: (string, optional)
-      
+
       If the element is a link, the URL it points to.
-   
-   
+
+   .. _menus.^on^click^data.media^type:
+
    .. api-member::
       :name: [``mediaType``]
       :type: (string, optional)
-      
+
       One of :value:`image`, :value:`video`, or :value:`audio` if the context menu was activated on one of these types of elements.
-   
-   
+
+   .. _menus.^on^click^data.page^url:
+
    .. api-member::
       :name: [``pageUrl``]
       :type: (string, optional)
-      
+
       The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu.
-   
-   
+
+   .. _menus.^on^click^data.parent^menu^item^id:
+
    .. api-member::
       :name: [``parentMenuItemId``]
       :type: (integer or string, optional)
-      
+
       The parent ID, if any, for the item clicked.
-   
-   
+
+   .. _menus.^on^click^data.selected^account:
+
    .. api-member::
       :name: [``selectedAccount``]
-      :type: (:ref:`accounts.MailAccount`, optional) **Deprecated.**
-      
+      :type: (:ref:`accounts.^mail^account`, optional) **Deprecated.**
+      :annotation: -- [Added in TB 88]
+
       The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-   
-   
+
+   .. _menus.^on^click^data.selected^folder:
+
    .. api-member::
       :name: [``selectedFolder``]
-      :type: (:ref:`folders.MailFolder`, optional) **Deprecated.**
-      
+      :type: (:ref:`folders.^mail^folder`, optional) **Deprecated.**
+
       The selected folder in the folder pane (where the context menu was opened). Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-   
-   
+
+   .. _menus.^on^click^data.selected^folders:
+
    .. api-member::
       :name: [``selectedFolders``]
-      :type: (array of :ref:`folders.MailFolder`, optional)
+      :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128]
-      
+
       The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
-   
-   
+
+   .. _menus.^on^click^data.selected^messages:
+
    .. api-member::
       :name: [``selectedMessages``]
-      :type: (:ref:`messages.MessageList`, optional)
-      
+      :type: (:ref:`messages.^message^list`, optional)
+
       The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
-   
-   
+
+   .. _menus.^on^click^data.selection^text:
+
    .. api-member::
       :name: [``selectionText``]
       :type: (string, optional)
-      
+
       The text for the context selection, if any.
-   
-   
+
+   .. _menus.^on^click^data.src^url:
+
    .. api-member::
       :name: [``srcUrl``]
       :type: (string, optional)
-      
+
       Will be present for elements with a *src* URL.
-   
-   
+
+   .. _menus.^on^click^data.target^element^id:
+
    .. api-member::
       :name: [``targetElementId``]
       :type: (integer, optional)
-      
-      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
-   
-   
+
+      An identifier of the clicked content element, if any. Use :ref:`menus.get^target^element` in the page to find the corresponding element.
+
+   .. _menus.^on^click^data.view^type:
+
    .. api-member::
       :name: [``viewType``]
-      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__, optional)
-      
+      :type: (:ref:`extension.^view^type`, optional)
+
       The type of view where the menu is clicked. May be unset if the menu is not associated with a view.
-   
-   
+
+   .. _menus.^on^click^data.was^checked:
+
    .. api-member::
       :name: [``wasChecked``]
       :type: (boolean, optional)
-      
-      A flag indicating the state of a checkbox or radio item before it was clicked.
-   
 
-.. _menus.OnShowData:
+      A flag indicating the state of a checkbox or radio item before it was clicked.
+
+.. _menus.^on^show^data:
 
 OnShowData
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 88]
 
 Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
 
 .. api-header::
    :label: object
 
-   
+   .. _menus.^on^show^data.contexts:
+
    .. api-member::
       :name: ``contexts``
-      :type: (array of :ref:`menus.ContextType`)
-      
+      :type: (array of :ref:`menus.^context^type`)
+
       A list of all contexts that apply to the menu.
-   
-   
+
+   .. _menus.^on^show^data.editable:
+
    .. api-member::
       :name: ``editable``
       :type: (boolean)
-      
+
       A flag indicating whether the element is editable (text input, textarea, etc.).
-   
-   
+
+   .. _menus.^on^show^data.menu^ids:
+
    .. api-member::
       :name: ``menuIds``
       :type: (array of integer or string)
-      
+
       A list of IDs of the menu items that were shown.
-   
-   
+
+   .. _menus.^on^show^data.attachments:
+
    .. api-member::
       :name: [``attachments``]
-      :type: (array of :ref:`compose.ComposeAttachment` or :ref:`messages.MessageAttachment`, optional)
-      :annotation: -- [Added in TB 83]
-      
+      :type: (array of :ref:`compose.^compose^attachment` or :ref:`messages.^message^attachment`, optional)
+
       The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.
-   
-   
+
+   .. _menus.^on^show^data.displayed^folder:
+
    .. api-member::
       :name: [``displayedFolder``]
-      :type: (:ref:`folders.MailFolder`, optional)
-      
+      :type: (:ref:`folders.^mail^folder`, optional)
+
       The displayed folder. Only available for the :value:`message_list` context. The :permission:`accountsRead` permission is required.
-   
-   
+
+   .. _menus.^on^show^data.field^id:
+
    .. api-member::
       :name: [``fieldId``]
       :type: (`string`, optional)
       :annotation: -- [Added in TB 89]
-      
+
       An identifier of the clicked Thunderbird UI element, if any.
-      
+
       Supported values:
-      
-      .. api-member::
-         :name: :value:`composeSubject`
-      
-      .. api-member::
-         :name: :value:`composeTo`
-      
-      .. api-member::
-         :name: :value:`composeCc`
-      
+
       .. api-member::
          :name: :value:`composeBcc`
-      
+         :annotation: -- [Added in TB 98]
+
       .. api-member::
-         :name: :value:`composeReplyTo`
-      
+         :name: :value:`composeCc`
+         :annotation: -- [Added in TB 98]
+
       .. api-member::
          :name: :value:`composeNewsgroupTo`
-   
-   
+         :annotation: -- [Added in TB 98]
+
+      .. api-member::
+         :name: :value:`composeReplyTo`
+         :annotation: -- [Added in TB 98]
+
+      .. api-member::
+         :name: :value:`composeSubject`
+         :annotation: -- [Added in TB 98]
+
+      .. api-member::
+         :name: :value:`composeTo`
+         :annotation: -- [Added in TB 98]
+
+   .. _menus.^on^show^data.frame^url:
+
    .. api-member::
       :name: [``frameUrl``]
       :type: (string, optional)
-      
-      The URL of the frame of the element where the context menu was clicked, if it was in a frame. **Note:** Host permission is required.
-   
-   
+
+      The URL of the frame of the element where the context menu was clicked, if it was in a frame.
+
+      .. note::
+
+         Host permission is required.
+
+   .. _menus.^on^show^data.link^text:
+
    .. api-member::
       :name: [``linkText``]
       :type: (string, optional)
-      
-      If the element is a link, the text of that link. **Note:** Host permission is required.
-   
-   
+
+      If the element is a link, the text of that link.
+
+      .. note::
+
+         Host permission is required.
+
+   .. _menus.^on^show^data.link^url:
+
    .. api-member::
       :name: [``linkUrl``]
       :type: (string, optional)
-      
-      If the element is a link, the URL it points to. **Note:** Host permission is required.
-   
-   
+
+      If the element is a link, the URL it points to.
+
+      .. note::
+
+         Host permission is required.
+
+   .. _menus.^on^show^data.media^type:
+
    .. api-member::
       :name: [``mediaType``]
       :type: (string, optional)
-      
+
       One of :value:`image`, :value:`video`, or :value:`audio` if the context menu was activated on one of these types of elements.
-   
-   
+
+   .. _menus.^on^show^data.page^url:
+
    .. api-member::
       :name: [``pageUrl``]
       :type: (string, optional)
-      
-      The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu. **Note:** Host permission is required.
-   
-   
+
+      The URL of the page where the menu item was clicked. This property is not set if the click occurred in a context where there is no current page, such as in a launcher context menu.
+
+      .. note::
+
+         Host permission is required.
+
+   .. _menus.^on^show^data.selected^account:
+
    .. api-member::
       :name: [``selectedAccount``]
-      :type: (:ref:`accounts.MailAccount`, optional) **Deprecated.**
-      
+      :type: (:ref:`accounts.^mail^account`, optional) **Deprecated.**
+
       The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-   
-   
+
+   .. _menus.^on^show^data.selected^folder:
+
    .. api-member::
       :name: [``selectedFolder``]
-      :type: (:ref:`folders.MailFolder`, optional) **Deprecated.**
-      
+      :type: (:ref:`folders.^mail^folder`, optional) **Deprecated.**
+
       The selected folder in the folder pane (where the context menu was opened). Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-   
-   
+
+   .. _menus.^on^show^data.selected^folders:
+
    .. api-member::
       :name: [``selectedFolders``]
-      :type: (array of :ref:`folders.MailFolder`, optional)
+      :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128]
-      
+
       The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
-   
-   
+
+   .. _menus.^on^show^data.selected^messages:
+
    .. api-member::
       :name: [``selectedMessages``]
-      :type: (:ref:`messages.MessageList`, optional)
-      
+      :type: (:ref:`messages.^message^list`, optional)
+
       The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
-   
-   
+
+   .. _menus.^on^show^data.selection^text:
+
    .. api-member::
       :name: [``selectionText``]
       :type: (string, optional)
-      
-      The text for the context selection, if any. **Note:** Host permission is required.
-   
-   
+
+      The text for the context selection, if any.
+
+      .. note::
+
+         Host permission is required.
+
+   .. _menus.^on^show^data.src^url:
+
    .. api-member::
       :name: [``srcUrl``]
       :type: (string, optional)
-      
-      Will be present for elements with a *src* URL. **Note:** Host permission is required.
-   
-   
+
+      Will be present for elements with a *src* URL.
+
+      .. note::
+
+         Host permission is required.
+
+   .. _menus.^on^show^data.target^element^id:
+
    .. api-member::
       :name: [``targetElementId``]
       :type: (integer, optional)
-      
-      An identifier of the clicked content element, if any. Use :ref:`menus.getTargetElement` in the page to find the corresponding element.
-   
-   
+
+      An identifier of the clicked content element, if any. Use :ref:`menus.get^target^element` in the page to find the corresponding element.
+
+   .. _menus.^on^show^data.view^type:
+
    .. api-member::
       :name: [``viewType``]
-      :type: (`ViewType <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extension/ViewType>`__, optional)
-      
+      :type: (:ref:`extension.^view^type`, optional)
+
       The type of view where the menu is shown. May be unset if the menu is not associated with a view.
-   
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _menus.ACTION_MENU_TOP_LEVEL_LIMIT:
+.. _menus.^a^c^t^i^o^n_^m^e^n^u_^t^o^p_^l^e^v^e^l_^l^i^m^i^t:
 
 ACTION_MENU_TOP_LEVEL_LIMIT
 ---------------------------

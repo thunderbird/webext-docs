@@ -6,7 +6,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ===================
 privacy.network API
@@ -18,6 +18,10 @@ privacy.network API
 
 .. role:: code
 
+.. hint::
+
+   The privacy.network API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/privacy/network>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
 
 .. rst-class:: api-main-section
@@ -25,10 +29,16 @@ Use the :code:`browser.privacy` API to control usage of the features in the brow
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`privacy`
 
-   Read and modify privacy settings
+   Read and modify privacy settings.
 
 .. rst-class:: api-permission-info
 
@@ -41,7 +51,7 @@ Permissions
 Types
 =====
 
-.. _privacy.network.HTTPSOnlyModeOption:
+.. _privacy.network.^h^t^t^p^s^only^mode^option:
 
 HTTPSOnlyModeOption
 -------------------
@@ -53,24 +63,22 @@ The mode for https-only mode.
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`always`
-         
-         .. api-member::
-            :name: :value:`private_browsing`
-         
+
          .. api-member::
             :name: :value:`never`
-   
 
-.. _privacy.network.IPHandlingPolicy:
+         .. api-member::
+            :name: :value:`private_browsing`
+
+.. _privacy.network.^i^p^handling^policy:
 
 IPHandlingPolicy
 ----------------
@@ -82,30 +90,28 @@ The IP handling policy of WebRTC.
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`default`
-         
+
          .. api-member::
             :name: :value:`default_public_and_private_interfaces`
-         
+
          .. api-member::
             :name: :value:`default_public_interface_only`
-         
+
          .. api-member::
             :name: :value:`disable_non_proxied_udp`
-         
+
          .. api-member::
             :name: :value:`proxy_only`
-   
 
-.. _privacy.network.tlsVersionRestrictionConfig:
+.. _privacy.network.tls^version^restriction^config:
 
 tlsVersionRestrictionConfig
 ---------------------------
@@ -117,61 +123,62 @@ An object which describes TLS minimum and maximum versions.
 .. api-header::
    :label: object
 
-   
+   .. _privacy.network.tls^version^restriction^config.maximum:
+
    .. api-member::
       :name: [``maximum``]
       :type: (`string`, optional)
-      
+
       The maximum TLS version supported.
-      
+
       Supported values:
-      
+
       .. api-member::
          :name: :value:`TLSv1`
-      
+
       .. api-member::
          :name: :value:`TLSv1.1`
-      
+
       .. api-member::
          :name: :value:`TLSv1.2`
-      
+
       .. api-member::
          :name: :value:`TLSv1.3`
-      
+
       .. api-member::
          :name: :value:`unknown`
-   
-   
+
+   .. _privacy.network.tls^version^restriction^config.minimum:
+
    .. api-member::
       :name: [``minimum``]
       :type: (`string`, optional)
-      
+
       The minimum TLS version supported.
-      
+
       Supported values:
-      
+
       .. api-member::
          :name: :value:`TLSv1`
-      
+
       .. api-member::
          :name: :value:`TLSv1.1`
-      
+
       .. api-member::
          :name: :value:`TLSv1.2`
-      
+
       .. api-member::
          :name: :value:`TLSv1.3`
-      
+
       .. api-member::
          :name: :value:`unknown`
-   
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _privacy.network.globalPrivacyControl:
+.. _privacy.network.global^privacy^control:
 
 globalPrivacyControl
 --------------------
@@ -180,7 +187,7 @@ globalPrivacyControl
 
 Allow users to query the status of 'Global Privacy Control'. This setting's value is of type boolean, defaulting to :code:`false`.
 
-.. _privacy.network.httpsOnlyMode:
+.. _privacy.network.https^only^mode:
 
 httpsOnlyMode
 -------------
@@ -189,7 +196,7 @@ httpsOnlyMode
 
 Allow users to query the mode for 'HTTPS-Only Mode'. This setting's value is of type HTTPSOnlyModeOption, defaulting to :code:`never`.
 
-.. _privacy.network.networkPredictionEnabled:
+.. _privacy.network.network^prediction^enabled:
 
 networkPredictionEnabled
 ------------------------
@@ -198,7 +205,7 @@ networkPredictionEnabled
 
 If enabled, the browser attempts to speed up your web browsing experience by pre-resolving DNS entries, prerendering sites (:code:`&lt;link rel='prefetch' ...&gt;`), and preemptively opening TCP and SSL connections to servers.  This preference's value is a boolean, defaulting to :code:`true`.
 
-.. _privacy.network.peerConnectionEnabled:
+.. _privacy.network.peer^connection^enabled:
 
 peerConnectionEnabled
 ---------------------
@@ -207,16 +214,16 @@ peerConnectionEnabled
 
 Allow users to enable and disable RTCPeerConnections (aka WebRTC).
 
-.. _privacy.network.tlsVersionRestriction:
+.. _privacy.network.tls^version^restriction:
 
 tlsVersionRestriction
 ---------------------
 
 .. api-section-annotation-hack:: 
 
-This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`tlsVersionRestrictionConfig`.
+This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.network.tls^version^restriction^config`.
 
-.. _privacy.network.webRTCIPHandlingPolicy:
+.. _privacy.network.web^r^t^c^i^p^handling^policy:
 
 webRTCIPHandlingPolicy
 ----------------------
@@ -224,3 +231,7 @@ webRTCIPHandlingPolicy
 .. api-section-annotation-hack:: 
 
 Allow users to specify the media performance/privacy tradeoffs which impacts how WebRTC traffic will be routed and how much local address information is exposed. This preference's value is of type IPHandlingPolicy, defaulting to :code:`default`.
+
+.. note::
+
+   Starting in Thunderbird 70, a value of :code:`disable_non_proxied_udp` requires a proxy if one is configured, but allows connections to go through if no proxy is set up. Previously, in this mode WebRTC could only be used if a proxy was configured and TURN over TCP was available; this behavior is now exposed as :code:`proxy_only`.

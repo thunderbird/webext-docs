@@ -6,7 +6,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ====================
 privacy.websites API
@@ -18,6 +18,10 @@ privacy.websites API
 
 .. role:: code
 
+.. hint::
+
+   The privacy.websites API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/privacy/websites>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
 
 .. rst-class:: api-main-section
@@ -25,10 +29,16 @@ Use the :code:`browser.privacy` API to control usage of the features in the brow
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`privacy`
 
-   Read and modify privacy settings
+   Read and modify privacy settings.
 
 .. rst-class:: api-permission-info
 
@@ -41,7 +51,7 @@ Permissions
 Types
 =====
 
-.. _privacy.websites.CookieConfig:
+.. _privacy.websites.^cookie^config:
 
 CookieConfig
 ------------
@@ -53,42 +63,43 @@ The settings for cookies.
 .. api-header::
    :label: object
 
-   
+   .. _privacy.websites.^cookie^config.behavior:
+
    .. api-member::
       :name: [``behavior``]
       :type: (`string`, optional)
-      
+
       The type of cookies to allow.
-      
+
       Supported values:
-      
+
       .. api-member::
          :name: :value:`allow_all`
-      
-      .. api-member::
-         :name: :value:`reject_all`
-      
-      .. api-member::
-         :name: :value:`reject_third_party`
-      
+
       .. api-member::
          :name: :value:`allow_visited`
-      
+
+      .. api-member::
+         :name: :value:`reject_all`
+
+      .. api-member::
+         :name: :value:`reject_third_party`
+
       .. api-member::
          :name: :value:`reject_trackers`
-      
+
       .. api-member::
          :name: :value:`reject_trackers_and_partition_foreign`
-   
-   
+
+   .. _privacy.websites.^cookie^config.non^persistent^cookies:
+
    .. api-member::
       :name: [``nonPersistentCookies``]
       :type: (boolean, optional) **Deprecated.**
-      
-      Whether to create all cookies as nonPersistent (i.e., session) cookies.
-   
 
-.. _privacy.websites.TrackingProtectionModeOption:
+      Whether to create all cookies as nonPersistent (i.e., session) cookies.
+
+.. _privacy.websites.^tracking^protection^mode^option:
 
 TrackingProtectionModeOption
 ----------------------------
@@ -100,29 +111,27 @@ The mode for tracking protection.
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`always`
-         
+
          .. api-member::
             :name: :value:`never`
-         
+
          .. api-member::
             :name: :value:`private_browsing`
-   
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _privacy.websites.cookieConfig:
+.. _privacy.websites.cookie^config:
 
 cookieConfig
 ------------
@@ -131,7 +140,15 @@ cookieConfig
 
 Allow users to specify the default settings for allowing cookies, as well as whether all cookies should be created as non-persistent cookies. This setting's value is of type CookieConfig.
 
-.. _privacy.websites.firstPartyIsolate:
+.. note::
+
+   The :code:`behavior` property value "reject_trackers_and_partition_foreign" was introduced in version 78.
+
+.. note::
+
+   The :code:`behavior` property value "reject_trackers" was introduced in version 64.
+
+.. _privacy.websites.first^party^isolate:
 
 firstPartyIsolate
 -----------------
@@ -140,7 +157,7 @@ firstPartyIsolate
 
 If enabled, the browser will associate all data (including cookies, HSTS data, cached images, and more) for any third party domains with the domain in the address bar. This prevents third party trackers from using directly stored information to identify you across different websites, but may break websites where you login with a third party account (such as a Facebook or Google login.) The value of this preference is of type boolean, and the default value is :code:`false`.
 
-.. _privacy.websites.hyperlinkAuditingEnabled:
+.. _privacy.websites.hyperlink^auditing^enabled:
 
 hyperlinkAuditingEnabled
 ------------------------
@@ -149,16 +166,7 @@ hyperlinkAuditingEnabled
 
 If enabled, the browser sends auditing pings when requested by a website (:code:`&lt;a ping&gt;`). The value of this preference is of type boolean, and the default value is :code:`true`.
 
-.. _privacy.websites.protectedContentEnabled:
-
-protectedContentEnabled
------------------------
-
-.. api-section-annotation-hack:: 
-
-<strong>Available on Windows and ChromeOS only</strong>: If enabled, the browser provides a unique ID to plugins in order to run protected content. The value of this preference is of type boolean, and the default value is :code:`true`.
-
-.. _privacy.websites.referrersEnabled:
+.. _privacy.websites.referrers^enabled:
 
 referrersEnabled
 ----------------
@@ -167,7 +175,7 @@ referrersEnabled
 
 If enabled, the browser sends :code:`referer` headers with your requests. Yes, the name of this preference doesn't match the misspelled header. No, we're not going to change it. The value of this preference is of type boolean, and the default value is :code:`true`.
 
-.. _privacy.websites.resistFingerprinting:
+.. _privacy.websites.resist^fingerprinting:
 
 resistFingerprinting
 --------------------
@@ -176,16 +184,7 @@ resistFingerprinting
 
 If enabled, the browser attempts to appear similar to other users by reporting generic information to websites. This can prevent websites from uniquely identifying users. Examples of data that is spoofed include number of CPU cores, precision of JavaScript timers, the local timezone, and disabling features such as GamePad support, and the WebSpeech and Navigator APIs. The value of this preference is of type boolean, and the default value is :code:`false`.
 
-.. _privacy.websites.thirdPartyCookiesAllowed:
-
-thirdPartyCookiesAllowed
-------------------------
-
-.. api-section-annotation-hack:: 
-
-If disabled, the browser blocks third-party sites from setting cookies. The value of this preference is of type boolean, and the default value is :code:`true`.
-
-.. _privacy.websites.trackingProtectionMode:
+.. _privacy.websites.tracking^protection^mode:
 
 trackingProtectionMode
 ----------------------

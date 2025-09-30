@@ -8,7 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =========================
 declarativeNetRequest API
@@ -20,6 +20,10 @@ declarativeNetRequest API
 
 .. role:: code
 
+.. hint::
+
+   The declarativeNetRequest API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 Use the declarativeNetRequest API to block or modify network requests by specifying declarative rules.
 
 .. rst-class:: api-main-section
@@ -30,29 +34,36 @@ Manifest file properties
 .. api-member::
    :name: [``declarative_net_request``]
    :type: (object, optional)
-   
+
    .. api-member::
       :name: ``rule_resources``
       :type: (array of object)
-   
 
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`declarativeNetRequest`
 
-   Block content on any page
+   Block content on any page.
 
 .. api-member::
    :name: :permission:`declarativeNetRequestFeedback`
 
-   Read your browsing history
+   Read your browsing history.
 
 .. api-member::
    :name: :permission:`declarativeNetRequestWithHostAccess`
+
+   Allows blocking or upgrading requests to hosts for which host permissions have already been granted.
 
 .. rst-class:: api-permission-info
 
@@ -65,23 +76,21 @@ Permissions
 Functions
 =========
 
-.. _declarativeNetRequest.getAvailableStaticRuleCount:
+.. _declarative^net^request.get^available^static^rule^count:
 
 getAvailableStaticRuleCount()
 -----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Returns the remaining number of static rules an extension can enable
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: integer
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -90,37 +99,32 @@ Returns the remaining number of static rules an extension can enable
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getDisabledRuleIds:
+.. _declarative^net^request.get^disabled^rule^ids:
 
 getDisabledRuleIds(options)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Returns the list of individual disabled static rules from a given static ruleset id.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``options``
       :type: (object)
-      
+
       .. api-member::
          :name: ``rulesetId``
          :type: (string)
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: array of integer
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -129,34 +133,31 @@ Returns the list of individual disabled static rules from a given static ruleset
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getDynamicRules:
+.. _declarative^net^request.get^dynamic^rules:
 
 getDynamicRules([filter])
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Returns the current set of dynamic rules for the extension.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
-      
+      :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
+      :annotation: -- [Added in TB 127]
+
       An object to filter the set of dynamic rules for the extension.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`declarativeNetRequest.Rule`
-   
-   
+      :type: array of :ref:`declarative^net^request.^rule`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -165,23 +166,21 @@ Returns the current set of dynamic rules for the extension.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getEnabledRulesets:
+.. _declarative^net^request.get^enabled^rulesets:
 
 getEnabledRulesets()
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Returns the ids for the current set of enabled static rulesets.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: array of string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -190,34 +189,31 @@ Returns the ids for the current set of enabled static rulesets.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.getSessionRules:
+.. _declarative^net^request.get^session^rules:
 
 getSessionRules([filter])
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Returns the current set of session scoped rules for the extension.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`declarativeNetRequest.GetRulesFilter`, optional)
-      
+      :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
+      :annotation: -- [Added in TB 127]
+
       An object to filter the set of session scoped rules for the extension.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`declarativeNetRequest.Rule`
-   
-   
+      :type: array of :ref:`declarative^net^request.^rule`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -226,67 +222,58 @@ Returns the current set of session scoped rules for the extension.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.isRegexSupported:
+.. _declarative^net^request.is^regex^supported:
 
 isRegexSupported(regexOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Checks if the given regular expression will be supported as a 'regexFilter' rule condition.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``regexOptions``
       :type: (object)
-      
+
       .. api-member::
          :name: ``regex``
          :type: (string)
-         
+
          The regular expresson to check.
-      
-      
+
       .. api-member::
          :name: [``isCaseSensitive``]
          :type: (boolean, optional)
-         
+
          Whether the 'regex' specified is case sensitive.
-      
-      
+
       .. api-member::
          :name: [``requireCapturing``]
          :type: (boolean, optional)
-         
+
          Whether the 'regex' specified requires capturing. Capturing is only required for redirect rules which specify a 'regexSubstition' action.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: object
-      
+
       .. api-member::
          :name: ``isSupported``
          :type: (boolean)
-         
+
          Whether the given regex is supported
-      
-      
+
       .. api-member::
          :name: [``reason``]
-         :type: (:ref:`declarativeNetRequest.UnsupportedRegexReason`, optional)
-         
+         :type: (:ref:`declarative^net^request.^unsupported^regex^reason`, optional)
+
          Specifies the reason why the regular expression is not supported. Only provided if 'isSupported' is false.
-      
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -295,128 +282,112 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.testMatchOutcome:
+.. _declarative^net^request.test^match^outcome:
 
 testMatchOutcome(request, [options])
 ------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Checks if any of the extension's declarativeNetRequest rules would match a hypothetical request.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``request``
       :type: (object)
-      
+
       The details of the request to test.
-      
+
       .. api-member::
          :name: ``type``
-         :type: (:ref:`declarativeNetRequest.ResourceType`)
-         
+         :type: (:ref:`declarative^net^request.^resource^type`)
+
          The resource type of the hypothetical request.
-      
-      
+
       .. api-member::
          :name: ``url``
          :type: (string)
-         
+
          The URL of the hypothetical request.
-      
-      
+
       .. api-member::
          :name: [``initiator``]
          :type: (string, optional)
-         
+
          The initiator URL (if any) for the hypothetical request.
-      
-      
+
       .. api-member::
          :name: [``method``]
          :type: (string, optional)
-         
+
          Standard HTTP method of the hypothetical request.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          The ID of the tab in which the hypothetical request takes place. Does not need to correspond to a real tab ID. Default is -1, meaning that the request isn't related to a tab.
-      
-   
-   
+
    .. api-member::
       :name: [``options``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``includeOtherExtensions``]
          :type: (boolean, optional)
-         
+
          Whether to account for rules from other installed extensions during rule evaluation.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: object
-      
+
       .. api-member::
          :name: ``matchedRules``
-         :type: (array of :ref:`declarativeNetRequest.MatchedRule`)
-         
+         :type: (array of :ref:`declarative^net^request.^matched^rule`)
+
          The rules (if any) that match the hypothetical request.
-      
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`declarativeNetRequest`
-   - :permission:`declarativeNetRequestWithHostAccess`
    - :permission:`declarativeNetRequestFeedback`
+   - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateDynamicRules:
+.. _declarative^net^request.update^dynamic^rules:
 
 updateDynamicRules(options)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Modifies the current set of dynamic rules for the extension. The rules with IDs listed in options.removeRuleIds are first removed, and then the rules given in options.addRules are added. These rules are persisted across browser sessions and extension updates.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``options``
       :type: (object)
-      
+
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
-         
+         :type: (array of :ref:`declarative^net^request.^rule`, optional)
+
          Rules to add.
-      
-      
+
       .. api-member::
          :name: [``removeRuleIds``]
          :type: (array of integer, optional)
-         
+
          IDs of the rules to remove. Any invalid IDs will be ignored.
-      
-   
 
 .. api-header::
    :label: Required permissions
@@ -424,33 +395,29 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateEnabledRulesets:
+.. _declarative^net^request.update^enabled^rulesets:
 
 updateEnabledRulesets(updateRulesetOptions)
 -------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Modifies the static rulesets enabled/disabled state.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``updateRulesetOptions``
       :type: (object)
-      
+
       .. api-member::
          :name: [``disableRulesetIds``]
          :type: (array of string, optional)
-      
-      
+
       .. api-member::
          :name: [``enableRulesetIds``]
          :type: (array of string, optional)
-      
-   
 
 .. api-header::
    :label: Required permissions
@@ -458,37 +425,33 @@ Modifies the static rulesets enabled/disabled state.
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateSessionRules:
+.. _declarative^net^request.update^session^rules:
 
 updateSessionRules(options)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Modifies the current set of session scoped rules for the extension. The rules with IDs listed in options.removeRuleIds are first removed, and then the rules given in options.addRules are added. These rules are not persisted across sessions and are backed in memory.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``options``
       :type: (object)
-      
+
       .. api-member::
          :name: [``addRules``]
-         :type: (array of :ref:`declarativeNetRequest.Rule`, optional)
-         
+         :type: (array of :ref:`declarative^net^request.^rule`, optional)
+
          Rules to add.
-      
-      
+
       .. api-member::
          :name: [``removeRuleIds``]
          :type: (array of integer, optional)
-         
+
          IDs of the rules to remove. Any invalid IDs will be ignored.
-      
-   
 
 .. api-header::
    :label: Required permissions
@@ -496,38 +459,33 @@ Modifies the current set of session scoped rules for the extension. The rules wi
    - :permission:`declarativeNetRequest`
    - :permission:`declarativeNetRequestWithHostAccess`
 
-.. _declarativeNetRequest.updateStaticRules:
+.. _declarative^net^request.update^static^rules:
 
 updateStaticRules(options)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``options``
       :type: (object)
-      
+
       .. api-member::
          :name: ``rulesetId``
          :type: (string)
-      
-      
+
       .. api-member::
          :name: [``disableRuleIds``]
          :type: (array of integer, optional)
-      
-      
+
       .. api-member::
          :name: [``enableRuleIds``]
          :type: (array of integer, optional)
-      
-   
 
 .. api-header::
    :label: Required permissions
@@ -540,7 +498,7 @@ Modified individual static rules enabled/disabled state. Changes to rules belong
 Types
 =====
 
-.. _declarativeNetRequest.GetRulesFilter:
+.. _declarative^net^request.^get^rules^filter:
 
 GetRulesFilter
 --------------
@@ -550,447 +508,335 @@ GetRulesFilter
 .. api-header::
    :label: object
 
-   
+   .. _declarative^net^request.^get^rules^filter.rule^ids:
+
    .. api-member::
       :name: [``ruleIds``]
       :type: (array of integer, optional)
-      
-      If specified, only rules with matching IDs are included.
-   
 
-.. _declarativeNetRequest.MatchedRule:
+      If specified, only rules with matching IDs are included.
+
+.. _declarative^net^request.^matched^rule:
 
 MatchedRule
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 .. api-header::
    :label: object
 
-   
+   .. _declarative^net^request.^matched^rule.rule^id:
+
    .. api-member::
       :name: ``ruleId``
       :type: (integer)
-      
+
       A matching rule's ID.
-   
-   
+
+   .. _declarative^net^request.^matched^rule.ruleset^id:
+
    .. api-member::
       :name: ``rulesetId``
       :type: (string)
-      
+
       ID of the Ruleset this rule belongs to.
-   
-   
+
+   .. _declarative^net^request.^matched^rule.extension^id:
+
    .. api-member::
       :name: [``extensionId``]
       :type: (string, optional)
-      
-      ID of the extension, if this rule belongs to a different extension.
-   
 
-.. _declarativeNetRequest.ResourceType:
+      ID of the extension, if this rule belongs to a different extension.
+
+.. _declarative^net^request.^resource^type:
 
 ResourceType
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
-How the requested resource will be used. Comparable to the webRequest.ResourceType type.
+How the requested resource will be used. Comparable to the webRequest.ResourceType type. object_subrequest is unsupported.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`main_frame`
-         
-         .. api-member::
-            :name: :value:`sub_frame`
-         
-         .. api-member::
-            :name: :value:`stylesheet`
-         
-         .. api-member::
-            :name: :value:`script`
-         
-         .. api-member::
-            :name: :value:`image`
-         
-         .. api-member::
-            :name: :value:`object`
-         
-         .. api-member::
-            :name: :value:`object_subrequest`
-         
-         .. api-member::
-            :name: :value:`xmlhttprequest`
-         
-         .. api-member::
-            :name: :value:`xslt`
-         
-         .. api-member::
-            :name: :value:`ping`
-         
+
          .. api-member::
             :name: :value:`beacon`
-         
-         .. api-member::
-            :name: :value:`xml_dtd`
-         
-         .. api-member::
-            :name: :value:`font`
-         
-         .. api-member::
-            :name: :value:`media`
-         
-         .. api-member::
-            :name: :value:`websocket`
-         
+
          .. api-member::
             :name: :value:`csp_report`
-         
+
+         .. api-member::
+            :name: :value:`font`
+
+         .. api-member::
+            :name: :value:`image`
+
          .. api-member::
             :name: :value:`imageset`
-         
+
          .. api-member::
-            :name: :value:`web_manifest`
-         
+            :name: :value:`json`
+            :annotation: -- [Added in TB 138]
+
+            .. note::
+
+               The "json" property is supported from Thunderbird 135, but requests of this type are only available from Thunderbird 138.
+
          .. api-member::
-            :name: :value:`speculative`
-         
+            :name: :value:`main_frame`
+
+         .. api-member::
+            :name: :value:`media`
+
+         .. api-member::
+            :name: :value:`object`
+
+         .. api-member::
+            :name: :value:`object_subrequest`
+
          .. api-member::
             :name: :value:`other`
-   
 
-.. _declarativeNetRequest.Rule:
+         .. api-member::
+            :name: :value:`ping`
+
+         .. api-member::
+            :name: :value:`script`
+
+         .. api-member::
+            :name: :value:`speculative`
+
+         .. api-member::
+            :name: :value:`stylesheet`
+
+         .. api-member::
+            :name: :value:`sub_frame`
+
+         .. api-member::
+            :name: :value:`web_manifest`
+
+         .. api-member::
+            :name: :value:`websocket`
+
+         .. api-member::
+            :name: :value:`xml_dtd`
+
+         .. api-member::
+            :name: :value:`xmlhttprequest`
+
+         .. api-member::
+            :name: :value:`xslt`
+
+.. _declarative^net^request.^rule:
 
 Rule
 ----
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 .. api-header::
    :label: object
 
-   
+   .. _declarative^net^request.^rule.action:
+
    .. api-member::
       :name: ``action``
       :type: (object)
-      
+
       The action to take if this rule is matched.
-      
+
       .. api-member::
          :name: ``type``
          :type: (`string`)
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`block`
-         
-         .. api-member::
-            :name: :value:`redirect`
-         
+
          .. api-member::
             :name: :value:`allow`
-         
-         .. api-member::
-            :name: :value:`upgradeScheme`
-         
-         .. api-member::
-            :name: :value:`modifyHeaders`
-         
+
          .. api-member::
             :name: :value:`allowAllRequests`
-      
-      
+
+         .. api-member::
+            :name: :value:`block`
+
+         .. api-member::
+            :name: :value:`modifyHeaders`
+
+         .. api-member::
+            :name: :value:`redirect`
+
+         .. api-member::
+            :name: :value:`upgradeScheme`
+
       .. api-member::
          :name: [``redirect``]
          :type: (object, optional)
-         
+
          Describes how the redirect should be performed. Only valid when type is 'redirect'.
-         
+
          .. api-member::
             :name: [``extensionPath``]
             :type: (string, optional)
-            
+
             Path relative to the extension directory. Should start with '/'.
-         
-         
+
          .. api-member::
             :name: [``regexSubstitution``]
             :type: (string, optional)
-            
-            Substitution pattern for rules which specify a 'regexFilter'. The first match of regexFilter within the url will be replaced with this pattern. Within regexSubstitution, backslash-escaped digits (\1 to \9) can be used to insert the corresponding capture groups. \0 refers to the entire matching text.
-         
-         
+
+            Substitution pattern for rules which specify a 'regexFilter'. The first match of regexFilter within the url will be replaced with this pattern. Within regexSubstitution, backslash-escaped digits (\\1 to \\9) can be used to insert the corresponding capture groups. \\0 refers to the entire matching text.
+
          .. api-member::
             :name: [``transform``]
-            :type: (:ref:`declarativeNetRequest.URLTransform`, optional)
-            
+            :type: (:ref:`declarative^net^request.^u^r^l^transform`, optional)
+
             Url transformations to perform.
-         
-         
+
          .. api-member::
             :name: [``url``]
             :type: (string, optional)
-            
+
             The redirect url. Redirects to JavaScript urls are not allowed.
-         
-      
-      
+
       .. api-member::
          :name: [``requestHeaders``]
          :type: (array of object, optional)
-         
+
          The request headers to modify for the request. Only valid when type is 'modifyHeaders'.
-      
-      
+
       .. api-member::
          :name: [``responseHeaders``]
          :type: (array of object, optional)
-         
+
          The response headers to modify for the request. Only valid when type is 'modifyHeaders'.
-      
-   
-   
+
+   .. _declarative^net^request.^rule.condition:
+
    .. api-member::
       :name: ``condition``
       :type: (object)
-      
+
       The condition under which this rule is triggered.
-      
+
       .. api-member::
          :name: [``domainType``]
          :type: (`string`, optional)
-         
+
          Specifies whether the network request is first-party or third-party to the domain from which it originated. If omitted, all requests are matched.
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`firstParty`
-         
+
          .. api-member::
             :name: :value:`thirdParty`
-      
-      
+
       .. api-member::
          :name: [``excludedInitiatorDomains``]
          :type: (array of string, optional)
-         
+
          The rule will not match network requests originating from the list of 'initiatorDomains'. If the list is empty or omitted, no domains are excluded. This takes precedence over 'initiatorDomains'.
-      
-      
+
       .. api-member::
          :name: [``excludedRequestDomains``]
          :type: (array of string, optional)
-         
+
          The rule will not match network requests when the domains matches one from the list of 'excludedRequestDomains'. If the list is empty or omitted, no domains are excluded. This takes precedence over 'requestDomains'.
-      
-      
+
       .. api-member::
          :name: [``excludedRequestMethods``]
          :type: (array of string, optional)
-         
+
          List of request methods which the rule won't match. Cannot be specified if 'requestMethods' is specified. If neither of them is specified, all request methods are matched.
-      
-      
+
       .. api-member::
          :name: [``excludedResourceTypes``]
-         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
-         
+         :type: (array of :ref:`declarative^net^request.^resource^type`, optional)
+
          List of resource types which the rule won't match. Cannot be specified if 'resourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
-      
-      
+
       .. api-member::
          :name: [``excludedTabIds``]
          :type: (array of integer, optional)
-         
+
          List of tabIds which the rule should not match. An ID of -1 excludes requests which don't originate from a tab. Only supported for session-scoped rules.
-      
-      
+
       .. api-member::
          :name: [``initiatorDomains``]
          :type: (array of string, optional)
-         
+
          The rule will only match network requests originating from the list of 'initiatorDomains'. If the list is omitted, the rule is applied to requests from all domains.
-      
-      
+
       .. api-member::
          :name: [``isUrlFilterCaseSensitive``]
          :type: (boolean, optional)
-         
+
          Whether 'urlFilter' or 'regexFilter' is case-sensitive.
-      
-      
+
       .. api-member::
          :name: [``regexFilter``]
          :type: (string, optional)
-         
+
          Regular expression to match against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.
-      
-      
+
       .. api-member::
          :name: [``requestDomains``]
          :type: (array of string, optional)
-         
+
          The rule will only match network requests when the domain matches one from the list of 'requestDomains'. If the list is omitted, the rule is applied to requests from all domains.
-      
-      
+
       .. api-member::
          :name: [``requestMethods``]
          :type: (array of string, optional)
-         
+
          List of HTTP request methods which the rule can match. Should be a lower-case method such as 'connect', 'delete', 'get', 'head', 'options', 'patch', 'post', 'put'.'
-      
-      
+
       .. api-member::
          :name: [``resourceTypes``]
-         :type: (array of :ref:`declarativeNetRequest.ResourceType`, optional)
-         
+         :type: (array of :ref:`declarative^net^request.^resource^type`, optional)
+
          List of resource types which the rule can match. When the rule action is 'allowAllRequests', this must be specified and may only contain 'main_frame' or 'sub_frame'. Cannot be specified if 'excludedResourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
-      
-      
+
       .. api-member::
          :name: [``tabIds``]
          :type: (array of integer, optional)
-         
+
          List of tabIds which the rule should match. An ID of -1 matches requests which don't originate from a tab. Only supported for session-scoped rules.
-      
-      
+
       .. api-member::
          :name: [``urlFilter``]
          :type: (string, optional)
-         
+
          TODO: link to doc explaining supported pattern. The pattern which is matched against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.
-      
-   
-   
+
+   .. _declarative^net^request.^rule.id:
+
    .. api-member::
       :name: ``id``
       :type: (integer)
-      
+
       An id which uniquely identifies a rule. Mandatory and should be >= 1.
-   
-   
+
+   .. _declarative^net^request.^rule.priority:
+
    .. api-member::
       :name: [``priority``]
       :type: (integer, optional)
-      
+
       Rule priority. Defaults to 1. When specified, should be >= 1
-   
 
-.. _declarativeNetRequest.URLTransform:
-
-URLTransform
-------------
-
-.. api-section-annotation-hack:: 
-
-Describes the type of the Rule.action.redirect.transform property.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``fragment``]
-      :type: (string, optional)
-      
-      The new fragment for the request. Should be either empty, in which case the existing fragment is cleared; or should begin with '#'.
-   
-   
-   .. api-member::
-      :name: [``host``]
-      :type: (string, optional)
-      
-      The new host name for the request.
-   
-   
-   .. api-member::
-      :name: [``password``]
-      :type: (string, optional)
-      
-      The new password for the request.
-   
-   
-   .. api-member::
-      :name: [``path``]
-      :type: (string, optional)
-      
-      The new path for the request. If empty, the existing path is cleared.
-   
-   
-   .. api-member::
-      :name: [``port``]
-      :type: (string, optional)
-      
-      The new port for the request. If empty, the existing port is cleared.
-   
-   
-   .. api-member::
-      :name: [``query``]
-      :type: (string, optional)
-      
-      The new query for the request. Should be either empty, in which case the existing query is cleared; or should begin with '?'. Cannot be specified if 'queryTransform' is specified.
-   
-   
-   .. api-member::
-      :name: [``queryTransform``]
-      :type: (object, optional)
-      
-      Add, remove or replace query key-value pairs. Cannot be specified if 'query' is specified.
-      
-      .. api-member::
-         :name: [``addOrReplaceParams``]
-         :type: (array of object, optional)
-         
-         The list of query key-value pairs to be added or replaced.
-      
-      
-      .. api-member::
-         :name: [``removeParams``]
-         :type: (array of string, optional)
-         
-         The list of query keys to be removed.
-      
-   
-   
-   .. api-member::
-      :name: [``scheme``]
-      :type: (`string`, optional)
-      
-      The new scheme for the request.
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`http`
-      
-      .. api-member::
-         :name: :value:`https`
-      
-      .. api-member::
-         :name: :value:`moz-extension`
-   
-   
-   .. api-member::
-      :name: [``username``]
-      :type: (string, optional)
-      
-      The new username for the request.
-   
-
-.. _declarativeNetRequest.UnsupportedRegexReason:
+.. _declarative^net^request.^unsupported^regex^reason:
 
 UnsupportedRegexReason
 ----------------------
@@ -1002,26 +848,131 @@ Describes the reason why a given regular expression isn't supported.
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`syntaxError`
-         
+
          .. api-member::
             :name: :value:`memoryLimitExceeded`
-   
+
+         .. api-member::
+            :name: :value:`syntaxError`
+
+.. _declarative^net^request.^u^r^l^transform:
+
+URLTransform
+------------
+
+.. api-section-annotation-hack:: -- [Added in TB 113]
+
+Describes the type of the Rule.action.redirect.transform property.
+
+.. api-header::
+   :label: object
+
+   .. _declarative^net^request.^u^r^l^transform.fragment:
+
+   .. api-member::
+      :name: [``fragment``]
+      :type: (string, optional)
+
+      The new fragment for the request. Should be either empty, in which case the existing fragment is cleared; or should begin with '#'.
+
+   .. _declarative^net^request.^u^r^l^transform.host:
+
+   .. api-member::
+      :name: [``host``]
+      :type: (string, optional)
+
+      The new host name for the request.
+
+   .. _declarative^net^request.^u^r^l^transform.password:
+
+   .. api-member::
+      :name: [``password``]
+      :type: (string, optional)
+
+      The new password for the request.
+
+   .. _declarative^net^request.^u^r^l^transform.path:
+
+   .. api-member::
+      :name: [``path``]
+      :type: (string, optional)
+
+      The new path for the request. If empty, the existing path is cleared.
+
+   .. _declarative^net^request.^u^r^l^transform.port:
+
+   .. api-member::
+      :name: [``port``]
+      :type: (string, optional)
+
+      The new port for the request. If empty, the existing port is cleared.
+
+   .. _declarative^net^request.^u^r^l^transform.query:
+
+   .. api-member::
+      :name: [``query``]
+      :type: (string, optional)
+
+      The new query for the request. Should be either empty, in which case the existing query is cleared; or should begin with '?'. Cannot be specified if 'queryTransform' is specified.
+
+   .. _declarative^net^request.^u^r^l^transform.query^transform:
+
+   .. api-member::
+      :name: [``queryTransform``]
+      :type: (object, optional)
+
+      Add, remove or replace query key-value pairs. Cannot be specified if 'query' is specified.
+
+      .. api-member::
+         :name: [``addOrReplaceParams``]
+         :type: (array of object, optional)
+
+         The list of query key-value pairs to be added or replaced.
+
+      .. api-member::
+         :name: [``removeParams``]
+         :type: (array of string, optional)
+
+         The list of query keys to be removed.
+
+   .. _declarative^net^request.^u^r^l^transform.scheme:
+
+   .. api-member::
+      :name: [``scheme``]
+      :type: (`string`, optional)
+
+      The new scheme for the request.
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`http`
+
+      .. api-member::
+         :name: :value:`https`
+
+      .. api-member::
+         :name: :value:`moz-extension`
+
+   .. _declarative^net^request.^u^r^l^transform.username:
+
+   .. api-member::
+      :name: [``username``]
+      :type: (string, optional)
+
+      The new username for the request.
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _declarativeNetRequest.DYNAMIC_RULESET_ID:
+.. _declarative^net^request.^d^y^n^a^m^i^c_^r^u^l^e^s^e^t_^i^d:
 
 DYNAMIC_RULESET_ID
 ------------------
@@ -1030,7 +981,7 @@ DYNAMIC_RULESET_ID
 
 Ruleset ID for the dynamic rules added by the extension.
 
-.. _declarativeNetRequest.GUARANTEED_MINIMUM_STATIC_RULES:
+.. _declarative^net^request.^g^u^a^r^a^n^t^e^e^d_^m^i^n^i^m^u^m_^s^t^a^t^i^c_^r^u^l^e^s:
 
 GUARANTEED_MINIMUM_STATIC_RULES
 -------------------------------
@@ -1039,7 +990,7 @@ GUARANTEED_MINIMUM_STATIC_RULES
 
 The minimum number of static rules guaranteed to an extension across its enabled static rulesets. Any rules above this limit will count towards the global static rule limit.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_DISABLED_STATIC_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^i^s^a^b^l^e^d_^s^t^a^t^i^c_^r^u^l^e^s:
 
 MAX_NUMBER_OF_DISABLED_STATIC_RULES
 -----------------------------------
@@ -1048,7 +999,7 @@ MAX_NUMBER_OF_DISABLED_STATIC_RULES
 
 The maximum number of static rules that can be disabled on each static ruleset.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^y^n^a^m^i^c_^a^n^d_^s^e^s^s^i^o^n_^r^u^l^e^s:
 
 MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 ---------------------------------------
@@ -1057,7 +1008,11 @@ MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 
 Deprecated property returning the maximum number of dynamic and session rules an extension can add, replaced by MAX_NUMBER_OF_DYNAMIC_RULES/MAX_NUMBER_OF_SESSION_RULES.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_DYNAMIC_RULES:
+.. note::
+
+   Deprecated in Thunderbird 128. Use :code:`MAX_NUMBER_OF_DYNAMIC_RULES` and :code:`MAX_NUMBER_OF_SESSION_RULES` instead.
+
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^y^n^a^m^i^c_^r^u^l^e^s:
 
 MAX_NUMBER_OF_DYNAMIC_RULES
 ---------------------------
@@ -1066,7 +1021,7 @@ MAX_NUMBER_OF_DYNAMIC_RULES
 
 The maximum number of dynamic session rules an extension can add.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_ENABLED_STATIC_RULESETS:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^e^n^a^b^l^e^d_^s^t^a^t^i^c_^r^u^l^e^s^e^t^s:
 
 MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 -------------------------------------
@@ -1075,7 +1030,7 @@ MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 
 The maximum number of static Rulesets an extension can enable at any one time.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_REGEX_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^r^e^g^e^x_^r^u^l^e^s:
 
 MAX_NUMBER_OF_REGEX_RULES
 -------------------------
@@ -1084,7 +1039,7 @@ MAX_NUMBER_OF_REGEX_RULES
 
 The maximum number of regular expression rules that an extension can add. This limit is evaluated separately for the set of session rules, dynamic rules and those specified in the rule_resources file.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_SESSION_RULES:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^s^e^s^s^i^o^n_^r^u^l^e^s:
 
 MAX_NUMBER_OF_SESSION_RULES
 ---------------------------
@@ -1093,7 +1048,7 @@ MAX_NUMBER_OF_SESSION_RULES
 
 The maximum number of dynamic session rules an extension can add.
 
-.. _declarativeNetRequest.MAX_NUMBER_OF_STATIC_RULESETS:
+.. _declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^s^t^a^t^i^c_^r^u^l^e^s^e^t^s:
 
 MAX_NUMBER_OF_STATIC_RULESETS
 -----------------------------
@@ -1102,7 +1057,7 @@ MAX_NUMBER_OF_STATIC_RULESETS
 
 The maximum number of static Rulesets an extension can specify as part of the rule_resources manifest key.
 
-.. _declarativeNetRequest.SESSION_RULESET_ID:
+.. _declarative^net^request.^s^e^s^s^i^o^n_^r^u^l^e^s^e^t_^i^d:
 
 SESSION_RULESET_ID
 ------------------
