@@ -8,11 +8,7 @@
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
-
-  ≡ Related information
-  
-  * :doc:`/examples/eventListeners`
+  .. include:: /_includes/developer-resources.rst
 
 ========
 tabs API
@@ -31,13 +27,31 @@ The tabs API supports creating, modifying and interacting with tabs in Thunderbi
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`activeTab`
+
+   Grant host permission to the currently active tab, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
+
+.. api-member::
+   :name: :permission:`contextualIdentities`
+
+   Grant access to some or all methods of the contextualIdentities API.
+
+.. api-member::
+   :name: :permission:`cookies`
+
+   Grant access to some or all methods of the cookies API.
 
 .. api-member::
    :name: :permission:`tabs`
 
-   Access browser tabs
+   Grant host permission to all active and inactive tabs, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
 .. rst-class:: api-main-section
 
@@ -49,48 +63,41 @@ Functions
 connect(tabId, [connectInfo])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
+.. api-section-annotation-hack:: -- [Added in TB 82]
 
 Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`__ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: [``connectInfo``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``frameId``]
          :type: (integer, optional)
-         
+
          Open a port to a specific frame identified by :value:`frameId` instead of all frames in the tab.
-      
-      
+
       .. api-member::
          :name: [``name``]
          :type: (string, optional)
-         
+
          Will be passed into onConnect for content scripts that are listening for the connection event.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: `Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`__
-      
+
       A port that can be used to communicate with the content scripts running in the specified tab.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _tabs.create:
@@ -98,91 +105,90 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
 create(createProperties)
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.open`. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
+Creates a new content tab. To create message tabs, use the :ref:`message^display.open`. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``createProperties``
       :type: (object)
-      
+
       Properties for the new tab. Defaults to an empty tab, if no :value:`url` is provided.
-      
+
       .. api-member::
          :name: [``active``]
          :type: (boolean, optional)
-         
+
          Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to :value:`true`.
-      
-      
+
       .. api-member::
          :name: [``cookieStoreId``]
          :type: (string, optional)
-         
-         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons. The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
-      
-      
+         :annotation: -- [Added in TB 115]
+
+         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+
+         .. note::
+
+            The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+
+         .. note::
+
+            The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
+
       .. api-member::
          :name: [``index``]
          :type: (integer, optional)
-         
+
          The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
-      
-      
+
       .. api-member::
          :name: [``linkHandler``]
          :type: (`string`, optional)
-         
+         :annotation: -- [Added in TB 136]
+
          Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`strict`
-         
+
          .. api-member::
             :name: :value:`balanced`
-         
+
          .. api-member::
             :name: :value:`relaxed`
-      
-      
+
+         .. api-member::
+            :name: :value:`strict`
+
       .. api-member::
          :name: [``selected``]
          :type: (boolean, optional) **Unsupported.**
-         
+
          Whether the tab should become the selected tab in the window. Defaults to :value:`true`
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
-         
-         The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension. 
-      
-      
+
+         The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension.
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
-         
+
          The window to create the new tab in. Defaults to the current window.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`tabs.Tab`
-      
-      A Promise that will be fulfilled with a :ref:`tabs.Tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event before creating the tab.
-   
-   
+      :type: :ref:`tabs.^tab`
+
+      A Promise that will be fulfilled with a :ref:`tabs.^tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.on^updated` event before creating the tab.
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _tabs.duplicate:
@@ -190,77 +196,61 @@ Creates a new content tab. To create message tabs, use the :ref:`messageDisplay.
 duplicate(tabId)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Duplicates a tab.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-      
+
       The ID of the tab which is to be duplicated.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`tabs.Tab`
-      
-      Details about the duplicated tab. The :ref:`tabs.Tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
-   
-   
+      :type: :ref:`tabs.^tab`
+
+      Details about the duplicated tab. The :ref:`tabs.^tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _tabs.executeScript:
+.. _tabs.execute^script:
 
 executeScript([tabId], details)
 -------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
 
 .. api-header::
-   :label: Changes in Thunderbird 77
-
-   
-   .. api-member::
-      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
-
-.. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       The ID of the tab in which to run the script; defaults to the active tab of the current window.
-   
-   
+
    .. api-member::
       :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
-      
+      :type: (:ref:`tabs.^inject^details`)
+
       Details of the script to run.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: array of any
-      
+
       The result of the script in every injected frame.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _tabs.get:
@@ -268,131 +258,108 @@ Injects JavaScript code into a page. For details, see the `programmatic injectio
 get(tabId)
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Retrieves details about the specified tab.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`tabs.Tab`
-   
-   
+      :type: :ref:`tabs.^tab`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _tabs.getCurrent:
+.. _tabs.get^current:
 
 getCurrent()
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets the tab that this script call is being made from. Returns :value:`undefined` if called from a non-tab context (for example a background page or a popup view).
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`tabs.Tab`
-   
-   
+      :type: :ref:`tabs.^tab`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _tabs.insertCSS:
+.. _tabs.insert^c^s^s:
 
 insertCSS([tabId], details)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
 
 .. api-header::
-   :label: Changes in Thunderbird 77
-
-   
-   .. api-member::
-      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
-
-.. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
-   
-   
+
    .. api-member::
       :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
-      
+      :type: (:ref:`tabs.^inject^details`)
+
       Details of the CSS text to insert.
-   
 
 .. _tabs.move:
 
 move(tabIds, moveProperties)
 ----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Moves one or more tabs to a new position within its current window, or to a different window. Note that tabs can only be moved to and from windows of type :value:`normal`.
+Moves one or more tabs to a new position within its current window, or to a different window. Tabs can only be moved to and from windows of type :value:`normal`.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabIds``
       :type: (integer or array of integer)
-      
+
       The tab or list of tabs to move.
-   
-   
+
    .. api-member::
       :name: ``moveProperties``
       :type: (object)
-      
+
       .. api-member::
          :name: ``index``
          :type: (integer)
-         
+
          The position to move the tab to. :value:`-1` will place the tab at the end of the window.
-      
-      
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
-         
+
          Defaults to the window the tab is currently in.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`tabs.Tab`
-      
+      :type: array of :ref:`tabs.^tab`
+
       Details about the moved tabs.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _tabs.query:
@@ -400,126 +367,115 @@ Moves one or more tabs to a new position within its current window, or to a diff
 query([queryInfo])
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets all tabs that have the specified properties, or all tabs if no properties are specified.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``queryInfo``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``active``]
          :type: (boolean, optional)
-         
+
          Whether the tabs are active in their windows.
-      
-      
+
       .. api-member::
          :name: [``cookieStoreId``]
          :type: (array of string or string, optional)
-         
-         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.
-      
-      
+         :annotation: -- [Added in TB 115]
+
+         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+
+         .. note::
+
+            The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+
       .. api-member::
          :name: [``currentWindow``]
          :type: (boolean, optional)
-         
+
          Whether the tabs are in the current window.
-      
-      
+
       .. api-member::
          :name: [``highlighted``]
          :type: (boolean, optional)
-         
+
          Whether the tabs are highlighted. Works as an alias of active.
-      
-      
+
       .. api-member::
          :name: [``index``]
          :type: (integer, optional)
-         
+
          The position of the tabs within their windows.
-      
-      
+
       .. api-member::
          :name: [``lastFocusedWindow``]
          :type: (boolean, optional)
-         
+
          Whether the tabs are in the last focused window.
-      
-      
+
       .. api-member::
          :name: [``mailTab``]
          :type: (boolean, optional)
-         
+         :annotation: -- [Added in TB 66]
+
          Whether the tab is a Thunderbird 3-pane tab.  If specified, the :value:`queryInfo.type` property will be ignored
-      
-      
+
       .. api-member::
          :name: [``spaceId``]
          :type: (integer, optional)
-         
+         :annotation: -- [Added in TB 115]
+
          The id of the space the tabs should belong to.
-      
-      
+
       .. api-member::
          :name: [``status``]
-         :type: (:ref:`tabs.TabStatus`, optional)
-         
+         :type: (:ref:`tabs.^tab^status`, optional)
+
          Whether the tabs have completed loading.
-      
-      
+
       .. api-member::
          :name: [``title``]
          :type: (string, optional)
-         
+
          Match page titles against a pattern.
-      
-      
+
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`tabs.TabType` or array of :ref:`tabs.TabType`, optional)
+         :type: (:ref:`tabs.^tab^type` or array of :ref:`tabs.^tab^type`, optional)
          :annotation: -- [Added in TB 91]
-         
+
          Match tabs against the given tab type or types.
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string or array of string, optional)
-         
-         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Note that fragment identifiers are not matched.
-      
-      
+
+         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Fragment identifiers are not matched.
+
       .. api-member::
          :name: [``windowId``]
          :type: (integer, optional)
-         
-         The ID of the parent window, or :ref:`windows.WINDOW_ID_CURRENT` for the current window.
-      
-      
+
+         The ID of the parent window, or :ref:`windows.^w^i^n^d^o^w_^i^d_^c^u^r^r^e^n^t` for the current window.
+
       .. api-member::
          :name: [``windowType``]
-         :type: (:ref:`tabs.WindowType`, optional)
-         
+         :type: (:ref:`tabs.^window^type`, optional)
+
          The type of window the tabs are in.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`tabs.Tab`
-   
-   
+      :type: array of :ref:`tabs.^tab`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _tabs.reload:
@@ -527,132 +483,109 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 reload([tabId], [reloadProperties])
 -----------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Reload a tab. Only applicable for tabs which display a content page.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       The ID of the tab to reload; defaults to the selected tab of the current window.
-   
-   
+
    .. api-member::
       :name: [``reloadProperties``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``bypassCache``]
          :type: (boolean, optional)
-         
+
          Whether using any local cache. Default is false.
-      
-   
 
 .. _tabs.remove:
 
 remove(tabIds)
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Closes one or more tabs.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabIds``
       :type: (integer or array of integer)
-      
-      The tab or list of tabs to close.
-   
 
-.. _tabs.removeCSS:
+      The tab or list of tabs to close.
+
+.. _tabs.remove^c^s^s:
 
 removeCSS([tabId], details)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
 
 .. api-header::
-   :label: Changes in Thunderbird 77
-
-   
-   .. api-member::
-      :name: With the :permission:`compose` permission, this now works in the document of email messages during composition.
-
-.. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
-   
-   
+
    .. api-member::
       :name: ``details``
-      :type: (`InjectDetails <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/InjectDetails>`__)
-      
-      Details of the CSS text to remove.
-   
+      :type: (:ref:`tabs.^inject^details`)
 
-.. _tabs.sendMessage:
+      Details of the CSS text to remove.
+
+.. _tabs.send^message:
 
 sendMessage(tabId, message, [options])
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82, backported to TB 78.4.0]
+.. api-section-annotation-hack:: -- [Added in TB 82]
 
 Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``message``
       :type: (any)
-   
-   
+
    .. api-member::
       :name: [``options``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``frameId``]
          :type: (integer, optional)
-         
+
          Send a message to a specific frame identified by :value:`frameId` instead of all frames in the tab.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: any
-      
+
       The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will be set to the error message.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _tabs.update:
@@ -660,52 +593,49 @@ Sends a single message to the content script(s) in the specified tab, with an op
 update([tabId], updateProperties)
 ---------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Modifies the properties of a tab. Properties that are not specified in :value:`updateProperties` are not modified.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-      
+
       Defaults to the selected tab of the current window.
-   
-   
+
    .. api-member::
       :name: ``updateProperties``
       :type: (object)
-      
+
       Properties which should to be updated.
-      
+
       .. api-member::
          :name: [``active``]
          :type: (boolean, optional)
-         
+
          Set this to :value:`true`, if the tab should become active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
-         
-         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab. **Note:** This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
-      
-   
+
+         A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab.
+
+         .. note::
+
+            This function will throw an error, if a content page is loaded into a non-content tab (its type must be either :value:`content` or :value:`mail`).
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`tabs.Tab`
-      
-      Details about the updated tab. The :ref:`tabs.Tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
-   
-   
+      :type: :ref:`tabs.^tab`
+
+      Details about the updated tab. The :ref:`tabs.^tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
@@ -713,655 +643,753 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
 Events
 ======
 
-.. _tabs.onActivated:
+.. _tabs.on^activated:
 
 onActivated
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Fires when the active tab in a window changes. Note that the tab's URL may not be set at the time this event fired, but you can listen to onUpdated events to be notified when a URL is set.
+Fires when the active tab in a window changes. The tab's URL may not be set at the time this event fired, listen to the :ref:`tabs.on^updated` event instead to be notified when a URL is set.
 
 .. api-header::
    :label: Parameters for onActivated.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(activeInfo)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``activeInfo``
       :type: (object)
-      
+
       .. api-member::
          :name: ``tabId``
          :type: (integer)
-         
+
          The ID of the tab that has become active.
-      
-      
+
       .. api-member::
          :name: ``windowId``
          :type: (integer)
-         
+
          The ID of the window the active tab changed inside of.
-      
-      
+
       .. api-member::
          :name: [``previousTabId``]
          :type: (integer, optional)
-         
-         The ID of the tab that was previously active, if that tab is still open.
-      
-   
+         :annotation: -- [Added in TB 114]
 
-.. _tabs.onAttached:
+         The ID of the tab that was previously active, if that tab is still open.
+
+.. _tabs.on^attached:
 
 onAttached
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a tab is attached to a window, for example because it was moved between windows.
 
 .. api-header::
    :label: Parameters for onAttached.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tabId, attachInfo)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``attachInfo``
       :type: (object)
-      
+
       .. api-member::
          :name: ``newPosition``
          :type: (integer)
-      
-      
+
       .. api-member::
          :name: ``newWindowId``
          :type: (integer)
-      
-   
 
-.. _tabs.onCreated:
+.. _tabs.on^created:
 
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Fired when a tab is created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.onUpdated` event.
+Fired when a tab is created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.on^updated` event.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tab)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      
-      Details of the tab that was created.
-   
+      :type: (:ref:`tabs.^tab`)
 
-.. _tabs.onDetached:
+      Details of the tab that was created.
+
+.. _tabs.on^detached:
 
 onDetached
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a tab is detached from a window, for example because it is being moved between windows.
 
 .. api-header::
    :label: Parameters for onDetached.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tabId, detachInfo)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``detachInfo``
       :type: (object)
-      
+
       .. api-member::
          :name: ``oldPosition``
          :type: (integer)
-      
-      
+
       .. api-member::
          :name: ``oldWindowId``
          :type: (integer)
-      
-   
 
-.. _tabs.onMoved:
+.. _tabs.on^moved:
 
 onMoved
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.onDetached`.
+Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.on^detached`.
 
 .. api-header::
    :label: Parameters for onMoved.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tabId, moveInfo)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``moveInfo``
       :type: (object)
-      
+
       .. api-member::
          :name: ``fromIndex``
          :type: (integer)
-      
-      
+
       .. api-member::
          :name: ``toIndex``
          :type: (integer)
-      
-      
+
       .. api-member::
          :name: ``windowId``
          :type: (integer)
-      
-   
 
-.. _tabs.onRemoved:
+.. _tabs.on^removed:
 
 onRemoved
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a tab is closed.
 
 .. api-header::
    :label: Parameters for onRemoved.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(tabId, removeInfo)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``removeInfo``
       :type: (object)
-      
+
       .. api-member::
          :name: ``isWindowClosing``
          :type: (boolean)
-         
+
          Is :value:`true` when the tab is being closed because its window is being closed.
-      
-      
+
       .. api-member::
          :name: ``windowId``
          :type: (integer)
-         
-         The window whose tab is closed.
-      
-   
 
-.. _tabs.onUpdated:
+         The window whose tab is closed.
+
+.. _tabs.on^updated:
 
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a tab is updated.
 
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener, filter)
 
-   
    .. api-member::
       :name: ``listener(tabId, changeInfo, tab)``
-      
+
       A function that will be called when this event occurs.
-   
-   
+
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`tabs.UpdateFilter`, optional)
-      
+      :type: (:ref:`tabs.^update^filter`, optional)
+
       A set of filters that restricts the events that will be sent to this listener.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``tabId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``changeInfo``
       :type: (object)
-      
+
       Lists the changes to the state of the tab that was updated.
-      
+
       .. api-member::
          :name: [``favIconUrl``]
          :type: (string, optional)
-         
+
          The tab's new favicon URL.
-      
-      
+
       .. api-member::
          :name: [``status``]
          :type: (string, optional)
-         
+
          The status of the tab. Can be either :value:`loading` or :value:`complete`.
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string, optional)
-         
+
          The tab's URL if it has changed.
-      
-   
-   
+
    .. api-member::
       :name: ``tab``
-      :type: (:ref:`tabs.Tab`)
-      
+      :type: (:ref:`tabs.^tab`)
+
       Gives the state of the tab that was updated.
-   
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
-.. _tabs.Tab:
+.. _tabs.^c^s^s^origin:
 
-Tab
----
+CSSOrigin
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 53]
+
+The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`author`
+
+         .. api-member::
+            :name: :value:`user`
+
+.. _tabs.^inject^details:
+
+InjectDetails
+-------------
 
 .. api-section-annotation-hack:: 
+
+Details of the script or CSS to inject. Either the code or the file property must be set, but both may not be set at the same time.
 
 .. api-header::
    :label: object
 
-   
+   .. _tabs.^inject^details.all^frames:
+
+   .. api-member::
+      :name: [``allFrames``]
+      :type: (boolean, optional)
+
+      If allFrames is :code:`true`, implies that the JavaScript or CSS should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
+
+   .. _tabs.^inject^details.code:
+
+   .. api-member::
+      :name: [``code``]
+      :type: (string, optional)
+
+      JavaScript or CSS code to inject.  **Warning:** Be careful using the :code:`code` parameter. Incorrect use of it may open your extension to `cross site scripting <https://en.wikipedia.org/wiki/Cross-site_scripting>`__ attacks.
+
+   .. _tabs.^inject^details.css^origin:
+
+   .. api-member::
+      :name: [``cssOrigin``]
+      :type: (:ref:`tabs.^c^s^s^origin`, optional)
+
+      The css origin of the stylesheet to inject. Defaults to "author".
+
+   .. _tabs.^inject^details.file:
+
+   .. api-member::
+      :name: [``file``]
+      :type: (string, optional)
+
+      JavaScript or CSS file to inject.
+
+   .. _tabs.^inject^details.frame^id:
+
+   .. api-member::
+      :name: [``frameId``]
+      :type: (integer, optional)
+
+      The ID of the frame to inject the script into. This may not be used in combination with :code:`allFrames`.
+
+   .. _tabs.^inject^details.match^about^blank:
+
+   .. api-member::
+      :name: [``matchAboutBlank``]
+      :type: (boolean, optional)
+
+      If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is :code:`false`.
+
+   .. _tabs.^inject^details.run^at:
+
+   .. api-member::
+      :name: [``runAt``]
+      :type: (:ref:`tabs.^run^at`, optional)
+
+      The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
+
+.. _tabs.^run^at:
+
+RunAt
+-----
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+The soonest that the JavaScript or CSS will be injected into the tab.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`document_end`
+
+         .. api-member::
+            :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`
+
+.. _tabs.^tab:
+
+Tab
+---
+
+.. api-section-annotation-hack:: -- [Added in TB 62]
+
+.. api-header::
+   :label: object
+
+   .. _tabs.^tab.active:
+
    .. api-member::
       :name: ``active``
       :type: (boolean)
-      
+
       Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
-   
-   
+
+   .. _tabs.^tab.highlighted:
+
    .. api-member::
       :name: ``highlighted``
       :type: (boolean)
-      
+
       Whether the tab is highlighted. Works as an alias of active
-   
-   
+
+   .. _tabs.^tab.index:
+
    .. api-member::
       :name: ``index``
       :type: (integer)
-      
+
       The zero-based index of the tab within its window.
-   
-   
+
+   .. _tabs.^tab.selected:
+
    .. api-member::
       :name: ``selected``
       :type: (boolean) **Unsupported.**
-      
+
       Whether the tab is selected.
-   
-   
+
+   .. _tabs.^tab.cookie^store^id:
+
    .. api-member::
       :name: [``cookieStoreId``]
       :type: (string, optional)
-      
-      The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons.
-   
-   
+      :annotation: -- [Added in TB 115]
+
+      The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+
+      .. note::
+
+         The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+
+   .. _tabs.^tab.fav^icon^url:
+
    .. api-member::
       :name: [``favIconUrl``]
       :type: (string, optional)
-      
+
       The URL of the tab's favicon. This property is only present if the extension's manifest includes the :permission:`tabs` permission. It may also be an empty string if the tab is loading.
-   
-   
+
+   .. _tabs.^tab.group^id:
+
+   .. api-member::
+      :name: [``groupId``]
+      :type: (integer, optional)
+      :annotation: -- [Added in TB 138]
+
+      The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
+
+   .. _tabs.^tab.height:
+
    .. api-member::
       :name: [``height``]
       :type: (integer, optional)
-      
+
       The height of the tab in pixels.
-   
-   
+
+   .. _tabs.^tab.id:
+
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
-      
-      The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.TAB_ID_NONE` for apps and devtools windows.
-   
-   
+
+      The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.^t^a^b_^i^d_^n^o^n^e` for apps and devtools windows.
+
+   .. _tabs.^tab.mail^tab:
+
    .. api-member::
       :name: [``mailTab``]
       :type: (boolean, optional)
-      
+      :annotation: -- [Added in TB 66]
+
       Whether the tab is a 3-pane tab.
-   
-   
+
+   .. _tabs.^tab.space^id:
+
    .. api-member::
       :name: [``spaceId``]
       :type: (integer, optional)
-      
+      :annotation: -- [Added in TB 115]
+
       The id of the space.
-   
-   
+
+   .. _tabs.^tab.status:
+
    .. api-member::
       :name: [``status``]
       :type: (string, optional)
-      
+
       Either :value:`loading` or :value:`complete`.
-   
-   
+
+   .. _tabs.^tab.title:
+
    .. api-member::
       :name: [``title``]
       :type: (string, optional)
-      
+
       The title of the tab. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
-   
-   
+
+   .. _tabs.^tab.type:
+
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`tabs.TabType`, optional)
+      :type: (:ref:`tabs.^tab^type`, optional)
       :annotation: -- [Added in TB 91]
-   
-   
+
+   .. _tabs.^tab.url:
+
    .. api-member::
       :name: [``url``]
       :type: (string, optional)
-      
+
       The URL the tab is displaying. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
-   
-   
+
+   .. _tabs.^tab.width:
+
    .. api-member::
       :name: [``width``]
       :type: (integer, optional)
-      
+
       The width of the tab in pixels.
-   
-   
+
+   .. _tabs.^tab.window^id:
+
    .. api-member::
       :name: [``windowId``]
       :type: (integer, optional)
-      
-      The ID of the window the tab is contained within.
-   
 
-.. _tabs.TabStatus:
+      The ID of the window the tab is contained within.
+
+.. _tabs.^tab^status:
 
 TabStatus
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Whether the tabs have completed loading.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`loading`
-         
+
          .. api-member::
             :name: :value:`complete`
-   
 
-.. _tabs.TabType:
+         .. api-member::
+            :name: :value:`loading`
+
+.. _tabs.^tab^type:
 
 TabType
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Tab types supported by the tabs API.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`addressBook`
-         
+
          .. api-member::
             :name: :value:`calendar`
-         
+
          .. api-member::
             :name: :value:`calendarEvent`
-         
+
          .. api-member::
             :name: :value:`calendarTask`
-         
+
          .. api-member::
             :name: :value:`chat`
-         
+
          .. api-member::
             :name: :value:`content`
-         
+
          .. api-member::
             :name: :value:`mail`
-         
+
          .. api-member::
             :name: :value:`messageCompose`
-         
+
          .. api-member::
             :name: :value:`messageDisplay`
-         
+
          .. api-member::
             :name: :value:`special`
-         
+
          .. api-member::
             :name: :value:`tasks`
-   
 
-.. _tabs.UpdateFilter:
+.. _tabs.^update^filter:
 
 UpdateFilter
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-An object describing filters to apply to tabs.onUpdated events.
+An object describing filters to apply to :ref:`tabs.on^updated` events.
 
 .. api-header::
    :label: object
 
-   
+   .. _tabs.^update^filter.properties:
+
    .. api-member::
       :name: [``properties``]
-      :type: (array of :ref:`tabs.UpdatePropertyName`, optional)
-      
+      :type: (array of :ref:`tabs.^update^property^name`, optional)
+
       A list of property names. Events that do not match any of the names will be filtered out.
-   
-   
+
+   .. _tabs.^update^filter.tab^id:
+
    .. api-member::
       :name: [``tabId``]
       :type: (integer, optional)
-   
-   
+
+   .. _tabs.^update^filter.urls:
+
    .. api-member::
       :name: [``urls``]
       :type: (array of string, optional)
-      
+
       A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or :permission:`activeTab` permission.
-   
-   
+
+   .. _tabs.^update^filter.window^id:
+
    .. api-member::
       :name: [``windowId``]
       :type: (integer, optional)
-   
 
-.. _tabs.UpdatePropertyName:
+.. _tabs.^update^property^name:
 
 UpdatePropertyName
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Event names supported in onUpdated.
+Event names supported in :ref:`tabs.on^updated`.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`favIconUrl`
-         
+
          .. api-member::
             :name: :value:`status`
-         
+
          .. api-member::
             :name: :value:`title`
-   
 
-.. _tabs.WindowType:
+.. _tabs.^window^type:
 
 WindowType
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 The type of a window. Under some circumstances a Window may not be assigned a type property.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`normal`
-         
-         .. api-member::
-            :name: :value:`popup`
-         
-         .. api-member::
-            :name: :value:`panel`
-         
+
          .. api-member::
             :name: :value:`app`
-         
+
          .. api-member::
             :name: :value:`devtools`
-         
+
          .. api-member::
             :name: :value:`messageCompose`
-         
+            :annotation: -- [Added in TB 88]
+
          .. api-member::
             :name: :value:`messageDisplay`
-   
+            :annotation: -- [Added in TB 88]
+
+         .. api-member::
+            :name: :value:`normal`
+
+         .. api-member::
+            :name: :value:`panel`
+
+         .. api-member::
+            :name: :value:`popup`
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _tabs.TAB_ID_NONE:
+.. _tabs.^t^a^b_^i^d_^n^o^n^e:
 
 TAB_ID_NONE
 -----------

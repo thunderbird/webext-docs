@@ -5,30 +5,12 @@
   * `Permissions`_
   * `Functions`_
   * `Types`_
-  * `External Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
-  ≡ Related examples on Github
-
-  * `"Inline Attachment Preview" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplayScript.pdfPreview>`__
-  * `"Notification Banner" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/messageDisplayScript.pdfPreview>`__
-  
 =========================
 messageDisplayScripts API
 =========================
-
-This message display scripts API is the same as
-the `content scripts`__ API except that it works on the document of email messages being displayed.
-
-See also :ref:`executeScript <tabs.executeScript>`, :ref:`insertCSS <tabs.insertCSS>`,
-:ref:`removeCSS <tabs.removeCSS>`, and :doc:`composeScripts`.
-
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts
-
-.. note::
-
-  Registering a message display script in the *manifest.json* file is not possible at this point.
 
 .. role:: permission
 
@@ -41,15 +23,16 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`messagesModify`
 
-   Read and modify your email messages as they are displayed to you
-
-.. api-member::
-   :name: :permission:`sensitiveDataUpload`
-
-   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+   Read and modify your email messages as they are displayed to you.
 
 .. rst-class:: api-permission-info
 
@@ -62,23 +45,25 @@ Permissions
 Functions
 =========
 
-.. _messageDisplayScripts.register:
+.. _message^display^scripts.register:
 
 register(messageDisplayScriptOptions)
 -------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 82]
 
-Register a message display script programmatically. **Note:** Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`tabs.executeScript` for each of the open :value:`messageDisplay` tabs.
+Register a message display script programmatically.
+
+.. note::
+
+   Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`tabs.execute^script` for each of the open :value:`messageDisplay` tabs.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``messageDisplayScriptOptions``
-      :type: (:ref:`messageDisplayScripts.RegisteredMessageDisplayScriptOptions`)
-   
+      :type: (:ref:`message^display^scripts.^registered^message^display^script^options`)
 
 .. api-header::
    :label: Required permissions
@@ -90,73 +75,7 @@ Register a message display script programmatically. **Note:** Registered scripts
 Types
 =====
 
-.. _messageDisplayScripts.RegisteredMessageDisplayScript:
-
-RegisteredMessageDisplayScript
-------------------------------
-
-.. api-section-annotation-hack:: 
-
-An object that represents a message display script registered programmatically
-
-.. api-header::
-   :label: object
-
-   - ``unregister()`` Unregister a message display script registered programmatically
-
-.. _messageDisplayScripts.RegisteredMessageDisplayScriptOptions:
-
-RegisteredMessageDisplayScriptOptions
--------------------------------------
-
-.. api-section-annotation-hack:: 
-
-Details of a message display script registered programmatically
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``css``]
-      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`, optional)
-      
-      The list of CSS files to inject
-   
-   
-   .. api-member::
-      :name: [``js``]
-      :type: (array of :ref:`messageDisplayScripts.extensionTypes.ExtensionFileOrCode`, optional)
-      
-      The list of JavaScript files to inject
-   
-   
-   .. api-member::
-      :name: [``runAt``]
-      :type: (`string`, optional)
-      
-      Determines when the files specified in css and js are injected. The states directly correspond to :code:`Document.readyState`: :value:`loading`, :value:`interactive` and :value:`complete`
-      
-      Supported values:
-      
-      .. api-member::
-         :name: :value:`document_start`
-      
-      .. api-member::
-         :name: :value:`document_end`
-      
-      .. api-member::
-         :name: :value:`document_idle`
-   
-
-.. rst-class:: api-main-section
-
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _messageDisplayScripts.extensionTypes.ExtensionFileOrCode:
+.. _message^display^scripts.^extension^file^or^code:
 
 ExtensionFileOrCode
 -------------------
@@ -168,17 +87,99 @@ Specify code, either by pointing to a file or by providing the code directly. On
 .. api-header::
    :label: object
 
-   
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. api-member::
+            :name: ``file``
+            :type: (:ref:`message^display^scripts.^extension^u^r^l`)
+
+            A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
+
+*or*
+
+.. api-header::
+   :label: object
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. api-member::
+            :name: ``code``
+            :type: (string)
+
+            A string of JavaScript code to register.
+
+.. _message^display^scripts.^extension^u^r^l:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
+
+.. _message^display^scripts.^registered^message^display^script:
+
+RegisteredMessageDisplayScript
+------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 82]
+
+An object that represents a message display script registered programmatically
+
+.. api-header::
+   :label: object
+
+.. _message^display^scripts.^registered^message^display^script^options:
+
+RegisteredMessageDisplayScriptOptions
+-------------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 82]
+
+Details of a message display script registered programmatically
+
+.. api-header::
+   :label: object
+
+   .. _message^display^scripts.^registered^message^display^script^options.css:
+
    .. api-member::
-      :name: ``code``
-      :type: (string)
-      
-      Some JavaScript code to register.
-   
-   
+      :name: [``css``]
+      :type: (array of :ref:`message^display^scripts.^extension^file^or^code`, optional)
+
+      The list of CSS files to inject
+
+   .. _message^display^scripts.^registered^message^display^script^options.js:
+
    .. api-member::
-      :name: ``file``
-      :type: (string)
-      
-      A URL starting at the extension's manifest.json and pointing to a JavaScript file to register.
-   
+      :name: [``js``]
+      :type: (array of :ref:`message^display^scripts.^extension^file^or^code`, optional)
+
+      The list of JavaScript files to inject
+
+   .. _message^display^scripts.^registered^message^display^script^options.run^at:
+
+   .. api-member::
+      :name: [``runAt``]
+      :type: (`string`, optional)
+      :annotation: -- [Added in TB 126]
+
+      Determines when the files specified in css and js are injected. The states directly correspond to :code:`Document.readyState`: :value:`loading`, :value:`interactive` and :value:`complete`
+
+      Supported values:
+
+      .. api-member::
+         :name: :value:`document_end`
+
+      .. api-member::
+         :name: :value:`document_idle`
+
+      .. api-member::
+         :name: :value:`document_start`
