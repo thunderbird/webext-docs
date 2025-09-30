@@ -5,9 +5,8 @@
   * `Permissions`_
   * `Functions`_
   * `Types`_
-  * `External Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =====================
 scripting.compose API
@@ -24,10 +23,16 @@ scripting.compose API
 Permissions
 ===========
 
-.. api-member::
-   :name: :permission:`sensitiveDataUpload`
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
-   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. api-member::
+   :name: :permission:`compose`
+
+   Read and modify your email messages as you compose and send them.
 
 .. rst-class:: api-permission-info
 
@@ -40,34 +45,30 @@ Permissions
 Functions
 =========
 
-.. _scripting.compose.getRegisteredScripts:
+.. _scripting.compose.get^registered^scripts:
 
 getRegisteredScripts([filter])
 ------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Returns all registered compose scripts for this extension that match the given filter.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.compose.ComposeScriptFilter`, optional)
-      
+      :type: (:ref:`scripting.compose.^compose^script^filter`, optional)
+
       An object to filter the extension's registered compose scripts.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`scripting.compose.ComposeScriptDetails`
-   
-   
+      :type: array of :ref:`scripting.compose.^compose^script^details`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -75,50 +76,50 @@ Returns all registered compose scripts for this extension that match the given f
 
    - :permission:`compose`
 
-.. _scripting.compose.registerScripts:
+.. _scripting.compose.register^scripts:
 
 registerScripts(scripts)
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
-Registers one or more compose scripts for this extension, which should be injected into the message compose editor. **Note:** Registered scripts will only be applied to newly opened message compose tabs. To apply the script to already open message compose tabs, manually inject your script by calling :ref:`scripting.executeScript` for each of the open :value:`messageCompose` tabs.
+Registers one or more compose scripts for this extension, which should be injected into the message compose editor.
+
+.. note::
+
+   Registered scripts will only be applied to newly opened message compose tabs. To apply the script to already open message compose tabs, manually inject your script by calling :ref:`scripting.execute^script` for each of the open :value:`messageCompose` tabs.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`scripting.compose.ComposeScriptDetails`)
-      
+      :type: (array of :ref:`scripting.compose.^compose^script^details`)
+
       Contains a list of compose scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`compose`
 
-.. _scripting.compose.unregisterScripts:
+.. _scripting.compose.unregister^scripts:
 
 unregisterScripts([filter])
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Unregisters one or more compose scripts for this extension.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.compose.ComposeScriptFilter`, optional)
-      
+      :type: (:ref:`scripting.compose.^compose^script^filter`, optional)
+
       If specified, only unregisters compose scripts which match the filter. Otherwise, all of the extension's compose scripts are unregistered.
-   
 
 .. api-header::
    :label: Required permissions
@@ -130,71 +131,67 @@ Unregisters one or more compose scripts for this extension.
 Types
 =====
 
-.. _scripting.compose.ComposeScriptDetails:
+.. _scripting.compose.^compose^script^details:
 
 ComposeScriptDetails
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 .. api-header::
    :label: object
 
-   
+   .. _scripting.compose.^compose^script^details.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
-      
+
       The id of the compose script, specified in the API call.
-   
-   
+
+   .. _scripting.compose.^compose^script^details.css:
+
    .. api-member::
       :name: [``css``]
-      :type: (array of :ref:`scripting.compose.ExtensionURL`, optional)
-      
+      :type: (array of :ref:`scripting.compose.^extension^u^r^l`, optional)
+
       The list of CSS files to be injected. These are injected in the order they appear in this array.
-   
-   
+
+   .. _scripting.compose.^compose^script^details.js:
+
    .. api-member::
       :name: [``js``]
-      :type: (array of :ref:`scripting.compose.ExtensionURL`, optional)
-      
+      :type: (array of :ref:`scripting.compose.^extension^u^r^l`, optional)
+
       The list of JavaScript files to be injected. These are injected in the order they appear in this array.
-   
-   
+
+   .. _scripting.compose.^compose^script^details.run^at:
+
    .. api-member::
       :name: [``runAt``]
-      :type: (`RunAt <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/RunAt>`__, optional)
-      
-      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
-   
+      :type: (:ref:`scripting.compose.^run^at`, optional)
 
-.. _scripting.compose.ComposeScriptFilter:
+      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
+
+.. _scripting.compose.^compose^script^filter:
 
 ComposeScriptFilter
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 .. api-header::
    :label: object
 
-   
+   .. _scripting.compose.^compose^script^filter.ids:
+
    .. api-member::
       :name: [``ids``]
       :type: (array of string, optional)
-      
+
       The IDs of specific compose scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
-   
 
-.. rst-class:: api-main-section
-
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _scripting.compose.ExtensionURL:
+.. _scripting.compose.^extension^u^r^l:
 
 ExtensionURL
 ------------
@@ -205,3 +202,30 @@ A path relative to the root of the extension.
 
 .. api-header::
    :label: string
+
+.. _scripting.compose.^run^at:
+
+RunAt
+-----
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+The soonest that the JavaScript or CSS will be injected into the tab.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`document_end`
+
+         .. api-member::
+            :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`

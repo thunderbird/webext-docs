@@ -4,10 +4,9 @@
 
   * `Manifest file properties`_
   * `Functions`_
-  * `Events`_
   * `Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ========
 i18n API
@@ -18,6 +17,10 @@ i18n API
 .. role:: value
 
 .. role:: code
+
+.. hint::
+
+   The i18n API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/i18n>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
 Use the :code:`browser.i18n` infrastructure to implement internationalization across your whole app or extension.
 
@@ -39,149 +42,156 @@ Manifest file properties
 Functions
 =========
 
-.. _i18n.detectLanguage:
+.. _i18n.detect^language:
 
 detectLanguage(text)
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Detects the language of the provided text using CLD.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``text``
       :type: (string)
-      
+
       User input string to be translated.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: object
-      
+
       LanguageDetectionResult object that holds detected langugae reliability and array of DetectedLanguage
-      
+
       .. api-member::
          :name: ``isReliable``
          :type: (boolean)
-         
+
          CLD detected language reliability
-      
-      
+
       .. api-member::
          :name: ``languages``
          :type: (array of object)
-         
+
          array of detectedLanguage
-      
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getAcceptLanguages:
+.. _i18n.get^accept^languages:
 
 getAcceptLanguages()
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
-Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use :ref:`i18n.getUILanguage`.
+Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use :ref:`i18n.get^u^i^language`.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`i18n.LanguageCode`
-      
+      :type: array of :ref:`i18n.^language^code`
+
       Array of LanguageCode
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getMessage:
+.. _i18n.get^message:
 
 getMessage(messageName, [substitutions])
 ----------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 Gets the localized string for the specified message. If the message is missing, this method returns an empty string (''). If the format of the :code:`getMessage()` call is wrong — for example, *messageName* is not a string or the *substitutions* array has more than 9 elements — this method returns :code:`undefined`.
+
+.. note::
+
+   Thunderbird 47 and earlier returns "??" instead of "" if the message is not found in _locales, `bug 1258199 <https://bugzil.la/1258199>`__ changed this act to match Chrome, landed on Thunderbird 48.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``messageName``
       :type: (string)
-      
-      The name of the message, as specified in the :code:`$(topic:i18n-messages)[messages.json]` file.
-   
-   
+
+      The name of the message, as specified in the :code:`messages.json` file.
+
    .. api-member::
       :name: [``substitutions``]
       :type: (any, optional)
-      
+
       Substitution strings, if the message requires any.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-      
+
       Message localized for current locale.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _i18n.getUILanguage:
+.. _i18n.get^preferred^system^languages:
+
+getPreferredSystemLanguages()
+-----------------------------
+
+.. api-section-annotation-hack:: 
+
+Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.get^accept^languages`.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. api-member::
+      :type: array of :ref:`i18n.^language^code`
+
+      Array of LanguageCode
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. _i18n.get^u^i^language:
 
 getUILanguage()
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
-Gets the browser UI language of the browser. This is different from :ref:`i18n.getAcceptLanguages` which returns the preferred user languages.
+Gets the browser UI language of the browser. This is different from :ref:`i18n.get^accept^languages` which returns the preferred user languages.
+
+.. note::
+
+   Thunderbird 55 and earlier returns a language tag that's separated with the underscore character instead of hyphen, see `bug 1374552 <https://bugzil.la/1374552>`__.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-      
+
       The browser UI language code such as en-US or fr-FR.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. rst-class:: api-main-section
-
-Events
-======
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
-.. _i18n.LanguageCode:
+.. _i18n.^language^code:
 
 LanguageCode
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 An ISO language code such as :code:`en` or :code:`fr`. For a complete list of languages supported by this method, see `kLanguageInfoTable <http://src.chromium.org/viewvc/chrome/trunk/src/third_party/cld/languages/internal/languages.cc>`__. For an unknown language, :code:`und` will be returned, which means that [percentage] of the text is unknown to CLD
 

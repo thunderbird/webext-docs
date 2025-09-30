@@ -5,9 +5,8 @@
   * `Permissions`_
   * `Functions`_
   * `Types`_
-  * `External Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============================
 scripting.messageDisplay API
@@ -24,10 +23,16 @@ scripting.messageDisplay API
 Permissions
 ===========
 
-.. api-member::
-   :name: :permission:`sensitiveDataUpload`
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
-   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. api-member::
+   :name: :permission:`messagesRead`
+
+   Read your email messages.
 
 .. rst-class:: api-permission-info
 
@@ -40,34 +45,30 @@ Permissions
 Functions
 =========
 
-.. _scripting.messageDisplay.getRegisteredScripts:
+.. _scripting.message^display.get^registered^scripts:
 
 getRegisteredScripts([filter])
 ------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Returns all registered message display scripts for this extension that match the given filter.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.messageDisplay.MessageDisplayScriptFilter`, optional)
-      
+      :type: (:ref:`scripting.message^display.^message^display^script^filter`, optional)
+
       An object to filter the extension's registered message display scripts.
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`scripting.messageDisplay.MessageDisplayScriptDetails`
-   
-   
+      :type: array of :ref:`scripting.message^display.^message^display^script^details`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -75,50 +76,50 @@ Returns all registered message display scripts for this extension that match the
 
    - :permission:`messagesRead`
 
-.. _scripting.messageDisplay.registerScripts:
+.. _scripting.message^display.register^scripts:
 
 registerScripts(scripts)
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
-Registers one or more message display scripts for this extension, which should be injected into displayed messages. **Note:** Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`scripting.executeScript` for each of the open :value:`messageDisplay` tabs.
+Registers one or more message display scripts for this extension, which should be injected into displayed messages.
+
+.. note::
+
+   Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`scripting.execute^script` for each of the open :value:`messageDisplay` tabs.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``scripts``
-      :type: (array of :ref:`scripting.messageDisplay.MessageDisplayScriptDetails`)
-      
+      :type: (array of :ref:`scripting.message^display.^message^display^script^details`)
+
       Contains a list of message display scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`messagesRead`
 
-.. _scripting.messageDisplay.unregisterScripts:
+.. _scripting.message^display.unregister^scripts:
 
 unregisterScripts([filter])
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 Unregisters one or more message display scripts for this extension.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``filter``]
-      :type: (:ref:`scripting.messageDisplay.MessageDisplayScriptFilter`, optional)
-      
+      :type: (:ref:`scripting.message^display.^message^display^script^filter`, optional)
+
       If specified, only unregisters message display scripts which match the filter. Otherwise, all of the extension's message display scripts are unregistered.
-   
 
 .. api-header::
    :label: Required permissions
@@ -130,71 +131,7 @@ Unregisters one or more message display scripts for this extension.
 Types
 =====
 
-.. _scripting.messageDisplay.MessageDisplayScriptDetails:
-
-MessageDisplayScriptDetails
----------------------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``id``
-      :type: (string)
-      
-      The id of the message display script, specified in the API call.
-   
-   
-   .. api-member::
-      :name: [``css``]
-      :type: (array of :ref:`scripting.messageDisplay.ExtensionURL`, optional)
-      
-      The list of CSS files to be injected. These are injected in the order they appear in this array.
-   
-   
-   .. api-member::
-      :name: [``js``]
-      :type: (array of :ref:`scripting.messageDisplay.ExtensionURL`, optional)
-      
-      The list of JavaScript files to be injected. These are injected in the order they appear in this array.
-   
-   
-   .. api-member::
-      :name: [``runAt``]
-      :type: (`RunAt <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/RunAt>`__, optional)
-      
-      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
-   
-
-.. _scripting.messageDisplay.MessageDisplayScriptFilter:
-
-MessageDisplayScriptFilter
---------------------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``ids``]
-      :type: (array of string, optional)
-      
-      The IDs of specific message display scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
-   
-
-.. rst-class:: api-main-section
-
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _scripting.messageDisplay.ExtensionURL:
+.. _scripting.message^display.^extension^u^r^l:
 
 ExtensionURL
 ------------
@@ -205,3 +142,90 @@ A path relative to the root of the extension.
 
 .. api-header::
    :label: string
+
+.. _scripting.message^display.^message^display^script^details:
+
+MessageDisplayScriptDetails
+---------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+.. api-header::
+   :label: object
+
+   .. _scripting.message^display.^message^display^script^details.id:
+
+   .. api-member::
+      :name: ``id``
+      :type: (string)
+
+      The id of the message display script, specified in the API call.
+
+   .. _scripting.message^display.^message^display^script^details.css:
+
+   .. api-member::
+      :name: [``css``]
+      :type: (array of :ref:`scripting.message^display.^extension^u^r^l`, optional)
+
+      The list of CSS files to be injected. These are injected in the order they appear in this array.
+
+   .. _scripting.message^display.^message^display^script^details.js:
+
+   .. api-member::
+      :name: [``js``]
+      :type: (array of :ref:`scripting.message^display.^extension^u^r^l`, optional)
+
+      The list of JavaScript files to be injected. These are injected in the order they appear in this array.
+
+   .. _scripting.message^display.^message^display^script^details.run^at:
+
+   .. api-member::
+      :name: [``runAt``]
+      :type: (:ref:`scripting.message^display.^run^at`, optional)
+
+      Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
+
+.. _scripting.message^display.^message^display^script^filter:
+
+MessageDisplayScriptFilter
+--------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 128]
+
+.. api-header::
+   :label: object
+
+   .. _scripting.message^display.^message^display^script^filter.ids:
+
+   .. api-member::
+      :name: [``ids``]
+      :type: (array of string, optional)
+
+      The IDs of specific message display scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
+
+.. _scripting.message^display.^run^at:
+
+RunAt
+-----
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+The soonest that the JavaScript or CSS will be injected into the tab.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`document_end`
+
+         .. api-member::
+            :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`

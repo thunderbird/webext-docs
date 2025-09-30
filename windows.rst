@@ -2,30 +2,17 @@
 
   ≡ windows API
 
+  * `Permissions`_
   * `Functions`_
   * `Events`_
   * `Types`_
   * `Properties`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
-  ≡ Related information
-  
-  * :doc:`/examples/eventListeners`
-
-  ≡ Related examples on Github
-  
-  * `"Await Popup" example <https://github.com/thunderbird/sample-extensions/tree/master/manifest_v2/awaitPopup>`__
-  
 ===========
 windows API
 ===========
-
-.. note::
-
-  These APIs are for the main Thunderbird windows which can contain webpage tabs and also other
-  window types like composer that cannot contain webpage tabs. Make sure your
-  code interacts with windows appropriately, depending on their type.
 
 .. role:: permission
 
@@ -34,6 +21,36 @@ windows API
 .. role:: code
 
 The windows API supports creating, modifying and interacting with Thunderbird windows.
+
+.. note::
+
+   This API can be used with Thunderbird's main window and popup windows, both of which support web tabs, as well as with other window types like the composer window, which does not. Ensure your code handles each window type appropriately based on its capabilities.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. api-member::
+   :name: :permission:`contextualIdentities`
+
+   Grant access to some or all methods of the contextualIdentities API.
+
+.. api-member::
+   :name: :permission:`cookies`
+
+   Grant access to some or all methods of the cookies API.
+
+.. api-member::
+   :name: :permission:`tabs`
+
+   Grant host permission to all active and inactive tabs, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
 .. rst-class:: api-main-section
 
@@ -45,136 +62,128 @@ Functions
 create([createData])
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Creates (opens) a new window with any optional sizing, position or default URL provided. When loading a page into a popup window, same-site links are opened within the same window, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually. Same-site links with targets other than :value:`_self` are opened in a new tab in the most recent :value:`normal` Thunderbird window.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``createData``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``allowScriptsToClose``]
          :type: (boolean, optional)
-         
+
          Allow scripts running inside the window to close the window by calling :code:`window.close()`. Defaults to :value:`true` when the given URL points to an extension page (a page included with this extension and loaded with the :value:`moz-extension:` protocol), defaults to :value:`false` otherwise.
-      
-      
+
       .. api-member::
          :name: [``cookieStoreId``]
          :type: (string, optional)
-         
-         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`. **Note:** The naming pattern was deliberately not changed for Thunderbird, but kept for compatibility reasons. The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
-      
-      
+         :annotation: -- [Added in TB 115]
+
+         The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+
+         .. note::
+
+            The naming pattern of the built-in cookie stores was deliberately not changed for Thunderbird, but kept for compatibility reasons.
+
+         .. note::
+
+            The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
+
       .. api-member::
          :name: [``focused``]
          :type: (boolean, optional) **Unsupported.**
-         
+
          If true, opens an active window. If false, opens an inactive window.
-      
-      
+
       .. api-member::
          :name: [``height``]
          :type: (integer, optional)
-         
+
          The height in pixels of the new window, including the frame. If not specified defaults to a natural height.
-      
-      
+
       .. api-member::
          :name: [``incognito``]
          :type: (boolean, optional) **Unsupported.**
-      
-      
+
       .. api-member::
          :name: [``left``]
          :type: (integer, optional)
-         
+
          The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window.
-      
-      
+
       .. api-member::
          :name: [``linkHandler``]
          :type: (`string`, optional)
-         
+         :annotation: -- [Added in TB 136]
+
          Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`strict`
-         
+
          .. api-member::
             :name: :value:`balanced`
-         
+
          .. api-member::
             :name: :value:`relaxed`
-      
-      
+
+         .. api-member::
+            :name: :value:`strict`
+
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`windows.WindowState`, optional)
-         
+         :type: (:ref:`windows.^window^state`, optional)
+
          The initial state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
-      
-      
+
       .. api-member::
          :name: [``tabId``]
          :type: (integer, optional)
-         
+
          The id of the tab for which you want to adopt to the new window.
-      
-      
+
       .. api-member::
          :name: [``titlePreface``]
          :type: (string, optional)
-         
+
          A string to add to the beginning of the window title.
-      
-      
+
       .. api-member::
          :name: [``top``]
          :type: (integer, optional)
-         
+
          The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window.
-      
-      
+
       .. api-member::
          :name: [``type``]
-         :type: (:ref:`windows.CreateType`, optional)
-         
+         :type: (:ref:`windows.^create^type`, optional)
+
          Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
-      
-      
+
       .. api-member::
          :name: [``url``]
          :type: (string or array of string, optional)
-         
+
          A URL to be opened in a popup window, ignored in all other window types. This may also be an array, but only the first element is used (popup windows may not have multiple tabs). If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the popup window will navigate to the requested page. All other URLs will be opened externally after creating an empty popup window. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension. Defaults to the New Tab Page.
-      
-      
+
       .. api-member::
          :name: [``width``]
          :type: (integer, optional)
-         
+
          The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`windows.Window`
-      
+      :type: :ref:`windows.^window`
+
       Contains details about the created window.
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. _windows.get:
@@ -182,241 +191,207 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 get(windowId, [getInfo])
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets details about a window.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
+      :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
+      :type: :ref:`windows.^window`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _windows.getAll:
+.. _windows.get^all:
 
 getAll([getInfo])
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets all windows.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
+      :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`windows.Window`
-   
-   
+      :type: array of :ref:`windows.^window`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _windows.getCurrent:
+.. _windows.get^current:
 
 getCurrent([getInfo])
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets the active or topmost window.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
+      :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
+      :type: :ref:`windows.^window`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _windows.getLastFocused:
+.. _windows.get^last^focused:
 
 getLastFocused([getInfo])
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets the window that was most recently focused — typically the window 'on top'.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``getInfo``]
-      :type: (:ref:`windows.GetInfo`, optional)
-   
+      :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
+      :type: :ref:`windows.^window`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _windows.openDefaultBrowser:
+.. _windows.open^default^browser:
 
 openDefaultBrowser(url)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84, backported to TB 78.6.0]
+.. api-section-annotation-hack:: -- [Added in TB 84]
 
 Opens the provided URL in the default system browser.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``url``
       :type: (string)
-   
 
 .. _windows.remove:
 
 remove(windowId)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Removes (closes) a window, and all the tabs inside it.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-   
 
 .. _windows.update:
 
 update(windowId, updateInfo)
 ----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-   
-   
+
    .. api-member::
       :name: ``updateInfo``
       :type: (object)
-      
+
       .. api-member::
          :name: [``drawAttention``]
          :type: (boolean, optional)
-         
+
          Setting this to :value:`true` will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
-      
-      
+
       .. api-member::
          :name: [``focused``]
          :type: (boolean, optional)
-         
+
          If true, brings the window to the front. If false, brings the next window in the z-order to the front.
-      
-      
+
       .. api-member::
          :name: [``height``]
          :type: (integer, optional)
-         
+
          The height to resize the window to in pixels.
-      
-      
+
       .. api-member::
          :name: [``left``]
          :type: (integer, optional)
-         
+
          The offset from the left edge of the screen to move the window to in pixels. This value is ignored for panels.
-      
-      
+
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`windows.WindowState`, optional)
-         
+         :type: (:ref:`windows.^window^state`, optional)
+
          The new state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
-      
-      
+
       .. api-member::
          :name: [``titlePreface``]
          :type: (string, optional)
-         
+
          A string to add to the beginning of the window title.
-      
-      
+
       .. api-member::
          :name: [``top``]
          :type: (integer, optional)
-         
+
          The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
-      
-      
+
       .. api-member::
          :name: [``width``]
          :type: (integer, optional)
-         
+
          The width to resize the window to in pixels.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: :ref:`windows.Window`
-   
-   
+      :type: :ref:`windows.^window`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. rst-class:: api-main-section
@@ -424,346 +399,344 @@ Updates the properties of a window. Specify only the properties that you want to
 Events
 ======
 
-.. _windows.onCreated:
+.. _windows.on^created:
 
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a window is created.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(window)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``window``
-      :type: (:ref:`windows.Window`)
-      
-      Details of the window that was created.
-   
+      :type: (:ref:`windows.^window`)
 
-.. _windows.onFocusChanged:
+      Details of the window that was created.
+
+.. _windows.on^focus^changed:
 
 onFocusChanged
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
-Fired when the currently focused window changes. Will be :ref:`windows.WINDOW_ID_NONE`, if all windows have lost focus. **Note:** On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one window to another.
+Fired when the currently focused window changes. Will be :ref:`windows.^w^i^n^d^o^w_^i^d_^n^o^n^e`, if all windows have lost focus.
+
+.. note::
+
+   On some Linux window managers, WINDOW_ID_NONE will always be sent immediately preceding a switch from one window to another.
 
 .. api-header::
    :label: Parameters for onFocusChanged.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(windowId)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      
-      ID of the newly focused window.
-   
 
-.. _windows.onRemoved:
+      ID of the newly focused window.
+
+.. _windows.on^removed:
 
 onRemoved
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a window is removed (closed).
 
 .. api-header::
    :label: Parameters for onRemoved.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(windowId)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``windowId``
       :type: (integer)
-      
+
       ID of the removed window.
-   
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
-.. _windows.CreateType:
+.. _windows.^create^type:
 
 CreateType
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`normal`
-         
-            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
-         
-         .. api-member::
-            :name: :value:`popup`
-         
-            A non-modal stand-alone popup window.
-         
-         .. api-member::
-            :name: :value:`panel`
-         
-            Not supported, same as :value:`popup`
-         
+
          .. api-member::
             :name: :value:`detached_panel`
-         
-            Not supported, same as :value:`popup`
-   
 
-.. _windows.GetInfo:
+            Not supported, same as :value:`popup`
+
+         .. api-member::
+            :name: :value:`normal`
+
+            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
+
+         .. api-member::
+            :name: :value:`panel`
+
+            Not supported, same as :value:`popup`
+
+         .. api-member::
+            :name: :value:`popup`
+
+            A non-modal stand-alone popup window.
+
+.. _windows.^get^info:
 
 GetInfo
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 78]
 
 Specifies additional requirements for the returned windows.
 
 .. api-header::
    :label: object
 
-   
+   .. _windows.^get^info.populate:
+
    .. api-member::
       :name: [``populate``]
       :type: (boolean, optional)
-      
-      If true, the :ref:`windows.Window` returned will have a :value:`tabs` property that contains an array of :ref:`tabs.Tab` objects representing the tabs inside the window. The :ref:`tabs.Tab` objects only contain the :value:`url`, :value:`title` and :value:`favIconUrl` properties if the extension's manifest file includes the :permission:`tabs` permission.
-   
-   
+
+      If true, the :ref:`windows.^window` returned will have a :value:`tabs` property that contains an array of :ref:`tabs.^tab` objects representing the tabs inside the window. The :ref:`tabs.^tab` objects only contain the :value:`url`, :value:`title` and :value:`favIconUrl` properties if the extension's manifest file includes the :permission:`tabs` permission.
+
+   .. _windows.^get^info.window^types:
+
    .. api-member::
       :name: [``windowTypes``]
-      :type: (array of :ref:`windows.WindowType`, optional)
-      
-      If set, the :ref:`windows.Window` returned will be filtered based on its type. Supported by :ref:`windows.getAll` only, ignored in all other functions.
-   
+      :type: (array of :ref:`windows.^window^type`, optional)
 
-.. _windows.Window:
+      If set, the :ref:`windows.^window` returned will be filtered based on its type. Supported by :ref:`windows.get^all` only, ignored in all other functions.
+
+.. _windows.^window:
 
 Window
 ------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 .. api-header::
    :label: object
 
-   
+   .. _windows.^window.always^on^top:
+
    .. api-member::
       :name: ``alwaysOnTop``
       :type: (boolean)
-      
+
       Whether the window is set to be always on top.
-   
-   
+
+   .. _windows.^window.focused:
+
    .. api-member::
       :name: ``focused``
       :type: (boolean)
-      
+
       Whether the window is currently the focused window.
-   
-   
+
+   .. _windows.^window.incognito:
+
    .. api-member::
       :name: ``incognito``
       :type: (boolean)
-      
+
       Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always :value:`false`.
-   
-   
+
+   .. _windows.^window.height:
+
    .. api-member::
       :name: [``height``]
       :type: (integer, optional)
-      
+
       The height of the window, including the frame, in pixels.
-   
-   
+
+   .. _windows.^window.id:
+
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
-      
+
       The ID of the window. Window IDs are unique within a session.
-   
-   
+
+   .. _windows.^window.left:
+
    .. api-member::
       :name: [``left``]
       :type: (integer, optional)
-      
+
       The offset of the window from the left edge of the screen in pixels.
-   
-   
+
+   .. _windows.^window.state:
+
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`windows.WindowState`, optional)
-      
+      :type: (:ref:`windows.^window^state`, optional)
+
       The state of this window.
-   
-   
+
+   .. _windows.^window.tabs:
+
    .. api-member::
       :name: [``tabs``]
-      :type: (array of :ref:`tabs.Tab`, optional)
-      
-      Array of :ref:`tabs.Tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.getCurrent`, :ref:`windows.getAll` or :ref:`windows.getLastFocused`, and the optional :ref:`windows.GetInfo` parameter has its :value:`populate` member set to :value:`true`.
-   
-   
+      :type: (array of :ref:`tabs.^tab`, optional)
+
+      Array of :ref:`tabs.^tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.get^current`, :ref:`windows.get^all` or :ref:`windows.get^last^focused`, and the optional :ref:`windows.^get^info` parameter has its :value:`populate` member set to :value:`true`.
+
+   .. _windows.^window.title:
+
    .. api-member::
       :name: [``title``]
       :type: (string, optional)
-      
+
       The title of the window. Read-only.
-   
-   
+
+   .. _windows.^window.top:
+
    .. api-member::
       :name: [``top``]
       :type: (integer, optional)
-      
+
       The offset of the window from the top edge of the screen in pixels.
-   
-   
+
+   .. _windows.^window.type:
+
    .. api-member::
       :name: [``type``]
-      :type: (:ref:`windows.WindowType`, optional)
-      
+      :type: (:ref:`windows.^window^type`, optional)
+
       The type of window this is.
-   
-   
+
+   .. _windows.^window.width:
+
    .. api-member::
       :name: [``width``]
       :type: (integer, optional)
-      
-      The width of the window, including the frame, in pixels.
-   
 
-.. _windows.WindowState:
+      The width of the window, including the frame, in pixels.
+
+.. _windows.^window^state:
 
 WindowState
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 The state of this window.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`normal`
-         
-         .. api-member::
-            :name: :value:`minimized`
-         
-         .. api-member::
-            :name: :value:`maximized`
-         
-         .. api-member::
-            :name: :value:`fullscreen`
-         
+
          .. api-member::
             :name: :value:`docked`
-   
 
-.. _windows.WindowType:
+         .. api-member::
+            :name: :value:`fullscreen`
+
+         .. api-member::
+            :name: :value:`maximized`
+
+         .. api-member::
+            :name: :value:`minimized`
+
+         .. api-member::
+            :name: :value:`normal`
+
+.. _windows.^window^type:
 
 WindowType
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 The type of a window. Under some circumstances a window may not be assigned a type property.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`normal`
-         
-            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
-         
-         .. api-member::
-            :name: :value:`popup`
-         
-            A non-modal stand-alone popup window.
-         
+
          .. api-member::
             :name: :value:`messageCompose`
-            :annotation: -- [Added in TB 70, backported to TB 68.1.1]
-         
+            :annotation: -- [Added in TB 70]
+
             A non-modal stand-alone message compose window.
-         
+
          .. api-member::
             :name: :value:`messageDisplay`
-            :annotation: -- [Added in TB 70, backported to TB 68.1.1]
-         
+            :annotation: -- [Added in TB 70]
+
             A non-modal stand-alone message display window, viewing a single message.
-   
+
+         .. api-member::
+            :name: :value:`normal`
+
+            A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
+
+         .. api-member::
+            :name: :value:`popup`
+
+            A non-modal stand-alone popup window.
 
 .. rst-class:: api-main-section
 
 Properties
 ==========
 
-.. _windows.WINDOW_ID_CURRENT:
+.. _windows.^w^i^n^d^o^w_^i^d_^c^u^r^r^e^n^t:
 
 WINDOW_ID_CURRENT
 -----------------
@@ -772,7 +745,7 @@ WINDOW_ID_CURRENT
 
 The windowId value that represents the current window.
 
-.. _windows.WINDOW_ID_NONE:
+.. _windows.^w^i^n^d^o^w_^i^d_^n^o^n^e:
 
 WINDOW_ID_NONE
 --------------

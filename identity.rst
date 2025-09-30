@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ============
 identity API
@@ -19,15 +19,27 @@ identity API
 
 .. role:: code
 
-Use the chrome.identity API to get OAuth2 access tokens. 
+.. hint::
+
+   The identity API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/identity>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
+Use the chrome.identity API to get OAuth2 access tokens.
 
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`identity`
+
+   Grant access to some or all methods of the identity API.
 
 .. rst-class:: api-permission-info
 
@@ -40,7 +52,7 @@ Permissions
 Functions
 =========
 
-.. _identity.getAccounts:
+.. _identity.get^accounts:
 
 getAccounts()
 -------------
@@ -52,11 +64,9 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`identity.AccountInfo`
-   
-   
+      :type: array of :ref:`identity.^account^info`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -64,7 +74,7 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
 
    - :permission:`identity`
 
-.. _identity.getAuthToken:
+.. _identity.get^auth^token:
 
 getAuthToken([details])
 -----------------------
@@ -76,35 +86,28 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``details``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``account``]
-         :type: (:ref:`identity.AccountInfo`, optional)
-      
-      
+         :type: (:ref:`identity.^account^info`, optional)
+
       .. api-member::
          :name: [``interactive``]
          :type: (boolean, optional)
-      
-      
+
       .. api-member::
          :name: [``scopes``]
          :type: (array of string, optional)
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`identity.AccountInfo`
-   
-   
+      :type: array of :ref:`identity.^account^info`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -112,7 +115,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 
    - :permission:`identity`
 
-.. _identity.getProfileUserInfo:
+.. _identity.get^profile^user^info:
 
 getProfileUserInfo()
 --------------------
@@ -124,21 +127,17 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: object
-      
+
       .. api-member::
          :name: ``email``
          :type: (string)
-      
-      
+
       .. api-member::
          :name: ``id``
          :type: (string)
-      
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -146,34 +145,30 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
 
    - :permission:`identity`
 
-.. _identity.getRedirectURL:
+.. _identity.get^redirect^u^r^l:
 
 getRedirectURL([path])
 ----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 53]
 
-Generates a redirect URL to be used in |launchWebAuthFlow|.
+Generates a redirect URL to be used in :ref:`identity.launch^web^auth^flow`.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: [``path``]
       :type: (string, optional)
-      
-      The path appended to the end of the generated URL. 
-   
+
+      The path appended to the end of the generated URL.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -181,42 +176,36 @@ Generates a redirect URL to be used in |launchWebAuthFlow|.
 
    - :permission:`identity`
 
-.. _identity.launchWebAuthFlow:
+.. _identity.launch^web^auth^flow:
 
 launchWebAuthFlow(details)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 53]
 
 Starts an auth flow at the specified URL.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``url``
-         :type: (:ref:`identity.HttpURL`)
-      
-      
+         :type: (:ref:`identity.^http^u^r^l`)
+
       .. api-member::
          :name: [``interactive``]
          :type: (boolean, optional)
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -224,7 +213,7 @@ Starts an auth flow at the specified URL.
 
    - :permission:`identity`
 
-.. _identity.removeCachedAuthToken:
+.. _identity.remove^cached^auth^token:
 
 removeCachedAuthToken(details)
 ------------------------------
@@ -236,35 +225,28 @@ Removes an OAuth2 access token from the Identity API's token cache.
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``details``
       :type: (object)
-      
+
       .. api-member::
          :name: ``token``
          :type: (string)
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: object
-      
+
       .. api-member::
          :name: ``email``
          :type: (string)
-      
-      
+
       .. api-member::
          :name: ``id``
          :type: (string)
-      
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -277,7 +259,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
 Events
 ======
 
-.. _identity.onSignInChanged:
+.. _identity.on^sign^in^changed:
 
 onSignInChanged
 ---------------
@@ -289,26 +271,21 @@ Fired when signin state changes for an account on the user's profile.
 .. api-header::
    :label: Parameters for onSignInChanged.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(account, signedIn)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``account``
-      :type: (:ref:`identity.AccountInfo`)
-   
-   
+      :type: (:ref:`identity.^account^info`)
+
    .. api-member::
       :name: ``signedIn``
       :type: (boolean)
-   
 
 .. api-header::
    :label: Required permissions
@@ -320,7 +297,7 @@ Fired when signin state changes for an account on the user's profile.
 Types
 =====
 
-.. _identity.AccountInfo:
+.. _identity.^account^info:
 
 AccountInfo
 -----------
@@ -332,10 +309,20 @@ An object encapsulating an OAuth account id.
 .. api-header::
    :label: object
 
-   
+   .. _identity.^account^info.id:
+
    .. api-member::
       :name: ``id``
       :type: (string)
-      
-      A unique identifier for the account. This ID will not change for the lifetime of the account. 
-   
+
+      A unique identifier for the account. This ID will not change for the lifetime of the account.
+
+.. _identity.^http^u^r^l:
+
+HttpURL
+-------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: string

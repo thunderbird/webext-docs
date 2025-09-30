@@ -5,25 +5,12 @@
   * `Permissions`_
   * `Functions`_
   * `Types`_
-  * `External Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==================
 composeScripts API
 ==================
-
-This compose scripts API is the same as the
-`content scripts`__ API except that it works on the document of email messages during composition.
-
-See also :ref:`executeScript <tabs.executeScript>`, :ref:`insertCSS <tabs.insertCSS>`,
-:ref:`removeCSS <tabs.removeCSS>`, and :doc:`messageDisplayScripts`.
-
-__ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts
-
-.. note::
-
-  Registering a compose script in the *manifest.json* file is not possible at this point.
 
 .. role:: permission
 
@@ -36,10 +23,16 @@ __ https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Conten
 Permissions
 ===========
 
-.. api-member::
-   :name: :permission:`sensitiveDataUpload`
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
 
-   Transfer sensitive user data (if access has been granted) to a remote server for further processing
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. api-member::
+   :name: :permission:`compose`
+
+   Read and modify your email messages as you compose and send them.
 
 .. rst-class:: api-permission-info
 
@@ -52,23 +45,25 @@ Permissions
 Functions
 =========
 
-.. _composeScripts.register:
+.. _compose^scripts.register:
 
 register(composeScriptOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 82]
 
-Register a compose script programmatically. **Note:** Registered scripts will only be applied to newly opened message composer tabs. To apply the script to already open message composer tab, manually inject your script by calling :ref:`tabs.executeScript` for each of the open :value:`messageCompose` tabs.
+Register a compose script programmatically.
+
+.. note::
+
+   Registered scripts will only be applied to newly opened message composer tabs. To apply the script to already open message composer tab, manually inject your script by calling :ref:`tabs.execute^script` for each of the open :value:`messageCompose` tabs.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``composeScriptOptions``
-      :type: (:ref:`composeScripts.RegisteredComposeScriptOptions`)
-   
+      :type: (:ref:`compose^scripts.^registered^compose^script^options`)
 
 .. api-header::
    :label: Required permissions
@@ -80,55 +75,7 @@ Register a compose script programmatically. **Note:** Registered scripts will on
 Types
 =====
 
-.. _composeScripts.RegisteredComposeScript:
-
-RegisteredComposeScript
------------------------
-
-.. api-section-annotation-hack:: 
-
-An object that represents a compose script registered programmatically.
-
-.. api-header::
-   :label: object
-
-   - ``unregister()`` Unregister a compose script registered programmatically.
-
-.. _composeScripts.RegisteredComposeScriptOptions:
-
-RegisteredComposeScriptOptions
-------------------------------
-
-.. api-section-annotation-hack:: 
-
-Details of a compose script registered programmatically.
-
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: [``css``]
-      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`, optional)
-      
-      The list of CSS files to inject.
-   
-   
-   .. api-member::
-      :name: [``js``]
-      :type: (array of :ref:`composeScripts.extensionTypes.ExtensionFileOrCode`, optional)
-      
-      The list of JavaScript files to inject.
-   
-
-.. rst-class:: api-main-section
-
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _composeScripts.extensionTypes.ExtensionFileOrCode:
+.. _compose^scripts.^extension^file^or^code:
 
 ExtensionFileOrCode
 -------------------
@@ -140,17 +87,79 @@ Specify code, either by pointing to a file or by providing the code directly. On
 .. api-header::
    :label: object
 
-   
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. api-member::
+            :name: ``file``
+            :type: (:ref:`compose^scripts.^extension^u^r^l`)
+
+            A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
+
+*or*
+
+.. api-header::
+   :label: object
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. api-member::
+            :name: ``code``
+            :type: (string)
+
+            A string of JavaScript code to register.
+
+.. _compose^scripts.^extension^u^r^l:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
+
+.. _compose^scripts.^registered^compose^script:
+
+RegisteredComposeScript
+-----------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 82]
+
+An object that represents a compose script registered programmatically.
+
+.. api-header::
+   :label: object
+
+.. _compose^scripts.^registered^compose^script^options:
+
+RegisteredComposeScriptOptions
+------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 82]
+
+Details of a compose script registered programmatically.
+
+.. api-header::
+   :label: object
+
+   .. _compose^scripts.^registered^compose^script^options.css:
+
    .. api-member::
-      :name: ``code``
-      :type: (string)
-      
-      Some JavaScript code to register.
-   
-   
+      :name: [``css``]
+      :type: (array of :ref:`compose^scripts.^extension^file^or^code`, optional)
+
+      The list of CSS files to inject.
+
+   .. _compose^scripts.^registered^compose^script^options.js:
+
    .. api-member::
-      :name: ``file``
-      :type: (string)
-      
-      A URL starting at the extension's manifest.json and pointing to a JavaScript file to register.
-   
+      :name: [``js``]
+      :type: (array of :ref:`compose^scripts.^extension^file^or^code`, optional)
+
+      The list of JavaScript files to inject.

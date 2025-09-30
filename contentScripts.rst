@@ -4,9 +4,8 @@
 
   * `Functions`_
   * `Types`_
-  * `External Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 ==================
 contentScripts API
@@ -18,145 +17,85 @@ contentScripts API
 
 .. role:: code
 
+.. hint::
+
+   The contentScripts API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 .. rst-class:: api-main-section
 
 Functions
 =========
 
-.. _contentScripts.register:
+.. _content^scripts.register:
 
 register(contentScriptOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 59]
 
 Register a content script programmatically
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``contentScriptOptions``
-      :type: (:ref:`contentScripts.RegisteredContentScriptOptions`)
-   
+      :type: (:ref:`content^scripts.^registered^content^script^options`)
 
 .. rst-class:: api-main-section
 
 Types
 =====
 
-.. _contentScripts.RegisteredContentScript:
+.. _content^scripts.^c^s^s^origin:
 
-RegisteredContentScript
------------------------
+CSSOrigin
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 53]
+
+The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`author`
+
+         .. api-member::
+            :name: :value:`user`
+
+.. _content^scripts.^execution^world:
+
+ExecutionWorld
+--------------
 
 .. api-section-annotation-hack:: 
 
-An object that represents a content script registered programmatically
+The JavaScript world for a script to execute within. :code:`ISOLATED` is the default execution environment of content scripts, :code:`MAIN` is the web page's execution environment.
 
 .. api-header::
-   :label: object
+   :label: `string`
 
-   - ``unregister()`` Unregister a content script registered programmatically
+   .. container:: api-member-node
 
-.. _contentScripts.RegisteredContentScriptOptions:
+      .. container:: api-member-description-only
 
-RegisteredContentScriptOptions
-------------------------------
+         Supported values:
 
-.. api-section-annotation-hack:: 
+         .. api-member::
+            :name: :value:`ISOLATED`
 
-Details of a content script registered programmatically
+         .. api-member::
+            :name: :value:`MAIN`
 
-.. api-header::
-   :label: object
-
-   
-   .. api-member::
-      :name: ``matches``
-      :type: (array of :ref:`contentScripts.MatchPattern`)
-   
-   
-   .. api-member::
-      :name: [``allFrames``]
-      :type: (boolean, optional)
-      
-      If allFrames is :code:`true`, implies that the JavaScript or CSS should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
-   
-   
-   .. api-member::
-      :name: [``cookieStoreId``]
-      :type: (array of string or string, optional)
-      
-      limit the set of matched tabs to those that belong to the given cookie store id
-   
-   
-   .. api-member::
-      :name: [``css``]
-      :type: (array of :ref:`contentScripts.extensionTypes.ExtensionFileOrCode`, optional)
-      
-      The list of CSS files to inject
-   
-   
-   .. api-member::
-      :name: [``excludeGlobs``]
-      :type: (array of string, optional)
-   
-   
-   .. api-member::
-      :name: [``excludeMatches``]
-      :type: (array of :ref:`contentScripts.MatchPattern`, optional)
-   
-   
-   .. api-member::
-      :name: [``includeGlobs``]
-      :type: (array of string, optional)
-   
-   
-   .. api-member::
-      :name: [``js``]
-      :type: (array of :ref:`contentScripts.extensionTypes.ExtensionFileOrCode`, optional)
-      
-      The list of JS files to inject
-   
-   
-   .. api-member::
-      :name: [``matchAboutBlank``]
-      :type: (boolean, optional)
-      
-      If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Ignored if matchOriginAsFallback is specified. By default it is :code:`false`.
-   
-   
-   .. api-member::
-      :name: [``matchOriginAsFallback``]
-      :type: (boolean, optional)
-      
-      If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
-   
-   
-   .. api-member::
-      :name: [``runAt``]
-      :type: (`RunAt <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/RunAt>`__, optional)
-      
-      The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
-   
-   
-   .. api-member::
-      :name: [``world``]
-      :type: (`ExecutionWorld <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/extensionTypes/ExecutionWorld>`__, optional)
-      
-      The JavaScript world for a script to execute within. Defaults to "ISOLATED".
-   
-
-.. rst-class:: api-main-section
-
-External Types
-==============
-
-The following types are not defined by this API, but by the underlying Mozilla WebExtension code base. They are included here, because there is no other public documentation available.
-
-.. _contentScripts.extensionTypes.ExtensionFileOrCode:
+.. _content^scripts.^extension^file^or^code:
 
 ExtensionFileOrCode
 -------------------
@@ -168,17 +107,244 @@ Specify code, either by pointing to a file or by providing the code directly. On
 .. api-header::
    :label: object
 
-   
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. api-member::
+            :name: ``file``
+            :type: (:ref:`content^scripts.^extension^u^r^l`)
+
+            A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
+
+*or*
+
+.. api-header::
+   :label: object
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. api-member::
+            :name: ``code``
+            :type: (string)
+
+            A string of JavaScript code to register.
+
+.. _content^scripts.^extension^u^r^l:
+
+ExtensionURL
+------------
+
+.. api-section-annotation-hack:: 
+
+A path relative to the root of the extension.
+
+.. api-header::
+   :label: string
+
+.. _content^scripts.^match^pattern:
+
+MatchPattern
+------------
+
+.. api-section-annotation-hack:: 
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`<all_urls>`
+
+*or*
+
+.. api-header::
+   :label: :ref:`content^scripts.^match^pattern^restricted`
+
+*or*
+
+.. api-header::
+   :label: :ref:`content^scripts.^match^pattern^unestricted`
+
+.. _content^scripts.^match^pattern^restricted:
+
+MatchPatternRestricted
+----------------------
+
+.. api-section-annotation-hack:: 
+
+Same as MatchPattern above, but excludes <all_urls>
+
+.. api-header::
+   :label: string
+
+*or*
+
+.. api-header::
+   :label: string
+
+.. _content^scripts.^match^pattern^unestricted:
+
+MatchPatternUnestricted
+-----------------------
+
+.. api-section-annotation-hack:: 
+
+Mostly unrestricted match patterns for privileged add-ons. This should technically be rejected for unprivileged add-ons, but, reasons. The MatchPattern class will still refuse privileged schemes for those extensions.
+
+.. api-header::
+   :label: string
+
+.. _content^scripts.^registered^content^script:
+
+RegisteredContentScript
+-----------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 59]
+
+An object that represents a content script registered programmatically
+
+.. api-header::
+   :label: object
+
+.. _content^scripts.^registered^content^script^options:
+
+RegisteredContentScriptOptions
+------------------------------
+
+.. api-section-annotation-hack:: 
+
+Details of a content script registered programmatically
+
+.. api-header::
+   :label: object
+
+   .. _content^scripts.^registered^content^script^options.matches:
+
    .. api-member::
-      :name: ``code``
-      :type: (string)
-      
-      Some JavaScript code to register.
-   
-   
+      :name: ``matches``
+      :type: (array of :ref:`content^scripts.^match^pattern`)
+
+   .. _content^scripts.^registered^content^script^options.all^frames:
+
    .. api-member::
-      :name: ``file``
-      :type: (string)
-      
-      A URL starting at the extension's manifest.json and pointing to a JavaScript file to register.
-   
+      :name: [``allFrames``]
+      :type: (boolean, optional)
+
+      If allFrames is :code:`true`, implies that the JavaScript or CSS should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
+
+   .. _content^scripts.^registered^content^script^options.cookie^store^id:
+
+   .. api-member::
+      :name: [``cookieStoreId``]
+      :type: (array of string or string, optional)
+
+      limit the set of matched tabs to those that belong to the given cookie store id
+
+   .. _content^scripts.^registered^content^script^options.css:
+
+   .. api-member::
+      :name: [``css``]
+      :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
+
+      The list of CSS files to inject
+
+   .. _content^scripts.^registered^content^script^options.css^origin:
+
+   .. api-member::
+      :name: [``cssOrigin``]
+      :type: (:ref:`content^scripts.^c^s^s^origin`, optional)
+
+      The css origin of the stylesheet to inject. Defaults to "author".
+
+   .. _content^scripts.^registered^content^script^options.exclude^globs:
+
+   .. api-member::
+      :name: [``excludeGlobs``]
+      :type: (array of string, optional)
+
+   .. _content^scripts.^registered^content^script^options.exclude^matches:
+
+   .. api-member::
+      :name: [``excludeMatches``]
+      :type: (array of :ref:`content^scripts.^match^pattern`, optional)
+
+   .. _content^scripts.^registered^content^script^options.include^globs:
+
+   .. api-member::
+      :name: [``includeGlobs``]
+      :type: (array of string, optional)
+
+   .. _content^scripts.^registered^content^script^options.js:
+
+   .. api-member::
+      :name: [``js``]
+      :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
+
+      The list of JS files to inject
+
+   .. _content^scripts.^registered^content^script^options.match^about^blank:
+
+   .. api-member::
+      :name: [``matchAboutBlank``]
+      :type: (boolean, optional)
+
+      If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Ignored if matchOriginAsFallback is specified. By default it is :code:`false`.
+
+   .. _content^scripts.^registered^content^script^options.match^origin^as^fallback:
+
+   .. api-member::
+      :name: [``matchOriginAsFallback``]
+      :type: (boolean, optional)
+
+      If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
+
+   .. _content^scripts.^registered^content^script^options.run^at:
+
+   .. api-member::
+      :name: [``runAt``]
+      :type: (:ref:`content^scripts.^run^at`, optional)
+
+      The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
+
+   .. _content^scripts.^registered^content^script^options.world:
+
+   .. api-member::
+      :name: [``world``]
+      :type: (:ref:`content^scripts.^execution^world`, optional)
+
+      The JavaScript world for a script to execute within. Defaults to "ISOLATED".
+
+.. _content^scripts.^run^at:
+
+RunAt
+-----
+
+.. api-section-annotation-hack:: -- [Added in TB 45]
+
+The soonest that the JavaScript or CSS will be injected into the tab.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. api-member::
+            :name: :value:`document_end`
+
+         .. api-member::
+            :name: :value:`document_idle`
+
+         .. api-member::
+            :name: :value:`document_start`

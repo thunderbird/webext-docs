@@ -1,19 +1,17 @@
 .. container:: sticky-sidebar
-
+  
   ≡ On this page
   
   * `Getting started`_
-  * :ref:`Examples`
-  * :ref:`Experiments`
-  * :ref:`ChangeLog`
   * `Where to get help and more information`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: _includes/developer-resources.rst
+
+==================================================
+WebExtension Documentation for Thunderbird 144.0b2
+==================================================
 
 
-===============================================
-WebExtension Documentation for Thunderbird Beta
-===============================================
 
 Getting started
 ===============
@@ -45,18 +43,16 @@ __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Obje
 __ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises
 
 The documentation for the APIs listed in the left side panel is generated automatically from
-Thunderbird's schema files. The `webext-schemas <https://github.com/thunderbird/webext-schemas>`__
+Thunderbird's schema files. The `webext-schemas <https://github.com/thunderbird/webext-annotated-schemas>`__
 repository can be used to obtain a copy of the relevant files.
 
 .. toctree::
   :hidden:
-  :caption: API reference
+  :caption: WebExtension API reference
   
   accounts
   addressBooks
   addressBooks.provider
-  contacts
-  mailingLists
   alarms
   browserAction
   browserSettings
@@ -67,6 +63,8 @@ repository can be used to obtain a copy of the relevant files.
   commands
   compose
   composeAction
+  composeScripts
+  contacts
   contentScripts
   contextualIdentities
   cookies
@@ -74,20 +72,22 @@ repository can be used to obtain a copy of the relevant files.
   dns
   downloads
   extension
-  composeScripts
-  messageDisplayScripts
   folders
   i18n
   identities
   identity
   idle
   mailTabs
+  mailingLists
   management
   menus
   messageDisplay
   messageDisplayAction
+  messageDisplayScripts
   messages
   messages.tags
+  messengerSettings
+  messengerUtilities
   notifications
   permissions
   pkcs11
@@ -106,45 +106,9 @@ repository can be used to obtain a copy of the relevant files.
   tabs
   theme
   userScripts
-  messengerUtilities
   webNavigation
   webRequest
   windows
-
-.. _Examples:
-
-.. toctree::
-  :glob:
-  :maxdepth: 1
-  :caption: Examples
-
-  examples/*
-
-.. _Experiments:
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Experiment APIs
-
-  experiments/introduction
-  experiments/generator
-  experiments/folders_and_messages
-  experiments/tabs_and_windows
-  experiments/contribute
-
-.. _ChangeLog:
-
-.. toctree::
-  :maxdepth: 1
-  :caption: Changelog
-
-  changes/140
-  changes/128
-  changes/115
-  changes/102
-  changes/91
-  changes/78
-
 
 Where to get help and more information
 ======================================

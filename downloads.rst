@@ -7,7 +7,7 @@
   * `Events`_
   * `Types`_
 
-  .. include:: /overlay/developer-resources.rst
+  .. include:: /_includes/developer-resources.rst
 
 =============
 downloads API
@@ -19,20 +19,30 @@ downloads API
 
 .. role:: code
 
+.. hint::
+
+   The downloads API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/downloads>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 .. rst-class:: api-main-section
 
 Permissions
 ===========
 
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
 .. api-member::
    :name: :permission:`downloads`
 
-   Download files and read and modify the browser’s download history
+   Download files and read and modify the browser’s download history.
 
 .. api-member::
    :name: :permission:`downloads.open`
 
-   Open files downloaded to your computer
+   Open files downloaded to your computer.
 
 .. rst-class:: api-permission-info
 
@@ -50,20 +60,18 @@ Functions
 cancel(downloadId)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Cancel a download. When :code:`callback` is run, the download is cancelled, completed, interrupted or doesn't exist anymore.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-      
+
       The id of the download to cancel.
-   
 
 .. api-header::
    :label: Required permissions
@@ -75,105 +83,91 @@ Cancel a download. When :code:`callback` is run, the download is cancelled, comp
 download(options)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Download a URL. If the URL uses the HTTP[S] protocol, then the request will include all cookies currently set for its hostname. If both :code:`filename` and :code:`saveAs` are specified, then the Save As dialog will be displayed, pre-populated with the specified :code:`filename`. If the download started successfully, :code:`callback` will be called with the new `DownloadItem <#type-DownloadItem>`__'s :code:`downloadId`. If there was an error starting the download, then :code:`callback` will be called with :code:`downloadId=undefined` and `chrome.extension.lastError <extension.html#property-lastError>`__ will contain a descriptive string. The error strings are not guaranteed to remain backwards compatible between releases. You must not parse it.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``options``
       :type: (object)
-      
+
       What to download and how.
-      
+
       .. api-member::
          :name: ``url``
          :type: (string)
-         
+
          The URL to download.
-      
-      
+
       .. api-member::
          :name: [``allowHttpErrors``]
          :type: (boolean, optional)
-         
+
          When this flag is set to :code:`true`, then the browser will allow downloads to proceed after encountering HTTP errors such as :code:`404 Not Found`.
-      
-      
+
       .. api-member::
          :name: [``body``]
          :type: (string, optional)
-         
+
          Post body.
-      
-      
+
       .. api-member::
          :name: [``conflictAction``]
-         :type: (:ref:`downloads.FilenameConflictAction`, optional)
-      
-      
+         :type: (:ref:`downloads.^filename^conflict^action`, optional)
+
       .. api-member::
          :name: [``cookieStoreId``]
          :type: (string, optional)
-         
+
          The cookie store ID of the contextual identity; requires "cookies" permission.
-      
-      
+
       .. api-member::
          :name: [``filename``]
          :type: (string, optional)
-         
+
          A file path relative to the Downloads directory to contain the downloaded file.
-      
-      
+
       .. api-member::
          :name: [``headers``]
          :type: (array of object, optional)
-         
+
          Extra HTTP headers to send with the request if the URL uses the HTTP[s] protocol. Each header is represented as a dictionary containing the keys :code:`name` and either :code:`value` or :code:`binaryValue`, restricted to those allowed by XMLHttpRequest.
-      
-      
+
       .. api-member::
          :name: [``incognito``]
          :type: (boolean, optional)
-         
+
          Whether to associate the download with a private browsing session.
-      
-      
+
       .. api-member::
          :name: [``method``]
          :type: (`string`, optional)
-         
+
          The HTTP method to use if the URL uses the HTTP[S] protocol.
-         
+
          Supported values:
-         
+
          .. api-member::
             :name: :value:`GET`
-         
+
          .. api-member::
             :name: :value:`POST`
-      
-      
+
       .. api-member::
          :name: [``saveAs``]
          :type: (boolean, optional)
-         
-         Use a file-chooser to allow the user to select a filename. If the option is not specified, the file chooser will be shown only if the Firefox "Always ask you where to save files" option is enabled (i.e. the pref :code:`browser.download.useDownloadDir` is set to :code:`false`).
-      
-   
+
+         Use a file-chooser to allow the user to select a filename. If the option is not specified, the file chooser will be shown only if the Thunderbird "Always ask you where to save files" option is enabled (i.e. the pref :code:`browser.download.useDownloadDir` is set to :code:`false`).
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: integer
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -193,11 +187,9 @@ Initiate dragging the file to another application.
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-   
 
 .. api-header::
    :label: Required permissions
@@ -209,27 +201,23 @@ Initiate dragging the file to another application.
 erase(query)
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``query``
-      :type: (:ref:`downloads.DownloadQuery`)
-   
+      :type: (:ref:`downloads.^download^query`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: array of integer
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -237,46 +225,40 @@ Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 
    - :permission:`downloads`
 
-.. _downloads.getFileIcon:
+.. _downloads.get^file^icon:
 
 getFileIcon(downloadId, [options])
 ----------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Retrieve an icon for the specified download. For new downloads, file icons are available after the `onCreated <#event-onCreated>`__ event has been received. The image returned by this function while a download is in progress may be different from the image returned after the download is complete. Icon retrieval is done by querying the underlying operating system or toolkit depending on the platform. The icon that is returned will therefore depend on a number of factors including state of the download, platform, registered file types and visual theme. If a file icon cannot be determined, `chrome.extension.lastError <extension.html#property-lastError>`__ will contain an error message.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-      
+
       The identifier for the download.
-   
-   
+
    .. api-member::
       :name: [``options``]
       :type: (object, optional)
-      
+
       .. api-member::
          :name: [``size``]
          :type: (integer, optional)
-         
+
          The size of the icon.  The returned icon will be square with dimensions size * size pixels.  The default size for the icon is 32x32 pixels.
-      
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: string
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -289,18 +271,16 @@ Retrieve an icon for the specified download. For new downloads, file icons are a
 open(downloadId)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Open the downloaded file.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-   
 
 .. api-header::
    :label: Required permissions
@@ -313,41 +293,37 @@ Open the downloaded file.
 pause(downloadId)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Pause the download. If the request was successful the download is in a paused state. Otherwise `chrome.extension.lastError <extension.html#property-lastError>`__ contains an error message. The request will fail if the download is not active.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-      
+
       The id of the download to pause.
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`downloads`
 
-.. _downloads.removeFile:
+.. _downloads.remove^file:
 
 removeFile(downloadId)
 ----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-   
 
 .. api-header::
    :label: Required permissions
@@ -359,20 +335,18 @@ removeFile(downloadId)
 resume(downloadId)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Resume a paused download. If the request was successful the download is in progress and unpaused. Otherwise `chrome.extension.lastError <extension.html#property-lastError>`__ contains an error message. The request will fail if the download is not active.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-      
+
       The id of the download to resume.
-   
 
 .. api-header::
    :label: Required permissions
@@ -384,27 +358,23 @@ Resume a paused download. If the request was successful the download is in progr
 search(query)
 -------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty object to get all `DownloadItems <#type-DownloadItem>`__. To get a specific `DownloadItem <#type-DownloadItem>`__, set only the :code:`id` field.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``query``
-      :type: (:ref:`downloads.DownloadQuery`)
-   
+      :type: (:ref:`downloads.^download^query`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
-      :type: array of :ref:`downloads.DownloadItem`
-   
-   
+      :type: array of :ref:`downloads.^download^item`
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -417,27 +387,23 @@ Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty obje
 show(downloadId)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Show the downloaded file in its folder in a file manager.
 
 .. api-header::
    :label: Parameters
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-   
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   
    .. api-member::
       :type: boolean
-   
-   
+
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
@@ -445,12 +411,12 @@ Show the downloaded file in its folder in a file manager.
 
    - :permission:`downloads`
 
-.. _downloads.showDefaultFolder:
+.. _downloads.show^default^folder:
 
 showDefaultFolder()
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 .. api-header::
    :label: Required permissions
@@ -462,195 +428,169 @@ showDefaultFolder()
 Events
 ======
 
-.. _downloads.onChanged:
+.. _downloads.on^changed:
 
 onChanged
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`bytesReceived` changes, this event fires with the :code:`downloadId` and an object containing the properties that changed.
 
 .. api-header::
    :label: Parameters for onChanged.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(downloadDelta)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``downloadDelta``
       :type: (object)
-      
+
       .. api-member::
          :name: ``id``
          :type: (integer)
-         
+
          The :code:`id` of the `DownloadItem <#type-DownloadItem>`__ that changed.
-      
-      
+
       .. api-member::
          :name: [``canResume``]
-         :type: (:ref:`downloads.BooleanDelta`, optional)
-      
-      
+         :type: (:ref:`downloads.^boolean^delta`, optional)
+
       .. api-member::
          :name: [``danger``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`danger`.
-      
-      
+
       .. api-member::
          :name: [``endTime``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`endTime`.
-      
-      
+
       .. api-member::
          :name: [``error``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`error`.
-      
-      
+
       .. api-member::
          :name: [``exists``]
-         :type: (:ref:`downloads.BooleanDelta`, optional)
-      
-      
-      .. api-member::
-         :name: [``fileSize``]
-         :type: (:ref:`downloads.DoubleDelta`, optional)
-         
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`fileSize`.
-      
-      
+         :type: (:ref:`downloads.^boolean^delta`, optional)
+
       .. api-member::
          :name: [``filename``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`filename`.
-      
-      
+
+      .. api-member::
+         :name: [``fileSize``]
+         :type: (:ref:`downloads.^double^delta`, optional)
+
+         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`fileSize`.
+
       .. api-member::
          :name: [``mime``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`mime`.
-      
-      
+
       .. api-member::
          :name: [``paused``]
-         :type: (:ref:`downloads.BooleanDelta`, optional)
-         
+         :type: (:ref:`downloads.^boolean^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`paused`.
-      
-      
+
       .. api-member::
          :name: [``startTime``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`startTime`.
-      
-      
+
       .. api-member::
          :name: [``state``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`state`.
-      
-      
+
       .. api-member::
          :name: [``totalBytes``]
-         :type: (:ref:`downloads.DoubleDelta`, optional)
-         
+         :type: (:ref:`downloads.^double^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`totalBytes`.
-      
-      
+
       .. api-member::
          :name: [``url``]
-         :type: (:ref:`downloads.StringDelta`, optional)
-         
+         :type: (:ref:`downloads.^string^delta`, optional)
+
          Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`url`.
-      
-   
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`downloads`
 
-.. _downloads.onCreated:
+.. _downloads.on^created:
 
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 This event fires with the `DownloadItem <#type-DownloadItem>`__ object when a download begins.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(downloadItem)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``downloadItem``
-      :type: (:ref:`downloads.DownloadItem`)
-   
+      :type: (:ref:`downloads.^download^item`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`downloads`
 
-.. _downloads.onErased:
+.. _downloads.on^erased:
 
 onErased
 --------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 48]
 
 Fires with the :code:`downloadId` when a download is erased from history.
 
 .. api-header::
    :label: Parameters for onErased.addListener(listener)
 
-   
    .. api-member::
       :name: ``listener(downloadId)``
-      
+
       A function that will be called when this event occurs.
-   
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   
    .. api-member::
       :name: ``downloadId``
       :type: (integer)
-      
+
       The :code:`id` of the `DownloadItem <#type-DownloadItem>`__ that was erased.
-   
 
 .. api-header::
    :label: Required permissions
@@ -662,93 +602,103 @@ Fires with the :code:`downloadId` when a download is erased from history.
 Types
 =====
 
-.. _downloads.BooleanDelta:
+.. _downloads.^boolean^delta:
 
 BooleanDelta
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 .. api-header::
    :label: object
 
-   
+   .. _downloads.^boolean^delta.current:
+
    .. api-member::
       :name: [``current``]
       :type: (boolean, optional)
-   
-   
+
+   .. _downloads.^boolean^delta.previous:
+
    .. api-member::
       :name: [``previous``]
       :type: (boolean, optional)
-   
 
-.. _downloads.DangerType:
+.. _downloads.^danger^type:
 
 DangerType
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
-<dl><dt>file</dt><dd>The download's filename is suspicious.</dd><dt>url</dt><dd>The download's URL is known to be malicious.</dd><dt>content</dt><dd>The downloaded file is known to be malicious.</dd><dt>uncommon</dt><dd>The download's URL is not commonly downloaded and could be dangerous.</dd><dt>safe</dt><dd>The download presents no known danger to the user's computer.</dd></dl>These string constants will never change, however the set of DangerTypes may change.
+These string constants will never change, however the set of DangerTypes may change.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`file`
-         
-         .. api-member::
-            :name: :value:`url`
-         
-         .. api-member::
-            :name: :value:`content`
-         
-         .. api-member::
-            :name: :value:`uncommon`
-         
-         .. api-member::
-            :name: :value:`host`
-         
-         .. api-member::
-            :name: :value:`unwanted`
-         
-         .. api-member::
-            :name: :value:`safe`
-         
+
          .. api-member::
             :name: :value:`accepted`
-   
 
-.. _downloads.DoubleDelta:
+         .. api-member::
+            :name: :value:`content`
+
+            The downloaded file is known to be malicious.
+
+         .. api-member::
+            :name: :value:`file`
+
+            The download's filename is suspicious.
+
+         .. api-member::
+            :name: :value:`host`
+
+         .. api-member::
+            :name: :value:`safe`
+
+            The download presents no known danger to the user's computer.
+
+         .. api-member::
+            :name: :value:`uncommon`
+
+            The download's URL is not commonly downloaded and could be dangerous.
+
+         .. api-member::
+            :name: :value:`unwanted`
+
+         .. api-member::
+            :name: :value:`url`
+
+            The download's URL is known to be malicious.
+
+.. _downloads.^double^delta:
 
 DoubleDelta
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 .. api-header::
    :label: object
 
-   
+   .. _downloads.^double^delta.current:
+
    .. api-member::
       :name: [``current``]
       :type: (number, optional)
-   
-   
+
+   .. _downloads.^double^delta.previous:
+
    .. api-member::
       :name: [``previous``]
       :type: (number, optional)
-   
 
-.. _downloads.DownloadItem:
+.. _downloads.^download^item:
 
 DownloadItem
 ------------
@@ -758,509 +708,574 @@ DownloadItem
 .. api-header::
    :label: object
 
-   
+   .. _downloads.^download^item.bytes^received:
+
    .. api-member::
       :name: ``bytesReceived``
       :type: (number)
-      
+
       Number of bytes received so far from the host, without considering file compression.
-   
-   
+
+   .. _downloads.^download^item.can^resume:
+
    .. api-member::
       :name: ``canResume``
       :type: (boolean)
-   
-   
+
+   .. _downloads.^download^item.danger:
+
    .. api-member::
       :name: ``danger``
-      :type: (:ref:`downloads.DangerType`)
-      
+      :type: (:ref:`downloads.^danger^type`)
+
       Indication of whether this download is thought to be safe or known to be suspicious.
-   
-   
+
+      .. note::
+
+         Always given as 'safe'.
+
+   .. _downloads.^download^item.exists:
+
    .. api-member::
       :name: ``exists``
       :type: (boolean)
-   
-   
-   .. api-member::
-      :name: ``fileSize``
-      :type: (number)
-      
-      Number of bytes in the whole file post-decompression, or -1 if unknown.
-   
-   
+
+   .. _downloads.^download^item.filename:
+
    .. api-member::
       :name: ``filename``
       :type: (string)
-      
+
       Absolute local path.
-   
-   
+
+   .. _downloads.^download^item.file^size:
+
+   .. api-member::
+      :name: ``fileSize``
+      :type: (number)
+
+      Number of bytes in the whole file post-decompression, or -1 if unknown.
+
+   .. _downloads.^download^item.id:
+
    .. api-member::
       :name: ``id``
       :type: (integer)
-      
+
       An identifier that is persistent across browser sessions.
-   
-   
+
+   .. _downloads.^download^item.incognito:
+
    .. api-member::
       :name: ``incognito``
       :type: (boolean)
-      
+
       False if this download is recorded in the history, true if it is not recorded.
-   
-   
+
+   .. _downloads.^download^item.paused:
+
    .. api-member::
       :name: ``paused``
       :type: (boolean)
-      
+
       True if the download has stopped reading data from the host, but kept the connection open.
-   
-   
+
+   .. _downloads.^download^item.start^time:
+
    .. api-member::
       :name: ``startTime``
       :type: (string)
-      
+
       Number of milliseconds between the unix epoch and when this download began.
-   
-   
+
+   .. _downloads.^download^item.state:
+
    .. api-member::
       :name: ``state``
-      :type: (:ref:`downloads.State`)
-      
+      :type: (:ref:`downloads.^state`)
+
       Indicates whether the download is progressing, interrupted, or complete.
-   
-   
+
+   .. _downloads.^download^item.total^bytes:
+
    .. api-member::
       :name: ``totalBytes``
       :type: (number)
-      
+
       Number of bytes in the whole file, without considering file compression, or -1 if unknown.
-   
-   
+
+   .. _downloads.^download^item.url:
+
    .. api-member::
       :name: ``url``
       :type: (string)
-      
+
       Absolute URL.
-   
-   
+
+   .. _downloads.^download^item.by^extension^id:
+
    .. api-member::
       :name: [``byExtensionId``]
       :type: (string, optional)
-   
-   
+
+   .. _downloads.^download^item.by^extension^name:
+
    .. api-member::
       :name: [``byExtensionName``]
       :type: (string, optional)
-   
-   
+
+   .. _downloads.^download^item.cookie^store^id:
+
    .. api-member::
       :name: [``cookieStoreId``]
       :type: (string, optional)
-      
+      :annotation: -- [Added in TB 92]
+
       The cookie store ID of the contextual identity.
-   
-   
+
+   .. _downloads.^download^item.end^time:
+
    .. api-member::
       :name: [``endTime``]
       :type: (string, optional)
-      
+
       Number of milliseconds between the unix epoch and when this download ended.
-   
-   
+
+   .. _downloads.^download^item.error:
+
    .. api-member::
       :name: [``error``]
-      :type: (:ref:`downloads.InterruptReason`, optional)
-      
+      :type: (:ref:`downloads.^interrupt^reason`, optional)
+
       Number indicating why a download was interrupted.
-   
-   
+
+   .. _downloads.^download^item.estimated^end^time:
+
    .. api-member::
       :name: [``estimatedEndTime``]
       :type: (string, optional)
-   
-   
+      :annotation: -- [Added in TB 57]
+
+   .. _downloads.^download^item.mime:
+
    .. api-member::
       :name: [``mime``]
       :type: (string, optional)
-      
+
       The file's MIME type.
-   
-   
+
+   .. _downloads.^download^item.referrer:
+
    .. api-member::
       :name: [``referrer``]
       :type: (string, optional)
-   
 
-.. _downloads.DownloadQuery:
+.. _downloads.^download^query:
 
 DownloadQuery
 -------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Parameters that combine to specify a predicate that can be used to select a set of downloads.  Used for example in search() and erase()
 
 .. api-header::
    :label: object
 
-   
+   .. _downloads.^download^query.bytes^received:
+
    .. api-member::
       :name: [``bytesReceived``]
       :type: (number, optional)
-      
+
       Number of bytes received so far from the host, without considering file compression.
-   
-   
+
+   .. _downloads.^download^query.cookie^store^id:
+
    .. api-member::
       :name: [``cookieStoreId``]
       :type: (string, optional)
-      
+      :annotation: -- [Added in TB 92]
+
       The cookie store ID of the contextual identity.
-   
-   
+
+   .. _downloads.^download^query.danger:
+
    .. api-member::
       :name: [``danger``]
-      :type: (:ref:`downloads.DangerType`, optional)
-      
+      :type: (:ref:`downloads.^danger^type`, optional)
+
       Indication of whether this download is thought to be safe or known to be suspicious.
-   
-   
+
+   .. _downloads.^download^query.ended^after:
+
+   .. api-member::
+      :name: [``endedAfter``]
+      :type: (:ref:`downloads.^download^time`, optional)
+
+      Limits results to downloads that ended after the given ms since the epoch.
+
+      .. note::
+
+         The parameter is ignored.
+
+   .. _downloads.^download^query.ended^before:
+
+   .. api-member::
+      :name: [``endedBefore``]
+      :type: (:ref:`downloads.^download^time`, optional)
+
+      Limits results to downloads that ended before the given ms since the epoch.
+
+      .. note::
+
+         The parameter is ignored.
+
+   .. _downloads.^download^query.end^time:
+
    .. api-member::
       :name: [``endTime``]
       :type: (string, optional)
-   
-   
-   .. api-member::
-      :name: [``endedAfter``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
-      
-      Limits results to downloads that ended after the given ms since the epoch.
-   
-   
-   .. api-member::
-      :name: [``endedBefore``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
-      
-      Limits results to downloads that ended before the given ms since the epoch.
-   
-   
+
+   .. _downloads.^download^query.error:
+
    .. api-member::
       :name: [``error``]
-      :type: (:ref:`downloads.InterruptReason`, optional)
-      
+      :type: (:ref:`downloads.^interrupt^reason`, optional)
+
       Why a download was interrupted.
-   
-   
+
+   .. _downloads.^download^query.exists:
+
    .. api-member::
       :name: [``exists``]
       :type: (boolean, optional)
-   
-   
-   .. api-member::
-      :name: [``fileSize``]
-      :type: (number, optional)
-      
-      Number of bytes in the whole file post-decompression, or -1 if unknown.
-   
-   
+
+   .. _downloads.^download^query.filename:
+
    .. api-member::
       :name: [``filename``]
       :type: (string, optional)
-      
+
       Absolute local path.
-   
-   
+
+   .. _downloads.^download^query.filename^regex:
+
    .. api-member::
       :name: [``filenameRegex``]
       :type: (string, optional)
-      
+
       Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`filename` matches the given regular expression.
-   
-   
+
+   .. _downloads.^download^query.file^size:
+
+   .. api-member::
+      :name: [``fileSize``]
+      :type: (number, optional)
+
+      Number of bytes in the whole file post-decompression, or -1 if unknown.
+
+   .. _downloads.^download^query.id:
+
    .. api-member::
       :name: [``id``]
       :type: (integer, optional)
-   
-   
+
+   .. _downloads.^download^query.limit:
+
    .. api-member::
       :name: [``limit``]
       :type: (integer, optional)
-      
+
       Setting this integer limits the number of results. Otherwise, all matching `DownloadItems <#type-DownloadItem>`__ will be returned.
-   
-   
+
+   .. _downloads.^download^query.mime:
+
    .. api-member::
       :name: [``mime``]
       :type: (string, optional)
-      
+
       The file's MIME type.
-   
-   
+
+   .. _downloads.^download^query.order^by:
+
    .. api-member::
       :name: [``orderBy``]
       :type: (array of string, optional)
-      
+
       Setting elements of this array to `DownloadItem <#type-DownloadItem>`__ properties in order to sort the search results. For example, setting :code:`orderBy='startTime'` sorts the `DownloadItems <#type-DownloadItem>`__ by their start time in ascending order. To specify descending order, prefix :code:`orderBy` with a hyphen: '-startTime'.
-   
-   
+
+   .. _downloads.^download^query.paused:
+
    .. api-member::
       :name: [``paused``]
       :type: (boolean, optional)
-      
+
       True if the download has stopped reading data from the host, but kept the connection open.
-   
-   
+
+   .. _downloads.^download^query.query:
+
    .. api-member::
       :name: [``query``]
       :type: (array of string, optional)
-      
+
       This array of search terms limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`filename` or :code:`url` contain all of the search terms that do not begin with a dash '-' and none of the search terms that do begin with a dash.
-   
-   
+
+   .. _downloads.^download^query.started^after:
+
+   .. api-member::
+      :name: [``startedAfter``]
+      :type: (:ref:`downloads.^download^time`, optional)
+
+      Limits results to downloads that started after the given ms since the epoch.
+
+   .. _downloads.^download^query.started^before:
+
+   .. api-member::
+      :name: [``startedBefore``]
+      :type: (:ref:`downloads.^download^time`, optional)
+
+      Limits results to downloads that started before the given ms since the epoch.
+
+   .. _downloads.^download^query.start^time:
+
    .. api-member::
       :name: [``startTime``]
       :type: (string, optional)
-   
-   
-   .. api-member::
-      :name: [``startedAfter``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
-      
-      Limits results to downloads that started after the given ms since the epoch.
-   
-   
-   .. api-member::
-      :name: [``startedBefore``]
-      :type: (:ref:`downloads.DownloadTime`, optional)
-      
-      Limits results to downloads that started before the given ms since the epoch.
-   
-   
+
+   .. _downloads.^download^query.state:
+
    .. api-member::
       :name: [``state``]
-      :type: (:ref:`downloads.State`, optional)
-      
+      :type: (:ref:`downloads.^state`, optional)
+
       Indicates whether the download is progressing, interrupted, or complete.
-   
-   
+
+   .. _downloads.^download^query.total^bytes:
+
    .. api-member::
       :name: [``totalBytes``]
       :type: (number, optional)
-      
+
       Number of bytes in the whole file, without considering file compression, or -1 if unknown.
-   
-   
+
+   .. _downloads.^download^query.total^bytes^greater:
+
    .. api-member::
       :name: [``totalBytesGreater``]
       :type: (number, optional)
-      
+
       Limits results to downloads whose totalBytes is greater than the given integer.
-   
-   
+
+   .. _downloads.^download^query.total^bytes^less:
+
    .. api-member::
       :name: [``totalBytesLess``]
       :type: (number, optional)
-      
+
       Limits results to downloads whose totalBytes is less than the given integer.
-   
-   
+
+   .. _downloads.^download^query.url:
+
    .. api-member::
       :name: [``url``]
       :type: (string, optional)
-      
+
       Absolute URL.
-   
-   
+
+   .. _downloads.^download^query.url^regex:
+
    .. api-member::
       :name: [``urlRegex``]
       :type: (string, optional)
-      
-      Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`url` matches the given regular expression.
-   
 
-.. _downloads.DownloadTime:
+      Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`url` matches the given regular expression.
+
+.. _downloads.^download^time:
 
 DownloadTime
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 A time specified as a Date object, a number or string representing milliseconds since the epoch, or an ISO 8601 string
 
 .. api-header::
    :label: string
 
-OR
+*or*
 
 .. api-header::
    :label: `Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__
 
-.. _downloads.FilenameConflictAction:
+.. _downloads.^filename^conflict^action:
 
 FilenameConflictAction
 ----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`uniquify`
-         
+
          .. api-member::
             :name: :value:`overwrite`
-         
+
          .. api-member::
             :name: :value:`prompt`
-   
 
-.. _downloads.InterruptReason:
+         .. api-member::
+            :name: :value:`uniquify`
+
+.. _downloads.^interrupt^reason:
 
 InterruptReason
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
+
+.. note::
+
+   Only returns these errors: :code:`NETWORK_FAILED`, :code:`FILE_FAILED`, :code:`CRASH`, :code:`USER_CANCELED`, :code:`SERVER_BAD_CONTENT`, :code:`SERVER_FORBIDDEN`, :code:`SERVER_UNAUTHORIZED`, and :code:`SERVER_FAILED`.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`FILE_FAILED`
-         
-         .. api-member::
-            :name: :value:`FILE_ACCESS_DENIED`
-         
-         .. api-member::
-            :name: :value:`FILE_NO_SPACE`
-         
-         .. api-member::
-            :name: :value:`FILE_NAME_TOO_LONG`
-         
-         .. api-member::
-            :name: :value:`FILE_TOO_LARGE`
-         
-         .. api-member::
-            :name: :value:`FILE_VIRUS_INFECTED`
-         
-         .. api-member::
-            :name: :value:`FILE_TRANSIENT_ERROR`
-         
-         .. api-member::
-            :name: :value:`FILE_BLOCKED`
-         
-         .. api-member::
-            :name: :value:`FILE_SECURITY_CHECK_FAILED`
-         
-         .. api-member::
-            :name: :value:`FILE_TOO_SHORT`
-         
-         .. api-member::
-            :name: :value:`NETWORK_FAILED`
-         
-         .. api-member::
-            :name: :value:`NETWORK_TIMEOUT`
-         
-         .. api-member::
-            :name: :value:`NETWORK_DISCONNECTED`
-         
-         .. api-member::
-            :name: :value:`NETWORK_SERVER_DOWN`
-         
-         .. api-member::
-            :name: :value:`NETWORK_INVALID_REQUEST`
-         
-         .. api-member::
-            :name: :value:`SERVER_FAILED`
-         
-         .. api-member::
-            :name: :value:`SERVER_NO_RANGE`
-         
-         .. api-member::
-            :name: :value:`SERVER_BAD_CONTENT`
-         
-         .. api-member::
-            :name: :value:`SERVER_UNAUTHORIZED`
-         
-         .. api-member::
-            :name: :value:`SERVER_CERT_PROBLEM`
-         
-         .. api-member::
-            :name: :value:`SERVER_FORBIDDEN`
-         
-         .. api-member::
-            :name: :value:`USER_CANCELED`
-         
-         .. api-member::
-            :name: :value:`USER_SHUTDOWN`
-         
+
          .. api-member::
             :name: :value:`CRASH`
-   
 
-.. _downloads.State:
+         .. api-member::
+            :name: :value:`FILE_ACCESS_DENIED`
+
+         .. api-member::
+            :name: :value:`FILE_BLOCKED`
+
+         .. api-member::
+            :name: :value:`FILE_FAILED`
+
+         .. api-member::
+            :name: :value:`FILE_NAME_TOO_LONG`
+
+         .. api-member::
+            :name: :value:`FILE_NO_SPACE`
+
+         .. api-member::
+            :name: :value:`FILE_SECURITY_CHECK_FAILED`
+
+         .. api-member::
+            :name: :value:`FILE_TOO_LARGE`
+
+         .. api-member::
+            :name: :value:`FILE_TOO_SHORT`
+
+         .. api-member::
+            :name: :value:`FILE_TRANSIENT_ERROR`
+
+         .. api-member::
+            :name: :value:`FILE_VIRUS_INFECTED`
+
+         .. api-member::
+            :name: :value:`NETWORK_DISCONNECTED`
+
+         .. api-member::
+            :name: :value:`NETWORK_FAILED`
+
+         .. api-member::
+            :name: :value:`NETWORK_INVALID_REQUEST`
+
+         .. api-member::
+            :name: :value:`NETWORK_SERVER_DOWN`
+
+         .. api-member::
+            :name: :value:`NETWORK_TIMEOUT`
+
+         .. api-member::
+            :name: :value:`SERVER_BAD_CONTENT`
+
+         .. api-member::
+            :name: :value:`SERVER_CERT_PROBLEM`
+
+         .. api-member::
+            :name: :value:`SERVER_FAILED`
+
+         .. api-member::
+            :name: :value:`SERVER_FORBIDDEN`
+
+         .. api-member::
+            :name: :value:`SERVER_NO_RANGE`
+
+         .. api-member::
+            :name: :value:`SERVER_UNAUTHORIZED`
+
+         .. api-member::
+            :name: :value:`USER_CANCELED`
+
+         .. api-member::
+            :name: :value:`USER_SHUTDOWN`
+
+.. _downloads.^state:
 
 State
 -----
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
-<dl><dt>in_progress</dt><dd>The download is currently receiving data from the server.</dd><dt>interrupted</dt><dd>An error broke the connection with the file host.</dd><dt>complete</dt><dd>The download completed successfully.</dd></dl>These string constants will never change, however the set of States may change.
+These string constants will never change, however the set of States may change.
 
 .. api-header::
    :label: `string`
 
-   
    .. container:: api-member-node
-   
+
       .. container:: api-member-description-only
-         
+
          Supported values:
-         
-         .. api-member::
-            :name: :value:`in_progress`
-         
-         .. api-member::
-            :name: :value:`interrupted`
-         
+
          .. api-member::
             :name: :value:`complete`
-   
 
-.. _downloads.StringDelta:
+            The download completed successfully.
+
+         .. api-member::
+            :name: :value:`in_progress`
+
+            The download is currently receiving data from the server.
+
+         .. api-member::
+            :name: :value:`interrupted`
+
+            An error broke the connection with the file host.
+
+.. _downloads.^string^delta:
 
 StringDelta
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 .. api-header::
    :label: object
 
-   
+   .. _downloads.^string^delta.current:
+
    .. api-member::
       :name: [``current``]
       :type: (string, optional)
-   
-   
+
+   .. _downloads.^string^delta.previous:
+
    .. api-member::
       :name: [``previous``]
       :type: (string, optional)
-   
