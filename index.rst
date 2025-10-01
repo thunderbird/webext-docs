@@ -7,9 +7,9 @@
 
   .. include:: _includes/developer-resources.rst
 
-=========================================
-WebExtension APIs for Thunderbird ESR 140
-=========================================
+==========================================================================
+WebExtension API Documentation & Guides (Thunderbird ESR 140, Manifext V3)
+==========================================================================
 
 
 

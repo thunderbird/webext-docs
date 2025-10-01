@@ -1,4 +1,4 @@
-# 📚 WebExtension APIs for Thunderbird ESR 140
+# 📚 WebExtension API Documentation & Guides (Thunderbird ESR 140, Manifext V3)
 
 Generated Thunderbird WebExtension API documentation in **reStructuredText (RST)** format, which is used by **ReadTheDocs / Sphinx** to build the public [API documentation](https://webextension-api.thunderbird.net/en/esr-mv3/).
 
