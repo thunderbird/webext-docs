@@ -7,9 +7,9 @@
 
   .. include:: _includes/developer-resources.rst
 
-==========================================
-WebExtension APIs for Thunderbird BETA 144
-==========================================
+===========================================================================
+WebExtension API Documentation & Guides (Thunderbird BETA 144, Manifext V2)
+===========================================================================
 
 
 
