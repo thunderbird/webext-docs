@@ -6,9 +6,9 @@
 Working with vCard contacts
 ===========================
 
-Before the release of Thunderbird 102, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`contacts.ContactProperties`, extensions could store additional custom properties.
+Before the release of Thunderbird 102, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`contacts.^contact^properties`, extensions could store additional custom properties.
 
-Since Thunderbird 102, contact details are stored as vCards and the former fixed properties are now referred to as legacy properties. Those legacy properties are mapped for read/write access to the best matching vCard property and are still accessible through :ref:`contacts.ContactProperties`. 
+Since Thunderbird 102, contact details are stored as vCards and the former fixed properties are now referred to as legacy properties. Those legacy properties are mapped for read/write access to the best matching vCard property and are still accessible through :ref:`contacts.^contact^properties`. 
 
 The vCard is exposed in the ``vCard`` property and changing it will update the contact according to the newly set vCard string.
 
