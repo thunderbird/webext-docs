@@ -1,3 +1,7 @@
+.. container:: sticky-sidebar
+  
+  .. include:: ../_includes/developer-resources.rst
+
 ==========================
 Working with message lists
 ==========================
