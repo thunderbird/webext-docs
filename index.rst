@@ -12,8 +12,6 @@
 WebExtension API Documentation & Guides (Thunderbird 143, Manifext V3)
 ======================================================================
 
-
-
 Getting started
 ===============
 
