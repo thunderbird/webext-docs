@@ -152,46 +152,32 @@ extension calls ``browser.myapi.onToolbarClick.removeListener``, or shuts down.
     }
   };
 
-Using tabs and windows
-======================
+Using folder and message types
+==============================
 
-To access tabs or windows using the ID values from the built-in APIs, use the ``tabManager`` or
-``windowManager`` objects. These are have functions similar to, but not the same as, the APIs:
+The built-in schema define some common objects that you may wish to return, namely
+:ref:`folders.^mail^folder`, :ref:`messages.^message^header`,
+and :ref:`messages.^message^list`.
 
-.. code-block:: javascript
-
-  // Get a real tab from a tab ID:
-  let tabObject = context.extension.tabManager.get(tabId);
-  let realTab = tabObject.nativeTab;
-  let realTabWindow = tabObject.window;
-
-  // Get a tab ID from a real tab:
-  context.extension.tabManager.getWrapper(realTab).id;
-
-  // Query tabs: (note this returns a Generator, not an array like the API)
-  context.extension.tabManager.query(queryInfo);
-
-"Tabs" are a bit weird. For a tab on the main Thunderbird window, the ``nativeTab`` property is
-the ``tabInfo`` object you'd get from that window's ``<tabmail>``. For a tab *not* on the main
-window, e.g. a "tab" representing the message composition window, both ``nativeTab`` and ``window``
-properties refer to the window itself.
+To use these types, interact with the ``folderManager`` or ``messageManager`` objects which are
+members of the ``context.extension`` object passed to ``getAPI``:
 
 .. code-block:: javascript
 
-  // Get a real window from a window ID:
-  let windowObject = context.extension.windowManager.get(windowId);
-  let realWindow = windowObject.window;
+  // Get an nsIMsgFolder from a MailFolder:
+  let realFolder = context.extension.folderManager.get(accountId, path);
 
-  // Get a window ID from a real window:
-  context.extension.windowManager.getWrapper(realWindow).id;
+  // Get a MailFolder from an nsIMsgFolder:
+  context.extension.folderManager.convert(realFolder);
 
-  // Get all windows: (note this returns a Generator, not an array like the API)
-  context.extension.windowManager.getAll();
+  // Get an nsIMsgDBHdr from a MessageHeader:
+  let realMessage = context.extension.messageManager.get(messageId);
 
-For more things you could use on ``tabObject`` or ``windowObject`` in the examples above, see
-`the Tab, TabMailTab, and Window classes in the source code`__.
+  // Get a MessageHeader from an nsIMsgDBHdr:
+  context.extension.messageManager.convert(realMessage);
 
-__ https://hg.mozilla.org/releases/comm-esr78/file/tip/mail/components/extensions/parent/ext-mail.js#l763
+  // Start a MessageList from an array or enumerator of nsIMsgDBHdr:
+  context.extension.messageManager.startMessageList(realFolder.messages);
 
 Using tabs and windows
 ======================
