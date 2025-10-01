@@ -6,7 +6,7 @@ sys.path.append(os.path.abspath('_extensions'))
 project = u'WebExtension API Documentation for Thunderbird 143.0.1<br><br>Manifest V3'
 source_suffix = '.rst'
 master_doc = 'index'
-exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay']
+exclude_patterns = [u'_build', 'Thumbs.db', '.DS_Store', 'overlay' ]
 
 extensions = [
     # ... other extensions here
