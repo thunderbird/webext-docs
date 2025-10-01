@@ -1,6 +1,6 @@
-# 📚 WebExtension APIs for Thunderbird 143
+# 📚 WebExtension API Documentation & Guides (Thunderbird 143, Manifext V2)
 
-Generated Thunderbird WebExtension API documentation in **reStructuredText (RST)** format, which is used by **ReadTheDocs / Sphinx** to build the public [API documentation](https://webextension-api.thunderbird.net/en/mv3/).
+Generated Thunderbird WebExtension API documentation in **reStructuredText (RST)** format, which is used by **ReadTheDocs / Sphinx** to build the public [API documentation](https://webextension-api.thunderbird.net/en/mv2/).
 
 Report issues at the [generator repository](https://github.com/thunderbird/webext-docs-generator/issues).
 
