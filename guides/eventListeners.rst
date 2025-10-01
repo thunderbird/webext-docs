@@ -6,7 +6,7 @@
 Working with WebExtension events
 ================================
 
-WebExtensions can react on events by attaching a listener. Consider the :ref:`menus.onClicked` event of the menus API:
+WebExtensions can react on events by attaching a listener. Consider the :ref:`menus.on^clicked` event of the menus API:
 
 .. code-block:: javascript
 
@@ -29,7 +29,7 @@ Alternative implementation using an anonymous arrow function:
 Events with additional parameters
 =================================
 
-Some events support additional parameters, for example the :ref:`messages.onNewMailReceived` event.
+Some events support additional parameters, for example the :ref:`messages.on^new^mail^received` event.
 
 The additional parameter ``monitorAllFolders`` is the second parameter of the ``addListener``
 function, specifying whether to monitor just the standard inbox folders, or all folders.

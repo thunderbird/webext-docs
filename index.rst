@@ -12,8 +12,6 @@
 WebExtension API Documentation & Guides (Thunderbird ESR 140, Manifext V3)
 ==========================================================================
 
-
-
 Getting started
 ===============
 
