@@ -9,7 +9,7 @@
   .. include:: _includes/developer-resources.rst
 
 ===========================================================================
-WebExtension API Documentation & Guides (Thunderbird Beta 144, Manifext V2)
+WebExtension API Documentation & Guides (Thunderbird Beta 144, Manifest V2)
 ===========================================================================
 
 Getting started
