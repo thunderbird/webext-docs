@@ -36,8 +36,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _idle.permission.idle:
+
 .. api-member::
    :name: :permission:`idle`
+   :refid: idle-permission-idle
 
    Grant access to some or all methods of the idle API.
 
@@ -68,8 +71,11 @@ Returns "idle" if the user has not generated any input for a specified number of
 .. api-header::
    :label: Parameters
 
+   .. _idle.query^state.detection^interval^in^seconds:
+
    .. api-member::
       :name: ``detectionIntervalInSeconds``
+      :refid: idle-query-state-detection-interval-in-seconds
       :type: (integer)
 
       The system is considered idle if detectionIntervalInSeconds seconds have elapsed since the last user input detected.
@@ -77,7 +83,10 @@ Returns "idle" if the user has not generated any input for a specified number of
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _idle.query^state.returns:
+
    .. api-member::
+      :refid: idle-query-state-returns
       :type: :ref:`idle.^idle^state`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -99,8 +108,11 @@ Sets the interval, in seconds, used to determine when the system is in an idle s
 .. api-header::
    :label: Parameters
 
+   .. _idle.set^detection^interval.interval^in^seconds:
+
    .. api-member::
       :name: ``intervalInSeconds``
+      :refid: idle-set-detection-interval-interval-in-seconds
       :type: (integer)
 
       Threshold, in seconds, used to determine when the system is in an idle state.
@@ -127,16 +139,22 @@ Fired when the system changes to an active or idle state. The event fires with "
 .. api-header::
    :label: Parameters for onStateChanged.addListener(listener)
 
+   .. _idle.on^state^changed.listener(new^state):
+
    .. api-member::
       :name: ``listener(newState)``
+      :refid: idle-on-state-changed-listener-new-state
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _idle.on^state^changed.new^state:
+
    .. api-member::
       :name: ``newState``
+      :refid: idle-on-state-changed-new-state
       :type: (:ref:`idle.^idle^state`)
 
 .. api-header::
@@ -165,8 +183,14 @@ IdleState
 
          Supported values:
 
+         .. _idle.^idle^state.active:
+
          .. api-member::
             :name: :value:`active`
+            :refid: idle-idle-state-active
+
+         .. _idle.^idle^state.idle:
 
          .. api-member::
             :name: :value:`idle`
+            :refid: idle-idle-state-idle

@@ -34,8 +34,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _browser^settings.color^management.permission.browser^settings:
+
 .. api-member::
    :name: :permission:`browserSettings`
+   :refid: browser-settings-color-management-permission-browser-settings
 
    Read and modify browser settings.
 

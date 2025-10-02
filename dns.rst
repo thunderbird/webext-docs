@@ -35,8 +35,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _dns.permission.dns:
+
 .. api-member::
    :name: :permission:`dns`
+   :refid: dns-permission-dns
 
    Grant access to some or all methods of the dns API.
 
@@ -63,12 +66,18 @@ Resolves a hostname to a DNS record.
 .. api-header::
    :label: Parameters
 
+   .. _dns.resolve.hostname:
+
    .. api-member::
       :name: ``hostname``
+      :refid: dns-resolve-hostname
       :type: (string)
+
+   .. _dns.resolve.flags:
 
    .. api-member::
       :name: [``flags``]
+      :refid: dns-resolve-flags
       :type: (:ref:`dns.^resolve^flags`, optional)
 
 .. api-header::
@@ -97,12 +106,14 @@ An object encapsulating a DNS Record.
 
    .. api-member::
       :name: ``addresses``
+      :refid: dns-d-n-s-record-addresses
       :type: (array of string)
 
    .. _dns.^d^n^s^record.is^t^r^r:
 
    .. api-member::
       :name: ``isTRR``
+      :refid: dns-d-n-s-record-is-t-r-r
       :type: (string)
 
       Record retreived with TRR.
@@ -111,6 +122,7 @@ An object encapsulating a DNS Record.
 
    .. api-member::
       :name: [``canonicalName``]
+      :refid: dns-d-n-s-record-canonical-name
       :type: (string, optional)
 
       The canonical hostname for this record.  this value is empty if the record was not fetched with the 'canonical_name' flag.

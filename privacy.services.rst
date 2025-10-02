@@ -34,8 +34,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _privacy.services.permission.privacy:
+
 .. api-member::
    :name: :permission:`privacy`
+   :refid: privacy-services-permission-privacy
 
    Read and modify privacy settings.
 
