@@ -29,8 +29,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _scripting.compose.permission.compose:
+
 .. api-member::
    :name: :permission:`compose`
+   :refid: scripting-compose-permission-compose
 
    Read and modify your email messages as you compose and send them.
 
@@ -57,8 +60,11 @@ Returns all registered compose scripts for this extension that match the given f
 .. api-header::
    :label: Parameters
 
+   .. _scripting.compose.get^registered^scripts.filter:
+
    .. api-member::
       :name: [``filter``]
+      :refid: scripting-compose-get-registered-scripts-filter
       :type: (:ref:`scripting.compose.^compose^script^filter`, optional)
 
       An object to filter the extension's registered compose scripts.
@@ -66,7 +72,10 @@ Returns all registered compose scripts for this extension that match the given f
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _scripting.compose.get^registered^scripts.returns:
+
    .. api-member::
+      :refid: scripting-compose-get-registered-scripts-returns
       :type: array of :ref:`scripting.compose.^compose^script^details`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -92,8 +101,11 @@ Registers one or more compose scripts for this extension, which should be inject
 .. api-header::
    :label: Parameters
 
+   .. _scripting.compose.register^scripts.scripts:
+
    .. api-member::
       :name: ``scripts``
+      :refid: scripting-compose-register-scripts-scripts
       :type: (array of :ref:`scripting.compose.^compose^script^details`)
 
       Contains a list of compose scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
@@ -115,8 +127,11 @@ Unregisters one or more compose scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _scripting.compose.unregister^scripts.filter:
+
    .. api-member::
       :name: [``filter``]
+      :refid: scripting-compose-unregister-scripts-filter
       :type: (:ref:`scripting.compose.^compose^script^filter`, optional)
 
       If specified, only unregisters compose scripts which match the filter. Otherwise, all of the extension's compose scripts are unregistered.
@@ -145,6 +160,7 @@ ComposeScriptDetails
 
    .. api-member::
       :name: ``id``
+      :refid: scripting-compose-compose-script-details-id
       :type: (string)
 
       The id of the compose script, specified in the API call.
@@ -153,6 +169,7 @@ ComposeScriptDetails
 
    .. api-member::
       :name: [``css``]
+      :refid: scripting-compose-compose-script-details-css
       :type: (array of :ref:`scripting.compose.^extension^u^r^l`, optional)
 
       The list of CSS files to be injected. These are injected in the order they appear in this array.
@@ -161,6 +178,7 @@ ComposeScriptDetails
 
    .. api-member::
       :name: [``js``]
+      :refid: scripting-compose-compose-script-details-js
       :type: (array of :ref:`scripting.compose.^extension^u^r^l`, optional)
 
       The list of JavaScript files to be injected. These are injected in the order they appear in this array.
@@ -169,6 +187,7 @@ ComposeScriptDetails
 
    .. api-member::
       :name: [``runAt``]
+      :refid: scripting-compose-compose-script-details-run-at
       :type: (:ref:`scripting.compose.^run^at`, optional)
 
       Specifies when JavaScript files are injected. The preferred and default value is :code:`document_idle`.
@@ -187,6 +206,7 @@ ComposeScriptFilter
 
    .. api-member::
       :name: [``ids``]
+      :refid: scripting-compose-compose-script-filter-ids
       :type: (array of string, optional)
 
       The IDs of specific compose scripts to retrieve with :code:`getRegisteredScripts()` or to unregister with :code:`unregisterScripts()`.
@@ -221,11 +241,20 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 
          Supported values:
 
+         .. _scripting.compose.^run^at.document_end:
+
          .. api-member::
             :name: :value:`document_end`
+            :refid: scripting-compose-run-at-document-end
+
+         .. _scripting.compose.^run^at.document_idle:
 
          .. api-member::
             :name: :value:`document_idle`
+            :refid: scripting-compose-run-at-document-idle
+
+         .. _scripting.compose.^run^at.document_start:
 
          .. api-member::
             :name: :value:`document_start`
+            :refid: scripting-compose-run-at-document-start

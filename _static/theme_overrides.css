@@ -298,3 +298,11 @@ a.reference.external::after {
     display: none;
   }
 }
+
+/* Hide fake rubric, which are only used as valid ref targets */
+.api-member-rubric-hidden {
+    visibility: hidden;
+    height: 0;
+    margin: 0;
+    padding: 0;
+}

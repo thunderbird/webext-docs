@@ -35,8 +35,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _browser^settings.permission.browser^settings:
+
 .. api-member::
    :name: :permission:`browserSettings`
+   :refid: browser-settings-permission-browser-settings
 
    Read and modify browser settings.
 
@@ -69,14 +72,23 @@ Color management mode.
 
          Supported values:
 
+         .. _browser^settings.^color^management^mode.full:
+
          .. api-member::
             :name: :value:`full`
+            :refid: browser-settings-color-management-mode-full
+
+         .. _browser^settings.^color^management^mode.off:
 
          .. api-member::
             :name: :value:`off`
+            :refid: browser-settings-color-management-mode-off
+
+         .. _browser^settings.^color^management^mode.tagged_only:
 
          .. api-member::
             :name: :value:`tagged_only`
+            :refid: browser-settings-color-management-mode-tagged-only
 
 .. _browser^settings.^context^menu^mouse^event:
 
@@ -96,11 +108,17 @@ After which mouse event context menus should popup.
 
          Supported values:
 
+         .. _browser^settings.^context^menu^mouse^event.mousedown:
+
          .. api-member::
             :name: :value:`mousedown`
+            :refid: browser-settings-context-menu-mouse-event-mousedown
+
+         .. _browser^settings.^context^menu^mouse^event.mouseup:
 
          .. api-member::
             :name: :value:`mouseup`
+            :refid: browser-settings-context-menu-mouse-event-mouseup
 
 .. _browser^settings.^image^animation^behavior:
 
@@ -120,14 +138,23 @@ How images should be animated in the browser.
 
          Supported values:
 
+         .. _browser^settings.^image^animation^behavior.none:
+
          .. api-member::
             :name: :value:`none`
+            :refid: browser-settings-image-animation-behavior-none
+
+         .. _browser^settings.^image^animation^behavior.normal:
 
          .. api-member::
             :name: :value:`normal`
+            :refid: browser-settings-image-animation-behavior-normal
+
+         .. _browser^settings.^image^animation^behavior.once:
 
          .. api-member::
             :name: :value:`once`
+            :refid: browser-settings-image-animation-behavior-once
 
 .. rst-class:: api-main-section
 

@@ -36,14 +36,20 @@ Adds a new button to the spaces toolbar. Throws an exception, if the used :value
 .. api-header::
    :label: Parameters
 
+   .. _spaces^toolbar.add^button.id:
+
    .. api-member::
       :name: ``id``
+      :refid: spaces-toolbar-add-button-id
       :type: (string)
 
       The unique id to assign to this button. May only contain alphanumeric characters and underscores.
 
+   .. _spaces^toolbar.add^button.properties:
+
    .. api-member::
       :name: ``properties``
+      :refid: spaces-toolbar-add-button-properties
       :type: (:ref:`spaces^toolbar.^button^properties`)
 
       Properties of the new button. The :value:`url` is mandatory.
@@ -51,7 +57,10 @@ Adds a new button to the spaces toolbar. Throws an exception, if the used :value
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _spaces^toolbar.add^button.returns:
+
    .. api-member::
+      :refid: spaces-toolbar-add-button-returns
       :type: integer
       :annotation: -- [Added in TB 115]
 
@@ -71,14 +80,20 @@ Trigger a click on the specified spaces toolbar button. Throws an exception if t
 .. api-header::
    :label: Parameters
 
+   .. _spaces^toolbar.click^button.id:
+
    .. api-member::
       :name: ``id``
+      :refid: spaces-toolbar-click-button-id
       :type: (string)
 
       The id of the spaces toolbar button. May only contain alphanumeric characters and underscores.
 
+   .. _spaces^toolbar.click^button.window^id:
+
    .. api-member::
       :name: [``windowId``]
+      :refid: spaces-toolbar-click-button-window-id
       :type: (integer, optional)
 
       The id of the normal window, where the spaces toolbar button should be clicked. Defaults to the most recent normal window.
@@ -86,7 +101,10 @@ Trigger a click on the specified spaces toolbar button. Throws an exception if t
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _spaces^toolbar.click^button.returns:
+
    .. api-member::
+      :refid: spaces-toolbar-click-button-returns
       :type: :ref:`tabs.^tab`
 
       Details about the opened or activated tab.
@@ -105,8 +123,11 @@ Removes the specified button from the spaces toolbar. Throws an exception if the
 .. api-header::
    :label: Parameters
 
+   .. _spaces^toolbar.remove^button.id:
+
    .. api-member::
       :name: ``id``
+      :refid: spaces-toolbar-remove-button-id
       :type: (string)
 
       The id of the spaces toolbar button, which is to be removed. May only contain alphanumeric characters and underscores.
@@ -123,14 +144,20 @@ Updates properties of the specified spaces toolbar button. Throws an exception i
 .. api-header::
    :label: Parameters
 
+   .. _spaces^toolbar.update^button.id:
+
    .. api-member::
       :name: ``id``
+      :refid: spaces-toolbar-update-button-id
       :type: (string)
 
       The id of the spaces toolbar button, which is to be updated. May only contain alphanumeric characters and underscores.
 
+   .. _spaces^toolbar.update^button.properties:
+
    .. api-member::
       :name: ``properties``
+      :refid: spaces-toolbar-update-button-properties
       :type: (:ref:`spaces^toolbar.^button^properties`)
 
       Only specified properties will be updated.
@@ -154,6 +181,7 @@ ButtonProperties
 
    .. api-member::
       :name: [``badgeBackgroundColor``]
+      :refid: spaces-toolbar-button-properties-badge-background-color
       :type: (string or :ref:`spaces^toolbar.^color^array`, optional)
 
       Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to an empty string.
@@ -162,6 +190,7 @@ ButtonProperties
 
    .. api-member::
       :name: [``badgeText``]
+      :refid: spaces-toolbar-button-properties-badge-text
       :type: (string, optional)
 
       Sets the badge text for the spaces toolbar button. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to an empty string.
@@ -170,6 +199,7 @@ ButtonProperties
 
    .. api-member::
       :name: [``defaultIcons``]
+      :refid: spaces-toolbar-button-properties-default-icons
       :type: (string or :ref:`spaces^toolbar.^icon^path`, optional)
 
       The paths to one or more icons for the button in the spaces toolbar. Defaults to the extension icon, if set to an empty string.
@@ -178,6 +208,7 @@ ButtonProperties
 
    .. api-member::
       :name: [``themeIcons``]
+      :refid: spaces-toolbar-button-properties-theme-icons
       :type: (array of :ref:`spaces^toolbar.^theme^icons`, optional)
 
       Specifies dark and light icons for the spaces toolbar button to be used with themes: The :value:`light` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified.
@@ -186,6 +217,7 @@ ButtonProperties
 
    .. api-member::
       :name: [``title``]
+      :refid: spaces-toolbar-button-properties-title
       :type: (string, optional)
 
       The title for the spaces toolbar button, used in the tooltip of the button and as the displayed name in the overflow menu. Defaults to the name of the extension, if set to an empty string.
@@ -194,6 +226,7 @@ ButtonProperties
 
    .. api-member::
       :name: [``url``]
+      :refid: spaces-toolbar-button-properties-url
       :type: (string, optional)
 
       The page url, loaded into a tab when the button is clicked. Supported are :value:`https://` and :value:`http://` links, as well as links to WebExtension pages.
@@ -274,6 +307,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``dark``
+      :refid: spaces-toolbar-theme-icons-dark
       :type: (:ref:`spaces^toolbar.^extension^u^r^l`)
 
       The dark icon to use for light themes
@@ -282,6 +316,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``light``
+      :refid: spaces-toolbar-theme-icons-light
       :type: (:ref:`spaces^toolbar.^extension^u^r^l`)
 
       A light icon to use for dark themes
@@ -290,6 +325,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``size``
+      :refid: spaces-toolbar-theme-icons-size
       :type: (integer)
 
       The size of the icons
