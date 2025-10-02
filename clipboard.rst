@@ -34,8 +34,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _clipboard.permission.clipboard^write:
+
 .. api-member::
    :name: :permission:`clipboardWrite`
+   :refid: clipboard-permission-clipboard-write
 
    Input data to the clipboard.
 
@@ -62,25 +65,37 @@ Copy an image to the clipboard. The image is re-encoded before it is written to 
 .. api-header::
    :label: Parameters
 
+   .. _clipboard.set^image^data.image^data:
+
    .. api-member::
       :name: ``imageData``
+      :refid: clipboard-set-image-data-image-data
       :type: (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`__)
 
       The image data to be copied.
 
+   .. _clipboard.set^image^data.image^type:
+
    .. api-member::
       :name: ``imageType``
+      :refid: clipboard-set-image-data-image-type
       :type: (`string`)
 
       The type of imageData.
 
       Supported values:
 
+      .. _clipboard.set^image^data.image^type.jpeg:
+
       .. api-member::
          :name: :value:`jpeg`
+         :refid: clipboard-set-image-data-image-type-jpeg
+
+      .. _clipboard.set^image^data.image^type.png:
 
       .. api-member::
          :name: :value:`png`
+         :refid: clipboard-set-image-data-image-type-png
 
 .. api-header::
    :label: Required permissions

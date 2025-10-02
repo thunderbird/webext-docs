@@ -27,13 +27,19 @@ Use the action API to add a button to Thunderbird's unified toolbar. In addition
 Manifest file properties
 ========================
 
+.. _browser^action.browser_action:
+
 .. api-member::
    :name: [``browser_action``]
+   :refid: browser-action-browser-action
    :type: (object, optional)
    :annotation: -- [Added in TB 64]
 
+   .. _browser^action.browser_action.allowed_spaces:
+
    .. api-member::
       :name: [``allowed_spaces``]
+      :refid: browser-action-browser-action-allowed-spaces
       :type: (array of `string`, optional)
       :annotation: -- [Added in TB 115]
 
@@ -62,15 +68,21 @@ Manifest file properties
       .. api-member::
          :name: :value:`tasks`
 
+   .. _browser^action.browser_action.browser_style:
+
    .. api-member::
       :name: [``browser_style``]
+      :refid: browser-action-browser-action-browser-style
       :type: (boolean, optional)
       :annotation: -- [Added in TB 64]
 
       Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
 
+   .. _browser^action.browser_action.default_area:
+
    .. api-member::
       :name: [``default_area``]
+      :refid: browser-action-browser-action-default-area
       :type: (`string`, optional)
       :annotation: -- [Added in TB 64]
 
@@ -78,44 +90,65 @@ Manifest file properties
 
       Supported values:
 
+      .. _browser^action.browser_action.default_area.maintoolbar:
+
       .. api-member::
          :name: :value:`maintoolbar`
+         :refid: browser-action-browser-action-default-area-maintoolbar
          :annotation: -- [Added in TB 92]
+
+      .. _browser^action.browser_action.default_area.tabstoolbar:
 
       .. api-member::
          :name: :value:`tabstoolbar`
+         :refid: browser-action-browser-action-default-area-tabstoolbar
          :annotation: -- [Added in TB 92]
+
+   .. _browser^action.browser_action.default_icon:
 
    .. api-member::
       :name: [``default_icon``]
+      :refid: browser-action-browser-action-default-icon
       :type: (:ref:`browser^action.^icon^path`, optional)
       :annotation: -- [Added in TB 64]
 
       The paths to one or more icons for the browserAction button.
 
+   .. _browser^action.browser_action.default_label:
+
    .. api-member::
       :name: [``default_label``]
+      :refid: browser-action-browser-action-default-label
       :type: (string, optional)
       :annotation: -- [Added in TB 84]
 
       The label of the browserAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
+   .. _browser^action.browser_action.default_popup:
+
    .. api-member::
       :name: [``default_popup``]
+      :refid: browser-action-browser-action-default-popup
       :type: (string, optional)
       :annotation: -- [Added in TB 64]
 
       The html document to be opened as a popup when the user clicks on the browserAction button. Ignored for action buttons with type :value:`menu`.
 
+   .. _browser^action.browser_action.default_title:
+
    .. api-member::
       :name: [``default_title``]
+      :refid: browser-action-browser-action-default-title
       :type: (string, optional)
       :annotation: -- [Added in TB 64]
 
       The title of the browserAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
 
+   .. _browser^action.browser_action.default_windows:
+
    .. api-member::
       :name: [``default_windows``]
+      :refid: browser-action-browser-action-default-windows
       :type: (array of `string`, optional)
       :annotation: -- [Added in TB 115]
 
@@ -129,15 +162,21 @@ Manifest file properties
       .. api-member::
          :name: :value:`normal`
 
+   .. _browser^action.browser_action.theme_icons:
+
    .. api-member::
       :name: [``theme_icons``]
+      :refid: browser-action-browser-action-theme-icons
       :type: (array of :ref:`browser^action.^theme^icons`, optional)
       :annotation: -- [Added in TB 64]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
 
+   .. _browser^action.browser_action.type:
+
    .. api-member::
       :name: [``type``]
+      :refid: browser-action-browser-action-type
       :type: (`string`, optional)
       :annotation: -- [Added in TB 90]
 
@@ -145,11 +184,17 @@ Manifest file properties
 
       Supported values:
 
+      .. _browser^action.browser_action.type.button:
+
       .. api-member::
          :name: :value:`button`
+         :refid: browser-action-browser-action-type-button
+
+      .. _browser^action.browser_action.type.menu:
 
       .. api-member::
          :name: :value:`menu`
+         :refid: browser-action-browser-action-type-menu
 
 .. rst-class:: api-main-section
 
@@ -179,8 +224,11 @@ Disables the action button for a specific tab (if a :value:`tabId` is provided),
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.disable.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: browser-action-disable-tab-id
       :type: (integer, optional)
 
       The id of the tab for which you want to modify the action button.
@@ -197,8 +245,11 @@ Enables the action button for a specific tab (if a :value:`tabId` is provided), 
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.enable.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: browser-action-enable-tab-id
       :type: (integer, optional)
 
       The id of the tab for which you want to modify the action button.
@@ -215,19 +266,28 @@ Gets the badge background color of the action button.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.get^badge^background^color.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-get-badge-background-color-details
       :type: (object)
+
+      .. _browser^action.get^badge^background^color.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-get-badge-background-color-details-tab-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
          Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.get^badge^background^color.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-get-badge-background-color-details-window-id
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -236,7 +296,10 @@ Gets the badge background color of the action button.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.get^badge^background^color.returns:
+
    .. api-member::
+      :refid: browser-action-get-badge-background-color-returns
       :type: :ref:`browser^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -253,19 +316,28 @@ Gets the badge text of the action button.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.get^badge^text.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-get-badge-text-details
       :type: (object)
+
+      .. _browser^action.get^badge^text.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-get-badge-text-details-tab-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
          Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.get^badge^text.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-get-badge-text-details-window-id
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -274,7 +346,10 @@ Gets the badge text of the action button.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.get^badge^text.returns:
+
    .. api-member::
+      :refid: browser-action-get-badge-text-returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -291,18 +366,27 @@ Gets the text color of the badge.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.get^badge^text^color.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-get-badge-text-color-details
       :type: (object)
+
+      .. _browser^action.get^badge^text^color.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-get-badge-text-color-details-tab-id
          :type: (integer, optional)
 
          Specifies for which tab the badge text color should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.get^badge^text^color.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-get-badge-text-color-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -310,7 +394,10 @@ Gets the text color of the badge.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.get^badge^text^color.returns:
+
    .. api-member::
+      :refid: browser-action-get-badge-text-color-returns
       :type: :ref:`browser^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -327,19 +414,28 @@ Gets the label of the action button. Returns :value:`null`, if no label has been
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.get^label.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-get-label-details
       :type: (object)
+
+      .. _browser^action.get^label.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-get-label-details-tab-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
          Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.get^label.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-get-label-details-window-id
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -348,7 +444,10 @@ Gets the label of the action button. Returns :value:`null`, if no label has been
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.get^label.returns:
+
    .. api-member::
+      :refid: browser-action-get-label-returns
       :type: string or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -365,19 +464,28 @@ Gets the html document set as the popup for this action button.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.get^popup.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-get-popup-details
       :type: (object)
+
+      .. _browser^action.get^popup.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-get-popup-details-tab-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
          Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.get^popup.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-get-popup-details-window-id
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -386,7 +494,10 @@ Gets the html document set as the popup for this action button.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.get^popup.returns:
+
    .. api-member::
+      :refid: browser-action-get-popup-returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -403,19 +514,28 @@ Gets the title of the action button.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.get^title.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-get-title-details
       :type: (object)
+
+      .. _browser^action.get^title.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-get-title-details-tab-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
          Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.get^title.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-get-title-details-window-id
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -424,7 +544,10 @@ Gets the title of the action button.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.get^title.returns:
+
    .. api-member::
+      :refid: browser-action-get-title-returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -441,19 +564,28 @@ Checks whether the action button is enabled.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.is^enabled.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-is-enabled-details
       :type: (object)
+
+      .. _browser^action.is^enabled.details.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-is-enabled-details-tab-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
          Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
 
+      .. _browser^action.is^enabled.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-is-enabled-details-window-id
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -462,7 +594,10 @@ Checks whether the action button is enabled.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.is^enabled.returns:
+
    .. api-member::
+      :refid: browser-action-is-enabled-returns
       :type: boolean
       :annotation: -- [Added in TB 89]
 
@@ -480,15 +615,21 @@ Opens the action's popup window in the specified window. Defaults to the current
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.open^popup.options:
+
    .. api-member::
       :name: [``options``]
+      :refid: browser-action-open-popup-options
       :type: (object, optional)
       :annotation: -- [Added in TB 113]
 
       An object with information about the popup to open.
 
+      .. _browser^action.open^popup.options.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-open-popup-options-window-id
          :type: (integer, optional)
          :annotation: -- [Added in TB 113]
 
@@ -497,7 +638,10 @@ Opens the action's popup window in the specified window. Defaults to the current
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _browser^action.open^popup.returns:
+
    .. api-member::
+      :refid: browser-action-open-popup-returns
       :type: boolean
       :annotation: -- [Added in TB 113]
 
@@ -515,24 +659,36 @@ Sets the background color for the badge.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^badge^background^color.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-badge-background-color-details
       :type: (object)
+
+      .. _browser^action.set^badge^background^color.details.color:
 
       .. api-member::
          :name: ``color``
+         :refid: browser-action-set-badge-background-color-details-color
          :type: (string or :ref:`browser^action.^color^array` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
 
+      .. _browser^action.set^badge^background^color.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-badge-background-color-details-tab-id
          :type: (integer, optional)
 
          Sets the background color for the badge only for the given tab.
 
+      .. _browser^action.set^badge^background^color.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-badge-background-color-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -549,24 +705,36 @@ Sets the badge text for the action button. The badge is displayed on top of the 
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^badge^text.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-badge-text-details
       :type: (object)
+
+      .. _browser^action.set^badge^text.details.text:
 
       .. api-member::
          :name: ``text``
+         :refid: browser-action-set-badge-text-details-text
          :type: (string or null)
 
          Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
 
+      .. _browser^action.set^badge^text.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-badge-text-details-tab-id
          :type: (integer, optional)
 
          Sets the badge text only for the given tab.
 
+      .. _browser^action.set^badge^text.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-badge-text-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -583,24 +751,36 @@ Sets the text color for the badge.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^badge^text^color.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-badge-text-color-details
       :type: (object)
+
+      .. _browser^action.set^badge^text^color.details.color:
 
       .. api-member::
          :name: ``color``
+         :refid: browser-action-set-badge-text-color-details-color
          :type: (string or :ref:`browser^action.^color^array` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
 
+      .. _browser^action.set^badge^text^color.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-badge-text-color-details-tab-id
          :type: (integer, optional)
 
          Sets the text color for the badge only for the given tab.
 
+      .. _browser^action.set^badge^text^color.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-badge-text-color-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -617,30 +797,45 @@ Sets the icon for the action button. Either the :value:`path` or the :value:`ima
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^icon.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-icon-details
       :type: (object)
+
+      .. _browser^action.set^icon.details.image^data:
 
       .. api-member::
          :name: [``imageData``]
+         :refid: browser-action-set-icon-details-image-data
          :type: (:ref:`browser^action.^image^data^type` or :ref:`browser^action.^image^data^dictionary`, optional)
 
          The image data for one or more icons for the action button.
 
+      .. _browser^action.set^icon.details.path:
+
       .. api-member::
          :name: [``path``]
+         :refid: browser-action-set-icon-details-path
          :type: (:ref:`browser^action.^icon^path`, optional)
 
          The paths to one or more icons for the action button.
 
+      .. _browser^action.set^icon.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-icon-details-tab-id
          :type: (integer, optional)
 
          Sets the icon only for the given tab.
 
+      .. _browser^action.set^icon.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-icon-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -657,24 +852,36 @@ Sets the label of the action button. Can be used to set different values for the
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^label.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-label-details
       :type: (object)
+
+      .. _browser^action.set^label.details.label:
 
       .. api-member::
          :name: ``label``
+         :refid: browser-action-set-label-details-label
          :type: (string or null)
 
          A string the action button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
 
+      .. _browser^action.set^label.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-label-details-tab-id
          :type: (integer, optional)
 
          Sets the label only for the given tab.
 
+      .. _browser^action.set^label.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-label-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -691,24 +898,36 @@ Sets the html document to be opened as a popup when the user clicks on the actio
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^popup.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-popup-details
       :type: (object)
+
+      .. _browser^action.set^popup.details.popup:
 
       .. api-member::
          :name: ``popup``
+         :refid: browser-action-set-popup-details-popup
          :type: (string or null)
 
          The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (popup value defined the manifest will be used).
 
+      .. _browser^action.set^popup.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-popup-details-tab-id
          :type: (integer, optional)
 
          Sets the popup only for the given tab.
 
+      .. _browser^action.set^popup.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-popup-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -725,24 +944,36 @@ Sets the title of the action button. Is used as tooltip and as the label.
 .. api-header::
    :label: Parameters
 
+   .. _browser^action.set^title.details:
+
    .. api-member::
       :name: ``details``
+      :refid: browser-action-set-title-details
       :type: (object)
+
+      .. _browser^action.set^title.details.title:
 
       .. api-member::
          :name: ``title``
+         :refid: browser-action-set-title-details-title
          :type: (string or null)
 
          A string the action button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
 
+      .. _browser^action.set^title.details.tab^id:
+
       .. api-member::
          :name: [``tabId``]
+         :refid: browser-action-set-title-details-tab-id
          :type: (integer, optional)
 
          Sets the title only for the given tab.
 
+      .. _browser^action.set^title.details.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: browser-action-set-title-details-window-id
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -764,21 +995,30 @@ Fired when an action button is clicked. This event will not fire if the action h
 .. api-header::
    :label: Parameters for onClicked.addListener(listener)
 
+   .. _browser^action.on^clicked.listener(tab, info):
+
    .. api-member::
       :name: ``listener(tab, info)``
+      :refid: browser-action-on-clicked-listener-tab-info
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _browser^action.on^clicked.tab:
+
    .. api-member::
       :name: ``tab``
+      :refid: browser-action-on-clicked-tab
       :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 74]
 
+   .. _browser^action.on^clicked.info:
+
    .. api-member::
       :name: [``info``]
+      :refid: browser-action-on-clicked-info
       :type: (:ref:`browser^action.^on^click^data`, optional)
       :annotation: -- [Added in TB 74]
 
@@ -887,6 +1127,7 @@ Information sent when an action button is clicked.
 
    .. api-member::
       :name: ``modifiers``
+      :refid: browser-action-on-click-data-modifiers
       :type: (array of `string`)
 
       An array of keyboard modifiers that were held while the menu item was clicked.
@@ -918,6 +1159,7 @@ Information sent when an action button is clicked.
 
    .. api-member::
       :name: [``button``]
+      :refid: browser-action-on-click-data-button
       :type: (integer, optional)
 
       An integer value of button by which menu item was clicked.
@@ -938,6 +1180,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``dark``
+      :refid: browser-action-theme-icons-dark
       :type: (:ref:`browser^action.^extension^u^r^l`)
 
       The dark icon to use for light themes
@@ -946,6 +1189,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``light``
+      :refid: browser-action-theme-icons-light
       :type: (:ref:`browser^action.^extension^u^r^l`)
 
       A light icon to use for dark themes
@@ -954,6 +1198,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
 
    .. api-member::
       :name: ``size``
+      :refid: browser-action-theme-icons-size
       :type: (integer)
 
       The size of the icons

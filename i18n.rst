@@ -29,12 +29,18 @@ Use the :code:`browser.i18n` infrastructure to implement internationalization ac
 Manifest file properties
 ========================
 
+.. _i18n.default_locale:
+
 .. api-member::
    :name: [``default_locale``]
+   :refid: i18n-default-locale
    :type: (string, optional)
+
+.. _i18n.l10n_resources:
 
 .. api-member::
    :name: [``l10n_resources``]
+   :refid: i18n-l10n-resources
    :type: (array of string, optional)
 
 .. rst-class:: api-main-section
@@ -54,8 +60,11 @@ Detects the language of the provided text using CLD.
 .. api-header::
    :label: Parameters
 
+   .. _i18n.detect^language.text:
+
    .. api-member::
       :name: ``text``
+      :refid: i18n-detect-language-text
       :type: (string)
 
       User input string to be translated.
@@ -63,19 +72,28 @@ Detects the language of the provided text using CLD.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _i18n.detect^language.returns:
+
    .. api-member::
+      :refid: i18n-detect-language-returns
       :type: object
 
       LanguageDetectionResult object that holds detected langugae reliability and array of DetectedLanguage
 
+      .. _i18n.detect^language.returns.is^reliable:
+
       .. api-member::
          :name: ``isReliable``
+         :refid: i18n-detect-language-returns-is-reliable
          :type: (boolean)
 
          CLD detected language reliability
 
+      .. _i18n.detect^language.returns.languages:
+
       .. api-member::
          :name: ``languages``
+         :refid: i18n-detect-language-returns-languages
          :type: (array of object)
 
          array of detectedLanguage
@@ -94,7 +112,10 @@ Gets the accept-languages of the browser. This is different from the locale used
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _i18n.get^accept^languages.returns:
+
    .. api-member::
+      :refid: i18n-get-accept-languages-returns
       :type: array of :ref:`i18n.^language^code`
 
       Array of LanguageCode
@@ -117,14 +138,20 @@ Gets the localized string for the specified message. If the message is missing, 
 .. api-header::
    :label: Parameters
 
+   .. _i18n.get^message.message^name:
+
    .. api-member::
       :name: ``messageName``
+      :refid: i18n-get-message-message-name
       :type: (string)
 
       The name of the message, as specified in the :code:`messages.json` file.
 
+   .. _i18n.get^message.substitutions:
+
    .. api-member::
       :name: [``substitutions``]
+      :refid: i18n-get-message-substitutions
       :type: (any, optional)
 
       Substitution strings, if the message requires any.
@@ -132,7 +159,10 @@ Gets the localized string for the specified message. If the message is missing, 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _i18n.get^message.returns:
+
    .. api-member::
+      :refid: i18n-get-message-returns
       :type: string
 
       Message localized for current locale.
@@ -151,7 +181,10 @@ Gets the preferred locales of the operating system. This is different from the l
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _i18n.get^preferred^system^languages.returns:
+
    .. api-member::
+      :refid: i18n-get-preferred-system-languages-returns
       :type: array of :ref:`i18n.^language^code`
 
       Array of LanguageCode
@@ -174,7 +207,10 @@ Gets the browser UI language of the browser. This is different from :ref:`i18n.g
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _i18n.get^u^i^language.returns:
+
    .. api-member::
+      :refid: i18n-get-u-i-language-returns
       :type: string
 
       The browser UI language code such as en-US or fr-FR.

@@ -33,18 +33,27 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _folders.permission.accounts^folders:
+
 .. api-member::
    :name: :permission:`accountsFolders`
+   :refid: folders-permission-accounts-folders
 
    Create, rename, or delete your mail account folders.
 
+.. _folders.permission.accounts^read:
+
 .. api-member::
    :name: :permission:`accountsRead`
+   :refid: folders-permission-accounts-read
 
    See your mail accounts, their identities and their folders.
 
+.. _folders.permission.messages^delete:
+
 .. api-member::
    :name: :permission:`messagesDelete`
+   :refid: folders-permission-messages-delete
 
    Permanently delete your email messages.
 
@@ -71,18 +80,27 @@ Copies the given source folder into the given destination folder. Throws if the 
 .. api-header::
    :label: Parameters
 
+   .. _folders.copy.source:
+
    .. api-member::
       :name: ``source``
+      :refid: folders-copy-source
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.copy.destination:
 
    .. api-member::
       :name: ``destination``
+      :refid: folders-copy-destination
       :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.copy.returns:
+
    .. api-member::
+      :refid: folders-copy-returns
       :type: :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -105,18 +123,27 @@ Creates a new subfolder in the specified folder, or at the root of the specified
 .. api-header::
    :label: Parameters
 
+   .. _folders.create.destination:
+
    .. api-member::
       :name: ``destination``
+      :refid: folders-create-destination
       :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.create.child^name:
 
    .. api-member::
       :name: ``childName``
+      :refid: folders-create-child-name
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.create.returns:
+
    .. api-member::
+      :refid: folders-create-returns
       :type: :ref:`folders.^mail^folder`
       :annotation: -- [Added in TB 91]
 
@@ -140,8 +167,11 @@ Deletes a folder.
 .. api-header::
    :label: Parameters
 
+   .. _folders.delete.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-delete-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
@@ -163,12 +193,18 @@ Returns the specified folder.
 .. api-header::
    :label: Parameters
 
+   .. _folders.get.folder^id:
+
    .. api-member::
       :name: ``folderId``
+      :refid: folders-get-folder-id
       :type: (:ref:`folders.^mail^folder^id`)
+
+   .. _folders.get.include^sub^folders:
 
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: folders-get-include-sub-folders
       :type: (boolean, optional)
 
       Specifies whether the returned :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`true`.
@@ -176,7 +212,10 @@ Returns the specified folder.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get.returns:
+
    .. api-member::
+      :refid: folders-get-returns
       :type: :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -198,14 +237,20 @@ Get capability information about a folder.
 .. api-header::
    :label: Parameters
 
+   .. _folders.get^folder^capabilities.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-get-folder-capabilities-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get^folder^capabilities.returns:
+
    .. api-member::
+      :refid: folders-get-folder-capabilities-returns
       :type: :ref:`folders.^mail^folder^capabilities`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -227,14 +272,20 @@ Get additional information about a folder.
 .. api-header::
    :label: Parameters
 
+   .. _folders.get^folder^info.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-get-folder-info-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get^folder^info.returns:
+
    .. api-member::
+      :refid: folders-get-folder-info-returns
       :type: :ref:`folders.^mail^folder^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -256,12 +307,18 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
 .. api-header::
    :label: Parameters
 
+   .. _folders.get^parent^folders.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-get-parent-folders-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.get^parent^folders.include^sub^folders:
 
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: folders-get-parent-folders-include-sub-folders
       :type: (boolean, optional)
 
       Specifies whether each returned parent :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`false`.
@@ -269,7 +326,10 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get^parent^folders.returns:
+
    .. api-member::
+      :refid: folders-get-parent-folders-returns
       :type: array of :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -291,12 +351,18 @@ Get the subfolders of the specified folder or account.
 .. api-header::
    :label: Parameters
 
+   .. _folders.get^sub^folders.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-get-sub-folders-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.get^sub^folders.include^sub^folders:
 
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: folders-get-sub-folders-include-sub-folders
       :type: (boolean, optional)
 
       Specifies whether each returned direct child :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`true`.
@@ -304,7 +370,10 @@ Get the subfolders of the specified folder or account.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get^sub^folders.returns:
+
    .. api-member::
+      :refid: folders-get-sub-folders-returns
       :type: array of :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -326,8 +395,11 @@ Get one of the special virtual tag folders, which are virtual search folders and
 .. api-header::
    :label: Parameters
 
+   .. _folders.get^tag^folder.key:
+
    .. api-member::
       :name: ``key``
+      :refid: folders-get-tag-folder-key
       :type: (string)
 
       The tag key of the requested folder. See :ref:`messages.tags.list` for the available tags. Throws when specifying an invalid tag key.
@@ -335,7 +407,10 @@ Get one of the special virtual tag folders, which are virtual search folders and
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get^tag^folder.returns:
+
    .. api-member::
+      :refid: folders-get-tag-folder-returns
       :type: :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -357,37 +432,64 @@ Get one of the special unified mailbox folders, which are virtual search folders
 .. api-header::
    :label: Parameters
 
+   .. _folders.get^unified^folder.type:
+
    .. api-member::
       :name: ``type``
+      :refid: folders-get-unified-folder-type
       :type: (`string`)
 
       The requested unified mailbox folder type.
 
       Supported values:
 
+      .. _folders.get^unified^folder.type.archives:
+
       .. api-member::
          :name: :value:`archives`
+         :refid: folders-get-unified-folder-type-archives
+
+      .. _folders.get^unified^folder.type.drafts:
 
       .. api-member::
          :name: :value:`drafts`
+         :refid: folders-get-unified-folder-type-drafts
+
+      .. _folders.get^unified^folder.type.inbox:
 
       .. api-member::
          :name: :value:`inbox`
+         :refid: folders-get-unified-folder-type-inbox
+
+      .. _folders.get^unified^folder.type.junk:
 
       .. api-member::
          :name: :value:`junk`
+         :refid: folders-get-unified-folder-type-junk
+
+      .. _folders.get^unified^folder.type.sent:
 
       .. api-member::
          :name: :value:`sent`
+         :refid: folders-get-unified-folder-type-sent
+
+      .. _folders.get^unified^folder.type.templates:
 
       .. api-member::
          :name: :value:`templates`
+         :refid: folders-get-unified-folder-type-templates
+
+      .. _folders.get^unified^folder.type.trash:
 
       .. api-member::
          :name: :value:`trash`
+         :refid: folders-get-unified-folder-type-trash
+
+   .. _folders.get^unified^folder.include^sub^folders:
 
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: folders-get-unified-folder-include-sub-folders
       :type: (boolean, optional)
 
       Specifies whether the returned :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`false`.
@@ -395,7 +497,10 @@ Get one of the special unified mailbox folders, which are virtual search folders
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.get^unified^folder.returns:
+
    .. api-member::
+      :refid: folders-get-unified-folder-returns
       :type: :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -417,8 +522,11 @@ Marks all messages in a folder as read.
 .. api-header::
    :label: Parameters
 
+   .. _folders.mark^as^read.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-mark-as-read-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
@@ -439,18 +547,27 @@ Moves the given source folder into the given destination folder. Throws if the d
 .. api-header::
    :label: Parameters
 
+   .. _folders.move.source:
+
    .. api-member::
       :name: ``source``
+      :refid: folders-move-source
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.move.destination:
 
    .. api-member::
       :name: ``destination``
+      :refid: folders-move-destination
       :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.move.returns:
+
    .. api-member::
+      :refid: folders-move-returns
       :type: :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -473,149 +590,221 @@ Gets folders that match the specified properties, or all folders if no propertie
 .. api-header::
    :label: Parameters
 
+   .. _folders.query.query^info:
+
    .. api-member::
       :name: [``queryInfo``]
+      :refid: folders-query-query-info
       :type: (object, optional)
+
+      .. _folders.query.query^info.account^id:
 
       .. api-member::
          :name: [``accountId``]
+         :refid: folders-query-query-info-account-id
          :type: (:ref:`accounts.^mail^account^id`, optional)
 
          Limits the search to folders of the account with the specified id.
 
+      .. _folders.query.query^info.can^add^messages:
+
       .. api-member::
          :name: [``canAddMessages``]
+         :refid: folders-query-query-info-can-add-messages
          :type: (boolean, optional)
 
          Whether the folder supports adding new messages, or not.
 
+      .. _folders.query.query^info.can^add^subfolders:
+
       .. api-member::
          :name: [``canAddSubfolders``]
+         :refid: folders-query-query-info-can-add-subfolders
          :type: (boolean, optional)
 
          Whether the folder supports adding new subfolders, or not.
 
+      .. _folders.query.query^info.can^be^deleted:
+
       .. api-member::
          :name: [``canBeDeleted``]
+         :refid: folders-query-query-info-can-be-deleted
          :type: (boolean, optional)
 
          Whether the folder can be deleted, or not.
 
+      .. _folders.query.query^info.can^be^renamed:
+
       .. api-member::
          :name: [``canBeRenamed``]
+         :refid: folders-query-query-info-can-be-renamed
          :type: (boolean, optional)
 
          Whether the folder can be renamed, or not.
 
+      .. _folders.query.query^info.can^delete^messages:
+
       .. api-member::
          :name: [``canDeleteMessages``]
+         :refid: folders-query-query-info-can-delete-messages
          :type: (boolean, optional)
 
          Whether the folder supports deleting messages, or not.
 
+      .. _folders.query.query^info.folder^id:
+
       .. api-member::
          :name: [``folderId``]
+         :refid: folders-query-query-info-folder-id
          :type: (:ref:`folders.^mail^folder^id`, optional)
 
          Limits the search to the folder with the specified id.
 
+      .. _folders.query.query^info.has^messages:
+
       .. api-member::
          :name: [``hasMessages``]
+         :refid: folders-query-query-info-has-messages
          :type: (boolean or :ref:`folders.^query^range`, optional)
 
          Whether the folder (excluding subfolders) contains messages, or not. Supports to specify a :ref:`folders.^query^range` (min/max) instead of a simple boolean value (none/some).
 
+      .. _folders.query.query^info.has^new^messages:
+
       .. api-member::
          :name: [``hasNewMessages``]
+         :refid: folders-query-query-info-has-new-messages
          :type: (boolean or :ref:`folders.^query^range`, optional)
 
          Whether the folder (excluding subfolders) contains new messages, or not. Supports to specify a :ref:`folders.^query^range` (min/max) instead of a simple boolean value (none/some).
 
+      .. _folders.query.query^info.has^sub^folders:
+
       .. api-member::
          :name: [``hasSubFolders``]
+         :refid: folders-query-query-info-has-sub-folders
          :type: (boolean or :ref:`folders.^query^range`, optional)
 
          Whether the folder has subfolders, or not. Supports to specify a :ref:`folders.^query^range` (min/max) instead of a simple boolean value (none/some).
 
+      .. _folders.query.query^info.has^unread^messages:
+
       .. api-member::
          :name: [``hasUnreadMessages``]
+         :refid: folders-query-query-info-has-unread-messages
          :type: (boolean or :ref:`folders.^query^range`, optional)
 
          Whether the folder (excluding subfolders) contains unread messages, or not. Supports to specify a :ref:`folders.^query^range` (min/max) instead of a simple boolean value (none/some).
 
+      .. _folders.query.query^info.is^favorite:
+
       .. api-member::
          :name: [``isFavorite``]
+         :refid: folders-query-query-info-is-favorite
          :type: (boolean, optional)
 
          Whether the folder is a favorite folder, or not.
 
+      .. _folders.query.query^info.is^root:
+
       .. api-member::
          :name: [``isRoot``]
+         :refid: folders-query-query-info-is-root
          :type: (boolean, optional)
 
          Whether the folder is a root folder, or not.
 
+      .. _folders.query.query^info.is^tag:
+
       .. api-member::
          :name: [``isTag``]
+         :refid: folders-query-query-info-is-tag
          :type: (boolean, optional)
          :annotation: -- [Added in TB 127]
 
          Whether the folder is a virtual tag folder, or not. Virtual tag folders are always skipped, unless this property is set to :value:`true`
 
+      .. _folders.query.query^info.is^unified:
+
       .. api-member::
          :name: [``isUnified``]
+         :refid: folders-query-query-info-is-unified
          :type: (boolean, optional)
          :annotation: -- [Added in TB 127]
 
          Whether the folder is a unified mailbox folder, or not. Unified mailbox folders are always skipped, unless this property is set to :value:`true`
 
+      .. _folders.query.query^info.is^virtual:
+
       .. api-member::
          :name: [``isVirtual``]
+         :refid: folders-query-query-info-is-virtual
          :type: (boolean, optional)
 
          Whether the folder is a virtual search folder, or not.
 
+      .. _folders.query.query^info.last^used:
+
       .. api-member::
          :name: [``lastUsed``]
+         :refid: folders-query-query-info-last-used
          :type: (:ref:`folders.^query^date^range`, optional)
          :annotation: -- [Added in TB 137]
 
          Date the folder was last used (folder was accessed, user moved or copied messages into the folder or folder received new messages).
 
+      .. _folders.query.query^info.last^used^as^destination:
+
       .. api-member::
          :name: [``lastUsedAsDestination``]
+         :refid: folders-query-query-info-last-used-as-destination
          :type: (:ref:`folders.^query^date^range`, optional)
          :annotation: -- [Added in TB 137]
 
          Date the folder was last used as a destination (user moved or copied messages into the folder).
 
+      .. _folders.query.query^info.limit:
+
       .. api-member::
          :name: [``limit``]
+         :refid: folders-query-query-info-limit
          :type: (integer, optional)
          :annotation: -- [Added in TB 122]
 
          Limits the number of returned folders. If used together with :value:`recent`, supports being set to :ref:`folders.^d^e^f^a^u^l^t_^m^o^s^t_^r^e^c^e^n^t_^l^i^m^i^t`
 
+      .. _folders.query.query^info.name:
+
       .. api-member::
          :name: [``name``]
+         :refid: folders-query-query-info-name
          :type: (:ref:`folders.^regular^expression` or string, optional)
 
          Return only folders whose name is matched by the provided string or regular expression.
 
+      .. _folders.query.query^info.path:
+
       .. api-member::
          :name: [``path``]
+         :refid: folders-query-query-info-path
          :type: (:ref:`folders.^regular^expression` or string, optional)
 
          Return only folders whose path is matched by the provided string or regular expression.
 
+      .. _folders.query.query^info.recent:
+
       .. api-member::
          :name: [``recent``]
+         :refid: folders-query-query-info-recent
          :type: (boolean, optional) **Deprecated.**
 
          Whether the folder (excluding subfolders) has been used within the last month, or not. The returned folders will be sorted by :value:`lastUsed`.
 
+      .. _folders.query.query^info.sort:
+
       .. api-member::
          :name: [``sort``]
+         :refid: folders-query-query-info-sort
          :type: (`string`, optional)
          :annotation: -- [Added in TB 137]
 
@@ -623,26 +812,44 @@ Gets folders that match the specified properties, or all folders if no propertie
 
          Supported values:
 
+         .. _folders.query.query^info.sort.last^used:
+
          .. api-member::
             :name: :value:`lastUsed`
+            :refid: folders-query-query-info-sort-last-used
+
+         .. _folders.query.query^info.sort.last^used^as^destination:
 
          .. api-member::
             :name: :value:`lastUsedAsDestination`
+            :refid: folders-query-query-info-sort-last-used-as-destination
+
+         .. _folders.query.query^info.sort.name:
 
          .. api-member::
             :name: :value:`name`
+            :refid: folders-query-query-info-sort-name
+
+         .. _folders.query.query^info.sort.path:
 
          .. api-member::
             :name: :value:`path`
+            :refid: folders-query-query-info-sort-path
+
+      .. _folders.query.query^info.special^use:
 
       .. api-member::
          :name: [``specialUse``]
+         :refid: folders-query-query-info-special-use
          :type: (array of :ref:`folders.^mail^folder^special^use`, optional)
 
          Match only folders with the specified special use (folders have to match all specified uses).
 
+      .. _folders.query.query^info.type:
+
       .. api-member::
          :name: [``type``]
+         :refid: folders-query-query-info-type
          :type: (:ref:`folders.^mail^folder^special^use`, optional)
 
          Deprecated. Match only folders with the specified special use.
@@ -650,7 +857,10 @@ Gets folders that match the specified properties, or all folders if no propertie
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.query.returns:
+
    .. api-member::
+      :refid: folders-query-returns
       :type: array of :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -672,18 +882,27 @@ Renames a folder.
 .. api-header::
    :label: Parameters
 
+   .. _folders.rename.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-rename-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.rename.new^name:
 
    .. api-member::
       :name: ``newName``
+      :refid: folders-rename-new-name
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _folders.rename.returns:
+
    .. api-member::
+      :refid: folders-rename-returns
       :type: :ref:`folders.^mail^folder`
       :annotation: -- [Added in TB 91]
 
@@ -707,18 +926,27 @@ Updates properties of a folder.
 .. api-header::
    :label: Parameters
 
+   .. _folders.update.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-update-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+
+   .. _folders.update.update^properties:
 
    .. api-member::
       :name: ``updateProperties``
+      :refid: folders-update-update-properties
       :type: (object)
 
       The properties to update.
 
+      .. _folders.update.update^properties.is^favorite:
+
       .. api-member::
          :name: [``isFavorite``]
+         :refid: folders-update-update-properties-is-favorite
          :type: (boolean, optional)
 
          Sets or clears the favorite status.
@@ -746,20 +974,29 @@ Fired when a folder has been copied.
 .. api-header::
    :label: Parameters for onCopied.addListener(listener)
 
+   .. _folders.on^copied.listener(original^folder, copied^folder):
+
    .. api-member::
       :name: ``listener(originalFolder, copiedFolder)``
+      :refid: folders-on-copied-listener-original-folder-copied-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^copied.original^folder:
+
    .. api-member::
       :name: ``originalFolder``
+      :refid: folders-on-copied-original-folder
       :type: (:ref:`folders.^mail^folder`)
+
+   .. _folders.on^copied.copied^folder:
 
    .. api-member::
       :name: ``copiedFolder``
+      :refid: folders-on-copied-copied-folder
       :type: (:ref:`folders.^mail^folder`)
 
 .. api-header::
@@ -779,16 +1016,22 @@ Fired when a folder has been created.
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
+   .. _folders.on^created.listener(created^folder):
+
    .. api-member::
       :name: ``listener(createdFolder)``
+      :refid: folders-on-created-listener-created-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^created.created^folder:
+
    .. api-member::
       :name: ``createdFolder``
+      :refid: folders-on-created-created-folder
       :type: (:ref:`folders.^mail^folder`)
 
 .. api-header::
@@ -808,16 +1051,22 @@ Fired when a folder has been deleted.
 .. api-header::
    :label: Parameters for onDeleted.addListener(listener)
 
+   .. _folders.on^deleted.listener(deleted^folder):
+
    .. api-member::
       :name: ``listener(deletedFolder)``
+      :refid: folders-on-deleted-listener-deleted-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^deleted.deleted^folder:
+
    .. api-member::
       :name: ``deletedFolder``
+      :refid: folders-on-deleted-deleted-folder
       :type: (:ref:`folders.^mail^folder`)
 
 .. api-header::
@@ -837,20 +1086,29 @@ Fired when certain information of a folder have changed. Bursts of message count
 .. api-header::
    :label: Parameters for onFolderInfoChanged.addListener(listener)
 
+   .. _folders.on^folder^info^changed.listener(folder, folder^info):
+
    .. api-member::
       :name: ``listener(folder, folderInfo)``
+      :refid: folders-on-folder-info-changed-listener-folder-folder-info
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^folder^info^changed.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: folders-on-folder-info-changed-folder
       :type: (:ref:`folders.^mail^folder`)
+
+   .. _folders.on^folder^info^changed.folder^info:
 
    .. api-member::
       :name: ``folderInfo``
+      :refid: folders-on-folder-info-changed-folder-info
       :type: (:ref:`folders.^mail^folder^info`)
 
 .. api-header::
@@ -870,20 +1128,29 @@ Fired when a folder has been moved.
 .. api-header::
    :label: Parameters for onMoved.addListener(listener)
 
+   .. _folders.on^moved.listener(original^folder, moved^folder):
+
    .. api-member::
       :name: ``listener(originalFolder, movedFolder)``
+      :refid: folders-on-moved-listener-original-folder-moved-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^moved.original^folder:
+
    .. api-member::
       :name: ``originalFolder``
+      :refid: folders-on-moved-original-folder
       :type: (:ref:`folders.^mail^folder`)
+
+   .. _folders.on^moved.moved^folder:
 
    .. api-member::
       :name: ``movedFolder``
+      :refid: folders-on-moved-moved-folder
       :type: (:ref:`folders.^mail^folder`)
 
 .. api-header::
@@ -903,20 +1170,29 @@ Fired when a folder has been renamed.
 .. api-header::
    :label: Parameters for onRenamed.addListener(listener)
 
+   .. _folders.on^renamed.listener(original^folder, renamed^folder):
+
    .. api-member::
       :name: ``listener(originalFolder, renamedFolder)``
+      :refid: folders-on-renamed-listener-original-folder-renamed-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^renamed.original^folder:
+
    .. api-member::
       :name: ``originalFolder``
+      :refid: folders-on-renamed-original-folder
       :type: (:ref:`folders.^mail^folder`)
+
+   .. _folders.on^renamed.renamed^folder:
 
    .. api-member::
       :name: ``renamedFolder``
+      :refid: folders-on-renamed-renamed-folder
       :type: (:ref:`folders.^mail^folder`)
 
 .. api-header::
@@ -936,20 +1212,29 @@ Fired when properties of a folder have changed (:value:`specialUse` and :value:`
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
 
+   .. _folders.on^updated.listener(original^folder, updated^folder):
+
    .. api-member::
       :name: ``listener(originalFolder, updatedFolder)``
+      :refid: folders-on-updated-listener-original-folder-updated-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _folders.on^updated.original^folder:
+
    .. api-member::
       :name: ``originalFolder``
+      :refid: folders-on-updated-original-folder
       :type: (:ref:`folders.^mail^folder`)
+
+   .. _folders.on^updated.updated^folder:
 
    .. api-member::
       :name: ``updatedFolder``
+      :refid: folders-on-updated-updated-folder
       :type: (:ref:`folders.^mail^folder`)
 
 .. api-header::
@@ -978,6 +1263,7 @@ An object describing a folder.
 
    .. api-member::
       :name: ``path``
+      :refid: folders-mail-folder-path
       :type: (string)
 
       Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is. Use :ref:`folders.get^parent^folders` or :ref:`folders.get^sub^folders` to obtain hierarchy information.
@@ -986,6 +1272,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``accountId``]
+      :refid: folders-mail-folder-account-id
       :type: (:ref:`accounts.^mail^account^id`, optional)
 
       The id of the account this folder belongs to.
@@ -994,6 +1281,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``id``]
+      :refid: folders-mail-folder-id
       :type: (:ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1003,6 +1291,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``isFavorite``]
+      :refid: folders-mail-folder-is-favorite
       :type: (boolean, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1012,6 +1301,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``isRoot``]
+      :refid: folders-mail-folder-is-root
       :type: (boolean, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1021,6 +1311,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``isTag``]
+      :refid: folders-mail-folder-is-tag
       :type: (boolean, optional)
       :annotation: -- [Added in TB 127]
 
@@ -1030,6 +1321,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``isUnified``]
+      :refid: folders-mail-folder-is-unified
       :type: (boolean, optional)
       :annotation: -- [Added in TB 127]
 
@@ -1039,6 +1331,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``isVirtual``]
+      :refid: folders-mail-folder-is-virtual
       :type: (boolean, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1048,6 +1341,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``name``]
+      :refid: folders-mail-folder-name
       :type: (string, optional)
 
       The human-friendly name of this folder.
@@ -1056,6 +1350,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``specialUse``]
+      :refid: folders-mail-folder-special-use
       :type: (array of :ref:`folders.^mail^folder^special^use`, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1065,6 +1360,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``subFolders``]
+      :refid: folders-mail-folder-sub-folders
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 74]
 
@@ -1074,6 +1370,7 @@ An object describing a folder.
 
    .. api-member::
       :name: [``type``]
+      :refid: folders-mail-folder-type
       :type: (:ref:`folders.^mail^folder^special^use`, optional)
 
       Deprecated. Was used to represent the type of this folder.
@@ -1094,6 +1391,7 @@ An object containing capability information about a folder.
 
    .. api-member::
       :name: [``canAddMessages``]
+      :refid: folders-mail-folder-capabilities-can-add-messages
       :type: (boolean, optional)
 
       Whether this folder supports adding new messages.
@@ -1102,6 +1400,7 @@ An object containing capability information about a folder.
 
    .. api-member::
       :name: [``canAddSubfolders``]
+      :refid: folders-mail-folder-capabilities-can-add-subfolders
       :type: (boolean, optional)
 
       Whether this folder supports adding new subfolders.
@@ -1110,6 +1409,7 @@ An object containing capability information about a folder.
 
    .. api-member::
       :name: [``canBeDeleted``]
+      :refid: folders-mail-folder-capabilities-can-be-deleted
       :type: (boolean, optional)
 
       Whether this folder can be deleted.
@@ -1118,6 +1418,7 @@ An object containing capability information about a folder.
 
    .. api-member::
       :name: [``canBeRenamed``]
+      :refid: folders-mail-folder-capabilities-can-be-renamed
       :type: (boolean, optional)
 
       Whether this folder can be renamed.
@@ -1126,6 +1427,7 @@ An object containing capability information about a folder.
 
    .. api-member::
       :name: [``canDeleteMessages``]
+      :refid: folders-mail-folder-capabilities-can-delete-messages
       :type: (boolean, optional)
 
       Whether this folder supports deleting messages.
@@ -1158,6 +1460,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``favorite``]
+      :refid: folders-mail-folder-info-favorite
       :type: (boolean, optional)
 
       Deprecated. This information is now available in :ref:`folders.^mail^folder`.
@@ -1166,6 +1469,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``lastUsed``]
+      :refid: folders-mail-folder-info-last-used
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1175,6 +1479,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``lastUsedAsDestination``]
+      :refid: folders-mail-folder-info-last-used-as-destination
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
       :annotation: -- [Added in TB 137]
 
@@ -1184,6 +1489,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``newMessageCount``]
+      :refid: folders-mail-folder-info-new-message-count
       :type: (integer, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1193,6 +1499,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``quota``]
+      :refid: folders-mail-folder-info-quota
       :type: (array of :ref:`folders.^mail^folder^quota`, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1202,6 +1509,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``totalMessageCount``]
+      :refid: folders-mail-folder-info-total-message-count
       :type: (integer, optional)
 
       Number of messages in this folder.
@@ -1210,6 +1518,7 @@ An object containing additional information about a folder.
 
    .. api-member::
       :name: [``unreadMessageCount``]
+      :refid: folders-mail-folder-info-unread-message-count
       :type: (integer, optional)
 
       Number of unread messages in this folder.
@@ -1230,6 +1539,7 @@ An object containing quota information.
 
    .. api-member::
       :name: ``limit``
+      :refid: folders-mail-folder-quota-limit
       :type: (integer)
 
       The maximum available quota.
@@ -1238,22 +1548,30 @@ An object containing quota information.
 
    .. api-member::
       :name: ``type``
+      :refid: folders-mail-folder-quota-type
       :type: (`string`)
 
       The type of the quota as defined by RFC 2087. A :value:`STORAGE` quota is constraining the available storage in bytes, a :value:`MESSAGE` quota is constraining the number of storable messages.
 
       Supported values:
 
+      .. _folders.^mail^folder^quota.type.^m^e^s^s^a^g^e:
+
       .. api-member::
          :name: :value:`MESSAGE`
+         :refid: folders-mail-folder-quota-type-m-e-s-s-a-g-e
+
+      .. _folders.^mail^folder^quota.type.^s^t^o^r^a^g^e:
 
       .. api-member::
          :name: :value:`STORAGE`
+         :refid: folders-mail-folder-quota-type-s-t-o-r-a-g-e
 
    .. _folders.^mail^folder^quota.unused:
 
    .. api-member::
       :name: ``unused``
+      :refid: folders-mail-folder-quota-unused
       :type: (integer)
 
       The currently unused quota.
@@ -1262,6 +1580,7 @@ An object containing quota information.
 
    .. api-member::
       :name: ``used``
+      :refid: folders-mail-folder-quota-used
       :type: (integer)
 
       The currently used quota.
@@ -1284,29 +1603,53 @@ Supported values for the special use of a folder.
 
          Supported values:
 
+         .. _folders.^mail^folder^special^use.archives:
+
          .. api-member::
             :name: :value:`archives`
+            :refid: folders-mail-folder-special-use-archives
+
+         .. _folders.^mail^folder^special^use.drafts:
 
          .. api-member::
             :name: :value:`drafts`
+            :refid: folders-mail-folder-special-use-drafts
+
+         .. _folders.^mail^folder^special^use.inbox:
 
          .. api-member::
             :name: :value:`inbox`
+            :refid: folders-mail-folder-special-use-inbox
+
+         .. _folders.^mail^folder^special^use.junk:
 
          .. api-member::
             :name: :value:`junk`
+            :refid: folders-mail-folder-special-use-junk
+
+         .. _folders.^mail^folder^special^use.outbox:
 
          .. api-member::
             :name: :value:`outbox`
+            :refid: folders-mail-folder-special-use-outbox
+
+         .. _folders.^mail^folder^special^use.sent:
 
          .. api-member::
             :name: :value:`sent`
+            :refid: folders-mail-folder-special-use-sent
+
+         .. _folders.^mail^folder^special^use.templates:
 
          .. api-member::
             :name: :value:`templates`
+            :refid: folders-mail-folder-special-use-templates
+
+         .. _folders.^mail^folder^special^use.trash:
 
          .. api-member::
             :name: :value:`trash`
+            :refid: folders-mail-folder-special-use-trash
 
 .. _folders.^query^date^range:
 
@@ -1324,8 +1667,11 @@ An object defining a range for a date value to be used in queries.
 
       .. container:: api-member-description-only
 
+         .. _folders.^query^date^range.recent:
+
          .. api-member::
             :name: ``recent``
+            :refid: folders-query-date-range-recent
             :type: (boolean)
 
             Whether the date must be considered to be recent by Thunderbird (within the last month) or not, to match the query.
@@ -1339,14 +1685,20 @@ An object defining a range for a date value to be used in queries.
 
       .. container:: api-member-description-only
 
+         .. _folders.^query^date^range.after:
+
          .. api-member::
             :name: [``after``]
+            :refid: folders-query-date-range-after
             :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
 
             The minimum date required to match the query.
 
+         .. _folders.^query^date^range.before:
+
          .. api-member::
             :name: [``before``]
+            :refid: folders-query-date-range-before
             :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
 
             The maximum date required to match the query.
@@ -1367,6 +1719,7 @@ An object defining a range for an integer value to be used in queries.
 
    .. api-member::
       :name: [``max``]
+      :refid: folders-query-range-max
       :type: (integer, optional)
 
       The maximum value required to match the query.
@@ -1375,6 +1728,7 @@ An object defining a range for an integer value to be used in queries.
 
    .. api-member::
       :name: [``min``]
+      :refid: folders-query-range-min
       :type: (integer, optional)
 
       The minimum value required to match the query.
@@ -1393,6 +1747,7 @@ RegularExpression
 
    .. api-member::
       :name: ``regexp``
+      :refid: folders-regular-expression-regexp
       :type: (string)
 
       A regular expression, for example :value:`^Projects \\d{4}$`.
@@ -1401,6 +1756,7 @@ RegularExpression
 
    .. api-member::
       :name: [``flags``]
+      :refid: folders-regular-expression-flags
       :type: (string, optional)
 
       Supported RegExp flags: :value:`i` = case insensitive, and/or one of :value:`u` = unicode support or :value:`v` = extended unicode support

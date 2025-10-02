@@ -36,8 +36,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _contextual^identities.permission.contextual^identities:
+
 .. api-member::
    :name: :permission:`contextualIdentities`
+   :refid: contextual-identities-permission-contextual-identities
 
    Grant access to some or all methods of the contextualIdentities API.
 
@@ -68,26 +71,38 @@ Creates a contextual identity with the given data.
 .. api-header::
    :label: Parameters
 
+   .. _contextual^identities.create.details:
+
    .. api-member::
       :name: ``details``
+      :refid: contextual-identities-create-details
       :type: (object)
 
       Details about the contextual identity being created.
 
+      .. _contextual^identities.create.details.color:
+
       .. api-member::
          :name: ``color``
+         :refid: contextual-identities-create-details-color
          :type: (string)
 
          The color of the contextual identity.
 
+      .. _contextual^identities.create.details.icon:
+
       .. api-member::
          :name: ``icon``
+         :refid: contextual-identities-create-details-icon
          :type: (string)
 
          The icon of the contextual identity.
 
+      .. _contextual^identities.create.details.name:
+
       .. api-member::
          :name: ``name``
+         :refid: contextual-identities-create-details-name
          :type: (string)
 
          The name of the contextual identity.
@@ -117,8 +132,11 @@ Retrieves information about a single contextual identity.
 .. api-header::
    :label: Parameters
 
+   .. _contextual^identities.get.cookie^store^id:
+
    .. api-member::
       :name: ``cookieStoreId``
+      :refid: contextual-identities-get-cookie-store-id
       :type: (string)
 
       The ID of the contextual identity cookie store.
@@ -140,14 +158,20 @@ Reorder one or more contextual identities by their cookieStoreIDs to a given pos
 .. api-header::
    :label: Parameters
 
+   .. _contextual^identities.move.cookie^store^ids:
+
    .. api-member::
       :name: ``cookieStoreIds``
+      :refid: contextual-identities-move-cookie-store-ids
       :type: (string or array of string)
 
       The ID or list of IDs of the contextual identity cookie stores.
 
+   .. _contextual^identities.move.position:
+
    .. api-member::
       :name: ``position``
+      :refid: contextual-identities-move-position
       :type: (integer)
 
       The position the contextual identity should move to.
@@ -173,14 +197,20 @@ Retrieves all contextual identities
 .. api-header::
    :label: Parameters
 
+   .. _contextual^identities.query.details:
+
    .. api-member::
       :name: ``details``
+      :refid: contextual-identities-query-details
       :type: (object)
 
       Information to filter the contextual identities being retrieved.
 
+      .. _contextual^identities.query.details.name:
+
       .. api-member::
          :name: [``name``]
+         :refid: contextual-identities-query-details-name
          :type: (string, optional)
 
          Filters the contextual identity by name.
@@ -210,8 +240,11 @@ Deletes a contextual identity by its cookie Store ID.
 .. api-header::
    :label: Parameters
 
+   .. _contextual^identities.remove.cookie^store^id:
+
    .. api-member::
       :name: ``cookieStoreId``
+      :refid: contextual-identities-remove-cookie-store-id
       :type: (string)
 
       The ID of the contextual identity cookie store.
@@ -241,32 +274,47 @@ Updates a contextual identity with the given data.
 .. api-header::
    :label: Parameters
 
+   .. _contextual^identities.update.cookie^store^id:
+
    .. api-member::
       :name: ``cookieStoreId``
+      :refid: contextual-identities-update-cookie-store-id
       :type: (string)
 
       The ID of the contextual identity cookie store.
 
+   .. _contextual^identities.update.details:
+
    .. api-member::
       :name: ``details``
+      :refid: contextual-identities-update-details
       :type: (object)
 
       Details about the contextual identity being created.
 
+      .. _contextual^identities.update.details.color:
+
       .. api-member::
          :name: [``color``]
+         :refid: contextual-identities-update-details-color
          :type: (string, optional)
 
          The color of the contextual identity.
 
+      .. _contextual^identities.update.details.icon:
+
       .. api-member::
          :name: [``icon``]
+         :refid: contextual-identities-update-details-icon
          :type: (string, optional)
 
          The icon of the contextual identity.
 
+      .. _contextual^identities.update.details.name:
+
       .. api-member::
          :name: [``name``]
+         :refid: contextual-identities-update-details-name
          :type: (string, optional)
 
          The name of the contextual identity.
@@ -293,20 +341,29 @@ Fired when a new container is created.
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
+   .. _contextual^identities.on^created.listener(change^info):
+
    .. api-member::
       :name: ``listener(changeInfo)``
+      :refid: contextual-identities-on-created-listener-change-info
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _contextual^identities.on^created.change^info:
+
    .. api-member::
       :name: ``changeInfo``
+      :refid: contextual-identities-on-created-change-info
       :type: (object)
+
+      .. _contextual^identities.on^created.change^info.contextual^identity:
 
       .. api-member::
          :name: ``contextualIdentity``
+         :refid: contextual-identities-on-created-change-info-contextual-identity
          :type: (:ref:`contextual^identities.^contextual^identity`)
 
          Contextual identity that has been created
@@ -328,20 +385,29 @@ Fired when a container is removed.
 .. api-header::
    :label: Parameters for onRemoved.addListener(listener)
 
+   .. _contextual^identities.on^removed.listener(change^info):
+
    .. api-member::
       :name: ``listener(changeInfo)``
+      :refid: contextual-identities-on-removed-listener-change-info
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _contextual^identities.on^removed.change^info:
+
    .. api-member::
       :name: ``changeInfo``
+      :refid: contextual-identities-on-removed-change-info
       :type: (object)
+
+      .. _contextual^identities.on^removed.change^info.contextual^identity:
 
       .. api-member::
          :name: ``contextualIdentity``
+         :refid: contextual-identities-on-removed-change-info-contextual-identity
          :type: (:ref:`contextual^identities.^contextual^identity`)
 
          Contextual identity that has been removed
@@ -363,20 +429,29 @@ Fired when a container is updated.
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
 
+   .. _contextual^identities.on^updated.listener(change^info):
+
    .. api-member::
       :name: ``listener(changeInfo)``
+      :refid: contextual-identities-on-updated-listener-change-info
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _contextual^identities.on^updated.change^info:
+
    .. api-member::
       :name: ``changeInfo``
+      :refid: contextual-identities-on-updated-change-info
       :type: (object)
+
+      .. _contextual^identities.on^updated.change^info.contextual^identity:
 
       .. api-member::
          :name: ``contextualIdentity``
+         :refid: contextual-identities-on-updated-change-info-contextual-identity
          :type: (:ref:`contextual^identities.^contextual^identity`)
 
          Contextual identity that has been updated
@@ -407,6 +482,7 @@ Represents information about a contextual identity.
 
    .. api-member::
       :name: ``color``
+      :refid: contextual-identities-contextual-identity-color
       :type: (string)
 
       The color name of the contextual identity.
@@ -415,6 +491,7 @@ Represents information about a contextual identity.
 
    .. api-member::
       :name: ``colorCode``
+      :refid: contextual-identities-contextual-identity-color-code
       :type: (string)
       :annotation: -- [Added in TB 57]
 
@@ -424,6 +501,7 @@ Represents information about a contextual identity.
 
    .. api-member::
       :name: ``cookieStoreId``
+      :refid: contextual-identities-contextual-identity-cookie-store-id
       :type: (string)
 
       The cookie store ID of the contextual identity.
@@ -432,6 +510,7 @@ Represents information about a contextual identity.
 
    .. api-member::
       :name: ``icon``
+      :refid: contextual-identities-contextual-identity-icon
       :type: (string)
 
       The icon name of the contextual identity.
@@ -440,6 +519,7 @@ Represents information about a contextual identity.
 
    .. api-member::
       :name: ``iconUrl``
+      :refid: contextual-identities-contextual-identity-icon-url
       :type: (string)
       :annotation: -- [Added in TB 57]
 
@@ -449,6 +529,7 @@ Represents information about a contextual identity.
 
    .. api-member::
       :name: ``name``
+      :refid: contextual-identities-contextual-identity-name
       :type: (string)
 
       The name of the contextual identity.

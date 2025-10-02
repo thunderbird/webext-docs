@@ -38,8 +38,11 @@ Register a content script programmatically
 .. api-header::
    :label: Parameters
 
+   .. _content^scripts.register.content^script^options:
+
    .. api-member::
       :name: ``contentScriptOptions``
+      :refid: content-scripts-register-content-script-options
       :type: (:ref:`content^scripts.^registered^content^script^options`)
 
 .. rst-class:: api-main-section
@@ -65,11 +68,17 @@ The origin of the CSS to inject, this affects the cascading order (priority) of 
 
          Supported values:
 
+         .. _content^scripts.^c^s^s^origin.author:
+
          .. api-member::
             :name: :value:`author`
+            :refid: content-scripts-c-s-s-origin-author
+
+         .. _content^scripts.^c^s^s^origin.user:
 
          .. api-member::
             :name: :value:`user`
+            :refid: content-scripts-c-s-s-origin-user
 
 .. _content^scripts.^execution^world:
 
@@ -89,11 +98,17 @@ The JavaScript world for a script to execute within. :code:`ISOLATED` is the def
 
          Supported values:
 
+         .. _content^scripts.^execution^world.^i^s^o^l^a^t^e^d:
+
          .. api-member::
             :name: :value:`ISOLATED`
+            :refid: content-scripts-execution-world-i-s-o-l-a-t-e-d
+
+         .. _content^scripts.^execution^world.^m^a^i^n:
 
          .. api-member::
             :name: :value:`MAIN`
+            :refid: content-scripts-execution-world-m-a-i-n
 
 .. _content^scripts.^extension^file^or^code:
 
@@ -111,8 +126,11 @@ Specify code, either by pointing to a file or by providing the code directly. On
 
       .. container:: api-member-description-only
 
+         .. _content^scripts.^extension^file^or^code.file:
+
          .. api-member::
             :name: ``file``
+            :refid: content-scripts-extension-file-or-code-file
             :type: (:ref:`content^scripts.^extension^u^r^l`)
 
             A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
@@ -126,8 +144,11 @@ Specify code, either by pointing to a file or by providing the code directly. On
 
       .. container:: api-member-description-only
 
+         .. _content^scripts.^extension^file^or^code.code:
+
          .. api-member::
             :name: ``code``
+            :refid: content-scripts-extension-file-or-code-code
             :type: (string)
 
             A string of JavaScript code to register.
@@ -160,8 +181,11 @@ MatchPattern
 
          Supported values:
 
+         .. _content^scripts.^match^pattern.<all_urls>:
+
          .. api-member::
             :name: :value:`<all_urls>`
+            :refid: content-scripts-match-pattern-all-urls
 
 *or*
 
@@ -230,12 +254,14 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: ``matches``
+      :refid: content-scripts-registered-content-script-options-matches
       :type: (array of :ref:`content^scripts.^match^pattern`)
 
    .. _content^scripts.^registered^content^script^options.all^frames:
 
    .. api-member::
       :name: [``allFrames``]
+      :refid: content-scripts-registered-content-script-options-all-frames
       :type: (boolean, optional)
 
       If allFrames is :code:`true`, implies that the JavaScript or CSS should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
@@ -244,6 +270,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``cookieStoreId``]
+      :refid: content-scripts-registered-content-script-options-cookie-store-id
       :type: (array of string or string, optional)
 
       limit the set of matched tabs to those that belong to the given cookie store id
@@ -252,6 +279,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``css``]
+      :refid: content-scripts-registered-content-script-options-css
       :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
 
       The list of CSS files to inject
@@ -260,6 +288,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``cssOrigin``]
+      :refid: content-scripts-registered-content-script-options-css-origin
       :type: (:ref:`content^scripts.^c^s^s^origin`, optional)
 
       The css origin of the stylesheet to inject. Defaults to "author".
@@ -268,24 +297,28 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``excludeGlobs``]
+      :refid: content-scripts-registered-content-script-options-exclude-globs
       :type: (array of string, optional)
 
    .. _content^scripts.^registered^content^script^options.exclude^matches:
 
    .. api-member::
       :name: [``excludeMatches``]
+      :refid: content-scripts-registered-content-script-options-exclude-matches
       :type: (array of :ref:`content^scripts.^match^pattern`, optional)
 
    .. _content^scripts.^registered^content^script^options.include^globs:
 
    .. api-member::
       :name: [``includeGlobs``]
+      :refid: content-scripts-registered-content-script-options-include-globs
       :type: (array of string, optional)
 
    .. _content^scripts.^registered^content^script^options.js:
 
    .. api-member::
       :name: [``js``]
+      :refid: content-scripts-registered-content-script-options-js
       :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
 
       The list of JS files to inject
@@ -294,6 +327,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``matchAboutBlank``]
+      :refid: content-scripts-registered-content-script-options-match-about-blank
       :type: (boolean, optional)
 
       If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Ignored if matchOriginAsFallback is specified. By default it is :code:`false`.
@@ -302,6 +336,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``matchOriginAsFallback``]
+      :refid: content-scripts-registered-content-script-options-match-origin-as-fallback
       :type: (boolean, optional)
 
       If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
@@ -310,6 +345,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``runAt``]
+      :refid: content-scripts-registered-content-script-options-run-at
       :type: (:ref:`content^scripts.^run^at`, optional)
 
       The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
@@ -318,6 +354,7 @@ Details of a content script registered programmatically
 
    .. api-member::
       :name: [``world``]
+      :refid: content-scripts-registered-content-script-options-world
       :type: (:ref:`content^scripts.^execution^world`, optional)
 
       The JavaScript world for a script to execute within. Defaults to "ISOLATED".
@@ -340,11 +377,20 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 
          Supported values:
 
+         .. _content^scripts.^run^at.document_end:
+
          .. api-member::
             :name: :value:`document_end`
+            :refid: content-scripts-run-at-document-end
+
+         .. _content^scripts.^run^at.document_idle:
 
          .. api-member::
             :name: :value:`document_idle`
+            :refid: content-scripts-run-at-document-idle
+
+         .. _content^scripts.^run^at.document_start:
 
          .. api-member::
             :name: :value:`document_start`
+            :refid: content-scripts-run-at-document-start

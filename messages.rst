@@ -40,43 +40,67 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _messages.permission.accounts^read:
+
 .. api-member::
    :name: :permission:`accountsRead`
+   :refid: messages-permission-accounts-read
 
    See your mail accounts, their identities and their folders.
 
+.. _messages.permission.messages^delete:
+
 .. api-member::
    :name: :permission:`messagesDelete`
+   :refid: messages-permission-messages-delete
 
    Permanently delete your email messages.
 
+.. _messages.permission.messages^import:
+
 .. api-member::
    :name: :permission:`messagesImport`
+   :refid: messages-permission-messages-import
 
    Import messages into Thunderbird.
 
+.. _messages.permission.messages^modify^permanent:
+
 .. api-member::
    :name: :permission:`messagesModifyPermanent`
+   :refid: messages-permission-messages-modify-permanent
 
    Permanently modify the source of your messages (including headers, body and attachments).
 
+.. _messages.permission.messages^move:
+
 .. api-member::
    :name: :permission:`messagesMove`
+   :refid: messages-permission-messages-move
 
    Copy or move your email messages (including moving them to the trash folder).
 
+.. _messages.permission.messages^read:
+
 .. api-member::
    :name: :permission:`messagesRead`
+   :refid: messages-permission-messages-read
 
    Read your email messages.
 
+.. _messages.permission.messages^tags:
+
 .. api-member::
    :name: :permission:`messagesTags`
+   :refid: messages-permission-messages-tags
 
    Create, modify and delete message tags.
 
+.. _messages.permission.messages^update:
+
 .. api-member::
    :name: :permission:`messagesUpdate`
+   :refid: messages-permission-messages-update
 
    Change properties and tags of your email messages.
 
@@ -103,8 +127,11 @@ Finalizes the specified list and terminates any process currently still adding m
 .. api-header::
    :label: Parameters
 
+   .. _messages.abort^list.message^list^id:
+
    .. api-member::
       :name: ``messageListId``
+      :refid: messages-abort-list-message-list-id
       :type: (string)
 
 .. api-header::
@@ -124,8 +151,11 @@ Archives messages using the current settings. Archiving external messages will t
 .. api-header::
    :label: Parameters
 
+   .. _messages.archive.message^ids:
+
    .. api-member::
       :name: ``messageIds``
+      :refid: messages-archive-message-ids
       :type: (array of :ref:`messages.^message^id`)
 
       The IDs of the messages to archive.
@@ -148,14 +178,20 @@ Returns the next chunk of messages in a list. See :doc:`guides/messageLists` for
 .. api-header::
    :label: Parameters
 
+   .. _messages.continue^list.message^list^id:
+
    .. api-member::
       :name: ``messageListId``
+      :refid: messages-continue-list-message-list-id
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.continue^list.returns:
+
    .. api-member::
+      :refid: messages-continue-list-returns
       :type: :ref:`messages.^message^list`
       :annotation: -- [Added in TB 96]
 
@@ -178,25 +214,37 @@ Copies messages to a specified folder.
 .. api-header::
    :label: Parameters
 
+   .. _messages.copy.message^ids:
+
    .. api-member::
       :name: ``messageIds``
+      :refid: messages-copy-message-ids
       :type: (array of :ref:`messages.^message^id`)
 
       The IDs of the messages to copy.
 
+   .. _messages.copy.destination:
+
    .. api-member::
       :name: ``destination``
+      :refid: messages-copy-destination
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
       The folder to copy the messages to.
 
+   .. _messages.copy.options:
+
    .. api-member::
       :name: [``options``]
+      :refid: messages-copy-options
       :type: (object, optional)
       :annotation: -- [Added in TB 137]
 
+      .. _messages.copy.options.is^user^action:
+
       .. api-member::
          :name: [``isUserAction``]
+         :refid: messages-copy-options-is-user-action
          :type: (boolean, optional)
          :annotation: -- [Added in TB 137]
 
@@ -221,20 +269,29 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
 .. api-header::
    :label: Parameters
 
+   .. _messages.create^tag.key:
+
    .. api-member::
       :name: ``key``
+      :refid: messages-create-tag-key
       :type: (string)
 
       Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
 
+   .. _messages.create^tag.tag:
+
    .. api-member::
       :name: ``tag``
+      :refid: messages-create-tag-tag
       :type: (string)
 
       Human-readable tag name.
 
+   .. _messages.create^tag.color:
+
    .. api-member::
       :name: ``color``
+      :refid: messages-create-tag-color
       :type: (string)
 
       Tag color in hex format (i.e.: :value:`#000080` for navy blue).
@@ -257,14 +314,20 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
 .. api-header::
    :label: Parameters
 
+   .. _messages.delete.message^ids:
+
    .. api-member::
       :name: ``messageIds``
+      :refid: messages-delete-message-ids
       :type: (array of :ref:`messages.^message^id`)
 
       The IDs of the messages to delete.
 
+   .. _messages.delete.options:
+
    .. api-member::
       :name: [``options``]
+      :refid: messages-delete-options
       :type: (boolean or object, optional)
 
 .. api-header::
@@ -285,12 +348,18 @@ Deletes the specified attachments and replaces them by placeholder text attachme
 .. api-header::
    :label: Parameters
 
+   .. _messages.delete^attachments.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-delete-attachments-message-id
       :type: (integer)
+
+   .. _messages.delete^attachments.part^names:
 
    .. api-member::
       :name: ``partNames``
+      :refid: messages-delete-attachments-part-names
       :type: (array of string)
 
       An array of attachments, identifying the to be deleted attachments by their :value:`partName`.
@@ -313,8 +382,11 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
 .. api-header::
    :label: Parameters
 
+   .. _messages.delete^tag.key:
+
    .. api-member::
       :name: ``key``
+      :refid: messages-delete-tag-key
       :type: (string)
 
       Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
@@ -337,14 +409,20 @@ Returns the specified message.
 .. api-header::
    :label: Parameters
 
+   .. _messages.get.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-get-message-id
       :type: (:ref:`messages.^message^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.get.returns:
+
    .. api-member::
+      :refid: messages-get-returns
       :type: :ref:`messages.^message^header`
       :annotation: -- [Added in TB 96]
 
@@ -377,18 +455,27 @@ The most simple way to get the content of an attachment is to use the `text() <h
 .. api-header::
    :label: Parameters
 
+   .. _messages.get^attachment^file.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-get-attachment-file-message-id
       :type: (:ref:`messages.^message^id`)
+
+   .. _messages.get^attachment^file.part^name:
 
    .. api-member::
       :name: ``partName``
+      :refid: messages-get-attachment-file-part-name
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.get^attachment^file.returns:
+
    .. api-member::
+      :refid: messages-get-attachment-file-returns
       :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
       :annotation: -- [Added in TB 96]
 
@@ -411,31 +498,46 @@ Returns the specified message, including all headers and MIME parts. Throws if t
 .. api-header::
    :label: Parameters
 
+   .. _messages.get^full.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-get-full-message-id
       :type: (:ref:`messages.^message^id`)
+
+   .. _messages.get^full.options:
 
    .. api-member::
       :name: [``options``]
+      :refid: messages-get-full-options
       :type: (object, optional)
       :annotation: -- [Added in TB 96]
 
+      .. _messages.get^full.options.decode^content:
+
       .. api-member::
          :name: [``decodeContent``]
+         :refid: messages-get-full-options-decode-content
          :type: (boolean, optional)
          :annotation: -- [Added in TB 133]
 
          Whether to decode quoted-printable or base64 encoded content of message parts. Defaults to :value:`true`.
 
+      .. _messages.get^full.options.decode^headers:
+
       .. api-member::
          :name: [``decodeHeaders``]
+         :refid: messages-get-full-options-decode-headers
          :type: (boolean, optional)
          :annotation: -- [Added in TB 133]
 
          Whether to decode RFC 2047 encoded headers of message parts. Defaults to :value:`true`.
 
+      .. _messages.get^full.options.decrypt:
+
       .. api-member::
          :name: [``decrypt``]
+         :refid: messages-get-full-options-decrypt
          :type: (boolean, optional)
          :annotation: -- [Added in TB 125]
 
@@ -444,7 +546,10 @@ Returns the specified message, including all headers and MIME parts. Throws if t
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.get^full.returns:
+
    .. api-member::
+      :refid: messages-get-full-returns
       :type: :ref:`messages.^message^part`
       :annotation: -- [Added in TB 125]
 
@@ -467,19 +572,28 @@ Returns the raw content of a message. Throws if the message could not be read, f
 .. api-header::
    :label: Parameters
 
+   .. _messages.get^raw.message:
+
    .. api-member::
       :name: ``message``
+      :refid: messages-get-raw-message
       :type: (:ref:`messages.^message^id` or :ref:`messages.^message^part`)
 
       Either a :ref:`messages.^message^id` of an existing message, or a :ref:`messages.^message^part` with raw header and raw content data representing a full RFC 822 message (the provided data will be used as-is without applying any further encoding). See the :value:`decodeHeaders` and :value:`decodeContent` options of :ref:`messages.get^full` for further details on how to retrieve a :ref:`messages.^message^part` with raw values. You can use :ref:`messenger^utilities.decode^mime^header` and :ref:`messenger^utilities.encode^mime^header` to manipulate a raw MessagePart.
 
+   .. _messages.get^raw.options:
+
    .. api-member::
       :name: [``options``]
+      :refid: messages-get-raw-options
       :type: (object, optional)
       :annotation: -- [Added in TB 96]
 
+      .. _messages.get^raw.options.data_format:
+
       .. api-member::
          :name: [``data_format``]
+         :refid: messages-get-raw-options-data-format
          :type: (`string`, optional)
          :annotation: -- [Added in TB 117]
 
@@ -507,14 +621,23 @@ Returns the raw content of a message. Throws if the message could not be read, f
 
          Supported values:
 
+         .. _messages.get^raw.options.data_format.^binary^string:
+
          .. api-member::
             :name: :value:`BinaryString`
+            :refid: messages-get-raw-options-data-format-binary-string
+
+         .. _messages.get^raw.options.data_format.^file:
 
          .. api-member::
             :name: :value:`File`
+            :refid: messages-get-raw-options-data-format-file
+
+      .. _messages.get^raw.options.decrypt:
 
       .. api-member::
          :name: [``decrypt``]
+         :refid: messages-get-raw-options-decrypt
          :type: (boolean, optional)
          :annotation: -- [Added in TB 125]
 
@@ -523,7 +646,10 @@ Returns the raw content of a message. Throws if the message could not be read, f
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.get^raw.returns:
+
    .. api-member::
+      :refid: messages-get-raw-returns
       :type: string or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
       :annotation: -- [Added in TB 117]
 
@@ -546,24 +672,36 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
 .. api-header::
    :label: Parameters
 
+   .. _messages.import.file:
+
    .. api-member::
       :name: ``file``
+      :refid: messages-import-file
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
+
+   .. _messages.import.destination:
 
    .. api-member::
       :name: ``destination``
+      :refid: messages-import-destination
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
       The folder to import the messages into.
 
+   .. _messages.import.properties:
+
    .. api-member::
       :name: [``properties``]
+      :refid: messages-import-properties
       :type: (:ref:`messages.^message^properties`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.import.returns:
+
    .. api-member::
+      :refid: messages-import-returns
       :type: :ref:`messages.^message^header`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -587,14 +725,20 @@ Gets all messages in a folder.
 .. api-header::
    :label: Parameters
 
+   .. _messages.list.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: messages-list-folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.list.returns:
+
    .. api-member::
+      :refid: messages-list-returns
       :type: :ref:`messages.^message^list`
       :annotation: -- [Added in TB 96]
 
@@ -618,14 +762,20 @@ Lists the attachments of a message.
 .. api-header::
    :label: Parameters
 
+   .. _messages.list^attachments.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-list-attachments-message-id
       :type: (:ref:`messages.^message^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.list^attachments.returns:
+
    .. api-member::
+      :refid: messages-list-attachments-returns
       :type: array of :ref:`messages.^message^attachment`
       :annotation: -- [Added in TB 96]
 
@@ -652,14 +802,20 @@ Lists all inline text parts of a message. These parts are not returned by :ref:`
 .. api-header::
    :label: Parameters
 
+   .. _messages.list^inline^text^parts.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-list-inline-text-parts-message-id
       :type: (:ref:`messages.^message^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.list^inline^text^parts.returns:
+
    .. api-member::
+      :refid: messages-list-inline-text-parts-returns
       :type: array of :ref:`messages.^inline^text^part`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -681,7 +837,10 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.list^tags.returns:
+
    .. api-member::
+      :refid: messages-list-tags-returns
       :type: array of :ref:`messages.tags.^message^tag`
       :annotation: -- [Added in TB 96]
 
@@ -704,25 +863,37 @@ Moves messages to a specified folder. If the messages cannot be removed from the
 .. api-header::
    :label: Parameters
 
+   .. _messages.move.message^ids:
+
    .. api-member::
       :name: ``messageIds``
+      :refid: messages-move-message-ids
       :type: (array of :ref:`messages.^message^id`)
 
       The IDs of the messages to move.
 
+   .. _messages.move.destination:
+
    .. api-member::
       :name: ``destination``
+      :refid: messages-move-destination
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
       The folder to move the messages to.
 
+   .. _messages.move.options:
+
    .. api-member::
       :name: [``options``]
+      :refid: messages-move-options
       :type: (object, optional)
       :annotation: -- [Added in TB 137]
 
+      .. _messages.move.options.is^user^action:
+
       .. api-member::
          :name: [``isUserAction``]
+         :refid: messages-move-options-is-user-action
          :type: (boolean, optional)
          :annotation: -- [Added in TB 137]
 
@@ -747,16 +918,25 @@ Opens the specified attachment.
 .. api-header::
    :label: Parameters
 
+   .. _messages.open^attachment.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-open-attachment-message-id
       :type: (:ref:`messages.^message^id`)
+
+   .. _messages.open^attachment.part^name:
 
    .. api-member::
       :name: ``partName``
+      :refid: messages-open-attachment-part-name
       :type: (string)
+
+   .. _messages.open^attachment.tab^id:
 
    .. api-member::
       :name: ``tabId``
+      :refid: messages-open-attachment-tab-id
       :type: (integer)
 
       The ID of the tab associated with the message opening.
@@ -778,176 +958,257 @@ Gets all messages that have the specified properties, or all messages if no prop
 .. api-header::
    :label: Parameters
 
+   .. _messages.query.query^info:
+
    .. api-member::
       :name: [``queryInfo``]
+      :refid: messages-query-query-info
       :type: (object, optional)
+
+      .. _messages.query.query^info.account^id:
 
       .. api-member::
          :name: [``accountId``]
+         :refid: messages-query-query-info-account-id
          :type: (:ref:`accounts.^mail^account^id` or array of :ref:`accounts.^mail^account^id`, optional)
          :annotation: -- [Added in TB 121]
 
          Limits the search to the specified account(s). Accounts are searched in the specified order.
 
+      .. _messages.query.query^info.attachment:
+
       .. api-member::
          :name: [``attachment``]
+         :refid: messages-query-query-info-attachment
          :type: (boolean or :ref:`messages.^query^range`, optional)
          :annotation: -- [Added in TB 96]
 
          Whether the message has attachments, or not. Supports to specify a :ref:`messages.^query^range` (min/max) instead of a simple boolean value (none/some).
 
+      .. _messages.query.query^info.author:
+
       .. api-member::
          :name: [``author``]
+         :refid: messages-query-query-info-author
          :type: (string, optional)
 
          Returns only messages with this value matching the author. The search value is a single email address, a name or a combination (e.g.: :value:`Name <user@domain.org>`). The address part of the search value (if provided) must match the author's address completely. The name part of the search value (if provided) must match the author's name partially. All matches are done case-insensitive.
 
+      .. _messages.query.query^info.auto^pagination^timeout:
+
       .. api-member::
          :name: [``autoPaginationTimeout``]
+         :refid: messages-query-query-info-auto-pagination-timeout
          :type: (integer, optional)
          :annotation: -- [Added in TB 120]
 
          Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
 
+      .. _messages.query.query^info.body:
+
       .. api-member::
          :name: [``body``]
+         :refid: messages-query-query-info-body
          :type: (string, optional)
 
          Returns only messages with this value in the body of the mail.
 
+      .. _messages.query.query^info.flagged:
+
       .. api-member::
          :name: [``flagged``]
+         :refid: messages-query-query-info-flagged
          :type: (boolean, optional)
 
          Returns only flagged (or unflagged if false) messages.
 
+      .. _messages.query.query^info.folder:
+
       .. api-member::
          :name: [``folder``]
+         :refid: messages-query-query-info-folder
          :type: (:ref:`folders.^mail^folder`, optional) **Deprecated.**
 
          Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
 
+      .. _messages.query.query^info.folder^id:
+
       .. api-member::
          :name: [``folderId``]
+         :refid: messages-query-query-info-folder-id
          :type: (:ref:`folders.^mail^folder^id` or array of :ref:`folders.^mail^folder^id`, optional)
          :annotation: -- [Added in TB 121]
 
          Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
 
+      .. _messages.query.query^info.from^date:
+
       .. api-member::
          :name: [``fromDate``]
+         :refid: messages-query-query-info-from-date
          :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
 
          Returns only messages with a date after this value.
 
+      .. _messages.query.query^info.from^me:
+
       .. api-member::
          :name: [``fromMe``]
+         :refid: messages-query-query-info-from-me
          :type: (boolean, optional)
 
          Returns only messages with the author's address matching any configured identity.
 
+      .. _messages.query.query^info.full^text:
+
       .. api-member::
          :name: [``fullText``]
+         :refid: messages-query-query-info-full-text
          :type: (string, optional)
 
          Returns only messages with this value somewhere in the mail (subject, body or author).
 
+      .. _messages.query.query^info.header^message^id:
+
       .. api-member::
          :name: [``headerMessageId``]
+         :refid: messages-query-query-info-header-message-id
          :type: (string, optional)
          :annotation: -- [Added in TB 85]
 
          Returns only messages with a Message-ID header matching this value.
 
+      .. _messages.query.query^info.include^sub^folders:
+
       .. api-member::
          :name: [``includeSubFolders``]
+         :refid: messages-query-query-info-include-sub-folders
          :type: (boolean, optional)
          :annotation: -- [Added in TB 91]
 
          Search the specified folder recursively.
 
+      .. _messages.query.query^info.junk:
+
       .. api-member::
          :name: [``junk``]
+         :refid: messages-query-query-info-junk
          :type: (boolean, optional)
          :annotation: -- [Added in TB 121]
 
          Returns only messages whith the specified junk state.
 
+      .. _messages.query.query^info.junk^score:
+
       .. api-member::
          :name: [``junkScore``]
+         :refid: messages-query-query-info-junk-score
          :type: (:ref:`messages.^query^range`, optional)
          :annotation: -- [Added in TB 121]
 
          Returns only messages with a junk score in the specified range.
 
+      .. _messages.query.query^info.messages^per^page:
+
       .. api-member::
          :name: [``messagesPerPage``]
+         :refid: messages-query-query-info-messages-per-page
          :type: (integer, optional)
          :annotation: -- [Added in TB 120]
 
          Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
 
+      .. _messages.query.query^info.new:
+
       .. api-member::
          :name: [``new``]
+         :refid: messages-query-query-info-new
          :type: (boolean, optional)
          :annotation: -- [Added in TB 121]
 
          Returns only messages with the specified new state.
 
+      .. _messages.query.query^info.online:
+
       .. api-member::
          :name: [``online``]
+         :refid: messages-query-query-info-online
          :type: (boolean, optional)
          :annotation: -- [Added in TB 129]
 
          Query the server directly instead of the local message database. Online queries currently only support querying the :value:`headerMessageId` property. Currently only supported for NNTP accounts.
 
+      .. _messages.query.query^info.recipients:
+
       .. api-member::
          :name: [``recipients``]
+         :refid: messages-query-query-info-recipients
          :type: (string, optional)
 
          Returns only messages whose recipients match all specified addresses. The search value is a semicolon separated list of email addresses, names or combinations (e.g.: :value:`Name <user@domain.org>`). For a match, all specified addresses must equal a recipient's address completely and all specified names must match a recipient's name partially. All matches are done case-insensitive.
 
+      .. _messages.query.query^info.return^message^list^id:
+
       .. api-member::
          :name: [``returnMessageListId``]
+         :refid: messages-query-query-info-return-message-list-id
          :type: (boolean, optional)
          :annotation: -- [Added in TB 120]
 
          The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.
 
+      .. _messages.query.query^info.size:
+
       .. api-member::
          :name: [``size``]
+         :refid: messages-query-query-info-size
          :type: (:ref:`messages.^query^range`, optional)
          :annotation: -- [Added in TB 121]
 
          Returns only messages with a size in the specified byte range.
 
+      .. _messages.query.query^info.subject:
+
       .. api-member::
          :name: [``subject``]
+         :refid: messages-query-query-info-subject
          :type: (string, optional)
 
          Returns only messages whose subject contains the provided string.
 
+      .. _messages.query.query^info.tags:
+
       .. api-member::
          :name: [``tags``]
+         :refid: messages-query-query-info-tags
          :type: (:ref:`messages.tags.^tags^detail`, optional)
          :annotation: -- [Added in TB 74]
 
          Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.tags.list` method.
 
+      .. _messages.query.query^info.to^date:
+
       .. api-member::
          :name: [``toDate``]
+         :refid: messages-query-query-info-to-date
          :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
 
          Returns only messages with a date before this value.
 
+      .. _messages.query.query^info.to^me:
+
       .. api-member::
          :name: [``toMe``]
+         :refid: messages-query-query-info-to-me
          :type: (boolean, optional)
 
          Returns only messages with at least one recipient address matching any configured identity.
 
+      .. _messages.query.query^info.unread:
+
       .. api-member::
          :name: [``unread``]
+         :refid: messages-query-query-info-unread
          :type: (boolean, optional)
          :annotation: -- [Added in TB 70]
 
@@ -956,7 +1217,10 @@ Gets all messages that have the specified properties, or all messages if no prop
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _messages.query.returns:
+
    .. api-member::
+      :refid: messages-query-returns
       :type: :ref:`messages.^message^list` or string
       :annotation: -- [Added in TB 96]
 
@@ -979,12 +1243,18 @@ Updates message properties and tags. Updating external messages will throw an *E
 .. api-header::
    :label: Parameters
 
+   .. _messages.update.message^id:
+
    .. api-member::
       :name: ``messageId``
+      :refid: messages-update-message-id
       :type: (:ref:`messages.^message^id`)
+
+   .. _messages.update.new^properties:
 
    .. api-member::
       :name: ``newProperties``
+      :refid: messages-update-new-properties
       :type: (:ref:`messages.^message^properties`)
 
 .. api-header::
@@ -1005,24 +1275,36 @@ Updates a message tag. Throws if the specified tag key does not exist.
 .. api-header::
    :label: Parameters
 
+   .. _messages.update^tag.key:
+
    .. api-member::
       :name: ``key``
+      :refid: messages-update-tag-key
       :type: (string)
 
       Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
 
+   .. _messages.update^tag.update^properties:
+
    .. api-member::
       :name: ``updateProperties``
+      :refid: messages-update-tag-update-properties
       :type: (object)
+
+      .. _messages.update^tag.update^properties.color:
 
       .. api-member::
          :name: [``color``]
+         :refid: messages-update-tag-update-properties-color
          :type: (string, optional)
 
          Tag color in hex format (i.e.: :value:`#000080` for navy blue).
 
+      .. _messages.update^tag.update^properties.tag:
+
       .. api-member::
          :name: [``tag``]
+         :refid: messages-update-tag-update-properties-tag
          :type: (string, optional)
 
          Human-readable tag name.
@@ -1050,20 +1332,29 @@ Fired when messages have been copied.
 .. api-header::
    :label: Parameters for onCopied.addListener(listener)
 
+   .. _messages.on^copied.listener(original^messages, copied^messages):
+
    .. api-member::
       :name: ``listener(originalMessages, copiedMessages)``
+      :refid: messages-on-copied-listener-original-messages-copied-messages
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _messages.on^copied.original^messages:
+
    .. api-member::
       :name: ``originalMessages``
+      :refid: messages-on-copied-original-messages
       :type: (:ref:`messages.^message^list`)
+
+   .. _messages.on^copied.copied^messages:
 
    .. api-member::
       :name: ``copiedMessages``
+      :refid: messages-on-copied-copied-messages
       :type: (:ref:`messages.^message^list`)
 
 .. api-header::
@@ -1084,16 +1375,22 @@ Fired when messages have been permanently deleted.
 .. api-header::
    :label: Parameters for onDeleted.addListener(listener)
 
+   .. _messages.on^deleted.listener(messages):
+
    .. api-member::
       :name: ``listener(messages)``
+      :refid: messages-on-deleted-listener-messages
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _messages.on^deleted.messages:
+
    .. api-member::
       :name: ``messages``
+      :refid: messages-on-deleted-messages
       :type: (:ref:`messages.^message^list`)
 
 .. api-header::
@@ -1114,20 +1411,29 @@ Fired when messages have been moved.
 .. api-header::
    :label: Parameters for onMoved.addListener(listener)
 
+   .. _messages.on^moved.listener(original^messages, moved^messages):
+
    .. api-member::
       :name: ``listener(originalMessages, movedMessages)``
+      :refid: messages-on-moved-listener-original-messages-moved-messages
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _messages.on^moved.original^messages:
+
    .. api-member::
       :name: ``originalMessages``
+      :refid: messages-on-moved-original-messages
       :type: (:ref:`messages.^message^list`)
+
+   .. _messages.on^moved.moved^messages:
 
    .. api-member::
       :name: ``movedMessages``
+      :refid: messages-on-moved-moved-messages
       :type: (:ref:`messages.^message^list`)
 
 .. api-header::
@@ -1148,13 +1454,19 @@ Fired when a new message is received, and has been handled by message filters an
 .. api-header::
    :label: Parameters for onNewMailReceived.addListener(listener, monitorAllFolders)
 
+   .. _messages.on^new^mail^received.listener(folder, messages):
+
    .. api-member::
       :name: ``listener(folder, messages)``
+      :refid: messages-on-new-mail-received-listener-folder-messages
 
       A function that will be called when this event occurs.
 
+   .. _messages.on^new^mail^received.monitor^all^folders:
+
    .. api-member::
       :name: [``monitorAllFolders``]
+      :refid: messages-on-new-mail-received-monitor-all-folders
       :type: (boolean, optional)
       :annotation: -- [Added in TB 121]
 
@@ -1163,12 +1475,18 @@ Fired when a new message is received, and has been handled by message filters an
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _messages.on^new^mail^received.folder:
+
    .. api-member::
       :name: ``folder``
+      :refid: messages-on-new-mail-received-folder
       :type: (:ref:`folders.^mail^folder`)
+
+   .. _messages.on^new^mail^received.messages:
 
    .. api-member::
       :name: ``messages``
+      :refid: messages-on-new-mail-received-messages
       :type: (:ref:`messages.^message^list`)
 
 .. api-header::
@@ -1189,24 +1507,36 @@ Fired when one or more properties of a message have been updated.
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
 
+   .. _messages.on^updated.listener(message, changed^properties, old^properties):
+
    .. api-member::
       :name: ``listener(message, changedProperties, oldProperties)``
+      :refid: messages-on-updated-listener-message-changed-properties-old-properties
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _messages.on^updated.message:
+
    .. api-member::
       :name: ``message``
+      :refid: messages-on-updated-message
       :type: (:ref:`messages.^message^header`)
+
+   .. _messages.on^updated.changed^properties:
 
    .. api-member::
       :name: ``changedProperties``
+      :refid: messages-on-updated-changed-properties
       :type: (:ref:`messages.^message^properties`)
+
+   .. _messages.on^updated.old^properties:
 
    .. api-member::
       :name: ``oldProperties``
+      :refid: messages-on-updated-old-properties
       :type: (:ref:`messages.^message^properties`)
       :annotation: -- [Added in TB 137]
 
@@ -1236,6 +1566,7 @@ An inline part with content type :value:`text/*`. These parts are not returned b
 
    .. api-member::
       :name: ``content``
+      :refid: messages-inline-text-part-content
       :type: (string)
 
       The content of this inline text part.
@@ -1244,6 +1575,7 @@ An inline part with content type :value:`text/*`. These parts are not returned b
 
    .. api-member::
       :name: ``contentType``
+      :refid: messages-inline-text-part-content-type
       :type: (string)
 
       The content type of the part. Most common types for inline text parts are :value:`text/plain` and :value:`text/html`. Possible other (deprecated) types are :value:`text/richtext` and :value:`text/enriched`. Some calendaring services include an inline text part with type :value:`text/calendar`.
@@ -1276,6 +1608,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: ``contentDisposition``
+      :refid: messages-message-attachment-content-disposition
       :type: (string)
       :annotation: -- [Added in TB 135]
 
@@ -1285,6 +1618,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: ``contentType``
+      :refid: messages-message-attachment-content-type
       :type: (string)
 
       The content type of the attachment. A value of :value:`text/x-moz-deleted` indicates that the original attachment was permanently deleted and replaced by a placeholder text attachment with some meta information about the original attachment.
@@ -1293,6 +1627,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: ``headers``
+      :refid: messages-message-attachment-headers
       :type: (object)
       :annotation: -- [Added in TB 135]
 
@@ -1302,6 +1637,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: ``name``
+      :refid: messages-message-attachment-name
       :type: (string)
 
       The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
@@ -1310,6 +1646,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: ``partName``
+      :refid: messages-message-attachment-part-name
       :type: (string)
 
       Identifies the MIME part of the message associated with this attachment.
@@ -1318,6 +1655,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: ``size``
+      :refid: messages-message-attachment-size
       :type: (integer)
 
       The size in bytes of this attachment.
@@ -1326,6 +1664,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: [``contentId``]
+      :refid: messages-message-attachment-content-id
       :type: (string, optional)
       :annotation: -- [Added in TB 128]
 
@@ -1335,6 +1674,7 @@ Represents an attachment in a message.
 
    .. api-member::
       :name: [``message``]
+      :refid: messages-message-attachment-message
       :type: (:ref:`messages.^message^header`, optional)
       :annotation: -- [Added in TB 106]
 
@@ -1356,12 +1696,14 @@ Basic information about a message.
 
    .. api-member::
       :name: ``author``
+      :refid: messages-message-header-author
       :type: (:ref:`messages.^mail^box^header^string`)
 
    .. _messages.^message^header.bcc^list:
 
    .. api-member::
       :name: ``bccList``
+      :refid: messages-message-header-bcc-list
       :type: (array of :ref:`messages.^mail^box^header^string`)
 
       The Bcc recipients. Not populated for news/nntp messages.
@@ -1370,6 +1712,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``ccList``
+      :refid: messages-message-header-cc-list
       :type: (array of :ref:`messages.^mail^box^header^string`)
 
       The Cc recipients. Not populated for news/nntp messages.
@@ -1378,12 +1721,14 @@ Basic information about a message.
 
    .. api-member::
       :name: ``date``
+      :refid: messages-message-header-date
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
 
    .. _messages.^message^header.external:
 
    .. api-member::
       :name: ``external``
+      :refid: messages-message-header-external
       :type: (boolean)
       :annotation: -- [Added in TB 106]
 
@@ -1393,6 +1738,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``flagged``
+      :refid: messages-message-header-flagged
       :type: (boolean)
 
       Whether this message is flagged (a.k.a. starred).
@@ -1401,6 +1747,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``headerMessageId``
+      :refid: messages-message-header-header-message-id
       :type: (string)
 
       The message-id header of the message.
@@ -1409,6 +1756,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``headersOnly``
+      :refid: messages-message-header-headers-only
       :type: (boolean)
       :annotation: -- [Added in TB 102]
 
@@ -1418,12 +1766,14 @@ Basic information about a message.
 
    .. api-member::
       :name: ``id``
+      :refid: messages-message-header-id
       :type: (:ref:`messages.^message^id`)
 
    .. _messages.^message^header.junk:
 
    .. api-member::
       :name: ``junk``
+      :refid: messages-message-header-junk
       :type: (boolean)
 
       Whether the message has been marked as junk. Always :value:`false` for news/nntp messages and external messages.
@@ -1432,6 +1782,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``junkScore``
+      :refid: messages-message-header-junk-score
       :type: (integer)
 
       The junk score associated with the message. Always :value:`0` for news/nntp messages and external messages.
@@ -1440,6 +1791,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``new``
+      :refid: messages-message-header-new
       :type: (boolean)
       :annotation: -- [Added in TB 106]
 
@@ -1449,6 +1801,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``recipients``
+      :refid: messages-message-header-recipients
       :type: (array of :ref:`messages.^mail^box^header^string`)
 
       The To recipients. Not populated for news/nntp messages.
@@ -1457,6 +1810,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``size``
+      :refid: messages-message-header-size
       :type: (integer)
       :annotation: -- [Added in TB 90]
 
@@ -1466,6 +1820,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``subject``
+      :refid: messages-message-header-subject
       :type: (string)
 
       The subject of the message.
@@ -1474,6 +1829,7 @@ Basic information about a message.
 
    .. api-member::
       :name: ``tags``
+      :refid: messages-message-header-tags
       :type: (array of string)
 
       Tags associated with this message. For a list of available tags, use :ref:`messages.tags.list`.
@@ -1482,6 +1838,7 @@ Basic information about a message.
 
    .. api-member::
       :name: [``folder``]
+      :refid: messages-message-header-folder
       :type: (:ref:`folders.^mail^folder`, optional)
 
       The :permission:`accountsRead` permission is required for this property to be included. Not available for external or attached messages.
@@ -1490,6 +1847,7 @@ Basic information about a message.
 
    .. api-member::
       :name: [``read``]
+      :refid: messages-message-header-read
       :type: (boolean, optional)
 
       Whether the message has been marked as read. Not available for external or attached messages.
@@ -1522,6 +1880,7 @@ See :doc:`guides/messageLists` for more information.
 
    .. api-member::
       :name: ``id``
+      :refid: messages-message-list-id
       :type: (string or null)
 
       Id of the message list, to be used with :ref:`messages.continue^list` or :ref:`messages.abort^list`.
@@ -1530,6 +1889,7 @@ See :doc:`guides/messageLists` for more information.
 
    .. api-member::
       :name: ``messages``
+      :refid: messages-message-list-messages
       :type: (array of :ref:`messages.^message^header`)
 
 .. _messages.^message^part:
@@ -1548,6 +1908,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``body``]
+      :refid: messages-message-part-body
       :type: (string, optional)
 
       The quoted-printable or base64 decoded content of the part. Only present for parts with a content type of :value:`text/*` and only if requested, see the :value:`decodeContent` option of :ref:`messages.get^full`. Use :ref:`messages.get^attachment^file` to retrieve the content of parts which have a content type other than :value:`text/*`.
@@ -1556,12 +1917,14 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``contentType``]
+      :refid: messages-message-part-content-type
       :type: (string, optional)
 
    .. _messages.^message^part.decryption^status:
 
    .. api-member::
       :name: [``decryptionStatus``]
+      :refid: messages-message-part-decryption-status
       :type: (`string`, optional)
       :annotation: -- [Added in TB 125]
 
@@ -1569,22 +1932,35 @@ Represents an email message "part", which could be the whole message.
 
       Supported values:
 
+      .. _messages.^message^part.decryption^status.fail:
+
       .. api-member::
          :name: :value:`fail`
+         :refid: messages-message-part-decryption-status-fail
+
+      .. _messages.^message^part.decryption^status.none:
 
       .. api-member::
          :name: :value:`none`
+         :refid: messages-message-part-decryption-status-none
+
+      .. _messages.^message^part.decryption^status.skipped:
 
       .. api-member::
          :name: :value:`skipped`
+         :refid: messages-message-part-decryption-status-skipped
+
+      .. _messages.^message^part.decryption^status.success:
 
       .. api-member::
          :name: :value:`success`
+         :refid: messages-message-part-decryption-status-success
 
    .. _messages.^message^part.headers:
 
    .. api-member::
       :name: [``headers``]
+      :refid: messages-message-part-headers
       :type: (object, optional)
 
       A *dictionary object* of RFC 2047 decoded part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.get^full`.
@@ -1593,6 +1969,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``name``]
+      :refid: messages-message-part-name
       :type: (string, optional)
 
       Name of the part, if it is a file.
@@ -1601,6 +1978,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``partName``]
+      :refid: messages-message-part-part-name
       :type: (string, optional)
 
       The identifier of this part, used in :ref:`messages.get^attachment^file`.
@@ -1609,6 +1987,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``parts``]
+      :refid: messages-message-part-parts
       :type: (array of :ref:`messages.^message^part`, optional)
 
       Any sub-parts of this part.
@@ -1617,6 +1996,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``rawBody``]
+      :refid: messages-message-part-raw-body
       :type: (string, optional)
       :annotation: -- [Added in TB 133]
 
@@ -1626,6 +2006,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``rawHeaders``]
+      :refid: messages-message-part-raw-headers
       :type: (object, optional)
       :annotation: -- [Added in TB 133]
 
@@ -1635,6 +2016,7 @@ Represents an email message "part", which could be the whole message.
 
    .. api-member::
       :name: [``size``]
+      :refid: messages-message-part-size
       :type: (integer, optional)
 
       The size of this part. The size of parts with content type *message/rfc822* is not the actual message size (on disc), but the total size of its decoded body parts, excluding headers.
@@ -1655,6 +2037,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
 
    .. api-member::
       :name: [``flagged``]
+      :refid: messages-message-properties-flagged
       :type: (boolean, optional)
 
       Whether the message is flagged (a.k.a starred).
@@ -1663,6 +2046,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
 
    .. api-member::
       :name: [``junk``]
+      :refid: messages-message-properties-junk
       :type: (boolean, optional)
 
       Whether the message is marked as junk. Only supported in :ref:`messages.update`.
@@ -1671,6 +2055,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
 
    .. api-member::
       :name: [``new``]
+      :refid: messages-message-properties-new
       :type: (boolean, optional)
 
       Whether the message is marked as new. Only supported in :ref:`messages.import`.
@@ -1679,6 +2064,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
 
    .. api-member::
       :name: [``read``]
+      :refid: messages-message-properties-read
       :type: (boolean, optional)
 
       Whether the message is marked as read.
@@ -1687,6 +2073,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
 
    .. api-member::
       :name: [``tags``]
+      :refid: messages-message-properties-tags
       :type: (array of string, optional)
 
       Tags associated with this message. For a list of available tags, call the :ref:`messages.tags.list` method.
@@ -1707,6 +2094,7 @@ An object defining a range.
 
    .. api-member::
       :name: [``max``]
+      :refid: messages-query-range-max
       :type: (integer, optional)
 
       The maximum value required to match the query.
@@ -1715,6 +2103,7 @@ An object defining a range.
 
    .. api-member::
       :name: [``min``]
+      :refid: messages-query-range-min
       :type: (integer, optional)
 
       The minimum value required to match the query.
