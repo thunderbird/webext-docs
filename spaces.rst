@@ -36,6 +36,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`contextualIdentities`
    :refid: spaces-permission-contextual-identities
+   :refname: contextualIdentities
 
    Grant access to some or all methods of the contextualIdentities API.
 
@@ -44,6 +45,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`cookies`
    :refid: spaces-permission-cookies
+   :refname: cookies
 
    Grant access to some or all methods of the cookies API.
 
@@ -52,6 +54,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`management`
    :refid: spaces-permission-management
+   :refname: management
 
    Monitor extension usage and manage themes.
 
@@ -77,6 +80,7 @@ Creates a new space and adds its button to the spaces toolbar.
    .. api-member::
       :name: ``name``
       :refid: spaces-create-name
+      :refname: name
       :type: (string)
 
       The name to assign to this space. May only contain alphanumeric characters and underscores. Must be unique for this extension.
@@ -86,6 +90,7 @@ Creates a new space and adds its button to the spaces toolbar.
    .. api-member::
       :name: ``tabProperties``
       :refid: spaces-create-tab-properties
+      :refname: tabProperties
       :type: (string or :ref:`spaces.^space^tab^properties`)
 
       The properties for the new tab being opened, when the associated button in the spaces toolbar is clicked. Either a *string* specifying the default URL, or a :ref:`spaces.^space^tab^properties` object. The URL may point to a WebExtension page or a web page.
@@ -95,6 +100,7 @@ Creates a new space and adds its button to the spaces toolbar.
    .. api-member::
       :name: [``buttonProperties``]
       :refid: spaces-create-button-properties
+      :refname: buttonProperties
       :type: (:ref:`spaces.^space^button^properties`, optional)
 
       Properties of the button in the spaces toolbar for the new space.
@@ -106,6 +112,7 @@ Creates a new space and adds its button to the spaces toolbar.
 
    .. api-member::
       :refid: spaces-create-returns
+      :refname: _returns
       :type: :ref:`spaces.^space`
       :annotation: -- [Added in TB 115]
 
@@ -128,6 +135,7 @@ Retrieves details about the specified space.
    .. api-member::
       :name: ``spaceId``
       :refid: spaces-get-space-id
+      :refname: spaceId
       :type: (integer)
 
       The id of the space.
@@ -139,6 +147,7 @@ Retrieves details about the specified space.
 
    .. api-member::
       :refid: spaces-get-returns
+      :refname: _returns
       :type: :ref:`spaces.^space`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -160,6 +169,7 @@ Opens or switches to the specified space. Throws an exception if the requested s
    .. api-member::
       :name: ``spaceId``
       :refid: spaces-open-space-id
+      :refname: spaceId
       :type: (integer)
 
       The id of the space.
@@ -169,6 +179,7 @@ Opens or switches to the specified space. Throws an exception if the requested s
    .. api-member::
       :name: [``windowId``]
       :refid: spaces-open-window-id
+      :refname: windowId
       :type: (integer, optional)
 
       The id of the normal window, where the space should be opened. Defaults to the most recent normal window.
@@ -180,6 +191,7 @@ Opens or switches to the specified space. Throws an exception if the requested s
 
    .. api-member::
       :refid: spaces-open-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
       Details about the opened or activated space tab.
@@ -203,6 +215,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
    .. api-member::
       :name: [``queryInfo``]
       :refid: spaces-query-query-info
+      :refname: queryInfo
       :type: (object, optional)
 
       .. _spaces.query.query^info.extension^id:
@@ -210,6 +223,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
       .. api-member::
          :name: [``extensionId``]
          :refid: spaces-query-query-info-extension-id
+         :refname: extensionId
          :type: (string, optional)
 
          Id of the extension which should own the spaces. The :permission:`management` permission is required to be able to match against extension ids.
@@ -219,6 +233,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
       .. api-member::
          :name: [``isBuiltIn``]
          :refid: spaces-query-query-info-is-built-in
+         :refname: isBuiltIn
          :type: (boolean, optional)
 
          Spaces should be default Thunderbird spaces.
@@ -228,6 +243,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
       .. api-member::
          :name: [``isSelfOwned``]
          :refid: spaces-query-query-info-is-self-owned
+         :refname: isSelfOwned
          :type: (boolean, optional)
 
          Spaces should have been created by this extension.
@@ -237,6 +253,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
       .. api-member::
          :name: [``name``]
          :refid: spaces-query-query-info-name
+         :refname: name
          :type: (string, optional)
 
          The name of the spaces (names are not unique).
@@ -246,6 +263,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
       .. api-member::
          :name: [``spaceId``]
          :refid: spaces-query-query-info-space-id
+         :refname: spaceId
          :type: (integer, optional)
          :annotation: -- [Added in TB 128]
 
@@ -258,6 +276,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
 
    .. api-member::
       :refid: spaces-query-returns
+      :refname: _returns
       :type: array of :ref:`spaces.^space`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -279,6 +298,7 @@ Removes the specified space, closes all its tabs and removes its button from the
    .. api-member::
       :name: ``spaceId``
       :refid: spaces-remove-space-id
+      :refname: spaceId
       :type: (integer)
 
       The id of the space.
@@ -300,6 +320,7 @@ Updates the specified space. Throws an exception if the requested space does not
    .. api-member::
       :name: ``spaceId``
       :refid: spaces-update-space-id
+      :refname: spaceId
       :type: (integer)
 
       The id of the space.
@@ -309,6 +330,7 @@ Updates the specified space. Throws an exception if the requested space does not
    .. api-member::
       :name: ``tabProperties``
       :refid: spaces-update-tab-properties
+      :refname: tabProperties
       :type: (string or :ref:`spaces.^space^tab^properties` or :ref:`spaces.^space^button^properties`)
 
       The properties for the new tab being opened, when the associated button in the spaces toolbar is clicked. Either a *string* specifying the default URL, or a :ref:`spaces.^space^tab^properties` object. The URL may point to a WebExtension page or a web page.
@@ -318,6 +340,7 @@ Updates the specified space. Throws an exception if the requested space does not
    .. api-member::
       :name: [``buttonProperties``]
       :refid: spaces-update-button-properties
+      :refname: buttonProperties
       :type: (:ref:`spaces.^space^button^properties`, optional)
 
       Properties of the button in the spaces toolbar for the specified space Only specified button properties will be updated.
@@ -402,6 +425,7 @@ Space
    .. api-member::
       :name: ``id``
       :refid: spaces-space-id
+      :refname: id
       :type: (integer)
 
       The id of the space.
@@ -411,6 +435,7 @@ Space
    .. api-member::
       :name: ``isBuiltIn``
       :refid: spaces-space-is-built-in
+      :refname: isBuiltIn
       :type: (boolean)
 
       Whether this space is one of the default Thunderbird spaces, or an extension space.
@@ -420,6 +445,7 @@ Space
    .. api-member::
       :name: ``isSelfOwned``
       :refid: spaces-space-is-self-owned
+      :refname: isSelfOwned
       :type: (boolean)
 
       Whether this space was created by this extension.
@@ -429,6 +455,7 @@ Space
    .. api-member::
       :name: ``name``
       :refid: spaces-space-name
+      :refname: name
       :type: (string)
 
       The name of the space. Names are unique for a single extension, but different extensions may use the same name.
@@ -438,6 +465,7 @@ Space
    .. api-member::
       :name: [``extensionId``]
       :refid: spaces-space-extension-id
+      :refname: extensionId
       :type: (string, optional)
 
       The id of the extension which owns the space. The :permission:`management` permission is required to include this property.
@@ -459,6 +487,7 @@ Properties of a button in the spaces toolbar.
    .. api-member::
       :name: [``badgeBackgroundColor``]
       :refid: spaces-space-button-properties-badge-background-color
+      :refname: badgeBackgroundColor
       :type: (string or :ref:`spaces.^color^array`, optional)
 
       Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to :value:`null`.
@@ -468,6 +497,7 @@ Properties of a button in the spaces toolbar.
    .. api-member::
       :name: [``badgeText``]
       :refid: spaces-space-button-properties-badge-text
+      :refname: badgeText
       :type: (string, optional)
 
       Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to :value:`null`.
@@ -477,6 +507,7 @@ Properties of a button in the spaces toolbar.
    .. api-member::
       :name: [``defaultIcons``]
       :refid: spaces-space-button-properties-default-icons
+      :refname: defaultIcons
       :type: (:ref:`spaces.^icon^path`, optional)
 
       The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to :value:`null`.
@@ -486,6 +517,7 @@ Properties of a button in the spaces toolbar.
    .. api-member::
       :name: [``themeIcons``]
       :refid: spaces-space-button-properties-theme-icons
+      :refname: themeIcons
       :type: (array of :ref:`spaces.^theme^icons`, optional)
 
       Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The :value:`light` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified. Reset when set to :value:`null`.
@@ -495,6 +527,7 @@ Properties of a button in the spaces toolbar.
    .. api-member::
       :name: [``title``]
       :refid: spaces-space-button-properties-title
+      :refname: title
       :type: (string, optional)
 
       The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to :value:`null`.
@@ -516,6 +549,7 @@ Properties for the new tab being opened by clicking on the associated button in 
    .. api-member::
       :name: [``cookieStoreId``]
       :refid: spaces-space-tab-properties-cookie-store-id
+      :refname: cookieStoreId
       :type: (string, optional)
 
       The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
@@ -533,6 +567,7 @@ Properties for the new tab being opened by clicking on the associated button in 
    .. api-member::
       :name: [``linkHandler``]
       :refid: spaces-space-tab-properties-link-handler
+      :refname: linkHandler
       :type: (`string`, optional)
       :annotation: -- [Added in TB 136]
 
@@ -545,24 +580,28 @@ Properties for the new tab being opened by clicking on the associated button in 
       .. api-member::
          :name: :value:`balanced`
          :refid: spaces-space-tab-properties-link-handler-balanced
+         :refname: balanced
 
       .. _spaces.^space^tab^properties.link^handler.relaxed:
 
       .. api-member::
          :name: :value:`relaxed`
          :refid: spaces-space-tab-properties-link-handler-relaxed
+         :refname: relaxed
 
       .. _spaces.^space^tab^properties.link^handler.strict:
 
       .. api-member::
          :name: :value:`strict`
          :refid: spaces-space-tab-properties-link-handler-strict
+         :refname: strict
 
    .. _spaces.^space^tab^properties.url:
 
    .. api-member::
       :name: [``url``]
       :refid: spaces-space-tab-properties-url
+      :refname: url
       :type: (string, optional)
 
       The default URL. May point to a WebExtension page or a web page.
@@ -584,6 +623,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``dark``
       :refid: spaces-theme-icons-dark
+      :refname: dark
       :type: (:ref:`spaces.^extension^u^r^l`)
 
       The dark icon to use for light themes
@@ -593,6 +633,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``light``
       :refid: spaces-theme-icons-light
+      :refname: light
       :type: (:ref:`spaces.^extension^u^r^l`)
 
       A light icon to use for dark themes
@@ -602,6 +643,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``size``
       :refid: spaces-theme-icons-size
+      :refname: size
       :type: (integer)
 
       The size of the icons

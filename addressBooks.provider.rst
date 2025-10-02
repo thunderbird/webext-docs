@@ -42,6 +42,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`addressBooks`
    :refid: address-books-provider-permission-address-books
+   :refname: addressBooks
 
    Read and modify your address books and contacts.
 
@@ -104,6 +105,7 @@ Example:
    .. api-member::
       :name: ``listener(node, searchString, query)``
       :refid: address-books-provider-on-search-request-listener-node-search-string-query
+      :refname: listener(node, searchString, query)
 
       A function that will be called when this event occurs.
 
@@ -112,6 +114,7 @@ Example:
    .. api-member::
       :name: ``parameters``
       :refid: address-books-provider-on-search-request-parameters
+      :refname: parameters
       :type: (object)
 
       Descriptions for the address book created by registering this listener.
@@ -121,6 +124,7 @@ Example:
       .. api-member::
          :name: [``addressBookName``]
          :refid: address-books-provider-on-search-request-parameters-address-book-name
+         :refname: addressBookName
          :type: (string, optional)
 
          The name of the created address book. If not provided, the name of the extension is used.
@@ -130,6 +134,7 @@ Example:
       .. api-member::
          :name: [``id``]
          :refid: address-books-provider-on-search-request-parameters-id
+         :refname: id
          :type: (string, optional)
 
          The unique identifier of the created address book. If not provided, a unique identifier will be generated for you.
@@ -139,6 +144,7 @@ Example:
       .. api-member::
          :name: [``isSecure``]
          :refid: address-books-provider-on-search-request-parameters-is-secure
+         :refname: isSecure
          :type: (boolean, optional)
 
          Whether the address book search queries are using encrypted protocols like HTTPS.
@@ -151,6 +157,7 @@ Example:
    .. api-member::
       :name: ``node``
       :refid: address-books-provider-on-search-request-node
+      :refname: node
       :type: (:ref:`address^books.^address^book^node`)
 
    .. _address^books.provider.on^search^request.search^string:
@@ -158,6 +165,7 @@ Example:
    .. api-member::
       :name: [``searchString``]
       :refid: address-books-provider-on-search-request-search-string
+      :refname: searchString
       :type: (string, optional)
 
       The search text that the user entered. Not available when invoked from the advanced address book search dialog.
@@ -167,6 +175,7 @@ Example:
    .. api-member::
       :name: [``query``]
       :refid: address-books-provider-on-search-request-query
+      :refname: query
       :type: (string, optional)
 
       The boolean query expression corresponding to the search.
@@ -189,6 +198,7 @@ Example:
       .. api-member::
          :name: ``isCompleteResult``
          :refid: address-books-provider-on-search-request-returns-is-complete-result
+         :refname: isCompleteResult
          :type: (boolean)
          :annotation: -- [Added in TB 140]
 
@@ -197,6 +207,7 @@ Example:
       .. api-member::
          :name: ``results``
          :refid: address-books-provider-on-search-request-returns-results
+         :refname: results
          :type: (array of :ref:`address^books.contacts.^contact^properties`)
          :annotation: -- [Added in TB 140]
 

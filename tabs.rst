@@ -38,6 +38,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`activeTab`
    :refid: tabs-permission-active-tab
+   :refname: activeTab
 
    Grant host permission to the currently active tab, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
@@ -46,6 +47,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`contextualIdentities`
    :refid: tabs-permission-contextual-identities
+   :refname: contextualIdentities
 
    Grant access to some or all methods of the contextualIdentities API.
 
@@ -54,6 +56,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`cookies`
    :refid: tabs-permission-cookies
+   :refname: cookies
 
    Grant access to some or all methods of the cookies API.
 
@@ -62,6 +65,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`tabs`
    :refid: tabs-permission-tabs
+   :refname: tabs
 
    Grant host permission to all active and inactive tabs, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
@@ -87,6 +91,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
    .. api-member::
       :name: ``tabId``
       :refid: tabs-connect-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.connect.connect^info:
@@ -94,6 +99,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
    .. api-member::
       :name: [``connectInfo``]
       :refid: tabs-connect-connect-info
+      :refname: connectInfo
       :type: (object, optional)
 
       .. _tabs.connect.connect^info.frame^id:
@@ -101,6 +107,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
       .. api-member::
          :name: [``frameId``]
          :refid: tabs-connect-connect-info-frame-id
+         :refname: frameId
          :type: (integer, optional)
 
          Open a port to a specific frame identified by :value:`frameId` instead of all frames in the tab.
@@ -110,6 +117,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
       .. api-member::
          :name: [``name``]
          :refid: tabs-connect-connect-info-name
+         :refname: name
          :type: (string, optional)
 
          Will be passed into onConnect for content scripts that are listening for the connection event.
@@ -121,6 +129,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
 
    .. api-member::
       :refid: tabs-connect-returns
+      :refname: _returns
       :type: `Port <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/Port>`__
 
       A port that can be used to communicate with the content scripts running in the specified tab.
@@ -144,6 +153,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
    .. api-member::
       :name: ``createProperties``
       :refid: tabs-create-create-properties
+      :refname: createProperties
       :type: (object)
 
       Properties for the new tab. Defaults to an empty tab, if no :value:`url` is provided.
@@ -153,6 +163,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
       .. api-member::
          :name: [``active``]
          :refid: tabs-create-create-properties-active
+         :refname: active
          :type: (boolean, optional)
 
          Whether the tab should become the active tab in the window. Does not affect whether the window is focused (see :ref:`windows.update`). Defaults to :value:`true`.
@@ -162,6 +173,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
       .. api-member::
          :name: [``cookieStoreId``]
          :refid: tabs-create-create-properties-cookie-store-id
+         :refname: cookieStoreId
          :type: (string, optional)
          :annotation: -- [Added in TB 115]
 
@@ -180,6 +192,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
       .. api-member::
          :name: [``index``]
          :refid: tabs-create-create-properties-index
+         :refname: index
          :type: (integer, optional)
 
          The position the tab should take in the window. The provided value will be clamped to between zero and the number of tabs in the window.
@@ -189,6 +202,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
       .. api-member::
          :name: [``linkHandler``]
          :refid: tabs-create-create-properties-link-handler
+         :refname: linkHandler
          :type: (`string`, optional)
          :annotation: -- [Added in TB 136]
 
@@ -201,24 +215,28 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
          .. api-member::
             :name: :value:`balanced`
             :refid: tabs-create-create-properties-link-handler-balanced
+            :refname: balanced
 
          .. _tabs.create.create^properties.link^handler.relaxed:
 
          .. api-member::
             :name: :value:`relaxed`
             :refid: tabs-create-create-properties-link-handler-relaxed
+            :refname: relaxed
 
          .. _tabs.create.create^properties.link^handler.strict:
 
          .. api-member::
             :name: :value:`strict`
             :refid: tabs-create-create-properties-link-handler-strict
+            :refname: strict
 
       .. _tabs.create.create^properties.selected:
 
       .. api-member::
          :name: [``selected``]
          :refid: tabs-create-create-properties-selected
+         :refname: selected
          :type: (boolean, optional) **Unsupported.**
 
          Whether the tab should become the selected tab in the window. Defaults to :value:`true`
@@ -228,6 +246,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
       .. api-member::
          :name: [``url``]
          :refid: tabs-create-create-properties-url
+         :refname: url
          :type: (string, optional)
 
          The URL to navigate the tab to initially. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally after creating an empty tab. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension.
@@ -237,6 +256,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
       .. api-member::
          :name: [``windowId``]
          :refid: tabs-create-create-properties-window-id
+         :refname: windowId
          :type: (integer, optional)
 
          The window to create the new tab in. Defaults to the current window.
@@ -248,6 +268,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
 
    .. api-member::
       :refid: tabs-create-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
       A Promise that will be fulfilled with a :ref:`tabs.^tab` object containing details about the created tab. If the tab could not be created (for example, because it was added to a non-normal window) the promise will be rejected with an error message. The returned promise resolves as soon as the tab has been created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.on^updated` event before creating the tab.
@@ -271,6 +292,7 @@ Duplicates a tab.
    .. api-member::
       :name: ``tabId``
       :refid: tabs-duplicate-tab-id
+      :refname: tabId
       :type: (integer)
 
       The ID of the tab which is to be duplicated.
@@ -282,6 +304,7 @@ Duplicates a tab.
 
    .. api-member::
       :refid: tabs-duplicate-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
       Details about the duplicated tab. The :ref:`tabs.^tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
@@ -305,6 +328,7 @@ Retrieves details about the specified tab.
    .. api-member::
       :name: ``tabId``
       :refid: tabs-get-tab-id
+      :refname: tabId
       :type: (integer)
 
 .. api-header::
@@ -314,6 +338,7 @@ Retrieves details about the specified tab.
 
    .. api-member::
       :refid: tabs-get-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -334,6 +359,7 @@ Gets the tab that this script call is being made from. Returns :value:`undefined
 
    .. api-member::
       :refid: tabs-get-current-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -355,6 +381,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
    .. api-member::
       :name: ``tabIds``
       :refid: tabs-move-tab-ids
+      :refname: tabIds
       :type: (integer or array of integer)
 
       The tab or list of tabs to move.
@@ -364,6 +391,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
    .. api-member::
       :name: ``moveProperties``
       :refid: tabs-move-move-properties
+      :refname: moveProperties
       :type: (object)
 
       .. _tabs.move.move^properties.index:
@@ -371,6 +399,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
       .. api-member::
          :name: ``index``
          :refid: tabs-move-move-properties-index
+         :refname: index
          :type: (integer)
 
          The position to move the tab to. :value:`-1` will place the tab at the end of the window.
@@ -380,6 +409,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
       .. api-member::
          :name: [``windowId``]
          :refid: tabs-move-move-properties-window-id
+         :refname: windowId
          :type: (integer, optional)
 
          Defaults to the window the tab is currently in.
@@ -391,6 +421,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
 
    .. api-member::
       :refid: tabs-move-returns
+      :refname: _returns
       :type: array of :ref:`tabs.^tab`
 
       Details about the moved tabs.
@@ -414,6 +445,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
    .. api-member::
       :name: [``queryInfo``]
       :refid: tabs-query-query-info
+      :refname: queryInfo
       :type: (object, optional)
 
       .. _tabs.query.query^info.active:
@@ -421,6 +453,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``active``]
          :refid: tabs-query-query-info-active
+         :refname: active
          :type: (boolean, optional)
 
          Whether the tabs are active in their windows.
@@ -430,6 +463,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``cookieStoreId``]
          :refid: tabs-query-query-info-cookie-store-id
+         :refname: cookieStoreId
          :type: (array of string or string, optional)
          :annotation: -- [Added in TB 115]
 
@@ -444,6 +478,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``currentWindow``]
          :refid: tabs-query-query-info-current-window
+         :refname: currentWindow
          :type: (boolean, optional)
 
          Whether the tabs are in the current window.
@@ -453,6 +488,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``highlighted``]
          :refid: tabs-query-query-info-highlighted
+         :refname: highlighted
          :type: (boolean, optional)
 
          Whether the tabs are highlighted. Works as an alias of active.
@@ -462,6 +498,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``index``]
          :refid: tabs-query-query-info-index
+         :refname: index
          :type: (integer, optional)
 
          The position of the tabs within their windows.
@@ -471,6 +508,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``lastFocusedWindow``]
          :refid: tabs-query-query-info-last-focused-window
+         :refname: lastFocusedWindow
          :type: (boolean, optional)
 
          Whether the tabs are in the last focused window.
@@ -480,6 +518,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``spaceId``]
          :refid: tabs-query-query-info-space-id
+         :refname: spaceId
          :type: (integer, optional)
          :annotation: -- [Added in TB 115]
 
@@ -490,6 +529,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``status``]
          :refid: tabs-query-query-info-status
+         :refname: status
          :type: (:ref:`tabs.^tab^status`, optional)
 
          Whether the tabs have completed loading.
@@ -499,6 +539,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``title``]
          :refid: tabs-query-query-info-title
+         :refname: title
          :type: (string, optional)
 
          Match page titles against a pattern.
@@ -508,6 +549,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``type``]
          :refid: tabs-query-query-info-type
+         :refname: type
          :type: (:ref:`tabs.^tab^type` or array of :ref:`tabs.^tab^type`, optional)
          :annotation: -- [Added in TB 91]
 
@@ -518,6 +560,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``url``]
          :refid: tabs-query-query-info-url
+         :refname: url
          :type: (string or array of string, optional)
 
          Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Fragment identifiers are not matched.
@@ -527,6 +570,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``windowId``]
          :refid: tabs-query-query-info-window-id
+         :refname: windowId
          :type: (integer, optional)
 
          The ID of the parent window, or :ref:`windows.^w^i^n^d^o^w_^i^d_^c^u^r^r^e^n^t` for the current window.
@@ -536,6 +580,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
       .. api-member::
          :name: [``windowType``]
          :refid: tabs-query-query-info-window-type
+         :refname: windowType
          :type: (:ref:`tabs.^window^type`, optional)
 
          The type of window the tabs are in.
@@ -547,6 +592,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
    .. api-member::
       :refid: tabs-query-returns
+      :refname: _returns
       :type: array of :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -568,6 +614,7 @@ Reload a tab. Only applicable for tabs which display a content page.
    .. api-member::
       :name: [``tabId``]
       :refid: tabs-reload-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
       The ID of the tab to reload; defaults to the selected tab of the current window.
@@ -577,6 +624,7 @@ Reload a tab. Only applicable for tabs which display a content page.
    .. api-member::
       :name: [``reloadProperties``]
       :refid: tabs-reload-reload-properties
+      :refname: reloadProperties
       :type: (object, optional)
 
       .. _tabs.reload.reload^properties.bypass^cache:
@@ -584,6 +632,7 @@ Reload a tab. Only applicable for tabs which display a content page.
       .. api-member::
          :name: [``bypassCache``]
          :refid: tabs-reload-reload-properties-bypass-cache
+         :refname: bypassCache
          :type: (boolean, optional)
 
          Whether using any local cache. Default is false.
@@ -605,6 +654,7 @@ Closes one or more tabs.
    .. api-member::
       :name: ``tabIds``
       :refid: tabs-remove-tab-ids
+      :refname: tabIds
       :type: (integer or array of integer)
 
       The tab or list of tabs to close.
@@ -626,6 +676,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
    .. api-member::
       :name: ``tabId``
       :refid: tabs-send-message-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.send^message.message:
@@ -633,6 +684,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
    .. api-member::
       :name: ``message``
       :refid: tabs-send-message-message
+      :refname: message
       :type: (any)
 
    .. _tabs.send^message.options:
@@ -640,6 +692,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
    .. api-member::
       :name: [``options``]
       :refid: tabs-send-message-options
+      :refname: options
       :type: (object, optional)
 
       .. _tabs.send^message.options.frame^id:
@@ -647,6 +700,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
       .. api-member::
          :name: [``frameId``]
          :refid: tabs-send-message-options-frame-id
+         :refname: frameId
          :type: (integer, optional)
 
          Send a message to a specific frame identified by :value:`frameId` instead of all frames in the tab.
@@ -658,6 +712,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
 
    .. api-member::
       :refid: tabs-send-message-returns
+      :refname: _returns
       :type: any
 
       The JSON response object sent by the handler of the message. If an error occurs while connecting to the specified tab, the callback will be called with no arguments and `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will be set to the error message.
@@ -681,6 +736,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
    .. api-member::
       :name: [``tabId``]
       :refid: tabs-update-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
       Defaults to the selected tab of the current window.
@@ -690,6 +746,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
    .. api-member::
       :name: ``updateProperties``
       :refid: tabs-update-update-properties
+      :refname: updateProperties
       :type: (object)
 
       Properties which should to be updated.
@@ -699,6 +756,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
       .. api-member::
          :name: [``active``]
          :refid: tabs-update-update-properties-active
+         :refname: active
          :type: (boolean, optional)
 
          Set this to :value:`true`, if the tab should become active. Does not affect whether the window is focused (see :ref:`windows.update`). Setting this to :value:`false` has no effect.
@@ -708,6 +766,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
       .. api-member::
          :name: [``url``]
          :refid: tabs-update-update-properties-url
+         :refname: url
          :type: (string, optional)
 
          A URL of a page to load. If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the tab will navigate to the requested page. All other URLs will be opened externally without changing the tab.
@@ -723,6 +782,7 @@ Modifies the properties of a tab. Properties that are not specified in :value:`u
 
    .. api-member::
       :refid: tabs-update-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
       Details about the updated tab. The :ref:`tabs.^tab` object doesn't contain :value:`url`, :value:`title` and :value:`favIconUrl` if the :permission:`tabs` permission has not been requested.
@@ -751,6 +811,7 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
    .. api-member::
       :name: ``listener(activeInfo)``
       :refid: tabs-on-activated-listener-active-info
+      :refname: listener(activeInfo)
 
       A function that will be called when this event occurs.
 
@@ -762,6 +823,7 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
    .. api-member::
       :name: ``activeInfo``
       :refid: tabs-on-activated-active-info
+      :refname: activeInfo
       :type: (object)
 
       .. _tabs.on^activated.active^info.tab^id:
@@ -769,6 +831,7 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
       .. api-member::
          :name: ``tabId``
          :refid: tabs-on-activated-active-info-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab that has become active.
@@ -778,6 +841,7 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
       .. api-member::
          :name: ``windowId``
          :refid: tabs-on-activated-active-info-window-id
+         :refname: windowId
          :type: (integer)
 
          The ID of the window the active tab changed inside of.
@@ -787,6 +851,7 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
       .. api-member::
          :name: [``previousTabId``]
          :refid: tabs-on-activated-active-info-previous-tab-id
+         :refname: previousTabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 114]
 
@@ -809,6 +874,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
    .. api-member::
       :name: ``listener(tabId, attachInfo)``
       :refid: tabs-on-attached-listener-tab-id-attach-info
+      :refname: listener(tabId, attachInfo)
 
       A function that will be called when this event occurs.
 
@@ -820,6 +886,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
    .. api-member::
       :name: ``tabId``
       :refid: tabs-on-attached-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.on^attached.attach^info:
@@ -827,6 +894,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
    .. api-member::
       :name: ``attachInfo``
       :refid: tabs-on-attached-attach-info
+      :refname: attachInfo
       :type: (object)
 
       .. _tabs.on^attached.attach^info.new^position:
@@ -834,6 +902,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
       .. api-member::
          :name: ``newPosition``
          :refid: tabs-on-attached-attach-info-new-position
+         :refname: newPosition
          :type: (integer)
 
       .. _tabs.on^attached.attach^info.new^window^id:
@@ -841,6 +910,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
       .. api-member::
          :name: ``newWindowId``
          :refid: tabs-on-attached-attach-info-new-window-id
+         :refname: newWindowId
          :type: (integer)
 
 .. _tabs.on^created:
@@ -860,6 +930,7 @@ Fired when a tab is created. The tab may still be loading, with its title being 
    .. api-member::
       :name: ``listener(tab)``
       :refid: tabs-on-created-listener-tab
+      :refname: listener(tab)
 
       A function that will be called when this event occurs.
 
@@ -871,6 +942,7 @@ Fired when a tab is created. The tab may still be loading, with its title being 
    .. api-member::
       :name: ``tab``
       :refid: tabs-on-created-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
       Details of the tab that was created.
@@ -892,6 +964,7 @@ Fired when a tab is detached from a window, for example because it is being move
    .. api-member::
       :name: ``listener(tabId, detachInfo)``
       :refid: tabs-on-detached-listener-tab-id-detach-info
+      :refname: listener(tabId, detachInfo)
 
       A function that will be called when this event occurs.
 
@@ -903,6 +976,7 @@ Fired when a tab is detached from a window, for example because it is being move
    .. api-member::
       :name: ``tabId``
       :refid: tabs-on-detached-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.on^detached.detach^info:
@@ -910,6 +984,7 @@ Fired when a tab is detached from a window, for example because it is being move
    .. api-member::
       :name: ``detachInfo``
       :refid: tabs-on-detached-detach-info
+      :refname: detachInfo
       :type: (object)
 
       .. _tabs.on^detached.detach^info.old^position:
@@ -917,6 +992,7 @@ Fired when a tab is detached from a window, for example because it is being move
       .. api-member::
          :name: ``oldPosition``
          :refid: tabs-on-detached-detach-info-old-position
+         :refname: oldPosition
          :type: (integer)
 
       .. _tabs.on^detached.detach^info.old^window^id:
@@ -924,6 +1000,7 @@ Fired when a tab is detached from a window, for example because it is being move
       .. api-member::
          :name: ``oldWindowId``
          :refid: tabs-on-detached-detach-info-old-window-id
+         :refname: oldWindowId
          :type: (integer)
 
 .. _tabs.on^moved:
@@ -943,6 +1020,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
    .. api-member::
       :name: ``listener(tabId, moveInfo)``
       :refid: tabs-on-moved-listener-tab-id-move-info
+      :refname: listener(tabId, moveInfo)
 
       A function that will be called when this event occurs.
 
@@ -954,6 +1032,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
    .. api-member::
       :name: ``tabId``
       :refid: tabs-on-moved-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.on^moved.move^info:
@@ -961,6 +1040,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
    .. api-member::
       :name: ``moveInfo``
       :refid: tabs-on-moved-move-info
+      :refname: moveInfo
       :type: (object)
 
       .. _tabs.on^moved.move^info.from^index:
@@ -968,6 +1048,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
       .. api-member::
          :name: ``fromIndex``
          :refid: tabs-on-moved-move-info-from-index
+         :refname: fromIndex
          :type: (integer)
 
       .. _tabs.on^moved.move^info.to^index:
@@ -975,6 +1056,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
       .. api-member::
          :name: ``toIndex``
          :refid: tabs-on-moved-move-info-to-index
+         :refname: toIndex
          :type: (integer)
 
       .. _tabs.on^moved.move^info.window^id:
@@ -982,6 +1064,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
       .. api-member::
          :name: ``windowId``
          :refid: tabs-on-moved-move-info-window-id
+         :refname: windowId
          :type: (integer)
 
 .. _tabs.on^removed:
@@ -1001,6 +1084,7 @@ Fired when a tab is closed.
    .. api-member::
       :name: ``listener(tabId, removeInfo)``
       :refid: tabs-on-removed-listener-tab-id-remove-info
+      :refname: listener(tabId, removeInfo)
 
       A function that will be called when this event occurs.
 
@@ -1012,6 +1096,7 @@ Fired when a tab is closed.
    .. api-member::
       :name: ``tabId``
       :refid: tabs-on-removed-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.on^removed.remove^info:
@@ -1019,6 +1104,7 @@ Fired when a tab is closed.
    .. api-member::
       :name: ``removeInfo``
       :refid: tabs-on-removed-remove-info
+      :refname: removeInfo
       :type: (object)
 
       .. _tabs.on^removed.remove^info.is^window^closing:
@@ -1026,6 +1112,7 @@ Fired when a tab is closed.
       .. api-member::
          :name: ``isWindowClosing``
          :refid: tabs-on-removed-remove-info-is-window-closing
+         :refname: isWindowClosing
          :type: (boolean)
 
          Is :value:`true` when the tab is being closed because its window is being closed.
@@ -1035,6 +1122,7 @@ Fired when a tab is closed.
       .. api-member::
          :name: ``windowId``
          :refid: tabs-on-removed-remove-info-window-id
+         :refname: windowId
          :type: (integer)
 
          The window whose tab is closed.
@@ -1056,6 +1144,7 @@ Fired when a tab is updated.
    .. api-member::
       :name: ``listener(tabId, changeInfo, tab)``
       :refid: tabs-on-updated-listener-tab-id-change-info-tab
+      :refname: listener(tabId, changeInfo, tab)
 
       A function that will be called when this event occurs.
 
@@ -1064,6 +1153,7 @@ Fired when a tab is updated.
    .. api-member::
       :name: [``filter``]
       :refid: tabs-on-updated-filter
+      :refname: filter
       :type: (:ref:`tabs.^update^filter`, optional)
 
       A set of filters that restricts the events that will be sent to this listener.
@@ -1076,6 +1166,7 @@ Fired when a tab is updated.
    .. api-member::
       :name: ``tabId``
       :refid: tabs-on-updated-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _tabs.on^updated.change^info:
@@ -1083,6 +1174,7 @@ Fired when a tab is updated.
    .. api-member::
       :name: ``changeInfo``
       :refid: tabs-on-updated-change-info
+      :refname: changeInfo
       :type: (object)
 
       Lists the changes to the state of the tab that was updated.
@@ -1092,6 +1184,7 @@ Fired when a tab is updated.
       .. api-member::
          :name: [``favIconUrl``]
          :refid: tabs-on-updated-change-info-fav-icon-url
+         :refname: favIconUrl
          :type: (string, optional)
 
          The tab's new favicon URL.
@@ -1101,6 +1194,7 @@ Fired when a tab is updated.
       .. api-member::
          :name: [``status``]
          :refid: tabs-on-updated-change-info-status
+         :refname: status
          :type: (string, optional)
 
          The status of the tab. Can be either :value:`loading` or :value:`complete`.
@@ -1110,6 +1204,7 @@ Fired when a tab is updated.
       .. api-member::
          :name: [``url``]
          :refid: tabs-on-updated-change-info-url
+         :refname: url
          :type: (string, optional)
 
          The tab's URL if it has changed.
@@ -1119,6 +1214,7 @@ Fired when a tab is updated.
    .. api-member::
       :name: ``tab``
       :refid: tabs-on-updated-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
       Gives the state of the tab that was updated.
@@ -1143,6 +1239,7 @@ Tab
    .. api-member::
       :name: ``active``
       :refid: tabs-tab-active
+      :refname: active
       :type: (boolean)
 
       Whether the tab is active in its window. (Does not necessarily mean the window is focused.)
@@ -1152,6 +1249,7 @@ Tab
    .. api-member::
       :name: ``highlighted``
       :refid: tabs-tab-highlighted
+      :refname: highlighted
       :type: (boolean)
 
       Whether the tab is highlighted. Works as an alias of active
@@ -1161,6 +1259,7 @@ Tab
    .. api-member::
       :name: ``index``
       :refid: tabs-tab-index
+      :refname: index
       :type: (integer)
 
       The zero-based index of the tab within its window.
@@ -1170,6 +1269,7 @@ Tab
    .. api-member::
       :name: ``selected``
       :refid: tabs-tab-selected
+      :refname: selected
       :type: (boolean) **Unsupported.**
 
       Whether the tab is selected.
@@ -1179,6 +1279,7 @@ Tab
    .. api-member::
       :name: [``cookieStoreId``]
       :refid: tabs-tab-cookie-store-id
+      :refname: cookieStoreId
       :type: (string, optional)
       :annotation: -- [Added in TB 115]
 
@@ -1193,6 +1294,7 @@ Tab
    .. api-member::
       :name: [``favIconUrl``]
       :refid: tabs-tab-fav-icon-url
+      :refname: favIconUrl
       :type: (string, optional)
 
       The URL of the tab's favicon. This property is only present if the extension's manifest includes the :permission:`tabs` permission. It may also be an empty string if the tab is loading.
@@ -1202,6 +1304,7 @@ Tab
    .. api-member::
       :name: [``groupId``]
       :refid: tabs-tab-group-id
+      :refname: groupId
       :type: (integer, optional)
       :annotation: -- [Added in TB 138]
 
@@ -1212,6 +1315,7 @@ Tab
    .. api-member::
       :name: [``height``]
       :refid: tabs-tab-height
+      :refname: height
       :type: (integer, optional)
 
       The height of the tab in pixels.
@@ -1221,6 +1325,7 @@ Tab
    .. api-member::
       :name: [``id``]
       :refid: tabs-tab-id
+      :refname: id
       :type: (integer, optional)
 
       The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.^t^a^b_^i^d_^n^o^n^e` for apps and devtools windows.
@@ -1230,6 +1335,7 @@ Tab
    .. api-member::
       :name: [``spaceId``]
       :refid: tabs-tab-space-id
+      :refname: spaceId
       :type: (integer, optional)
       :annotation: -- [Added in TB 115]
 
@@ -1240,6 +1346,7 @@ Tab
    .. api-member::
       :name: [``status``]
       :refid: tabs-tab-status
+      :refname: status
       :type: (string, optional)
 
       Either :value:`loading` or :value:`complete`.
@@ -1249,6 +1356,7 @@ Tab
    .. api-member::
       :name: [``title``]
       :refid: tabs-tab-title
+      :refname: title
       :type: (string, optional)
 
       The title of the tab. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
@@ -1258,6 +1366,7 @@ Tab
    .. api-member::
       :name: [``type``]
       :refid: tabs-tab-type
+      :refname: type
       :type: (:ref:`tabs.^tab^type`, optional)
       :annotation: -- [Added in TB 91]
 
@@ -1266,6 +1375,7 @@ Tab
    .. api-member::
       :name: [``url``]
       :refid: tabs-tab-url
+      :refname: url
       :type: (string, optional)
 
       The URL the tab is displaying. This property is only present if the extension's manifest includes the :permission:`tabs` permission.
@@ -1275,6 +1385,7 @@ Tab
    .. api-member::
       :name: [``width``]
       :refid: tabs-tab-width
+      :refname: width
       :type: (integer, optional)
 
       The width of the tab in pixels.
@@ -1284,6 +1395,7 @@ Tab
    .. api-member::
       :name: [``windowId``]
       :refid: tabs-tab-window-id
+      :refname: windowId
       :type: (integer, optional)
 
       The ID of the window the tab is contained within.
@@ -1311,12 +1423,14 @@ Whether the tabs have completed loading.
          .. api-member::
             :name: :value:`complete`
             :refid: tabs-tab-status-complete
+            :refname: complete
 
          .. _tabs.^tab^status.loading:
 
          .. api-member::
             :name: :value:`loading`
             :refid: tabs-tab-status-loading
+            :refname: loading
 
 .. _tabs.^tab^type:
 
@@ -1341,66 +1455,77 @@ Tab types supported by the tabs API.
          .. api-member::
             :name: :value:`addressBook`
             :refid: tabs-tab-type-address-book
+            :refname: addressBook
 
          .. _tabs.^tab^type.calendar:
 
          .. api-member::
             :name: :value:`calendar`
             :refid: tabs-tab-type-calendar
+            :refname: calendar
 
          .. _tabs.^tab^type.calendar^event:
 
          .. api-member::
             :name: :value:`calendarEvent`
             :refid: tabs-tab-type-calendar-event
+            :refname: calendarEvent
 
          .. _tabs.^tab^type.calendar^task:
 
          .. api-member::
             :name: :value:`calendarTask`
             :refid: tabs-tab-type-calendar-task
+            :refname: calendarTask
 
          .. _tabs.^tab^type.chat:
 
          .. api-member::
             :name: :value:`chat`
             :refid: tabs-tab-type-chat
+            :refname: chat
 
          .. _tabs.^tab^type.content:
 
          .. api-member::
             :name: :value:`content`
             :refid: tabs-tab-type-content
+            :refname: content
 
          .. _tabs.^tab^type.mail:
 
          .. api-member::
             :name: :value:`mail`
             :refid: tabs-tab-type-mail
+            :refname: mail
 
          .. _tabs.^tab^type.message^compose:
 
          .. api-member::
             :name: :value:`messageCompose`
             :refid: tabs-tab-type-message-compose
+            :refname: messageCompose
 
          .. _tabs.^tab^type.message^display:
 
          .. api-member::
             :name: :value:`messageDisplay`
             :refid: tabs-tab-type-message-display
+            :refname: messageDisplay
 
          .. _tabs.^tab^type.special:
 
          .. api-member::
             :name: :value:`special`
             :refid: tabs-tab-type-special
+            :refname: special
 
          .. _tabs.^tab^type.tasks:
 
          .. api-member::
             :name: :value:`tasks`
             :refid: tabs-tab-type-tasks
+            :refname: tasks
 
 .. _tabs.^update^filter:
 
@@ -1419,6 +1544,7 @@ An object describing filters to apply to :ref:`tabs.on^updated` events.
    .. api-member::
       :name: [``properties``]
       :refid: tabs-update-filter-properties
+      :refname: properties
       :type: (array of :ref:`tabs.^update^property^name`, optional)
 
       A list of property names. Events that do not match any of the names will be filtered out.
@@ -1428,6 +1554,7 @@ An object describing filters to apply to :ref:`tabs.on^updated` events.
    .. api-member::
       :name: [``tabId``]
       :refid: tabs-update-filter-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
    .. _tabs.^update^filter.urls:
@@ -1435,6 +1562,7 @@ An object describing filters to apply to :ref:`tabs.on^updated` events.
    .. api-member::
       :name: [``urls``]
       :refid: tabs-update-filter-urls
+      :refname: urls
       :type: (array of string, optional)
 
       A list of URLs or URL patterns. Events that cannot match any of the URLs will be filtered out. Filtering with urls requires the :permission:`tabs` or :permission:`activeTab` permission.
@@ -1444,6 +1572,7 @@ An object describing filters to apply to :ref:`tabs.on^updated` events.
    .. api-member::
       :name: [``windowId``]
       :refid: tabs-update-filter-window-id
+      :refname: windowId
       :type: (integer, optional)
 
 .. _tabs.^update^property^name:
@@ -1469,18 +1598,21 @@ Event names supported in :ref:`tabs.on^updated`.
          .. api-member::
             :name: :value:`favIconUrl`
             :refid: tabs-update-property-name-fav-icon-url
+            :refname: favIconUrl
 
          .. _tabs.^update^property^name.status:
 
          .. api-member::
             :name: :value:`status`
             :refid: tabs-update-property-name-status
+            :refname: status
 
          .. _tabs.^update^property^name.title:
 
          .. api-member::
             :name: :value:`title`
             :refid: tabs-update-property-name-title
+            :refname: title
 
 .. _tabs.^window^type:
 
@@ -1505,18 +1637,21 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
          .. api-member::
             :name: :value:`app`
             :refid: tabs-window-type-app
+            :refname: app
 
          .. _tabs.^window^type.devtools:
 
          .. api-member::
             :name: :value:`devtools`
             :refid: tabs-window-type-devtools
+            :refname: devtools
 
          .. _tabs.^window^type.message^compose:
 
          .. api-member::
             :name: :value:`messageCompose`
             :refid: tabs-window-type-message-compose
+            :refname: messageCompose
             :annotation: -- [Added in TB 88]
 
          .. _tabs.^window^type.message^display:
@@ -1524,6 +1659,7 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
          .. api-member::
             :name: :value:`messageDisplay`
             :refid: tabs-window-type-message-display
+            :refname: messageDisplay
             :annotation: -- [Added in TB 88]
 
          .. _tabs.^window^type.normal:
@@ -1531,18 +1667,21 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
          .. api-member::
             :name: :value:`normal`
             :refid: tabs-window-type-normal
+            :refname: normal
 
          .. _tabs.^window^type.panel:
 
          .. api-member::
             :name: :value:`panel`
             :refid: tabs-window-type-panel
+            :refname: panel
 
          .. _tabs.^window^type.popup:
 
          .. api-member::
             :name: :value:`popup`
             :refid: tabs-window-type-popup
+            :refname: popup
 
 .. rst-class:: api-main-section
 

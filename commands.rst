@@ -34,6 +34,7 @@ Manifest file properties
 .. api-member::
    :name: [``commands``]
    :refid: commands-commands
+   :refname: commands
    :type: (object, optional)
    :annotation: -- [Added in TB 66]
 
@@ -99,6 +100,7 @@ Returns all the registered extension commands for this extension and their short
 
    .. api-member::
       :refid: commands-get-all-returns
+      :refname: _returns
       :type: array of :ref:`commands.^command`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -129,6 +131,7 @@ Reset a command's details to what is specified in the manifest.
    .. api-member::
       :name: ``name``
       :refid: commands-reset-name
+      :refname: name
       :type: (string)
 
       The name of the command.
@@ -150,6 +153,7 @@ Update the details of an already defined command.
    .. api-member::
       :name: ``detail``
       :refid: commands-update-detail
+      :refname: detail
       :type: (object)
 
       The new details for the command.
@@ -159,6 +163,7 @@ Update the details of an already defined command.
       .. api-member::
          :name: ``name``
          :refid: commands-update-detail-name
+         :refname: name
          :type: (string)
 
          The name of the command.
@@ -168,6 +173,7 @@ Update the details of an already defined command.
       .. api-member::
          :name: [``description``]
          :refid: commands-update-detail-description
+         :refname: description
          :type: (string, optional)
 
          The description for the command.
@@ -177,6 +183,7 @@ Update the details of an already defined command.
       .. api-member::
          :name: [``shortcut``]
          :refid: commands-update-detail-shortcut
+         :refname: shortcut
          :type: (string, optional)
 
          An empty string to clear the shortcut, or a string matching the format defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__  to set a new shortcut key. If the string does not match this format, the function throws an error.
@@ -203,6 +210,7 @@ Fired when a registered command's shortcut is changed.
    .. api-member::
       :name: ``listener(changeInfo)``
       :refid: commands-on-changed-listener-change-info
+      :refname: listener(changeInfo)
 
       A function that will be called when this event occurs.
 
@@ -214,6 +222,7 @@ Fired when a registered command's shortcut is changed.
    .. api-member::
       :name: ``changeInfo``
       :refid: commands-on-changed-change-info
+      :refname: changeInfo
       :type: (object)
 
       .. _commands.on^changed.change^info.name:
@@ -221,6 +230,7 @@ Fired when a registered command's shortcut is changed.
       .. api-member::
          :name: ``name``
          :refid: commands-on-changed-change-info-name
+         :refname: name
          :type: (string)
 
          The name of the shortcut.
@@ -230,6 +240,7 @@ Fired when a registered command's shortcut is changed.
       .. api-member::
          :name: ``newShortcut``
          :refid: commands-on-changed-change-info-new-shortcut
+         :refname: newShortcut
          :type: (string)
 
          The new shortcut active for this command, or blank if not active.
@@ -239,6 +250,7 @@ Fired when a registered command's shortcut is changed.
       .. api-member::
          :name: ``oldShortcut``
          :refid: commands-on-changed-change-info-old-shortcut
+         :refname: oldShortcut
          :type: (string)
 
          The old shortcut which is no longer active for this command, or blank if the shortcut was previously inactive.
@@ -260,6 +272,7 @@ Fired when a registered command is activated using a keyboard shortcut. This is 
    .. api-member::
       :name: ``listener(command, tab)``
       :refid: commands-on-command-listener-command-tab
+      :refname: listener(command, tab)
 
       A function that will be called when this event occurs.
 
@@ -271,6 +284,7 @@ Fired when a registered command is activated using a keyboard shortcut. This is 
    .. api-member::
       :name: ``command``
       :refid: commands-on-command-command
+      :refname: command
       :type: (string)
 
    .. _commands.on^command.tab:
@@ -278,6 +292,7 @@ Fired when a registered command is activated using a keyboard shortcut. This is 
    .. api-member::
       :name: ``tab``
       :refid: commands-on-command-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 106]
 
@@ -303,6 +318,7 @@ Command
    .. api-member::
       :name: [``description``]
       :refid: commands-command-description
+      :refname: description
       :type: (string, optional)
 
       The description of the Extension Command
@@ -312,6 +328,7 @@ Command
    .. api-member::
       :name: [``name``]
       :refid: commands-command-name
+      :refname: name
       :type: (string, optional)
 
       The name of the Extension Command
@@ -321,6 +338,7 @@ Command
    .. api-member::
       :name: [``shortcut``]
       :refid: commands-command-shortcut
+      :refname: shortcut
       :type: (string, optional)
 
       The shortcut active for this command, or blank if not active.
@@ -340,6 +358,7 @@ CommandsShortcut
    .. api-member::
       :name: [``description``]
       :refid: commands-commands-shortcut-description
+      :refname: description
       :type: (string, optional)
 
    .. _commands.^commands^shortcut.suggested_key:
@@ -347,6 +366,7 @@ CommandsShortcut
    .. api-member::
       :name: [``suggested_key``]
       :refid: commands-commands-shortcut-suggested-key
+      :refname: suggested_key
       :type: (object, optional)
 
       .. _commands.^commands^shortcut.suggested_key.default:
@@ -354,6 +374,7 @@ CommandsShortcut
       .. api-member::
          :name: [``default``]
          :refid: commands-commands-shortcut-suggested-key-default
+         :refname: default
          :type: (:ref:`commands.^key^name`, optional)
 
          Default key combination.
@@ -363,6 +384,7 @@ CommandsShortcut
       .. api-member::
          :name: [``linux``]
          :refid: commands-commands-shortcut-suggested-key-linux
+         :refname: linux
          :type: (:ref:`commands.^key^name`, optional)
 
          Key combination on Linux.
@@ -372,6 +394,7 @@ CommandsShortcut
       .. api-member::
          :name: [``mac``]
          :refid: commands-commands-shortcut-suggested-key-mac
+         :refname: mac
          :type: (:ref:`commands.^key^name`, optional)
 
          Key combination on Mac.
@@ -381,6 +404,7 @@ CommandsShortcut
       .. api-member::
          :name: [``windows``]
          :refid: commands-commands-shortcut-suggested-key-windows
+         :refname: windows
          :type: (:ref:`commands.^key^name`, optional)
 
          Key combination on Windows.

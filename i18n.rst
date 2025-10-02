@@ -34,6 +34,7 @@ Manifest file properties
 .. api-member::
    :name: [``default_locale``]
    :refid: i18n-default-locale
+   :refname: default_locale
    :type: (string, optional)
 
 .. _i18n.l10n_resources:
@@ -41,6 +42,7 @@ Manifest file properties
 .. api-member::
    :name: [``l10n_resources``]
    :refid: i18n-l10n-resources
+   :refname: l10n_resources
    :type: (array of string, optional)
 
 .. rst-class:: api-main-section
@@ -65,6 +67,7 @@ Detects the language of the provided text using CLD.
    .. api-member::
       :name: ``text``
       :refid: i18n-detect-language-text
+      :refname: text
       :type: (string)
 
       User input string to be translated.
@@ -76,6 +79,7 @@ Detects the language of the provided text using CLD.
 
    .. api-member::
       :refid: i18n-detect-language-returns
+      :refname: _returns
       :type: object
 
       LanguageDetectionResult object that holds detected langugae reliability and array of DetectedLanguage
@@ -85,6 +89,7 @@ Detects the language of the provided text using CLD.
       .. api-member::
          :name: ``isReliable``
          :refid: i18n-detect-language-returns-is-reliable
+         :refname: isReliable
          :type: (boolean)
 
          CLD detected language reliability
@@ -94,6 +99,7 @@ Detects the language of the provided text using CLD.
       .. api-member::
          :name: ``languages``
          :refid: i18n-detect-language-returns-languages
+         :refname: languages
          :type: (array of object)
 
          array of detectedLanguage
@@ -116,6 +122,7 @@ Gets the accept-languages of the browser. This is different from the locale used
 
    .. api-member::
       :refid: i18n-get-accept-languages-returns
+      :refname: _returns
       :type: array of :ref:`i18n.^language^code`
 
       Array of LanguageCode
@@ -143,6 +150,7 @@ Gets the localized string for the specified message. If the message is missing, 
    .. api-member::
       :name: ``messageName``
       :refid: i18n-get-message-message-name
+      :refname: messageName
       :type: (string)
 
       The name of the message, as specified in the :code:`messages.json` file.
@@ -152,6 +160,7 @@ Gets the localized string for the specified message. If the message is missing, 
    .. api-member::
       :name: [``substitutions``]
       :refid: i18n-get-message-substitutions
+      :refname: substitutions
       :type: (any, optional)
 
       Substitution strings, if the message requires any.
@@ -163,6 +172,7 @@ Gets the localized string for the specified message. If the message is missing, 
 
    .. api-member::
       :refid: i18n-get-message-returns
+      :refname: _returns
       :type: string
 
       Message localized for current locale.
@@ -189,6 +199,7 @@ Gets the browser UI language of the browser. This is different from :ref:`i18n.g
 
    .. api-member::
       :refid: i18n-get-u-i-language-returns
+      :refname: _returns
       :type: string
 
       The browser UI language code such as en-US or fr-FR.

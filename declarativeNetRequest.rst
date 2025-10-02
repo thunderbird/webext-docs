@@ -36,6 +36,7 @@ Manifest file properties
 .. api-member::
    :name: [``declarative_net_request``]
    :refid: declarative-net-request-declarative-net-request
+   :refname: declarative_net_request
    :type: (object, optional)
 
    .. _declarative^net^request.declarative_net_request.rule_resources:
@@ -43,6 +44,7 @@ Manifest file properties
    .. api-member::
       :name: ``rule_resources``
       :refid: declarative-net-request-declarative-net-request-rule-resources
+      :refname: rule_resources
       :type: (array of object)
 
 .. rst-class:: api-main-section
@@ -61,6 +63,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`declarativeNetRequest`
    :refid: declarative-net-request-permission-declarative-net-request
+   :refname: declarativeNetRequest
 
    Block content on any page.
 
@@ -69,6 +72,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`declarativeNetRequestFeedback`
    :refid: declarative-net-request-permission-declarative-net-request-feedback
+   :refname: declarativeNetRequestFeedback
 
    Read your browsing history.
 
@@ -77,6 +81,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`declarativeNetRequestWithHostAccess`
    :refid: declarative-net-request-permission-declarative-net-request-with-host-access
+   :refname: declarativeNetRequestWithHostAccess
 
    Allows blocking or upgrading requests to hosts for which host permissions have already been granted.
 
@@ -107,6 +112,7 @@ Returns the remaining number of static rules an extension can enable
 
    .. api-member::
       :refid: declarative-net-request-get-available-static-rule-count-returns
+      :refname: _returns
       :type: integer
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -134,6 +140,7 @@ Returns the list of individual disabled static rules from a given static ruleset
    .. api-member::
       :name: ``options``
       :refid: declarative-net-request-get-disabled-rule-ids-options
+      :refname: options
       :type: (object)
 
       .. _declarative^net^request.get^disabled^rule^ids.options.ruleset^id:
@@ -141,6 +148,7 @@ Returns the list of individual disabled static rules from a given static ruleset
       .. api-member::
          :name: ``rulesetId``
          :refid: declarative-net-request-get-disabled-rule-ids-options-ruleset-id
+         :refname: rulesetId
          :type: (string)
 
 .. api-header::
@@ -150,6 +158,7 @@ Returns the list of individual disabled static rules from a given static ruleset
 
    .. api-member::
       :refid: declarative-net-request-get-disabled-rule-ids-returns
+      :refname: _returns
       :type: array of integer
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -177,6 +186,7 @@ Returns the current set of dynamic rules for the extension.
    .. api-member::
       :name: [``filter``]
       :refid: declarative-net-request-get-dynamic-rules-filter
+      :refname: filter
       :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
       :annotation: -- [Added in TB 127]
 
@@ -189,6 +199,7 @@ Returns the current set of dynamic rules for the extension.
 
    .. api-member::
       :refid: declarative-net-request-get-dynamic-rules-returns
+      :refname: _returns
       :type: array of :ref:`declarative^net^request.^rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -215,6 +226,7 @@ Returns the ids for the current set of enabled static rulesets.
 
    .. api-member::
       :refid: declarative-net-request-get-enabled-rulesets-returns
+      :refname: _returns
       :type: array of string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -242,6 +254,7 @@ Returns the current set of session scoped rules for the extension.
    .. api-member::
       :name: [``filter``]
       :refid: declarative-net-request-get-session-rules-filter
+      :refname: filter
       :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
       :annotation: -- [Added in TB 127]
 
@@ -254,6 +267,7 @@ Returns the current set of session scoped rules for the extension.
 
    .. api-member::
       :refid: declarative-net-request-get-session-rules-returns
+      :refname: _returns
       :type: array of :ref:`declarative^net^request.^rule`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -281,6 +295,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
    .. api-member::
       :name: ``regexOptions``
       :refid: declarative-net-request-is-regex-supported-regex-options
+      :refname: regexOptions
       :type: (object)
 
       .. _declarative^net^request.is^regex^supported.regex^options.regex:
@@ -288,6 +303,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
       .. api-member::
          :name: ``regex``
          :refid: declarative-net-request-is-regex-supported-regex-options-regex
+         :refname: regex
          :type: (string)
 
          The regular expresson to check.
@@ -297,6 +313,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
       .. api-member::
          :name: [``isCaseSensitive``]
          :refid: declarative-net-request-is-regex-supported-regex-options-is-case-sensitive
+         :refname: isCaseSensitive
          :type: (boolean, optional)
 
          Whether the 'regex' specified is case sensitive.
@@ -306,6 +323,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
       .. api-member::
          :name: [``requireCapturing``]
          :refid: declarative-net-request-is-regex-supported-regex-options-require-capturing
+         :refname: requireCapturing
          :type: (boolean, optional)
 
          Whether the 'regex' specified requires capturing. Capturing is only required for redirect rules which specify a 'regexSubstition' action.
@@ -317,6 +335,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
 
    .. api-member::
       :refid: declarative-net-request-is-regex-supported-returns
+      :refname: _returns
       :type: object
 
       .. _declarative^net^request.is^regex^supported.returns.is^supported:
@@ -324,6 +343,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
       .. api-member::
          :name: ``isSupported``
          :refid: declarative-net-request-is-regex-supported-returns-is-supported
+         :refname: isSupported
          :type: (boolean)
 
          Whether the given regex is supported
@@ -333,6 +353,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
       .. api-member::
          :name: [``reason``]
          :refid: declarative-net-request-is-regex-supported-returns-reason
+         :refname: reason
          :type: (:ref:`declarative^net^request.^unsupported^regex^reason`, optional)
 
          Specifies the reason why the regular expression is not supported. Only provided if 'isSupported' is false.
@@ -362,6 +383,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
    .. api-member::
       :name: ``request``
       :refid: declarative-net-request-test-match-outcome-request
+      :refname: request
       :type: (object)
 
       The details of the request to test.
@@ -371,6 +393,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: ``type``
          :refid: declarative-net-request-test-match-outcome-request-type
+         :refname: type
          :type: (:ref:`declarative^net^request.^resource^type`)
 
          The resource type of the hypothetical request.
@@ -380,6 +403,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: ``url``
          :refid: declarative-net-request-test-match-outcome-request-url
+         :refname: url
          :type: (string)
 
          The URL of the hypothetical request.
@@ -389,6 +413,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: [``initiator``]
          :refid: declarative-net-request-test-match-outcome-request-initiator
+         :refname: initiator
          :type: (string, optional)
 
          The initiator URL (if any) for the hypothetical request.
@@ -398,6 +423,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: [``method``]
          :refid: declarative-net-request-test-match-outcome-request-method
+         :refname: method
          :type: (string, optional)
 
          Standard HTTP method of the hypothetical request.
@@ -407,6 +433,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: [``tabId``]
          :refid: declarative-net-request-test-match-outcome-request-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          The ID of the tab in which the hypothetical request takes place. Does not need to correspond to a real tab ID. Default is -1, meaning that the request isn't related to a tab.
@@ -416,6 +443,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
    .. api-member::
       :name: [``options``]
       :refid: declarative-net-request-test-match-outcome-options
+      :refname: options
       :type: (object, optional)
 
       .. _declarative^net^request.test^match^outcome.options.include^other^extensions:
@@ -423,6 +451,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: [``includeOtherExtensions``]
          :refid: declarative-net-request-test-match-outcome-options-include-other-extensions
+         :refname: includeOtherExtensions
          :type: (boolean, optional)
 
          Whether to account for rules from other installed extensions during rule evaluation.
@@ -434,6 +463,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 
    .. api-member::
       :refid: declarative-net-request-test-match-outcome-returns
+      :refname: _returns
       :type: object
 
       .. _declarative^net^request.test^match^outcome.returns.matched^rules:
@@ -441,6 +471,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
       .. api-member::
          :name: ``matchedRules``
          :refid: declarative-net-request-test-match-outcome-returns-matched-rules
+         :refname: matchedRules
          :type: (array of :ref:`declarative^net^request.^matched^rule`)
 
          The rules (if any) that match the hypothetical request.
@@ -471,6 +502,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
    .. api-member::
       :name: ``options``
       :refid: declarative-net-request-update-dynamic-rules-options
+      :refname: options
       :type: (object)
 
       .. _declarative^net^request.update^dynamic^rules.options.add^rules:
@@ -478,6 +510,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
       .. api-member::
          :name: [``addRules``]
          :refid: declarative-net-request-update-dynamic-rules-options-add-rules
+         :refname: addRules
          :type: (array of :ref:`declarative^net^request.^rule`, optional)
 
          Rules to add.
@@ -487,6 +520,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
       .. api-member::
          :name: [``removeRuleIds``]
          :refid: declarative-net-request-update-dynamic-rules-options-remove-rule-ids
+         :refname: removeRuleIds
          :type: (array of integer, optional)
 
          IDs of the rules to remove. Any invalid IDs will be ignored.
@@ -514,6 +548,7 @@ Modifies the static rulesets enabled/disabled state.
    .. api-member::
       :name: ``updateRulesetOptions``
       :refid: declarative-net-request-update-enabled-rulesets-update-ruleset-options
+      :refname: updateRulesetOptions
       :type: (object)
 
       .. _declarative^net^request.update^enabled^rulesets.update^ruleset^options.disable^ruleset^ids:
@@ -521,6 +556,7 @@ Modifies the static rulesets enabled/disabled state.
       .. api-member::
          :name: [``disableRulesetIds``]
          :refid: declarative-net-request-update-enabled-rulesets-update-ruleset-options-disable-ruleset-ids
+         :refname: disableRulesetIds
          :type: (array of string, optional)
 
       .. _declarative^net^request.update^enabled^rulesets.update^ruleset^options.enable^ruleset^ids:
@@ -528,6 +564,7 @@ Modifies the static rulesets enabled/disabled state.
       .. api-member::
          :name: [``enableRulesetIds``]
          :refid: declarative-net-request-update-enabled-rulesets-update-ruleset-options-enable-ruleset-ids
+         :refname: enableRulesetIds
          :type: (array of string, optional)
 
 .. api-header::
@@ -553,6 +590,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
    .. api-member::
       :name: ``options``
       :refid: declarative-net-request-update-session-rules-options
+      :refname: options
       :type: (object)
 
       .. _declarative^net^request.update^session^rules.options.add^rules:
@@ -560,6 +598,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
       .. api-member::
          :name: [``addRules``]
          :refid: declarative-net-request-update-session-rules-options-add-rules
+         :refname: addRules
          :type: (array of :ref:`declarative^net^request.^rule`, optional)
 
          Rules to add.
@@ -569,6 +608,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
       .. api-member::
          :name: [``removeRuleIds``]
          :refid: declarative-net-request-update-session-rules-options-remove-rule-ids
+         :refname: removeRuleIds
          :type: (array of integer, optional)
 
          IDs of the rules to remove. Any invalid IDs will be ignored.
@@ -596,6 +636,7 @@ Modified individual static rules enabled/disabled state. Changes to rules belong
    .. api-member::
       :name: ``options``
       :refid: declarative-net-request-update-static-rules-options
+      :refname: options
       :type: (object)
 
       .. _declarative^net^request.update^static^rules.options.ruleset^id:
@@ -603,6 +644,7 @@ Modified individual static rules enabled/disabled state. Changes to rules belong
       .. api-member::
          :name: ``rulesetId``
          :refid: declarative-net-request-update-static-rules-options-ruleset-id
+         :refname: rulesetId
          :type: (string)
 
       .. _declarative^net^request.update^static^rules.options.disable^rule^ids:
@@ -610,6 +652,7 @@ Modified individual static rules enabled/disabled state. Changes to rules belong
       .. api-member::
          :name: [``disableRuleIds``]
          :refid: declarative-net-request-update-static-rules-options-disable-rule-ids
+         :refname: disableRuleIds
          :type: (array of integer, optional)
 
       .. _declarative^net^request.update^static^rules.options.enable^rule^ids:
@@ -617,6 +660,7 @@ Modified individual static rules enabled/disabled state. Changes to rules belong
       .. api-member::
          :name: [``enableRuleIds``]
          :refid: declarative-net-request-update-static-rules-options-enable-rule-ids
+         :refname: enableRuleIds
          :type: (array of integer, optional)
 
 .. api-header::
@@ -645,6 +689,7 @@ GetRulesFilter
    .. api-member::
       :name: [``ruleIds``]
       :refid: declarative-net-request-get-rules-filter-rule-ids
+      :refname: ruleIds
       :type: (array of integer, optional)
 
       If specified, only rules with matching IDs are included.
@@ -664,6 +709,7 @@ MatchedRule
    .. api-member::
       :name: ``ruleId``
       :refid: declarative-net-request-matched-rule-rule-id
+      :refname: ruleId
       :type: (integer)
 
       A matching rule's ID.
@@ -673,6 +719,7 @@ MatchedRule
    .. api-member::
       :name: ``rulesetId``
       :refid: declarative-net-request-matched-rule-ruleset-id
+      :refname: rulesetId
       :type: (string)
 
       ID of the Ruleset this rule belongs to.
@@ -682,6 +729,7 @@ MatchedRule
    .. api-member::
       :name: [``extensionId``]
       :refid: declarative-net-request-matched-rule-extension-id
+      :refname: extensionId
       :type: (string, optional)
 
       ID of the extension, if this rule belongs to a different extension.
@@ -709,36 +757,42 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
          .. api-member::
             :name: :value:`beacon`
             :refid: declarative-net-request-resource-type-beacon
+            :refname: beacon
 
          .. _declarative^net^request.^resource^type.csp_report:
 
          .. api-member::
             :name: :value:`csp_report`
             :refid: declarative-net-request-resource-type-csp-report
+            :refname: csp_report
 
          .. _declarative^net^request.^resource^type.font:
 
          .. api-member::
             :name: :value:`font`
             :refid: declarative-net-request-resource-type-font
+            :refname: font
 
          .. _declarative^net^request.^resource^type.image:
 
          .. api-member::
             :name: :value:`image`
             :refid: declarative-net-request-resource-type-image
+            :refname: image
 
          .. _declarative^net^request.^resource^type.imageset:
 
          .. api-member::
             :name: :value:`imageset`
             :refid: declarative-net-request-resource-type-imageset
+            :refname: imageset
 
          .. _declarative^net^request.^resource^type.json:
 
          .. api-member::
             :name: :value:`json`
             :refid: declarative-net-request-resource-type-json
+            :refname: json
             :annotation: -- [Added in TB 138]
 
             .. note::
@@ -750,90 +804,105 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
          .. api-member::
             :name: :value:`main_frame`
             :refid: declarative-net-request-resource-type-main-frame
+            :refname: main_frame
 
          .. _declarative^net^request.^resource^type.media:
 
          .. api-member::
             :name: :value:`media`
             :refid: declarative-net-request-resource-type-media
+            :refname: media
 
          .. _declarative^net^request.^resource^type.object:
 
          .. api-member::
             :name: :value:`object`
             :refid: declarative-net-request-resource-type-object
+            :refname: object
 
          .. _declarative^net^request.^resource^type.object_subrequest:
 
          .. api-member::
             :name: :value:`object_subrequest`
             :refid: declarative-net-request-resource-type-object-subrequest
+            :refname: object_subrequest
 
          .. _declarative^net^request.^resource^type.other:
 
          .. api-member::
             :name: :value:`other`
             :refid: declarative-net-request-resource-type-other
+            :refname: other
 
          .. _declarative^net^request.^resource^type.ping:
 
          .. api-member::
             :name: :value:`ping`
             :refid: declarative-net-request-resource-type-ping
+            :refname: ping
 
          .. _declarative^net^request.^resource^type.script:
 
          .. api-member::
             :name: :value:`script`
             :refid: declarative-net-request-resource-type-script
+            :refname: script
 
          .. _declarative^net^request.^resource^type.speculative:
 
          .. api-member::
             :name: :value:`speculative`
             :refid: declarative-net-request-resource-type-speculative
+            :refname: speculative
 
          .. _declarative^net^request.^resource^type.stylesheet:
 
          .. api-member::
             :name: :value:`stylesheet`
             :refid: declarative-net-request-resource-type-stylesheet
+            :refname: stylesheet
 
          .. _declarative^net^request.^resource^type.sub_frame:
 
          .. api-member::
             :name: :value:`sub_frame`
             :refid: declarative-net-request-resource-type-sub-frame
+            :refname: sub_frame
 
          .. _declarative^net^request.^resource^type.web_manifest:
 
          .. api-member::
             :name: :value:`web_manifest`
             :refid: declarative-net-request-resource-type-web-manifest
+            :refname: web_manifest
 
          .. _declarative^net^request.^resource^type.websocket:
 
          .. api-member::
             :name: :value:`websocket`
             :refid: declarative-net-request-resource-type-websocket
+            :refname: websocket
 
          .. _declarative^net^request.^resource^type.xml_dtd:
 
          .. api-member::
             :name: :value:`xml_dtd`
             :refid: declarative-net-request-resource-type-xml-dtd
+            :refname: xml_dtd
 
          .. _declarative^net^request.^resource^type.xmlhttprequest:
 
          .. api-member::
             :name: :value:`xmlhttprequest`
             :refid: declarative-net-request-resource-type-xmlhttprequest
+            :refname: xmlhttprequest
 
          .. _declarative^net^request.^resource^type.xslt:
 
          .. api-member::
             :name: :value:`xslt`
             :refid: declarative-net-request-resource-type-xslt
+            :refname: xslt
 
 .. _declarative^net^request.^rule:
 
@@ -850,6 +919,7 @@ Rule
    .. api-member::
       :name: ``action``
       :refid: declarative-net-request-rule-action
+      :refname: action
       :type: (object)
 
       The action to take if this rule is matched.
@@ -859,6 +929,7 @@ Rule
       .. api-member::
          :name: ``type``
          :refid: declarative-net-request-rule-action-type
+         :refname: type
          :type: (`string`)
 
          Supported values:
@@ -868,42 +939,49 @@ Rule
          .. api-member::
             :name: :value:`allow`
             :refid: declarative-net-request-rule-action-type-allow
+            :refname: allow
 
          .. _declarative^net^request.^rule.action.type.allow^all^requests:
 
          .. api-member::
             :name: :value:`allowAllRequests`
             :refid: declarative-net-request-rule-action-type-allow-all-requests
+            :refname: allowAllRequests
 
          .. _declarative^net^request.^rule.action.type.block:
 
          .. api-member::
             :name: :value:`block`
             :refid: declarative-net-request-rule-action-type-block
+            :refname: block
 
          .. _declarative^net^request.^rule.action.type.modify^headers:
 
          .. api-member::
             :name: :value:`modifyHeaders`
             :refid: declarative-net-request-rule-action-type-modify-headers
+            :refname: modifyHeaders
 
          .. _declarative^net^request.^rule.action.type.redirect:
 
          .. api-member::
             :name: :value:`redirect`
             :refid: declarative-net-request-rule-action-type-redirect
+            :refname: redirect
 
          .. _declarative^net^request.^rule.action.type.upgrade^scheme:
 
          .. api-member::
             :name: :value:`upgradeScheme`
             :refid: declarative-net-request-rule-action-type-upgrade-scheme
+            :refname: upgradeScheme
 
       .. _declarative^net^request.^rule.action.redirect:
 
       .. api-member::
          :name: [``redirect``]
          :refid: declarative-net-request-rule-action-redirect
+         :refname: redirect
          :type: (object, optional)
 
          Describes how the redirect should be performed. Only valid when type is 'redirect'.
@@ -913,6 +991,7 @@ Rule
          .. api-member::
             :name: [``extensionPath``]
             :refid: declarative-net-request-rule-action-redirect-extension-path
+            :refname: extensionPath
             :type: (string, optional)
 
             Path relative to the extension directory. Should start with '/'.
@@ -922,6 +1001,7 @@ Rule
          .. api-member::
             :name: [``regexSubstitution``]
             :refid: declarative-net-request-rule-action-redirect-regex-substitution
+            :refname: regexSubstitution
             :type: (string, optional)
 
             Substitution pattern for rules which specify a 'regexFilter'. The first match of regexFilter within the url will be replaced with this pattern. Within regexSubstitution, backslash-escaped digits (\\1 to \\9) can be used to insert the corresponding capture groups. \\0 refers to the entire matching text.
@@ -931,6 +1011,7 @@ Rule
          .. api-member::
             :name: [``transform``]
             :refid: declarative-net-request-rule-action-redirect-transform
+            :refname: transform
             :type: (:ref:`declarative^net^request.^u^r^l^transform`, optional)
 
             Url transformations to perform.
@@ -940,6 +1021,7 @@ Rule
          .. api-member::
             :name: [``url``]
             :refid: declarative-net-request-rule-action-redirect-url
+            :refname: url
             :type: (string, optional)
 
             The redirect url. Redirects to JavaScript urls are not allowed.
@@ -949,6 +1031,7 @@ Rule
       .. api-member::
          :name: [``requestHeaders``]
          :refid: declarative-net-request-rule-action-request-headers
+         :refname: requestHeaders
          :type: (array of object, optional)
 
          The request headers to modify for the request. Only valid when type is 'modifyHeaders'.
@@ -958,6 +1041,7 @@ Rule
       .. api-member::
          :name: [``responseHeaders``]
          :refid: declarative-net-request-rule-action-response-headers
+         :refname: responseHeaders
          :type: (array of object, optional)
 
          The response headers to modify for the request. Only valid when type is 'modifyHeaders'.
@@ -967,6 +1051,7 @@ Rule
    .. api-member::
       :name: ``condition``
       :refid: declarative-net-request-rule-condition
+      :refname: condition
       :type: (object)
 
       The condition under which this rule is triggered.
@@ -976,6 +1061,7 @@ Rule
       .. api-member::
          :name: [``domainType``]
          :refid: declarative-net-request-rule-condition-domain-type
+         :refname: domainType
          :type: (`string`, optional)
 
          Specifies whether the network request is first-party or third-party to the domain from which it originated. If omitted, all requests are matched.
@@ -987,18 +1073,21 @@ Rule
          .. api-member::
             :name: :value:`firstParty`
             :refid: declarative-net-request-rule-condition-domain-type-first-party
+            :refname: firstParty
 
          .. _declarative^net^request.^rule.condition.domain^type.third^party:
 
          .. api-member::
             :name: :value:`thirdParty`
             :refid: declarative-net-request-rule-condition-domain-type-third-party
+            :refname: thirdParty
 
       .. _declarative^net^request.^rule.condition.excluded^initiator^domains:
 
       .. api-member::
          :name: [``excludedInitiatorDomains``]
          :refid: declarative-net-request-rule-condition-excluded-initiator-domains
+         :refname: excludedInitiatorDomains
          :type: (array of string, optional)
 
          The rule will not match network requests originating from the list of 'initiatorDomains'. If the list is empty or omitted, no domains are excluded. This takes precedence over 'initiatorDomains'.
@@ -1008,6 +1097,7 @@ Rule
       .. api-member::
          :name: [``excludedRequestDomains``]
          :refid: declarative-net-request-rule-condition-excluded-request-domains
+         :refname: excludedRequestDomains
          :type: (array of string, optional)
 
          The rule will not match network requests when the domains matches one from the list of 'excludedRequestDomains'. If the list is empty or omitted, no domains are excluded. This takes precedence over 'requestDomains'.
@@ -1017,6 +1107,7 @@ Rule
       .. api-member::
          :name: [``excludedRequestMethods``]
          :refid: declarative-net-request-rule-condition-excluded-request-methods
+         :refname: excludedRequestMethods
          :type: (array of string, optional)
 
          List of request methods which the rule won't match. Cannot be specified if 'requestMethods' is specified. If neither of them is specified, all request methods are matched.
@@ -1026,6 +1117,7 @@ Rule
       .. api-member::
          :name: [``excludedResourceTypes``]
          :refid: declarative-net-request-rule-condition-excluded-resource-types
+         :refname: excludedResourceTypes
          :type: (array of :ref:`declarative^net^request.^resource^type`, optional)
 
          List of resource types which the rule won't match. Cannot be specified if 'resourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
@@ -1035,6 +1127,7 @@ Rule
       .. api-member::
          :name: [``excludedTabIds``]
          :refid: declarative-net-request-rule-condition-excluded-tab-ids
+         :refname: excludedTabIds
          :type: (array of integer, optional)
 
          List of tabIds which the rule should not match. An ID of -1 excludes requests which don't originate from a tab. Only supported for session-scoped rules.
@@ -1044,6 +1137,7 @@ Rule
       .. api-member::
          :name: [``initiatorDomains``]
          :refid: declarative-net-request-rule-condition-initiator-domains
+         :refname: initiatorDomains
          :type: (array of string, optional)
 
          The rule will only match network requests originating from the list of 'initiatorDomains'. If the list is omitted, the rule is applied to requests from all domains.
@@ -1053,6 +1147,7 @@ Rule
       .. api-member::
          :name: [``isUrlFilterCaseSensitive``]
          :refid: declarative-net-request-rule-condition-is-url-filter-case-sensitive
+         :refname: isUrlFilterCaseSensitive
          :type: (boolean, optional)
 
          Whether 'urlFilter' or 'regexFilter' is case-sensitive.
@@ -1062,6 +1157,7 @@ Rule
       .. api-member::
          :name: [``regexFilter``]
          :refid: declarative-net-request-rule-condition-regex-filter
+         :refname: regexFilter
          :type: (string, optional)
 
          Regular expression to match against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.
@@ -1071,6 +1167,7 @@ Rule
       .. api-member::
          :name: [``requestDomains``]
          :refid: declarative-net-request-rule-condition-request-domains
+         :refname: requestDomains
          :type: (array of string, optional)
 
          The rule will only match network requests when the domain matches one from the list of 'requestDomains'. If the list is omitted, the rule is applied to requests from all domains.
@@ -1080,6 +1177,7 @@ Rule
       .. api-member::
          :name: [``requestMethods``]
          :refid: declarative-net-request-rule-condition-request-methods
+         :refname: requestMethods
          :type: (array of string, optional)
 
          List of HTTP request methods which the rule can match. Should be a lower-case method such as 'connect', 'delete', 'get', 'head', 'options', 'patch', 'post', 'put'.'
@@ -1089,6 +1187,7 @@ Rule
       .. api-member::
          :name: [``resourceTypes``]
          :refid: declarative-net-request-rule-condition-resource-types
+         :refname: resourceTypes
          :type: (array of :ref:`declarative^net^request.^resource^type`, optional)
 
          List of resource types which the rule can match. When the rule action is 'allowAllRequests', this must be specified and may only contain 'main_frame' or 'sub_frame'. Cannot be specified if 'excludedResourceTypes' is specified. If neither of them is specified, all resource types except 'main_frame' are matched.
@@ -1098,6 +1197,7 @@ Rule
       .. api-member::
          :name: [``tabIds``]
          :refid: declarative-net-request-rule-condition-tab-ids
+         :refname: tabIds
          :type: (array of integer, optional)
 
          List of tabIds which the rule should match. An ID of -1 matches requests which don't originate from a tab. Only supported for session-scoped rules.
@@ -1107,6 +1207,7 @@ Rule
       .. api-member::
          :name: [``urlFilter``]
          :refid: declarative-net-request-rule-condition-url-filter
+         :refname: urlFilter
          :type: (string, optional)
 
          TODO: link to doc explaining supported pattern. The pattern which is matched against the network request url. Only one of 'urlFilter' or 'regexFilter' can be specified.
@@ -1116,6 +1217,7 @@ Rule
    .. api-member::
       :name: ``id``
       :refid: declarative-net-request-rule-id
+      :refname: id
       :type: (integer)
 
       An id which uniquely identifies a rule. Mandatory and should be >= 1.
@@ -1125,6 +1227,7 @@ Rule
    .. api-member::
       :name: [``priority``]
       :refid: declarative-net-request-rule-priority
+      :refname: priority
       :type: (integer, optional)
 
       Rule priority. Defaults to 1. When specified, should be >= 1
@@ -1152,12 +1255,14 @@ Describes the reason why a given regular expression isn't supported.
          .. api-member::
             :name: :value:`memoryLimitExceeded`
             :refid: declarative-net-request-unsupported-regex-reason-memory-limit-exceeded
+            :refname: memoryLimitExceeded
 
          .. _declarative^net^request.^unsupported^regex^reason.syntax^error:
 
          .. api-member::
             :name: :value:`syntaxError`
             :refid: declarative-net-request-unsupported-regex-reason-syntax-error
+            :refname: syntaxError
 
 .. _declarative^net^request.^u^r^l^transform:
 
@@ -1176,6 +1281,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``fragment``]
       :refid: declarative-net-request-u-r-l-transform-fragment
+      :refname: fragment
       :type: (string, optional)
 
       The new fragment for the request. Should be either empty, in which case the existing fragment is cleared; or should begin with '#'.
@@ -1185,6 +1291,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``host``]
       :refid: declarative-net-request-u-r-l-transform-host
+      :refname: host
       :type: (string, optional)
 
       The new host name for the request.
@@ -1194,6 +1301,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``password``]
       :refid: declarative-net-request-u-r-l-transform-password
+      :refname: password
       :type: (string, optional)
 
       The new password for the request.
@@ -1203,6 +1311,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``path``]
       :refid: declarative-net-request-u-r-l-transform-path
+      :refname: path
       :type: (string, optional)
 
       The new path for the request. If empty, the existing path is cleared.
@@ -1212,6 +1321,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``port``]
       :refid: declarative-net-request-u-r-l-transform-port
+      :refname: port
       :type: (string, optional)
 
       The new port for the request. If empty, the existing port is cleared.
@@ -1221,6 +1331,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``query``]
       :refid: declarative-net-request-u-r-l-transform-query
+      :refname: query
       :type: (string, optional)
 
       The new query for the request. Should be either empty, in which case the existing query is cleared; or should begin with '?'. Cannot be specified if 'queryTransform' is specified.
@@ -1230,6 +1341,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``queryTransform``]
       :refid: declarative-net-request-u-r-l-transform-query-transform
+      :refname: queryTransform
       :type: (object, optional)
 
       Add, remove or replace query key-value pairs. Cannot be specified if 'query' is specified.
@@ -1239,6 +1351,7 @@ Describes the type of the Rule.action.redirect.transform property.
       .. api-member::
          :name: [``addOrReplaceParams``]
          :refid: declarative-net-request-u-r-l-transform-query-transform-add-or-replace-params
+         :refname: addOrReplaceParams
          :type: (array of object, optional)
 
          The list of query key-value pairs to be added or replaced.
@@ -1248,6 +1361,7 @@ Describes the type of the Rule.action.redirect.transform property.
       .. api-member::
          :name: [``removeParams``]
          :refid: declarative-net-request-u-r-l-transform-query-transform-remove-params
+         :refname: removeParams
          :type: (array of string, optional)
 
          The list of query keys to be removed.
@@ -1257,6 +1371,7 @@ Describes the type of the Rule.action.redirect.transform property.
    .. api-member::
       :name: [``scheme``]
       :refid: declarative-net-request-u-r-l-transform-scheme
+      :refname: scheme
       :type: (`string`, optional)
 
       The new scheme for the request.
@@ -1268,24 +1383,28 @@ Describes the type of the Rule.action.redirect.transform property.
       .. api-member::
          :name: :value:`http`
          :refid: declarative-net-request-u-r-l-transform-scheme-http
+         :refname: http
 
       .. _declarative^net^request.^u^r^l^transform.scheme.https:
 
       .. api-member::
          :name: :value:`https`
          :refid: declarative-net-request-u-r-l-transform-scheme-https
+         :refname: https
 
       .. _declarative^net^request.^u^r^l^transform.scheme.moz-extension:
 
       .. api-member::
          :name: :value:`moz-extension`
          :refid: declarative-net-request-u-r-l-transform-scheme-moz-extension
+         :refname: moz-extension
 
    .. _declarative^net^request.^u^r^l^transform.username:
 
    .. api-member::
       :name: [``username``]
       :refid: declarative-net-request-u-r-l-transform-username
+      :refname: username
       :type: (string, optional)
 
       The new username for the request.
