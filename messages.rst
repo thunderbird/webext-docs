@@ -295,13 +295,13 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
       :type: (boolean or object, optional)
 
    .. api-member::
-      :type: (boolean):
+      :type: (boolean) **Deprecated.**
       :depth: 1
 
       Whether the message will be deleted permanently, regardless of the account's deletion behavior settings.
 
    .. api-member::
-      :type: (object):
+      :type: or (object)
       :depth: 1
 
    .. _messages.delete.options.delete^permanently:
