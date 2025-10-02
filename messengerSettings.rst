@@ -35,6 +35,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`messengerSettings`
    :refid: messenger-settings-permission-messenger-settings
+   :refname: messengerSettings
 
    Read Thunderbird settings.
 

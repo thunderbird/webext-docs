@@ -39,6 +39,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`browserSettings`
    :refid: browser-settings-color-management-permission-browser-settings
+   :refname: browserSettings
 
    Read and modify browser settings.
 

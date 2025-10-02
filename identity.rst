@@ -41,6 +41,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`identity`
    :refid: identity-permission-identity
+   :refname: identity
 
    Grant access to some or all methods of the identity API.
 
@@ -71,6 +72,7 @@ Retrieves a list of AccountInfo objects describing the accounts present on the p
 
    .. api-member::
       :refid: identity-get-accounts-returns
+      :refname: _returns
       :type: array of :ref:`identity.^account^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -97,6 +99,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
    .. api-member::
       :name: [``details``]
       :refid: identity-get-auth-token-details
+      :refname: details
       :type: (object, optional)
 
       .. _identity.get^auth^token.details.account:
@@ -104,6 +107,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
       .. api-member::
          :name: [``account``]
          :refid: identity-get-auth-token-details-account
+         :refname: account
          :type: (:ref:`identity.^account^info`, optional)
 
       .. _identity.get^auth^token.details.interactive:
@@ -111,6 +115,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
       .. api-member::
          :name: [``interactive``]
          :refid: identity-get-auth-token-details-interactive
+         :refname: interactive
          :type: (boolean, optional)
 
       .. _identity.get^auth^token.details.scopes:
@@ -118,6 +123,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
       .. api-member::
          :name: [``scopes``]
          :refid: identity-get-auth-token-details-scopes
+         :refname: scopes
          :type: (array of string, optional)
 
 .. api-header::
@@ -127,6 +133,7 @@ Gets an OAuth2 access token using the client ID and scopes specified in the oaut
 
    .. api-member::
       :refid: identity-get-auth-token-returns
+      :refname: _returns
       :type: array of :ref:`identity.^account^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -152,6 +159,7 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
 
    .. api-member::
       :refid: identity-get-profile-user-info-returns
+      :refname: _returns
       :type: object
 
       .. _identity.get^profile^user^info.returns.email:
@@ -159,6 +167,7 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
       .. api-member::
          :name: ``email``
          :refid: identity-get-profile-user-info-returns-email
+         :refname: email
          :type: (string)
 
       .. _identity.get^profile^user^info.returns.id:
@@ -166,6 +175,7 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
       .. api-member::
          :name: ``id``
          :refid: identity-get-profile-user-info-returns-id
+         :refname: id
          :type: (string)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -192,6 +202,7 @@ Generates a redirect URL to be used in :ref:`identity.launch^web^auth^flow`.
    .. api-member::
       :name: [``path``]
       :refid: identity-get-redirect-u-r-l-path
+      :refname: path
       :type: (string, optional)
 
       The path appended to the end of the generated URL.
@@ -203,6 +214,7 @@ Generates a redirect URL to be used in :ref:`identity.launch^web^auth^flow`.
 
    .. api-member::
       :refid: identity-get-redirect-u-r-l-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -229,6 +241,7 @@ Starts an auth flow at the specified URL.
    .. api-member::
       :name: ``details``
       :refid: identity-launch-web-auth-flow-details
+      :refname: details
       :type: (object)
 
       .. _identity.launch^web^auth^flow.details.url:
@@ -236,6 +249,7 @@ Starts an auth flow at the specified URL.
       .. api-member::
          :name: ``url``
          :refid: identity-launch-web-auth-flow-details-url
+         :refname: url
          :type: (:ref:`identity.^http^u^r^l`)
 
       .. _identity.launch^web^auth^flow.details.interactive:
@@ -243,6 +257,7 @@ Starts an auth flow at the specified URL.
       .. api-member::
          :name: [``interactive``]
          :refid: identity-launch-web-auth-flow-details-interactive
+         :refname: interactive
          :type: (boolean, optional)
 
 .. api-header::
@@ -252,6 +267,7 @@ Starts an auth flow at the specified URL.
 
    .. api-member::
       :refid: identity-launch-web-auth-flow-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -278,6 +294,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
    .. api-member::
       :name: ``details``
       :refid: identity-remove-cached-auth-token-details
+      :refname: details
       :type: (object)
 
       .. _identity.remove^cached^auth^token.details.token:
@@ -285,6 +302,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
       .. api-member::
          :name: ``token``
          :refid: identity-remove-cached-auth-token-details-token
+         :refname: token
          :type: (string)
 
 .. api-header::
@@ -294,6 +312,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
 
    .. api-member::
       :refid: identity-remove-cached-auth-token-returns
+      :refname: _returns
       :type: object
 
       .. _identity.remove^cached^auth^token.returns.email:
@@ -301,6 +320,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
       .. api-member::
          :name: ``email``
          :refid: identity-remove-cached-auth-token-returns-email
+         :refname: email
          :type: (string)
 
       .. _identity.remove^cached^auth^token.returns.id:
@@ -308,6 +328,7 @@ Removes an OAuth2 access token from the Identity API's token cache.
       .. api-member::
          :name: ``id``
          :refid: identity-remove-cached-auth-token-returns-id
+         :refname: id
          :type: (string)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -339,6 +360,7 @@ Fired when signin state changes for an account on the user's profile.
    .. api-member::
       :name: ``listener(account, signedIn)``
       :refid: identity-on-sign-in-changed-listener-account-signed-in
+      :refname: listener(account, signedIn)
 
       A function that will be called when this event occurs.
 
@@ -350,6 +372,7 @@ Fired when signin state changes for an account on the user's profile.
    .. api-member::
       :name: ``account``
       :refid: identity-on-sign-in-changed-account
+      :refname: account
       :type: (:ref:`identity.^account^info`)
 
    .. _identity.on^sign^in^changed.signed^in:
@@ -357,6 +380,7 @@ Fired when signin state changes for an account on the user's profile.
    .. api-member::
       :name: ``signedIn``
       :refid: identity-on-sign-in-changed-signed-in
+      :refname: signedIn
       :type: (boolean)
 
 .. api-header::
@@ -386,6 +410,7 @@ An object encapsulating an OAuth account id.
    .. api-member::
       :name: ``id``
       :refid: identity-account-info-id
+      :refname: id
       :type: (string)
 
       A unique identifier for the account. This ID will not change for the lifetime of the account.

@@ -41,6 +41,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
    .. api-member::
       :name: ``body``
       :refid: messenger-utilities-convert-to-plain-text-body
+      :refname: body
       :type: (string)
 
       The to-be-converted body.
@@ -50,6 +51,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
    .. api-member::
       :name: [``options``]
       :refid: messenger-utilities-convert-to-plain-text-options
+      :refname: options
       :type: (object, optional)
 
       .. _messenger^utilities.convert^to^plain^text.options.flowed:
@@ -57,6 +59,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
       .. api-member::
          :name: [``flowed``]
          :refid: messenger-utilities-convert-to-plain-text-options-flowed
+         :refname: flowed
          :type: (boolean, optional)
 
          The converted plain text will be wrapped to lines not longer than 72 characters and use format flowed, as defined by RFC 2646.
@@ -68,6 +71,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
 
    .. api-member::
       :refid: messenger-utilities-convert-to-plain-text-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -89,6 +93,7 @@ Decode the provided header into a readable format according to RFC 2047.
    .. api-member::
       :name: ``headerName``
       :refid: messenger-utilities-decode-mime-header-header-name
+      :refname: headerName
       :type: (string)
 
    .. _messenger^utilities.decode^mime^header.header^value:
@@ -96,6 +101,7 @@ Decode the provided header into a readable format according to RFC 2047.
    .. api-member::
       :name: ``headerValue``
       :refid: messenger-utilities-decode-mime-header-header-value
+      :refname: headerValue
       :type: (string or array of string)
 
    .. _messenger^utilities.decode^mime^header.is^mail^box^header:
@@ -103,6 +109,7 @@ Decode the provided header into a readable format according to RFC 2047.
    .. api-member::
       :name: [``isMailBoxHeader``]
       :refid: messenger-utilities-decode-mime-header-is-mail-box-header
+      :refname: isMailBoxHeader
       :type: (boolean, optional)
 
       Headers containing multiple mailbox strings need special handling. For example the header :value:`=?UTF-8?Q?H=C3=B6rst=2C_Kenny?= <K.Hoerst@invalid>, new@thunderbird.bug` will be wrongly decoded to :value:`Hörst, Kenny <K.Hoerst@invalid>, new@thunderbird.bug`, corrupting the structure of the first mailbox string. This option overrides the default behavior of treating the headers defined in :ref:`messenger^utilities.^mailbox^headers` as mailbox headers.
@@ -114,6 +121,7 @@ Decode the provided header into a readable format according to RFC 2047.
 
    .. api-member::
       :refid: messenger-utilities-decode-mime-header-returns
+      :refname: _returns
       :type: array of string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -135,6 +143,7 @@ Encode the provided header according to RFC 2047.
    .. api-member::
       :name: ``headerName``
       :refid: messenger-utilities-encode-mime-header-header-name
+      :refname: headerName
       :type: (string)
 
    .. _messenger^utilities.encode^mime^header.header^value:
@@ -142,6 +151,7 @@ Encode the provided header according to RFC 2047.
    .. api-member::
       :name: ``headerValue``
       :refid: messenger-utilities-encode-mime-header-header-value
+      :refname: headerValue
       :type: (string or array of string)
 
    .. _messenger^utilities.encode^mime^header.is^mail^box^header:
@@ -149,6 +159,7 @@ Encode the provided header according to RFC 2047.
    .. api-member::
       :name: [``isMailBoxHeader``]
       :refid: messenger-utilities-encode-mime-header-is-mail-box-header
+      :refname: isMailBoxHeader
       :type: (boolean, optional)
 
       Headers containing multiple mailbox strings need special handling. This option overrides the default behavior of treating the headers defined in :ref:`messenger^utilities.^mailbox^headers` as mailbox headers.
@@ -160,6 +171,7 @@ Encode the provided header according to RFC 2047.
 
    .. api-member::
       :refid: messenger-utilities-encode-mime-header-returns
+      :refname: _returns
       :type: array of string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -181,6 +193,7 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
    .. api-member::
       :name: ``sizeInBytes``
       :refid: messenger-utilities-format-file-size-size-in-bytes
+      :refname: sizeInBytes
       :type: (integer)
 
       The size in bytes.
@@ -192,6 +205,7 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
 
    .. api-member::
       :refid: messenger-utilities-format-file-size-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -213,6 +227,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
    .. api-member::
       :name: ``mailboxString``
       :refid: messenger-utilities-parse-mailbox-string-mailbox-string
+      :refname: mailboxString
       :type: (string)
 
       The string to be parsed (e.g. :value:`User <user@example.com>, other-user@example.com`)
@@ -222,6 +237,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
    .. api-member::
       :name: [``preserveGroups``]
       :refid: messenger-utilities-parse-mailbox-string-preserve-groups
+      :refname: preserveGroups
       :type: (boolean, optional)
 
       Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
@@ -233,6 +249,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
 
    .. api-member::
       :refid: messenger-utilities-parse-mailbox-string-returns
+      :refname: _returns
       :type: array of :ref:`messenger^utilities.^parsed^mailbox`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -265,108 +282,126 @@ MIME headers, which by default are treated as containing one or more mailbox str
          .. api-member::
             :name: :value:`approved`
             :refid: messenger-utilities-mailbox-headers-approved
+            :refname: approved
 
          .. _messenger^utilities.^mailbox^headers.bcc:
 
          .. api-member::
             :name: :value:`bcc`
             :refid: messenger-utilities-mailbox-headers-bcc
+            :refname: bcc
 
          .. _messenger^utilities.^mailbox^headers.cc:
 
          .. api-member::
             :name: :value:`cc`
             :refid: messenger-utilities-mailbox-headers-cc
+            :refname: cc
 
          .. _messenger^utilities.^mailbox^headers.delivered-to:
 
          .. api-member::
             :name: :value:`delivered-to`
             :refid: messenger-utilities-mailbox-headers-delivered-to
+            :refname: delivered-to
 
          .. _messenger^utilities.^mailbox^headers.disposition-notification-to:
 
          .. api-member::
             :name: :value:`disposition-notification-to`
             :refid: messenger-utilities-mailbox-headers-disposition-notification-to
+            :refname: disposition-notification-to
 
          .. _messenger^utilities.^mailbox^headers.from:
 
          .. api-member::
             :name: :value:`from`
             :refid: messenger-utilities-mailbox-headers-from
+            :refname: from
 
          .. _messenger^utilities.^mailbox^headers.mail-followup-to:
 
          .. api-member::
             :name: :value:`mail-followup-to`
             :refid: messenger-utilities-mailbox-headers-mail-followup-to
+            :refname: mail-followup-to
 
          .. _messenger^utilities.^mailbox^headers.mail-reply-to:
 
          .. api-member::
             :name: :value:`mail-reply-to`
             :refid: messenger-utilities-mailbox-headers-mail-reply-to
+            :refname: mail-reply-to
 
          .. _messenger^utilities.^mailbox^headers.reply-to:
 
          .. api-member::
             :name: :value:`reply-to`
             :refid: messenger-utilities-mailbox-headers-reply-to
+            :refname: reply-to
 
          .. _messenger^utilities.^mailbox^headers.resent-bcc:
 
          .. api-member::
             :name: :value:`resent-bcc`
             :refid: messenger-utilities-mailbox-headers-resent-bcc
+            :refname: resent-bcc
 
          .. _messenger^utilities.^mailbox^headers.resent-cc:
 
          .. api-member::
             :name: :value:`resent-cc`
             :refid: messenger-utilities-mailbox-headers-resent-cc
+            :refname: resent-cc
 
          .. _messenger^utilities.^mailbox^headers.resent-from:
 
          .. api-member::
             :name: :value:`resent-from`
             :refid: messenger-utilities-mailbox-headers-resent-from
+            :refname: resent-from
 
          .. _messenger^utilities.^mailbox^headers.resent-reply-to:
 
          .. api-member::
             :name: :value:`resent-reply-to`
             :refid: messenger-utilities-mailbox-headers-resent-reply-to
+            :refname: resent-reply-to
 
          .. _messenger^utilities.^mailbox^headers.resent-sender:
 
          .. api-member::
             :name: :value:`resent-sender`
             :refid: messenger-utilities-mailbox-headers-resent-sender
+            :refname: resent-sender
 
          .. _messenger^utilities.^mailbox^headers.resent-to:
 
          .. api-member::
             :name: :value:`resent-to`
             :refid: messenger-utilities-mailbox-headers-resent-to
+            :refname: resent-to
 
          .. _messenger^utilities.^mailbox^headers.return-receipt-to:
 
          .. api-member::
             :name: :value:`return-receipt-to`
             :refid: messenger-utilities-mailbox-headers-return-receipt-to
+            :refname: return-receipt-to
 
          .. _messenger^utilities.^mailbox^headers.sender:
 
          .. api-member::
             :name: :value:`sender`
             :refid: messenger-utilities-mailbox-headers-sender
+            :refname: sender
 
          .. _messenger^utilities.^mailbox^headers.to:
 
          .. api-member::
             :name: :value:`to`
             :refid: messenger-utilities-mailbox-headers-to
+            :refname: to
 
 .. _messenger^utilities.^parsed^mailbox:
 
@@ -385,6 +420,7 @@ Representation of a parsed mailbox string (see RFC 5322, section 3.4).
    .. api-member::
       :name: [``email``]
       :refid: messenger-utilities-parsed-mailbox-email
+      :refname: email
       :type: (string, optional)
 
       The :value:`addr-spec` associated with the provided address, if available.
@@ -394,6 +430,7 @@ Representation of a parsed mailbox string (see RFC 5322, section 3.4).
    .. api-member::
       :name: [``group``]
       :refid: messenger-utilities-parsed-mailbox-group
+      :refname: group
       :type: (array of :ref:`messenger^utilities.^parsed^mailbox`, optional)
 
       The members of the group, if available.
@@ -403,6 +440,7 @@ Representation of a parsed mailbox string (see RFC 5322, section 3.4).
    .. api-member::
       :name: [``name``]
       :refid: messenger-utilities-parsed-mailbox-name
+      :refname: name
       :type: (string, optional)
 
       The :value:`display-name` associated with the provided address or group, if available.
