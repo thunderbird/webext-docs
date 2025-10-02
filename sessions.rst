@@ -41,14 +41,20 @@ Retrieve a previously stored value for a given tab, given its key. Returns :valu
 .. api-header::
    :label: Parameters
 
+   .. _sessions.get^tab^value.tab^id:
+
    .. api-member::
       :name: ``tabId``
+      :refid: sessions-get-tab-value-tab-id
       :type: (integer)
 
       ID of the tab whose data you are trying to retrieve. Error is thrown if ID is invalid.
 
+   .. _sessions.get^tab^value.key:
+
    .. api-member::
       :name: ``key``
+      :refid: sessions-get-tab-value-key
       :type: (string)
 
       Key identifying the particular value to retrieve.
@@ -56,7 +62,10 @@ Retrieve a previously stored value for a given tab, given its key. Returns :valu
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _sessions.get^tab^value.returns:
+
    .. api-member::
+      :refid: sessions-get-tab-value-returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -73,14 +82,20 @@ Remove a key/value pair from a given tab.
 .. api-header::
    :label: Parameters
 
+   .. _sessions.remove^tab^value.tab^id:
+
    .. api-member::
       :name: ``tabId``
+      :refid: sessions-remove-tab-value-tab-id
       :type: (integer)
 
       ID of the tab whose data you are trying to remove. Error is thrown if ID is invalid.
 
+   .. _sessions.remove^tab^value.key:
+
    .. api-member::
       :name: ``key``
+      :refid: sessions-remove-tab-value-key
       :type: (string)
 
       Key identifying the particular value to remove.
@@ -97,18 +112,27 @@ Store a key/value pair associated with a given tab.
 .. api-header::
    :label: Parameters
 
+   .. _sessions.set^tab^value.tab^id:
+
    .. api-member::
       :name: ``tabId``
+      :refid: sessions-set-tab-value-tab-id
       :type: (integer)
 
       ID of the tab with which you want to associate the data. Error is thrown if ID is invalid.
 
+   .. _sessions.set^tab^value.key:
+
    .. api-member::
       :name: ``key``
+      :refid: sessions-set-tab-value-key
       :type: (string)
 
       Key that you can later use to retrieve this particular data value.
 
+   .. _sessions.set^tab^value.value:
+
    .. api-member::
       :name: ``value``
+      :refid: sessions-set-tab-value-value
       :type: (string)
