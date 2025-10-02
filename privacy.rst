@@ -36,6 +36,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`privacy`
    :refid: privacy-permission-privacy
+   :refname: privacy
 
    Read and modify privacy settings.
 

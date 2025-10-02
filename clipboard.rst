@@ -39,6 +39,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`clipboardWrite`
    :refid: clipboard-permission-clipboard-write
+   :refname: clipboardWrite
 
    Input data to the clipboard.
 
@@ -70,6 +71,7 @@ Copy an image to the clipboard. The image is re-encoded before it is written to 
    .. api-member::
       :name: ``imageData``
       :refid: clipboard-set-image-data-image-data
+      :refname: imageData
       :type: (`ArrayBuffer <https://developer.mozilla.org/en-US/docs/Web/API/ArrayBuffer>`__)
 
       The image data to be copied.
@@ -79,6 +81,7 @@ Copy an image to the clipboard. The image is re-encoded before it is written to 
    .. api-member::
       :name: ``imageType``
       :refid: clipboard-set-image-data-image-type
+      :refname: imageType
       :type: (`string`)
 
       The type of imageData.
@@ -90,12 +93,14 @@ Copy an image to the clipboard. The image is re-encoded before it is written to 
       .. api-member::
          :name: :value:`jpeg`
          :refid: clipboard-set-image-data-image-type-jpeg
+         :refname: jpeg
 
       .. _clipboard.set^image^data.image^type.png:
 
       .. api-member::
          :name: :value:`png`
          :refid: clipboard-set-image-data-image-type-png
+         :refname: png
 
 .. api-header::
    :label: Required permissions

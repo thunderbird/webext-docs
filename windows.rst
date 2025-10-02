@@ -42,6 +42,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`contextualIdentities`
    :refid: windows-permission-contextual-identities
+   :refname: contextualIdentities
 
    Grant access to some or all methods of the contextualIdentities API.
 
@@ -50,6 +51,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`cookies`
    :refid: windows-permission-cookies
+   :refname: cookies
 
    Grant access to some or all methods of the cookies API.
 
@@ -58,6 +60,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`tabs`
    :refid: windows-permission-tabs
+   :refname: tabs
 
    Grant host permission to all active and inactive tabs, allowing to read :value:`title`, :value:`url` and :value:`favIconUrl` properties, or to inject content scripts.
 
@@ -83,6 +86,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
    .. api-member::
       :name: [``createData``]
       :refid: windows-create-create-data
+      :refname: createData
       :type: (object, optional)
 
       .. _windows.create.create^data.allow^scripts^to^close:
@@ -90,6 +94,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``allowScriptsToClose``]
          :refid: windows-create-create-data-allow-scripts-to-close
+         :refname: allowScriptsToClose
          :type: (boolean, optional)
 
          Allow scripts running inside the window to close the window by calling :code:`window.close()`. Defaults to :value:`true` when the given URL points to an extension page (a page included with this extension and loaded with the :value:`moz-extension:` protocol), defaults to :value:`false` otherwise.
@@ -99,6 +104,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``cookieStoreId``]
          :refid: windows-create-create-data-cookie-store-id
+         :refname: cookieStoreId
          :type: (string, optional)
          :annotation: -- [Added in TB 115]
 
@@ -117,6 +123,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``focused``]
          :refid: windows-create-create-data-focused
+         :refname: focused
          :type: (boolean, optional) **Unsupported.**
 
          If true, opens an active window. If false, opens an inactive window.
@@ -126,6 +133,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``height``]
          :refid: windows-create-create-data-height
+         :refname: height
          :type: (integer, optional)
 
          The height in pixels of the new window, including the frame. If not specified defaults to a natural height.
@@ -135,6 +143,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``incognito``]
          :refid: windows-create-create-data-incognito
+         :refname: incognito
          :type: (boolean, optional) **Unsupported.**
 
       .. _windows.create.create^data.left:
@@ -142,6 +151,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``left``]
          :refid: windows-create-create-data-left
+         :refname: left
          :type: (integer, optional)
 
          The number of pixels to position the new window from the left edge of the screen. If not specified, the new window is offset naturally from the last focused window.
@@ -151,6 +161,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``linkHandler``]
          :refid: windows-create-create-data-link-handler
+         :refname: linkHandler
          :type: (`string`, optional)
          :annotation: -- [Added in TB 136]
 
@@ -163,24 +174,28 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          .. api-member::
             :name: :value:`balanced`
             :refid: windows-create-create-data-link-handler-balanced
+            :refname: balanced
 
          .. _windows.create.create^data.link^handler.relaxed:
 
          .. api-member::
             :name: :value:`relaxed`
             :refid: windows-create-create-data-link-handler-relaxed
+            :refname: relaxed
 
          .. _windows.create.create^data.link^handler.strict:
 
          .. api-member::
             :name: :value:`strict`
             :refid: windows-create-create-data-link-handler-strict
+            :refname: strict
 
       .. _windows.create.create^data.state:
 
       .. api-member::
          :name: [``state``]
          :refid: windows-create-create-data-state
+         :refname: state
          :type: (:ref:`windows.^window^state`, optional)
 
          The initial state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
@@ -190,6 +205,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``tabId``]
          :refid: windows-create-create-data-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          The id of the tab for which you want to adopt to the new window.
@@ -199,6 +215,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``titlePreface``]
          :refid: windows-create-create-data-title-preface
+         :refname: titlePreface
          :type: (string, optional)
 
          A string to add to the beginning of the window title.
@@ -208,6 +225,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``top``]
          :refid: windows-create-create-data-top
+         :refname: top
          :type: (integer, optional)
 
          The number of pixels to position the new window from the top edge of the screen. If not specified, the new window is offset naturally from the last focused window.
@@ -217,6 +235,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``type``]
          :refid: windows-create-create-data-type
+         :refname: type
          :type: (:ref:`windows.^create^type`, optional)
 
          Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
@@ -226,6 +245,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``url``]
          :refid: windows-create-create-data-url
+         :refname: url
          :type: (string or array of string, optional)
 
          A URL to be opened in a popup window, ignored in all other window types. This may also be an array, but only the first element is used (popup windows may not have multiple tabs). If the URL points to a content page (a web page, an extension page or a registered WebExtension protocol handler page), the popup window will navigate to the requested page. All other URLs will be opened externally after creating an empty popup window. Fully-qualified URLs must include a scheme (i.e. :value:`http://www.google.com`, not :value:`www.google.com`). Relative URLs will be relative to the root of the extension. Defaults to the New Tab Page.
@@ -235,6 +255,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
       .. api-member::
          :name: [``width``]
          :refid: windows-create-create-data-width
+         :refname: width
          :type: (integer, optional)
 
          The width in pixels of the new window, including the frame. If not specified defaults to a natural width.
@@ -246,6 +267,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 
    .. api-member::
       :refid: windows-create-returns
+      :refname: _returns
       :type: :ref:`windows.^window`
 
       Contains details about the created window.
@@ -269,6 +291,7 @@ Gets details about a window.
    .. api-member::
       :name: ``windowId``
       :refid: windows-get-window-id
+      :refname: windowId
       :type: (integer)
 
    .. _windows.get.get^info:
@@ -276,6 +299,7 @@ Gets details about a window.
    .. api-member::
       :name: [``getInfo``]
       :refid: windows-get-get-info
+      :refname: getInfo
       :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
@@ -285,6 +309,7 @@ Gets details about a window.
 
    .. api-member::
       :refid: windows-get-returns
+      :refname: _returns
       :type: :ref:`windows.^window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -306,6 +331,7 @@ Gets all windows.
    .. api-member::
       :name: [``getInfo``]
       :refid: windows-get-all-get-info
+      :refname: getInfo
       :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
@@ -315,6 +341,7 @@ Gets all windows.
 
    .. api-member::
       :refid: windows-get-all-returns
+      :refname: _returns
       :type: array of :ref:`windows.^window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -336,6 +363,7 @@ Gets the active or topmost window.
    .. api-member::
       :name: [``getInfo``]
       :refid: windows-get-current-get-info
+      :refname: getInfo
       :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
@@ -345,6 +373,7 @@ Gets the active or topmost window.
 
    .. api-member::
       :refid: windows-get-current-returns
+      :refname: _returns
       :type: :ref:`windows.^window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -366,6 +395,7 @@ Gets the window that was most recently focused — typically the window 'on top'
    .. api-member::
       :name: [``getInfo``]
       :refid: windows-get-last-focused-get-info
+      :refname: getInfo
       :type: (:ref:`windows.^get^info`, optional)
 
 .. api-header::
@@ -375,6 +405,7 @@ Gets the window that was most recently focused — typically the window 'on top'
 
    .. api-member::
       :refid: windows-get-last-focused-returns
+      :refname: _returns
       :type: :ref:`windows.^window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -396,6 +427,7 @@ Opens the provided URL in the default system browser.
    .. api-member::
       :name: ``url``
       :refid: windows-open-default-browser-url
+      :refname: url
       :type: (string)
 
 .. _windows.remove:
@@ -415,6 +447,7 @@ Removes (closes) a window, and all the tabs inside it.
    .. api-member::
       :name: ``windowId``
       :refid: windows-remove-window-id
+      :refname: windowId
       :type: (integer)
 
 .. _windows.update:
@@ -434,6 +467,7 @@ Updates the properties of a window. Specify only the properties that you want to
    .. api-member::
       :name: ``windowId``
       :refid: windows-update-window-id
+      :refname: windowId
       :type: (integer)
 
    .. _windows.update.update^info:
@@ -441,6 +475,7 @@ Updates the properties of a window. Specify only the properties that you want to
    .. api-member::
       :name: ``updateInfo``
       :refid: windows-update-update-info
+      :refname: updateInfo
       :type: (object)
 
       .. _windows.update.update^info.draw^attention:
@@ -448,6 +483,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``drawAttention``]
          :refid: windows-update-update-info-draw-attention
+         :refname: drawAttention
          :type: (boolean, optional)
 
          Setting this to :value:`true` will cause the window to be displayed in a manner that draws the user's attention to the window, without changing the focused window. The effect lasts until the user changes focus to the window. This option has no effect if the window already has focus.
@@ -457,6 +493,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``focused``]
          :refid: windows-update-update-info-focused
+         :refname: focused
          :type: (boolean, optional)
 
          If true, brings the window to the front. If false, brings the next window in the z-order to the front.
@@ -466,6 +503,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``height``]
          :refid: windows-update-update-info-height
+         :refname: height
          :type: (integer, optional)
 
          The height to resize the window to in pixels.
@@ -475,6 +513,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``left``]
          :refid: windows-update-update-info-left
+         :refname: left
          :type: (integer, optional)
 
          The offset from the left edge of the screen to move the window to in pixels. This value is ignored for panels.
@@ -484,6 +523,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``state``]
          :refid: windows-update-update-info-state
+         :refname: state
          :type: (:ref:`windows.^window^state`, optional)
 
          The new state of the window. The :value:`minimized`, :value:`maximized` and :value:`fullscreen` states cannot be combined with :value:`left`, :value:`top`, :value:`width` or :value:`height`.
@@ -493,6 +533,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``titlePreface``]
          :refid: windows-update-update-info-title-preface
+         :refname: titlePreface
          :type: (string, optional)
 
          A string to add to the beginning of the window title.
@@ -502,6 +543,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``top``]
          :refid: windows-update-update-info-top
+         :refname: top
          :type: (integer, optional)
 
          The offset from the top edge of the screen to move the window to in pixels. This value is ignored for panels.
@@ -511,6 +553,7 @@ Updates the properties of a window. Specify only the properties that you want to
       .. api-member::
          :name: [``width``]
          :refid: windows-update-update-info-width
+         :refname: width
          :type: (integer, optional)
 
          The width to resize the window to in pixels.
@@ -522,6 +565,7 @@ Updates the properties of a window. Specify only the properties that you want to
 
    .. api-member::
       :refid: windows-update-returns
+      :refname: _returns
       :type: :ref:`windows.^window`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -548,6 +592,7 @@ Fired when a window is created.
    .. api-member::
       :name: ``listener(window)``
       :refid: windows-on-created-listener-window
+      :refname: listener(window)
 
       A function that will be called when this event occurs.
 
@@ -559,6 +604,7 @@ Fired when a window is created.
    .. api-member::
       :name: ``window``
       :refid: windows-on-created-window
+      :refname: window
       :type: (:ref:`windows.^window`)
 
       Details of the window that was created.
@@ -584,6 +630,7 @@ Fired when the currently focused window changes. Will be :ref:`windows.^w^i^n^d^
    .. api-member::
       :name: ``listener(windowId)``
       :refid: windows-on-focus-changed-listener-window-id
+      :refname: listener(windowId)
 
       A function that will be called when this event occurs.
 
@@ -595,6 +642,7 @@ Fired when the currently focused window changes. Will be :ref:`windows.^w^i^n^d^
    .. api-member::
       :name: ``windowId``
       :refid: windows-on-focus-changed-window-id
+      :refname: windowId
       :type: (integer)
 
       ID of the newly focused window.
@@ -616,6 +664,7 @@ Fired when a window is removed (closed).
    .. api-member::
       :name: ``listener(windowId)``
       :refid: windows-on-removed-listener-window-id
+      :refname: listener(windowId)
 
       A function that will be called when this event occurs.
 
@@ -627,6 +676,7 @@ Fired when a window is removed (closed).
    .. api-member::
       :name: ``windowId``
       :refid: windows-on-removed-window-id
+      :refname: windowId
       :type: (integer)
 
       ID of the removed window.
@@ -659,6 +709,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          .. api-member::
             :name: :value:`detached_panel`
             :refid: windows-create-type-detached-panel
+            :refname: detached_panel
 
             Not supported, same as :value:`popup`
 
@@ -667,6 +718,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          .. api-member::
             :name: :value:`normal`
             :refid: windows-create-type-normal
+            :refname: normal
 
             A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
 
@@ -675,6 +727,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          .. api-member::
             :name: :value:`panel`
             :refid: windows-create-type-panel
+            :refname: panel
 
             Not supported, same as :value:`popup`
 
@@ -683,6 +736,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
          .. api-member::
             :name: :value:`popup`
             :refid: windows-create-type-popup
+            :refname: popup
 
             A non-modal stand-alone popup window.
 
@@ -703,6 +757,7 @@ Specifies additional requirements for the returned windows.
    .. api-member::
       :name: [``populate``]
       :refid: windows-get-info-populate
+      :refname: populate
       :type: (boolean, optional)
 
       If true, the :ref:`windows.^window` returned will have a :value:`tabs` property that contains an array of :ref:`tabs.^tab` objects representing the tabs inside the window. The :ref:`tabs.^tab` objects only contain the :value:`url`, :value:`title` and :value:`favIconUrl` properties if the extension's manifest file includes the :permission:`tabs` permission.
@@ -712,6 +767,7 @@ Specifies additional requirements for the returned windows.
    .. api-member::
       :name: [``windowTypes``]
       :refid: windows-get-info-window-types
+      :refname: windowTypes
       :type: (array of :ref:`windows.^window^type`, optional)
 
       If set, the :ref:`windows.^window` returned will be filtered based on its type. Supported by :ref:`windows.get^all` only, ignored in all other functions.
@@ -731,6 +787,7 @@ Window
    .. api-member::
       :name: ``alwaysOnTop``
       :refid: windows-window-always-on-top
+      :refname: alwaysOnTop
       :type: (boolean)
 
       Whether the window is set to be always on top.
@@ -740,6 +797,7 @@ Window
    .. api-member::
       :name: ``focused``
       :refid: windows-window-focused
+      :refname: focused
       :type: (boolean)
 
       Whether the window is currently the focused window.
@@ -749,6 +807,7 @@ Window
    .. api-member::
       :name: ``incognito``
       :refid: windows-window-incognito
+      :refname: incognito
       :type: (boolean)
 
       Whether the window is incognito. Since Thunderbird does not support the incognito mode, this is always :value:`false`.
@@ -758,6 +817,7 @@ Window
    .. api-member::
       :name: [``height``]
       :refid: windows-window-height
+      :refname: height
       :type: (integer, optional)
 
       The height of the window, including the frame, in pixels.
@@ -767,6 +827,7 @@ Window
    .. api-member::
       :name: [``id``]
       :refid: windows-window-id
+      :refname: id
       :type: (integer, optional)
 
       The ID of the window. Window IDs are unique within a session.
@@ -776,6 +837,7 @@ Window
    .. api-member::
       :name: [``left``]
       :refid: windows-window-left
+      :refname: left
       :type: (integer, optional)
 
       The offset of the window from the left edge of the screen in pixels.
@@ -785,6 +847,7 @@ Window
    .. api-member::
       :name: [``state``]
       :refid: windows-window-state
+      :refname: state
       :type: (:ref:`windows.^window^state`, optional)
 
       The state of this window.
@@ -794,6 +857,7 @@ Window
    .. api-member::
       :name: [``tabs``]
       :refid: windows-window-tabs
+      :refname: tabs
       :type: (array of :ref:`tabs.^tab`, optional)
 
       Array of :ref:`tabs.^tab` objects representing the current tabs in the window. Only included if requested by :ref:`windows.get`, :ref:`windows.get^current`, :ref:`windows.get^all` or :ref:`windows.get^last^focused`, and the optional :ref:`windows.^get^info` parameter has its :value:`populate` member set to :value:`true`.
@@ -803,6 +867,7 @@ Window
    .. api-member::
       :name: [``title``]
       :refid: windows-window-title
+      :refname: title
       :type: (string, optional)
 
       The title of the window. Read-only.
@@ -812,6 +877,7 @@ Window
    .. api-member::
       :name: [``top``]
       :refid: windows-window-top
+      :refname: top
       :type: (integer, optional)
 
       The offset of the window from the top edge of the screen in pixels.
@@ -821,6 +887,7 @@ Window
    .. api-member::
       :name: [``type``]
       :refid: windows-window-type
+      :refname: type
       :type: (:ref:`windows.^window^type`, optional)
 
       The type of window this is.
@@ -830,6 +897,7 @@ Window
    .. api-member::
       :name: [``width``]
       :refid: windows-window-width
+      :refname: width
       :type: (integer, optional)
 
       The width of the window, including the frame, in pixels.
@@ -857,30 +925,35 @@ The state of this window.
          .. api-member::
             :name: :value:`docked`
             :refid: windows-window-state-docked
+            :refname: docked
 
          .. _windows.^window^state.fullscreen:
 
          .. api-member::
             :name: :value:`fullscreen`
             :refid: windows-window-state-fullscreen
+            :refname: fullscreen
 
          .. _windows.^window^state.maximized:
 
          .. api-member::
             :name: :value:`maximized`
             :refid: windows-window-state-maximized
+            :refname: maximized
 
          .. _windows.^window^state.minimized:
 
          .. api-member::
             :name: :value:`minimized`
             :refid: windows-window-state-minimized
+            :refname: minimized
 
          .. _windows.^window^state.normal:
 
          .. api-member::
             :name: :value:`normal`
             :refid: windows-window-state-normal
+            :refname: normal
 
 .. _windows.^window^type:
 
@@ -905,6 +978,7 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          .. api-member::
             :name: :value:`messageCompose`
             :refid: windows-window-type-message-compose
+            :refname: messageCompose
             :annotation: -- [Added in TB 70]
 
             A non-modal stand-alone message compose window.
@@ -914,6 +988,7 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          .. api-member::
             :name: :value:`messageDisplay`
             :refid: windows-window-type-message-display
+            :refname: messageDisplay
             :annotation: -- [Added in TB 70]
 
             A non-modal stand-alone message display window, viewing a single message.
@@ -923,6 +998,7 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          .. api-member::
             :name: :value:`normal`
             :refid: windows-window-type-normal
+            :refname: normal
 
             A normal Thunderbird window, a.k.a. 3-pane-window (folder pane, message pane and preview pane).
 
@@ -931,6 +1007,7 @@ The type of a window. Under some circumstances a window may not be assigned a ty
          .. api-member::
             :name: :value:`popup`
             :refid: windows-window-type-popup
+            :refname: popup
 
             A non-modal stand-alone popup window.
 

@@ -45,6 +45,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`storage`
    :refid: storage-permission-storage
+   :refname: storage
 
    Grant access to some or all methods of the storage API.
 
@@ -76,6 +77,7 @@ Fired when one or more items change.
    .. api-member::
       :name: ``listener(changes, areaName)``
       :refid: storage-on-changed-listener-changes-area-name
+      :refname: listener(changes, areaName)
 
       A function that will be called when this event occurs.
 
@@ -87,6 +89,7 @@ Fired when one or more items change.
    .. api-member::
       :name: ``changes``
       :refid: storage-on-changed-changes
+      :refname: changes
       :type: (object)
 
       Object mapping each key that changed to its corresponding :ref:`storage.^storage^change` for that item.
@@ -96,6 +99,7 @@ Fired when one or more items change.
    .. api-member::
       :name: ``areaName``
       :refid: storage-on-changed-area-name
+      :refname: areaName
       :type: (string)
 
       The name of the storage area (:code:`"sync"`, :code:`"local"` or :code:`"managed"`) the changes are for.
@@ -145,6 +149,7 @@ StorageChange
    .. api-member::
       :name: [``newValue``]
       :refid: storage-storage-change-new-value
+      :refname: newValue
       :type: (any, optional)
 
       The new value of the item, if there is a new value.
@@ -154,6 +159,7 @@ StorageChange
    .. api-member::
       :name: [``oldValue``]
       :refid: storage-storage-change-old-value
+      :refname: oldValue
       :type: (any, optional)
 
       The old value of the item, if there was an old value.

@@ -40,6 +40,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`privacy`
    :refid: privacy-websites-permission-privacy
+   :refname: privacy
 
    Read and modify privacy settings.
 
@@ -71,6 +72,7 @@ The settings for cookies.
    .. api-member::
       :name: [``behavior``]
       :refid: privacy-websites-cookie-config-behavior
+      :refname: behavior
       :type: (`string`, optional)
 
       The type of cookies to allow.
@@ -82,42 +84,49 @@ The settings for cookies.
       .. api-member::
          :name: :value:`allow_all`
          :refid: privacy-websites-cookie-config-behavior-allow-all
+         :refname: allow_all
 
       .. _privacy.websites.^cookie^config.behavior.allow_visited:
 
       .. api-member::
          :name: :value:`allow_visited`
          :refid: privacy-websites-cookie-config-behavior-allow-visited
+         :refname: allow_visited
 
       .. _privacy.websites.^cookie^config.behavior.reject_all:
 
       .. api-member::
          :name: :value:`reject_all`
          :refid: privacy-websites-cookie-config-behavior-reject-all
+         :refname: reject_all
 
       .. _privacy.websites.^cookie^config.behavior.reject_third_party:
 
       .. api-member::
          :name: :value:`reject_third_party`
          :refid: privacy-websites-cookie-config-behavior-reject-third-party
+         :refname: reject_third_party
 
       .. _privacy.websites.^cookie^config.behavior.reject_trackers:
 
       .. api-member::
          :name: :value:`reject_trackers`
          :refid: privacy-websites-cookie-config-behavior-reject-trackers
+         :refname: reject_trackers
 
       .. _privacy.websites.^cookie^config.behavior.reject_trackers_and_partition_foreign:
 
       .. api-member::
          :name: :value:`reject_trackers_and_partition_foreign`
          :refid: privacy-websites-cookie-config-behavior-reject-trackers-and-partition-foreign
+         :refname: reject_trackers_and_partition_foreign
 
    .. _privacy.websites.^cookie^config.non^persistent^cookies:
 
    .. api-member::
       :name: [``nonPersistentCookies``]
       :refid: privacy-websites-cookie-config-non-persistent-cookies
+      :refname: nonPersistentCookies
       :type: (boolean, optional) **Deprecated.**
 
       Whether to create all cookies as nonPersistent (i.e., session) cookies.
@@ -145,18 +154,21 @@ The mode for tracking protection.
          .. api-member::
             :name: :value:`always`
             :refid: privacy-websites-tracking-protection-mode-option-always
+            :refname: always
 
          .. _privacy.websites.^tracking^protection^mode^option.never:
 
          .. api-member::
             :name: :value:`never`
             :refid: privacy-websites-tracking-protection-mode-option-never
+            :refname: never
 
          .. _privacy.websites.^tracking^protection^mode^option.private_browsing:
 
          .. api-member::
             :name: :value:`private_browsing`
             :refid: privacy-websites-tracking-protection-mode-option-private-browsing
+            :refname: private_browsing
 
 .. rst-class:: api-main-section
 
