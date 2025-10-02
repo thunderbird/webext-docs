@@ -19,7 +19,7 @@ def make_div_node(self, classname, lines):
     node = nodes.section()
     node.document = self.state.document
     # Parse the rst.
-    nested_parse_with_titles(self.state, rst, node)        
+    nested_parse_with_titles(self.state, rst, node)
 
     div.extend(node)
     return [div]
@@ -32,19 +32,26 @@ class ApiMemberDirective(Directive):
     option_spec = {
         "type": directives.unchanged,
         "name": directives.unchanged,
+        "annotation": directives.unchanged,
+        # Api members can get a label (.. _api.func.parameter:),
+        # refid is the guessed anchor used by sphinx (api-func-parameter) and
+        # refname is the display name for the resolved $(ref:api.func.parameter)
+        # in the document.
         "refid": directives.unchanged,
-        "annotation": directives.unchanged
+        "refname": directives.unchanged,
+        "depth": directives.unchanged,
     }
-        
     
     def run(self):
         nodes_to_return = []
+
+        depth = int(self.options.get('depth', 0))
 
         if 'refid' in self.options:
             # Create a hidden "title-like" element, for Sphinx to be able to
             # attach a label to (in RST, before the api-member).
             # Use 'name' if available, otherwise fallback to 'refid' for rubric text
-            rubric_text = self.options.get('name', self.options['refid'])
+            rubric_text = self.options.get('refname', self.options.get('name', self.options['refid']))
             rubric = nodes.rubric(text=rubric_text)
             
             rubric['ids'] = [f"api-member-{uuid.uuid4().hex}"] 
@@ -54,6 +61,12 @@ class ApiMemberDirective(Directive):
 
         apiMemberNode = nodes.container()
         apiMemberNode['classes'] = ["api-member-node"]
+        
+        if depth > 0:
+            apiMemberNode['classes'].append(f"api-member-depth-{depth}")
+
+        if depth % 2 == 1:
+            apiMemberNode['classes'].append("api-member-hide-bullet-point")
 
         apiMemberDefinition = nodes.container()
         apiMemberDefinition['classes'] = ["api-member-definition"]

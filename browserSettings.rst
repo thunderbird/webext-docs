@@ -40,6 +40,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`browserSettings`
    :refid: browser-settings-permission-browser-settings
+   :refname: browserSettings
 
    Read and modify browser settings.
 
@@ -77,18 +78,21 @@ Color management mode.
          .. api-member::
             :name: :value:`full`
             :refid: browser-settings-color-management-mode-full
+            :refname: full
 
          .. _browser^settings.^color^management^mode.off:
 
          .. api-member::
             :name: :value:`off`
             :refid: browser-settings-color-management-mode-off
+            :refname: off
 
          .. _browser^settings.^color^management^mode.tagged_only:
 
          .. api-member::
             :name: :value:`tagged_only`
             :refid: browser-settings-color-management-mode-tagged-only
+            :refname: tagged_only
 
 .. _browser^settings.^context^menu^mouse^event:
 
@@ -113,12 +117,14 @@ After which mouse event context menus should popup.
          .. api-member::
             :name: :value:`mousedown`
             :refid: browser-settings-context-menu-mouse-event-mousedown
+            :refname: mousedown
 
          .. _browser^settings.^context^menu^mouse^event.mouseup:
 
          .. api-member::
             :name: :value:`mouseup`
             :refid: browser-settings-context-menu-mouse-event-mouseup
+            :refname: mouseup
 
 .. _browser^settings.^image^animation^behavior:
 
@@ -143,18 +149,21 @@ How images should be animated in the browser.
          .. api-member::
             :name: :value:`none`
             :refid: browser-settings-image-animation-behavior-none
+            :refname: none
 
          .. _browser^settings.^image^animation^behavior.normal:
 
          .. api-member::
             :name: :value:`normal`
             :refid: browser-settings-image-animation-behavior-normal
+            :refname: normal
 
          .. _browser^settings.^image^animation^behavior.once:
 
          .. api-member::
             :name: :value:`once`
             :refid: browser-settings-image-animation-behavior-once
+            :refname: once
 
 .. rst-class:: api-main-section
 

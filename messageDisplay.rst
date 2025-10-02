@@ -36,6 +36,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`messagesRead`
    :refid: message-display-permission-messages-read
+   :refname: messagesRead
 
    Read your email messages.
 
@@ -67,6 +68,7 @@ Gets the currently displayed message in the specified tab (even if the tab itsel
    .. api-member::
       :name: [``tabId``]
       :refid: message-display-get-displayed-message-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
 .. api-header::
@@ -76,6 +78,7 @@ Gets the currently displayed message in the specified tab (even if the tab itsel
 
    .. api-member::
       :refid: message-display-get-displayed-message-returns
+      :refname: _returns
       :type: :ref:`messages.^message^header` or null
       :annotation: -- [Added in TB 96]
 
@@ -103,6 +106,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
    .. api-member::
       :name: [``tabId``]
       :refid: message-display-get-displayed-messages-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
 .. api-header::
@@ -112,6 +116,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
 
    .. api-member::
       :refid: message-display-get-displayed-messages-returns
+      :refname: _returns
       :type: array of :ref:`messages.^message^header`
       :annotation: -- [Added in TB 96]
 
@@ -139,6 +144,7 @@ Opens a message in a new tab or in a new window.
    .. api-member::
       :name: ``openProperties``
       :refid: message-display-open-open-properties
+      :refname: openProperties
       :type: (object)
 
       Settings for opening the message. Exactly one of messageId, headerMessageId or file must be specified.
@@ -148,6 +154,7 @@ Opens a message in a new tab or in a new window.
       .. api-member::
          :name: [``active``]
          :refid: message-display-open-open-properties-active
+         :refname: active
          :type: (boolean, optional)
 
          Whether the new tab should become the active tab in the window. Only applicable to messages opened in tabs.
@@ -157,6 +164,7 @@ Opens a message in a new tab or in a new window.
       .. api-member::
          :name: [``file``]
          :refid: message-display-open-open-properties-file
+         :refname: file
          :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
          :annotation: -- [Added in TB 114]
 
@@ -167,6 +175,7 @@ Opens a message in a new tab or in a new window.
       .. api-member::
          :name: [``headerMessageId``]
          :refid: message-display-open-open-properties-header-message-id
+         :refname: headerMessageId
          :type: (string, optional)
 
          The headerMessageId of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`headerMessageId` is unknown or invalid. Not supported for external messages.
@@ -176,6 +185,7 @@ Opens a message in a new tab or in a new window.
       .. api-member::
          :name: [``location``]
          :refid: message-display-open-open-properties-location
+         :refname: location
          :type: (`string`, optional)
 
          Where to open the message. If not specified, the users preference is honoured.
@@ -187,18 +197,21 @@ Opens a message in a new tab or in a new window.
          .. api-member::
             :name: :value:`tab`
             :refid: message-display-open-open-properties-location-tab
+            :refname: tab
 
          .. _message^display.open.open^properties.location.window:
 
          .. api-member::
             :name: :value:`window`
             :refid: message-display-open-open-properties-location-window
+            :refname: window
 
       .. _message^display.open.open^properties.message^id:
 
       .. api-member::
          :name: [``messageId``]
          :refid: message-display-open-open-properties-message-id
+         :refname: messageId
          :type: (:ref:`messages.^message^id`, optional)
 
          The id of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`messageId` is unknown or invalid.
@@ -208,6 +221,7 @@ Opens a message in a new tab or in a new window.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-open-open-properties-window-id
+         :refname: windowId
          :type: (integer, optional)
 
          The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.
@@ -219,6 +233,7 @@ Opens a message in a new tab or in a new window.
 
    .. api-member::
       :refid: message-display-open-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -250,6 +265,7 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    .. api-member::
       :name: ``listener(tab, message)``
       :refid: message-display-on-message-displayed-listener-tab-message
+      :refname: listener(tab, message)
 
       A function that will be called when this event occurs.
 
@@ -261,6 +277,7 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    .. api-member::
       :name: ``tab``
       :refid: message-display-on-message-displayed-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _message^display.on^message^displayed.message:
@@ -268,6 +285,7 @@ Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a 
    .. api-member::
       :name: ``message``
       :refid: message-display-on-message-displayed-message
+      :refname: message
       :type: (:ref:`messages.^message^header`)
 
 .. api-header::
@@ -292,6 +310,7 @@ Fired when either a single message is displayed or when multiple messages are di
    .. api-member::
       :name: ``listener(tab, messages)``
       :refid: message-display-on-messages-displayed-listener-tab-messages
+      :refname: listener(tab, messages)
 
       A function that will be called when this event occurs.
 
@@ -303,6 +322,7 @@ Fired when either a single message is displayed or when multiple messages are di
    .. api-member::
       :name: ``tab``
       :refid: message-display-on-messages-displayed-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _message^display.on^messages^displayed.messages:
@@ -310,6 +330,7 @@ Fired when either a single message is displayed or when multiple messages are di
    .. api-member::
       :name: ``messages``
       :refid: message-display-on-messages-displayed-messages
+      :refname: messages
       :type: (array of :ref:`messages.^message^header`)
 
 .. api-header::

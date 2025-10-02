@@ -37,6 +37,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`addressBooks`
    :refid: address-books-permission-address-books
+   :refname: addressBooks
 
    Read and modify your address books and contacts.
 
@@ -82,6 +83,7 @@ Creates a new, empty address book.
    .. api-member::
       :name: ``properties``
       :refid: address-books-create-properties
+      :refname: properties
       :type: (object)
 
       .. _address^books.create.properties.name:
@@ -89,6 +91,7 @@ Creates a new, empty address book.
       .. api-member::
          :name: ``name``
          :refid: address-books-create-properties-name
+         :refname: name
          :type: (string)
 
 .. api-header::
@@ -98,6 +101,7 @@ Creates a new, empty address book.
 
    .. api-member::
       :refid: address-books-create-returns
+      :refname: _returns
       :type: string
       :annotation: -- [Added in TB 89]
 
@@ -127,6 +131,7 @@ Removes an address book, and all associated contacts and mailing lists.
    .. api-member::
       :name: ``id``
       :refid: address-books-delete-id
+      :refname: id
       :type: (string)
 
 .. api-header::
@@ -151,6 +156,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
    .. api-member::
       :name: ``id``
       :refid: address-books-get-id
+      :refname: id
       :type: (string)
 
    .. _address^books.get.complete:
@@ -158,6 +164,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
    .. api-member::
       :name: [``complete``]
       :refid: address-books-get-complete
+      :refname: complete
       :type: (boolean, optional)
 
       If set to true, results will include contacts and mailing lists for this address book.
@@ -169,6 +176,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
 
    .. api-member::
       :refid: address-books-get-returns
+      :refname: _returns
       :type: :ref:`address^books.^address^book^node`
       :annotation: -- [Added in TB 89]
 
@@ -196,6 +204,7 @@ Gets a list of the user's address books, optionally including all contacts and m
    .. api-member::
       :name: [``complete``]
       :refid: address-books-list-complete
+      :refname: complete
       :type: (boolean, optional)
 
       If set to true, results will include contacts and mailing lists for each address book.
@@ -207,6 +216,7 @@ Gets a list of the user's address books, optionally including all contacts and m
 
    .. api-member::
       :refid: address-books-list-returns
+      :refname: _returns
       :type: array of :ref:`address^books.^address^book^node`
       :annotation: -- [Added in TB 89]
 
@@ -233,6 +243,7 @@ Opens the address book user interface.
 
    .. api-member::
       :refid: address-books-open-u-i-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 114]
 
@@ -260,6 +271,7 @@ Renames an address book.
    .. api-member::
       :name: ``id``
       :refid: address-books-update-id
+      :refname: id
       :type: (string)
 
    .. _address^books.update.properties:
@@ -267,6 +279,7 @@ Renames an address book.
    .. api-member::
       :name: ``properties``
       :refid: address-books-update-properties
+      :refname: properties
       :type: (object)
 
       .. _address^books.update.properties.name:
@@ -274,6 +287,7 @@ Renames an address book.
       .. api-member::
          :name: ``name``
          :refid: address-books-update-properties-name
+         :refname: name
          :type: (string)
 
 .. api-header::
@@ -303,6 +317,7 @@ Fired when an address book is created.
    .. api-member::
       :name: ``listener(node)``
       :refid: address-books-on-created-listener-node
+      :refname: listener(node)
 
       A function that will be called when this event occurs.
 
@@ -314,6 +329,7 @@ Fired when an address book is created.
    .. api-member::
       :name: ``node``
       :refid: address-books-on-created-node
+      :refname: node
       :type: (:ref:`address^books.^address^book^node`)
 
 .. api-header::
@@ -338,6 +354,7 @@ Fired when an addressBook is deleted.
    .. api-member::
       :name: ``listener(id)``
       :refid: address-books-on-deleted-listener-id
+      :refname: listener(id)
 
       A function that will be called when this event occurs.
 
@@ -349,6 +366,7 @@ Fired when an addressBook is deleted.
    .. api-member::
       :name: ``id``
       :refid: address-books-on-deleted-id
+      :refname: id
       :type: (string)
 
 .. api-header::
@@ -373,6 +391,7 @@ Fired when an address book is renamed.
    .. api-member::
       :name: ``listener(node)``
       :refid: address-books-on-updated-listener-node
+      :refname: listener(node)
 
       A function that will be called when this event occurs.
 
@@ -384,6 +403,7 @@ Fired when an address book is renamed.
    .. api-member::
       :name: ``node``
       :refid: address-books-on-updated-node
+      :refname: node
       :type: (:ref:`address^books.^address^book^node`)
 
 .. api-header::
@@ -413,6 +433,7 @@ A node representing an address book.
    .. api-member::
       :name: ``id``
       :refid: address-books-address-book-node-id
+      :refname: id
       :type: (string)
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
@@ -422,6 +443,7 @@ A node representing an address book.
    .. api-member::
       :name: ``name``
       :refid: address-books-address-book-node-name
+      :refname: name
       :type: (string)
 
    .. _address^books.^address^book^node.type:
@@ -429,6 +451,7 @@ A node representing an address book.
    .. api-member::
       :name: ``type``
       :refid: address-books-address-book-node-type
+      :refname: type
       :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`addressBook`.
@@ -438,6 +461,7 @@ A node representing an address book.
    .. api-member::
       :name: [``contacts``]
       :refid: address-books-address-book-node-contacts
+      :refname: contacts
       :type: (array of :ref:`contacts.^contact^node`, optional)
 
       A list of contacts held by this node's address book or mailing list.
@@ -447,6 +471,7 @@ A node representing an address book.
    .. api-member::
       :name: [``mailingLists``]
       :refid: address-books-address-book-node-mailing-lists
+      :refname: mailingLists
       :type: (array of :ref:`mailing^lists.^mailing^list^node`, optional)
 
       A list of mailingLists in this node's address book.
@@ -456,6 +481,7 @@ A node representing an address book.
    .. api-member::
       :name: [``parentId``]
       :refid: address-books-address-book-node-parent-id
+      :refname: parentId
       :type: (string, optional)
 
       The :value:`id` of the parent object.
@@ -465,6 +491,7 @@ A node representing an address book.
    .. api-member::
       :name: [``readOnly``]
       :refid: address-books-address-book-node-read-only
+      :refname: readOnly
       :type: (boolean, optional)
 
       Indicates if the object is read-only.
@@ -474,6 +501,7 @@ A node representing an address book.
    .. api-member::
       :name: [``remote``]
       :refid: address-books-address-book-node-remote
+      :refname: remote
       :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
 
@@ -502,15 +530,18 @@ Indicates the type of a Node.
          .. api-member::
             :name: :value:`addressBook`
             :refid: address-books-node-type-address-book
+            :refname: addressBook
 
          .. _address^books.^node^type.contact:
 
          .. api-member::
             :name: :value:`contact`
             :refid: address-books-node-type-contact
+            :refname: contact
 
          .. _address^books.^node^type.mailing^list:
 
          .. api-member::
             :name: :value:`mailingList`
             :refid: address-books-node-type-mailing-list
+            :refname: mailingList

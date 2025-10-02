@@ -306,3 +306,14 @@ a.reference.external::after {
     margin: 0;
     padding: 0;
 }
+.api-member-hide-bullet-point .api-member-bullet {
+  visibility: hidden;
+}
+
+.api-member-depth-1 {
+  margin-left: 1ex;
+}
+
+.api-member-depth-2 {
+  margin-left: 2em;
+}

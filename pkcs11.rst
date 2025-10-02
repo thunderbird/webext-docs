@@ -39,6 +39,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`pkcs11`
    :refid: pkcs11-permission-pkcs11
+   :refname: pkcs11
 
    Grant access to some or all methods of the pkcs11 API.
 
@@ -70,6 +71,7 @@ Enumerate a module's slots, each with their name and whether a token is present
    .. api-member::
       :name: ``name``
       :refid: pkcs11-get-module-slots-name
+      :refname: name
       :type: (string)
 
 .. api-header::
@@ -94,6 +96,7 @@ Install a PKCS#11 module with a given name
    .. api-member::
       :name: ``name``
       :refid: pkcs11-install-module-name
+      :refname: name
       :type: (string)
 
    .. _pkcs11.install^module.flags:
@@ -101,6 +104,7 @@ Install a PKCS#11 module with a given name
    .. api-member::
       :name: [``flags``]
       :refid: pkcs11-install-module-flags
+      :refname: flags
       :type: (integer, optional)
 
 .. api-header::
@@ -125,6 +129,7 @@ checks whether a PKCS#11 module, given by name, is installed
    .. api-member::
       :name: ``name``
       :refid: pkcs11-is-module-installed-name
+      :refname: name
       :type: (string)
 
 .. api-header::
@@ -149,6 +154,7 @@ Remove an installed PKCS#11 module from firefox
    .. api-member::
       :name: ``name``
       :refid: pkcs11-uninstall-module-name
+      :refname: name
       :type: (string)
 
 .. api-header::
