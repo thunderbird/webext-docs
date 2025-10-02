@@ -35,8 +35,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _privacy.network.permission.privacy:
+
 .. api-member::
    :name: :permission:`privacy`
+   :refid: privacy-network-permission-privacy
 
    Read and modify privacy settings.
 
@@ -69,14 +72,23 @@ The mode for https-only mode.
 
          Supported values:
 
+         .. _privacy.network.^h^t^t^p^s^only^mode^option.always:
+
          .. api-member::
             :name: :value:`always`
+            :refid: privacy-network-h-t-t-p-s-only-mode-option-always
+
+         .. _privacy.network.^h^t^t^p^s^only^mode^option.never:
 
          .. api-member::
             :name: :value:`never`
+            :refid: privacy-network-h-t-t-p-s-only-mode-option-never
+
+         .. _privacy.network.^h^t^t^p^s^only^mode^option.private_browsing:
 
          .. api-member::
             :name: :value:`private_browsing`
+            :refid: privacy-network-h-t-t-p-s-only-mode-option-private-browsing
 
 .. _privacy.network.^i^p^handling^policy:
 
@@ -96,20 +108,35 @@ The IP handling policy of WebRTC.
 
          Supported values:
 
+         .. _privacy.network.^i^p^handling^policy.default:
+
          .. api-member::
             :name: :value:`default`
+            :refid: privacy-network-i-p-handling-policy-default
+
+         .. _privacy.network.^i^p^handling^policy.default_public_and_private_interfaces:
 
          .. api-member::
             :name: :value:`default_public_and_private_interfaces`
+            :refid: privacy-network-i-p-handling-policy-default-public-and-private-interfaces
+
+         .. _privacy.network.^i^p^handling^policy.default_public_interface_only:
 
          .. api-member::
             :name: :value:`default_public_interface_only`
+            :refid: privacy-network-i-p-handling-policy-default-public-interface-only
+
+         .. _privacy.network.^i^p^handling^policy.disable_non_proxied_udp:
 
          .. api-member::
             :name: :value:`disable_non_proxied_udp`
+            :refid: privacy-network-i-p-handling-policy-disable-non-proxied-udp
+
+         .. _privacy.network.^i^p^handling^policy.proxy_only:
 
          .. api-member::
             :name: :value:`proxy_only`
+            :refid: privacy-network-i-p-handling-policy-proxy-only
 
 .. _privacy.network.tls^version^restriction^config:
 
@@ -127,51 +154,83 @@ An object which describes TLS minimum and maximum versions.
 
    .. api-member::
       :name: [``maximum``]
+      :refid: privacy-network-tls-version-restriction-config-maximum
       :type: (`string`, optional)
 
       The maximum TLS version supported.
 
       Supported values:
 
+      .. _privacy.network.tls^version^restriction^config.maximum.^t^l^sv1:
+
       .. api-member::
          :name: :value:`TLSv1`
+         :refid: privacy-network-tls-version-restriction-config-maximum-t-l-sv1
+
+      .. _privacy.network.tls^version^restriction^config.maximum.^t^l^sv1.1:
 
       .. api-member::
          :name: :value:`TLSv1.1`
+         :refid: privacy-network-tls-version-restriction-config-maximum-t-l-sv1-1
+
+      .. _privacy.network.tls^version^restriction^config.maximum.^t^l^sv1.2:
 
       .. api-member::
          :name: :value:`TLSv1.2`
+         :refid: privacy-network-tls-version-restriction-config-maximum-t-l-sv1-2
+
+      .. _privacy.network.tls^version^restriction^config.maximum.^t^l^sv1.3:
 
       .. api-member::
          :name: :value:`TLSv1.3`
+         :refid: privacy-network-tls-version-restriction-config-maximum-t-l-sv1-3
+
+      .. _privacy.network.tls^version^restriction^config.maximum.unknown:
 
       .. api-member::
          :name: :value:`unknown`
+         :refid: privacy-network-tls-version-restriction-config-maximum-unknown
 
    .. _privacy.network.tls^version^restriction^config.minimum:
 
    .. api-member::
       :name: [``minimum``]
+      :refid: privacy-network-tls-version-restriction-config-minimum
       :type: (`string`, optional)
 
       The minimum TLS version supported.
 
       Supported values:
 
+      .. _privacy.network.tls^version^restriction^config.minimum.^t^l^sv1:
+
       .. api-member::
          :name: :value:`TLSv1`
+         :refid: privacy-network-tls-version-restriction-config-minimum-t-l-sv1
+
+      .. _privacy.network.tls^version^restriction^config.minimum.^t^l^sv1.1:
 
       .. api-member::
          :name: :value:`TLSv1.1`
+         :refid: privacy-network-tls-version-restriction-config-minimum-t-l-sv1-1
+
+      .. _privacy.network.tls^version^restriction^config.minimum.^t^l^sv1.2:
 
       .. api-member::
          :name: :value:`TLSv1.2`
+         :refid: privacy-network-tls-version-restriction-config-minimum-t-l-sv1-2
+
+      .. _privacy.network.tls^version^restriction^config.minimum.^t^l^sv1.3:
 
       .. api-member::
          :name: :value:`TLSv1.3`
+         :refid: privacy-network-tls-version-restriction-config-minimum-t-l-sv1-3
+
+      .. _privacy.network.tls^version^restriction^config.minimum.unknown:
 
       .. api-member::
          :name: :value:`unknown`
+         :refid: privacy-network-tls-version-restriction-config-minimum-unknown
 
 .. rst-class:: api-main-section
 

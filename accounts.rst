@@ -32,8 +32,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _accounts.permission.accounts^read:
+
 .. api-member::
    :name: :permission:`accountsRead`
+   :refid: accounts-permission-accounts-read
 
    See your mail accounts, their identities and their folders.
 
@@ -60,12 +63,18 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
 .. api-header::
    :label: Parameters
 
+   .. _accounts.get.account^id:
+
    .. api-member::
       :name: ``accountId``
+      :refid: accounts-get-account-id
       :type: (:ref:`accounts.^mail^account^id`)
+
+   .. _accounts.get.include^sub^folders:
 
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: accounts-get-include-sub-folders
       :type: (boolean, optional)
       :annotation: -- [Added in TB 89]
 
@@ -74,7 +83,10 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _accounts.get.returns:
+
    .. api-member::
+      :refid: accounts-get-returns
       :type: :ref:`accounts.^mail^account` or null
       :annotation: -- [Added in TB 91]
 
@@ -97,8 +109,11 @@ Returns the default account, or :value:`null` if it is not defined.
 .. api-header::
    :label: Parameters
 
+   .. _accounts.get^default.include^sub^folders:
+
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: accounts-get-default-include-sub-folders
       :type: (boolean, optional)
       :annotation: -- [Added in TB 89]
 
@@ -107,7 +122,10 @@ Returns the default account, or :value:`null` if it is not defined.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _accounts.get^default.returns:
+
    .. api-member::
+      :refid: accounts-get-default-returns
       :type: :ref:`accounts.^mail^account` or null
       :annotation: -- [Added in TB 91]
 
@@ -130,8 +148,11 @@ Returns all mail accounts. They will be returned in the same order as used in Th
 .. api-header::
    :label: Parameters
 
+   .. _accounts.list.include^sub^folders:
+
    .. api-member::
       :name: [``includeSubFolders``]
+      :refid: accounts-list-include-sub-folders
       :type: (boolean, optional)
       :annotation: -- [Added in TB 89]
 
@@ -140,7 +161,10 @@ Returns all mail accounts. They will be returned in the same order as used in Th
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _accounts.list.returns:
+
    .. api-member::
+      :refid: accounts-list-returns
       :type: array of :ref:`accounts.^mail^account`
       :annotation: -- [Added in TB 91]
 
@@ -168,20 +192,29 @@ Fired when a new account has been created.
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
+   .. _accounts.on^created.listener(account^id, account):
+
    .. api-member::
       :name: ``listener(accountId, account)``
+      :refid: accounts-on-created-listener-account-id-account
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _accounts.on^created.account^id:
+
    .. api-member::
       :name: ``accountId``
+      :refid: accounts-on-created-account-id
       :type: (:ref:`accounts.^mail^account^id`)
+
+   .. _accounts.on^created.account:
 
    .. api-member::
       :name: ``account``
+      :refid: accounts-on-created-account
       :type: (:ref:`accounts.^mail^account`)
 
 .. api-header::
@@ -201,16 +234,22 @@ Fired when an account has been removed.
 .. api-header::
    :label: Parameters for onDeleted.addListener(listener)
 
+   .. _accounts.on^deleted.listener(account^id):
+
    .. api-member::
       :name: ``listener(accountId)``
+      :refid: accounts-on-deleted-listener-account-id
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _accounts.on^deleted.account^id:
+
    .. api-member::
       :name: ``accountId``
+      :refid: accounts-on-deleted-account-id
       :type: (:ref:`accounts.^mail^account^id`)
 
 .. api-header::
@@ -230,30 +269,45 @@ Fired when a property of an account has been modified. Folders and identities of
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
 
+   .. _accounts.on^updated.listener(account^id, changed^values):
+
    .. api-member::
       :name: ``listener(accountId, changedValues)``
+      :refid: accounts-on-updated-listener-account-id-changed-values
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _accounts.on^updated.account^id:
+
    .. api-member::
       :name: ``accountId``
+      :refid: accounts-on-updated-account-id
       :type: (:ref:`accounts.^mail^account^id`)
+
+   .. _accounts.on^updated.changed^values:
 
    .. api-member::
       :name: ``changedValues``
+      :refid: accounts-on-updated-changed-values
       :type: (object)
+
+      .. _accounts.on^updated.changed^values.default^identity:
 
       .. api-member::
          :name: ``defaultIdentity``
+         :refid: accounts-on-updated-changed-values-default-identity
          :type: (:ref:`identities.^mail^identity`)
 
          The default identity of this account.
 
+      .. _accounts.on^updated.changed^values.name:
+
       .. api-member::
          :name: ``name``
+         :refid: accounts-on-updated-changed-values-name
          :type: (string)
 
          The human-friendly name of this account.
@@ -296,6 +350,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``id``
+      :refid: accounts-mail-account-id
       :type: (:ref:`accounts.^mail^account^id`)
 
       A unique identifier for this account.
@@ -304,6 +359,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``identities``
+      :refid: accounts-mail-account-identities
       :type: (array of :ref:`identities.^mail^identity`)
 
       The identities associated with this account. The default identity is listed first, others in no particular order.
@@ -312,6 +368,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``name``
+      :refid: accounts-mail-account-name
       :type: (string)
 
       The human-friendly name of this account.
@@ -320,6 +377,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``rootFolder``
+      :refid: accounts-mail-account-root-folder
       :type: (:ref:`folders.^mail^folder`)
       :annotation: -- [Added in TB 121]
 
@@ -329,6 +387,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
    .. api-member::
       :name: ``type``
+      :refid: accounts-mail-account-type
       :type: (:ref:`accounts.^native^mail^account^type` or :ref:`accounts.^extension^mail^account^type`)
 
       What sort of account this is. Either one of the natively supported account types, or an account type added by an extension.
@@ -363,21 +422,39 @@ The type of an account natively supported by Thunderbird.
 
          Supported values:
 
+         .. _accounts.^native^mail^account^type.ews:
+
          .. api-member::
             :name: :value:`ews`
+            :refid: accounts-native-mail-account-type-ews
             :annotation: -- [Added in TB 142]
+
+         .. _accounts.^native^mail^account^type.imap:
 
          .. api-member::
             :name: :value:`imap`
+            :refid: accounts-native-mail-account-type-imap
+
+         .. _accounts.^native^mail^account^type.local:
 
          .. api-member::
             :name: :value:`local`
+            :refid: accounts-native-mail-account-type-local
+
+         .. _accounts.^native^mail^account^type.nntp:
 
          .. api-member::
             :name: :value:`nntp`
+            :refid: accounts-native-mail-account-type-nntp
+
+         .. _accounts.^native^mail^account^type.pop3:
 
          .. api-member::
             :name: :value:`pop3`
+            :refid: accounts-native-mail-account-type-pop3
+
+         .. _accounts.^native^mail^account^type.rss:
 
          .. api-member::
             :name: :value:`rss`
+            :refid: accounts-native-mail-account-type-rss

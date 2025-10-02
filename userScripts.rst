@@ -41,8 +41,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _user^scripts.permission.user^scripts:
+
 .. api-member::
    :name: :permission:`userScripts`
+   :refid: user-scripts-permission-user-scripts
 
    Allow unverified third-party scripts to access your data.
 
@@ -75,8 +78,11 @@ Configures the environment for scripts running in a USER_SCRIPT world.
 .. api-header::
    :label: Parameters
 
+   .. _user^scripts.configure^world.properties:
+
    .. api-member::
       :name: ``properties``
+      :refid: user-scripts-configure-world-properties
       :type: (:ref:`user^scripts.^world^properties`)
 
       The desired configuration for a USER_SCRIPT world.
@@ -98,8 +104,11 @@ Returns all dynamically-registered user scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _user^scripts.get^scripts.filter:
+
    .. api-member::
       :name: [``filter``]
+      :refid: user-scripts-get-scripts-filter
       :type: (:ref:`user^scripts.^user^script^filter`, optional)
 
       If specified, this method returns only the user scripts that match it.
@@ -107,7 +116,10 @@ Returns all dynamically-registered user scripts for this extension.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _user^scripts.get^scripts.returns:
+
    .. api-member::
+      :refid: user-scripts-get-scripts-returns
       :type: array of :ref:`user^scripts.^registered^user^script`
 
       List of registered user scripts.
@@ -131,7 +143,10 @@ Returns all registered USER_SCRIPT world configurations.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _user^scripts.get^world^configurations.returns:
+
    .. api-member::
+      :refid: user-scripts-get-world-configurations-returns
       :type: array of :ref:`user^scripts.^world^properties`
 
       All configurations registered with configureWorld().
@@ -159,8 +174,11 @@ Registers one or more user scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _user^scripts.register.scripts:
+
    .. api-member::
       :name: ``scripts``
+      :refid: user-scripts-register-scripts
       :type: (array of :ref:`user^scripts.^registered^user^script`)
 
       List of user scripts to be registered.
@@ -182,8 +200,11 @@ Resets the configuration for a given world. That world will fall back to the def
 .. api-header::
    :label: Parameters
 
+   .. _user^scripts.reset^world^configuration.world^id:
+
    .. api-member::
       :name: [``worldId``]
+      :refid: user-scripts-reset-world-configuration-world-id
       :type: (string, optional)
 
       The ID of the USER_SCRIPT world to reset. If omitted or empty, resets the default world's configuration.
@@ -205,8 +226,11 @@ Unregisters all dynamically-registered user scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _user^scripts.unregister.filter:
+
    .. api-member::
       :name: [``filter``]
+      :refid: user-scripts-unregister-filter
       :type: (:ref:`user^scripts.^user^script^filter`, optional)
 
       If specified, this method unregisters only the user scripts that match it.
@@ -228,8 +252,11 @@ Updates one or more user scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _user^scripts.update.scripts:
+
    .. api-member::
       :name: ``scripts``
+      :refid: user-scripts-update-scripts
       :type: (array of object)
 
       List of user scripts to be updated.
@@ -262,11 +289,17 @@ The JavaScript world for a script to execute within. :code:`USER_SCRIPT` is the 
 
          Supported values:
 
+         .. _user^scripts.^execution^world.^m^a^i^n:
+
          .. api-member::
             :name: :value:`MAIN`
+            :refid: user-scripts-execution-world-m-a-i-n
+
+         .. _user^scripts.^execution^world.^u^s^e^r_^s^c^r^i^p^t:
 
          .. api-member::
             :name: :value:`USER_SCRIPT`
+            :refid: user-scripts-execution-world-u-s-e-r-s-c-r-i-p-t
 
 .. _user^scripts.^match^pattern:
 
@@ -284,8 +317,11 @@ MatchPattern
 
          Supported values:
 
+         .. _user^scripts.^match^pattern.<all_urls>:
+
          .. api-member::
             :name: :value:`<all_urls>`
+            :refid: user-scripts-match-pattern-all-urls
 
 *or*
 
@@ -342,6 +378,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: ``id``
+      :refid: user-scripts-registered-user-script-id
       :type: (string)
 
       The ID of the user script specified in the API call. This property must not start with a '_' as it's reserved as a prefix for generated script IDs.
@@ -350,6 +387,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: ``js``
+      :refid: user-scripts-registered-user-script-js
       :type: (array of :ref:`user^scripts.^script^source`)
 
       The list of ScriptSource objects defining sources of scripts to be injected into matching pages.
@@ -358,6 +396,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``allFrames``]
+      :refid: user-scripts-registered-user-script-all-frames
       :type: (boolean, optional)
 
       If allFrames is :code:`true`, implies that the JavaScript should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
@@ -366,18 +405,21 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``excludeGlobs``]
+      :refid: user-scripts-registered-user-script-exclude-globs
       :type: (array of string, optional)
 
    .. _user^scripts.^registered^user^script.exclude^matches:
 
    .. api-member::
       :name: [``excludeMatches``]
+      :refid: user-scripts-registered-user-script-exclude-matches
       :type: (array of :ref:`user^scripts.^match^pattern`, optional)
 
    .. _user^scripts.^registered^user^script.include^globs:
 
    .. api-member::
       :name: [``includeGlobs``]
+      :refid: user-scripts-registered-user-script-include-globs
       :type: (array of string, optional)
 
       At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
@@ -386,6 +428,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``matches``]
+      :refid: user-scripts-registered-user-script-matches
       :type: (array of :ref:`user^scripts.^match^pattern`, optional)
 
       At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
@@ -394,6 +437,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``runAt``]
+      :refid: user-scripts-registered-user-script-run-at
       :type: (:ref:`user^scripts.^run^at`, optional)
 
       The soonest that the JavaScript will be injected into the tab. Defaults to "document_idle".
@@ -402,6 +446,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``world``]
+      :refid: user-scripts-registered-user-script-world
       :type: (:ref:`user^scripts.^execution^world`, optional)
 
       The JavaScript script for a script to execute within. Defaults to "USER_SCRIPT".
@@ -410,6 +455,7 @@ An object that represents a user script registered programmatically
 
    .. api-member::
       :name: [``worldId``]
+      :refid: user-scripts-registered-user-script-world-id
       :type: (string, optional)
 
       If specified, specifies a specific user script world ID to execute in. Only valid if :value:`world` is omitted or is :value:`USER_SCRIPT`. If :value:`worldId` is omitted, the script will execute in the default user script world (""). Values with leading underscores (:value:`_`) are reserved. The maximum length is 256.
@@ -432,14 +478,23 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 
          Supported values:
 
+         .. _user^scripts.^run^at.document_end:
+
          .. api-member::
             :name: :value:`document_end`
+            :refid: user-scripts-run-at-document-end
+
+         .. _user^scripts.^run^at.document_idle:
 
          .. api-member::
             :name: :value:`document_idle`
+            :refid: user-scripts-run-at-document-idle
+
+         .. _user^scripts.^run^at.document_start:
 
          .. api-member::
             :name: :value:`document_start`
+            :refid: user-scripts-run-at-document-start
 
 .. _user^scripts.^script^source:
 
@@ -457,8 +512,11 @@ Object with file xor code property. Equivalent to the ExtensionFileOrCode, excep
 
       .. container:: api-member-description-only
 
+         .. _user^scripts.^script^source.file:
+
          .. api-member::
             :name: ``file``
+            :refid: user-scripts-script-source-file
             :type: (string)
 
             The path of the JavaScript file to inject relative to the extension's root directory.
@@ -472,8 +530,11 @@ Object with file xor code property. Equivalent to the ExtensionFileOrCode, excep
 
       .. container:: api-member-description-only
 
+         .. _user^scripts.^script^source.code:
+
          .. api-member::
             :name: ``code``
+            :refid: user-scripts-script-source-code
             :type: (string)
 
 .. _user^scripts.^user^script^filter:
@@ -492,6 +553,7 @@ Optional filter to use with getScripts() and unregister().
 
    .. api-member::
       :name: [``ids``]
+      :refid: user-scripts-user-script-filter-ids
       :type: (array of string, optional)
 
 .. _user^scripts.^world^properties:
@@ -510,6 +572,7 @@ The configuration of a USER_SCRIPT world.
 
    .. api-member::
       :name: [``csp``]
+      :refid: user-scripts-world-properties-csp
       :type: (string, optional)
 
       The world's Content Security Policy. Defaults to the CSP of regular content scripts, which prohibits dynamic code execution such as eval.
@@ -518,6 +581,7 @@ The configuration of a USER_SCRIPT world.
 
    .. api-member::
       :name: [``messaging``]
+      :refid: user-scripts-world-properties-messaging
       :type: (boolean, optional)
 
       Whether the runtime.sendMessage and runtime.connect methods are exposed. Defaults to not exposing these messaging APIs.
@@ -526,6 +590,7 @@ The configuration of a USER_SCRIPT world.
 
    .. api-member::
       :name: [``worldId``]
+      :refid: user-scripts-world-properties-world-id
       :type: (string, optional)
 
       The identifier of the world. Values with leading underscores (:value:`_`) are reserved. The maximum length is 256. Defaults to the default USER_SCRIPT world ("").

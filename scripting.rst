@@ -35,8 +35,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _scripting.permission.scripting:
+
 .. api-member::
    :name: :permission:`scripting`
+   :refid: scripting-permission-scripting
 
    Grant access to some or all methods of the scripting API.
 
@@ -63,8 +66,11 @@ Injects a script into a target context. The script will be run at :code:`documen
 .. api-header::
    :label: Parameters
 
+   .. _scripting.execute^script.injection:
+
    .. api-member::
       :name: ``injection``
+      :refid: scripting-execute-script-injection
       :type: (:ref:`scripting.^script^injection`)
 
       The details of the script which to inject.
@@ -72,7 +78,10 @@ Injects a script into a target context. The script will be run at :code:`documen
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _scripting.execute^script.returns:
+
    .. api-member::
+      :refid: scripting-execute-script-returns
       :type: array of :ref:`scripting.^injection^result`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -94,8 +103,11 @@ Returns all dynamically registered content scripts for this extension that match
 .. api-header::
    :label: Parameters
 
+   .. _scripting.get^registered^content^scripts.filter:
+
    .. api-member::
       :name: [``filter``]
+      :refid: scripting-get-registered-content-scripts-filter
       :type: (:ref:`scripting.^content^script^filter`, optional)
 
       An object to filter the extension's dynamically registered scripts.
@@ -103,7 +115,10 @@ Returns all dynamically registered content scripts for this extension that match
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _scripting.get^registered^content^scripts.returns:
+
    .. api-member::
+      :refid: scripting-get-registered-content-scripts-returns
       :type: array of :ref:`scripting.^registered^content^script`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -125,8 +140,11 @@ Inserts a CSS stylesheet into a target context. If multiple frames are specified
 .. api-header::
    :label: Parameters
 
+   .. _scripting.insert^c^s^s.injection:
+
    .. api-member::
       :name: ``injection``
+      :refid: scripting-insert-c-s-s-injection
       :type: (:ref:`scripting.^c^s^s^injection`)
 
       The details of the styles to insert.
@@ -148,8 +166,11 @@ Registers one or more content scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _scripting.register^content^scripts.scripts:
+
    .. api-member::
       :name: ``scripts``
+      :refid: scripting-register-content-scripts-scripts
       :type: (array of :ref:`scripting.^registered^content^script`)
 
       Contains a list of scripts to be registered. If there are errors during script parsing/file validation, or if the IDs specified already exist, then no scripts are registered.
@@ -171,8 +192,11 @@ Removes a CSS stylesheet that was previously inserted by this extension from a t
 .. api-header::
    :label: Parameters
 
+   .. _scripting.remove^c^s^s.injection:
+
    .. api-member::
       :name: ``injection``
+      :refid: scripting-remove-c-s-s-injection
       :type: (:ref:`scripting.^c^s^s^injection`)
 
       The details of the styles to remove. Note that the :code:`css`, :code:`files`, and :code:`origin` properties must exactly match the stylesheet inserted through :code:`insertCSS`. Attempting to remove a non-existent stylesheet is a no-op.
@@ -194,8 +218,11 @@ Unregisters one or more content scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _scripting.unregister^content^scripts.filter:
+
    .. api-member::
       :name: [``filter``]
+      :refid: scripting-unregister-content-scripts-filter
       :type: (:ref:`scripting.^content^script^filter`, optional)
 
       If specified, only unregisters dynamic content scripts which match the filter. Otherwise, all of the extension's dynamic content scripts are unregistered.
@@ -217,8 +244,11 @@ Updates one or more content scripts for this extension.
 .. api-header::
    :label: Parameters
 
+   .. _scripting.update^content^scripts.scripts:
+
    .. api-member::
       :name: ``scripts``
+      :refid: scripting-update-content-scripts-scripts
       :type: (array of object)
 
       Contains a list of scripts to be updated. If there are errors during script parsing/file validation, or if the IDs specified do not already exist, then no scripts are updated.
@@ -247,6 +277,7 @@ ContentScriptFilter
 
    .. api-member::
       :name: [``ids``]
+      :refid: scripting-content-script-filter-ids
       :type: (array of string, optional)
 
       The IDs of specific scripts to retrieve with :code:`getRegisteredContentScripts()` or to unregister with :code:`unregisterContentScripts()`.
@@ -265,6 +296,7 @@ CSSInjection
 
    .. api-member::
       :name: ``target``
+      :refid: scripting-c-s-s-injection-target
       :type: (:ref:`scripting.^injection^target`)
 
       Details specifying the target into which to inject the CSS.
@@ -273,6 +305,7 @@ CSSInjection
 
    .. api-member::
       :name: [``css``]
+      :refid: scripting-c-s-s-injection-css
       :type: (string, optional)
 
       A string containing the CSS to inject. Exactly one of :code:`files` and :code:`css` must be specified.
@@ -281,6 +314,7 @@ CSSInjection
 
    .. api-member::
       :name: [``files``]
+      :refid: scripting-c-s-s-injection-files
       :type: (array of string, optional)
 
       The path of the CSS files to inject, relative to the extension's root directory. Exactly one of :code:`files` and :code:`css` must be specified.
@@ -289,17 +323,24 @@ CSSInjection
 
    .. api-member::
       :name: [``origin``]
+      :refid: scripting-c-s-s-injection-origin
       :type: (`string`, optional)
 
       The style origin for the injection. Defaults to :code:`'AUTHOR'`.
 
       Supported values:
 
+      .. _scripting.^c^s^s^injection.origin.^a^u^t^h^o^r:
+
       .. api-member::
          :name: :value:`AUTHOR`
+         :refid: scripting-c-s-s-injection-origin-a-u-t-h-o-r
+
+      .. _scripting.^c^s^s^injection.origin.^u^s^e^r:
 
       .. api-member::
          :name: :value:`USER`
+         :refid: scripting-c-s-s-injection-origin-u-s-e-r
 
 .. _scripting.^c^s^s^origin:
 
@@ -319,11 +360,17 @@ The origin of the CSS to inject, this affects the cascading order (priority) of 
 
          Supported values:
 
+         .. _scripting.^c^s^s^origin.author:
+
          .. api-member::
             :name: :value:`author`
+            :refid: scripting-c-s-s-origin-author
+
+         .. _scripting.^c^s^s^origin.user:
 
          .. api-member::
             :name: :value:`user`
+            :refid: scripting-c-s-s-origin-user
 
 .. _scripting.^execution^world:
 
@@ -343,11 +390,17 @@ The JavaScript world for a script to execute within. :code:`ISOLATED` is the def
 
          Supported values:
 
+         .. _scripting.^execution^world.^i^s^o^l^a^t^e^d:
+
          .. api-member::
             :name: :value:`ISOLATED`
+            :refid: scripting-execution-world-i-s-o-l-a-t-e-d
+
+         .. _scripting.^execution^world.^m^a^i^n:
 
          .. api-member::
             :name: :value:`MAIN`
+            :refid: scripting-execution-world-m-a-i-n
             :annotation: -- [Added in TB 128]
 
 .. _scripting.^extension^u^r^l:
@@ -378,6 +431,7 @@ Result of a script injection.
 
    .. api-member::
       :name: ``frameId``
+      :refid: scripting-injection-result-frame-id
       :type: (integer)
 
       The frame ID associated with the injection.
@@ -386,6 +440,7 @@ Result of a script injection.
 
    .. api-member::
       :name: [``error``]
+      :refid: scripting-injection-result-error
       :type: (any, optional)
 
       The error property is set when the script execution failed. The value is typically an (Error) object with a message property, but could be any value (including primitives and undefined) if the script threw or rejected with such a value.
@@ -394,6 +449,7 @@ Result of a script injection.
 
    .. api-member::
       :name: [``result``]
+      :refid: scripting-injection-result-result
       :type: (any, optional)
 
       The result of the script execution.
@@ -412,6 +468,7 @@ InjectionTarget
 
    .. api-member::
       :name: ``tabId``
+      :refid: scripting-injection-target-tab-id
       :type: (number)
 
       The ID of the tab into which to inject.
@@ -420,6 +477,7 @@ InjectionTarget
 
    .. api-member::
       :name: [``allFrames``]
+      :refid: scripting-injection-target-all-frames
       :type: (boolean, optional)
 
       Whether the script should inject into all frames within the tab. Defaults to false. This must not be true if :code:`frameIds` is specified.
@@ -428,6 +486,7 @@ InjectionTarget
 
    .. api-member::
       :name: [``frameIds``]
+      :refid: scripting-injection-target-frame-ids
       :type: (array of number, optional)
 
       The IDs of specific frames to inject into.
@@ -446,6 +505,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: ``id``
+      :refid: scripting-registered-content-script-id
       :type: (string)
 
       The id of the content script, specified in the API call.
@@ -454,6 +514,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``allFrames``]
+      :refid: scripting-registered-content-script-all-frames
       :type: (boolean, optional)
 
       If specified true, it will inject into all frames, even if the frame is not the top-most frame in the tab. Each frame is checked independently for URL requirements; it will not inject into child frames if the URL requirements are not met. Defaults to false, meaning that only the top frame is matched.
@@ -462,6 +523,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``css``]
+      :refid: scripting-registered-content-script-css
       :type: (array of :ref:`scripting.^extension^u^r^l`, optional)
 
       The list of CSS files to be injected into matching pages. These are injected in the order they appear in this array.
@@ -470,12 +532,14 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``cssOrigin``]
+      :refid: scripting-registered-content-script-css-origin
       :type: (:ref:`scripting.^c^s^s^origin`, optional)
 
    .. _scripting.^registered^content^script.exclude^matches:
 
    .. api-member::
       :name: [``excludeMatches``]
+      :refid: scripting-registered-content-script-exclude-matches
       :type: (array of string, optional)
 
       Excludes pages that this content script would otherwise be injected into.
@@ -484,6 +548,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``js``]
+      :refid: scripting-registered-content-script-js
       :type: (array of :ref:`scripting.^extension^u^r^l`, optional)
 
       The list of JavaScript files to be injected into matching pages. These are injected in the order they appear in this array.
@@ -492,6 +557,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``matches``]
+      :refid: scripting-registered-content-script-matches
       :type: (array of string, optional)
 
       Specifies which pages this content script will be injected into. Must be specified for :code:`registerContentScripts()`.
@@ -500,6 +566,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``matchOriginAsFallback``]
+      :refid: scripting-registered-content-script-match-origin-as-fallback
       :type: (boolean, optional)
       :annotation: -- [Added in TB 128]
 
@@ -509,6 +576,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``persistAcrossSessions``]
+      :refid: scripting-registered-content-script-persist-across-sessions
       :type: (boolean, optional)
 
       Specifies if this content script will persist into future sessions. Defaults to true.
@@ -525,6 +593,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``runAt``]
+      :refid: scripting-registered-content-script-run-at
       :type: (:ref:`scripting.^run^at`, optional)
 
       Specifies when JavaScript files are injected into the web page. The preferred and default value is :code:`document_idle`.
@@ -533,6 +602,7 @@ RegisteredContentScript
 
    .. api-member::
       :name: [``world``]
+      :refid: scripting-registered-content-script-world
       :type: (:ref:`scripting.^execution^world`, optional)
       :annotation: -- [Added in TB 128]
 
@@ -556,14 +626,23 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 
          Supported values:
 
+         .. _scripting.^run^at.document_end:
+
          .. api-member::
             :name: :value:`document_end`
+            :refid: scripting-run-at-document-end
+
+         .. _scripting.^run^at.document_idle:
 
          .. api-member::
             :name: :value:`document_idle`
+            :refid: scripting-run-at-document-idle
+
+         .. _scripting.^run^at.document_start:
 
          .. api-member::
             :name: :value:`document_start`
+            :refid: scripting-run-at-document-start
 
 .. _scripting.^script^injection:
 
@@ -581,6 +660,7 @@ Details of a script injection
 
    .. api-member::
       :name: ``target``
+      :refid: scripting-script-injection-target
       :type: (:ref:`scripting.^injection^target`)
 
       Details specifying the target into which to inject the script.
@@ -589,6 +669,7 @@ Details of a script injection
 
    .. api-member::
       :name: [``args``]
+      :refid: scripting-script-injection-args
       :type: (array of any, optional)
 
       The arguments to curry into a provided function. This is only valid if the :code:`func` parameter is specified. These arguments must be JSON-serializable.
@@ -597,6 +678,7 @@ Details of a script injection
 
    .. api-member::
       :name: [``files``]
+      :refid: scripting-script-injection-files
       :type: (array of string, optional)
 
       The path of the JS files to inject, relative to the extension's root directory. Exactly one of :code:`files` and :code:`func` must be specified.
@@ -605,6 +687,7 @@ Details of a script injection
 
    .. api-member::
       :name: [``func``]
+      :refid: scripting-script-injection-func
       :type: (function, optional)
 
       A JavaScript function to inject. This function will be serialized, and then deserialized for injection. This means that any bound parameters and execution context will be lost. Exactly one of :code:`files` and :code:`func` must be specified.
@@ -613,6 +696,7 @@ Details of a script injection
 
    .. api-member::
       :name: [``injectImmediately``]
+      :refid: scripting-script-injection-inject-immediately
       :type: (boolean, optional)
 
       Whether the injection should be triggered in the target as soon as possible (but not necessarily prior to page load).
@@ -621,4 +705,5 @@ Details of a script injection
 
    .. api-member::
       :name: [``world``]
+      :refid: scripting-script-injection-world
       :type: (:ref:`scripting.^execution^world`, optional)

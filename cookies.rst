@@ -32,8 +32,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _cookies.permission.cookies:
+
 .. api-member::
    :name: :permission:`cookies`
+   :refid: cookies-permission-cookies
 
    Grant access to some or all methods of the cookies API.
 
@@ -68,38 +71,56 @@ Retrieves information about a single cookie. If more than one cookie of the same
 .. api-header::
    :label: Parameters
 
+   .. _cookies.get.details:
+
    .. api-member::
       :name: ``details``
+      :refid: cookies-get-details
       :type: (object)
 
       Details to identify the cookie being retrieved.
 
+      .. _cookies.get.details.name:
+
       .. api-member::
          :name: ``name``
+         :refid: cookies-get-details-name
          :type: (string)
 
          The name of the cookie to retrieve.
 
+      .. _cookies.get.details.url:
+
       .. api-member::
          :name: ``url``
+         :refid: cookies-get-details-url
          :type: (string)
 
          The URL with which the cookie to retrieve is associated. This argument may be a full URL, in which case any data following the URL path (e.g. the query string) is simply ignored. If host permissions for this URL are not specified in the manifest file, the API call will fail.
 
+      .. _cookies.get.details.first^party^domain:
+
       .. api-member::
          :name: [``firstPartyDomain``]
+         :refid: cookies-get-details-first-party-domain
          :type: (string, optional)
 
          The first-party domain which the cookie to retrieve is associated. This attribute is required if First-Party Isolation is enabled.
 
+      .. _cookies.get.details.partition^key:
+
       .. api-member::
          :name: [``partitionKey``]
+         :refid: cookies-get-details-partition-key
          :type: (:ref:`cookies.^partition^key`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, only non-partitioned cookies are returned.
 
+      .. _cookies.get.details.store^id:
+
       .. api-member::
          :name: [``storeId``]
+         :refid: cookies-get-details-store-id
          :type: (string, optional)
 
          The ID of the cookie store in which to look for the cookie. By default, the current execution context's cookie store will be used.
@@ -107,7 +128,10 @@ Retrieves information about a single cookie. If more than one cookie of the same
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _cookies.get.returns:
+
    .. api-member::
+      :refid: cookies-get-returns
       :type: :ref:`cookies.^cookie`
 
       Contains details about the cookie. This parameter is null if no such cookie was found.
@@ -139,62 +163,92 @@ Retrieves all cookies from a single cookie store that match the given informatio
 .. api-header::
    :label: Parameters
 
+   .. _cookies.get^all.details:
+
    .. api-member::
       :name: ``details``
+      :refid: cookies-get-all-details
       :type: (object)
 
       Information to filter the cookies being retrieved.
 
+      .. _cookies.get^all.details.domain:
+
       .. api-member::
          :name: [``domain``]
+         :refid: cookies-get-all-details-domain
          :type: (string, optional)
 
          Restricts the retrieved cookies to those whose domains match or are subdomains of this one.
 
+      .. _cookies.get^all.details.first^party^domain:
+
       .. api-member::
          :name: [``firstPartyDomain``]
+         :refid: cookies-get-all-details-first-party-domain
          :type: (string, optional)
 
          Restricts the retrieved cookies to those whose first-party domains match this one. This attribute is required if First-Party Isolation is enabled. To not filter by a specific first-party domain, use :value:`null` or :value:`undefined`.
 
+      .. _cookies.get^all.details.name:
+
       .. api-member::
          :name: [``name``]
+         :refid: cookies-get-all-details-name
          :type: (string, optional)
 
          Filters the cookies by name.
 
+      .. _cookies.get^all.details.partition^key:
+
       .. api-member::
          :name: [``partitionKey``]
+         :refid: cookies-get-all-details-partition-key
          :type: (:ref:`cookies.^partition^key`, optional)
 
          Selects a specific storage partition to look up cookies. Defaults to null, in which case only non-partitioned cookies are retrieved. If an object iis passed, partitioned cookies are also included, and filtered based on the keys present in the given PartitionKey description. An empty object ({}) returns all cookies (partitioned + unpartitioned), a non-empty object (e.g. {topLevelSite: '...'}) only returns cookies whose partition match all given attributes.
 
+      .. _cookies.get^all.details.path:
+
       .. api-member::
          :name: [``path``]
+         :refid: cookies-get-all-details-path
          :type: (string, optional)
 
          Restricts the retrieved cookies to those whose path exactly matches this string.
 
+      .. _cookies.get^all.details.secure:
+
       .. api-member::
          :name: [``secure``]
+         :refid: cookies-get-all-details-secure
          :type: (boolean, optional)
 
          Filters the cookies by their Secure property.
 
+      .. _cookies.get^all.details.session:
+
       .. api-member::
          :name: [``session``]
+         :refid: cookies-get-all-details-session
          :type: (boolean, optional)
 
          Filters out session vs. persistent cookies.
 
+      .. _cookies.get^all.details.store^id:
+
       .. api-member::
          :name: [``storeId``]
+         :refid: cookies-get-all-details-store-id
          :type: (string, optional)
 
          The cookie store to retrieve cookies from. If omitted, the current execution context's cookie store will be used.
 
+      .. _cookies.get^all.details.url:
+
       .. api-member::
          :name: [``url``]
+         :refid: cookies-get-all-details-url
          :type: (string, optional)
 
          Restricts the retrieved cookies to those that would match the given URL.
@@ -202,7 +256,10 @@ Retrieves all cookies from a single cookie store that match the given informatio
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _cookies.get^all.returns:
+
    .. api-member::
+      :refid: cookies-get-all-returns
       :type: array of :ref:`cookies.^cookie`
 
       All the existing, unexpired cookies that match the given cookie info.
@@ -230,7 +287,10 @@ Lists all existing cookie stores.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _cookies.get^all^cookie^stores.returns:
+
    .. api-member::
+      :refid: cookies-get-all-cookie-stores-returns
       :type: array of :ref:`cookies.^cookie^store`
 
       All the existing cookie stores.
@@ -262,38 +322,56 @@ Deletes a cookie by name.
 .. api-header::
    :label: Parameters
 
+   .. _cookies.remove.details:
+
    .. api-member::
       :name: ``details``
+      :refid: cookies-remove-details
       :type: (object)
 
       Information to identify the cookie to remove.
 
+      .. _cookies.remove.details.name:
+
       .. api-member::
          :name: ``name``
+         :refid: cookies-remove-details-name
          :type: (string)
 
          The name of the cookie to remove.
 
+      .. _cookies.remove.details.url:
+
       .. api-member::
          :name: ``url``
+         :refid: cookies-remove-details-url
          :type: (string)
 
          The URL associated with the cookie. If host permissions for this URL are not specified in the manifest file, the API call will fail.
 
+      .. _cookies.remove.details.first^party^domain:
+
       .. api-member::
          :name: [``firstPartyDomain``]
+         :refid: cookies-remove-details-first-party-domain
          :type: (string, optional)
 
          The first-party domain associated with the cookie. This attribute is required if First-Party Isolation is enabled.
 
+      .. _cookies.remove.details.partition^key:
+
       .. api-member::
          :name: [``partitionKey``]
+         :refid: cookies-remove-details-partition-key
          :type: (:ref:`cookies.^partition^key`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
+      .. _cookies.remove.details.store^id:
+
       .. api-member::
          :name: [``storeId``]
+         :refid: cookies-remove-details-store-id
          :type: (string, optional)
 
          The ID of the cookie store to look in for the cookie. If unspecified, the cookie is looked for by default in the current execution context's cookie store.
@@ -301,37 +379,55 @@ Deletes a cookie by name.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _cookies.remove.returns:
+
    .. api-member::
+      :refid: cookies-remove-returns
       :type: object
 
       Contains details about the cookie that's been removed.  If removal failed for any reason, this will be "null", and :ref:`runtime.last^error` will be set.
 
+      .. _cookies.remove.returns.first^party^domain:
+
       .. api-member::
          :name: ``firstPartyDomain``
+         :refid: cookies-remove-returns-first-party-domain
          :type: (string)
 
          The first-party domain associated with the cookie that's been removed.
 
+      .. _cookies.remove.returns.name:
+
       .. api-member::
          :name: ``name``
+         :refid: cookies-remove-returns-name
          :type: (string)
 
          The name of the cookie that's been removed.
 
+      .. _cookies.remove.returns.store^id:
+
       .. api-member::
          :name: ``storeId``
+         :refid: cookies-remove-returns-store-id
          :type: (string)
 
          The ID of the cookie store from which the cookie was removed.
 
+      .. _cookies.remove.returns.url:
+
       .. api-member::
          :name: ``url``
+         :refid: cookies-remove-returns-url
          :type: (string)
 
          The URL associated with the cookie that's been removed.
 
+      .. _cookies.remove.returns.partition^key:
+
       .. api-member::
          :name: [``partitionKey``]
+         :refid: cookies-remove-returns-partition-key
          :type: (:ref:`cookies.^partition^key`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. null if not partitioned.
@@ -363,80 +459,119 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 .. api-header::
    :label: Parameters
 
+   .. _cookies.set.details:
+
    .. api-member::
       :name: ``details``
+      :refid: cookies-set-details
       :type: (object)
 
       Details about the cookie being set.
 
+      .. _cookies.set.details.url:
+
       .. api-member::
          :name: ``url``
+         :refid: cookies-set-details-url
          :type: (string)
 
          The request-URI to associate with the setting of the cookie. This value can affect the default domain and path values of the created cookie. If host permissions for this URL are not specified in the manifest file, the API call will fail.
 
+      .. _cookies.set.details.domain:
+
       .. api-member::
          :name: [``domain``]
+         :refid: cookies-set-details-domain
          :type: (string, optional)
 
          The domain of the cookie. If omitted, the cookie becomes a host-only cookie.
 
+      .. _cookies.set.details.expiration^date:
+
       .. api-member::
          :name: [``expirationDate``]
+         :refid: cookies-set-details-expiration-date
          :type: (number, optional)
 
          The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted, the cookie becomes a session cookie.
 
+      .. _cookies.set.details.first^party^domain:
+
       .. api-member::
          :name: [``firstPartyDomain``]
+         :refid: cookies-set-details-first-party-domain
          :type: (string, optional)
 
          The first-party domain of the cookie. This attribute is required if First-Party Isolation is enabled.
 
+      .. _cookies.set.details.http^only:
+
       .. api-member::
          :name: [``httpOnly``]
+         :refid: cookies-set-details-http-only
          :type: (boolean, optional)
 
          Whether the cookie should be marked as HttpOnly. Defaults to false.
 
+      .. _cookies.set.details.name:
+
       .. api-member::
          :name: [``name``]
+         :refid: cookies-set-details-name
          :type: (string, optional)
 
          The name of the cookie. Empty by default if omitted.
 
+      .. _cookies.set.details.partition^key:
+
       .. api-member::
          :name: [``partitionKey``]
+         :refid: cookies-set-details-partition-key
          :type: (:ref:`cookies.^partition^key`, optional)
 
          The storage partition, if the cookie is part of partitioned storage. By default, non-partitioned storage is used.
 
+      .. _cookies.set.details.path:
+
       .. api-member::
          :name: [``path``]
+         :refid: cookies-set-details-path
          :type: (string, optional)
 
          The path of the cookie. Defaults to the path portion of the url parameter.
 
+      .. _cookies.set.details.same^site:
+
       .. api-member::
          :name: [``sameSite``]
+         :refid: cookies-set-details-same-site
          :type: (:ref:`cookies.^same^site^status`, optional)
 
          The cookie's same-site status.
 
+      .. _cookies.set.details.secure:
+
       .. api-member::
          :name: [``secure``]
+         :refid: cookies-set-details-secure
          :type: (boolean, optional)
 
          Whether the cookie should be marked as Secure. Defaults to false.
 
+      .. _cookies.set.details.store^id:
+
       .. api-member::
          :name: [``storeId``]
+         :refid: cookies-set-details-store-id
          :type: (string, optional)
 
          The ID of the cookie store in which to set the cookie. By default, the cookie is set in the current execution context's cookie store.
 
+      .. _cookies.set.details.value:
+
       .. api-member::
          :name: [``value``]
+         :refid: cookies-set-details-value
          :type: (string, optional)
 
          The value of the cookie. Empty by default if omitted.
@@ -444,7 +579,10 @@ Sets a cookie with the given cookie data; may overwrite equivalent cookies if th
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _cookies.set.returns:
+
    .. api-member::
+      :refid: cookies-set-returns
       :type: :ref:`cookies.^cookie`
 
       Contains details about the cookie that's been set.  If setting failed for any reason, this will be "null", and :ref:`runtime.last^error` will be set.
@@ -473,32 +611,47 @@ Fired when a cookie is set or removed. As a special case, note that updating a c
 .. api-header::
    :label: Parameters for onChanged.addListener(listener)
 
+   .. _cookies.on^changed.listener(change^info):
+
    .. api-member::
       :name: ``listener(changeInfo)``
+      :refid: cookies-on-changed-listener-change-info
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _cookies.on^changed.change^info:
+
    .. api-member::
       :name: ``changeInfo``
+      :refid: cookies-on-changed-change-info
       :type: (object)
+
+      .. _cookies.on^changed.change^info.cause:
 
       .. api-member::
          :name: ``cause``
+         :refid: cookies-on-changed-change-info-cause
          :type: (:ref:`cookies.^on^changed^cause`)
 
          The underlying reason behind the cookie's change.
 
+      .. _cookies.on^changed.change^info.cookie:
+
       .. api-member::
          :name: ``cookie``
+         :refid: cookies-on-changed-change-info-cookie
          :type: (:ref:`cookies.^cookie`)
 
          Information about the cookie that was set or removed.
 
+      .. _cookies.on^changed.change^info.removed:
+
       .. api-member::
          :name: ``removed``
+         :refid: cookies-on-changed-change-info-removed
          :type: (boolean)
 
          True if a cookie was removed.
@@ -529,6 +682,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``domain``
+      :refid: cookies-cookie-domain
       :type: (string)
 
       The domain of the cookie (e.g. "www.google.com", "example.com").
@@ -537,6 +691,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``firstPartyDomain``
+      :refid: cookies-cookie-first-party-domain
       :type: (string)
       :annotation: -- [Added in TB 59]
 
@@ -546,6 +701,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``hostOnly``
+      :refid: cookies-cookie-host-only
       :type: (boolean)
 
       True if the cookie is a host-only cookie (i.e. a request's host must exactly match the domain of the cookie).
@@ -554,6 +710,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``httpOnly``
+      :refid: cookies-cookie-http-only
       :type: (boolean)
 
       True if the cookie is marked as HttpOnly (i.e. the cookie is inaccessible to client-side scripts).
@@ -562,6 +719,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``name``
+      :refid: cookies-cookie-name
       :type: (string)
 
       The name of the cookie.
@@ -570,6 +728,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``path``
+      :refid: cookies-cookie-path
       :type: (string)
 
       The path of the cookie.
@@ -578,6 +737,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``sameSite``
+      :refid: cookies-cookie-same-site
       :type: (:ref:`cookies.^same^site^status`)
       :annotation: -- [Added in TB 63]
 
@@ -587,6 +747,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``secure``
+      :refid: cookies-cookie-secure
       :type: (boolean)
 
       True if the cookie is marked as Secure (i.e. its scope is limited to secure channels, typically HTTPS).
@@ -595,6 +756,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``session``
+      :refid: cookies-cookie-session
       :type: (boolean)
 
       True if the cookie is a session cookie, as opposed to a persistent cookie with an expiration date.
@@ -603,6 +765,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``storeId``
+      :refid: cookies-cookie-store-id
       :type: (string)
 
       The ID of the cookie store containing this cookie, as provided in getAllCookieStores().
@@ -611,6 +774,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: ``value``
+      :refid: cookies-cookie-value
       :type: (string)
 
       The value of the cookie.
@@ -619,6 +783,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: [``expirationDate``]
+      :refid: cookies-cookie-expiration-date
       :type: (number, optional)
 
       The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
@@ -627,6 +792,7 @@ Represents information about an HTTP cookie.
 
    .. api-member::
       :name: [``partitionKey``]
+      :refid: cookies-cookie-partition-key
       :type: (:ref:`cookies.^partition^key`, optional)
       :annotation: -- [Added in TB 94]
 
@@ -648,6 +814,7 @@ Represents a cookie store in the browser. An incognito mode window, for instance
 
    .. api-member::
       :name: ``id``
+      :refid: cookies-cookie-store-id
       :type: (string)
 
       The unique identifier for the cookie store.
@@ -656,6 +823,7 @@ Represents a cookie store in the browser. An incognito mode window, for instance
 
    .. api-member::
       :name: ``incognito``
+      :refid: cookies-cookie-store-incognito
       :type: (boolean)
       :annotation: -- [Added in TB 52]
 
@@ -665,6 +833,7 @@ Represents a cookie store in the browser. An incognito mode window, for instance
 
    .. api-member::
       :name: ``tabIds``
+      :refid: cookies-cookie-store-tab-ids
       :type: (array of integer)
       :annotation: -- [Added in TB 52]
 
@@ -688,20 +857,35 @@ The underlying reason behind the cookie's change. If a cookie was inserted, or r
 
          Supported values:
 
+         .. _cookies.^on^changed^cause.evicted:
+
          .. api-member::
             :name: :value:`evicted`
+            :refid: cookies-on-changed-cause-evicted
+
+         .. _cookies.^on^changed^cause.expired:
 
          .. api-member::
             :name: :value:`expired`
+            :refid: cookies-on-changed-cause-expired
+
+         .. _cookies.^on^changed^cause.expired_overwrite:
 
          .. api-member::
             :name: :value:`expired_overwrite`
+            :refid: cookies-on-changed-cause-expired-overwrite
+
+         .. _cookies.^on^changed^cause.explicit:
 
          .. api-member::
             :name: :value:`explicit`
+            :refid: cookies-on-changed-cause-explicit
+
+         .. _cookies.^on^changed^cause.overwrite:
 
          .. api-member::
             :name: :value:`overwrite`
+            :refid: cookies-on-changed-cause-overwrite
 
 .. _cookies.^partition^key:
 
@@ -719,6 +903,7 @@ The description of the storage partition of a cookie. This object may be omitted
 
    .. api-member::
       :name: [``hasCrossSiteAncestor``]
+      :refid: cookies-partition-key-has-cross-site-ancestor
       :type: (boolean, optional)
 
       Whether or not the cookie is in a third-party context, respecting ancestor chains.
@@ -727,6 +912,7 @@ The description of the storage partition of a cookie. This object may be omitted
 
    .. api-member::
       :name: [``topLevelSite``]
+      :refid: cookies-partition-key-top-level-site
       :type: (string, optional)
 
       The first-party URL of the cookie, if the cookie is in storage partitioned by the top-level site.
@@ -749,14 +935,26 @@ A cookie's 'SameSite' state (https://tools.ietf.org/html/draft-west-first-party-
 
          Supported values:
 
+         .. _cookies.^same^site^status.lax:
+
          .. api-member::
             :name: :value:`lax`
+            :refid: cookies-same-site-status-lax
+
+         .. _cookies.^same^site^status.no_restriction:
 
          .. api-member::
             :name: :value:`no_restriction`
+            :refid: cookies-same-site-status-no-restriction
+
+         .. _cookies.^same^site^status.strict:
 
          .. api-member::
             :name: :value:`strict`
+            :refid: cookies-same-site-status-strict
+
+         .. _cookies.^same^site^status.unspecified:
 
          .. api-member::
             :name: :value:`unspecified`
+            :refid: cookies-same-site-status-unspecified

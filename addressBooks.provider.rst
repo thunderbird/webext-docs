@@ -37,8 +37,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _address^books.provider.permission.address^books:
+
 .. api-member::
    :name: :permission:`addressBooks`
+   :refid: address-books-provider-permission-address-books
 
    Read and modify your address books and contacts.
 
@@ -96,31 +99,46 @@ Example:
 .. api-header::
    :label: Parameters for onSearchRequest.addListener(listener, parameters)
 
+   .. _address^books.provider.on^search^request.listener(node, search^string, query):
+
    .. api-member::
       :name: ``listener(node, searchString, query)``
+      :refid: address-books-provider-on-search-request-listener-node-search-string-query
 
       A function that will be called when this event occurs.
 
+   .. _address^books.provider.on^search^request.parameters:
+
    .. api-member::
       :name: ``parameters``
+      :refid: address-books-provider-on-search-request-parameters
       :type: (object)
 
       Descriptions for the address book created by registering this listener.
 
+      .. _address^books.provider.on^search^request.parameters.address^book^name:
+
       .. api-member::
          :name: [``addressBookName``]
+         :refid: address-books-provider-on-search-request-parameters-address-book-name
          :type: (string, optional)
 
          The name of the created address book. If not provided, the name of the extension is used.
 
+      .. _address^books.provider.on^search^request.parameters.id:
+
       .. api-member::
          :name: [``id``]
+         :refid: address-books-provider-on-search-request-parameters-id
          :type: (string, optional)
 
          The unique identifier of the created address book. If not provided, a unique identifier will be generated for you.
 
+      .. _address^books.provider.on^search^request.parameters.is^secure:
+
       .. api-member::
          :name: [``isSecure``]
+         :refid: address-books-provider-on-search-request-parameters-is-secure
          :type: (boolean, optional)
 
          Whether the address book search queries are using encrypted protocols like HTTPS.
@@ -128,18 +146,27 @@ Example:
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _address^books.provider.on^search^request.node:
+
    .. api-member::
       :name: ``node``
+      :refid: address-books-provider-on-search-request-node
       :type: (:ref:`address^books.^address^book^node`)
+
+   .. _address^books.provider.on^search^request.search^string:
 
    .. api-member::
       :name: [``searchString``]
+      :refid: address-books-provider-on-search-request-search-string
       :type: (string, optional)
 
       The search text that the user entered. Not available when invoked from the advanced address book search dialog.
 
+   .. _address^books.provider.on^search^request.query:
+
    .. api-member::
       :name: [``query``]
+      :refid: address-books-provider-on-search-request-query
       :type: (string, optional)
 
       The boolean query expression corresponding to the search.
@@ -151,16 +178,25 @@ Example:
 .. api-header::
    :label: Expected return value of the listener function
 
+   .. _address^books.provider.on^search^request.returns:
+
    .. api-member::
+      :refid: address-books-provider-on-search-request-returns
       :type: object
+
+      .. _address^books.provider.on^search^request.returns.is^complete^result:
 
       .. api-member::
          :name: ``isCompleteResult``
+         :refid: address-books-provider-on-search-request-returns-is-complete-result
          :type: (boolean)
          :annotation: -- [Added in TB 142]
 
+      .. _address^books.provider.on^search^request.returns.results:
+
       .. api-member::
          :name: ``results``
+         :refid: address-books-provider-on-search-request-returns-results
          :type: (array of :ref:`address^books.contacts.^contact^properties`)
          :annotation: -- [Added in TB 142]
 

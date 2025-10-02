@@ -31,8 +31,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _message^display.permission.messages^read:
+
 .. api-member::
    :name: :permission:`messagesRead`
+   :refid: message-display-permission-messages-read
 
    Read your email messages.
 
@@ -59,14 +62,20 @@ Gets an array of the currently displayed messages in the specified tab (even if 
 .. api-header::
    :label: Parameters
 
+   .. _message^display.get^displayed^messages.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: message-display-get-displayed-messages-tab-id
       :type: (integer, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _message^display.get^displayed^messages.returns:
+
    .. api-member::
+      :refid: message-display-get-displayed-messages-returns
       :type: :ref:`messages.^message^list`
       :annotation: -- [Added in TB 96]
 
@@ -89,53 +98,80 @@ Opens a message in a new tab or in a new window.
 .. api-header::
    :label: Parameters
 
+   .. _message^display.open.open^properties:
+
    .. api-member::
       :name: ``openProperties``
+      :refid: message-display-open-open-properties
       :type: (object)
 
       Settings for opening the message. Exactly one of messageId, headerMessageId or file must be specified.
 
+      .. _message^display.open.open^properties.active:
+
       .. api-member::
          :name: [``active``]
+         :refid: message-display-open-open-properties-active
          :type: (boolean, optional)
 
          Whether the new tab should become the active tab in the window. Only applicable to messages opened in tabs.
 
+      .. _message^display.open.open^properties.file:
+
       .. api-member::
          :name: [``file``]
+         :refid: message-display-open-open-properties-file
          :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
          :annotation: -- [Added in TB 114]
 
          The DOM file object of a message to be opened.
 
+      .. _message^display.open.open^properties.header^message^id:
+
       .. api-member::
          :name: [``headerMessageId``]
+         :refid: message-display-open-open-properties-header-message-id
          :type: (string, optional)
 
          The headerMessageId of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`headerMessageId` is unknown or invalid. Not supported for external messages.
 
+      .. _message^display.open.open^properties.location:
+
       .. api-member::
          :name: [``location``]
+         :refid: message-display-open-open-properties-location
          :type: (`string`, optional)
 
          Where to open the message. If not specified, the users preference is honoured.
 
          Supported values:
 
+         .. _message^display.open.open^properties.location.tab:
+
          .. api-member::
             :name: :value:`tab`
+            :refid: message-display-open-open-properties-location-tab
+
+         .. _message^display.open.open^properties.location.window:
 
          .. api-member::
             :name: :value:`window`
+            :refid: message-display-open-open-properties-location-window
+
+      .. _message^display.open.open^properties.message^id:
 
       .. api-member::
          :name: [``messageId``]
+         :refid: message-display-open-open-properties-message-id
          :type: (:ref:`messages.^message^id`, optional)
 
          The id of a message to be opened. Will throw an *ExtensionError*, if the provided :value:`messageId` is unknown or invalid.
 
+      .. _message^display.open.open^properties.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: message-display-open-open-properties-window-id
          :type: (integer, optional)
 
          The id of the window, where the new tab should be created. Defaults to the current window. Only applicable to messages opened in tabs.
@@ -143,7 +179,10 @@ Opens a message in a new tab or in a new window.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _message^display.open.returns:
+
    .. api-member::
+      :refid: message-display-open-returns
       :type: :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -170,20 +209,29 @@ Fired when either a single message is displayed or when multiple messages are di
 .. api-header::
    :label: Parameters for onMessagesDisplayed.addListener(listener)
 
+   .. _message^display.on^messages^displayed.listener(tab, displayed^messages):
+
    .. api-member::
       :name: ``listener(tab, displayedMessages)``
+      :refid: message-display-on-messages-displayed-listener-tab-displayed-messages
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _message^display.on^messages^displayed.tab:
+
    .. api-member::
       :name: ``tab``
+      :refid: message-display-on-messages-displayed-tab
       :type: (:ref:`tabs.^tab`)
+
+   .. _message^display.on^messages^displayed.displayed^messages:
 
    .. api-member::
       :name: ``displayedMessages``
+      :refid: message-display-on-messages-displayed-displayed-messages
       :type: (:ref:`messages.^message^list`)
 
 .. api-header::
