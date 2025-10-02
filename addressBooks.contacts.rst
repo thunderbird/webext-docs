@@ -37,6 +37,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`addressBooks`
    :refid: address-books-contacts-permission-address-books
+   :refname: addressBooks
 
    Read and modify your address books and contacts.
 
@@ -68,6 +69,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
    .. api-member::
       :name: ``parentId``
       :refid: address-books-contacts-create-parent-id
+      :refname: parentId
       :type: (string)
 
    .. _address^books.contacts.create.v^card:
@@ -75,6 +77,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
    .. api-member::
       :name: ``vCard``
       :refid: address-books-contacts-create-v-card
+      :refname: vCard
       :type: (string)
 
       The vCard for the new contact. If it includes an (optional) id and an existing contact has this id already, an exception is thrown.
@@ -86,6 +89,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
 
    .. api-member::
       :refid: address-books-contacts-create-returns
+      :refname: _returns
       :type: string
       :annotation: -- [Added in TB 128]
 
@@ -115,6 +119,7 @@ Removes a contact from the address book. The contact is also removed from any ma
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-delete-id
+      :refname: id
       :type: (string)
 
 .. api-header::
@@ -139,6 +144,7 @@ Gets a single contact.
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-get-id
+      :refname: id
       :type: (string)
 
 .. api-header::
@@ -148,6 +154,7 @@ Gets a single contact.
 
    .. api-member::
       :refid: address-books-contacts-get-returns
+      :refname: _returns
       :type: :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -174,6 +181,7 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-get-photo-id
+      :refname: id
       :type: (string)
 
 .. api-header::
@@ -183,6 +191,7 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
 
    .. api-member::
       :refid: address-books-contacts-get-photo-returns
+      :refname: _returns
       :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -209,6 +218,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
    .. api-member::
       :name: ``parentId``
       :refid: address-books-contacts-list-parent-id
+      :refname: parentId
       :type: (string)
 
 .. api-header::
@@ -218,6 +228,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
 
    .. api-member::
       :refid: address-books-contacts-list-returns
+      :refname: _returns
       :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -244,6 +255,7 @@ Gets all contacts matching :value:`queryInfo`.
    .. api-member::
       :name: ``queryInfo``
       :refid: address-books-contacts-query-query-info
+      :refname: queryInfo
       :type: (:ref:`address^books.contacts.^query^info`)
 
 .. api-header::
@@ -253,6 +265,7 @@ Gets all contacts matching :value:`queryInfo`.
 
    .. api-member::
       :refid: address-books-contacts-query-returns
+      :refname: _returns
       :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -279,6 +292,7 @@ Sets the photo associated with this contact.
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-set-photo-id
+      :refname: id
       :type: (string)
 
    .. _address^books.contacts.set^photo.file:
@@ -286,6 +300,7 @@ Sets the photo associated with this contact.
    .. api-member::
       :name: ``file``
       :refid: address-books-contacts-set-photo-file
+      :refname: file
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
 
 .. api-header::
@@ -310,6 +325,7 @@ Updates a contact.
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-update-id
+      :refname: id
       :type: (string)
 
    .. _address^books.contacts.update.v^card:
@@ -317,6 +333,7 @@ Updates a contact.
    .. api-member::
       :name: ``vCard``
       :refid: address-books-contacts-update-v-card
+      :refname: vCard
       :type: (string)
 
       The updated vCard for the contact.
@@ -348,6 +365,7 @@ Fired when a contact is created.
    .. api-member::
       :name: ``listener(node)``
       :refid: address-books-contacts-on-created-listener-node
+      :refname: listener(node)
 
       A function that will be called when this event occurs.
 
@@ -359,6 +377,7 @@ Fired when a contact is created.
    .. api-member::
       :name: ``node``
       :refid: address-books-contacts-on-created-node
+      :refname: node
       :type: (:ref:`address^books.contacts.^contact^node`)
 
 .. api-header::
@@ -383,6 +402,7 @@ Fired when a contact is removed from an address book.
    .. api-member::
       :name: ``listener(parentId, id)``
       :refid: address-books-contacts-on-deleted-listener-parent-id-id
+      :refname: listener(parentId, id)
 
       A function that will be called when this event occurs.
 
@@ -394,6 +414,7 @@ Fired when a contact is removed from an address book.
    .. api-member::
       :name: ``parentId``
       :refid: address-books-contacts-on-deleted-parent-id
+      :refname: parentId
       :type: (string)
 
    .. _address^books.contacts.on^deleted.id:
@@ -401,6 +422,7 @@ Fired when a contact is removed from an address book.
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-on-deleted-id
+      :refname: id
       :type: (string)
 
 .. api-header::
@@ -425,6 +447,7 @@ Fired when a contact is changed.
    .. api-member::
       :name: ``listener(node, oldVCard)``
       :refid: address-books-contacts-on-updated-listener-node-old-v-card
+      :refname: listener(node, oldVCard)
 
       A function that will be called when this event occurs.
 
@@ -436,6 +459,7 @@ Fired when a contact is changed.
    .. api-member::
       :name: ``node``
       :refid: address-books-contacts-on-updated-node
+      :refname: node
       :type: (:ref:`address^books.contacts.^contact^node`)
 
    .. _address^books.contacts.on^updated.old^v^card:
@@ -443,6 +467,7 @@ Fired when a contact is changed.
    .. api-member::
       :name: ``oldVCard``
       :refid: address-books-contacts-on-updated-old-v-card
+      :refname: oldVCard
       :type: (string)
 
 .. api-header::
@@ -472,6 +497,7 @@ A node representing a contact in an address book.
    .. api-member::
       :name: ``id``
       :refid: address-books-contacts-contact-node-id
+      :refname: id
       :type: (string)
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
@@ -481,6 +507,7 @@ A node representing a contact in an address book.
    .. api-member::
       :name: ``type``
       :refid: address-books-contacts-contact-node-type
+      :refname: type
       :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`contact`.
@@ -490,6 +517,7 @@ A node representing a contact in an address book.
    .. api-member::
       :name: ``vCard``
       :refid: address-books-contacts-contact-node-v-card
+      :refname: vCard
       :type: (string)
       :annotation: -- [Added in TB 128]
 
@@ -498,6 +526,7 @@ A node representing a contact in an address book.
    .. api-member::
       :name: [``parentId``]
       :refid: address-books-contacts-contact-node-parent-id
+      :refname: parentId
       :type: (string, optional)
 
       The :value:`id` of the parent object.
@@ -507,6 +536,7 @@ A node representing a contact in an address book.
    .. api-member::
       :name: [``readOnly``]
       :refid: address-books-contacts-contact-node-read-only
+      :refname: readOnly
       :type: (boolean, optional)
 
       Indicates if the object is read-only.
@@ -516,6 +546,7 @@ A node representing a contact in an address book.
    .. api-member::
       :name: [``remote``]
       :refid: address-books-contacts-contact-node-remote
+      :refname: remote
       :type: (boolean, optional)
 
       Indicates if the object came from a remote address book.
@@ -561,6 +592,7 @@ Object defining a query for :ref:`address^books.contacts.quick^search`.
    .. api-member::
       :name: [``includeLocal``]
       :refid: address-books-contacts-query-info-include-local
+      :refname: includeLocal
       :type: (boolean, optional)
 
       Whether to include results from local address books. Defaults to :value:`true`.
@@ -570,6 +602,7 @@ Object defining a query for :ref:`address^books.contacts.quick^search`.
    .. api-member::
       :name: [``includeReadOnly``]
       :refid: address-books-contacts-query-info-include-read-only
+      :refname: includeReadOnly
       :type: (boolean, optional)
 
       Whether to include results from read-only address books. Defaults to :value:`true`.
@@ -579,6 +612,7 @@ Object defining a query for :ref:`address^books.contacts.quick^search`.
    .. api-member::
       :name: [``includeReadWrite``]
       :refid: address-books-contacts-query-info-include-read-write
+      :refname: includeReadWrite
       :type: (boolean, optional)
 
       Whether to include results from read-write address books. Defaults to :value:`true`.
@@ -588,6 +622,7 @@ Object defining a query for :ref:`address^books.contacts.quick^search`.
    .. api-member::
       :name: [``includeRemote``]
       :refid: address-books-contacts-query-info-include-remote
+      :refname: includeRemote
       :type: (boolean, optional)
 
       Whether to include results from remote address books. Defaults to :value:`true`.
@@ -597,6 +632,7 @@ Object defining a query for :ref:`address^books.contacts.quick^search`.
    .. api-member::
       :name: [``parentId``]
       :refid: address-books-contacts-query-info-parent-id
+      :refname: parentId
       :type: (string, optional)
 
       The id of the address book to search. If not specified, all address books are searched.
@@ -606,6 +642,7 @@ Object defining a query for :ref:`address^books.contacts.quick^search`.
    .. api-member::
       :name: [``searchString``]
       :refid: address-books-contacts-query-info-search-string
+      :refname: searchString
       :type: (string, optional)
 
       One or more space-separated terms to search for in predefined contact fields (defined by the preference :value:`mail.addr_book.quicksearchquery.format`).

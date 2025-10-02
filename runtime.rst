@@ -42,6 +42,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`nativeMessaging`
    :refid: runtime-permission-native-messaging
+   :refname: nativeMessaging
 
    Exchange messages with programs other than Thunderbird.
 
@@ -50,6 +51,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`userScripts`
    :refid: runtime-permission-user-scripts
+   :refname: userScripts
 
    Allow unverified third-party scripts to access your data.
 
@@ -75,6 +77,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
    .. api-member::
       :name: [``extensionId``]
       :refid: runtime-connect-extension-id
+      :refname: extensionId
       :type: (string, optional)
 
       The ID of the extension or app to connect to. If omitted, a connection will be attempted with your own extension. Required if sending messages from a web page for web messaging.
@@ -84,6 +87,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
    .. api-member::
       :name: [``connectInfo``]
       :refid: runtime-connect-connect-info
+      :refname: connectInfo
       :type: (object, optional)
 
       .. _runtime.connect.connect^info.include^tls^channel^id:
@@ -91,6 +95,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
       .. api-member::
          :name: [``includeTlsChannelId``]
          :refid: runtime-connect-connect-info-include-tls-channel-id
+         :refname: includeTlsChannelId
          :type: (boolean, optional)
 
          Whether the TLS channel ID will be passed into onConnectExternal for processes that are listening for the connection event.
@@ -100,6 +105,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
       .. api-member::
          :name: [``name``]
          :refid: runtime-connect-connect-info-name
+         :refname: name
          :type: (string, optional)
 
          Will be passed into onConnect for processes that are listening for the connection event.
@@ -111,6 +117,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
 
    .. api-member::
       :refid: runtime-connect-returns
+      :refname: _returns
       :type: :ref:`runtime.^port`
 
       Port through which messages can be sent and received. The port's :ref:`runtime.^port on^disconnect` event is fired if the extension/app does not exist.
@@ -134,6 +141,7 @@ Connects to a native application in the host machine.
    .. api-member::
       :name: ``application``
       :refid: runtime-connect-native-application
+      :refname: application
       :type: (string)
 
       The name of the registered application to connect to.
@@ -145,6 +153,7 @@ Connects to a native application in the host machine.
 
    .. api-member::
       :refid: runtime-connect-native-returns
+      :refname: _returns
       :type: :ref:`runtime.^port`
 
       Port through which messages can be sent and received with the application
@@ -176,6 +185,7 @@ Retrieves the JavaScript 'window' object for the background page running inside 
 
    .. api-member::
       :refid: runtime-get-background-page-returns
+      :refname: _returns
       :type: `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
 
       The JavaScript 'window' object for the background page.
@@ -198,6 +208,7 @@ Returns information about the current browser.
 
    .. api-member::
       :refid: runtime-get-browser-info-returns
+      :refname: _returns
       :type: :ref:`runtime.^browser^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -219,6 +230,7 @@ Fetches information about active contexts associated with this extension
    .. api-member::
       :name: ``filter``
       :refid: runtime-get-contexts-filter
+      :refname: filter
       :type: (:ref:`runtime.^context^filter`)
 
       A filter to find matching context.
@@ -230,6 +242,7 @@ Fetches information about active contexts associated with this extension
 
    .. api-member::
       :refid: runtime-get-contexts-returns
+      :refname: _returns
       :type: array of :ref:`runtime.^extension^context`
 
       The matching contexts, if any.
@@ -253,6 +266,7 @@ Get the frameId of any window global or frame element.
    .. api-member::
       :name: ``target``
       :refid: runtime-get-frame-id-target
+      :refname: target
       :type: (any)
 
       A WindowProxy or a Browsing Context container element (IFrame, Frame, Embed, Object) for the target frame.
@@ -264,6 +278,7 @@ Get the frameId of any window global or frame element.
 
    .. api-member::
       :refid: runtime-get-frame-id-returns
+      :refname: _returns
       :type: number
 
       The frameId of the target frame, or -1 if it doesn't exist.
@@ -290,6 +305,7 @@ Returns details about the app or extension from the manifest. The object returne
 
    .. api-member::
       :refid: runtime-get-manifest-returns
+      :refname: _returns
       :type: object
 
       The manifest details.
@@ -312,6 +328,7 @@ Returns information about the current platform.
 
    .. api-member::
       :refid: runtime-get-platform-info-returns
+      :refname: _returns
       :type: :ref:`runtime.^platform^info`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -333,6 +350,7 @@ Converts a relative path within an app/extension install directory to a fully-qu
    .. api-member::
       :name: ``path``
       :refid: runtime-get-u-r-l-path
+      :refname: path
       :type: (string)
 
       A path to a resource within an app/extension expressed relative to its install directory.
@@ -344,6 +362,7 @@ Converts a relative path within an app/extension install directory to a fully-qu
 
    .. api-member::
       :refid: runtime-get-u-r-l-returns
+      :refname: _returns
       :type: string
 
       The fully-qualified URL to the resource.
@@ -394,6 +413,7 @@ Sends a single message to event listeners within your extension/app or a differe
    .. api-member::
       :name: [``extensionId``]
       :refid: runtime-send-message-extension-id
+      :refname: extensionId
       :type: (string, optional)
 
       The ID of the extension/app to send the message to. If omitted, the message will be sent to your own extension/app. Required if sending messages from a web page for web messaging.
@@ -403,6 +423,7 @@ Sends a single message to event listeners within your extension/app or a differe
    .. api-member::
       :name: ``message``
       :refid: runtime-send-message-message
+      :refname: message
       :type: (any)
 
    .. _runtime.send^message.options:
@@ -410,6 +431,7 @@ Sends a single message to event listeners within your extension/app or a differe
    .. api-member::
       :name: [``options``]
       :refid: runtime-send-message-options
+      :refname: options
       :type: (object, optional)
 
       .. _runtime.send^message.options.include^tls^channel^id:
@@ -417,6 +439,7 @@ Sends a single message to event listeners within your extension/app or a differe
       .. api-member::
          :name: [``includeTlsChannelId``]
          :refid: runtime-send-message-options-include-tls-channel-id
+         :refname: includeTlsChannelId
          :type: (boolean, optional) **Unsupported.**
 
          Whether the TLS channel ID will be passed into onMessageExternal for processes that are listening for the connection event.
@@ -428,6 +451,7 @@ Sends a single message to event listeners within your extension/app or a differe
 
    .. api-member::
       :refid: runtime-send-message-returns
+      :refname: _returns
       :type: any
 
       The JSON response object sent by the handler of the message. If an error occurs while connecting to the extension, the callback will be called with no arguments and :ref:`runtime.last^error` will be set to the error message.
@@ -451,6 +475,7 @@ Send a single message to a native application.
    .. api-member::
       :name: ``application``
       :refid: runtime-send-native-message-application
+      :refname: application
       :type: (string)
 
       The name of the native messaging host.
@@ -460,6 +485,7 @@ Send a single message to a native application.
    .. api-member::
       :name: ``message``
       :refid: runtime-send-native-message-message
+      :refname: message
       :type: (any)
 
       The message that will be passed to the native messaging host.
@@ -471,6 +497,7 @@ Send a single message to a native application.
 
    .. api-member::
       :refid: runtime-send-native-message-returns
+      :refname: _returns
       :type: any
 
       The response message sent by the native messaging host. If an error occurs while connecting to the native messaging host, the callback will be called with no arguments and :ref:`runtime.last^error` will be set to the error message.
@@ -499,6 +526,7 @@ Sets the URL to be visited upon uninstallation. This may be used to clean up ser
    .. api-member::
       :name: [``url``]
       :refid: runtime-set-uninstall-u-r-l-url
+      :refname: url
       :type: (string, optional)
 
       URL to be opened after the extension is uninstalled. This URL must have an http: or https: scheme. Set an empty string to not open a new tab upon uninstallation.
@@ -525,6 +553,7 @@ Fired when a connection is made from either an extension process or a content sc
    .. api-member::
       :name: ``listener(port)``
       :refid: runtime-on-connect-listener-port
+      :refname: listener(port)
 
       A function that will be called when this event occurs.
 
@@ -536,6 +565,7 @@ Fired when a connection is made from either an extension process or a content sc
    .. api-member::
       :name: ``port``
       :refid: runtime-on-connect-port
+      :refname: port
       :type: (:ref:`runtime.^port`)
 
 .. _runtime.on^connect^external:
@@ -555,6 +585,7 @@ Fired when a connection is made from another extension.
    .. api-member::
       :name: ``listener(port)``
       :refid: runtime-on-connect-external-listener-port
+      :refname: listener(port)
 
       A function that will be called when this event occurs.
 
@@ -566,6 +597,7 @@ Fired when a connection is made from another extension.
    .. api-member::
       :name: ``port``
       :refid: runtime-on-connect-external-port
+      :refname: port
       :type: (:ref:`runtime.^port`)
 
 .. _runtime.on^installed:
@@ -589,6 +621,7 @@ Fired when the extension is first installed, when the extension is updated to a 
    .. api-member::
       :name: ``listener(details)``
       :refid: runtime-on-installed-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -600,6 +633,7 @@ Fired when the extension is first installed, when the extension is updated to a 
    .. api-member::
       :name: ``details``
       :refid: runtime-on-installed-details
+      :refname: details
       :type: (object)
 
       .. _runtime.on^installed.details.reason:
@@ -607,6 +641,7 @@ Fired when the extension is first installed, when the extension is updated to a 
       .. api-member::
          :name: ``reason``
          :refid: runtime-on-installed-details-reason
+         :refname: reason
          :type: (:ref:`runtime.^on^installed^reason`)
 
          The reason that this event is being dispatched.
@@ -616,6 +651,7 @@ Fired when the extension is first installed, when the extension is updated to a 
       .. api-member::
          :name: ``temporary``
          :refid: runtime-on-installed-details-temporary
+         :refname: temporary
          :type: (boolean)
          :annotation: -- [Added in TB 55]
 
@@ -626,6 +662,7 @@ Fired when the extension is first installed, when the extension is updated to a 
       .. api-member::
          :name: [``id``]
          :refid: runtime-on-installed-details-id
+         :refname: id
          :type: (string, optional) **Unsupported.**
 
          Indicates the ID of the imported shared module extension which updated. This is present only if 'reason' is 'shared_module_update'.
@@ -635,6 +672,7 @@ Fired when the extension is first installed, when the extension is updated to a 
       .. api-member::
          :name: [``previousVersion``]
          :refid: runtime-on-installed-details-previous-version
+         :refname: previousVersion
          :type: (string, optional)
          :annotation: -- [Added in TB 55]
 
@@ -657,6 +695,7 @@ Fired when a message is sent from either an extension process or a content scrip
    .. api-member::
       :name: ``listener(message, sender, sendResponse)``
       :refid: runtime-on-message-listener-message-sender-send-response
+      :refname: listener(message, sender, sendResponse)
 
       A function that will be called when this event occurs.
 
@@ -668,6 +707,7 @@ Fired when a message is sent from either an extension process or a content scrip
    .. api-member::
       :name: [``message``]
       :refid: runtime-on-message-message
+      :refname: message
       :type: (any, optional)
 
       The message sent by the calling script.
@@ -677,6 +717,7 @@ Fired when a message is sent from either an extension process or a content scrip
    .. api-member::
       :name: ``sender``
       :refid: runtime-on-message-sender
+      :refname: sender
       :type: (:ref:`runtime.^message^sender`)
 
    .. _runtime.on^message.send^response:
@@ -684,6 +725,7 @@ Fired when a message is sent from either an extension process or a content scrip
    .. api-member::
       :name: ``sendResponse``
       :refid: runtime-on-message-send-response
+      :refname: sendResponse
       :type: (function)
 
       Function to call (at most once) when you have a response. The argument should be any JSON-ifiable object. If you have more than one :code:`onMessage` listener in the same document, then only one may send a response. This function becomes invalid when the event listener returns, unless you return true from the event listener to indicate you wish to send a response asynchronously (this will keep the message channel open to the other end until :code:`sendResponse` is called).
@@ -716,6 +758,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
    .. api-member::
       :name: ``listener(message, sender, sendResponse)``
       :refid: runtime-on-message-external-listener-message-sender-send-response
+      :refname: listener(message, sender, sendResponse)
 
       A function that will be called when this event occurs.
 
@@ -727,6 +770,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
    .. api-member::
       :name: [``message``]
       :refid: runtime-on-message-external-message
+      :refname: message
       :type: (any, optional)
 
       The message sent by the calling script.
@@ -736,6 +780,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
    .. api-member::
       :name: ``sender``
       :refid: runtime-on-message-external-sender
+      :refname: sender
       :type: (:ref:`runtime.^message^sender`)
 
    .. _runtime.on^message^external.send^response:
@@ -743,6 +788,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
    .. api-member::
       :name: ``sendResponse``
       :refid: runtime-on-message-external-send-response
+      :refname: sendResponse
       :type: (function)
 
       Function to call (at most once) when you have a response. The argument should be any JSON-ifiable object. If you have more than one :code:`onMessage` listener in the same document, then only one may send a response. This function becomes invalid when the event listener returns, unless you return true from the event listener to indicate you wish to send a response asynchronously (this will keep the message channel open to the other end until :code:`sendResponse` is called).
@@ -775,6 +821,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
    .. api-member::
       :name: ``listener(details)``
       :refid: runtime-on-performance-warning-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -786,6 +833,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
    .. api-member::
       :name: ``details``
       :refid: runtime-on-performance-warning-details
+      :refname: details
       :type: (object)
 
       .. _runtime.on^performance^warning.details.category:
@@ -793,6 +841,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
       .. api-member::
          :name: ``category``
          :refid: runtime-on-performance-warning-details-category
+         :refname: category
          :type: (:ref:`runtime.^on^performance^warning^category`)
 
          The performance warning event category, e.g. 'content_script'.
@@ -802,6 +851,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
       .. api-member::
          :name: ``description``
          :refid: runtime-on-performance-warning-details-description
+         :refname: description
          :type: (string)
 
          An explanation of what the warning means, and hopefully how to address it.
@@ -811,6 +861,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
       .. api-member::
          :name: ``severity``
          :refid: runtime-on-performance-warning-details-severity
+         :refname: severity
          :type: (:ref:`runtime.^on^performance^warning^severity`)
 
          The performance warning event severity, e.g. 'high'.
@@ -820,6 +871,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
       .. api-member::
          :name: [``tabId``]
          :refid: runtime-on-performance-warning-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          The :ref:`tabs.^tab` that the performance warning relates to, if any.
@@ -841,6 +893,7 @@ Fired when a profile that has this extension installed first starts up. This eve
    .. api-member::
       :name: ``listener()``
       :refid: runtime-on-startup-listener
+      :refname: listener()
 
       A function that will be called when this event occurs.
 
@@ -865,6 +918,7 @@ Sent to the event page just before it is unloaded. This gives the extension oppo
    .. api-member::
       :name: ``listener()``
       :refid: runtime-on-suspend-listener
+      :refname: listener()
 
       A function that will be called when this event occurs.
 
@@ -889,6 +943,7 @@ Sent after onSuspend to indicate that the app won't be unloaded after all.
    .. api-member::
       :name: ``listener()``
       :refid: runtime-on-suspend-canceled-listener
+      :refname: listener()
 
       A function that will be called when this event occurs.
 
@@ -909,6 +964,7 @@ Fired when an update is available, but isn't installed immediately because the a
    .. api-member::
       :name: ``listener(details)``
       :refid: runtime-on-update-available-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -920,6 +976,7 @@ Fired when an update is available, but isn't installed immediately because the a
    .. api-member::
       :name: ``details``
       :refid: runtime-on-update-available-details
+      :refname: details
       :type: (object)
 
       The manifest details of the available update.
@@ -929,6 +986,7 @@ Fired when an update is available, but isn't installed immediately because the a
       .. api-member::
          :name: ``version``
          :refid: runtime-on-update-available-details-version
+         :refname: version
          :type: (string)
 
          The version number of the available update.
@@ -958,6 +1016,7 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
    .. api-member::
       :name: ``listener(port)``
       :refid: runtime-on-user-script-connect-listener-port
+      :refname: listener(port)
 
       A function that will be called when this event occurs.
 
@@ -969,6 +1028,7 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
    .. api-member::
       :name: ``port``
       :refid: runtime-on-user-script-connect-port
+      :refname: port
       :type: (:ref:`runtime.^port`)
 
 .. api-header::
@@ -1001,6 +1061,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
    .. api-member::
       :name: ``listener(message, sender, sendResponse)``
       :refid: runtime-on-user-script-message-listener-message-sender-send-response
+      :refname: listener(message, sender, sendResponse)
 
       A function that will be called when this event occurs.
 
@@ -1012,6 +1073,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
    .. api-member::
       :name: [``message``]
       :refid: runtime-on-user-script-message-message
+      :refname: message
       :type: (any, optional)
 
       The message sent by the calling script.
@@ -1021,6 +1083,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
    .. api-member::
       :name: ``sender``
       :refid: runtime-on-user-script-message-sender
+      :refname: sender
       :type: (:ref:`runtime.^message^sender`)
 
    .. _runtime.on^user^script^message.send^response:
@@ -1028,6 +1091,7 @@ Fired when a message is sent from a USER_SCRIPT world registered through the use
    .. api-member::
       :name: ``sendResponse``
       :refid: runtime-on-user-script-message-send-response
+      :refname: sendResponse
       :type: (function)
 
       Function to call (at most once) when you have a response. The argument should be any JSON-ifiable object. If you have more than one :code:`onMessage` listener in the same document, then only one may send a response. This function becomes invalid when the event listener returns, unless you return true from the event listener to indicate you wish to send a response asynchronously (this will keep the message channel open to the other end until :code:`sendResponse` is called).
@@ -1070,6 +1134,7 @@ An object containing information about the current browser.
    .. api-member::
       :name: ``buildID``
       :refid: runtime-browser-info-build-i-d
+      :refname: buildID
       :type: (string)
 
       The browser's build ID/date, for example '20160101'.
@@ -1079,6 +1144,7 @@ An object containing information about the current browser.
    .. api-member::
       :name: ``name``
       :refid: runtime-browser-info-name
+      :refname: name
       :type: (string)
 
       The name of the browser, for example 'Thunderbird'.
@@ -1088,6 +1154,7 @@ An object containing information about the current browser.
    .. api-member::
       :name: ``vendor``
       :refid: runtime-browser-info-vendor
+      :refname: vendor
       :type: (string)
 
       The name of the browser vendor, for example 'Mozilla'.
@@ -1097,6 +1164,7 @@ An object containing information about the current browser.
    .. api-member::
       :name: ``version``
       :refid: runtime-browser-info-version
+      :refname: version
       :type: (string)
 
       The browser's version, for example '42.0.0' or '0.8.1pre'.
@@ -1118,6 +1186,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``contextIds``]
       :refid: runtime-context-filter-context-ids
+      :refname: contextIds
       :type: (array of string, optional)
 
    .. _runtime.^context^filter.context^types:
@@ -1125,6 +1194,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``contextTypes``]
       :refid: runtime-context-filter-context-types
+      :refname: contextTypes
       :type: (array of :ref:`runtime.^context^type`, optional)
 
    .. _runtime.^context^filter.document^ids:
@@ -1132,6 +1202,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``documentIds``]
       :refid: runtime-context-filter-document-ids
+      :refname: documentIds
       :type: (array of string, optional)
 
    .. _runtime.^context^filter.document^origins:
@@ -1139,6 +1210,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``documentOrigins``]
       :refid: runtime-context-filter-document-origins
+      :refname: documentOrigins
       :type: (array of string, optional)
 
    .. _runtime.^context^filter.document^urls:
@@ -1146,6 +1218,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``documentUrls``]
       :refid: runtime-context-filter-document-urls
+      :refname: documentUrls
       :type: (array of string, optional)
 
    .. _runtime.^context^filter.frame^ids:
@@ -1153,6 +1226,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``frameIds``]
       :refid: runtime-context-filter-frame-ids
+      :refname: frameIds
       :type: (array of integer, optional)
 
    .. _runtime.^context^filter.incognito:
@@ -1160,6 +1234,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``incognito``]
       :refid: runtime-context-filter-incognito
+      :refname: incognito
       :type: (boolean, optional)
 
    .. _runtime.^context^filter.tab^ids:
@@ -1167,6 +1242,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``tabIds``]
       :refid: runtime-context-filter-tab-ids
+      :refname: tabIds
       :type: (array of integer, optional)
 
    .. _runtime.^context^filter.window^ids:
@@ -1174,6 +1250,7 @@ A filter to match against existing extension context. Matching contexts must mat
    .. api-member::
       :name: [``windowIds``]
       :refid: runtime-context-filter-window-ids
+      :refname: windowIds
       :type: (array of integer, optional)
 
 .. _runtime.^context^type:
@@ -1199,24 +1276,28 @@ The type of extension view.
          .. api-member::
             :name: :value:`BACKGROUND`
             :refid: runtime-context-type-b-a-c-k-g-r-o-u-n-d
+            :refname: BACKGROUND
 
          .. _runtime.^context^type.^p^o^p^u^p:
 
          .. api-member::
             :name: :value:`POPUP`
             :refid: runtime-context-type-p-o-p-u-p
+            :refname: POPUP
 
          .. _runtime.^context^type.^s^i^d^e_^p^a^n^e^l:
 
          .. api-member::
             :name: :value:`SIDE_PANEL`
             :refid: runtime-context-type-s-i-d-e-p-a-n-e-l
+            :refname: SIDE_PANEL
 
          .. _runtime.^context^type.^t^a^b:
 
          .. api-member::
             :name: :value:`TAB`
             :refid: runtime-context-type-t-a-b
+            :refname: TAB
 
 .. _runtime.^event:
 
@@ -1247,6 +1328,7 @@ A context hosting extension content
    .. api-member::
       :name: ``contextId``
       :refid: runtime-extension-context-context-id
+      :refname: contextId
       :type: (string)
 
       An unique identifier associated to this context
@@ -1256,6 +1338,7 @@ A context hosting extension content
    .. api-member::
       :name: ``contextType``
       :refid: runtime-extension-context-context-type
+      :refname: contextType
       :type: (:ref:`runtime.^context^type`)
 
       The type of the context
@@ -1265,6 +1348,7 @@ A context hosting extension content
    .. api-member::
       :name: ``frameId``
       :refid: runtime-extension-context-frame-id
+      :refname: frameId
       :type: (integer)
 
       The frame ID for this context, or -1 if it is not hosted in a frame.
@@ -1274,6 +1358,7 @@ A context hosting extension content
    .. api-member::
       :name: ``incognito``
       :refid: runtime-extension-context-incognito
+      :refname: incognito
       :type: (boolean)
 
       Whether the context is associated with an private browsing context.
@@ -1283,6 +1368,7 @@ A context hosting extension content
    .. api-member::
       :name: ``tabId``
       :refid: runtime-extension-context-tab-id
+      :refname: tabId
       :type: (integer)
 
       The tab ID for this context, or -1 if it is not hosted in a tab.
@@ -1292,6 +1378,7 @@ A context hosting extension content
    .. api-member::
       :name: ``windowId``
       :refid: runtime-extension-context-window-id
+      :refname: windowId
       :type: (integer)
 
       The window ID for this context, or -1 if it is not hosted in a window.
@@ -1301,6 +1388,7 @@ A context hosting extension content
    .. api-member::
       :name: [``documentId``]
       :refid: runtime-extension-context-document-id
+      :refname: documentId
       :type: (string, optional) **Unsupported.**
 
       An UUID for the document associated with this context, or undefined if it is not hosted in a document
@@ -1310,6 +1398,7 @@ A context hosting extension content
    .. api-member::
       :name: [``documentOrigin``]
       :refid: runtime-extension-context-document-origin
+      :refname: documentOrigin
       :type: (string, optional)
 
       The origin of the document associated with this context, or undefined if it is not hosted in a document
@@ -1319,6 +1408,7 @@ A context hosting extension content
    .. api-member::
       :name: [``documentUrl``]
       :refid: runtime-extension-context-document-url
+      :refname: documentUrl
       :type: (string, optional)
 
       The URL of the document associated with this context, or undefined if it is not hosted in a document
@@ -1344,6 +1434,7 @@ An object containing information about the script context that sent a message or
    .. api-member::
       :name: [``frameId``]
       :refid: runtime-message-sender-frame-id
+      :refname: frameId
       :type: (integer, optional)
 
       The frame that opened the connection. 0 for top-level frames, positive for child frames. This will only be set when :code:`tab` is set.
@@ -1353,6 +1444,7 @@ An object containing information about the script context that sent a message or
    .. api-member::
       :name: [``id``]
       :refid: runtime-message-sender-id
+      :refname: id
       :type: (string, optional)
 
       The ID of the extension or app that opened the connection, if any.
@@ -1362,6 +1454,7 @@ An object containing information about the script context that sent a message or
    .. api-member::
       :name: [``tab``]
       :refid: runtime-message-sender-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`, optional)
 
       The :ref:`tabs.^tab` which opened the connection, if any. This property will **only** be present when the connection was opened from a tab (including content scripts), and **only** if the receiver is an extension, not an app.
@@ -1371,6 +1464,7 @@ An object containing information about the script context that sent a message or
    .. api-member::
       :name: [``tlsChannelId``]
       :refid: runtime-message-sender-tls-channel-id
+      :refname: tlsChannelId
       :type: (string, optional) **Unsupported.**
 
       The TLS channel ID of the page or frame that opened the connection, if requested by the extension or app, and if available.
@@ -1380,6 +1474,7 @@ An object containing information about the script context that sent a message or
    .. api-member::
       :name: [``url``]
       :refid: runtime-message-sender-url
+      :refname: url
       :type: (string, optional)
 
       The URL of the page or frame that opened the connection. If the sender is in an iframe, it will be iframe's URL not the URL of the page which hosts it.
@@ -1389,6 +1484,7 @@ An object containing information about the script context that sent a message or
    .. api-member::
       :name: [``userScriptWorldId``]
       :refid: runtime-message-sender-user-script-world-id
+      :refname: userScriptWorldId
       :type: (string, optional)
 
       The worldId of the USER_SCRIPT world that sent the message. Only present on onUserScriptMessage and onUserScriptConnect (in port.sender) events.
@@ -1416,18 +1512,21 @@ The reason that this event is being dispatched.
          .. api-member::
             :name: :value:`browser_update`
             :refid: runtime-on-installed-reason-browser-update
+            :refname: browser_update
 
          .. _runtime.^on^installed^reason.install:
 
          .. api-member::
             :name: :value:`install`
             :refid: runtime-on-installed-reason-install
+            :refname: install
 
          .. _runtime.^on^installed^reason.update:
 
          .. api-member::
             :name: :value:`update`
             :refid: runtime-on-installed-reason-update
+            :refname: update
 
 .. _runtime.^on^performance^warning^category:
 
@@ -1452,6 +1551,7 @@ The performance warning event category, e.g. 'content_script'.
          .. api-member::
             :name: :value:`content_script`
             :refid: runtime-on-performance-warning-category-content-script
+            :refname: content_script
 
 .. _runtime.^on^performance^warning^severity:
 
@@ -1476,18 +1576,21 @@ The performance warning event severity. Will be 'high' for serious and user-visi
          .. api-member::
             :name: :value:`high`
             :refid: runtime-on-performance-warning-severity-high
+            :refname: high
 
          .. _runtime.^on^performance^warning^severity.low:
 
          .. api-member::
             :name: :value:`low`
             :refid: runtime-on-performance-warning-severity-low
+            :refname: low
 
          .. _runtime.^on^performance^warning^severity.medium:
 
          .. api-member::
             :name: :value:`medium`
             :refid: runtime-on-performance-warning-severity-medium
+            :refname: medium
 
 .. _runtime.^on^restart^required^reason:
 
@@ -1512,18 +1615,21 @@ The reason that the event is being dispatched. 'app_update' is used when the res
          .. api-member::
             :name: :value:`app_update`
             :refid: runtime-on-restart-required-reason-app-update
+            :refname: app_update
 
          .. _runtime.^on^restart^required^reason.os_update:
 
          .. api-member::
             :name: :value:`os_update`
             :refid: runtime-on-restart-required-reason-os-update
+            :refname: os_update
 
          .. _runtime.^on^restart^required^reason.periodic:
 
          .. api-member::
             :name: :value:`periodic`
             :refid: runtime-on-restart-required-reason-periodic
+            :refname: periodic
 
 .. _runtime.^platform^arch:
 
@@ -1548,54 +1654,63 @@ The machine's processor architecture.
          .. api-member::
             :name: :value:`aarch64`
             :refid: runtime-platform-arch-aarch64
+            :refname: aarch64
 
          .. _runtime.^platform^arch.arm:
 
          .. api-member::
             :name: :value:`arm`
             :refid: runtime-platform-arch-arm
+            :refname: arm
 
          .. _runtime.^platform^arch.noarch:
 
          .. api-member::
             :name: :value:`noarch`
             :refid: runtime-platform-arch-noarch
+            :refname: noarch
 
          .. _runtime.^platform^arch.ppc64:
 
          .. api-member::
             :name: :value:`ppc64`
             :refid: runtime-platform-arch-ppc64
+            :refname: ppc64
 
          .. _runtime.^platform^arch.riscv64:
 
          .. api-member::
             :name: :value:`riscv64`
             :refid: runtime-platform-arch-riscv64
+            :refname: riscv64
 
          .. _runtime.^platform^arch.s390x:
 
          .. api-member::
             :name: :value:`s390x`
             :refid: runtime-platform-arch-s390x
+            :refname: s390x
 
          .. _runtime.^platform^arch.sparc64:
 
          .. api-member::
             :name: :value:`sparc64`
             :refid: runtime-platform-arch-sparc64
+            :refname: sparc64
 
          .. _runtime.^platform^arch.x86-32:
 
          .. api-member::
             :name: :value:`x86-32`
             :refid: runtime-platform-arch-x86-32
+            :refname: x86-32
 
          .. _runtime.^platform^arch.x86-64:
 
          .. api-member::
             :name: :value:`x86-64`
             :refid: runtime-platform-arch-x86-64
+            :refname: x86-64
 
 .. _runtime.^platform^info:
 
@@ -1614,6 +1729,7 @@ An object containing information about the current platform.
    .. api-member::
       :name: ``arch``
       :refid: runtime-platform-info-arch
+      :refname: arch
       :type: (:ref:`runtime.^platform^arch`)
 
       The machine's processor architecture.
@@ -1623,6 +1739,7 @@ An object containing information about the current platform.
    .. api-member::
       :name: ``nacl_arch``
       :refid: runtime-platform-info-nacl-arch
+      :refname: nacl_arch
       :type: (:ref:`runtime.^platform^nacl^arch`) **Unsupported.**
 
       The native client architecture. This may be different from arch on some platforms.
@@ -1632,6 +1749,7 @@ An object containing information about the current platform.
    .. api-member::
       :name: ``os``
       :refid: runtime-platform-info-os
+      :refname: os
       :type: (:ref:`runtime.^platform^os`)
 
       The operating system the browser is running on.
@@ -1659,36 +1777,42 @@ The operating system the browser is running on.
          .. api-member::
             :name: :value:`android`
             :refid: runtime-platform-os-android
+            :refname: android
 
          .. _runtime.^platform^os.cros:
 
          .. api-member::
             :name: :value:`cros`
             :refid: runtime-platform-os-cros
+            :refname: cros
 
          .. _runtime.^platform^os.linux:
 
          .. api-member::
             :name: :value:`linux`
             :refid: runtime-platform-os-linux
+            :refname: linux
 
          .. _runtime.^platform^os.mac:
 
          .. api-member::
             :name: :value:`mac`
             :refid: runtime-platform-os-mac
+            :refname: mac
 
          .. _runtime.^platform^os.openbsd:
 
          .. api-member::
             :name: :value:`openbsd`
             :refid: runtime-platform-os-openbsd
+            :refname: openbsd
 
          .. _runtime.^platform^os.win:
 
          .. api-member::
             :name: :value:`win`
             :refid: runtime-platform-os-win
+            :refname: win
 
 .. _runtime.^port:
 
@@ -1707,6 +1831,7 @@ An object which allows two way communication with other pages.
    .. api-member::
       :name: ``disconnect``
       :refid: runtime-port-disconnect
+      :refname: disconnect
       :type: (function)
 
    .. _runtime.^port.name:
@@ -1714,6 +1839,7 @@ An object which allows two way communication with other pages.
    .. api-member::
       :name: ``name``
       :refid: runtime-port-name
+      :refname: name
       :type: (string)
 
    .. _runtime.^port.on^disconnect:
@@ -1721,6 +1847,7 @@ An object which allows two way communication with other pages.
    .. api-member::
       :name: ``onDisconnect``
       :refid: runtime-port-on-disconnect
+      :refname: onDisconnect
       :type: (:ref:`runtime.^event`)
 
    .. _runtime.^port.on^message:
@@ -1728,6 +1855,7 @@ An object which allows two way communication with other pages.
    .. api-member::
       :name: ``onMessage``
       :refid: runtime-port-on-message
+      :refname: onMessage
       :type: (:ref:`runtime.^event`)
 
    .. _runtime.^port.post^message:
@@ -1735,6 +1863,7 @@ An object which allows two way communication with other pages.
    .. api-member::
       :name: ``postMessage``
       :refid: runtime-port-post-message
+      :refname: postMessage
       :type: (function)
 
    .. _runtime.^port.sender:
@@ -1742,6 +1871,7 @@ An object which allows two way communication with other pages.
    .. api-member::
       :name: [``sender``]
       :refid: runtime-port-sender
+      :refname: sender
       :type: (:ref:`runtime.^message^sender`, optional)
 
       This property will **only** be present on ports passed to onConnect/onConnectExternal listeners.
@@ -1769,18 +1899,21 @@ Result of the update check.
          .. api-member::
             :name: :value:`no_update`
             :refid: runtime-request-update-check-status-no-update
+            :refname: no_update
 
          .. _runtime.^request^update^check^status.throttled:
 
          .. api-member::
             :name: :value:`throttled`
             :refid: runtime-request-update-check-status-throttled
+            :refname: throttled
 
          .. _runtime.^request^update^check^status.update_available:
 
          .. api-member::
             :name: :value:`update_available`
             :refid: runtime-request-update-check-status-update-available
+            :refname: update_available
 
 .. rst-class:: api-main-section
 

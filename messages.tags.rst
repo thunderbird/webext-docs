@@ -37,6 +37,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`accountsRead`
    :refid: messages-tags-permission-accounts-read
+   :refname: accountsRead
 
    See your mail accounts, their identities and their folders.
 
@@ -45,6 +46,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`messagesTags`
    :refid: messages-tags-permission-messages-tags
+   :refname: messagesTags
 
    Create, modify and delete message tags.
 
@@ -53,6 +55,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`messagesTagsList`
    :refid: messages-tags-permission-messages-tags-list
+   :refname: messagesTagsList
 
    List message tags.
 
@@ -78,6 +81,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
    .. api-member::
       :name: [``key``]
       :refid: messages-tags-create-key
+      :refname: key
       :type: (string, optional)
 
       Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces. Will be auto-generated if not provided.
@@ -87,6 +91,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
    .. api-member::
       :name: ``tag``
       :refid: messages-tags-create-tag
+      :refname: tag
       :type: (string)
 
       Human-readable tag name.
@@ -96,6 +101,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
    .. api-member::
       :name: ``color``
       :refid: messages-tags-create-color
+      :refname: color
       :type: (string)
 
       Tag color in hex format (i.e.: :value:`#000080` for navy blue).
@@ -105,6 +111,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
    .. api-member::
       :name: [``callback``]
       :refid: messages-tags-create-callback
+      :refname: callback
       :type: (function, optional)
       :annotation: -- [Added in TB 136]
 
@@ -130,6 +137,7 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
    .. api-member::
       :name: ``key``
       :refid: messages-tags-delete-key
+      :refname: key
       :type: (string)
 
       Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
@@ -155,6 +163,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 
    .. api-member::
       :refid: messages-tags-list-returns
+      :refname: _returns
       :type: array of :ref:`messages.tags.^message^tag`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -181,6 +190,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
    .. api-member::
       :name: ``key``
       :refid: messages-tags-update-key
+      :refname: key
       :type: (string)
 
       Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
@@ -190,6 +200,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
    .. api-member::
       :name: ``updateProperties``
       :refid: messages-tags-update-update-properties
+      :refname: updateProperties
       :type: (:ref:`messages.tags.^message^tag^properties`)
 
 .. api-header::
@@ -219,6 +230,7 @@ Fired when a new message tag has been created.
    .. api-member::
       :name: ``listener(tag)``
       :refid: messages-tags-on-created-listener-tag
+      :refname: listener(tag)
 
       A function that will be called when this event occurs.
 
@@ -230,6 +242,7 @@ Fired when a new message tag has been created.
    .. api-member::
       :name: ``tag``
       :refid: messages-tags-on-created-tag
+      :refname: tag
       :type: (:ref:`messages.tags.^message^tag`)
 
 .. api-header::
@@ -254,6 +267,7 @@ Fired when a message tag has been deleted.
    .. api-member::
       :name: ``listener(key)``
       :refid: messages-tags-on-deleted-listener-key
+      :refname: listener(key)
 
       A function that will be called when this event occurs.
 
@@ -265,6 +279,7 @@ Fired when a message tag has been deleted.
    .. api-member::
       :name: ``key``
       :refid: messages-tags-on-deleted-key
+      :refname: key
       :type: (string)
 
       Unique tag identifier of the deleted message tag.
@@ -291,6 +306,7 @@ Fired when one or more properties of a message tag have been updated.
    .. api-member::
       :name: ``listener(key, changedProperties, oldProperties)``
       :refid: messages-tags-on-updated-listener-key-changed-properties-old-properties
+      :refname: listener(key, changedProperties, oldProperties)
 
       A function that will be called when this event occurs.
 
@@ -302,6 +318,7 @@ Fired when one or more properties of a message tag have been updated.
    .. api-member::
       :name: ``key``
       :refid: messages-tags-on-updated-key
+      :refname: key
       :type: (string)
 
       Unique tag identifier of the updated message tag.
@@ -311,6 +328,7 @@ Fired when one or more properties of a message tag have been updated.
    .. api-member::
       :name: ``changedProperties``
       :refid: messages-tags-on-updated-changed-properties
+      :refname: changedProperties
       :type: (:ref:`messages.tags.^message^tag^properties`)
 
       The changed message tag properties.
@@ -320,6 +338,7 @@ Fired when one or more properties of a message tag have been updated.
    .. api-member::
       :name: ``oldProperties``
       :refid: messages-tags-on-updated-old-properties
+      :refname: oldProperties
       :type: (:ref:`messages.tags.^message^tag^properties`)
 
       The old values of the changed message tag properties.
@@ -349,6 +368,7 @@ MessageTag
    .. api-member::
       :name: ``color``
       :refid: messages-tags-message-tag-color
+      :refname: color
       :type: (string)
 
       Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
@@ -358,6 +378,7 @@ MessageTag
    .. api-member::
       :name: ``key``
       :refid: messages-tags-message-tag-key
+      :refname: key
       :type: (string)
 
       Unique tag identifier.
@@ -367,6 +388,7 @@ MessageTag
    .. api-member::
       :name: ``ordinal``
       :refid: messages-tags-message-tag-ordinal
+      :refname: ordinal
       :type: (string)
 
       A custom sort string.
@@ -376,6 +398,7 @@ MessageTag
    .. api-member::
       :name: ``tag``
       :refid: messages-tags-message-tag-tag
+      :refname: tag
       :type: (string)
 
       Human-readable tag name.
@@ -395,6 +418,7 @@ MessageTagProperties
    .. api-member::
       :name: [``color``]
       :refid: messages-tags-message-tag-properties-color
+      :refname: color
       :type: (string, optional)
 
       Tag color in upper case hex format (i.e.: :value:`#000080` for navy blue).
@@ -404,6 +428,7 @@ MessageTagProperties
    .. api-member::
       :name: [``ordinal``]
       :refid: messages-tags-message-tag-properties-ordinal
+      :refname: ordinal
       :type: (string, optional)
 
       A custom sort string.
@@ -413,6 +438,7 @@ MessageTagProperties
    .. api-member::
       :name: [``tag``]
       :refid: messages-tags-message-tag-properties-tag
+      :refname: tag
       :type: (string, optional)
 
       Human-readable tag name.
@@ -434,6 +460,7 @@ Used for filtering messages by tag in various methods. Note that functions using
    .. api-member::
       :name: ``mode``
       :refid: messages-tags-tags-detail-mode
+      :refname: mode
       :type: (`string`)
 
       Whether all of the tag filters must apply, or any of them.
@@ -445,18 +472,21 @@ Used for filtering messages by tag in various methods. Note that functions using
       .. api-member::
          :name: :value:`all`
          :refid: messages-tags-tags-detail-mode-all
+         :refname: all
 
       .. _messages.tags.^tags^detail.mode.any:
 
       .. api-member::
          :name: :value:`any`
          :refid: messages-tags-tags-detail-mode-any
+         :refname: any
 
    .. _messages.tags.^tags^detail.tags:
 
    .. api-member::
       :name: ``tags``
       :refid: messages-tags-tags-detail-tags
+      :refname: tags
       :type: (object)
 
       A *dictionary object* with one or more filter condition as *key-value* pairs, the *key* being the tag to filter on, and the *value* being a boolean expression, requesting whether a message must include (:value:`true`) or exclude (:value:`false`) the tag. For a list of available tags, call the :ref:`messages.tags.list` method.

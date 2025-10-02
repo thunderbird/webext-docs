@@ -37,6 +37,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`accountsIdentities`
    :refid: identities-permission-accounts-identities
+   :refname: accountsIdentities
 
    Create, modify or delete your mail account identities.
 
@@ -45,6 +46,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`accountsRead`
    :refid: identities-permission-accounts-read
+   :refname: accountsRead
 
    See your mail accounts, their identities and their folders.
 
@@ -76,6 +78,7 @@ Create a new identity in the specified account.
    .. api-member::
       :name: ``accountId``
       :refid: identities-create-account-id
+      :refname: accountId
       :type: (:ref:`accounts.^mail^account^id`)
 
    .. _identities.create.details:
@@ -83,6 +86,7 @@ Create a new identity in the specified account.
    .. api-member::
       :name: ``details``
       :refid: identities-create-details
+      :refname: details
       :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
@@ -92,6 +96,7 @@ Create a new identity in the specified account.
 
    .. api-member::
       :refid: identities-create-returns
+      :refname: _returns
       :type: :ref:`identities.^mail^identity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -119,6 +124,7 @@ Attempts to delete the requested identity. Default identities cannot be deleted.
    .. api-member::
       :name: ``identityId``
       :refid: identities-delete-identity-id
+      :refname: identityId
       :type: (string)
 
 .. api-header::
@@ -144,6 +150,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
    .. api-member::
       :name: ``identityId``
       :refid: identities-get-identity-id
+      :refname: identityId
       :type: (string)
 
 .. api-header::
@@ -153,6 +160,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
 
    .. api-member::
       :refid: identities-get-returns
+      :refname: _returns
       :type: :ref:`identities.^mail^identity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -179,6 +187,7 @@ Returns the default identity for the requested account, or :value:`null` if it i
    .. api-member::
       :name: ``accountId``
       :refid: identities-get-default-account-id
+      :refname: accountId
       :type: (:ref:`accounts.^mail^account^id`)
 
 .. api-header::
@@ -188,6 +197,7 @@ Returns the default identity for the requested account, or :value:`null` if it i
 
    .. api-member::
       :refid: identities-get-default-returns
+      :refname: _returns
       :type: :ref:`identities.^mail^identity` or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -214,6 +224,7 @@ Returns the identities of the specified account, or all identities if no account
    .. api-member::
       :name: [``accountId``]
       :refid: identities-list-account-id
+      :refname: accountId
       :type: (:ref:`accounts.^mail^account^id`, optional)
 
 .. api-header::
@@ -223,6 +234,7 @@ Returns the identities of the specified account, or all identities if no account
 
    .. api-member::
       :refid: identities-list-returns
+      :refname: _returns
       :type: array of :ref:`identities.^mail^identity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -249,6 +261,7 @@ Sets the default identity for the requested account.
    .. api-member::
       :name: ``accountId``
       :refid: identities-set-default-account-id
+      :refname: accountId
       :type: (:ref:`accounts.^mail^account^id`)
 
    .. _identities.set^default.identity^id:
@@ -256,6 +269,7 @@ Sets the default identity for the requested account.
    .. api-member::
       :name: ``identityId``
       :refid: identities-set-default-identity-id
+      :refname: identityId
       :type: (string)
 
 .. api-header::
@@ -280,6 +294,7 @@ Updates the details of an identity.
    .. api-member::
       :name: ``identityId``
       :refid: identities-update-identity-id
+      :refname: identityId
       :type: (string)
 
    .. _identities.update.details:
@@ -287,6 +302,7 @@ Updates the details of an identity.
    .. api-member::
       :name: ``details``
       :refid: identities-update-details
+      :refname: details
       :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
@@ -296,6 +312,7 @@ Updates the details of an identity.
 
    .. api-member::
       :refid: identities-update-returns
+      :refname: _returns
       :type: :ref:`identities.^mail^identity`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -328,6 +345,7 @@ Fired when a new identity has been created and added to an account. The event al
    .. api-member::
       :name: ``listener(identityId, identity)``
       :refid: identities-on-created-listener-identity-id-identity
+      :refname: listener(identityId, identity)
 
       A function that will be called when this event occurs.
 
@@ -339,6 +357,7 @@ Fired when a new identity has been created and added to an account. The event al
    .. api-member::
       :name: ``identityId``
       :refid: identities-on-created-identity-id
+      :refname: identityId
       :type: (string)
 
    .. _identities.on^created.identity:
@@ -346,6 +365,7 @@ Fired when a new identity has been created and added to an account. The event al
    .. api-member::
       :name: ``identity``
       :refid: identities-on-created-identity
+      :refname: identity
       :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
@@ -370,6 +390,7 @@ Fired when an identity has been removed from an account.
    .. api-member::
       :name: ``listener(identityId)``
       :refid: identities-on-deleted-listener-identity-id
+      :refname: listener(identityId)
 
       A function that will be called when this event occurs.
 
@@ -381,6 +402,7 @@ Fired when an identity has been removed from an account.
    .. api-member::
       :name: ``identityId``
       :refid: identities-on-deleted-identity-id
+      :refname: identityId
       :type: (string)
 
 .. api-header::
@@ -405,6 +427,7 @@ Fired when one or more properties of an identity have been modified. The returne
    .. api-member::
       :name: ``listener(identityId, changedValues)``
       :refid: identities-on-updated-listener-identity-id-changed-values
+      :refname: listener(identityId, changedValues)
 
       A function that will be called when this event occurs.
 
@@ -416,6 +439,7 @@ Fired when one or more properties of an identity have been modified. The returne
    .. api-member::
       :name: ``identityId``
       :refid: identities-on-updated-identity-id
+      :refname: identityId
       :type: (string)
 
    .. _identities.on^updated.changed^values:
@@ -423,6 +447,7 @@ Fired when one or more properties of an identity have been modified. The returne
    .. api-member::
       :name: ``changedValues``
       :refid: identities-on-updated-changed-values
+      :refname: changedValues
       :type: (:ref:`identities.^mail^identity`)
 
 .. api-header::
@@ -450,6 +475,7 @@ EncryptionCapabilities
    .. api-member::
       :name: ``canEncrypt``
       :refid: identities-encryption-capabilities-can-encrypt
+      :refname: canEncrypt
       :type: (boolean)
 
       Whether the encryption technology is configured to support message encryption.
@@ -459,6 +485,7 @@ EncryptionCapabilities
    .. api-member::
       :name: ``canSign``
       :refid: identities-encryption-capabilities-can-sign
+      :refname: canSign
       :type: (boolean)
 
       Whether the encryption technology is configured to support message signing.
@@ -478,6 +505,7 @@ MailIdentity
    .. api-member::
       :name: [``accountId``]
       :refid: identities-mail-identity-account-id
+      :refname: accountId
       :type: (:ref:`accounts.^mail^account^id`, optional)
 
       The id of the :ref:`accounts.^mail^account` this identity belongs to. The :value:`accountId` property is read-only.
@@ -487,6 +515,7 @@ MailIdentity
    .. api-member::
       :name: [``composeHtml``]
       :refid: identities-mail-identity-compose-html
+      :refname: composeHtml
       :type: (boolean, optional)
 
       If the identity uses HTML as the default compose format.
@@ -496,6 +525,7 @@ MailIdentity
    .. api-member::
       :name: [``email``]
       :refid: identities-mail-identity-email
+      :refname: email
       :type: (string, optional)
 
       The user's email address as used when messages are sent from this identity.
@@ -505,6 +535,7 @@ MailIdentity
    .. api-member::
       :name: [``encryptionCapabilities``]
       :refid: identities-mail-identity-encryption-capabilities
+      :refname: encryptionCapabilities
       :type: (object, optional)
       :annotation: -- [Added in TB 128]
 
@@ -515,6 +546,7 @@ MailIdentity
       .. api-member::
          :name: ``OpenPGP``
          :refid: identities-mail-identity-encryption-capabilities-open-p-g-p
+         :refname: OpenPGP
          :type: (:ref:`identities.^encryption^capabilities`)
          :annotation: -- [Added in TB 128]
 
@@ -525,6 +557,7 @@ MailIdentity
       .. api-member::
          :name: ``S/MIME``
          :refid: identities-mail-identity-encryption-capabilities-s-m-i-m-e
+         :refname: S/MIME
          :type: (:ref:`identities.^encryption^capabilities`)
          :annotation: -- [Added in TB 128]
 
@@ -535,6 +568,7 @@ MailIdentity
    .. api-member::
       :name: [``id``]
       :refid: identities-mail-identity-id
+      :refname: id
       :type: (string, optional)
 
       A unique identifier for this identity. The :value:`id` property is read-only.
@@ -544,6 +578,7 @@ MailIdentity
    .. api-member::
       :name: [``label``]
       :refid: identities-mail-identity-label
+      :refname: label
       :type: (string, optional)
 
       A user-defined label for this identity.
@@ -553,6 +588,7 @@ MailIdentity
    .. api-member::
       :name: [``name``]
       :refid: identities-mail-identity-name
+      :refname: name
       :type: (string, optional)
 
       The user's name as used when messages are sent from this identity.
@@ -562,6 +598,7 @@ MailIdentity
    .. api-member::
       :name: [``organization``]
       :refid: identities-mail-identity-organization
+      :refname: organization
       :type: (string, optional)
 
       The organization associated with this identity.
@@ -571,6 +608,7 @@ MailIdentity
    .. api-member::
       :name: [``replyTo``]
       :refid: identities-mail-identity-reply-to
+      :refname: replyTo
       :type: (string, optional)
 
       The reply-to email address associated with this identity.
@@ -580,6 +618,7 @@ MailIdentity
    .. api-member::
       :name: [``signature``]
       :refid: identities-mail-identity-signature
+      :refname: signature
       :type: (string, optional)
 
       The signature of the identity.
@@ -589,6 +628,7 @@ MailIdentity
    .. api-member::
       :name: [``signatureIsPlainText``]
       :refid: identities-mail-identity-signature-is-plain-text
+      :refname: signatureIsPlainText
       :type: (boolean, optional)
 
       If the signature should be interpreted as plain text or as HTML.

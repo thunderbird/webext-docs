@@ -45,6 +45,7 @@ Returns the JavaScript 'window' object for the background page running inside th
 
    .. api-member::
       :refid: extension-get-background-page-returns
+      :refname: _returns
       :type: `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -70,6 +71,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
    .. api-member::
       :name: [``fetchProperties``]
       :refid: extension-get-views-fetch-properties
+      :refname: fetchProperties
       :type: (object, optional)
 
       .. _extension.get^views.fetch^properties.tab^id:
@@ -77,6 +79,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
       .. api-member::
          :name: [``tabId``]
          :refid: extension-get-views-fetch-properties-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Find a view according to a tab id. If this field is omitted, returns all views.
@@ -86,6 +89,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
       .. api-member::
          :name: [``type``]
          :refid: extension-get-views-fetch-properties-type
+         :refname: type
          :type: (:ref:`extension.^view^type`, optional)
 
          The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'popup', 'sidebar'.
@@ -95,6 +99,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
       .. api-member::
          :name: [``windowId``]
          :refid: extension-get-views-fetch-properties-window-id
+         :refname: windowId
          :type: (integer, optional)
 
          The window to restrict the search to. If omitted, returns all views.
@@ -106,6 +111,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 
    .. api-member::
       :refid: extension-get-views-returns
+      :refname: _returns
       :type: array of `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
 
       Array of global objects
@@ -128,6 +134,7 @@ Retrieves the state of the extension's access to the 'file://' scheme (as determ
 
    .. api-member::
       :refid: extension-is-allowed-file-scheme-access-returns
+      :refname: _returns
       :type: boolean
 
       True if the extension can access the 'file://' scheme, false otherwise.
@@ -150,6 +157,7 @@ Retrieves the state of the extension's access to Incognito-mode (as determined b
 
    .. api-member::
       :refid: extension-is-allowed-incognito-access-returns
+      :refname: _returns
       :type: boolean
 
       True if the extension has access to Incognito mode, false otherwise.
@@ -184,12 +192,14 @@ The type of extension view.
          .. api-member::
             :name: :value:`popup`
             :refid: extension-view-type-popup
+            :refname: popup
 
          .. _extension.^view^type.sidebar:
 
          .. api-member::
             :name: :value:`sidebar`
             :refid: extension-view-type-sidebar
+            :refname: sidebar
             :annotation: -- [Added in TB 54]
 
          .. _extension.^view^type.tab:
@@ -197,6 +207,7 @@ The type of extension view.
          .. api-member::
             :name: :value:`tab`
             :refid: extension-view-type-tab
+            :refname: tab
 
 .. rst-class:: api-main-section
 

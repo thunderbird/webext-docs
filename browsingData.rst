@@ -40,6 +40,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`browsingData`
    :refid: browsing-data-permission-browsing-data
+   :refname: browsingData
 
    Clear recent browsing history, cookies, and related data.
 
@@ -75,6 +76,7 @@ Clears various types of browsing data stored in a user's profile.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
    .. _browsing^data.remove.data^to^remove:
@@ -82,6 +84,7 @@ Clears various types of browsing data stored in a user's profile.
    .. api-member::
       :name: ``dataToRemove``
       :refid: browsing-data-remove-data-to-remove
+      :refname: dataToRemove
       :type: (:ref:`browsing^data.^data^type^set`)
 
       The set of data types to remove.
@@ -108,6 +111,7 @@ Clears websites' appcache data.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-appcache-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -136,6 +140,7 @@ Clears the browser's cache.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-cache-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -160,6 +165,7 @@ Clears the browser's cookies and server-bound certificates modified within a par
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-cookies-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -184,6 +190,7 @@ Clears the browser's list of downloaded files (*not* the downloaded files themse
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-downloads-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -208,6 +215,7 @@ Clears websites' file system data.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-file-systems-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -232,6 +240,7 @@ Clears the browser's stored form data (autofill).
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-form-data-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -260,6 +269,7 @@ Clears the browser's history.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-history-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -284,6 +294,7 @@ Clears websites' IndexedDB data.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-indexed-d-b-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -312,6 +323,7 @@ Clears websites' local storage data.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-local-storage-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -336,6 +348,7 @@ Clears the browser's stored passwords.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-passwords-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -360,6 +373,7 @@ Clears plugins' data.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-plugin-data-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -384,6 +398,7 @@ Clears websites' WebSQL data.
    .. api-member::
       :name: ``options``
       :refid: browsing-data-remove-web-s-q-l-options
+      :refname: options
       :type: (:ref:`browsing^data.^removal^options`)
 
 .. api-header::
@@ -407,6 +422,7 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
 
    .. api-member::
       :refid: browsing-data-settings-returns
+      :refname: _returns
       :type: object
 
       .. _browsing^data.settings.returns.data^removal^permitted:
@@ -414,6 +430,7 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
       .. api-member::
          :name: ``dataRemovalPermitted``
          :refid: browsing-data-settings-returns-data-removal-permitted
+         :refname: dataRemovalPermitted
          :type: (:ref:`browsing^data.^data^type^set`)
 
          All of the types will be present in the result, with values of :code:`true` if they are permitted to be removed (e.g., by enterprise policy) and :code:`false` if not.
@@ -423,6 +440,7 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
       .. api-member::
          :name: ``dataToRemove``
          :refid: browsing-data-settings-returns-data-to-remove
+         :refname: dataToRemove
          :type: (:ref:`browsing^data.^data^type^set`)
 
          All of the types will be present in the result, with values of :code:`true` if they are both selected to be removed and permitted to be removed, otherwise :code:`false`.
@@ -432,6 +450,7 @@ Reports which types of data are currently selected in the 'Clear browsing data' 
       .. api-member::
          :name: ``options``
          :refid: browsing-data-settings-returns-options
+         :refname: options
          :type: (:ref:`browsing^data.^removal^options`)
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -463,6 +482,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``cache``]
       :refid: browsing-data-data-type-set-cache
+      :refname: cache
       :type: (boolean, optional)
 
       The browser's cache. Note: when removing data, this clears the *entire* cache: it is not limited to the range you specify.
@@ -472,6 +492,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``cookies``]
       :refid: browsing-data-data-type-set-cookies
+      :refname: cookies
       :type: (boolean, optional)
 
       The browser's cookies.
@@ -481,6 +502,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``downloads``]
       :refid: browsing-data-data-type-set-downloads
+      :refname: downloads
       :type: (boolean, optional)
 
       The browser's download list.
@@ -490,6 +512,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``formData``]
       :refid: browsing-data-data-type-set-form-data
+      :refname: formData
       :type: (boolean, optional)
 
       The browser's stored form data.
@@ -499,6 +522,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``history``]
       :refid: browsing-data-data-type-set-history
+      :refname: history
       :type: (boolean, optional)
 
       The browser's history.
@@ -508,6 +532,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``indexedDB``]
       :refid: browsing-data-data-type-set-indexed-d-b
+      :refname: indexedDB
       :type: (boolean, optional)
       :annotation: -- [Added in TB 57]
 
@@ -518,6 +543,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``localStorage``]
       :refid: browsing-data-data-type-set-local-storage
+      :refname: localStorage
       :type: (boolean, optional)
       :annotation: -- [Added in TB 57]
 
@@ -528,6 +554,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``passwords``]
       :refid: browsing-data-data-type-set-passwords
+      :refname: passwords
       :type: (boolean, optional)
 
       Stored passwords.
@@ -537,6 +564,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``pluginData``]
       :refid: browsing-data-data-type-set-plugin-data
+      :refname: pluginData
       :type: (boolean, optional)
 
       Plugins' data.
@@ -546,6 +574,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``serverBoundCertificates``]
       :refid: browsing-data-data-type-set-server-bound-certificates
+      :refname: serverBoundCertificates
       :type: (boolean, optional)
 
       Server-bound certificates.
@@ -555,6 +584,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
    .. api-member::
       :name: [``serviceWorkers``]
       :refid: browsing-data-data-type-set-service-workers
+      :refname: serviceWorkers
       :type: (boolean, optional)
 
       Service Workers.
@@ -576,6 +606,7 @@ Options that determine exactly what data will be removed.
    .. api-member::
       :name: [``cookieStoreId``]
       :refid: browsing-data-removal-options-cookie-store-id
+      :refname: cookieStoreId
       :type: (string, optional)
       :annotation: -- [Added in TB 84]
 
@@ -586,6 +617,7 @@ Options that determine exactly what data will be removed.
    .. api-member::
       :name: [``hostnames``]
       :refid: browsing-data-removal-options-hostnames
+      :refname: hostnames
       :type: (array of string, optional)
       :annotation: -- [Added in TB 56]
 
@@ -604,6 +636,7 @@ Options that determine exactly what data will be removed.
    .. api-member::
       :name: [``originTypes``]
       :refid: browsing-data-removal-options-origin-types
+      :refname: originTypes
       :type: (object, optional)
 
       An object whose properties specify which origin types ought to be cleared. If this object isn't specified, it defaults to clearing only "unprotected" origins. Please ensure that you *really* want to remove application data before adding 'protectedWeb' or 'extensions'.
@@ -613,6 +646,7 @@ Options that determine exactly what data will be removed.
       .. api-member::
          :name: [``extension``]
          :refid: browsing-data-removal-options-origin-types-extension
+         :refname: extension
          :type: (boolean, optional)
 
          Extensions and packaged applications a user has installed (be _really_ careful!).
@@ -622,6 +656,7 @@ Options that determine exactly what data will be removed.
       .. api-member::
          :name: [``protectedWeb``]
          :refid: browsing-data-removal-options-origin-types-protected-web
+         :refname: protectedWeb
          :type: (boolean, optional)
 
          Websites that have been installed as hosted applications (be careful!).
@@ -631,6 +666,7 @@ Options that determine exactly what data will be removed.
       .. api-member::
          :name: [``unprotectedWeb``]
          :refid: browsing-data-removal-options-origin-types-unprotected-web
+         :refname: unprotectedWeb
          :type: (boolean, optional)
 
          Normal websites.
@@ -640,6 +676,7 @@ Options that determine exactly what data will be removed.
    .. api-member::
       :name: [``since``]
       :refid: browsing-data-removal-options-since
+      :refname: since
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
 
       Remove data accumulated on or after this date, represented in milliseconds since the epoch (accessible via the :code:`getTime` method of the JavaScript :code:`Date` object). If absent, defaults to 0 (which would remove all browsing data).
