@@ -34,6 +34,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`compose`
    :refid: compose-scripts-permission-compose
+   :refname: compose
 
    Read and modify your email messages as you compose and send them.
 
@@ -69,6 +70,7 @@ Register a compose script programmatically.
    .. api-member::
       :name: ``composeScriptOptions``
       :refid: compose-scripts-register-compose-script-options
+      :refname: composeScriptOptions
       :type: (:ref:`compose^scripts.^registered^compose^script^options`)
 
 .. api-header::
@@ -102,6 +104,7 @@ Specify code, either by pointing to a file or by providing the code directly. On
          .. api-member::
             :name: ``file``
             :refid: compose-scripts-extension-file-or-code-file
+            :refname: file
             :type: (:ref:`compose^scripts.^extension^u^r^l`)
 
             A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
@@ -120,6 +123,7 @@ Specify code, either by pointing to a file or by providing the code directly. On
          .. api-member::
             :name: ``code``
             :refid: compose-scripts-extension-file-or-code-code
+            :refname: code
             :type: (string)
 
             A string of JavaScript code to register.
@@ -165,6 +169,7 @@ Details of a compose script registered programmatically.
    .. api-member::
       :name: [``css``]
       :refid: compose-scripts-registered-compose-script-options-css
+      :refname: css
       :type: (array of :ref:`compose^scripts.^extension^file^or^code`, optional)
 
       The list of CSS files to inject.
@@ -174,6 +179,7 @@ Details of a compose script registered programmatically.
    .. api-member::
       :name: [``js``]
       :refid: compose-scripts-registered-compose-script-options-js
+      :refname: js
       :type: (array of :ref:`compose^scripts.^extension^file^or^code`, optional)
 
       The list of JavaScript files to inject.

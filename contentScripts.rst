@@ -43,6 +43,7 @@ Register a content script programmatically
    .. api-member::
       :name: ``contentScriptOptions``
       :refid: content-scripts-register-content-script-options
+      :refname: contentScriptOptions
       :type: (:ref:`content^scripts.^registered^content^script^options`)
 
 .. rst-class:: api-main-section
@@ -73,12 +74,14 @@ The JavaScript world for a script to execute within. :code:`ISOLATED` is the def
          .. api-member::
             :name: :value:`ISOLATED`
             :refid: content-scripts-execution-world-i-s-o-l-a-t-e-d
+            :refname: ISOLATED
 
          .. _content^scripts.^execution^world.^m^a^i^n:
 
          .. api-member::
             :name: :value:`MAIN`
             :refid: content-scripts-execution-world-m-a-i-n
+            :refname: MAIN
 
 .. _content^scripts.^extension^file^or^code:
 
@@ -101,6 +104,7 @@ Specify code, either by pointing to a file or by providing the code directly. On
          .. api-member::
             :name: ``file``
             :refid: content-scripts-extension-file-or-code-file
+            :refname: file
             :type: (:ref:`content^scripts.^extension^u^r^l`)
 
             A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
@@ -119,6 +123,7 @@ Specify code, either by pointing to a file or by providing the code directly. On
          .. api-member::
             :name: ``code``
             :refid: content-scripts-extension-file-or-code-code
+            :refname: code
             :type: (string)
 
             A string of JavaScript code to register.
@@ -156,6 +161,7 @@ MatchPattern
          .. api-member::
             :name: :value:`<all_urls>`
             :refid: content-scripts-match-pattern-all-urls
+            :refname: <all_urls>
 
 *or*
 
@@ -225,6 +231,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: ``matches``
       :refid: content-scripts-registered-content-script-options-matches
+      :refname: matches
       :type: (array of :ref:`content^scripts.^match^pattern`)
 
    .. _content^scripts.^registered^content^script^options.all^frames:
@@ -232,6 +239,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``allFrames``]
       :refid: content-scripts-registered-content-script-options-all-frames
+      :refname: allFrames
       :type: (boolean, optional)
 
       If allFrames is :code:`true`, implies that the JavaScript or CSS should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
@@ -241,6 +249,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``cookieStoreId``]
       :refid: content-scripts-registered-content-script-options-cookie-store-id
+      :refname: cookieStoreId
       :type: (array of string or string, optional)
 
       limit the set of matched tabs to those that belong to the given cookie store id
@@ -250,6 +259,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``css``]
       :refid: content-scripts-registered-content-script-options-css
+      :refname: css
       :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
 
       The list of CSS files to inject
@@ -259,6 +269,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``excludeGlobs``]
       :refid: content-scripts-registered-content-script-options-exclude-globs
+      :refname: excludeGlobs
       :type: (array of string, optional)
 
    .. _content^scripts.^registered^content^script^options.exclude^matches:
@@ -266,6 +277,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``excludeMatches``]
       :refid: content-scripts-registered-content-script-options-exclude-matches
+      :refname: excludeMatches
       :type: (array of :ref:`content^scripts.^match^pattern`, optional)
 
    .. _content^scripts.^registered^content^script^options.include^globs:
@@ -273,6 +285,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``includeGlobs``]
       :refid: content-scripts-registered-content-script-options-include-globs
+      :refname: includeGlobs
       :type: (array of string, optional)
 
    .. _content^scripts.^registered^content^script^options.js:
@@ -280,6 +293,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``js``]
       :refid: content-scripts-registered-content-script-options-js
+      :refname: js
       :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
 
       The list of JS files to inject
@@ -289,6 +303,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``matchAboutBlank``]
       :refid: content-scripts-registered-content-script-options-match-about-blank
+      :refname: matchAboutBlank
       :type: (boolean, optional)
 
       If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Ignored if matchOriginAsFallback is specified. By default it is :code:`false`.
@@ -298,6 +313,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``matchOriginAsFallback``]
       :refid: content-scripts-registered-content-script-options-match-origin-as-fallback
+      :refname: matchOriginAsFallback
       :type: (boolean, optional)
 
       If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
@@ -307,6 +323,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``runAt``]
       :refid: content-scripts-registered-content-script-options-run-at
+      :refname: runAt
       :type: (:ref:`content^scripts.^run^at`, optional)
 
       The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
@@ -316,6 +333,7 @@ Details of a content script registered programmatically
    .. api-member::
       :name: [``world``]
       :refid: content-scripts-registered-content-script-options-world
+      :refname: world
       :type: (:ref:`content^scripts.^execution^world`, optional)
 
       The JavaScript world for a script to execute within. Defaults to "ISOLATED".
@@ -343,15 +361,18 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          .. api-member::
             :name: :value:`document_end`
             :refid: content-scripts-run-at-document-end
+            :refname: document_end
 
          .. _content^scripts.^run^at.document_idle:
 
          .. api-member::
             :name: :value:`document_idle`
             :refid: content-scripts-run-at-document-idle
+            :refname: document_idle
 
          .. _content^scripts.^run^at.document_start:
 
          .. api-member::
             :name: :value:`document_start`
             :refid: content-scripts-run-at-document-start
+            :refname: document_start

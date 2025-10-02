@@ -40,6 +40,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`dns`
    :refid: dns-permission-dns
+   :refname: dns
 
    Grant access to some or all methods of the dns API.
 
@@ -71,6 +72,7 @@ Resolves a hostname to a DNS record.
    .. api-member::
       :name: ``hostname``
       :refid: dns-resolve-hostname
+      :refname: hostname
       :type: (string)
 
    .. _dns.resolve.flags:
@@ -78,6 +80,7 @@ Resolves a hostname to a DNS record.
    .. api-member::
       :name: [``flags``]
       :refid: dns-resolve-flags
+      :refname: flags
       :type: (:ref:`dns.^resolve^flags`, optional)
 
 .. api-header::
@@ -107,6 +110,7 @@ An object encapsulating a DNS Record.
    .. api-member::
       :name: ``addresses``
       :refid: dns-d-n-s-record-addresses
+      :refname: addresses
       :type: (array of string)
 
    .. _dns.^d^n^s^record.is^t^r^r:
@@ -114,6 +118,7 @@ An object encapsulating a DNS Record.
    .. api-member::
       :name: ``isTRR``
       :refid: dns-d-n-s-record-is-t-r-r
+      :refname: isTRR
       :type: (string)
 
       Record retreived with TRR.
@@ -123,6 +128,7 @@ An object encapsulating a DNS Record.
    .. api-member::
       :name: [``canonicalName``]
       :refid: dns-d-n-s-record-canonical-name
+      :refname: canonicalName
       :type: (string, optional)
 
       The canonical hostname for this record.  this value is empty if the record was not fetched with the 'canonical_name' flag.
@@ -145,30 +151,40 @@ ResolveFlags
 
          .. api-member::
             :name: :value:`allow_name_collisions`
+            :refname: allow_name_collisions
 
          .. api-member::
             :name: :value:`bypass_cache`
+            :refname: bypass_cache
 
          .. api-member::
             :name: :value:`canonical_name`
+            :refname: canonical_name
 
          .. api-member::
             :name: :value:`disable_ipv4`
+            :refname: disable_ipv4
 
          .. api-member::
             :name: :value:`disable_ipv6`
+            :refname: disable_ipv6
 
          .. api-member::
             :name: :value:`disable_trr`
+            :refname: disable_trr
 
          .. api-member::
             :name: :value:`offline`
+            :refname: offline
 
          .. api-member::
             :name: :value:`priority_low`
+            :refname: priority_low
 
          .. api-member::
             :name: :value:`priority_medium`
+            :refname: priority_medium
 
          .. api-member::
             :name: :value:`speculate`
+            :refname: speculate

@@ -37,6 +37,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`accountsRead`
    :refid: compose-permission-accounts-read
+   :refname: accountsRead
 
    See your mail accounts, their identities and their folders.
 
@@ -45,6 +46,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`compose`
    :refid: compose-permission-compose
+   :refname: compose
 
    Read and modify your email messages as you compose and send them.
 
@@ -53,6 +55,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`compose.save`
    :refid: compose-permission-compose-save
+   :refname: compose.save
 
    Save composed email messages as drafts or templates.
 
@@ -61,6 +64,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`compose.send`
    :refid: compose-permission-compose-send
+   :refname: compose.send
 
    Send composed email messages on your behalf.
 
@@ -86,6 +90,7 @@ Adds an attachment to the message being composed in the specified tab.
    .. api-member::
       :name: ``tabId``
       :refid: compose-add-attachment-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.add^attachment.attachment:
@@ -93,6 +98,7 @@ Adds an attachment to the message being composed in the specified tab.
    .. api-member::
       :name: ``attachment``
       :refid: compose-add-attachment-attachment
+      :refname: attachment
       :type: (:ref:`compose.^file^attachment` or :ref:`compose.^compose^attachment`)
 
 .. api-header::
@@ -102,6 +108,7 @@ Adds an attachment to the message being composed in the specified tab.
 
    .. api-member::
       :refid: compose-add-attachment-returns
+      :refname: _returns
       :type: :ref:`compose.^compose^attachment`
       :annotation: -- [Added in TB 96]
 
@@ -133,6 +140,7 @@ Open a new message compose window forwarding a given message.
    .. api-member::
       :name: ``messageId``
       :refid: compose-begin-forward-message-id
+      :refname: messageId
       :type: (:ref:`messages.^message^id`)
 
       The message to forward, as retrieved using other APIs.
@@ -142,6 +150,7 @@ Open a new message compose window forwarding a given message.
    .. api-member::
       :name: [``forwardType``]
       :refid: compose-begin-forward-forward-type
+      :refname: forwardType
       :type: (`string`, optional)
 
       Supported values:
@@ -151,18 +160,21 @@ Open a new message compose window forwarding a given message.
       .. api-member::
          :name: :value:`forwardAsAttachment`
          :refid: compose-begin-forward-forward-type-forward-as-attachment
+         :refname: forwardAsAttachment
 
       .. _compose.begin^forward.forward^type.forward^inline:
 
       .. api-member::
          :name: :value:`forwardInline`
          :refid: compose-begin-forward-forward-type-forward-inline
+         :refname: forwardInline
 
    .. _compose.begin^forward.details:
 
    .. api-member::
       :name: [``details``]
       :refid: compose-begin-forward-details
+      :refname: details
       :type: (:ref:`compose.^compose^details`, optional)
 
 .. api-header::
@@ -172,6 +184,7 @@ Open a new message compose window forwarding a given message.
 
    .. api-member::
       :refid: compose-begin-forward-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 89]
 
@@ -198,6 +211,7 @@ Open a new message compose window.
    .. api-member::
       :name: [``messageId``]
       :refid: compose-begin-new-message-id
+      :refname: messageId
       :type: (:ref:`messages.^message^id`, optional)
 
       If specified, the message or template to edit as a new message.
@@ -207,6 +221,7 @@ Open a new message compose window.
    .. api-member::
       :name: [``details``]
       :refid: compose-begin-new-details
+      :refname: details
       :type: (:ref:`compose.^compose^details`, optional)
       :annotation: -- [Added in TB 84]
 
@@ -217,6 +232,7 @@ Open a new message compose window.
 
    .. api-member::
       :refid: compose-begin-new-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 89]
 
@@ -243,6 +259,7 @@ Open a new message compose window replying to a given message.
    .. api-member::
       :name: ``messageId``
       :refid: compose-begin-reply-message-id
+      :refname: messageId
       :type: (:ref:`messages.^message^id`)
 
       The message to reply to, as retrieved using other APIs.
@@ -252,6 +269,7 @@ Open a new message compose window replying to a given message.
    .. api-member::
       :name: [``replyType``]
       :refid: compose-begin-reply-reply-type
+      :refname: replyType
       :type: (`string`, optional)
 
       Supported values:
@@ -261,24 +279,28 @@ Open a new message compose window replying to a given message.
       .. api-member::
          :name: :value:`replyToAll`
          :refid: compose-begin-reply-reply-type-reply-to-all
+         :refname: replyToAll
 
       .. _compose.begin^reply.reply^type.reply^to^list:
 
       .. api-member::
          :name: :value:`replyToList`
          :refid: compose-begin-reply-reply-type-reply-to-list
+         :refname: replyToList
 
       .. _compose.begin^reply.reply^type.reply^to^sender:
 
       .. api-member::
          :name: :value:`replyToSender`
          :refid: compose-begin-reply-reply-type-reply-to-sender
+         :refname: replyToSender
 
    .. _compose.begin^reply.details:
 
    .. api-member::
       :name: [``details``]
       :refid: compose-begin-reply-details
+      :refname: details
       :type: (:ref:`compose.^compose^details`, optional)
       :annotation: -- [Added in TB 76]
 
@@ -289,6 +311,7 @@ Open a new message compose window replying to a given message.
 
    .. api-member::
       :refid: compose-begin-reply-returns
+      :refname: _returns
       :type: :ref:`tabs.^tab`
       :annotation: -- [Added in TB 89]
 
@@ -311,6 +334,7 @@ Returns a :ref:`compose.^compose^dictionaries` object, listing all installed dic
    .. api-member::
       :name: ``tabId``
       :refid: compose-get-active-dictionaries-tab-id
+      :refname: tabId
       :type: (integer)
 
 .. api-header::
@@ -320,6 +344,7 @@ Returns a :ref:`compose.^compose^dictionaries` object, listing all installed dic
 
    .. api-member::
       :refid: compose-get-active-dictionaries-returns
+      :refname: _returns
       :type: :ref:`compose.^compose^dictionaries`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -346,6 +371,7 @@ Gets the content of a :ref:`compose.^compose^attachment` as a `File <https://dev
    .. api-member::
       :name: ``id``
       :refid: compose-get-attachment-file-id
+      :refname: id
       :type: (integer)
 
       The unique identifier for the attachment.
@@ -357,6 +383,7 @@ Gets the content of a :ref:`compose.^compose^attachment` as a `File <https://dev
 
    .. api-member::
       :refid: compose-get-attachment-file-returns
+      :refname: _returns
       :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -378,6 +405,7 @@ Fetches the current state of a compose window. Currently only a limited amount o
    .. api-member::
       :name: ``tabId``
       :refid: compose-get-compose-details-tab-id
+      :refname: tabId
       :type: (integer)
 
 .. api-header::
@@ -387,6 +415,7 @@ Fetches the current state of a compose window. Currently only a limited amount o
 
    .. api-member::
       :refid: compose-get-compose-details-returns
+      :refname: _returns
       :type: :ref:`compose.^compose^details`
       :annotation: -- [Added in TB 89]
 
@@ -414,6 +443,7 @@ Returns information about the current state of the message composer.
    .. api-member::
       :name: ``tabId``
       :refid: compose-get-compose-state-tab-id
+      :refname: tabId
       :type: (integer)
 
 .. api-header::
@@ -423,6 +453,7 @@ Returns information about the current state of the message composer.
 
    .. api-member::
       :refid: compose-get-compose-state-returns
+      :refname: _returns
       :type: :ref:`compose.^compose^state`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -444,6 +475,7 @@ Lists all of the attachments of the message being composed in the specified tab.
    .. api-member::
       :name: ``tabId``
       :refid: compose-list-attachments-tab-id
+      :refname: tabId
       :type: (integer)
 
 .. api-header::
@@ -453,6 +485,7 @@ Lists all of the attachments of the message being composed in the specified tab.
 
    .. api-member::
       :refid: compose-list-attachments-returns
+      :refname: _returns
       :type: array of :ref:`compose.^compose^attachment`
       :annotation: -- [Added in TB 96]
 
@@ -480,6 +513,7 @@ Removes an attachment from the message being composed in the specified tab.
    .. api-member::
       :name: ``tabId``
       :refid: compose-remove-attachment-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.remove^attachment.attachment^id:
@@ -487,6 +521,7 @@ Removes an attachment from the message being composed in the specified tab.
    .. api-member::
       :name: ``attachmentId``
       :refid: compose-remove-attachment-attachment-id
+      :refname: attachmentId
       :type: (integer)
 
 .. api-header::
@@ -511,6 +546,7 @@ Saves the message currently being composed as a draft or as a template. If the s
    .. api-member::
       :name: ``tabId``
       :refid: compose-save-message-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.save^message.options:
@@ -518,6 +554,7 @@ Saves the message currently being composed as a draft or as a template. If the s
    .. api-member::
       :name: [``options``]
       :refid: compose-save-message-options
+      :refname: options
       :type: (object, optional)
 
       .. _compose.save^message.options.mode:
@@ -525,6 +562,7 @@ Saves the message currently being composed as a draft or as a template. If the s
       .. api-member::
          :name: ``mode``
          :refid: compose-save-message-options-mode
+         :refname: mode
          :type: (`string`)
 
          Supported values:
@@ -534,12 +572,14 @@ Saves the message currently being composed as a draft or as a template. If the s
          .. api-member::
             :name: :value:`draft`
             :refid: compose-save-message-options-mode-draft
+            :refname: draft
 
          .. _compose.save^message.options.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-save-message-options-mode-template
+            :refname: template
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -548,6 +588,7 @@ Saves the message currently being composed as a draft or as a template. If the s
 
    .. api-member::
       :refid: compose-save-message-returns
+      :refname: _returns
       :type: object
 
       .. _compose.save^message.returns.messages:
@@ -555,6 +596,7 @@ Saves the message currently being composed as a draft or as a template. If the s
       .. api-member::
          :name: ``messages``
          :refid: compose-save-message-returns-messages
+         :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
          The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
@@ -564,6 +606,7 @@ Saves the message currently being composed as a draft or as a template. If the s
       .. api-member::
          :name: ``mode``
          :refid: compose-save-message-returns-mode
+         :refname: mode
          :type: (`string`)
 
          The used save mode.
@@ -575,12 +618,14 @@ Saves the message currently being composed as a draft or as a template. If the s
          .. api-member::
             :name: :value:`draft`
             :refid: compose-save-message-returns-mode-draft
+            :refname: draft
 
          .. _compose.save^message.returns.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-save-message-returns-mode-template
+            :refname: template
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -606,6 +651,7 @@ Sends the message currently being composed. If the send mode is not specified or
    .. api-member::
       :name: ``tabId``
       :refid: compose-send-message-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.send^message.options:
@@ -613,6 +659,7 @@ Sends the message currently being composed. If the send mode is not specified or
    .. api-member::
       :name: [``options``]
       :refid: compose-send-message-options
+      :refname: options
       :type: (object, optional)
 
       .. _compose.send^message.options.mode:
@@ -620,6 +667,7 @@ Sends the message currently being composed. If the send mode is not specified or
       .. api-member::
          :name: ``mode``
          :refid: compose-send-message-options-mode
+         :refname: mode
          :type: (`string`)
 
          Supported values:
@@ -629,18 +677,21 @@ Sends the message currently being composed. If the send mode is not specified or
          .. api-member::
             :name: :value:`default`
             :refid: compose-send-message-options-mode-default
+            :refname: default
 
          .. _compose.send^message.options.mode.send^later:
 
          .. api-member::
             :name: :value:`sendLater`
             :refid: compose-send-message-options-mode-send-later
+            :refname: sendLater
 
          .. _compose.send^message.options.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-send-message-options-mode-send-now
+            :refname: sendNow
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -649,6 +700,7 @@ Sends the message currently being composed. If the send mode is not specified or
 
    .. api-member::
       :refid: compose-send-message-returns
+      :refname: _returns
       :type: object
 
       .. _compose.send^message.returns.messages:
@@ -656,6 +708,7 @@ Sends the message currently being composed. If the send mode is not specified or
       .. api-member::
          :name: ``messages``
          :refid: compose-send-message-returns-messages
+         :refname: messages
          :type: (array of :ref:`messages.^message^header`)
          :annotation: -- [Added in TB 102]
 
@@ -666,6 +719,7 @@ Sends the message currently being composed. If the send mode is not specified or
       .. api-member::
          :name: ``mode``
          :refid: compose-send-message-returns-mode
+         :refname: mode
          :type: (`string`)
          :annotation: -- [Added in TB 102]
 
@@ -678,18 +732,21 @@ Sends the message currently being composed. If the send mode is not specified or
          .. api-member::
             :name: :value:`sendLater`
             :refid: compose-send-message-returns-mode-send-later
+            :refname: sendLater
 
          .. _compose.send^message.returns.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-send-message-returns-mode-send-now
+            :refname: sendNow
 
       .. _compose.send^message.returns.header^message^id:
 
       .. api-member::
          :name: [``headerMessageId``]
          :refid: compose-send-message-returns-header-message-id
+         :refname: headerMessageId
          :type: (string, optional)
          :annotation: -- [Added in TB 102]
 
@@ -719,6 +776,7 @@ Updates the active dictionaries. Throws if the :value:`activeDictionaries` array
    .. api-member::
       :name: ``tabId``
       :refid: compose-set-active-dictionaries-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.set^active^dictionaries.active^dictionaries:
@@ -726,6 +784,7 @@ Updates the active dictionaries. Throws if the :value:`activeDictionaries` array
    .. api-member::
       :name: ``activeDictionaries``
       :refid: compose-set-active-dictionaries-active-dictionaries
+      :refname: activeDictionaries
       :type: (array of string)
 
 .. api-header::
@@ -758,6 +817,7 @@ Updates the compose window. The properties of the given :ref:`compose.^compose^d
    .. api-member::
       :name: ``tabId``
       :refid: compose-set-compose-details-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.set^compose^details.details:
@@ -765,6 +825,7 @@ Updates the compose window. The properties of the given :ref:`compose.^compose^d
    .. api-member::
       :name: ``details``
       :refid: compose-set-compose-details-details
+      :refname: details
       :type: (:ref:`compose.^compose^details`)
 
 .. api-header::
@@ -789,6 +850,7 @@ Updates the name and/or the content of an attachment in the message being compos
    .. api-member::
       :name: ``tabId``
       :refid: compose-update-attachment-tab-id
+      :refname: tabId
       :type: (integer)
 
    .. _compose.update^attachment.attachment^id:
@@ -796,6 +858,7 @@ Updates the name and/or the content of an attachment in the message being compos
    .. api-member::
       :name: ``attachmentId``
       :refid: compose-update-attachment-attachment-id
+      :refname: attachmentId
       :type: (integer)
 
    .. _compose.update^attachment.attachment:
@@ -803,6 +866,7 @@ Updates the name and/or the content of an attachment in the message being compos
    .. api-member::
       :name: ``attachment``
       :refid: compose-update-attachment-attachment
+      :refname: attachment
       :type: (:ref:`compose.^file^attachment`)
 
 .. api-header::
@@ -812,6 +876,7 @@ Updates the name and/or the content of an attachment in the message being compos
 
    .. api-member::
       :refid: compose-update-attachment-returns
+      :refname: _returns
       :type: :ref:`compose.^compose^attachment`
       :annotation: -- [Added in TB 96]
 
@@ -844,6 +909,7 @@ Fired when one or more dictionaries have been activated or deactivated.
    .. api-member::
       :name: ``listener(tab, dictionaries)``
       :refid: compose-on-active-dictionaries-changed-listener-tab-dictionaries
+      :refname: listener(tab, dictionaries)
 
       A function that will be called when this event occurs.
 
@@ -855,6 +921,7 @@ Fired when one or more dictionaries have been activated or deactivated.
    .. api-member::
       :name: ``tab``
       :refid: compose-on-active-dictionaries-changed-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^active^dictionaries^changed.dictionaries:
@@ -862,6 +929,7 @@ Fired when one or more dictionaries have been activated or deactivated.
    .. api-member::
       :name: ``dictionaries``
       :refid: compose-on-active-dictionaries-changed-dictionaries
+      :refname: dictionaries
       :type: (:ref:`compose.^compose^dictionaries`)
 
 .. _compose.on^after^save:
@@ -881,6 +949,7 @@ Fired when saving a message as draft or template succeeded or failed.
    .. api-member::
       :name: ``listener(tab, saveInfo)``
       :refid: compose-on-after-save-listener-tab-save-info
+      :refname: listener(tab, saveInfo)
 
       A function that will be called when this event occurs.
 
@@ -892,6 +961,7 @@ Fired when saving a message as draft or template succeeded or failed.
    .. api-member::
       :name: ``tab``
       :refid: compose-on-after-save-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^after^save.save^info:
@@ -899,6 +969,7 @@ Fired when saving a message as draft or template succeeded or failed.
    .. api-member::
       :name: ``saveInfo``
       :refid: compose-on-after-save-save-info
+      :refname: saveInfo
       :type: (object)
 
       .. _compose.on^after^save.save^info.messages:
@@ -906,6 +977,7 @@ Fired when saving a message as draft or template succeeded or failed.
       .. api-member::
          :name: ``messages``
          :refid: compose-on-after-save-save-info-messages
+         :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
          The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
@@ -915,6 +987,7 @@ Fired when saving a message as draft or template succeeded or failed.
       .. api-member::
          :name: ``mode``
          :refid: compose-on-after-save-save-info-mode
+         :refname: mode
          :type: (`string`)
 
          The used save mode.
@@ -926,6 +999,7 @@ Fired when saving a message as draft or template succeeded or failed.
          .. api-member::
             :name: :value:`autoSave`
             :refid: compose-on-after-save-save-info-mode-auto-save
+            :refname: autoSave
             :annotation: -- [Added in TB 125]
 
          .. _compose.on^after^save.save^info.mode.draft:
@@ -933,18 +1007,21 @@ Fired when saving a message as draft or template succeeded or failed.
          .. api-member::
             :name: :value:`draft`
             :refid: compose-on-after-save-save-info-mode-draft
+            :refname: draft
 
          .. _compose.on^after^save.save^info.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-on-after-save-save-info-mode-template
+            :refname: template
 
       .. _compose.on^after^save.save^info.error:
 
       .. api-member::
          :name: [``error``]
          :refid: compose-on-after-save-save-info-error
+         :refname: error
          :type: (string, optional)
 
          An error description, if saving the message failed.
@@ -971,6 +1048,7 @@ Fired when sending a message succeeded or failed.
    .. api-member::
       :name: ``listener(tab, sendInfo)``
       :refid: compose-on-after-send-listener-tab-send-info
+      :refname: listener(tab, sendInfo)
 
       A function that will be called when this event occurs.
 
@@ -982,6 +1060,7 @@ Fired when sending a message succeeded or failed.
    .. api-member::
       :name: ``tab``
       :refid: compose-on-after-send-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^after^send.send^info:
@@ -989,6 +1068,7 @@ Fired when sending a message succeeded or failed.
    .. api-member::
       :name: ``sendInfo``
       :refid: compose-on-after-send-send-info
+      :refname: sendInfo
       :type: (object)
 
       .. _compose.on^after^send.send^info.messages:
@@ -996,6 +1076,7 @@ Fired when sending a message succeeded or failed.
       .. api-member::
          :name: ``messages``
          :refid: compose-on-after-send-send-info-messages
+         :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
          Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
@@ -1005,6 +1086,7 @@ Fired when sending a message succeeded or failed.
       .. api-member::
          :name: ``mode``
          :refid: compose-on-after-send-send-info-mode
+         :refname: mode
          :type: (`string`)
 
          The used send mode.
@@ -1016,18 +1098,21 @@ Fired when sending a message succeeded or failed.
          .. api-member::
             :name: :value:`sendLater`
             :refid: compose-on-after-send-send-info-mode-send-later
+            :refname: sendLater
 
          .. _compose.on^after^send.send^info.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-on-after-send-send-info-mode-send-now
+            :refname: sendNow
 
       .. _compose.on^after^send.send^info.error:
 
       .. api-member::
          :name: [``error``]
          :refid: compose-on-after-send-send-info-error
+         :refname: error
          :type: (string, optional)
 
          An error description, if sending the message failed.
@@ -1037,6 +1122,7 @@ Fired when sending a message succeeded or failed.
       .. api-member::
          :name: [``headerMessageId``]
          :refid: compose-on-after-send-send-info-header-message-id
+         :refname: headerMessageId
          :type: (string, optional)
 
          The header messageId of the outgoing message. Only included for actually sent messages.
@@ -1063,6 +1149,7 @@ Fired when an attachment is added to a message being composed.
    .. api-member::
       :name: ``listener(tab, attachment)``
       :refid: compose-on-attachment-added-listener-tab-attachment
+      :refname: listener(tab, attachment)
 
       A function that will be called when this event occurs.
 
@@ -1074,6 +1161,7 @@ Fired when an attachment is added to a message being composed.
    .. api-member::
       :name: ``tab``
       :refid: compose-on-attachment-added-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^attachment^added.attachment:
@@ -1081,6 +1169,7 @@ Fired when an attachment is added to a message being composed.
    .. api-member::
       :name: ``attachment``
       :refid: compose-on-attachment-added-attachment
+      :refname: attachment
       :type: (:ref:`compose.^compose^attachment`)
 
 .. api-header::
@@ -1105,6 +1194,7 @@ Fired when an attachment is removed from a message being composed.
    .. api-member::
       :name: ``listener(tab, attachmentId)``
       :refid: compose-on-attachment-removed-listener-tab-attachment-id
+      :refname: listener(tab, attachmentId)
 
       A function that will be called when this event occurs.
 
@@ -1116,6 +1206,7 @@ Fired when an attachment is removed from a message being composed.
    .. api-member::
       :name: ``tab``
       :refid: compose-on-attachment-removed-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^attachment^removed.attachment^id:
@@ -1123,6 +1214,7 @@ Fired when an attachment is removed from a message being composed.
    .. api-member::
       :name: ``attachmentId``
       :refid: compose-on-attachment-removed-attachment-id
+      :refname: attachmentId
       :type: (integer)
 
 .. api-header::
@@ -1147,6 +1239,7 @@ Fired when a message is about to be sent from the compose window. This is a user
    .. api-member::
       :name: ``listener(tab, details)``
       :refid: compose-on-before-send-listener-tab-details
+      :refname: listener(tab, details)
 
       A function that will be called when this event occurs.
 
@@ -1158,6 +1251,7 @@ Fired when a message is about to be sent from the compose window. This is a user
    .. api-member::
       :name: ``tab``
       :refid: compose-on-before-send-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^before^send.details:
@@ -1165,6 +1259,7 @@ Fired when a message is about to be sent from the compose window. This is a user
    .. api-member::
       :name: ``details``
       :refid: compose-on-before-send-details
+      :refname: details
       :type: (:ref:`compose.^compose^details`)
 
       The current state of the compose window. This is functionally the same as calling the :ref:`compose.get^compose^details` function.
@@ -1183,6 +1278,7 @@ Fired when a message is about to be sent from the compose window. This is a user
       .. api-member::
          :name: [``cancel``]
          :refid: compose-on-before-send-returns-cancel
+         :refname: cancel
          :type: (boolean, optional)
 
          Cancels the send.
@@ -1192,6 +1288,7 @@ Fired when a message is about to be sent from the compose window. This is a user
       .. api-member::
          :name: [``details``]
          :refid: compose-on-before-send-returns-details
+         :refname: details
          :type: (:ref:`compose.^compose^details`, optional)
 
          Updates the compose window. This is functionally the same as calling the :ref:`compose.set^compose^details` function.
@@ -1218,6 +1315,7 @@ Fired when the state of the message composer changed.
    .. api-member::
       :name: ``listener(tab, state)``
       :refid: compose-on-compose-state-changed-listener-tab-state
+      :refname: listener(tab, state)
 
       A function that will be called when this event occurs.
 
@@ -1229,6 +1327,7 @@ Fired when the state of the message composer changed.
    .. api-member::
       :name: ``tab``
       :refid: compose-on-compose-state-changed-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^compose^state^changed.state:
@@ -1236,6 +1335,7 @@ Fired when the state of the message composer changed.
    .. api-member::
       :name: ``state``
       :refid: compose-on-compose-state-changed-state
+      :refname: state
       :type: (:ref:`compose.^compose^state`)
 
 .. _compose.on^identity^changed:
@@ -1255,6 +1355,7 @@ Fired when the user changes the identity that will be used to send a message bei
    .. api-member::
       :name: ``listener(tab, identityId)``
       :refid: compose-on-identity-changed-listener-tab-identity-id
+      :refname: listener(tab, identityId)
 
       A function that will be called when this event occurs.
 
@@ -1266,6 +1367,7 @@ Fired when the user changes the identity that will be used to send a message bei
    .. api-member::
       :name: ``tab``
       :refid: compose-on-identity-changed-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _compose.on^identity^changed.identity^id:
@@ -1273,6 +1375,7 @@ Fired when the user changes the identity that will be used to send a message bei
    .. api-member::
       :name: ``identityId``
       :refid: compose-on-identity-changed-identity-id
+      :refname: identityId
       :type: (string)
 
 .. api-header::
@@ -1302,6 +1405,7 @@ Represents an attachment in a message being composed.
    .. api-member::
       :name: ``id``
       :refid: compose-compose-attachment-id
+      :refname: id
       :type: (integer)
 
       A unique identifier for this attachment.
@@ -1311,6 +1415,7 @@ Represents an attachment in a message being composed.
    .. api-member::
       :name: [``name``]
       :refid: compose-compose-attachment-name
+      :refname: name
       :type: (string, optional)
 
       The name of this attachment, as displayed to the user.
@@ -1320,6 +1425,7 @@ Represents an attachment in a message being composed.
    .. api-member::
       :name: [``size``]
       :refid: compose-compose-attachment-size
+      :refname: size
       :type: (integer, optional)
       :annotation: -- [Added in TB 83]
 
@@ -1342,6 +1448,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``additionalFccFolder``]
       :refid: compose-compose-details-additional-fcc-folder
+      :refname: additionalFccFolder
       :type: (:ref:`folders.^mail^folder` or `string` or :ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1352,6 +1459,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``attachments``]
       :refid: compose-compose-details-attachments
+      :refname: attachments
       :type: (array of :ref:`compose.^file^attachment` or :ref:`compose.^compose^attachment`, optional)
       :annotation: -- [Added in TB 82]
 
@@ -1362,6 +1470,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``attachPublicPGPKey``]
       :refid: compose-compose-details-attach-public-p-g-p-key
+      :refname: attachPublicPGPKey
       :type: (boolean, optional)
       :annotation: -- [Added in TB 128]
 
@@ -1372,6 +1481,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``attachVCard``]
       :refid: compose-compose-details-attach-v-card
+      :refname: attachVCard
       :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1386,6 +1496,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``bcc``]
       :refid: compose-compose-details-bcc
+      :refname: bcc
       :type: (:ref:`compose.^compose^recipient^list`, optional)
 
    .. _compose.^compose^details.body:
@@ -1393,6 +1504,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``body``]
       :refid: compose-compose-details-body
+      :refname: body
       :type: (string, optional)
 
       The HTML content of the message.
@@ -1402,6 +1514,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``cc``]
       :refid: compose-compose-details-cc
+      :refname: cc
       :type: (:ref:`compose.^compose^recipient^list`, optional)
 
    .. _compose.^compose^details.custom^headers:
@@ -1409,6 +1522,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``customHeaders``]
       :refid: compose-compose-details-custom-headers
+      :refname: customHeaders
       :type: (array of :ref:`compose.^custom^header`, optional)
       :annotation: -- [Added in TB 100]
 
@@ -1419,6 +1533,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``deliveryFormat``]
       :refid: compose-compose-details-delivery-format
+      :refname: deliveryFormat
       :type: (`string`, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1431,30 +1546,35 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`auto`
          :refid: compose-compose-details-delivery-format-auto
+         :refname: auto
 
       .. _compose.^compose^details.delivery^format.both:
 
       .. api-member::
          :name: :value:`both`
          :refid: compose-compose-details-delivery-format-both
+         :refname: both
 
       .. _compose.^compose^details.delivery^format.html:
 
       .. api-member::
          :name: :value:`html`
          :refid: compose-compose-details-delivery-format-html
+         :refname: html
 
       .. _compose.^compose^details.delivery^format.plaintext:
 
       .. api-member::
          :name: :value:`plaintext`
          :refid: compose-compose-details-delivery-format-plaintext
+         :refname: plaintext
 
    .. _compose.^compose^details.delivery^status^notification:
 
    .. api-member::
       :name: [``deliveryStatusNotification``]
       :refid: compose-compose-details-delivery-status-notification
+      :refname: deliveryStatusNotification
       :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1465,6 +1585,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``followupTo``]
       :refid: compose-compose-details-followup-to
+      :refname: followupTo
       :type: (:ref:`compose.^compose^recipient^list`, optional)
 
    .. _compose.^compose^details.from:
@@ -1472,6 +1593,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``from``]
       :refid: compose-compose-details-from
+      :refname: from
       :type: (:ref:`compose.^compose^recipient`, optional)
       :annotation: -- [Added in TB 88]
 
@@ -1482,6 +1604,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``identityId``]
       :refid: compose-compose-details-identity-id
+      :refname: identityId
       :type: (string, optional)
       :annotation: -- [Added in TB 76]
 
@@ -1492,6 +1615,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``isModified``]
       :refid: compose-compose-details-is-modified
+      :refname: isModified
       :type: (boolean, optional)
       :annotation: -- [Added in TB 125]
 
@@ -1502,6 +1626,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``isPlainText``]
       :refid: compose-compose-details-is-plain-text
+      :refname: isPlainText
       :type: (boolean, optional)
       :annotation: -- [Added in TB 75]
 
@@ -1512,6 +1637,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``newsgroups``]
       :refid: compose-compose-details-newsgroups
+      :refname: newsgroups
       :type: (string or array of string, optional)
 
       A single newsgroup name or an array of newsgroup names.
@@ -1521,6 +1647,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``overrideDefaultFcc``]
       :refid: compose-compose-details-override-default-fcc
+      :refname: overrideDefaultFcc
       :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1531,6 +1658,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``overrideDefaultFccFolder``]
       :refid: compose-compose-details-override-default-fcc-folder
+      :refname: overrideDefaultFccFolder
       :type: (:ref:`folders.^mail^folder` or `string` or :ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1541,6 +1669,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``plainTextBody``]
       :refid: compose-compose-details-plain-text-body
+      :refname: plainTextBody
       :type: (string, optional)
       :annotation: -- [Added in TB 75]
 
@@ -1551,6 +1680,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``priority``]
       :refid: compose-compose-details-priority
+      :refname: priority
       :type: (`string`, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1563,36 +1693,42 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`high`
          :refid: compose-compose-details-priority-high
+         :refname: high
 
       .. _compose.^compose^details.priority.highest:
 
       .. api-member::
          :name: :value:`highest`
          :refid: compose-compose-details-priority-highest
+         :refname: highest
 
       .. _compose.^compose^details.priority.low:
 
       .. api-member::
          :name: :value:`low`
          :refid: compose-compose-details-priority-low
+         :refname: low
 
       .. _compose.^compose^details.priority.lowest:
 
       .. api-member::
          :name: :value:`lowest`
          :refid: compose-compose-details-priority-lowest
+         :refname: lowest
 
       .. _compose.^compose^details.priority.normal:
 
       .. api-member::
          :name: :value:`normal`
          :refid: compose-compose-details-priority-normal
+         :refname: normal
 
    .. _compose.^compose^details.related^message^id:
 
    .. api-member::
       :name: [``relatedMessageId``]
       :refid: compose-compose-details-related-message-id
+      :refname: relatedMessageId
       :type: (:ref:`messages.^message^id`, optional)
       :annotation: -- [Added in TB 95]
 
@@ -1603,6 +1739,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``replyTo``]
       :refid: compose-compose-details-reply-to
+      :refname: replyTo
       :type: (:ref:`compose.^compose^recipient^list`, optional)
 
    .. _compose.^compose^details.return^receipt:
@@ -1610,6 +1747,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``returnReceipt``]
       :refid: compose-compose-details-return-receipt
+      :refname: returnReceipt
       :type: (boolean, optional)
       :annotation: -- [Added in TB 102]
 
@@ -1620,6 +1758,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``selectedEncryptionTechnology``]
       :refid: compose-compose-details-selected-encryption-technology
+      :refname: selectedEncryptionTechnology
       :type: (:ref:`compose.^encryption^properties^s^m^i^m^e` or :ref:`compose.^encryption^properties^open^p^g^p`, optional)
       :annotation: -- [Added in TB 128]
 
@@ -1630,6 +1769,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``subject``]
       :refid: compose-compose-details-subject
+      :refname: subject
       :type: (string, optional)
 
    .. _compose.^compose^details.to:
@@ -1637,6 +1777,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``to``]
       :refid: compose-compose-details-to
+      :refname: to
       :type: (:ref:`compose.^compose^recipient^list`, optional)
 
    .. _compose.^compose^details.type:
@@ -1644,6 +1785,7 @@ Used by various functions to represent the state of a message being composed. No
    .. api-member::
       :name: [``type``]
       :refid: compose-compose-details-type
+      :refname: type
       :type: (`string`, optional)
       :annotation: -- [Added in TB 88]
 
@@ -1656,24 +1798,28 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`draft`
          :refid: compose-compose-details-type-draft
+         :refname: draft
 
       .. _compose.^compose^details.type.forward:
 
       .. api-member::
          :name: :value:`forward`
          :refid: compose-compose-details-type-forward
+         :refname: forward
 
       .. _compose.^compose^details.type.new:
 
       .. api-member::
          :name: :value:`new`
          :refid: compose-compose-details-type-new
+         :refname: new
 
       .. _compose.^compose^details.type.redirect:
 
       .. api-member::
          :name: :value:`redirect`
          :refid: compose-compose-details-type-redirect
+         :refname: redirect
          :annotation: -- [Added in TB 90]
 
       .. _compose.^compose^details.type.reply:
@@ -1681,6 +1827,7 @@ Used by various functions to represent the state of a message being composed. No
       .. api-member::
          :name: :value:`reply`
          :refid: compose-compose-details-type-reply
+         :refname: reply
 
 .. _compose.^compose^dictionaries:
 
@@ -1724,6 +1871,7 @@ ComposeRecipient
          .. api-member::
             :name: ``id``
             :refid: compose-compose-recipient-id
+            :refname: id
             :type: (string)
 
             The ID of a contact or mailing list from the :doc:`contacts` or :doc:`mailingLists`.
@@ -1733,6 +1881,7 @@ ComposeRecipient
          .. api-member::
             :name: ``type``
             :refid: compose-compose-recipient-type
+            :refname: type
             :type: (`string`)
 
             Which sort of object this ID is for.
@@ -1744,12 +1893,14 @@ ComposeRecipient
             .. api-member::
                :name: :value:`contact`
                :refid: compose-compose-recipient-type-contact
+               :refname: contact
 
             .. _compose.^compose^recipient.type.mailing^list:
 
             .. api-member::
                :name: :value:`mailingList`
                :refid: compose-compose-recipient-type-mailing-list
+               :refname: mailingList
 
 .. _compose.^compose^recipient^list:
 
@@ -1783,6 +1934,7 @@ Represent the state of the message composer.
    .. api-member::
       :name: ``canSendLater``
       :refid: compose-compose-state-can-send-later
+      :refname: canSendLater
       :type: (boolean)
 
       The message can be send later.
@@ -1792,6 +1944,7 @@ Represent the state of the message composer.
    .. api-member::
       :name: ``canSendNow``
       :refid: compose-compose-state-can-send-now
+      :refname: canSendNow
       :type: (boolean)
 
       The message can be send now.
@@ -1813,6 +1966,7 @@ A custom header definition.
    .. api-member::
       :name: ``name``
       :refid: compose-custom-header-name
+      :refname: name
       :type: (string)
 
       Name of a custom header, must be prefixed by :value:`X-` (but not by :value:`X-Mozilla-`) or be one of the explicitly allowed headers (:value:`MSIP_Labels`)
@@ -1822,6 +1976,7 @@ A custom header definition.
    .. api-member::
       :name: ``value``
       :refid: compose-custom-header-value
+      :refname: value
       :type: (string)
 
 .. _compose.^encryption^properties^open^p^g^p:
@@ -1839,6 +1994,7 @@ EncryptionPropertiesOpenPGP
    .. api-member::
       :name: ``encryptBody``
       :refid: compose-encryption-properties-open-p-g-p-encrypt-body
+      :refname: encryptBody
       :type: (boolean)
 
       Whether encryption of the message body using the OpenPGP technology is enabled.
@@ -1852,6 +2008,7 @@ EncryptionPropertiesOpenPGP
    .. api-member::
       :name: ``encryptSubject``
       :refid: compose-encryption-properties-open-p-g-p-encrypt-subject
+      :refname: encryptSubject
       :type: (boolean)
 
       Whether encryption of the message subject using the OpenPGP technology is enabled (only supported if encryption of the body is enabled a well).
@@ -1861,6 +2018,7 @@ EncryptionPropertiesOpenPGP
    .. api-member::
       :name: ``name``
       :refid: compose-encryption-properties-open-p-g-p-name
+      :refname: name
       :type: (string)
 
    .. _compose.^encryption^properties^open^p^g^p.sign^message:
@@ -1868,6 +2026,7 @@ EncryptionPropertiesOpenPGP
    .. api-member::
       :name: ``signMessage``
       :refid: compose-encryption-properties-open-p-g-p-sign-message
+      :refname: signMessage
       :type: (boolean)
 
       Whether the message will be signed using the OpenPGP technology.
@@ -1887,6 +2046,7 @@ EncryptionPropertiesSMIME
    .. api-member::
       :name: ``encryptBody``
       :refid: compose-encryption-properties-s-m-i-m-e-encrypt-body
+      :refname: encryptBody
       :type: (boolean)
 
       Whether encryption of the message body using the S/MIME technology is enabled.
@@ -1900,6 +2060,7 @@ EncryptionPropertiesSMIME
    .. api-member::
       :name: ``name``
       :refid: compose-encryption-properties-s-m-i-m-e-name
+      :refname: name
       :type: (string)
 
    .. _compose.^encryption^properties^s^m^i^m^e.sign^message:
@@ -1907,6 +2068,7 @@ EncryptionPropertiesSMIME
    .. api-member::
       :name: ``signMessage``
       :refid: compose-encryption-properties-s-m-i-m-e-sign-message
+      :refname: signMessage
       :type: (boolean)
 
       Whether the message will be signed using the S/MIME technology
@@ -1928,6 +2090,7 @@ Object used to add, update or rename an attachment in a message being composed.
    .. api-member::
       :name: [``file``]
       :refid: compose-file-attachment-file
+      :refname: file
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
 
       The new content for the attachment.
@@ -1937,6 +2100,7 @@ Object used to add, update or rename an attachment in a message being composed.
    .. api-member::
       :name: [``name``]
       :refid: compose-file-attachment-name
+      :refname: name
       :type: (string, optional)
 
       The new name for the attachment, as displayed to the user. If not specified, the name of the provided :value:`file` object is used.

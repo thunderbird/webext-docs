@@ -41,6 +41,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`idle`
    :refid: idle-permission-idle
+   :refname: idle
 
    Grant access to some or all methods of the idle API.
 
@@ -76,6 +77,7 @@ Returns "idle" if the user has not generated any input for a specified number of
    .. api-member::
       :name: ``detectionIntervalInSeconds``
       :refid: idle-query-state-detection-interval-in-seconds
+      :refname: detectionIntervalInSeconds
       :type: (integer)
 
       The system is considered idle if detectionIntervalInSeconds seconds have elapsed since the last user input detected.
@@ -87,6 +89,7 @@ Returns "idle" if the user has not generated any input for a specified number of
 
    .. api-member::
       :refid: idle-query-state-returns
+      :refname: _returns
       :type: :ref:`idle.^idle^state`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -113,6 +116,7 @@ Sets the interval, in seconds, used to determine when the system is in an idle s
    .. api-member::
       :name: ``intervalInSeconds``
       :refid: idle-set-detection-interval-interval-in-seconds
+      :refname: intervalInSeconds
       :type: (integer)
 
       Threshold, in seconds, used to determine when the system is in an idle state.
@@ -144,6 +148,7 @@ Fired when the system changes to an active or idle state. The event fires with "
    .. api-member::
       :name: ``listener(newState)``
       :refid: idle-on-state-changed-listener-new-state
+      :refname: listener(newState)
 
       A function that will be called when this event occurs.
 
@@ -155,6 +160,7 @@ Fired when the system changes to an active or idle state. The event fires with "
    .. api-member::
       :name: ``newState``
       :refid: idle-on-state-changed-new-state
+      :refname: newState
       :type: (:ref:`idle.^idle^state`)
 
 .. api-header::
@@ -188,9 +194,11 @@ IdleState
          .. api-member::
             :name: :value:`active`
             :refid: idle-idle-state-active
+            :refname: active
 
          .. _idle.^idle^state.idle:
 
          .. api-member::
             :name: :value:`idle`
             :refid: idle-idle-state-idle
+            :refname: idle

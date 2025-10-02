@@ -41,6 +41,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`webNavigation`
    :refid: web-navigation-permission-web-navigation
+   :refname: webNavigation
 
    Access browser activity during navigation.
 
@@ -76,6 +77,7 @@ Retrieves information about all frames of a given tab.
    .. api-member::
       :name: ``details``
       :refid: web-navigation-get-all-frames-details
+      :refname: details
       :type: (object)
 
       Information about the tab to retrieve all frames from.
@@ -85,6 +87,7 @@ Retrieves information about all frames of a given tab.
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-get-all-frames-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab.
@@ -96,6 +99,7 @@ Retrieves information about all frames of a given tab.
 
    .. api-member::
       :refid: web-navigation-get-all-frames-returns
+      :refname: _returns
       :type: array of object
 
       A list of frames in the given tab, null if the specified tab ID is invalid.
@@ -124,6 +128,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
    .. api-member::
       :name: ``details``
       :refid: web-navigation-get-frame-details
+      :refname: details
       :type: (object)
 
       Information about the frame to retrieve information about.
@@ -133,6 +138,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-get-frame-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          The ID of the frame in the given tab.
@@ -142,6 +148,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-get-frame-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the frame is.
@@ -151,6 +158,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: [``processId``]
          :refid: web-navigation-get-frame-details-process-id
+         :refname: processId
          :type: (integer, optional)
 
          The ID of the process runs the renderer for this tab.
@@ -162,6 +170,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
 
    .. api-member::
       :refid: web-navigation-get-frame-returns
+      :refname: _returns
       :type: object
 
       Information about the requested frame, null if the specified frame ID and/or tab ID are invalid.
@@ -171,6 +180,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-get-frame-returns-frame-id
+         :refname: frameId
          :type: (integer)
 
          The ID of the frame. 0 indicates that this is the main frame; a positive value indicates the ID of a subframe.
@@ -180,6 +190,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: ``parentFrameId``
          :refid: web-navigation-get-frame-returns-parent-frame-id
+         :refname: parentFrameId
          :type: (integer)
 
          ID of frame that wraps the frame. Set to -1 of no parent frame exists.
@@ -189,6 +200,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-get-frame-returns-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the frame is.
@@ -198,6 +210,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: ``url``
          :refid: web-navigation-get-frame-returns-url
+         :refname: url
          :type: (string)
 
          The URL currently associated with this frame, if the frame identified by the frameId existed at one point in the given tab. The fact that an URL is associated with a given frameId does not imply that the corresponding frame still exists.
@@ -207,6 +220,7 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       .. api-member::
          :name: [``errorOccurred``]
          :refid: web-navigation-get-frame-returns-error-occurred
+         :refname: errorOccurred
          :type: (boolean, optional)
 
          True if the last navigation in this frame was interrupted by an error, i.e. the onErrorOccurred event fired.
@@ -248,6 +262,7 @@ Fired when a navigation is about to occur.
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-before-navigate-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -256,6 +271,7 @@ Fired when a navigation is about to occur.
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-before-navigate-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -268,6 +284,7 @@ Fired when a navigation is about to occur.
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-before-navigate-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^before^navigate.details.frame^id:
@@ -275,6 +292,7 @@ Fired when a navigation is about to occur.
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-before-navigate-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique for a given tab and process.
@@ -284,6 +302,7 @@ Fired when a navigation is about to occur.
       .. api-member::
          :name: ``parentFrameId``
          :refid: web-navigation-on-before-navigate-details-parent-frame-id
+         :refname: parentFrameId
          :type: (integer)
 
          ID of frame that wraps the frame. Set to -1 of no parent frame exists.
@@ -293,6 +312,7 @@ Fired when a navigation is about to occur.
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-before-navigate-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -302,6 +322,7 @@ Fired when a navigation is about to occur.
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-before-navigate-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation is about to occur.
@@ -311,6 +332,7 @@ Fired when a navigation is about to occur.
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-before-navigate-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the browser was about to start the navigation, in milliseconds since the epoch.
@@ -320,6 +342,7 @@ Fired when a navigation is about to occur.
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-before-navigate-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -352,6 +375,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-committed-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -360,6 +384,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-committed-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -372,6 +397,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-committed-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^committed.details.frame^id:
@@ -379,6 +405,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-committed-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
@@ -388,6 +415,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-committed-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -397,6 +425,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-committed-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
@@ -406,6 +435,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-committed-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the navigation was committed, in milliseconds since the epoch.
@@ -415,6 +445,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``transitionQualifiers``
          :refid: web-navigation-on-committed-details-transition-qualifiers
+         :refname: transitionQualifiers
          :type: (array of :ref:`web^navigation.^transition^qualifier`)
 
          A list of transition qualifiers.
@@ -424,6 +455,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``transitionType``
          :refid: web-navigation-on-committed-details-transition-type
+         :refname: transitionType
          :type: (:ref:`web^navigation.^transition^type`)
 
          Cause of the navigation.
@@ -433,6 +465,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-committed-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -465,6 +498,7 @@ Fired when a document, including the resources it refers to, is completely loade
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-completed-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -473,6 +507,7 @@ Fired when a document, including the resources it refers to, is completely loade
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-completed-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -485,6 +520,7 @@ Fired when a document, including the resources it refers to, is completely loade
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-completed-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^completed.details.frame^id:
@@ -492,6 +528,7 @@ Fired when a document, including the resources it refers to, is completely loade
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-completed-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
@@ -501,6 +538,7 @@ Fired when a document, including the resources it refers to, is completely loade
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-completed-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -510,6 +548,7 @@ Fired when a document, including the resources it refers to, is completely loade
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-completed-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
@@ -519,6 +558,7 @@ Fired when a document, including the resources it refers to, is completely loade
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-completed-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the document finished loading, in milliseconds since the epoch.
@@ -528,6 +568,7 @@ Fired when a document, including the resources it refers to, is completely loade
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-completed-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -560,6 +601,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-created-navigation-target-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -568,6 +610,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-created-navigation-target-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -580,6 +623,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-created-navigation-target-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^created^navigation^target.details.source^frame^id:
@@ -587,6 +631,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       .. api-member::
          :name: ``sourceFrameId``
          :refid: web-navigation-on-created-navigation-target-details-source-frame-id
+         :refname: sourceFrameId
          :type: (integer)
 
          The ID of the frame with sourceTabId in which the navigation is triggered. 0 indicates the main frame.
@@ -596,6 +641,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       .. api-member::
          :name: ``sourceProcessId``
          :refid: web-navigation-on-created-navigation-target-details-source-process-id
+         :refname: sourceProcessId
          :type: (integer)
 
          The ID of the process runs the renderer for the source tab.
@@ -605,6 +651,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       .. api-member::
          :name: ``sourceTabId``
          :refid: web-navigation-on-created-navigation-target-details-source-tab-id
+         :refname: sourceTabId
          :type: (integer)
 
          The ID of the tab in which the navigation is triggered.
@@ -614,6 +661,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-created-navigation-target-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the url is opened
@@ -623,6 +671,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-created-navigation-target-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the browser was about to create a new view, in milliseconds since the epoch.
@@ -632,6 +681,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-created-navigation-target-details-url
+         :refname: url
          :type: (string)
 
          The URL to be opened in the new window.
@@ -666,6 +716,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-d-o-m-content-loaded-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -674,6 +725,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-d-o-m-content-loaded-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -686,6 +738,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-d-o-m-content-loaded-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^d^o^m^content^loaded.details.frame^id:
@@ -693,6 +746,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-d-o-m-content-loaded-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
@@ -702,6 +756,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-d-o-m-content-loaded-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -711,6 +766,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-d-o-m-content-loaded-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
@@ -720,6 +776,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-d-o-m-content-loaded-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the page's DOM was fully constructed, in milliseconds since the epoch.
@@ -729,6 +786,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-d-o-m-content-loaded-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -761,6 +819,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-error-occurred-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -769,6 +828,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-error-occurred-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -781,6 +841,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-error-occurred-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^error^occurred.details.error:
@@ -788,6 +849,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       .. api-member::
          :name: ``error``
          :refid: web-navigation-on-error-occurred-details-error
+         :refname: error
          :type: (string) **Unsupported.**
 
          The error description.
@@ -797,6 +859,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-error-occurred-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
@@ -806,6 +869,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-error-occurred-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -815,6 +879,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-error-occurred-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
@@ -824,6 +889,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-error-occurred-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the error occurred, in milliseconds since the epoch.
@@ -833,6 +899,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-error-occurred-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -857,6 +924,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-history-state-updated-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -865,6 +933,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-history-state-updated-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -877,6 +946,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-history-state-updated-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^history^state^updated.details.frame^id:
@@ -884,6 +954,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-history-state-updated-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
@@ -893,6 +964,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-history-state-updated-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -902,6 +974,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-history-state-updated-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
@@ -911,6 +984,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-history-state-updated-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the navigation was committed, in milliseconds since the epoch.
@@ -920,6 +994,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``transitionQualifiers``
          :refid: web-navigation-on-history-state-updated-details-transition-qualifiers
+         :refname: transitionQualifiers
          :type: (array of :ref:`web^navigation.^transition^qualifier`)
 
          A list of transition qualifiers.
@@ -929,6 +1004,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``transitionType``
          :refid: web-navigation-on-history-state-updated-details-transition-type
+         :refname: transitionType
          :type: (:ref:`web^navigation.^transition^type`)
 
          Cause of the navigation.
@@ -938,6 +1014,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-history-state-updated-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -970,6 +1047,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-reference-fragment-updated-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -978,6 +1056,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
    .. api-member::
       :name: [``filters``]
       :refid: web-navigation-on-reference-fragment-updated-filters
+      :refname: filters
       :type: (:ref:`web^navigation.^event^url^filters`, optional)
 
       Conditions that the URL being navigated to must satisfy. The 'schemes' and 'ports' fields of UrlFilter are ignored for this event.
@@ -990,6 +1069,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-reference-fragment-updated-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^reference^fragment^updated.details.frame^id:
@@ -997,6 +1077,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``frameId``
          :refid: web-navigation-on-reference-fragment-updated-details-frame-id
+         :refname: frameId
          :type: (integer)
 
          0 indicates the navigation happens in the tab content window; a positive value indicates navigation in a subframe. Frame IDs are unique within a tab.
@@ -1006,6 +1087,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``processId``
          :refid: web-navigation-on-reference-fragment-updated-details-process-id
+         :refname: processId
          :type: (integer) **Unsupported.**
 
          The ID of the process runs the renderer for this tab.
@@ -1015,6 +1097,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-reference-fragment-updated-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab in which the navigation occurs.
@@ -1024,6 +1107,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-reference-fragment-updated-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the navigation was committed, in milliseconds since the epoch.
@@ -1033,6 +1117,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``transitionQualifiers``
          :refid: web-navigation-on-reference-fragment-updated-details-transition-qualifiers
+         :refname: transitionQualifiers
          :type: (array of :ref:`web^navigation.^transition^qualifier`)
 
          A list of transition qualifiers.
@@ -1042,6 +1127,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``transitionType``
          :refid: web-navigation-on-reference-fragment-updated-details-transition-type
+         :refname: transitionType
          :type: (:ref:`web^navigation.^transition^type`)
 
          Cause of the navigation.
@@ -1051,6 +1137,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
       .. api-member::
          :name: ``url``
          :refid: web-navigation-on-reference-fragment-updated-details-url
+         :refname: url
          :type: (string)
 
 .. api-header::
@@ -1079,6 +1166,7 @@ Fired when the contents of the tab is replaced by a different (usually previousl
    .. api-member::
       :name: ``listener(details)``
       :refid: web-navigation-on-tab-replaced-listener-details
+      :refname: listener(details)
 
       A function that will be called when this event occurs.
 
@@ -1090,6 +1178,7 @@ Fired when the contents of the tab is replaced by a different (usually previousl
    .. api-member::
       :name: ``details``
       :refid: web-navigation-on-tab-replaced-details
+      :refname: details
       :type: (object)
 
       .. _web^navigation.on^tab^replaced.details.replaced^tab^id:
@@ -1097,6 +1186,7 @@ Fired when the contents of the tab is replaced by a different (usually previousl
       .. api-member::
          :name: ``replacedTabId``
          :refid: web-navigation-on-tab-replaced-details-replaced-tab-id
+         :refname: replacedTabId
          :type: (integer)
 
          The ID of the tab that was replaced.
@@ -1106,6 +1196,7 @@ Fired when the contents of the tab is replaced by a different (usually previousl
       .. api-member::
          :name: ``tabId``
          :refid: web-navigation-on-tab-replaced-details-tab-id
+         :refname: tabId
          :type: (integer)
 
          The ID of the tab that replaced the old tab.
@@ -1115,6 +1206,7 @@ Fired when the contents of the tab is replaced by a different (usually previousl
       .. api-member::
          :name: ``timeStamp``
          :refid: web-navigation-on-tab-replaced-details-time-stamp
+         :refname: timeStamp
          :type: (number)
 
          The time when the replacement happened, in milliseconds since the epoch.
@@ -1144,6 +1236,7 @@ EventUrlFilters
    .. api-member::
       :name: ``url``
       :refid: web-navigation-event-url-filters-url
+      :refname: url
       :type: (array of :ref:`web^navigation.^url^filter`)
 
 .. _web^navigation.^transition^qualifier:
@@ -1171,18 +1264,21 @@ TransitionQualifier
          .. api-member::
             :name: :value:`client_redirect`
             :refid: web-navigation-transition-qualifier-client-redirect
+            :refname: client_redirect
 
          .. _web^navigation.^transition^qualifier.forward_back:
 
          .. api-member::
             :name: :value:`forward_back`
             :refid: web-navigation-transition-qualifier-forward-back
+            :refname: forward_back
 
          .. _web^navigation.^transition^qualifier.from_address_bar:
 
          .. api-member::
             :name: :value:`from_address_bar`
             :refid: web-navigation-transition-qualifier-from-address-bar
+            :refname: from_address_bar
             :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^qualifier.server_redirect:
@@ -1190,6 +1286,7 @@ TransitionQualifier
          .. api-member::
             :name: :value:`server_redirect`
             :refid: web-navigation-transition-qualifier-server-redirect
+            :refname: server_redirect
 
 .. _web^navigation.^transition^type:
 
@@ -1214,6 +1311,7 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`auto_bookmark`
             :refid: web-navigation-transition-type-auto-bookmark
+            :refname: auto_bookmark
             :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^type.auto_subframe:
@@ -1221,6 +1319,7 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`auto_subframe`
             :refid: web-navigation-transition-type-auto-subframe
+            :refname: auto_subframe
 
             .. note::
 
@@ -1231,12 +1330,14 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`form_submit`
             :refid: web-navigation-transition-type-form-submit
+            :refname: form_submit
 
          .. _web^navigation.^transition^type.generated:
 
          .. api-member::
             :name: :value:`generated`
             :refid: web-navigation-transition-type-generated
+            :refname: generated
             :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^type.keyword:
@@ -1244,6 +1345,7 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`keyword`
             :refid: web-navigation-transition-type-keyword
+            :refname: keyword
             :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^type.keyword_generated:
@@ -1251,12 +1353,14 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`keyword_generated`
             :refid: web-navigation-transition-type-keyword-generated
+            :refname: keyword_generated
 
          .. _web^navigation.^transition^type.link:
 
          .. api-member::
             :name: :value:`link`
             :refid: web-navigation-transition-type-link
+            :refname: link
 
             .. note::
 
@@ -1267,24 +1371,28 @@ Cause of the navigation. The same transition types as defined in the history API
          .. api-member::
             :name: :value:`manual_subframe`
             :refid: web-navigation-transition-type-manual-subframe
+            :refname: manual_subframe
 
          .. _web^navigation.^transition^type.reload:
 
          .. api-member::
             :name: :value:`reload`
             :refid: web-navigation-transition-type-reload
+            :refname: reload
 
          .. _web^navigation.^transition^type.start_page:
 
          .. api-member::
             :name: :value:`start_page`
             :refid: web-navigation-transition-type-start-page
+            :refname: start_page
 
          .. _web^navigation.^transition^type.typed:
 
          .. api-member::
             :name: :value:`typed`
             :refid: web-navigation-transition-type-typed
+            :refname: typed
             :annotation: -- [Added in TB 49]
 
 .. _web^navigation.^url^filter:
@@ -1304,6 +1412,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``hostContains``]
       :refid: web-navigation-url-filter-host-contains
+      :refname: hostContains
       :type: (string, optional)
 
       Matches if the host name of the URL contains a specified string. To test whether a host name component has a prefix 'foo', use hostContains: '.foo'. This matches 'www.foobar.com' and 'foo.com', because an implicit dot is added at the beginning of the host name. Similarly, hostContains can be used to match against component suffix ('foo.') and to exactly match against components ('.foo.'). Suffix- and exact-matching for the last components need to be done separately using hostSuffix, because no implicit dot is added at the end of the host name.
@@ -1313,6 +1422,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``hostEquals``]
       :refid: web-navigation-url-filter-host-equals
+      :refname: hostEquals
       :type: (string, optional)
 
       Matches if the host name of the URL is equal to a specified string.
@@ -1322,6 +1432,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``hostPrefix``]
       :refid: web-navigation-url-filter-host-prefix
+      :refname: hostPrefix
       :type: (string, optional)
 
       Matches if the host name of the URL starts with a specified string.
@@ -1331,6 +1442,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``hostSuffix``]
       :refid: web-navigation-url-filter-host-suffix
+      :refname: hostSuffix
       :type: (string, optional)
 
       Matches if the host name of the URL ends with a specified string.
@@ -1340,6 +1452,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``originAndPathMatches``]
       :refid: web-navigation-url-filter-origin-and-path-matches
+      :refname: originAndPathMatches
       :type: (string, optional)
 
       Matches if the URL without query segment and fragment identifier matches a specified regular expression. Port numbers are stripped from the URL if they match the default port number. The regular expressions use the `RE2 syntax <https://github.com/google/re2/blob/master/doc/syntax.txt>`__.
@@ -1349,6 +1462,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``pathContains``]
       :refid: web-navigation-url-filter-path-contains
+      :refname: pathContains
       :type: (string, optional)
 
       Matches if the path segment of the URL contains a specified string.
@@ -1358,6 +1472,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``pathEquals``]
       :refid: web-navigation-url-filter-path-equals
+      :refname: pathEquals
       :type: (string, optional)
 
       Matches if the path segment of the URL is equal to a specified string.
@@ -1367,6 +1482,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``pathPrefix``]
       :refid: web-navigation-url-filter-path-prefix
+      :refname: pathPrefix
       :type: (string, optional)
 
       Matches if the path segment of the URL starts with a specified string.
@@ -1376,6 +1492,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``pathSuffix``]
       :refid: web-navigation-url-filter-path-suffix
+      :refname: pathSuffix
       :type: (string, optional)
 
       Matches if the path segment of the URL ends with a specified string.
@@ -1385,6 +1502,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``ports``]
       :refid: web-navigation-url-filter-ports
+      :refname: ports
       :type: (array of integer or array of integer, optional)
 
       Matches if the port of the URL is contained in any of the specified port lists. For example :code:`[80, 443, [1000, 1200]]` matches all requests on port 80, 443 and in the range 1000-1200.
@@ -1394,6 +1512,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``queryContains``]
       :refid: web-navigation-url-filter-query-contains
+      :refname: queryContains
       :type: (string, optional)
 
       Matches if the query segment of the URL contains a specified string.
@@ -1403,6 +1522,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``queryEquals``]
       :refid: web-navigation-url-filter-query-equals
+      :refname: queryEquals
       :type: (string, optional)
 
       Matches if the query segment of the URL is equal to a specified string.
@@ -1412,6 +1532,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``queryPrefix``]
       :refid: web-navigation-url-filter-query-prefix
+      :refname: queryPrefix
       :type: (string, optional)
 
       Matches if the query segment of the URL starts with a specified string.
@@ -1421,6 +1542,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``querySuffix``]
       :refid: web-navigation-url-filter-query-suffix
+      :refname: querySuffix
       :type: (string, optional)
 
       Matches if the query segment of the URL ends with a specified string.
@@ -1430,6 +1552,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``schemes``]
       :refid: web-navigation-url-filter-schemes
+      :refname: schemes
       :type: (array of string, optional)
 
       Matches if the scheme of the URL is equal to any of the schemes specified in the array.
@@ -1439,6 +1562,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``urlContains``]
       :refid: web-navigation-url-filter-url-contains
+      :refname: urlContains
       :type: (string, optional)
 
       Matches if the URL (without fragment identifier) contains a specified string. Port numbers are stripped from the URL if they match the default port number.
@@ -1448,6 +1572,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``urlEquals``]
       :refid: web-navigation-url-filter-url-equals
+      :refname: urlEquals
       :type: (string, optional)
 
       Matches if the URL (without fragment identifier) is equal to a specified string. Port numbers are stripped from the URL if they match the default port number.
@@ -1457,6 +1582,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``urlMatches``]
       :refid: web-navigation-url-filter-url-matches
+      :refname: urlMatches
       :type: (string, optional)
 
       Matches if the URL (without fragment identifier) matches a specified regular expression. Port numbers are stripped from the URL if they match the default port number. The regular expressions use the `RE2 syntax <https://github.com/google/re2/blob/master/doc/syntax.txt>`__.
@@ -1466,6 +1592,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``urlPrefix``]
       :refid: web-navigation-url-filter-url-prefix
+      :refname: urlPrefix
       :type: (string, optional)
 
       Matches if the URL (without fragment identifier) starts with a specified string. Port numbers are stripped from the URL if they match the default port number.
@@ -1475,6 +1602,7 @@ Filters URLs for various criteria. See `event filtering <events#filtered>`__. Al
    .. api-member::
       :name: [``urlSuffix``]
       :refid: web-navigation-url-filter-url-suffix
+      :refname: urlSuffix
       :type: (string, optional)
 
       Matches if the URL (without fragment identifier) ends with a specified string. Port numbers are stripped from the URL if they match the default port number.

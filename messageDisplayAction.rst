@@ -32,6 +32,7 @@ Manifest file properties
 .. api-member::
    :name: [``message_display_action``]
    :refid: message-display-action-message-display-action
+   :refname: message_display_action
    :type: (object, optional)
    :annotation: -- [Added in TB 71]
 
@@ -40,6 +41,7 @@ Manifest file properties
    .. api-member::
       :name: [``browser_style``]
       :refid: message-display-action-message-display-action-browser-style
+      :refname: browser_style
       :type: (boolean, optional)
       :annotation: -- [Added in TB 71]
 
@@ -50,6 +52,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_area``]
       :refid: message-display-action-message-display-action-default-area
+      :refname: default_area
       :type: (string, optional)
       :annotation: -- [Added in TB 71]
 
@@ -60,6 +63,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_icon``]
       :refid: message-display-action-message-display-action-default-icon
+      :refname: default_icon
       :type: (:ref:`message^display^action.^icon^path`, optional)
       :annotation: -- [Added in TB 71]
 
@@ -70,6 +74,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_label``]
       :refid: message-display-action-message-display-action-default-label
+      :refname: default_label
       :type: (string, optional)
       :annotation: -- [Added in TB 84]
 
@@ -80,6 +85,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_popup``]
       :refid: message-display-action-message-display-action-default-popup
+      :refname: default_popup
       :type: (string, optional)
       :annotation: -- [Added in TB 71]
 
@@ -90,6 +96,7 @@ Manifest file properties
    .. api-member::
       :name: [``default_title``]
       :refid: message-display-action-message-display-action-default-title
+      :refname: default_title
       :type: (string, optional)
       :annotation: -- [Added in TB 71]
 
@@ -100,6 +107,7 @@ Manifest file properties
    .. api-member::
       :name: [``theme_icons``]
       :refid: message-display-action-message-display-action-theme-icons
+      :refname: theme_icons
       :type: (array of :ref:`message^display^action.^theme^icons`, optional)
       :annotation: -- [Added in TB 71]
 
@@ -110,6 +118,7 @@ Manifest file properties
    .. api-member::
       :name: [``type``]
       :refid: message-display-action-message-display-action-type
+      :refname: type
       :type: (`string`, optional)
       :annotation: -- [Added in TB 90]
 
@@ -122,12 +131,14 @@ Manifest file properties
       .. api-member::
          :name: :value:`button`
          :refid: message-display-action-message-display-action-type-button
+         :refname: button
 
       .. _message^display^action.message_display_action.type.menu:
 
       .. api-member::
          :name: :value:`menu`
          :refid: message-display-action-message-display-action-type-menu
+         :refname: menu
 
 .. rst-class:: api-main-section
 
@@ -162,6 +173,7 @@ Disables the messageDisplayAction button for a specific tab (if a :value:`tabId`
    .. api-member::
       :name: [``tabId``]
       :refid: message-display-action-disable-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
       The id of the tab for which you want to modify the messageDisplayAction button.
@@ -183,6 +195,7 @@ Enables the messageDisplayAction button for a specific tab (if a :value:`tabId` 
    .. api-member::
       :name: [``tabId``]
       :refid: message-display-action-enable-tab-id
+      :refname: tabId
       :type: (integer, optional)
 
       The id of the tab for which you want to modify the messageDisplayAction button.
@@ -204,6 +217,7 @@ Gets the badge background color of the messageDisplayAction button.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-get-badge-background-color-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.get^badge^background^color.details.tab^id:
@@ -211,6 +225,7 @@ Gets the badge background color of the messageDisplayAction button.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-get-badge-background-color-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
@@ -221,6 +236,7 @@ Gets the badge background color of the messageDisplayAction button.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-get-badge-background-color-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -233,6 +249,7 @@ Gets the badge background color of the messageDisplayAction button.
 
    .. api-member::
       :refid: message-display-action-get-badge-background-color-returns
+      :refname: _returns
       :type: :ref:`message^display^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -254,6 +271,7 @@ Gets the badge text of the messageDisplayAction button.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-get-badge-text-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.get^badge^text.details.tab^id:
@@ -261,6 +279,7 @@ Gets the badge text of the messageDisplayAction button.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-get-badge-text-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
@@ -271,6 +290,7 @@ Gets the badge text of the messageDisplayAction button.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-get-badge-text-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -283,6 +303,7 @@ Gets the badge text of the messageDisplayAction button.
 
    .. api-member::
       :refid: message-display-action-get-badge-text-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -304,6 +325,7 @@ Gets the text color of the badge.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-get-badge-text-color-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.get^badge^text^color.details.tab^id:
@@ -311,6 +333,7 @@ Gets the text color of the badge.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-get-badge-text-color-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Specifies for which tab the badge text color should be retrieved. If no tab is specified, the global value is retrieved.
@@ -320,6 +343,7 @@ Gets the text color of the badge.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-get-badge-text-color-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -331,6 +355,7 @@ Gets the text color of the badge.
 
    .. api-member::
       :refid: message-display-action-get-badge-text-color-returns
+      :refname: _returns
       :type: :ref:`message^display^action.^color^array`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -352,6 +377,7 @@ Gets the label of the messageDisplayAction button. Returns :value:`null`, if no 
    .. api-member::
       :name: ``details``
       :refid: message-display-action-get-label-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.get^label.details.tab^id:
@@ -359,6 +385,7 @@ Gets the label of the messageDisplayAction button. Returns :value:`null`, if no 
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-get-label-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
@@ -369,6 +396,7 @@ Gets the label of the messageDisplayAction button. Returns :value:`null`, if no 
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-get-label-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -381,6 +409,7 @@ Gets the label of the messageDisplayAction button. Returns :value:`null`, if no 
 
    .. api-member::
       :refid: message-display-action-get-label-returns
+      :refname: _returns
       :type: string or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -402,6 +431,7 @@ Gets the html document set as the popup for this messageDisplayAction button.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-get-popup-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.get^popup.details.tab^id:
@@ -409,6 +439,7 @@ Gets the html document set as the popup for this messageDisplayAction button.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-get-popup-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
@@ -419,6 +450,7 @@ Gets the html document set as the popup for this messageDisplayAction button.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-get-popup-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -431,6 +463,7 @@ Gets the html document set as the popup for this messageDisplayAction button.
 
    .. api-member::
       :refid: message-display-action-get-popup-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -452,6 +485,7 @@ Gets the title of the messageDisplayAction button.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-get-title-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.get^title.details.tab^id:
@@ -459,6 +493,7 @@ Gets the title of the messageDisplayAction button.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-get-title-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
@@ -469,6 +504,7 @@ Gets the title of the messageDisplayAction button.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-get-title-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -481,6 +517,7 @@ Gets the title of the messageDisplayAction button.
 
    .. api-member::
       :refid: message-display-action-get-title-returns
+      :refname: _returns
       :type: string
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -502,6 +539,7 @@ Checks whether the messageDisplayAction button is enabled.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-is-enabled-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.is^enabled.details.tab^id:
@@ -509,6 +547,7 @@ Checks whether the messageDisplayAction button is enabled.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-is-enabled-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
          :annotation: -- [Added in TB 108]
 
@@ -519,6 +558,7 @@ Checks whether the messageDisplayAction button is enabled.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-is-enabled-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
          :annotation: -- [Added in TB 108]
 
@@ -531,6 +571,7 @@ Checks whether the messageDisplayAction button is enabled.
 
    .. api-member::
       :refid: message-display-action-is-enabled-returns
+      :refname: _returns
       :type: boolean
       :annotation: -- [Added in TB 96]
 
@@ -553,6 +594,7 @@ Opens the action's popup window in the specified window. Defaults to the current
    .. api-member::
       :name: [``options``]
       :refid: message-display-action-open-popup-options
+      :refname: options
       :type: (object, optional)
       :annotation: -- [Added in TB 113]
 
@@ -563,6 +605,7 @@ Opens the action's popup window in the specified window. Defaults to the current
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-open-popup-options-window-id
+         :refname: windowId
          :type: (integer, optional)
          :annotation: -- [Added in TB 113]
 
@@ -575,6 +618,7 @@ Opens the action's popup window in the specified window. Defaults to the current
 
    .. api-member::
       :refid: message-display-action-open-popup-returns
+      :refname: _returns
       :type: boolean
       :annotation: -- [Added in TB 113]
 
@@ -597,6 +641,7 @@ Sets the background color for the badge.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-badge-background-color-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^badge^background^color.details.color:
@@ -604,6 +649,7 @@ Sets the background color for the badge.
       .. api-member::
          :name: ``color``
          :refid: message-display-action-set-badge-background-color-details-color
+         :refname: color
          :type: (string or :ref:`message^display^action.^color^array` or null)
 
          The color to use as background in the badge. Cleared by setting it to :value:`null`.
@@ -613,6 +659,7 @@ Sets the background color for the badge.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-badge-background-color-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the background color for the badge only for the given tab.
@@ -622,6 +669,7 @@ Sets the background color for the badge.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-badge-background-color-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -643,6 +691,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-badge-text-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^badge^text.details.text:
@@ -650,6 +699,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
       .. api-member::
          :name: ``text``
          :refid: message-display-action-set-badge-text-details-text
+         :refname: text
          :type: (string or null)
 
          Any number of characters can be passed, but only about four can fit in the space. Cleared by setting it to :value:`null` or an empty string.
@@ -659,6 +709,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-badge-text-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the badge text only for the given tab.
@@ -668,6 +719,7 @@ Sets the badge text for the messageDisplayAction button. The badge is displayed 
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-badge-text-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -689,6 +741,7 @@ Sets the text color for the badge.
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-badge-text-color-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^badge^text^color.details.color:
@@ -696,6 +749,7 @@ Sets the text color for the badge.
       .. api-member::
          :name: ``color``
          :refid: message-display-action-set-badge-text-color-details-color
+         :refname: color
          :type: (string or :ref:`message^display^action.^color^array` or null)
 
          The color to use as text color in the badge. Cleared by setting it to :value:`null`.
@@ -705,6 +759,7 @@ Sets the text color for the badge.
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-badge-text-color-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the text color for the badge only for the given tab.
@@ -714,6 +769,7 @@ Sets the text color for the badge.
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-badge-text-color-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -735,6 +791,7 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-icon-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^icon.details.image^data:
@@ -742,6 +799,7 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
       .. api-member::
          :name: [``imageData``]
          :refid: message-display-action-set-icon-details-image-data
+         :refname: imageData
          :type: (:ref:`message^display^action.^image^data^type` or :ref:`message^display^action.^image^data^dictionary`, optional)
 
          The image data for one or more icons for the composeAction button.
@@ -751,6 +809,7 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
       .. api-member::
          :name: [``path``]
          :refid: message-display-action-set-icon-details-path
+         :refname: path
          :type: (:ref:`message^display^action.^icon^path`, optional)
 
          The paths to one or more icons for the messageDisplayAction button.
@@ -760,6 +819,7 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-icon-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the icon only for the given tab.
@@ -769,6 +829,7 @@ Sets the icon for the messageDisplayAction button. Either the :value:`path` or t
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-icon-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -790,6 +851,7 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-label-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^label.details.label:
@@ -797,6 +859,7 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
       .. api-member::
          :name: ``label``
          :refid: message-display-action-set-label-details-label
+         :refname: label
          :type: (string or null)
 
          A string the messageDisplayAction button should use as its label, overriding the defined title. Can be set to an empty string to not display any label at all. If the containing toolbar is configured to display text only, its title will be used. Cleared by setting it to :value:`null`.
@@ -806,6 +869,7 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-label-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the label only for the given tab.
@@ -815,6 +879,7 @@ Sets the label of the messageDisplayAction button. Can be used to set different 
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-label-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -836,6 +901,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-popup-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^popup.details.popup:
@@ -843,6 +909,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
       .. api-member::
          :name: ``popup``
          :refid: message-display-action-set-popup-details-popup
+         :refname: popup
          :type: (string or null)
 
          The html file to show in a popup. Can be set to an empty string to not open a popup. Cleared by setting it to :value:`null` (action will use the popup value defined in the manifest).
@@ -852,6 +919,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-popup-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the popup only for the given tab.
@@ -861,6 +929,7 @@ Sets the html document to be opened as a popup when the user clicks on the messa
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-popup-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -882,6 +951,7 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
    .. api-member::
       :name: ``details``
       :refid: message-display-action-set-title-details
+      :refname: details
       :type: (object)
 
       .. _message^display^action.set^title.details.title:
@@ -889,6 +959,7 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
       .. api-member::
          :name: ``title``
          :refid: message-display-action-set-title-details-title
+         :refname: title
          :type: (string or null)
 
          A string the messageDisplayAction button should display as its label and when moused over. Cleared by setting it to :value:`null` or an empty string (title defined the manifest will be used).
@@ -898,6 +969,7 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
       .. api-member::
          :name: [``tabId``]
          :refid: message-display-action-set-title-details-tab-id
+         :refname: tabId
          :type: (integer, optional)
 
          Sets the title only for the given tab.
@@ -907,6 +979,7 @@ Sets the title of the messageDisplayAction button. Is used as tooltip and as the
       .. api-member::
          :name: [``windowId``]
          :refid: message-display-action-set-title-details-window-id
+         :refname: windowId
          :type: (integer, optional) **Unsupported.**
 
          Will throw an error if used.
@@ -933,6 +1006,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
    .. api-member::
       :name: ``listener(tab, info)``
       :refid: message-display-action-on-clicked-listener-tab-info
+      :refname: listener(tab, info)
 
       A function that will be called when this event occurs.
 
@@ -944,6 +1018,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
    .. api-member::
       :name: ``tab``
       :refid: message-display-action-on-clicked-tab
+      :refname: tab
       :type: (:ref:`tabs.^tab`)
 
    .. _message^display^action.on^clicked.info:
@@ -951,6 +1026,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
    .. api-member::
       :name: [``info``]
       :refid: message-display-action-on-clicked-info
+      :refname: info
       :type: (:ref:`message^display^action.^on^click^data`, optional)
       :annotation: -- [Added in TB 74]
 
@@ -1060,6 +1136,7 @@ Information sent when a messageDisplayAction button is clicked.
    .. api-member::
       :name: ``modifiers``
       :refid: message-display-action-on-click-data-modifiers
+      :refname: modifiers
       :type: (array of `string`)
 
       An array of keyboard modifiers that were held while the menu item was clicked.
@@ -1068,30 +1145,36 @@ Information sent when a messageDisplayAction button is clicked.
 
       .. api-member::
          :name: :value:`Alt`
+         :refname: Alt
 
       .. api-member::
          :name: :value:`Command`
+         :refname: Command
 
          Only available on macOS.
 
       .. api-member::
          :name: :value:`Ctrl`
+         :refname: Ctrl
 
          Not available on macOS.
 
       .. api-member::
          :name: :value:`MacCtrl`
+         :refname: MacCtrl
 
          Only available on macOS, but of limited use in a click event: Holding down the CTRL key while clicking with the mouse is referred to as a 'CTRL click' under macOS and is interpreted as a right mouse click. In a default profile  the :value:`dom.event.treat_ctrl_click_as_right_click.disabled` preference is not enabled and the :value:`MacCtrl` modifier key is not forwarded to the API.
 
       .. api-member::
          :name: :value:`Shift`
+         :refname: Shift
 
    .. _message^display^action.^on^click^data.button:
 
    .. api-member::
       :name: [``button``]
       :refid: message-display-action-on-click-data-button
+      :refname: button
       :type: (integer, optional)
 
       An integer value of button by which menu item was clicked.
@@ -1113,6 +1196,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``dark``
       :refid: message-display-action-theme-icons-dark
+      :refname: dark
       :type: (:ref:`message^display^action.^extension^u^r^l`)
 
       The dark icon to use for light themes
@@ -1122,6 +1206,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``light``
       :refid: message-display-action-theme-icons-light
+      :refname: light
       :type: (:ref:`message^display^action.^extension^u^r^l`)
 
       A light icon to use for dark themes
@@ -1131,6 +1216,7 @@ Define a set of icons for themes depending on whether Thunderbird detects that t
    .. api-member::
       :name: ``size``
       :refid: message-display-action-theme-icons-size
+      :refname: size
       :type: (integer)
 
       The size of the icons

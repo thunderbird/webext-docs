@@ -42,6 +42,7 @@ Manifest file properties
 .. api-member::
    :name: [``user_scripts``]
    :refid: user-scripts-user-scripts
+   :refname: user_scripts
    :type: (object, optional)
 
    .. _user^scripts.user_scripts.api_script:
@@ -49,6 +50,7 @@ Manifest file properties
    .. api-member::
       :name: [``api_script``]
       :refid: user-scripts-user-scripts-api-script
+      :refname: api_script
       :type: (:ref:`user^scripts.^extension^u^r^l`, optional)
 
 .. rst-class:: api-main-section
@@ -67,6 +69,7 @@ The following permissions influence the behavior of the API. Depending on which 
 .. api-member::
    :name: :permission:`userScripts`
    :refid: user-scripts-permission-user-scripts
+   :refname: userScripts
 
    Allow unverified third-party scripts to access your data.
 
@@ -108,6 +111,7 @@ Register a user script programmatically given its :ref:`user^scripts.^user^scrip
    .. api-member::
       :name: ``userScriptOptions``
       :refid: user-scripts-register-user-script-options
+      :refname: userScriptOptions
       :type: (:ref:`user^scripts.^user^script^options`)
 
 .. api-header::
@@ -117,6 +121,7 @@ Register a user script programmatically given its :ref:`user^scripts.^user^scrip
 
    .. api-member::
       :refid: user-scripts-register-returns
+      :refname: _returns
       :type: object
 
       An object that represents a user script registered programmatically
@@ -126,6 +131,7 @@ Register a user script programmatically given its :ref:`user^scripts.^user^scrip
       .. api-member::
          :name: ``unregister``
          :refid: user-scripts-register-returns-unregister
+         :refname: unregister
          :type: (function)
 
          Unregister a user script registered programmatically
@@ -159,6 +165,7 @@ Event called when a new userScript global has been created
    .. api-member::
       :name: ``listener(userScript)``
       :refid: user-scripts-on-before-script-listener-user-script
+      :refname: listener(userScript)
 
       A function that will be called when this event occurs.
 
@@ -170,6 +177,7 @@ Event called when a new userScript global has been created
    .. api-member::
       :name: ``userScript``
       :refid: user-scripts-on-before-script-user-script
+      :refname: userScript
       :type: (object)
 
       .. _user^scripts.on^before^script.user^script.define^globals:
@@ -177,6 +185,7 @@ Event called when a new userScript global has been created
       .. api-member::
          :name: ``defineGlobals``
          :refid: user-scripts-on-before-script-user-script-define-globals
+         :refname: defineGlobals
          :type: (function)
 
          Exports all the properties of a given plain object as userScript globals
@@ -186,6 +195,7 @@ Event called when a new userScript global has been created
       .. api-member::
          :name: ``export``
          :refid: user-scripts-on-before-script-user-script-export
+         :refname: export
          :type: (function)
 
          Convert a given value to make it accessible to the userScript code
@@ -195,6 +205,7 @@ Event called when a new userScript global has been created
       .. api-member::
          :name: ``global``
          :refid: user-scripts-on-before-script-user-script-global
+         :refname: global
          :type: (any)
 
          The userScript global
@@ -204,6 +215,7 @@ Event called when a new userScript global has been created
       .. api-member::
          :name: ``metadata``
          :refid: user-scripts-on-before-script-user-script-metadata
+         :refname: metadata
          :type: (any)
 
          The userScript metadata (as set in userScripts.register)
@@ -239,6 +251,7 @@ Specify code, either by pointing to a file or by providing the code directly. On
          .. api-member::
             :name: ``file``
             :refid: user-scripts-extension-file-or-code-file
+            :refname: file
             :type: (:ref:`user^scripts.^extension^u^r^l`)
 
             A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
@@ -257,6 +270,7 @@ Specify code, either by pointing to a file or by providing the code directly. On
          .. api-member::
             :name: ``code``
             :refid: user-scripts-extension-file-or-code-code
+            :refname: code
             :type: (string)
 
             A string of JavaScript code to register.
@@ -294,6 +308,7 @@ MatchPattern
          .. api-member::
             :name: :value:`<all_urls>`
             :refid: user-scripts-match-pattern-all-urls
+            :refname: <all_urls>
 
 *or*
 
@@ -394,18 +409,21 @@ The soonest that the JavaScript or CSS will be injected into the tab.
          .. api-member::
             :name: :value:`document_end`
             :refid: user-scripts-run-at-document-end
+            :refname: document_end
 
          .. _user^scripts.^run^at.document_idle:
 
          .. api-member::
             :name: :value:`document_idle`
             :refid: user-scripts-run-at-document-idle
+            :refname: document_idle
 
          .. _user^scripts.^run^at.document_start:
 
          .. api-member::
             :name: :value:`document_start`
             :refid: user-scripts-run-at-document-start
+            :refname: document_start
 
 .. _user^scripts.^user^script^options:
 
@@ -424,6 +442,7 @@ Details of a user script
    .. api-member::
       :name: ``js``
       :refid: user-scripts-user-script-options-js
+      :refname: js
       :type: (array of :ref:`user^scripts.^extension^file^or^code`)
 
       The list of JS files to inject
@@ -433,6 +452,7 @@ Details of a user script
    .. api-member::
       :name: ``matches``
       :refid: user-scripts-user-script-options-matches
+      :refname: matches
       :type: (array of :ref:`user^scripts.^match^pattern`)
 
    .. _user^scripts.^user^script^options.all^frames:
@@ -440,6 +460,7 @@ Details of a user script
    .. api-member::
       :name: [``allFrames``]
       :refid: user-scripts-user-script-options-all-frames
+      :refname: allFrames
       :type: (boolean, optional)
 
       If allFrames is :code:`true`, implies that the JavaScript should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
@@ -449,6 +470,7 @@ Details of a user script
    .. api-member::
       :name: [``cookieStoreId``]
       :refid: user-scripts-user-script-options-cookie-store-id
+      :refname: cookieStoreId
       :type: (array of string or string, optional)
 
       limit the set of matched tabs to those that belong to the given cookie store id
@@ -458,6 +480,7 @@ Details of a user script
    .. api-member::
       :name: [``excludeGlobs``]
       :refid: user-scripts-user-script-options-exclude-globs
+      :refname: excludeGlobs
       :type: (array of string, optional)
 
    .. _user^scripts.^user^script^options.exclude^matches:
@@ -465,6 +488,7 @@ Details of a user script
    .. api-member::
       :name: [``excludeMatches``]
       :refid: user-scripts-user-script-options-exclude-matches
+      :refname: excludeMatches
       :type: (array of :ref:`user^scripts.^match^pattern`, optional)
 
    .. _user^scripts.^user^script^options.include^globs:
@@ -472,6 +496,7 @@ Details of a user script
    .. api-member::
       :name: [``includeGlobs``]
       :refid: user-scripts-user-script-options-include-globs
+      :refname: includeGlobs
       :type: (array of string, optional)
 
    .. _user^scripts.^user^script^options.match^about^blank:
@@ -479,6 +504,7 @@ Details of a user script
    .. api-member::
       :name: [``matchAboutBlank``]
       :refid: user-scripts-user-script-options-match-about-blank
+      :refname: matchAboutBlank
       :type: (boolean, optional)
 
       If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is :code:`false`.
@@ -488,6 +514,7 @@ Details of a user script
    .. api-member::
       :name: [``runAt``]
       :refid: user-scripts-user-script-options-run-at
+      :refname: runAt
       :type: (:ref:`user^scripts.^run^at`, optional)
 
       The soonest that the JavaScript will be injected into the tab. Defaults to "document_idle".
@@ -497,6 +524,7 @@ Details of a user script
    .. api-member::
       :name: [``scriptMetadata``]
       :refid: user-scripts-user-script-options-script-metadata
+      :refname: scriptMetadata
       :type: (:ref:`user^scripts.^plain^j^s^o^n^value`, optional)
 
       An opaque user script metadata value
