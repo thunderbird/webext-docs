@@ -41,7 +41,10 @@ Returns the JavaScript 'window' object for the background page running inside th
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _extension.get^background^page.returns:
+
    .. api-member::
+      :refid: extension-get-background-page-returns
       :type: `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -58,8 +61,11 @@ Converts a relative path within an extension install directory to a fully-qualif
 .. api-header::
    :label: Parameters
 
+   .. _extension.get^u^r^l.path:
+
    .. api-member::
       :name: ``path``
+      :refid: extension-get-u-r-l-path
       :type: (string)
 
       A path to a resource within an extension expressed relative to its install directory.
@@ -67,7 +73,10 @@ Converts a relative path within an extension install directory to a fully-qualif
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _extension.get^u^r^l.returns:
+
    .. api-member::
+      :refid: extension-get-u-r-l-returns
       :type: string
 
       The fully-qualified URL to the resource.
@@ -90,24 +99,36 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 .. api-header::
    :label: Parameters
 
+   .. _extension.get^views.fetch^properties:
+
    .. api-member::
       :name: [``fetchProperties``]
+      :refid: extension-get-views-fetch-properties
       :type: (object, optional)
+
+      .. _extension.get^views.fetch^properties.tab^id:
 
       .. api-member::
          :name: [``tabId``]
+         :refid: extension-get-views-fetch-properties-tab-id
          :type: (integer, optional)
 
          Find a view according to a tab id. If this field is omitted, returns all views.
 
+      .. _extension.get^views.fetch^properties.type:
+
       .. api-member::
          :name: [``type``]
+         :refid: extension-get-views-fetch-properties-type
          :type: (:ref:`extension.^view^type`, optional)
 
          The type of view to get. If omitted, returns all views (including background pages and tabs). Valid values: 'tab', 'popup', 'sidebar'.
 
+      .. _extension.get^views.fetch^properties.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: extension-get-views-fetch-properties-window-id
          :type: (integer, optional)
 
          The window to restrict the search to. If omitted, returns all views.
@@ -115,7 +136,10 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _extension.get^views.returns:
+
    .. api-member::
+      :refid: extension-get-views-returns
       :type: array of `Window <https://developer.mozilla.org/en-US/docs/Web/API/Window>`__
 
       Array of global objects
@@ -134,7 +158,10 @@ Retrieves the state of the extension's access to the 'file://' scheme (as determ
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _extension.is^allowed^file^scheme^access.returns:
+
    .. api-member::
+      :refid: extension-is-allowed-file-scheme-access-returns
       :type: boolean
 
       True if the extension can access the 'file://' scheme, false otherwise.
@@ -153,7 +180,10 @@ Retrieves the state of the extension's access to Incognito-mode (as determined b
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _extension.is^allowed^incognito^access.returns:
+
    .. api-member::
+      :refid: extension-is-allowed-incognito-access-returns
       :type: boolean
 
       True if the extension has access to Incognito mode, false otherwise.
@@ -183,15 +213,24 @@ The type of extension view.
 
          Supported values:
 
+         .. _extension.^view^type.popup:
+
          .. api-member::
             :name: :value:`popup`
+            :refid: extension-view-type-popup
+
+         .. _extension.^view^type.sidebar:
 
          .. api-member::
             :name: :value:`sidebar`
+            :refid: extension-view-type-sidebar
             :annotation: -- [Added in TB 54]
+
+         .. _extension.^view^type.tab:
 
          .. api-member::
             :name: :value:`tab`
+            :refid: extension-view-type-tab
 
 .. rst-class:: api-main-section
 

@@ -34,8 +34,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _pkcs11.permission.pkcs11:
+
 .. api-member::
    :name: :permission:`pkcs11`
+   :refid: pkcs11-permission-pkcs11
 
    Grant access to some or all methods of the pkcs11 API.
 
@@ -62,8 +65,11 @@ Enumerate a module's slots, each with their name and whether a token is present
 .. api-header::
    :label: Parameters
 
+   .. _pkcs11.get^module^slots.name:
+
    .. api-member::
       :name: ``name``
+      :refid: pkcs11-get-module-slots-name
       :type: (string)
 
 .. api-header::
@@ -83,12 +89,18 @@ Install a PKCS#11 module with a given name
 .. api-header::
    :label: Parameters
 
+   .. _pkcs11.install^module.name:
+
    .. api-member::
       :name: ``name``
+      :refid: pkcs11-install-module-name
       :type: (string)
+
+   .. _pkcs11.install^module.flags:
 
    .. api-member::
       :name: [``flags``]
+      :refid: pkcs11-install-module-flags
       :type: (integer, optional)
 
 .. api-header::
@@ -108,8 +120,11 @@ checks whether a PKCS#11 module, given by name, is installed
 .. api-header::
    :label: Parameters
 
+   .. _pkcs11.is^module^installed.name:
+
    .. api-member::
       :name: ``name``
+      :refid: pkcs11-is-module-installed-name
       :type: (string)
 
 .. api-header::
@@ -129,8 +144,11 @@ Remove an installed PKCS#11 module from firefox
 .. api-header::
    :label: Parameters
 
+   .. _pkcs11.uninstall^module.name:
+
    .. api-member::
       :name: ``name``
+      :refid: pkcs11-uninstall-module-name
       :type: (string)
 
 .. api-header::

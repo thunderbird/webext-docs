@@ -29,8 +29,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _message^display^scripts.permission.messages^modify:
+
 .. api-member::
    :name: :permission:`messagesModify`
+   :refid: message-display-scripts-permission-messages-modify
 
    Read and modify your email messages as they are displayed to you.
 
@@ -61,8 +64,11 @@ Register a message display script programmatically.
 .. api-header::
    :label: Parameters
 
+   .. _message^display^scripts.register.message^display^script^options:
+
    .. api-member::
       :name: ``messageDisplayScriptOptions``
+      :refid: message-display-scripts-register-message-display-script-options
       :type: (:ref:`message^display^scripts.^registered^message^display^script^options`)
 
 .. api-header::
@@ -91,8 +97,11 @@ Specify code, either by pointing to a file or by providing the code directly. On
 
       .. container:: api-member-description-only
 
+         .. _message^display^scripts.^extension^file^or^code.file:
+
          .. api-member::
             :name: ``file``
+            :refid: message-display-scripts-extension-file-or-code-file
             :type: (:ref:`message^display^scripts.^extension^u^r^l`)
 
             A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
@@ -106,8 +115,11 @@ Specify code, either by pointing to a file or by providing the code directly. On
 
       .. container:: api-member-description-only
 
+         .. _message^display^scripts.^extension^file^or^code.code:
+
          .. api-member::
             :name: ``code``
+            :refid: message-display-scripts-extension-file-or-code-code
             :type: (string)
 
             A string of JavaScript code to register.
@@ -152,6 +164,7 @@ Details of a message display script registered programmatically
 
    .. api-member::
       :name: [``css``]
+      :refid: message-display-scripts-registered-message-display-script-options-css
       :type: (array of :ref:`message^display^scripts.^extension^file^or^code`, optional)
 
       The list of CSS files to inject
@@ -160,6 +173,7 @@ Details of a message display script registered programmatically
 
    .. api-member::
       :name: [``js``]
+      :refid: message-display-scripts-registered-message-display-script-options-js
       :type: (array of :ref:`message^display^scripts.^extension^file^or^code`, optional)
 
       The list of JavaScript files to inject
@@ -168,6 +182,7 @@ Details of a message display script registered programmatically
 
    .. api-member::
       :name: [``runAt``]
+      :refid: message-display-scripts-registered-message-display-script-options-run-at
       :type: (`string`, optional)
       :annotation: -- [Added in TB 126]
 
@@ -175,11 +190,20 @@ Details of a message display script registered programmatically
 
       Supported values:
 
+      .. _message^display^scripts.^registered^message^display^script^options.run^at.document_end:
+
       .. api-member::
          :name: :value:`document_end`
+         :refid: message-display-scripts-registered-message-display-script-options-run-at-document-end
+
+      .. _message^display^scripts.^registered^message^display^script^options.run^at.document_idle:
 
       .. api-member::
          :name: :value:`document_idle`
+         :refid: message-display-scripts-registered-message-display-script-options-run-at-document-idle
+
+      .. _message^display^scripts.^registered^message^display^script^options.run^at.document_start:
 
       .. api-member::
          :name: :value:`document_start`
+         :refid: message-display-scripts-registered-message-display-script-options-run-at-document-start

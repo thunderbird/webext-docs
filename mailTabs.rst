@@ -32,13 +32,19 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _mail^tabs.permission.accounts^read:
+
 .. api-member::
    :name: :permission:`accountsRead`
+   :refid: mail-tabs-permission-accounts-read
 
    See your mail accounts, their identities and their folders.
 
+.. _mail^tabs.permission.messages^read:
+
 .. api-member::
    :name: :permission:`messagesRead`
+   :refid: mail-tabs-permission-messages-read
 
    Read your email messages.
 
@@ -59,14 +65,20 @@ Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.u
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.create.create^properties:
+
    .. api-member::
       :name: [``createProperties``]
+      :refid: mail-tabs-create-create-properties
       :type: (:ref:`mail^tabs.^mail^tab^properties`, optional)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.create.returns:
+
    .. api-member::
+      :refid: mail-tabs-create-returns
       :type: :ref:`mail^tabs.^mail^tab`
 
       Details about the created mail tab. Will contain the ID of the new tab.
@@ -85,8 +97,11 @@ Get the :ref:`mail^tabs.^mail^tab` properties of a mail tab.
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.get.tab^id:
+
    .. api-member::
       :name: ``tabId``
+      :refid: mail-tabs-get-tab-id
       :type: (integer)
 
       ID of the requested mail tab. Throws if the requested :value:`tabId` does not belong to a mail tab.
@@ -94,7 +109,10 @@ Get the :ref:`mail^tabs.^mail^tab` properties of a mail tab.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.get.returns:
+
    .. api-member::
+      :refid: mail-tabs-get-returns
       :type: :ref:`mail^tabs.^mail^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -111,7 +129,10 @@ Get the :ref:`mail^tabs.^mail^tab` properties of the active mail tab. Returns :v
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.get^current.returns:
+
    .. api-member::
+      :refid: mail-tabs-get-current-returns
       :type: :ref:`mail^tabs.^mail^tab`
       :annotation: -- [Added in TB 89]
 
@@ -129,8 +150,11 @@ Lists the messages in the current view, honoring sort order and filters.
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.get^listed^messages.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: mail-tabs-get-listed-messages-tab-id
       :type: (integer, optional)
 
       Defaults to the active tab of the current window.
@@ -138,7 +162,10 @@ Lists the messages in the current view, honoring sort order and filters.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.get^listed^messages.returns:
+
    .. api-member::
+      :refid: mail-tabs-get-listed-messages-returns
       :type: :ref:`messages.^message^list`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -160,8 +187,11 @@ Lists the selected folders in the folder pane. Does not include folders which ar
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.get^selected^folders.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: mail-tabs-get-selected-folders-tab-id
       :type: (integer, optional)
 
       Defaults to the active tab of the current window.
@@ -169,7 +199,10 @@ Lists the selected folders in the folder pane. Does not include folders which ar
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.get^selected^folders.returns:
+
    .. api-member::
+      :refid: mail-tabs-get-selected-folders-returns
       :type: array of :ref:`folders.^mail^folder`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -191,8 +224,11 @@ Lists the selected messages in the current folder. Includes messages in collapse
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.get^selected^messages.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: mail-tabs-get-selected-messages-tab-id
       :type: (integer, optional)
 
       Defaults to the active tab of the current window.
@@ -200,7 +236,10 @@ Lists the selected messages in the current folder. Includes messages in collapse
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.get^selected^messages.returns:
+
    .. api-member::
+      :refid: mail-tabs-get-selected-messages-returns
       :type: :ref:`messages.^message^list`
       :annotation: -- [Added in TB 89]
 
@@ -223,30 +262,45 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.query.query^info:
+
    .. api-member::
       :name: [``queryInfo``]
+      :refid: mail-tabs-query-query-info
       :type: (object, optional)
+
+      .. _mail^tabs.query.query^info.active:
 
       .. api-member::
          :name: [``active``]
+         :refid: mail-tabs-query-query-info-active
          :type: (boolean, optional)
 
          Whether the tabs are active in their windows.
 
+      .. _mail^tabs.query.query^info.current^window:
+
       .. api-member::
          :name: [``currentWindow``]
+         :refid: mail-tabs-query-query-info-current-window
          :type: (boolean, optional)
 
          Whether the tabs are in the current window.
 
+      .. _mail^tabs.query.query^info.last^focused^window:
+
       .. api-member::
          :name: [``lastFocusedWindow``]
+         :refid: mail-tabs-query-query-info-last-focused-window
          :type: (boolean, optional)
 
          Whether the tabs are in the last focused window.
 
+      .. _mail^tabs.query.query^info.window^id:
+
       .. api-member::
          :name: [``windowId``]
+         :refid: mail-tabs-query-query-info-window-id
          :type: (integer, optional)
 
          The ID of the parent window, or :ref:`windows.^w^i^n^d^o^w_^i^d_^c^u^r^r^e^n^t` for the current window.
@@ -254,7 +308,10 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.query.returns:
+
    .. api-member::
+      :refid: mail-tabs-query-returns
       :type: array of :ref:`mail^tabs.^mail^tab`
       :annotation: -- [Added in TB 89]
 
@@ -272,55 +329,82 @@ Sets the Quick Filter user interface based on the options specified.
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.set^quick^filter.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: mail-tabs-set-quick-filter-tab-id
       :type: (integer, optional)
 
       Defaults to the active tab of the current window.
 
+   .. _mail^tabs.set^quick^filter.properties:
+
    .. api-member::
       :name: ``properties``
+      :refid: mail-tabs-set-quick-filter-properties
       :type: (object)
+
+      .. _mail^tabs.set^quick^filter.properties.attachment:
 
       .. api-member::
          :name: [``attachment``]
+         :refid: mail-tabs-set-quick-filter-properties-attachment
          :type: (boolean, optional)
 
          Shows only messages with attachments.
 
+      .. _mail^tabs.set^quick^filter.properties.contact:
+
       .. api-member::
          :name: [``contact``]
+         :refid: mail-tabs-set-quick-filter-properties-contact
          :type: (boolean, optional)
 
          Shows only messages from people in the address book.
 
+      .. _mail^tabs.set^quick^filter.properties.flagged:
+
       .. api-member::
          :name: [``flagged``]
+         :refid: mail-tabs-set-quick-filter-properties-flagged
          :type: (boolean, optional)
          :annotation: -- [Added in TB 68]
 
          Shows only flagged messages.
 
+      .. _mail^tabs.set^quick^filter.properties.show:
+
       .. api-member::
          :name: [``show``]
+         :refid: mail-tabs-set-quick-filter-properties-show
          :type: (boolean, optional)
 
          Shows or hides the Quick Filter bar.
 
+      .. _mail^tabs.set^quick^filter.properties.tags:
+
       .. api-member::
          :name: [``tags``]
+         :refid: mail-tabs-set-quick-filter-properties-tags
          :type: (boolean or :ref:`messages.tags.^tags^detail`, optional)
 
          Shows only messages with tags on them.
 
+      .. _mail^tabs.set^quick^filter.properties.text:
+
       .. api-member::
          :name: [``text``]
+         :refid: mail-tabs-set-quick-filter-properties-text
          :type: (:ref:`mail^tabs.^quick^filter^text^detail`, optional)
 
          Shows only messages matching the supplied text.
 
+      .. _mail^tabs.set^quick^filter.properties.unread:
+
       .. api-member::
          :name: [``unread``]
+         :refid: mail-tabs-set-quick-filter-properties-unread
          :type: (boolean, optional)
 
          Shows only unread messages.
@@ -337,14 +421,20 @@ Selects none, one or multiple messages. Opens collapsed threads to show the sele
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.set^selected^messages.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: mail-tabs-set-selected-messages-tab-id
       :type: (integer, optional)
 
       Defaults to the active tab of the current window.
 
+   .. _mail^tabs.set^selected^messages.message^ids:
+
    .. api-member::
       :name: ``messageIds``
+      :refid: mail-tabs-set-selected-messages-message-ids
       :type: (array of :ref:`messages.^message^id`)
 
       The IDs of the messages, which should be selected. The mail tab will switch to the folder of the selected messages. Throws if they belong to different folders. Array can be empty to deselect any currently selected message.
@@ -367,20 +457,29 @@ Modifies the properties of a mail tab. Properties that are not specified in :val
 .. api-header::
    :label: Parameters
 
+   .. _mail^tabs.update.tab^id:
+
    .. api-member::
       :name: [``tabId``]
+      :refid: mail-tabs-update-tab-id
       :type: (integer, optional)
 
       Defaults to the active tab of the current window.
 
+   .. _mail^tabs.update.update^properties:
+
    .. api-member::
       :name: ``updateProperties``
+      :refid: mail-tabs-update-update-properties
       :type: (:ref:`mail^tabs.^mail^tab^properties`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _mail^tabs.update.returns:
+
    .. api-member::
+      :refid: mail-tabs-update-returns
       :type: :ref:`mail^tabs.^mail^tab`
       :annotation: -- [Added in TB 121]
 
@@ -405,21 +504,30 @@ Fired when the displayed folder changes in any mail tab.
 .. api-header::
    :label: Parameters for onDisplayedFolderChanged.addListener(listener)
 
+   .. _mail^tabs.on^displayed^folder^changed.listener(tab, displayed^folder):
+
    .. api-member::
       :name: ``listener(tab, displayedFolder)``
+      :refid: mail-tabs-on-displayed-folder-changed-listener-tab-displayed-folder
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _mail^tabs.on^displayed^folder^changed.tab:
+
    .. api-member::
       :name: ``tab``
+      :refid: mail-tabs-on-displayed-folder-changed-tab
       :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 76]
 
+   .. _mail^tabs.on^displayed^folder^changed.displayed^folder:
+
    .. api-member::
       :name: ``displayedFolder``
+      :refid: mail-tabs-on-displayed-folder-changed-displayed-folder
       :type: (:ref:`folders.^mail^folder`)
       :annotation: -- [Added in TB 76]
 
@@ -440,21 +548,30 @@ Fired when the selected messages change in any mail tab.
 .. api-header::
    :label: Parameters for onSelectedMessagesChanged.addListener(listener)
 
+   .. _mail^tabs.on^selected^messages^changed.listener(tab, selected^messages):
+
    .. api-member::
       :name: ``listener(tab, selectedMessages)``
+      :refid: mail-tabs-on-selected-messages-changed-listener-tab-selected-messages
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _mail^tabs.on^selected^messages^changed.tab:
+
    .. api-member::
       :name: ``tab``
+      :refid: mail-tabs-on-selected-messages-changed-tab
       :type: (:ref:`tabs.^tab`)
       :annotation: -- [Added in TB 76]
 
+   .. _mail^tabs.on^selected^messages^changed.selected^messages:
+
    .. api-member::
       :name: ``selectedMessages``
+      :refid: mail-tabs-on-selected-messages-changed-selected-messages
       :type: (:ref:`messages.^message^list`)
       :annotation: -- [Added in TB 76]
 
@@ -486,23 +603,41 @@ A supported folder mode in the folder pane.
 
          Supported values:
 
+         .. _mail^tabs.^folder^mode.all:
+
          .. api-member::
             :name: :value:`all`
+            :refid: mail-tabs-folder-mode-all
+
+         .. _mail^tabs.^folder^mode.favorite:
 
          .. api-member::
             :name: :value:`favorite`
+            :refid: mail-tabs-folder-mode-favorite
+
+         .. _mail^tabs.^folder^mode.recent:
 
          .. api-member::
             :name: :value:`recent`
+            :refid: mail-tabs-folder-mode-recent
+
+         .. _mail^tabs.^folder^mode.tags:
 
          .. api-member::
             :name: :value:`tags`
+            :refid: mail-tabs-folder-mode-tags
+
+         .. _mail^tabs.^folder^mode.unified:
 
          .. api-member::
             :name: :value:`unified`
+            :refid: mail-tabs-folder-mode-unified
+
+         .. _mail^tabs.^folder^mode.unread:
 
          .. api-member::
             :name: :value:`unread`
+            :refid: mail-tabs-folder-mode-unread
 
 .. _mail^tabs.^mail^tab:
 
@@ -518,43 +653,57 @@ MailTab
 
    .. api-member::
       :name: ``active``
+      :refid: mail-tabs-mail-tab-active
       :type: (boolean)
 
    .. _mail^tabs.^mail^tab.id:
 
    .. api-member::
       :name: ``id``
+      :refid: mail-tabs-mail-tab-id
       :type: (integer)
 
    .. _mail^tabs.^mail^tab.layout:
 
    .. api-member::
       :name: ``layout``
+      :refid: mail-tabs-mail-tab-layout
       :type: (`string`)
 
       The arrangement of the folder pane, message list pane, and message display pane.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab.layout.standard:
+
       .. api-member::
          :name: :value:`standard`
+         :refid: mail-tabs-mail-tab-layout-standard
+
+      .. _mail^tabs.^mail^tab.layout.vertical:
 
       .. api-member::
          :name: :value:`vertical`
+         :refid: mail-tabs-mail-tab-layout-vertical
+
+      .. _mail^tabs.^mail^tab.layout.wide:
 
       .. api-member::
          :name: :value:`wide`
+         :refid: mail-tabs-mail-tab-layout-wide
 
    .. _mail^tabs.^mail^tab.window^id:
 
    .. api-member::
       :name: ``windowId``
+      :refid: mail-tabs-mail-tab-window-id
       :type: (integer)
 
    .. _mail^tabs.^mail^tab.displayed^folder:
 
    .. api-member::
       :name: [``displayedFolder``]
+      :refid: mail-tabs-mail-tab-displayed-folder
       :type: (:ref:`folders.^mail^folder`, optional)
 
       The folder displayed in the mail tab. The :permission:`accountsRead` permission is required for this property to be included.
@@ -563,6 +712,7 @@ MailTab
 
    .. api-member::
       :name: [``folderMode``]
+      :refid: mail-tabs-mail-tab-folder-mode
       :type: (:ref:`mail^tabs.^folder^mode`, optional)
       :annotation: -- [Added in TB 127]
 
@@ -572,6 +722,7 @@ MailTab
 
    .. api-member::
       :name: [``folderModesEnabled``]
+      :refid: mail-tabs-mail-tab-folder-modes-enabled
       :type: (array of :ref:`mail^tabs.^folder^mode`, optional)
       :annotation: -- [Added in TB 127]
 
@@ -581,6 +732,7 @@ MailTab
 
    .. api-member::
       :name: [``folderPaneVisible``]
+      :refid: mail-tabs-mail-tab-folder-pane-visible
       :type: (boolean, optional)
 
       Whether the folder pane is visible or not.
@@ -589,6 +741,7 @@ MailTab
 
    .. api-member::
       :name: [``messagePaneVisible``]
+      :refid: mail-tabs-mail-tab-message-pane-visible
       :type: (boolean, optional)
 
       Whether the message pane is visible or not.
@@ -597,95 +750,167 @@ MailTab
 
    .. api-member::
       :name: [``sortOrder``]
+      :refid: mail-tabs-mail-tab-sort-order
       :type: (`string`, optional)
 
       The sort order of the message list.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab.sort^order.ascending:
+
       .. api-member::
          :name: :value:`ascending`
+         :refid: mail-tabs-mail-tab-sort-order-ascending
+
+      .. _mail^tabs.^mail^tab.sort^order.descending:
 
       .. api-member::
          :name: :value:`descending`
+         :refid: mail-tabs-mail-tab-sort-order-descending
+
+      .. _mail^tabs.^mail^tab.sort^order.none:
 
       .. api-member::
          :name: :value:`none`
+         :refid: mail-tabs-mail-tab-sort-order-none
 
    .. _mail^tabs.^mail^tab.sort^type:
 
    .. api-member::
       :name: [``sortType``]
+      :refid: mail-tabs-mail-tab-sort-type
       :type: (`string`, optional)
 
       The primary sort column of the message list.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab.sort^type.account:
+
       .. api-member::
          :name: :value:`account`
+         :refid: mail-tabs-mail-tab-sort-type-account
+
+      .. _mail^tabs.^mail^tab.sort^type.attachments:
 
       .. api-member::
          :name: :value:`attachments`
+         :refid: mail-tabs-mail-tab-sort-type-attachments
+
+      .. _mail^tabs.^mail^tab.sort^type.author:
 
       .. api-member::
          :name: :value:`author`
+         :refid: mail-tabs-mail-tab-sort-type-author
+
+      .. _mail^tabs.^mail^tab.sort^type.correspondent:
 
       .. api-member::
          :name: :value:`correspondent`
+         :refid: mail-tabs-mail-tab-sort-type-correspondent
+
+      .. _mail^tabs.^mail^tab.sort^type.custom:
 
       .. api-member::
          :name: :value:`custom`
+         :refid: mail-tabs-mail-tab-sort-type-custom
+
+      .. _mail^tabs.^mail^tab.sort^type.date:
 
       .. api-member::
          :name: :value:`date`
+         :refid: mail-tabs-mail-tab-sort-type-date
+
+      .. _mail^tabs.^mail^tab.sort^type.flagged:
 
       .. api-member::
          :name: :value:`flagged`
+         :refid: mail-tabs-mail-tab-sort-type-flagged
+
+      .. _mail^tabs.^mail^tab.sort^type.id:
 
       .. api-member::
          :name: :value:`id`
+         :refid: mail-tabs-mail-tab-sort-type-id
+
+      .. _mail^tabs.^mail^tab.sort^type.junk^status:
 
       .. api-member::
          :name: :value:`junkStatus`
+         :refid: mail-tabs-mail-tab-sort-type-junk-status
+
+      .. _mail^tabs.^mail^tab.sort^type.location:
 
       .. api-member::
          :name: :value:`location`
+         :refid: mail-tabs-mail-tab-sort-type-location
+
+      .. _mail^tabs.^mail^tab.sort^type.none:
 
       .. api-member::
          :name: :value:`none`
+         :refid: mail-tabs-mail-tab-sort-type-none
+
+      .. _mail^tabs.^mail^tab.sort^type.priority:
 
       .. api-member::
          :name: :value:`priority`
+         :refid: mail-tabs-mail-tab-sort-type-priority
+
+      .. _mail^tabs.^mail^tab.sort^type.received:
 
       .. api-member::
          :name: :value:`received`
+         :refid: mail-tabs-mail-tab-sort-type-received
+
+      .. _mail^tabs.^mail^tab.sort^type.recipient:
 
       .. api-member::
          :name: :value:`recipient`
+         :refid: mail-tabs-mail-tab-sort-type-recipient
+
+      .. _mail^tabs.^mail^tab.sort^type.size:
 
       .. api-member::
          :name: :value:`size`
+         :refid: mail-tabs-mail-tab-sort-type-size
+
+      .. _mail^tabs.^mail^tab.sort^type.status:
 
       .. api-member::
          :name: :value:`status`
+         :refid: mail-tabs-mail-tab-sort-type-status
+
+      .. _mail^tabs.^mail^tab.sort^type.subject:
 
       .. api-member::
          :name: :value:`subject`
+         :refid: mail-tabs-mail-tab-sort-type-subject
+
+      .. _mail^tabs.^mail^tab.sort^type.tags:
 
       .. api-member::
          :name: :value:`tags`
+         :refid: mail-tabs-mail-tab-sort-type-tags
+
+      .. _mail^tabs.^mail^tab.sort^type.thread:
 
       .. api-member::
          :name: :value:`thread`
+         :refid: mail-tabs-mail-tab-sort-type-thread
+
+      .. _mail^tabs.^mail^tab.sort^type.unread:
 
       .. api-member::
          :name: :value:`unread`
+         :refid: mail-tabs-mail-tab-sort-type-unread
 
    .. _mail^tabs.^mail^tab.view^type:
 
    .. api-member::
       :name: [``viewType``]
+      :refid: mail-tabs-mail-tab-view-type
       :type: (`string`, optional)
       :annotation: -- [Added in TB 91]
 
@@ -693,14 +918,23 @@ MailTab
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab.view^type.grouped^by^sort^type:
+
       .. api-member::
          :name: :value:`groupedBySortType`
+         :refid: mail-tabs-mail-tab-view-type-grouped-by-sort-type
+
+      .. _mail^tabs.^mail^tab.view^type.grouped^by^thread:
 
       .. api-member::
          :name: :value:`groupedByThread`
+         :refid: mail-tabs-mail-tab-view-type-grouped-by-thread
+
+      .. _mail^tabs.^mail^tab.view^type.ungrouped:
 
       .. api-member::
          :name: :value:`ungrouped`
+         :refid: mail-tabs-mail-tab-view-type-ungrouped
 
 .. _mail^tabs.^mail^tab^properties:
 
@@ -716,6 +950,7 @@ MailTabProperties
 
    .. api-member::
       :name: [``displayedFolder``]
+      :refid: mail-tabs-mail-tab-properties-displayed-folder
       :type: (:ref:`folders.^mail^folder^id` or :ref:`folders.^mail^folder`, optional)
 
       Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any.
@@ -724,6 +959,7 @@ MailTabProperties
 
    .. api-member::
       :name: [``folderMode``]
+      :refid: mail-tabs-mail-tab-properties-folder-mode
       :type: (:ref:`mail^tabs.^folder^mode`, optional)
       :annotation: -- [Added in TB 127]
 
@@ -733,6 +969,7 @@ MailTabProperties
 
    .. api-member::
       :name: [``folderModesEnabled``]
+      :refid: mail-tabs-mail-tab-properties-folder-modes-enabled
       :type: (array of :ref:`mail^tabs.^folder^mode`, optional)
       :annotation: -- [Added in TB 127]
 
@@ -742,6 +979,7 @@ MailTabProperties
 
    .. api-member::
       :name: [``folderPaneVisible``]
+      :refid: mail-tabs-mail-tab-properties-folder-pane-visible
       :type: (boolean, optional)
 
       Shows or hides the folder pane.
@@ -750,25 +988,36 @@ MailTabProperties
 
    .. api-member::
       :name: [``layout``]
+      :refid: mail-tabs-mail-tab-properties-layout
       :type: (`string`, optional)
 
       Sets the arrangement of the folder pane, message list pane, and message display pane. Setting a layout will be applied to all mail tabs.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab^properties.layout.standard:
+
       .. api-member::
          :name: :value:`standard`
+         :refid: mail-tabs-mail-tab-properties-layout-standard
+
+      .. _mail^tabs.^mail^tab^properties.layout.vertical:
 
       .. api-member::
          :name: :value:`vertical`
+         :refid: mail-tabs-mail-tab-properties-layout-vertical
+
+      .. _mail^tabs.^mail^tab^properties.layout.wide:
 
       .. api-member::
          :name: :value:`wide`
+         :refid: mail-tabs-mail-tab-properties-layout-wide
 
    .. _mail^tabs.^mail^tab^properties.message^pane^visible:
 
    .. api-member::
       :name: [``messagePaneVisible``]
+      :refid: mail-tabs-mail-tab-properties-message-pane-visible
       :type: (boolean, optional)
 
       Shows or hides the message display pane.
@@ -777,109 +1026,190 @@ MailTabProperties
 
    .. api-member::
       :name: [``sortOrder``]
+      :refid: mail-tabs-mail-tab-properties-sort-order
       :type: (`string`, optional)
 
       Sorts the list of messages. :value:`sortType` must also be given.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab^properties.sort^order.ascending:
+
       .. api-member::
          :name: :value:`ascending`
+         :refid: mail-tabs-mail-tab-properties-sort-order-ascending
+
+      .. _mail^tabs.^mail^tab^properties.sort^order.descending:
 
       .. api-member::
          :name: :value:`descending`
+         :refid: mail-tabs-mail-tab-properties-sort-order-descending
+
+      .. _mail^tabs.^mail^tab^properties.sort^order.none:
 
       .. api-member::
          :name: :value:`none`
+         :refid: mail-tabs-mail-tab-properties-sort-order-none
 
    .. _mail^tabs.^mail^tab^properties.sort^type:
 
    .. api-member::
       :name: [``sortType``]
+      :refid: mail-tabs-mail-tab-properties-sort-type
       :type: (`string`, optional)
 
       Sorts the list of messages. :value:`sortOrder` must also be given.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab^properties.sort^type.account:
+
       .. api-member::
          :name: :value:`account`
+         :refid: mail-tabs-mail-tab-properties-sort-type-account
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.attachments:
 
       .. api-member::
          :name: :value:`attachments`
+         :refid: mail-tabs-mail-tab-properties-sort-type-attachments
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.author:
 
       .. api-member::
          :name: :value:`author`
+         :refid: mail-tabs-mail-tab-properties-sort-type-author
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.correspondent:
 
       .. api-member::
          :name: :value:`correspondent`
+         :refid: mail-tabs-mail-tab-properties-sort-type-correspondent
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.custom:
 
       .. api-member::
          :name: :value:`custom`
+         :refid: mail-tabs-mail-tab-properties-sort-type-custom
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.date:
 
       .. api-member::
          :name: :value:`date`
+         :refid: mail-tabs-mail-tab-properties-sort-type-date
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.flagged:
 
       .. api-member::
          :name: :value:`flagged`
+         :refid: mail-tabs-mail-tab-properties-sort-type-flagged
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.id:
 
       .. api-member::
          :name: :value:`id`
+         :refid: mail-tabs-mail-tab-properties-sort-type-id
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.junk^status:
 
       .. api-member::
          :name: :value:`junkStatus`
+         :refid: mail-tabs-mail-tab-properties-sort-type-junk-status
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.location:
 
       .. api-member::
          :name: :value:`location`
+         :refid: mail-tabs-mail-tab-properties-sort-type-location
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.none:
 
       .. api-member::
          :name: :value:`none`
+         :refid: mail-tabs-mail-tab-properties-sort-type-none
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.priority:
 
       .. api-member::
          :name: :value:`priority`
+         :refid: mail-tabs-mail-tab-properties-sort-type-priority
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.received:
 
       .. api-member::
          :name: :value:`received`
+         :refid: mail-tabs-mail-tab-properties-sort-type-received
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.recipient:
 
       .. api-member::
          :name: :value:`recipient`
+         :refid: mail-tabs-mail-tab-properties-sort-type-recipient
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.size:
 
       .. api-member::
          :name: :value:`size`
+         :refid: mail-tabs-mail-tab-properties-sort-type-size
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.status:
 
       .. api-member::
          :name: :value:`status`
+         :refid: mail-tabs-mail-tab-properties-sort-type-status
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.subject:
 
       .. api-member::
          :name: :value:`subject`
+         :refid: mail-tabs-mail-tab-properties-sort-type-subject
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.tags:
 
       .. api-member::
          :name: :value:`tags`
+         :refid: mail-tabs-mail-tab-properties-sort-type-tags
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.thread:
 
       .. api-member::
          :name: :value:`thread`
+         :refid: mail-tabs-mail-tab-properties-sort-type-thread
+
+      .. _mail^tabs.^mail^tab^properties.sort^type.unread:
 
       .. api-member::
          :name: :value:`unread`
+         :refid: mail-tabs-mail-tab-properties-sort-type-unread
 
    .. _mail^tabs.^mail^tab^properties.view^type:
 
    .. api-member::
       :name: [``viewType``]
+      :refid: mail-tabs-mail-tab-properties-view-type
       :type: (`string`, optional)
 
       Sets the grouping type of displayed messages.
 
       Supported values:
 
+      .. _mail^tabs.^mail^tab^properties.view^type.grouped^by^sort^type:
+
       .. api-member::
          :name: :value:`groupedBySortType`
+         :refid: mail-tabs-mail-tab-properties-view-type-grouped-by-sort-type
+
+      .. _mail^tabs.^mail^tab^properties.view^type.grouped^by^thread:
 
       .. api-member::
          :name: :value:`groupedByThread`
+         :refid: mail-tabs-mail-tab-properties-view-type-grouped-by-thread
+
+      .. _mail^tabs.^mail^tab^properties.view^type.ungrouped:
 
       .. api-member::
          :name: :value:`ungrouped`
+         :refid: mail-tabs-mail-tab-properties-view-type-ungrouped
 
 .. _mail^tabs.^quick^filter^text^detail:
 
@@ -895,6 +1225,7 @@ QuickFilterTextDetail
 
    .. api-member::
       :name: ``text``
+      :refid: mail-tabs-quick-filter-text-detail-text
       :type: (string)
 
       String to match against the :value:`recipients`, :value:`author`, :value:`subject`, or :value:`body`.
@@ -903,6 +1234,7 @@ QuickFilterTextDetail
 
    .. api-member::
       :name: [``author``]
+      :refid: mail-tabs-quick-filter-text-detail-author
       :type: (boolean, optional)
       :annotation: -- [Added in TB 68]
 
@@ -912,6 +1244,7 @@ QuickFilterTextDetail
 
    .. api-member::
       :name: [``body``]
+      :refid: mail-tabs-quick-filter-text-detail-body
       :type: (boolean, optional)
 
       Shows messages where :value:`text` matches the message body.
@@ -920,6 +1253,7 @@ QuickFilterTextDetail
 
    .. api-member::
       :name: [``recipients``]
+      :refid: mail-tabs-quick-filter-text-detail-recipients
       :type: (boolean, optional)
 
       Shows messages where :value:`text` matches the recipients.
@@ -928,6 +1262,7 @@ QuickFilterTextDetail
 
    .. api-member::
       :name: [``subject``]
+      :refid: mail-tabs-quick-filter-text-detail-subject
       :type: (boolean, optional)
 
       Shows messages where :value:`text` matches the subject.

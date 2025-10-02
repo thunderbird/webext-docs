@@ -32,8 +32,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _contacts.permission.address^books:
+
 .. api-member::
    :name: :permission:`addressBooks`
+   :refid: contacts-permission-address-books
 
    Read and modify your address books and contacts.
 
@@ -60,18 +63,27 @@ Adds a new contact to the address book with the id :value:`parentId`.
 .. api-header::
    :label: Parameters
 
+   .. _contacts.create.parent^id:
+
    .. api-member::
       :name: ``parentId``
+      :refid: contacts-create-parent-id
       :type: (string)
+
+   .. _contacts.create.id:
 
    .. api-member::
       :name: [``id``]
+      :refid: contacts-create-id
       :type: (string, optional) **Deprecated.**
 
       Assigns the contact an id. If an existing contact has this id, an exception is thrown.
 
+   .. _contacts.create.properties:
+
    .. api-member::
       :name: ``properties``
+      :refid: contacts-create-properties
       :type: (:ref:`contacts.^contact^properties`)
       :annotation: -- [Added in TB 68]
 
@@ -84,7 +96,10 @@ Adds a new contact to the address book with the id :value:`parentId`.
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _contacts.create.returns:
+
    .. api-member::
+      :refid: contacts-create-returns
       :type: string
       :annotation: -- [Added in TB 96]
 
@@ -109,8 +124,11 @@ Removes a contact from the address book. The contact is also removed from any ma
 .. api-header::
    :label: Parameters
 
+   .. _contacts.delete.id:
+
    .. api-member::
       :name: ``id``
+      :refid: contacts-delete-id
       :type: (string)
 
 .. api-header::
@@ -130,14 +148,20 @@ Gets a single contact.
 .. api-header::
    :label: Parameters
 
+   .. _contacts.get.id:
+
    .. api-member::
       :name: ``id``
+      :refid: contacts-get-id
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _contacts.get.returns:
+
    .. api-member::
+      :refid: contacts-get-returns
       :type: :ref:`contacts.^contact^node`
       :annotation: -- [Added in TB 96]
 
@@ -160,14 +184,20 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
 .. api-header::
    :label: Parameters
 
+   .. _contacts.get^photo.id:
+
    .. api-member::
       :name: ``id``
+      :refid: contacts-get-photo-id
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _contacts.get^photo.returns:
+
    .. api-member::
+      :refid: contacts-get-photo-returns
       :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ or null
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -189,14 +219,20 @@ Gets all the contacts in the address book with the id :value:`parentId`.
 .. api-header::
    :label: Parameters
 
+   .. _contacts.list.parent^id:
+
    .. api-member::
       :name: ``parentId``
+      :refid: contacts-list-parent-id
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _contacts.list.returns:
+
    .. api-member::
+      :refid: contacts-list-returns
       :type: array of :ref:`contacts.^contact^node`
       :annotation: -- [Added in TB 96]
 
@@ -219,14 +255,20 @@ Gets all contacts matching :value:`queryInfo` in the address book with the id :v
 .. api-header::
    :label: Parameters
 
+   .. _contacts.quick^search.parent^id:
+
    .. api-member::
       :name: [``parentId``]
+      :refid: contacts-quick-search-parent-id
       :type: (string, optional)
 
       The id of the address book to search. If not specified, all address books are searched.
 
+   .. _contacts.quick^search.query^info:
+
    .. api-member::
       :name: ``queryInfo``
+      :refid: contacts-quick-search-query-info
       :type: (string or :ref:`contacts.^query^info`)
 
       Either a *string* with one or more space-separated terms to search for, or a complex :ref:`contacts.^query^info` search query.
@@ -234,7 +276,10 @@ Gets all contacts matching :value:`queryInfo` in the address book with the id :v
 .. api-header::
    :label: Return type (`Promise`_)
 
+   .. _contacts.quick^search.returns:
+
    .. api-member::
+      :refid: contacts-quick-search-returns
       :type: array of :ref:`contacts.^contact^node`
       :annotation: -- [Added in TB 96]
 
@@ -257,12 +302,18 @@ Sets the photo associated with this contact.
 .. api-header::
    :label: Parameters
 
+   .. _contacts.set^photo.id:
+
    .. api-member::
       :name: ``id``
+      :refid: contacts-set-photo-id
       :type: (string)
+
+   .. _contacts.set^photo.file:
 
    .. api-member::
       :name: ``file``
+      :refid: contacts-set-photo-file
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
 
 .. api-header::
@@ -282,12 +333,18 @@ Updates a contact.
 .. api-header::
    :label: Parameters
 
+   .. _contacts.update.id:
+
    .. api-member::
       :name: ``id``
+      :refid: contacts-update-id
       :type: (string)
+
+   .. _contacts.update.properties:
 
    .. api-member::
       :name: ``properties``
+      :refid: contacts-update-properties
       :type: (:ref:`contacts.^contact^properties`)
 
       An object with properties to update the specified contact. Individual properties are removed, if they are set to :value:`null`. If the provided object includes a :value:`vCard` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored.
@@ -318,16 +375,22 @@ Fired when a contact is created.
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
+   .. _contacts.on^created.listener(node):
+
    .. api-member::
       :name: ``listener(node)``
+      :refid: contacts-on-created-listener-node
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _contacts.on^created.node:
+
    .. api-member::
       :name: ``node``
+      :refid: contacts-on-created-node
       :type: (:ref:`contacts.^contact^node`)
 
 .. api-header::
@@ -347,20 +410,29 @@ Fired when a contact is removed from an address book.
 .. api-header::
    :label: Parameters for onDeleted.addListener(listener)
 
+   .. _contacts.on^deleted.listener(parent^id, id):
+
    .. api-member::
       :name: ``listener(parentId, id)``
+      :refid: contacts-on-deleted-listener-parent-id-id
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _contacts.on^deleted.parent^id:
+
    .. api-member::
       :name: ``parentId``
+      :refid: contacts-on-deleted-parent-id
       :type: (string)
+
+   .. _contacts.on^deleted.id:
 
    .. api-member::
       :name: ``id``
+      :refid: contacts-on-deleted-id
       :type: (string)
 
 .. api-header::
@@ -380,20 +452,29 @@ Fired when a contact is changed.
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
 
+   .. _contacts.on^updated.listener(node, changed^properties):
+
    .. api-member::
       :name: ``listener(node, changedProperties)``
+      :refid: contacts-on-updated-listener-node-changed-properties
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _contacts.on^updated.node:
+
    .. api-member::
       :name: ``node``
+      :refid: contacts-on-updated-node
       :type: (:ref:`contacts.^contact^node`)
+
+   .. _contacts.on^updated.changed^properties:
 
    .. api-member::
       :name: ``changedProperties``
+      :refid: contacts-on-updated-changed-properties
       :type: (:ref:`contacts.^property^change`)
       :annotation: -- [Added in TB 83]
 
@@ -423,6 +504,7 @@ A node representing a contact in an address book.
 
    .. api-member::
       :name: ``id``
+      :refid: contacts-contact-node-id
       :type: (string)
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
@@ -431,12 +513,14 @@ A node representing a contact in an address book.
 
    .. api-member::
       :name: ``properties``
+      :refid: contacts-contact-node-properties
       :type: (:ref:`contacts.^contact^properties`)
 
    .. _contacts.^contact^node.type:
 
    .. api-member::
       :name: ``type``
+      :refid: contacts-contact-node-type
       :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`contact`.
@@ -445,6 +529,7 @@ A node representing a contact in an address book.
 
    .. api-member::
       :name: [``parentId``]
+      :refid: contacts-contact-node-parent-id
       :type: (string, optional)
 
       The :value:`id` of the parent object.
@@ -453,6 +538,7 @@ A node representing a contact in an address book.
 
    .. api-member::
       :name: [``readOnly``]
+      :refid: contacts-contact-node-read-only
       :type: (boolean, optional)
 
       Indicates if the object is read-only.
@@ -461,6 +547,7 @@ A node representing a contact in an address book.
 
    .. api-member::
       :name: [``remote``]
+      :refid: contacts-contact-node-remote
       :type: (boolean, optional)
       :annotation: -- [Added in TB 91]
 
@@ -506,6 +593,7 @@ Object defining a query for :ref:`contacts.quick^search`.
 
    .. api-member::
       :name: [``includeLocal``]
+      :refid: contacts-query-info-include-local
       :type: (boolean, optional)
 
       Whether to include results from local address books. Defaults to :value:`true`.
@@ -514,6 +602,7 @@ Object defining a query for :ref:`contacts.quick^search`.
 
    .. api-member::
       :name: [``includeReadOnly``]
+      :refid: contacts-query-info-include-read-only
       :type: (boolean, optional)
 
       Whether to include results from read-only address books. Defaults to :value:`true`.
@@ -522,6 +611,7 @@ Object defining a query for :ref:`contacts.quick^search`.
 
    .. api-member::
       :name: [``includeReadWrite``]
+      :refid: contacts-query-info-include-read-write
       :type: (boolean, optional)
 
       Whether to include results from read-write address books. Defaults to :value:`true`.
@@ -530,6 +620,7 @@ Object defining a query for :ref:`contacts.quick^search`.
 
    .. api-member::
       :name: [``includeRemote``]
+      :refid: contacts-query-info-include-remote
       :type: (boolean, optional)
 
       Whether to include results from remote address books. Defaults to :value:`true`.
@@ -538,6 +629,7 @@ Object defining a query for :ref:`contacts.quick^search`.
 
    .. api-member::
       :name: [``searchString``]
+      :refid: contacts-query-info-search-string
       :type: (string, optional)
 
       One or more space-separated terms to search for in predefined contact fields (defined by the preference :value:`mail.addr_book.quicksearchquery.format`).

@@ -30,8 +30,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _messenger^settings.permission.messenger^settings:
+
 .. api-member::
    :name: :permission:`messengerSettings`
+   :refid: messenger-settings-permission-messenger-settings
 
    Read Thunderbird settings.
 

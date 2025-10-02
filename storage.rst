@@ -40,8 +40,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _storage.permission.storage:
+
 .. api-member::
    :name: :permission:`storage`
+   :refid: storage-permission-storage
 
    Grant access to some or all methods of the storage API.
 
@@ -68,22 +71,31 @@ Fired when one or more items change.
 .. api-header::
    :label: Parameters for onChanged.addListener(listener)
 
+   .. _storage.on^changed.listener(changes, area^name):
+
    .. api-member::
       :name: ``listener(changes, areaName)``
+      :refid: storage-on-changed-listener-changes-area-name
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
+   .. _storage.on^changed.changes:
+
    .. api-member::
       :name: ``changes``
+      :refid: storage-on-changed-changes
       :type: (object)
 
       Object mapping each key that changed to its corresponding :ref:`storage.^storage^change` for that item.
 
+   .. _storage.on^changed.area^name:
+
    .. api-member::
       :name: ``areaName``
+      :refid: storage-on-changed-area-name
       :type: (string)
 
       The name of the storage area (:code:`"sync"`, :code:`"local"` or :code:`"managed"`) the changes are for.
@@ -132,6 +144,7 @@ StorageChange
 
    .. api-member::
       :name: [``newValue``]
+      :refid: storage-storage-change-new-value
       :type: (any, optional)
 
       The new value of the item, if there is a new value.
@@ -140,6 +153,7 @@ StorageChange
 
    .. api-member::
       :name: [``oldValue``]
+      :refid: storage-storage-change-old-value
       :type: (any, optional)
 
       The old value of the item, if there was an old value.
