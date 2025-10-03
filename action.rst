@@ -211,7 +211,7 @@ Permissions
 
 .. note::
 
-   One of the manifest entries :value:`action` or :value:`browser_action` is required to use ``messenger.action.*``.
+   A manifest entry named :value:`action` is required to use ``messenger.action.*``.
 
 .. rst-class:: api-main-section
 

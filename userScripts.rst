@@ -54,12 +54,6 @@ The following permissions influence the behavior of the API. Depending on which 
 
 .. note::
 
-   A manifest entry named :value:`user_scripts` is required to use ``messenger.userScripts.*``.
-
-.. rst-class:: api-permission-info
-
-.. note::
-
    The permission :permission:`userScripts` is required to use ``messenger.userScripts.*``.
 
 .. rst-class:: api-main-section
