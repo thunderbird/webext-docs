@@ -560,7 +560,7 @@ Properties for the new tab being opened by clicking on the associated button in 
 
       .. note::
 
-          The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
+         The :permission:`cookies` permission is required to be able to specify this property. Furthermore, the :permission:`contextualIdentities` permission should be requested, to enable the contextual identities feature (enabled by default only on Thunderbird Daily).
 
    .. _spaces.^space^tab^properties.link^handler:
 
