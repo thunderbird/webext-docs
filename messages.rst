@@ -604,7 +604,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
               return decoder.decode(buffer);
             }
 
-          See MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__.
+         See MDN for `supported input encodings <https://developer.mozilla.org/en-US/docs/Web/API/Encoding_API/Encodings>`__.
 
          Supported values:
 
