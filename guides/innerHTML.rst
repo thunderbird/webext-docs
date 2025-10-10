@@ -165,9 +165,8 @@ Including DOMPurify
 Do not load DOMPurify **directly** from a remote CDN such as jsDelivr or
 cdnjs. Instead, you must:
 
-1. | **Download** the desired DOMPurify release (for example, version
-     3.2.7) from a trusted source such as
-   | [`https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js](https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js) <https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js](https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js)>`__
+1. **Download** the desired DOMPurify release (for example, version
+   3.2.7) from a trusted source such as https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
 
 2. **Include** it in your extension package under a local folder, for
    example in ``vendors/purify.min.js``
