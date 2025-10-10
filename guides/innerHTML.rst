@@ -1,5 +1,5 @@
-Avoid using ``innerHTML``
-=========================
+Strategies to avoid using ``innerHTML``
+=======================================
 
 A common practice is to use ``innerHTML`` to assign a complex DOM
 structure to an existing element, which will generate the required DOM
@@ -31,7 +31,7 @@ Update content via span placeholders
 
 Consider the following code:
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
    const message = document.getElementById('message');
@@ -41,14 +41,14 @@ Here, ``innerHTML`` is used just to insert a formatted value. A better
 approach is to include the static part directly in the markup and only
 update the dynamic part.
 
-.. code:: html
+.. code-block:: html
    :caption: popup.html
 
    <div id="message">
      The following <b><span data-msg="counts"></span></b> items have been found:
    </div>
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
    document.querySelector('#message span[data-msg="counts"]').textContent = counts;
@@ -61,12 +61,12 @@ Update content by hiding/showing markup via CSS
 
 Consider the following markup and code:
 
-.. code:: html
+.. code-block:: html
    :caption: popup.html
 
    <div id="status"></div>
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
    const statusElement = document.getElementById("status");
@@ -80,7 +80,7 @@ Consider the following markup and code:
 A more efficient approach involves defining both states in advance and
 toggling their visibility with CSS:
 
-.. code:: html
+.. code-block:: html
    :caption: popup.html
 
    <div data-view="none" id="status">
@@ -88,14 +88,14 @@ toggling their visibility with CSS:
      <div class="green">Success!</div>
    </div>
 
-.. code:: css
+.. code-block:: css
    :caption: popup.css
 
    #status div.green, #status div.red { display: none; }
    #status[data-view="green"] div.green { display: revert; }
    #status[data-view="red"] div.red { display: revert; }
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
    const statusElement = document.getElementById("status");
@@ -115,7 +115,7 @@ Update content using templates
 
 Consider the following code:
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
    if (error) {
@@ -127,7 +127,7 @@ Consider the following code:
 Instead of dynamically generating HTML, define a ``<template>`` in the
 markup and populate it programmatically:
 
-.. code:: html
+.. code-block:: html
    :caption: popup.html
 
    <template id="missing-config-template">
@@ -137,7 +137,7 @@ markup and populate it programmatically:
      </p>
    </template>
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
      const template = document.getElementById('missing-config-template');
@@ -186,7 +186,7 @@ cdnjs. Instead, you must:
    root of your extension. The file should specify the file name and the
    original source URL:
 
-.. code:: markdown
+.. code-block:: markdown
    :caption: VENDORS.md
 
    purify.min.js: https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
@@ -196,13 +196,13 @@ This allows reviewers to verify that the file is unchanged.
 Insert purified markup with ``insertAdjacentHTML()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code:: html
+.. code-block:: html
    :caption: popup.html
 
    <script src="vendors/purify.min.js"></script>
    <div id="preview"></div>
 
-.. code:: javascript
+.. code-block:: javascript
    :caption: popup.js
 
    async function renderExternalMarkup(url) {
