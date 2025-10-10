@@ -32,6 +32,7 @@ Update content via span placeholders
 Consider the following code:
 
 .. code:: javascript
+   :caption: popup.js
 
    const message = document.getElementById('message');
    message.innerHTML = `The following <b>${counts}</b> items have been found:`;
@@ -41,12 +42,14 @@ approach is to include the static part directly in the markup and only
 update the dynamic part.
 
 .. code:: html
+   :caption: popup.html
 
    <div id="message">
      The following <b><span data-msg="counts"></span></b> items have been found:
    </div>
 
 .. code:: javascript
+   :caption: popup.js
 
    document.querySelector('#message span[data-msg="counts"]').textContent = counts;
 
@@ -59,10 +62,12 @@ Update content by hiding/showing markup via CSS
 Consider the following markup and code:
 
 .. code:: html
+   :caption: popup.html
 
    <div id="status"></div>
 
 .. code:: javascript
+   :caption: popup.js
 
    const statusElement = document.getElementById("status");
    if (error) {
@@ -76,6 +81,7 @@ A more efficient approach involves defining both states in advance and
 toggling their visibility with CSS:
 
 .. code:: html
+   :caption: popup.html
 
    <div data-view="none" id="status">
      <div class="red">Something went wrong: <span data-msg="error"></span></div>
@@ -83,12 +89,14 @@ toggling their visibility with CSS:
    </div>
 
 .. code:: css
+   :caption: popup.css
 
    #status div.green, #status div.red { display: none; }
    #status[data-view="green"] div.green { display: revert; }
    #status[data-view="red"] div.red { display: revert; }
 
 .. code:: javascript
+   :caption: popup.js
 
    const statusElement = document.getElementById("status");
    if (error) {
@@ -108,6 +116,7 @@ Update content using templates
 Consider the following code:
 
 .. code:: javascript
+   :caption: popup.js
 
    if (error) {
      const message = document.createElement('p');
@@ -119,6 +128,7 @@ Instead of dynamically generating HTML, define a ``<template>`` in the
 markup and populate it programmatically:
 
 .. code:: html
+   :caption: popup.html
 
    <template id="missing-config-template">
      <p>
@@ -128,6 +138,7 @@ markup and populate it programmatically:
    </template>
 
 .. code:: javascript
+   :caption: popup.js
 
      const template = document.getElementById('missing-config-template');
      const message = template.content.cloneNode(true);
@@ -175,7 +186,8 @@ cdnjs. Instead, you must:
    root of your extension. The file should specify the file name and the
    original source URL:
 
-::
+.. code:: markdown
+   :caption: VENDORS.md
 
    purify.min.js: https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
 
@@ -185,11 +197,13 @@ Insert purified markup with ``insertAdjacentHTML()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. code:: html
+   :caption: popup.html
 
    <script src="vendors/purify.min.js"></script>
    <div id="preview"></div>
 
 .. code:: javascript
+   :caption: popup.js
 
    async function renderExternalMarkup(url) {
        const response = await fetch(url);
@@ -207,6 +221,6 @@ Insert purified markup with ``insertAdjacentHTML()``
 
 This combination provides a controlled way to render external HTML
 safely within Thunderbird extensions. In the future, browsers will
-support built-in sanitization for ``insertAdjacentHTML()`` via the
+support built-in sanitization for ``insertAdjacentHTML()`` with the
 `Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__,
-but for now, using ``DOMPurify()`` remains necessary.
+but for now, using ``DOMPurify`` remains necessary.
