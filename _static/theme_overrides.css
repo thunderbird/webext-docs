@@ -317,3 +317,9 @@ a.reference.external::after {
 .api-member-depth-2 {
   margin-left: 2em;
 }
+
+div.code-block-caption {
+    text-align: left !important;
+    padding-top: 1ex !important;
+    padding-bottom: 1ex !important;
+}
