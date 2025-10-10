@@ -76,6 +76,7 @@
   :maxdepth: 1
   :caption: Guides
 
+  guides/innerHTML
   guides/eventListeners
   guides/messageLists
   guides/vcard
