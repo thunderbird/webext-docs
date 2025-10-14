@@ -2,14 +2,13 @@ Strategies to avoid using ``innerHTML``
 =======================================
 
 The use of ``innerHTML`` is a fast and convenient way to create DOM nodes. The
-problem is that it encourages a pattern where entire DOM trees are replaced instead
+issue is that it encourages a pattern where entire DOM trees are replaced instead
 of being updated selectively. Even if it is only used for initial rendering, it
 can easily lead to adopting the same pattern for updates later, which may cause
 layout flicker, loss of state, and unnecessary re-rendering. Replacing an existing
 DOM tree is highly inefficient; it is better to use explicit DOM manipulation
-methods or data-driven rendering approaches instead. When possible, the approaches
-described below that avoid using ``innerHTML`` entirely are preferred, as they
-promote more stable and maintainable DOM updates. For example:
+methods or data-driven rendering approaches instead. Some common alternatives to
+``innerHTML`` include:
 
 - ``textContent`` to safely replace text
 - ``createElement()``, ``append()``, or templating functions to build new structures
@@ -24,10 +23,10 @@ from the upcoming built-in `Sanitizer API <https://developer.mozilla.org/en-US/d
 allowing code to drop the extra sanitization step later without further restructuring.
 
 .. note::
-
-   Using ``innerHTML`` for one-time rendering is accepted for add-ons hosted on
-   ATN when no updates are performed. However, the alternatives described in this
-   guide are generally suggested.
+ 
+   Using ``innerHTML`` is accepted for add-ons hosted on ATN when it is not used
+   to update existing DOM nodes. However, the alternatives described in this guide
+   are generally suggested.
 
 More information on this topic is available on
 `MDN <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page>`__.
@@ -254,8 +253,8 @@ which can be updated later:
       );
    }
 
-The library supports many more interesting, as automatically converting ``onclick``
-attributes into real event listeners.
+The library supports many additional features, such as automatically converting
+``onclick`` attributes into real event listeners.
 
 Safely sanitizing external markup with ``DOMPurify``
 ----------------------------------------------------
