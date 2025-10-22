@@ -1371,7 +1371,7 @@ Information sent when a context menu item is clicked.
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128]
 
-      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
    .. _menus.^on^click^data.selected^messages:
 
@@ -1381,7 +1381,7 @@ Information sent when a context menu item is clicked.
       :refname: selectedMessages
       :type: (:ref:`messages.^message^list`, optional)
 
-      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
+      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbird's UI, which may not be the currently selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
 
    .. _menus.^on^click^data.selection^text:
 
@@ -1651,7 +1651,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128]
 
-      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
    .. _menus.^on^show^data.selected^messages:
 
@@ -1661,7 +1661,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :refname: selectedMessages
       :type: (:ref:`messages.^message^list`, optional)
 
-      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
+      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbird's UI, which may not be the currently selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
 
    .. _menus.^on^show^data.selection^text:
 

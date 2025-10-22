@@ -19,6 +19,8 @@ compose API
 
 .. role:: code
 
+The compose API allows to interact with the message composition window.
+
 .. rst-class:: api-main-section
 
 Permissions

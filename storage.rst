@@ -124,16 +124,6 @@ StorageArea
 .. api-header::
    :label: object
 
-.. _storage.^storage^area^with^usage:
-
-StorageAreaWithUsage
---------------------
-
-.. api-section-annotation-hack:: 
-
-.. api-header::
-   :label: object
-
 .. _storage.^storage^change:
 
 StorageChange

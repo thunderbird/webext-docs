@@ -51,6 +51,38 @@ Register a content script programmatically
 Types
 =====
 
+.. _content^scripts.^c^s^s^origin:
+
+CSSOrigin
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 53]
+
+The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. _content^scripts.^c^s^s^origin.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: content-scripts-c-s-s-origin-author
+            :refname: author
+
+         .. _content^scripts.^c^s^s^origin.user:
+
+         .. api-member::
+            :name: :value:`user`
+            :refid: content-scripts-c-s-s-origin-user
+            :refname: user
+
 .. _content^scripts.^execution^world:
 
 ExecutionWorld
@@ -263,6 +295,16 @@ Details of a content script registered programmatically
       :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
 
       The list of CSS files to inject
+
+   .. _content^scripts.^registered^content^script^options.css^origin:
+
+   .. api-member::
+      :name: [``cssOrigin``]
+      :refid: content-scripts-registered-content-script-options-css-origin
+      :refname: cssOrigin
+      :type: (:ref:`content^scripts.^c^s^s^origin`, optional)
+
+      The css origin of the stylesheet to inject. Defaults to "author".
 
    .. _content^scripts.^registered^content^script^options.exclude^globs:
 

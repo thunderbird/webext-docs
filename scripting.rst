@@ -359,6 +359,38 @@ CSSInjection
          :refid: scripting-c-s-s-injection-origin-u-s-e-r
          :refname: USER
 
+.. _scripting.^c^s^s^origin:
+
+CSSOrigin
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 53]
+
+The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. _scripting.^c^s^s^origin.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: scripting-c-s-s-origin-author
+            :refname: author
+
+         .. _scripting.^c^s^s^origin.user:
+
+         .. api-member::
+            :name: :value:`user`
+            :refid: scripting-c-s-s-origin-user
+            :refname: user
+
 .. _scripting.^execution^world:
 
 ExecutionWorld
@@ -525,6 +557,14 @@ RegisteredContentScript
       :type: (array of :ref:`scripting.^extension^u^r^l`, optional)
 
       The list of CSS files to be injected into matching pages. These are injected in the order they appear in this array.
+
+   .. _scripting.^registered^content^script.css^origin:
+
+   .. api-member::
+      :name: [``cssOrigin``]
+      :refid: scripting-registered-content-script-css-origin
+      :refname: cssOrigin
+      :type: (:ref:`scripting.^c^s^s^origin`, optional)
 
    .. _scripting.^registered^content^script.exclude^matches:
 
