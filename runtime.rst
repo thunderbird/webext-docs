@@ -1677,6 +1677,13 @@ The machine's processor architecture.
             :refid: runtime-platform-arch-ppc64
             :refname: ppc64
 
+         .. _runtime.^platform^arch.riscv64:
+
+         .. api-member::
+            :name: :value:`riscv64`
+            :refid: runtime-platform-arch-riscv64
+            :refname: riscv64
+
          .. _runtime.^platform^arch.s390x:
 
          .. api-member::

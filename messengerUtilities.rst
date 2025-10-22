@@ -240,7 +240,7 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
       :refname: preserveGroups
       :type: (boolean, optional)
 
-      Keep grouped hierachies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+      Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
 
 .. api-header::
    :label: Return type (`Promise`_)
