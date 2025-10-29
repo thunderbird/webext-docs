@@ -102,7 +102,7 @@ Fired when one or more items change.
       :refname: areaName
       :type: (string)
 
-      The name of the storage area (:code:`"sync"`, :code:`"local"` or :code:`"managed"`) the changes are for.
+      The name of the storage area (:code:`"session"`, :code:`"sync"`, :code:`"local"` or :code:`"managed"`) the changes are for.
 
 .. api-header::
    :label: Required permissions

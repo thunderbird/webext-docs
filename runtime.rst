@@ -120,7 +120,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
       :refname: _returns
       :type: :ref:`runtime.^port`
 
-      Port through which messages can be sent and received. The port's :ref:`runtime.^port on^disconnect` event is fired if the extension/app does not exist.
+      Port through which messages can be sent and received. The port's :ref:`runtime.^port.on^disconnect` event is fired if the extension/app does not exist.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 

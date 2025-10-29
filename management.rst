@@ -705,7 +705,7 @@ ExtensionInstallType
 
 .. api-section-annotation-hack:: 
 
-How the extension was installed. One of :value:`development`: The extension was loaded unpacked in developer mode, :value:`normal`: The extension was installed normally via an .xpi file, :value:`sideload`: The extension was installed by other software on the machine, :value:`admin`: The extension was installed by policy, :value:`other`: The extension was installed by other means.
+How the extension was installed.
 
 .. api-header::
    :label: `string`
@@ -723,12 +723,16 @@ How the extension was installed. One of :value:`development`: The extension was 
             :refid: management-extension-install-type-admin
             :refname: admin
 
+            The extension was installed by policy
+
          .. _management.^extension^install^type.development:
 
          .. api-member::
             :name: :value:`development`
             :refid: management-extension-install-type-development
             :refname: development
+
+            The extension was loaded unpacked in developer mode,
 
          .. _management.^extension^install^type.normal:
 
@@ -737,6 +741,8 @@ How the extension was installed. One of :value:`development`: The extension was 
             :refid: management-extension-install-type-normal
             :refname: normal
 
+            The extension was installed normally via an .xpi file
+
          .. _management.^extension^install^type.other:
 
          .. api-member::
@@ -744,12 +750,16 @@ How the extension was installed. One of :value:`development`: The extension was 
             :refid: management-extension-install-type-other
             :refname: other
 
+            The extension was installed by other means.
+
          .. _management.^extension^install^type.sideload:
 
          .. api-member::
             :name: :value:`sideload`
             :refid: management-extension-install-type-sideload
             :refname: sideload
+
+            The extension was installed by other software on the machine
 
 .. _management.^extension^type:
 
