@@ -78,6 +78,7 @@
 
   guides/innerHTML
   guides/eventListeners
+  guides/runtimeMessaging
   guides/messageLists
   guides/vcard
   

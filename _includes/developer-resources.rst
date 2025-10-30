@@ -11,6 +11,7 @@
 
 * :doc:`/guides/innerHTML`
 * :doc:`/guides/eventListeners`
+* :doc:`/guides/runtimeMessaging`
 * :doc:`/guides/messageLists`
 * :doc:`/guides/vcard`
 
