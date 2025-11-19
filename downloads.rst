@@ -97,7 +97,7 @@ download(options)
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-Download a URL. If the URL uses the HTTP[S] protocol, then the request will include all cookies currently set for its hostname. If both :code:`filename` and :code:`saveAs` are specified, then the Save As dialog will be displayed, pre-populated with the specified :code:`filename`. If the download started successfully, :code:`callback` will be called with the new `DownloadItem <#type-DownloadItem>`__'s :code:`downloadId`. If there was an error starting the download, then :code:`callback` will be called with :code:`downloadId=undefined` and `chrome.extension.lastError <extension.html#property-lastError>`__ will contain a descriptive string. The error strings are not guaranteed to remain backwards compatible between releases. You must not parse it.
+Download a URL. If the URL uses the HTTP[S] protocol, then the request will include all cookies currently set for its hostname. If both :code:`filename` and :code:`saveAs` are specified, then the Save As dialog will be displayed, pre-populated with the specified :code:`filename`. If the download started successfully, :code:`callback` will be called with the new `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`downloadId`. If there was an error starting the download, then :code:`callback` will be called with :code:`downloadId=undefined` and `chrome.extension.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will contain a descriptive string. The error strings are not guaranteed to remain backwards compatible between releases. You must not parse it.
 
 .. api-header::
    :label: Parameters
@@ -275,7 +275,7 @@ erase(query)
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Erase matching `DownloadItems <#type-DownloadItem>`__ from history
+Erase matching `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ from history
 
 .. api-header::
    :label: Parameters
@@ -312,7 +312,7 @@ getFileIcon(downloadId, [options])
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Retrieve an icon for the specified download. For new downloads, file icons are available after the `onCreated <#event-onCreated>`__ event has been received. The image returned by this function while a download is in progress may be different from the image returned after the download is complete. Icon retrieval is done by querying the underlying operating system or toolkit depending on the platform. The icon that is returned will therefore depend on a number of factors including state of the download, platform, registered file types and visual theme. If a file icon cannot be determined, `chrome.extension.lastError <extension.html#property-lastError>`__ will contain an error message.
+Retrieve an icon for the specified download. For new downloads, file icons are available after the `onCreated <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/onCreated>`__ event has been received. The image returned by this function while a download is in progress may be different from the image returned after the download is complete. Icon retrieval is done by querying the underlying operating system or toolkit depending on the platform. The icon that is returned will therefore depend on a number of factors including state of the download, platform, registered file types and visual theme. If a file icon cannot be determined, `chrome.extension.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ will contain an error message.
 
 .. api-header::
    :label: Parameters
@@ -395,7 +395,7 @@ pause(downloadId)
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Pause the download. If the request was successful the download is in a paused state. Otherwise `chrome.extension.lastError <extension.html#property-lastError>`__ contains an error message. The request will fail if the download is not active.
+Pause the download. If the request was successful the download is in a paused state. Otherwise `chrome.extension.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ contains an error message. The request will fail if the download is not active.
 
 .. api-header::
    :label: Parameters
@@ -445,7 +445,7 @@ resume(downloadId)
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-Resume a paused download. If the request was successful the download is in progress and unpaused. Otherwise `chrome.extension.lastError <extension.html#property-lastError>`__ contains an error message. The request will fail if the download is not active.
+Resume a paused download. If the request was successful the download is in progress and unpaused. Otherwise `chrome.extension.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__ contains an error message. The request will fail if the download is not active.
 
 .. api-header::
    :label: Parameters
@@ -472,7 +472,7 @@ search(query)
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty object to get all `DownloadItems <#type-DownloadItem>`__. To get a specific `DownloadItem <#type-DownloadItem>`__, set only the :code:`id` field.
+Find `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__. Set :code:`query` to the empty object to get all `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__. To get a specific `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__, set only the :code:`id` field.
 
 .. api-header::
    :label: Parameters
@@ -563,7 +563,7 @@ onChanged
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`bytesReceived` changes, this event fires with the :code:`downloadId` and an object containing the properties that changed.
+When any of a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s properties except :code:`bytesReceived` changes, this event fires with the :code:`downloadId` and an object containing the properties that changed.
 
 .. api-header::
    :label: Parameters for onChanged.addListener(listener)
@@ -596,7 +596,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: id
          :type: (integer)
 
-         The :code:`id` of the `DownloadItem <#type-DownloadItem>`__ that changed.
+         The :code:`id` of the `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ that changed.
 
       .. _downloads.on^changed.download^delta.can^resume:
 
@@ -614,7 +614,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: danger
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`danger`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`danger`.
 
       .. _downloads.on^changed.download^delta.end^time:
 
@@ -624,7 +624,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: endTime
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`endTime`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`endTime`.
 
       .. _downloads.on^changed.download^delta.error:
 
@@ -634,7 +634,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: error
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`error`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`error`.
 
       .. _downloads.on^changed.download^delta.exists:
 
@@ -652,7 +652,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: filename
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`filename`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`filename`.
 
       .. _downloads.on^changed.download^delta.file^size:
 
@@ -662,7 +662,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: fileSize
          :type: (:ref:`downloads.^double^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`fileSize`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`fileSize`.
 
       .. _downloads.on^changed.download^delta.mime:
 
@@ -672,7 +672,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: mime
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`mime`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`mime`.
 
       .. _downloads.on^changed.download^delta.paused:
 
@@ -682,7 +682,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: paused
          :type: (:ref:`downloads.^boolean^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`paused`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`paused`.
 
       .. _downloads.on^changed.download^delta.start^time:
 
@@ -692,7 +692,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: startTime
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`startTime`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`startTime`.
 
       .. _downloads.on^changed.download^delta.state:
 
@@ -702,7 +702,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: state
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`state`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`state`.
 
       .. _downloads.on^changed.download^delta.total^bytes:
 
@@ -712,7 +712,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: totalBytes
          :type: (:ref:`downloads.^double^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`totalBytes`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`totalBytes`.
 
       .. _downloads.on^changed.download^delta.url:
 
@@ -722,7 +722,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
          :refname: url
          :type: (:ref:`downloads.^string^delta`, optional)
 
-         Describes a change in a `DownloadItem <#type-DownloadItem>`__'s :code:`url`.
+         Describes a change in a `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__'s :code:`url`.
 
 .. api-header::
    :label: Required permissions
@@ -736,7 +736,7 @@ onCreated
 
 .. api-section-annotation-hack:: -- [Added in TB 48]
 
-This event fires with the `DownloadItem <#type-DownloadItem>`__ object when a download begins.
+This event fires with the `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ object when a download begins.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
@@ -798,7 +798,7 @@ Fires with the :code:`downloadId` when a download is erased from history.
       :refname: downloadId
       :type: (integer)
 
-      The :code:`id` of the `DownloadItem <#type-DownloadItem>`__ that was erased.
+      The :code:`id` of the `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ that was erased.
 
 .. api-header::
    :label: Required permissions
@@ -1275,7 +1275,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
       :refname: filenameRegex
       :type: (string, optional)
 
-      Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`filename` matches the given regular expression.
+      Limits results to `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ whose :code:`filename` matches the given regular expression.
 
    .. _downloads.^download^query.file^size:
 
@@ -1303,7 +1303,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
       :refname: limit
       :type: (integer, optional)
 
-      Setting this integer limits the number of results. Otherwise, all matching `DownloadItems <#type-DownloadItem>`__ will be returned.
+      Setting this integer limits the number of results. Otherwise, all matching `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ will be returned.
 
    .. _downloads.^download^query.mime:
 
@@ -1323,7 +1323,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
       :refname: orderBy
       :type: (array of string, optional)
 
-      Setting elements of this array to `DownloadItem <#type-DownloadItem>`__ properties in order to sort the search results. For example, setting :code:`orderBy='startTime'` sorts the `DownloadItems <#type-DownloadItem>`__ by their start time in ascending order. To specify descending order, prefix :code:`orderBy` with a hyphen: '-startTime'.
+      Setting elements of this array to `DownloadItem <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ properties in order to sort the search results. For example, setting :code:`orderBy='startTime'` sorts the `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ by their start time in ascending order. To specify descending order, prefix :code:`orderBy` with a hyphen: '-startTime'.
 
    .. _downloads.^download^query.paused:
 
@@ -1343,7 +1343,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
       :refname: query
       :type: (array of string, optional)
 
-      This array of search terms limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`filename` or :code:`url` contain all of the search terms that do not begin with a dash '-' and none of the search terms that do begin with a dash.
+      This array of search terms limits results to `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ whose :code:`filename` or :code:`url` contain all of the search terms that do not begin with a dash '-' and none of the search terms that do begin with a dash.
 
    .. _downloads.^download^query.started^after:
 
@@ -1431,7 +1431,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
       :refname: urlRegex
       :type: (string, optional)
 
-      Limits results to `DownloadItems <#type-DownloadItem>`__ whose :code:`url` matches the given regular expression.
+      Limits results to `DownloadItems <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/downloads/DownloadItem>`__ whose :code:`url` matches the given regular expression.
 
 .. _downloads.^download^time:
 

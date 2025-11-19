@@ -265,6 +265,8 @@ ExtensionFileUrl
 
 .. api-section-annotation-hack:: 
 
+A path relative to the root of the extension, must not be empty and can be localized.
+
 .. api-header::
    :label: string
 
