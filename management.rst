@@ -616,7 +616,7 @@ Information about an installed extension.
       :refname: version
       :type: (string)
 
-      The `version <manifest/version>`__ of this extension.
+      The `version <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version>`__ of this extension.
 
    .. _management.^extension^info.disabled^reason:
 
@@ -656,7 +656,7 @@ Information about an installed extension.
       :refname: icons
       :type: (array of :ref:`management.^icon^info`, optional)
 
-      A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the `manifest documentation on icons <manifest/icons>`__ for more details.
+      A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the `manifest documentation on icons <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons>`__ for more details.
 
    .. _management.^extension^info.permissions:
 
@@ -696,7 +696,7 @@ Information about an installed extension.
       :refname: versionName
       :type: (string, optional)
 
-      The `version name <manifest/version#version_name>`__ of this extension if the manifest specified one.
+      The `version name <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version_name>`__ of this extension if the manifest specified one.
 
 .. _management.^extension^install^type:
 

@@ -582,7 +582,7 @@ QueryInfo
 
 .. api-section-annotation-hack:: -- [Added in TB 127]
 
-Object defining a query for :ref:`address^books.contacts.quick^search`.
+Object defining a query for :ref:`address^books.contacts.query`.
 
 .. api-header::
    :label: object

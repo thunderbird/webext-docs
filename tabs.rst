@@ -542,7 +542,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refname: title
          :type: (string, optional)
 
-         Match page titles against a pattern.
+         Match page titles against a pattern. The :permission:`tabs` permission is required to use this property.
 
       .. _tabs.query.query^info.type:
 
@@ -563,7 +563,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refname: url
          :type: (string or array of string, optional)
 
-         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Fragment identifiers are not matched.
+         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Fragment identifiers are not matched. The :permission:`tabs` permission is required to use this property.
 
       .. _tabs.query.query^info.window^id:
 

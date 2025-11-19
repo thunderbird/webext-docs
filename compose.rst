@@ -68,6 +68,15 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Send composed email messages on your behalf.
 
+.. _compose.permission.messages^read:
+
+.. api-member::
+   :name: :permission:`messagesRead`
+   :refid: compose-permission-messages-read
+   :refname: messagesRead
+
+   Read your email messages.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -984,7 +993,7 @@ Fired when saving a message as draft or template succeeded or failed.
          :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
-         An array with exactly one element, the saved message.
+         An array with exactly one element, the saved message. The :permission:`messagesRead` permission is required for this property to be included.
 
          .. note::
 
@@ -1087,7 +1096,7 @@ Fired when sending a message succeeded or failed.
          :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
-         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
+         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc). The :permission:`messagesRead` permission is required for this property to be included.
 
       .. _compose.on^after^send.send^info.mode:
 
@@ -1729,7 +1738,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`messages.^message^id`, optional)
       :annotation: -- [Added in TB 95]
 
-      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file.
+      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file. The :permission:`messagesRead` permission is required to use this property.
 
    .. _compose.^compose^details.reply^to:
 
@@ -1872,7 +1881,7 @@ ComposeRecipient
             :type: (string)
             :annotation: -- [Added in TB 128]
 
-            The ID of a contact or mailing list node from the :doc:`addressBook.contacts` or :doc:`addressBook.mailingLists`.
+            The ID of a contact or mailing list node from the :doc:`addressBooks.contacts` or :doc:`addressBooks.mailingLists`.
 
          .. _compose.^compose^recipient.type:
 
