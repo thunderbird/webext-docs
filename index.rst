@@ -19,6 +19,7 @@
   browserSettings
   browserSettings.colorManagement
   browsingData
+  chromeSettingsOverrides
   clipboard
   cloudFile
   commands
@@ -50,12 +51,14 @@
   messengerSettings
   messengerUtilities
   notifications
+  oauthProvider
   permissions
   pkcs11
   privacy
   privacy.network
   privacy.services
   privacy.websites
+  protocolHandlers
   runtime
   scripting
   scripting.compose
