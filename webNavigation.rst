@@ -1402,7 +1402,7 @@ UrlFilter
 
 .. api-section-annotation-hack:: -- [Added in TB 50]
 
-Filters URLs for various criteria. See `event filtering <events#filtered>`__. All criteria are case sensitive.
+Filters URLs for various criteria. See `event filtering <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/events/UrlFilter>`__. All criteria are case sensitive.
 
 .. api-header::
    :label: object

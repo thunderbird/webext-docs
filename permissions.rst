@@ -263,6 +263,10 @@ CommonDataCollectionPermission
 
 .. api-section-annotation-hack:: 
 
+.. warning::
+
+   Unlike Firefox, Thunderbird does not use the built-in onboarding flow that prompts users to opt into data collection. In Thunderbird, add-ons must request consent explicitly, for example by adding a checkbox on the options page or by showing a popup. The application does not provide an automatic prompt.
+
 .. api-header::
    :label: `string`
 
