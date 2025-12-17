@@ -911,6 +911,10 @@ WindowState
 
 The state of this window.
 
+.. note::
+
+   On Linux systems using Wayland, clients cannot detect whether a window is minimized. Minimized windows are therefore reported as :value:`normal`.
+
 .. api-header::
    :label: `string`
 

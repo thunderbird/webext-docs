@@ -156,6 +156,8 @@ Manifest file properties
          :refid: compose-action-compose-action-type-menu
          :refname: menu
 
+         The :ref:`menus.^context^type.compose_action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed composeAction button.
+
 .. rst-class:: api-main-section
 
 Permissions

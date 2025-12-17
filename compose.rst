@@ -985,6 +985,17 @@ Fired when saving a message as draft or template succeeded or failed.
       :refname: saveInfo
       :type: (object)
 
+      .. _compose.on^after^save.save^info.details:
+
+      .. api-member::
+         :name: ``details``
+         :refid: compose-on-after-save-save-info-details
+         :refname: details
+         :type: (:ref:`compose.^compose^details`)
+         :annotation: -- [Added in TB 147]
+
+         The :ref:`compose.^compose^details` of the saved message.
+
       .. _compose.on^after^save.save^info.messages:
 
       .. api-member::
@@ -1080,6 +1091,8 @@ Fired when sending a message succeeded or failed.
       :refname: tab
       :type: (:ref:`tabs.^tab`)
 
+      The tab of the associated compose window. By the time the event listener is called, this window may have already been destroyed.
+
    .. _compose.on^after^send.send^info:
 
    .. api-member::
@@ -1087,6 +1100,17 @@ Fired when sending a message succeeded or failed.
       :refid: compose-on-after-send-send-info
       :refname: sendInfo
       :type: (object)
+
+      .. _compose.on^after^send.send^info.details:
+
+      .. api-member::
+         :name: ``details``
+         :refid: compose-on-after-send-send-info-details
+         :refname: details
+         :type: (:ref:`compose.^compose^details`)
+         :annotation: -- [Added in TB 147]
+
+         The :ref:`compose.^compose^details` of the send message.
 
       .. _compose.on^after^send.send^info.messages:
 
@@ -1861,7 +1885,7 @@ ComposeRecipient
 
       .. container:: api-member-description-only
 
-         A name and email address in the format :value:`Name <email@example.com>`, or just an email address.
+         A name and email address in mailbox format (:value:`Name <email@example.com>`), or just an email address. Mailing lists are specified as :value:`ListName <ListName>`. Use :ref:`messenger^utilities.parse^mailbox^string` to extract the name and/or the email from the mailbox string, or to expand mailing list entries.
 
 *or*
 

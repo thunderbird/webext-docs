@@ -56,6 +56,7 @@
   privacy.services
   privacy.websites
   protocolHandlers
+  proxy
   runtime
   scripting
   scripting.compose
