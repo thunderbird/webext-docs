@@ -101,6 +101,10 @@ Registers one or more message display scripts for this extension, which should b
 
    Registered scripts will only be applied to newly opened messages. To apply the script to already open messages, manually inject your script by calling :ref:`scripting.execute^script` for each of the open :value:`messageDisplay` tabs.
 
+.. hint::
+
+   There is a known issue in the logging mechanism of message display scripts: All entries logged to the console appear twice.
+
 .. api-header::
    :label: Parameters
 
