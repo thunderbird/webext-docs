@@ -32,15 +32,6 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
-.. _messages.tags.permission.accounts^read:
-
-.. api-member::
-   :name: :permission:`accountsRead`
-   :refid: messages-tags-permission-accounts-read
-   :refname: accountsRead
-
-   See your mail accounts, their identities and their folders.
-
 .. _messages.tags.permission.messages^tags:
 
 .. api-member::
@@ -287,7 +278,7 @@ Fired when a message tag has been deleted.
 .. api-header::
    :label: Required permissions
 
-   - :permission:`accountsRead`
+   - :permission:`messagesTagsList`
 
 .. _messages.tags.on^updated:
 
