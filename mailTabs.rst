@@ -125,12 +125,12 @@ Get the :ref:`mail^tabs.^mail^tab` properties of a mail tab.
 
 .. _mail^tabs.get^listed^messages:
 
-getListedMessages([tabId])
---------------------------
+getListedMessages([tabId], [options])
+-------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
-Lists the messages in the current view, honoring sort order and filters.
+Lists the messages in the current view, honoring sort order and filters as used in the UI. Sort order of the returned messages can be overridden via the :value:`options` parameter
 
 .. api-header::
    :label: Parameters
@@ -145,6 +145,131 @@ Lists the messages in the current view, honoring sort order and filters.
 
       Defaults to the active tab of the current window.
 
+   .. _mail^tabs.get^listed^messages.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: mail-tabs-get-listed-messages-options
+      :refname: options
+      :type: (object, optional)
+
+      .. _mail^tabs.get^listed^messages.options.sort^order:
+
+      .. api-member::
+         :name: [``sortOrder``]
+         :refid: mail-tabs-get-listed-messages-options-sort-order
+         :refname: sortOrder
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 148]
+
+         The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+
+         Supported values:
+
+         .. _mail^tabs.get^listed^messages.options.sort^order.ascending:
+
+         .. api-member::
+            :name: :value:`ascending`
+            :refid: mail-tabs-get-listed-messages-options-sort-order-ascending
+            :refname: ascending
+
+         .. _mail^tabs.get^listed^messages.options.sort^order.descending:
+
+         .. api-member::
+            :name: :value:`descending`
+            :refid: mail-tabs-get-listed-messages-options-sort-order-descending
+            :refname: descending
+
+      .. _mail^tabs.get^listed^messages.options.sort^type:
+
+      .. api-member::
+         :name: [``sortType``]
+         :refid: mail-tabs-get-listed-messages-options-sort-type
+         :refname: sortType
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 148]
+
+         Specifies how the returned messages should be sorted. This does not change the actual sort of the displayed messages. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+
+         Supported values:
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-author
+            :refname: author
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.date:
+
+         .. api-member::
+            :name: :value:`date`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-date
+            :refname: date
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.flagged:
+
+         .. api-member::
+            :name: :value:`flagged`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-flagged
+            :refname: flagged
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.junk:
+
+         .. api-member::
+            :name: :value:`junk`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-junk
+            :refname: junk
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.junk^score:
+
+         .. api-member::
+            :name: :value:`junkScore`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-junk-score
+            :refname: junkScore
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.priority:
+
+         .. api-member::
+            :name: :value:`priority`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-priority
+            :refname: priority
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.read:
+
+         .. api-member::
+            :name: :value:`read`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-read
+            :refname: read
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.recipients:
+
+         .. api-member::
+            :name: :value:`recipients`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-recipients
+            :refname: recipients
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.size:
+
+         .. api-member::
+            :name: :value:`size`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-size
+            :refname: size
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.subject:
+
+         .. api-member::
+            :name: :value:`subject`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-subject
+            :refname: subject
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.tags:
+
+         .. api-member::
+            :name: :value:`tags`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-tags
+            :refname: tags
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -154,6 +279,7 @@ Lists the messages in the current view, honoring sort order and filters.
       :refid: mail-tabs-get-listed-messages-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
+      :annotation: -- [Added in TB 148]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
