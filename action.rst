@@ -202,6 +202,8 @@ Manifest file properties
          :refid: action-action-type-menu
          :refname: menu
 
+         The :ref:`menus.^context^type.action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed action button.
+
 .. rst-class:: api-main-section
 
 Permissions

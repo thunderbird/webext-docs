@@ -140,6 +140,8 @@ Manifest file properties
          :refid: message-display-action-message-display-action-type-menu
          :refname: menu
 
+         The :ref:`menus.^context^type.message_display_action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed messageDisplayAction button.
+
 .. rst-class:: api-main-section
 
 Permissions
