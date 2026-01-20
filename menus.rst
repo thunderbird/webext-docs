@@ -746,6 +746,26 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
 
          Supported values:
 
+         .. _menus.^context^type.action:
+
+         .. api-member::
+            :name: :value:`action`
+            :refid: menus-context-type-action
+            :refname: action
+            :annotation: -- [Added in TB 110]
+
+            Applies when the user context-clicks a browserAction button in a Manifest V3 extension.
+
+         .. _menus.^context^type.action_menu:
+
+         .. api-member::
+            :name: :value:`action_menu`
+            :refid: menus-context-type-action-menu
+            :refname: action_menu
+            :annotation: -- [Added in TB 116]
+
+            Applies when the user opened a browserAction button of type :value:`menu` in a Manifest V3 extension.
+
          .. _menus.^context^type.all:
 
          .. api-member::
@@ -773,25 +793,6 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :refname: audio
 
             Applies when the user context-clicks an audio element.
-
-         .. _menus.^context^type.browser_action:
-
-         .. api-member::
-            :name: :value:`browser_action`
-            :refid: menus-context-type-browser-action
-            :refname: browser_action
-
-            Applies when the user context-clicks a browserAction button.
-
-         .. _menus.^context^type.browser_action_menu:
-
-         .. api-member::
-            :name: :value:`browser_action_menu`
-            :refid: menus-context-type-browser-action-menu
-            :refname: browser_action_menu
-            :annotation: -- [Added in TB 90]
-
-            Applies when the user opened a browserAction button of type :value:`menu`.
 
          .. _menus.^context^type.compose_action:
 
@@ -1044,12 +1045,12 @@ A predefined command to open an action popup.
 
          Supported values:
 
-         .. _menus.^menu^action^command._execute_browser_action:
+         .. _menus.^menu^action^command._execute_action:
 
          .. api-member::
-            :name: :value:`_execute_browser_action`
-            :refid: menus-menu-action-command-execute-browser-action
-            :refname: _execute_browser_action
+            :name: :value:`_execute_action`
+            :refid: menus-menu-action-command-execute-action
+            :refname: _execute_action
 
          .. _menus.^menu^action^command._execute_compose_action:
 
@@ -1341,27 +1342,6 @@ Information sent when a context menu item is clicked.
 
       The parent ID, if any, for the item clicked.
 
-   .. _menus.^on^click^data.selected^account:
-
-   .. api-member::
-      :name: [``selectedAccount``]
-      :refid: menus-on-click-data-selected-account
-      :refname: selectedAccount
-      :type: (:ref:`accounts.^mail^account`, optional) **Deprecated.**
-      :annotation: -- [Added in TB 88]
-
-      The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-
-   .. _menus.^on^click^data.selected^folder:
-
-   .. api-member::
-      :name: [``selectedFolder``]
-      :refid: menus-on-click-data-selected-folder
-      :refname: selectedFolder
-      :type: (:ref:`folders.^mail^folder`, optional) **Deprecated.**
-
-      The selected folder in the folder pane (where the context menu was opened). Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-
    .. _menus.^on^click^data.selected^folders:
 
    .. api-member::
@@ -1621,26 +1601,6 @@ Information sent when a context menu is being shown. Some properties are only in
       .. note::
 
          Host permission is required.
-
-   .. _menus.^on^show^data.selected^account:
-
-   .. api-member::
-      :name: [``selectedAccount``]
-      :refid: menus-on-show-data-selected-account
-      :refname: selectedAccount
-      :type: (:ref:`accounts.^mail^account`, optional) **Deprecated.**
-
-      The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
-
-   .. _menus.^on^show^data.selected^folder:
-
-   .. api-member::
-      :name: [``selectedFolder``]
-      :refid: menus-on-show-data-selected-folder
-      :refname: selectedFolder
-      :type: (:ref:`folders.^mail^folder`, optional) **Deprecated.**
-
-      The selected folder in the folder pane (where the context menu was opened). Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
 
    .. _menus.^on^show^data.selected^folders:
 

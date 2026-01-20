@@ -1068,6 +1068,14 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-color-scheme-light
             :refname: light
 
+         .. _theme.^theme^type.properties.color_scheme.system:
+
+         .. api-member::
+            :name: :value:`system`
+            :refid: theme-theme-type-properties-color-scheme-system
+            :refname: system
+            :annotation: -- [Added in TB 148]
+
       .. _theme.^theme^type.properties.content_color_scheme:
 
       .. api-member::
@@ -1101,6 +1109,14 @@ Contains the color, image and property settings of a theme.
             :name: :value:`light`
             :refid: theme-theme-type-properties-content-color-scheme-light
             :refname: light
+
+         .. _theme.^theme^type.properties.content_color_scheme.system:
+
+         .. api-member::
+            :name: :value:`system`
+            :refid: theme-theme-type-properties-content-color-scheme-system
+            :refname: system
+            :annotation: -- [Added in TB 148]
 
 .. _theme.^theme^update^info:
 

@@ -1,6 +1,6 @@
 .. container:: sticky-sidebar
 
-  ≡ contacts API
+  ≡ addressBooks.contacts API
 
   * `Permissions`_
   * `Functions`_
@@ -9,9 +9,9 @@
 
   .. include:: /_includes/developer-resources.rst
 
-============
-contacts API
-============
+=========================
+addressBooks.contacts API
+=========================
 
 .. role:: permission
 
@@ -32,11 +32,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
-.. _contacts.permission.address^books:
+.. _address^books.contacts.permission.address^books:
 
 .. api-member::
    :name: :permission:`addressBooks`
-   :refid: contacts-permission-address-books
+   :refid: address-books-contacts-permission-address-books
    :refname: addressBooks
 
    Read and modify your address books and contacts.
@@ -45,68 +45,53 @@ The following permissions influence the behavior of the API. Depending on which 
 
 .. note::
 
-   The permission :permission:`addressBooks` is required to use ``messenger.contacts.*``.
+   The permission :permission:`addressBooks` is required to use ``messenger.addressBooks.contacts.*``.
 
 .. rst-class:: api-main-section
 
 Functions
 =========
 
-.. _contacts.create:
+.. _address^books.contacts.create:
 
-create(parentId, [id], properties)
-----------------------------------
+create(parentId, vCard)
+-----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Adds a new contact to the address book with the id :value:`parentId`.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.create.parent^id:
+   .. _address^books.contacts.create.parent^id:
 
    .. api-member::
       :name: ``parentId``
-      :refid: contacts-create-parent-id
+      :refid: address-books-contacts-create-parent-id
       :refname: parentId
       :type: (string)
 
-   .. _contacts.create.id:
+   .. _address^books.contacts.create.v^card:
 
    .. api-member::
-      :name: [``id``]
-      :refid: contacts-create-id
-      :refname: id
-      :type: (string, optional) **Deprecated.**
+      :name: ``vCard``
+      :refid: address-books-contacts-create-v-card
+      :refname: vCard
+      :type: (string)
 
-      Assigns the contact an id. If an existing contact has this id, an exception is thrown.
-
-   .. _contacts.create.properties:
-
-   .. api-member::
-      :name: ``properties``
-      :refid: contacts-create-properties
-      :refname: properties
-      :type: (:ref:`contacts.^contact^properties`)
-      :annotation: -- [Added in TB 68]
-
-      The properties object for the new contact. If it includes a :value:`vCard` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown.
-
-      .. note::
-
-         Using individual properties is deprecated, use the :value:`vCard` member instead.
+      The vCard for the new contact. If it includes an (optional) id and an existing contact has this id already, an exception is thrown.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _contacts.create.returns:
+   .. _address^books.contacts.create.returns:
 
    .. api-member::
-      :refid: contacts-create-returns
+      :refid: address-books-contacts-create-returns
       :refname: _returns
       :type: string
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 128]
 
       The ID of the new contact.
 
@@ -117,23 +102,23 @@ Adds a new contact to the address book with the id :value:`parentId`.
 
    - :permission:`addressBooks`
 
-.. _contacts.delete:
+.. _address^books.contacts.delete:
 
 delete(id)
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.delete.id:
+   .. _address^books.contacts.delete.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-delete-id
+      :refid: address-books-contacts-delete-id
       :refname: id
       :type: (string)
 
@@ -142,36 +127,35 @@ Removes a contact from the address book. The contact is also removed from any ma
 
    - :permission:`addressBooks`
 
-.. _contacts.get:
+.. _address^books.contacts.get:
 
 get(id)
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets a single contact.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.get.id:
+   .. _address^books.contacts.get.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-get-id
+      :refid: address-books-contacts-get-id
       :refname: id
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _contacts.get.returns:
+   .. _address^books.contacts.get.returns:
 
    .. api-member::
-      :refid: contacts-get-returns
+      :refid: address-books-contacts-get-returns
       :refname: _returns
-      :type: :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96]
+      :type: :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -180,33 +164,33 @@ Gets a single contact.
 
    - :permission:`addressBooks`
 
-.. _contacts.get^photo:
+.. _address^books.contacts.get^photo:
 
 getPhoto(id)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 106]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets the photo associated with this contact. Returns :value:`null`, if no photo is available.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.get^photo.id:
+   .. _address^books.contacts.get^photo.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-get-photo-id
+      :refid: address-books-contacts-get-photo-id
       :refname: id
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _contacts.get^photo.returns:
+   .. _address^books.contacts.get^photo.returns:
 
    .. api-member::
-      :refid: contacts-get-photo-returns
+      :refid: address-books-contacts-get-photo-returns
       :refname: _returns
       :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ or null
 
@@ -217,36 +201,35 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
 
    - :permission:`addressBooks`
 
-.. _contacts.list:
+.. _address^books.contacts.list:
 
 list(parentId)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets all the contacts in the address book with the id :value:`parentId`.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.list.parent^id:
+   .. _address^books.contacts.list.parent^id:
 
    .. api-member::
       :name: ``parentId``
-      :refid: contacts-list-parent-id
+      :refid: address-books-contacts-list-parent-id
       :refname: parentId
       :type: (string)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _contacts.list.returns:
+   .. _address^books.contacts.list.returns:
 
    .. api-member::
-      :refid: contacts-list-returns
+      :refid: address-books-contacts-list-returns
       :refname: _returns
-      :type: array of :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96]
+      :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -255,48 +238,35 @@ Gets all the contacts in the address book with the id :value:`parentId`.
 
    - :permission:`addressBooks`
 
-.. _contacts.quick^search:
+.. _address^books.contacts.query:
 
-quickSearch([parentId], queryInfo)
-----------------------------------
+query(queryInfo)
+----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 68]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
-Gets all contacts matching :value:`queryInfo` in the address book with the id :value:`parentId`.
+Gets all contacts matching :value:`queryInfo`.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.quick^search.parent^id:
-
-   .. api-member::
-      :name: [``parentId``]
-      :refid: contacts-quick-search-parent-id
-      :refname: parentId
-      :type: (string, optional)
-
-      The id of the address book to search. If not specified, all address books are searched.
-
-   .. _contacts.quick^search.query^info:
+   .. _address^books.contacts.query.query^info:
 
    .. api-member::
       :name: ``queryInfo``
-      :refid: contacts-quick-search-query-info
+      :refid: address-books-contacts-query-query-info
       :refname: queryInfo
-      :type: (string or :ref:`contacts.^query^info`)
-
-      Either a *string* with one or more space-separated terms to search for, or a complex :ref:`contacts.^query^info` search query.
+      :type: (:ref:`address^books.contacts.^query^info`)
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _contacts.quick^search.returns:
+   .. _address^books.contacts.query.returns:
 
    .. api-member::
-      :refid: contacts-quick-search-returns
+      :refid: address-books-contacts-query-returns
       :refname: _returns
-      :type: array of :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96]
+      :type: array of :ref:`address^books.contacts.^contact^node`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -305,31 +275,31 @@ Gets all contacts matching :value:`queryInfo` in the address book with the id :v
 
    - :permission:`addressBooks`
 
-.. _contacts.set^photo:
+.. _address^books.contacts.set^photo:
 
 setPhoto(id, file)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 107]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Sets the photo associated with this contact.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.set^photo.id:
+   .. _address^books.contacts.set^photo.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-set-photo-id
+      :refid: address-books-contacts-set-photo-id
       :refname: id
       :type: (string)
 
-   .. _contacts.set^photo.file:
+   .. _address^books.contacts.set^photo.file:
 
    .. api-member::
       :name: ``file``
-      :refid: contacts-set-photo-file
+      :refid: address-books-contacts-set-photo-file
       :refname: file
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
 
@@ -338,39 +308,35 @@ Sets the photo associated with this contact.
 
    - :permission:`addressBooks`
 
-.. _contacts.update:
+.. _address^books.contacts.update:
 
-update(id, properties)
-----------------------
+update(id, vCard)
+-----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Updates a contact.
 
 .. api-header::
    :label: Parameters
 
-   .. _contacts.update.id:
+   .. _address^books.contacts.update.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-update-id
+      :refid: address-books-contacts-update-id
       :refname: id
       :type: (string)
 
-   .. _contacts.update.properties:
+   .. _address^books.contacts.update.v^card:
 
    .. api-member::
-      :name: ``properties``
-      :refid: contacts-update-properties
-      :refname: properties
-      :type: (:ref:`contacts.^contact^properties`)
+      :name: ``vCard``
+      :refid: address-books-contacts-update-v-card
+      :refname: vCard
+      :type: (string)
 
-      An object with properties to update the specified contact. Individual properties are removed, if they are set to :value:`null`. If the provided object includes a :value:`vCard` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the details of the contact will be replaced by the provided vCard. Changes to the UID will be ignored.
-
-      .. note::
-
-         Using individual properties is deprecated, use the :value:`vCard` member instead.
+      The updated vCard for the contact.
 
 .. api-header::
    :label: Required permissions
@@ -382,23 +348,23 @@ Updates a contact.
 Events
 ======
 
-.. _contacts.on^created:
+.. _address^books.contacts.on^created:
 
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Fired when a contact is created.
 
 .. api-header::
    :label: Parameters for onCreated.addListener(listener)
 
-   .. _contacts.on^created.listener(node):
+   .. _address^books.contacts.on^created.listener(node):
 
    .. api-member::
       :name: ``listener(node)``
-      :refid: contacts-on-created-listener-node
+      :refid: address-books-contacts-on-created-listener-node
       :refname: listener(node)
 
       A function that will be called when this event occurs.
@@ -406,36 +372,36 @@ Fired when a contact is created.
 .. api-header::
    :label: Parameters passed to the listener function
 
-   .. _contacts.on^created.node:
+   .. _address^books.contacts.on^created.node:
 
    .. api-member::
       :name: ``node``
-      :refid: contacts-on-created-node
+      :refid: address-books-contacts-on-created-node
       :refname: node
-      :type: (:ref:`contacts.^contact^node`)
+      :type: (:ref:`address^books.contacts.^contact^node`)
 
 .. api-header::
    :label: Required permissions
 
    - :permission:`addressBooks`
 
-.. _contacts.on^deleted:
+.. _address^books.contacts.on^deleted:
 
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Fired when a contact is removed from an address book.
 
 .. api-header::
    :label: Parameters for onDeleted.addListener(listener)
 
-   .. _contacts.on^deleted.listener(parent^id, id):
+   .. _address^books.contacts.on^deleted.listener(parent^id, id):
 
    .. api-member::
       :name: ``listener(parentId, id)``
-      :refid: contacts-on-deleted-listener-parent-id-id
+      :refid: address-books-contacts-on-deleted-listener-parent-id-id
       :refname: listener(parentId, id)
 
       A function that will be called when this event occurs.
@@ -443,19 +409,19 @@ Fired when a contact is removed from an address book.
 .. api-header::
    :label: Parameters passed to the listener function
 
-   .. _contacts.on^deleted.parent^id:
+   .. _address^books.contacts.on^deleted.parent^id:
 
    .. api-member::
       :name: ``parentId``
-      :refid: contacts-on-deleted-parent-id
+      :refid: address-books-contacts-on-deleted-parent-id
       :refname: parentId
       :type: (string)
 
-   .. _contacts.on^deleted.id:
+   .. _address^books.contacts.on^deleted.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-on-deleted-id
+      :refid: address-books-contacts-on-deleted-id
       :refname: id
       :type: (string)
 
@@ -464,46 +430,45 @@ Fired when a contact is removed from an address book.
 
    - :permission:`addressBooks`
 
-.. _contacts.on^updated:
+.. _address^books.contacts.on^updated:
 
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Fired when a contact is changed.
 
 .. api-header::
    :label: Parameters for onUpdated.addListener(listener)
 
-   .. _contacts.on^updated.listener(node, changed^properties):
+   .. _address^books.contacts.on^updated.listener(node, old^v^card):
 
    .. api-member::
-      :name: ``listener(node, changedProperties)``
-      :refid: contacts-on-updated-listener-node-changed-properties
-      :refname: listener(node, changedProperties)
+      :name: ``listener(node, oldVCard)``
+      :refid: address-books-contacts-on-updated-listener-node-old-v-card
+      :refname: listener(node, oldVCard)
 
       A function that will be called when this event occurs.
 
 .. api-header::
    :label: Parameters passed to the listener function
 
-   .. _contacts.on^updated.node:
+   .. _address^books.contacts.on^updated.node:
 
    .. api-member::
       :name: ``node``
-      :refid: contacts-on-updated-node
+      :refid: address-books-contacts-on-updated-node
       :refname: node
-      :type: (:ref:`contacts.^contact^node`)
+      :type: (:ref:`address^books.contacts.^contact^node`)
 
-   .. _contacts.on^updated.changed^properties:
+   .. _address^books.contacts.on^updated.old^v^card:
 
    .. api-member::
-      :name: ``changedProperties``
-      :refid: contacts-on-updated-changed-properties
-      :refname: changedProperties
-      :type: (:ref:`contacts.^property^change`)
-      :annotation: -- [Added in TB 83]
+      :name: ``oldVCard``
+      :refid: address-books-contacts-on-updated-old-v-card
+      :refname: oldVCard
+      :type: (string)
 
 .. api-header::
    :label: Required permissions
@@ -515,158 +480,168 @@ Fired when a contact is changed.
 Types
 =====
 
-.. _contacts.^contact^node:
+.. _address^books.contacts.^contact^node:
 
 ContactNode
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 A node representing a contact in an address book.
 
 .. api-header::
    :label: object
 
-   .. _contacts.^contact^node.id:
+   .. _address^books.contacts.^contact^node.id:
 
    .. api-member::
       :name: ``id``
-      :refid: contacts-contact-node-id
+      :refid: address-books-contacts-contact-node-id
       :refname: id
       :type: (string)
 
       The unique identifier for the node. IDs are unique within the current profile, and they remain valid even after the program is restarted.
 
-   .. _contacts.^contact^node.properties:
-
-   .. api-member::
-      :name: ``properties``
-      :refid: contacts-contact-node-properties
-      :refname: properties
-      :type: (:ref:`contacts.^contact^properties`)
-
-   .. _contacts.^contact^node.type:
+   .. _address^books.contacts.^contact^node.type:
 
    .. api-member::
       :name: ``type``
-      :refid: contacts-contact-node-type
+      :refid: address-books-contacts-contact-node-type
       :refname: type
       :type: (:ref:`address^books.^node^type`)
 
       Always set to :value:`contact`.
 
-   .. _contacts.^contact^node.parent^id:
+   .. _address^books.contacts.^contact^node.v^card:
+
+   .. api-member::
+      :name: ``vCard``
+      :refid: address-books-contacts-contact-node-v-card
+      :refname: vCard
+      :type: (string)
+      :annotation: -- [Added in TB 128]
+
+   .. _address^books.contacts.^contact^node.parent^id:
 
    .. api-member::
       :name: [``parentId``]
-      :refid: contacts-contact-node-parent-id
+      :refid: address-books-contacts-contact-node-parent-id
       :refname: parentId
       :type: (string, optional)
 
       The :value:`id` of the parent object.
 
-   .. _contacts.^contact^node.read^only:
+   .. _address^books.contacts.^contact^node.read^only:
 
    .. api-member::
       :name: [``readOnly``]
-      :refid: contacts-contact-node-read-only
+      :refid: address-books-contacts-contact-node-read-only
       :refname: readOnly
       :type: (boolean, optional)
 
       Indicates if the object is read-only.
 
-   .. _contacts.^contact^node.remote:
+   .. _address^books.contacts.^contact^node.remote:
 
    .. api-member::
       :name: [``remote``]
-      :refid: contacts-contact-node-remote
+      :refid: address-books-contacts-contact-node-remote
       :refname: remote
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 91]
 
       Indicates if the object came from a remote address book.
 
-.. _contacts.^contact^properties:
+.. _address^books.contacts.^contact^properties:
 
 ContactProperties
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`guides/vcard`.
 
 .. api-header::
    :label: object
 
-.. _contacts.^property^change:
+.. _address^books.contacts.^property^change:
 
 PropertyChange
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 83]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 A dictionary of changed properties. Keys are the property name that changed, values are an object containing :value:`oldValue` and :value:`newValue`. Values can be either a string or :value:`null`.
 
 .. api-header::
    :label: object
 
-.. _contacts.^query^info:
+.. _address^books.contacts.^query^info:
 
 QueryInfo
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 108]
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
-Object defining a query for :ref:`contacts.quick^search`.
+Object defining a query for :ref:`address^books.contacts.query`.
 
 .. api-header::
    :label: object
 
-   .. _contacts.^query^info.include^local:
+   .. _address^books.contacts.^query^info.include^local:
 
    .. api-member::
       :name: [``includeLocal``]
-      :refid: contacts-query-info-include-local
+      :refid: address-books-contacts-query-info-include-local
       :refname: includeLocal
       :type: (boolean, optional)
 
       Whether to include results from local address books. Defaults to :value:`true`.
 
-   .. _contacts.^query^info.include^read^only:
+   .. _address^books.contacts.^query^info.include^read^only:
 
    .. api-member::
       :name: [``includeReadOnly``]
-      :refid: contacts-query-info-include-read-only
+      :refid: address-books-contacts-query-info-include-read-only
       :refname: includeReadOnly
       :type: (boolean, optional)
 
       Whether to include results from read-only address books. Defaults to :value:`true`.
 
-   .. _contacts.^query^info.include^read^write:
+   .. _address^books.contacts.^query^info.include^read^write:
 
    .. api-member::
       :name: [``includeReadWrite``]
-      :refid: contacts-query-info-include-read-write
+      :refid: address-books-contacts-query-info-include-read-write
       :refname: includeReadWrite
       :type: (boolean, optional)
 
       Whether to include results from read-write address books. Defaults to :value:`true`.
 
-   .. _contacts.^query^info.include^remote:
+   .. _address^books.contacts.^query^info.include^remote:
 
    .. api-member::
       :name: [``includeRemote``]
-      :refid: contacts-query-info-include-remote
+      :refid: address-books-contacts-query-info-include-remote
       :refname: includeRemote
       :type: (boolean, optional)
 
       Whether to include results from remote address books. Defaults to :value:`true`.
 
-   .. _contacts.^query^info.search^string:
+   .. _address^books.contacts.^query^info.parent^id:
+
+   .. api-member::
+      :name: [``parentId``]
+      :refid: address-books-contacts-query-info-parent-id
+      :refname: parentId
+      :type: (string, optional)
+
+      The id of the address book to search. If not specified, all address books are searched.
+
+   .. _address^books.contacts.^query^info.search^string:
 
    .. api-member::
       :name: [``searchString``]
-      :refid: contacts-query-info-search-string
+      :refid: address-books-contacts-query-info-search-string
       :refname: searchString
       :type: (string, optional)
 

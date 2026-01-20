@@ -42,7 +42,7 @@ Manifest file properties
 
    The *name* may also be one of the following built-in special shortcuts:
 
-    * :value:`_execute_browser_action`
+    * :value:`_execute_action`
     * :value:`_execute_compose_action`
     * :value:`_execute_message_display_action`
 
@@ -348,7 +348,7 @@ Command
 CommandsShortcut
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 140]
+.. api-section-annotation-hack:: -- [Added in TB 141]
 
 .. api-header::
    :label: object

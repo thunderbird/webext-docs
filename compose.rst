@@ -1302,6 +1302,7 @@ Fired when a message is about to be sent from the compose window. This is a user
       :refid: compose-on-before-send-details
       :refname: details
       :type: (:ref:`compose.^compose^details`)
+      :annotation: -- [Added in TB 75]
 
       The current state of the compose window. This is functionally the same as calling the :ref:`compose.get^compose^details` function.
 
@@ -1384,7 +1385,7 @@ Fired when the state of the message composer changed.
 onIdentityChanged
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 78]
+.. api-section-annotation-hack:: -- [Added in TB 79]
 
 Fired when the user changes the identity that will be used to send a message being composed.
 
@@ -1484,16 +1485,16 @@ Used by various functions to represent the state of a message being composed. No
 .. api-header::
    :label: object
 
-   .. _compose.^compose^details.additional^fcc^folder:
+   .. _compose.^compose^details.additional^fcc^folder^id:
 
    .. api-member::
-      :name: [``additionalFccFolder``]
-      :refid: compose-compose-details-additional-fcc-folder
-      :refname: additionalFccFolder
-      :type: (:ref:`folders.^mail^folder` or `string` or :ref:`folders.^mail^folder^id`, optional)
-      :annotation: -- [Added in TB 102]
+      :name: [``additionalFccFolderId``]
+      :refid: compose-compose-details-additional-fcc-folder-id
+      :refname: additionalFccFolderId
+      :type: (:ref:`folders.^mail^folder^id`, optional)
+      :annotation: -- [Added in TB 127]
 
-      An additional fcc folder which can be selected while composing the message, an empty string if not used. The permission :permission:`accountsRead` is required to use this property.
+      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 
    .. _compose.^compose^details.attachments:
 
@@ -1683,27 +1684,16 @@ Used by various functions to represent the state of a message being composed. No
 
       A single newsgroup name or an array of newsgroup names.
 
-   .. _compose.^compose^details.override^default^fcc:
+   .. _compose.^compose^details.override^default^fcc^folder^id:
 
    .. api-member::
-      :name: [``overrideDefaultFcc``]
-      :refid: compose-compose-details-override-default-fcc
-      :refname: overrideDefaultFcc
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 102]
+      :name: [``overrideDefaultFccFolderId``]
+      :refid: compose-compose-details-override-default-fcc-folder-id
+      :refname: overrideDefaultFccFolderId
+      :type: (:ref:`folders.^mail^folder^id`, optional)
+      :annotation: -- [Added in TB 127]
 
-      Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if :value:`overrideDefaultFccFolder` is not set as well. The permission :permission:`accountsRead` is required to use this property.
-
-   .. _compose.^compose^details.override^default^fcc^folder:
-
-   .. api-member::
-      :name: [``overrideDefaultFccFolder``]
-      :refid: compose-compose-details-override-default-fcc-folder
-      :refname: overrideDefaultFccFolder
-      :type: (:ref:`folders.^mail^folder` or `string` or :ref:`folders.^mail^folder^id`, optional)
-      :annotation: -- [Added in TB 102]
-
-      This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.^mail^folder` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. The permission :permission:`accountsRead` is required to use this property.
+      This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.^mail^folder^id` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 
    .. _compose.^compose^details.plain^text^body:
 
@@ -1907,15 +1897,16 @@ ComposeRecipient
 
       .. container:: api-member-description-only
 
-         .. _compose.^compose^recipient.id:
+         .. _compose.^compose^recipient.node^id:
 
          .. api-member::
-            :name: ``id``
-            :refid: compose-compose-recipient-id
-            :refname: id
+            :name: ``nodeId``
+            :refid: compose-compose-recipient-node-id
+            :refname: nodeId
             :type: (string)
+            :annotation: -- [Added in TB 128]
 
-            The ID of a contact or mailing list from the :doc:`contacts` or :doc:`mailingLists`.
+            The ID of a contact or mailing list node from the :doc:`addressBooks.contacts` or :doc:`addressBooks.mailingLists`.
 
          .. _compose.^compose^recipient.type:
 

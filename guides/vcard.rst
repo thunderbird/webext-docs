@@ -6,9 +6,9 @@
 Working with vCard contacts
 ===========================
 
-Before the release of Thunderbird 102, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`contacts.^contact^properties`, extensions could store additional custom properties.
+Before the release of Thunderbird 102, contacts in Thunderbird's address books only supported a `fixed set of properties <https://searchfox.org/comm-central/rev/97fafb8294c5f9c9c65d33888a03f89a10b0b19e/mailnews/addrbook/modules/VCardUtils.jsm#310-349>`__. All these properties where accessible through :ref:`address^books.contacts.^contact^properties`, extensions could store additional custom properties.
 
-Since Thunderbird 102, contact details are stored as vCards and the former fixed properties are now referred to as legacy properties. Those legacy properties are mapped for read/write access to the best matching vCard property and are still accessible through :ref:`contacts.^contact^properties`. 
+Since Thunderbird 102, contact details are stored as vCards and the former fixed properties are now referred to as legacy properties. Those legacy properties are mapped for read/write access to the best matching vCard property and are still accessible through :ref:`address^books.contacts.^contact^properties`. 
 
 The vCard is exposed in the ``vCard`` property and changing it will update the contact according to the newly set vCard string.
 
@@ -26,7 +26,7 @@ A vCard can store multiple values for each type and legacy properties point to t
 
 .. code-block:: javascript
 
-  await messenger.contacts.update(id, {
+  await messenger.addressBooks.contacts.update(id, {
     "PrimaryEmail" : null,
     "HomePhone" : null
   })
@@ -35,11 +35,11 @@ If the vCard had multiple email addresses or multiple home numbers, each next en
 
 .. code-block:: javascript
 
-  await messenger.contacts.update(id, {
+  await messenger.addressBooks.contacts.update(id, {
     "SecondEmail" : "user@inter.net",
   })
   
-  let { properties } = await messenger.contacts.get(id);
+  let { properties } = await messenger.addressBooks.contacts.get(id);
   console.log(properties);
 
 The console output will include ``PrimaryEmail: user@inter.net``, but no value for ``SecondEmail``, simply because ``PrimaryEmail`` points to the first email address stored in the vCard.
@@ -88,7 +88,7 @@ In the ``background.js`` script one can now parse vCard strings as follows:
   }
 
   // Update the contact.
-  messenger.contacts.update(id, {vCard: ICAL.stringify(vCardObj)});
+  messenger.addressBooks.contacts.update(id, {vCard: ICAL.stringify(vCardObj)});
 
 The ical library also supports manipulating the data on a higher level, using the ``Component`` class:
 
@@ -126,4 +126,4 @@ The ical library also supports manipulating the data on a higher level, using th
   }
 
   // Update the contact.
-  messenger.contacts.update(id, {vCard: vCard.toString()});
+  messenger.addressBooks.contacts.update(id, {vCard: vCard.toString()});

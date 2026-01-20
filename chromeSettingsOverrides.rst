@@ -83,7 +83,7 @@ Manifest file properties
          :name: [``favicon_url``]
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-favicon-url
          :refname: favicon_url
-         :type: (string or string, optional)
+         :type: (string, optional)
          :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.image_url:

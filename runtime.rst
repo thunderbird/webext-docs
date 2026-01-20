@@ -1169,6 +1169,90 @@ An object containing information about the current browser.
 
       The browser's version, for example '42.0.0' or '0.8.1pre'.
 
+.. _runtime.^context^filter:
+
+ContextFilter
+-------------
+
+.. api-section-annotation-hack:: 
+
+A filter to match against existing extension context. Matching contexts must match all specified filters.
+
+.. api-header::
+   :label: object
+
+   .. _runtime.^context^filter.context^ids:
+
+   .. api-member::
+      :name: [``contextIds``]
+      :refid: runtime-context-filter-context-ids
+      :refname: contextIds
+      :type: (array of string, optional)
+
+   .. _runtime.^context^filter.context^types:
+
+   .. api-member::
+      :name: [``contextTypes``]
+      :refid: runtime-context-filter-context-types
+      :refname: contextTypes
+      :type: (array of :ref:`runtime.^context^type`, optional)
+
+   .. _runtime.^context^filter.document^ids:
+
+   .. api-member::
+      :name: [``documentIds``]
+      :refid: runtime-context-filter-document-ids
+      :refname: documentIds
+      :type: (array of string, optional)
+
+   .. _runtime.^context^filter.document^origins:
+
+   .. api-member::
+      :name: [``documentOrigins``]
+      :refid: runtime-context-filter-document-origins
+      :refname: documentOrigins
+      :type: (array of string, optional)
+
+   .. _runtime.^context^filter.document^urls:
+
+   .. api-member::
+      :name: [``documentUrls``]
+      :refid: runtime-context-filter-document-urls
+      :refname: documentUrls
+      :type: (array of string, optional)
+
+   .. _runtime.^context^filter.frame^ids:
+
+   .. api-member::
+      :name: [``frameIds``]
+      :refid: runtime-context-filter-frame-ids
+      :refname: frameIds
+      :type: (array of integer, optional)
+
+   .. _runtime.^context^filter.incognito:
+
+   .. api-member::
+      :name: [``incognito``]
+      :refid: runtime-context-filter-incognito
+      :refname: incognito
+      :type: (boolean, optional)
+
+   .. _runtime.^context^filter.tab^ids:
+
+   .. api-member::
+      :name: [``tabIds``]
+      :refid: runtime-context-filter-tab-ids
+      :refname: tabIds
+      :type: (array of integer, optional)
+
+   .. _runtime.^context^filter.window^ids:
+
+   .. api-member::
+      :name: [``windowIds``]
+      :refid: runtime-context-filter-window-ids
+      :refname: windowIds
+      :type: (array of integer, optional)
+
 .. _runtime.^context^type:
 
 ContextType

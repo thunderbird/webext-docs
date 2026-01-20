@@ -12,10 +12,12 @@
   :caption: WebExtension API reference
   
   accounts
+  action
   addressBooks
+  addressBooks.contacts
+  addressBooks.mailingLists
   addressBooks.provider
   alarms
-  browserAction
   browserSettings
   browserSettings.colorManagement
   browsingData
@@ -25,9 +27,6 @@
   commands
   compose
   composeAction
-  composeScripts
-  contacts
-  contentScripts
   contextualIdentities
   cookies
   declarativeNetRequest
@@ -40,12 +39,10 @@
   identity
   idle
   mailTabs
-  mailingLists
   management
   menus
   messageDisplay
   messageDisplayAction
-  messageDisplayScripts
   messages
   messages.tags
   messengerSettings
@@ -66,7 +63,6 @@
   scripting.messageDisplay
   sessions
   spaces
-  spacesToolbar
   storage
   tabs
   theme
@@ -85,5 +81,5 @@
   guides/runtimeMessaging
   guides/messageLists
   guides/vcard
-  
+  guides/manifestV3
   guides/experiments

@@ -81,7 +81,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
       :type: (boolean, optional)
       :annotation: -- [Added in TB 89]
 
-      Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of the returned :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the returned :ref:`accounts.^mail^account`. Defaults to :value:`true`.
+      Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of the returned :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. Defaults to :value:`false`.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -122,7 +122,7 @@ Returns the default account, or :value:`null` if it is not defined.
       :type: (boolean, optional)
       :annotation: -- [Added in TB 89]
 
-      Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of the default :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the default :ref:`accounts.^mail^account`. Defaults to :value:`true`
+      Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of the default :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. Defaults to :value:`false`
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -134,44 +134,6 @@ Returns the default account, or :value:`null` if it is not defined.
       :refname: _returns
       :type: :ref:`accounts.^mail^account` or null
       :annotation: -- [Added in TB 91]
-
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _accounts.get^default^identity:
-
-getDefaultIdentity(accountId)
------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 85]
-
-Returns the default identity for an account, or :value:`null` if it is not defined.
-
-.. api-header::
-   :label: Parameters
-
-   .. _accounts.get^default^identity.account^id:
-
-   .. api-member::
-      :name: ``accountId``
-      :refid: accounts-get-default-identity-account-id
-      :refname: accountId
-      :type: (:ref:`accounts.^mail^account^id`)
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   .. _accounts.get^default^identity.returns:
-
-   .. api-member::
-      :refid: accounts-get-default-identity-returns
-      :refname: _returns
-      :type: :ref:`identities.^mail^identity` or null
-      :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -201,7 +163,7 @@ Returns all mail accounts. They will be returned in the same order as used in Th
       :type: (boolean, optional)
       :annotation: -- [Added in TB 89]
 
-      Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of each found :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of each found :ref:`accounts.^mail^account`. Defaults to :value:`true`.
+      Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of each found :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. Defaults to :value:`false`.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -215,39 +177,6 @@ Returns all mail accounts. They will be returned in the same order as used in Th
       :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`accountsRead`
-
-.. _accounts.set^default^identity:
-
-setDefaultIdentity(accountId, identityId)
------------------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 76]
-
-Sets the default identity for an account.
-
-.. api-header::
-   :label: Parameters
-
-   .. _accounts.set^default^identity.account^id:
-
-   .. api-member::
-      :name: ``accountId``
-      :refid: accounts-set-default-identity-account-id
-      :refname: accountId
-      :type: (:ref:`accounts.^mail^account^id`)
-
-   .. _accounts.set^default^identity.identity^id:
-
-   .. api-member::
-      :name: ``identityId``
-      :refid: accounts-set-default-identity-identity-id
-      :refname: identityId
-      :type: (string)
 
 .. api-header::
    :label: Required permissions
@@ -416,7 +345,7 @@ Types
 ExtensionMailAccountType
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 130]
+.. api-section-annotation-hack:: -- [Added in TB 131]
 
 The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
 
@@ -434,16 +363,6 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 
 .. api-header::
    :label: object
-
-   .. _accounts.^mail^account.folders:
-
-   .. api-member::
-      :name: ``folders``
-      :refid: accounts-mail-account-folders
-      :refname: folders
-      :type: (array of :ref:`folders.^mail^folder` or null)
-
-      The folders for this account. The property may be :value:`null`, if inclusion of folders had not been requested.
 
    .. _accounts.^mail^account.id:
 
@@ -513,7 +432,7 @@ A unique id representing a :ref:`accounts.^mail^account`.
 NativeMailAccountType
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 130]
+.. api-section-annotation-hack:: -- [Added in TB 131]
 
 The type of an account natively supported by Thunderbird.
 
@@ -541,19 +460,19 @@ The type of an account natively supported by Thunderbird.
             :refid: accounts-native-mail-account-type-imap
             :refname: imap
 
+         .. _accounts.^native^mail^account^type.local:
+
+         .. api-member::
+            :name: :value:`local`
+            :refid: accounts-native-mail-account-type-local
+            :refname: local
+
          .. _accounts.^native^mail^account^type.nntp:
 
          .. api-member::
             :name: :value:`nntp`
             :refid: accounts-native-mail-account-type-nntp
             :refname: nntp
-
-         .. _accounts.^native^mail^account^type.none:
-
-         .. api-member::
-            :name: :value:`none`
-            :refid: accounts-native-mail-account-type-none
-            :refname: none
 
          .. _accounts.^native^mail^account^type.pop3:
 

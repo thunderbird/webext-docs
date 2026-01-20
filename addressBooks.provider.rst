@@ -66,6 +66,10 @@ onSearchRequest
 
 Registering this listener will create a read-only address book, similar to an LDAP address book. When selecting this address book, users will first see no contacts, but they can search for contacts, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
 
+.. note::
+
+   Ensure all listeners are registered at the top-level and use the synchronous pattern, otherwise the associated address books will be removed on background termination.
+
 The event also fires for each registered listener (for each created read-only address book), when users type something into the mail composer's *To:* field, or into similar fields like the calendar meeting attendees field. Contacts returned by the listener callback will be added to the autocomplete results in the dropdown of that field.
 
 Example:
@@ -196,7 +200,7 @@ Example:
          :refid: address-books-provider-on-search-request-returns-is-complete-result
          :refname: isCompleteResult
          :type: (boolean)
-         :annotation: -- [Added in TB 140]
+         :annotation: -- [Added in TB 142]
 
       .. _address^books.provider.on^search^request.returns.results:
 
@@ -204,8 +208,8 @@ Example:
          :name: ``results``
          :refid: address-books-provider-on-search-request-returns-results
          :refname: results
-         :type: (array of :ref:`contacts.^contact^properties`)
-         :annotation: -- [Added in TB 140]
+         :type: (array of :ref:`address^books.contacts.^contact^properties`)
+         :annotation: -- [Added in TB 142]
 
 .. api-header::
    :label: Required permissions

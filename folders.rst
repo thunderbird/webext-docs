@@ -73,31 +73,31 @@ Functions
 
 .. _folders.copy:
 
-copy(source, destination)
--------------------------
+copy(sourceFolderId, destinationFolderId)
+-----------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
 
-   .. _folders.copy.source:
+   .. _folders.copy.source^folder^id:
 
    .. api-member::
-      :name: ``source``
-      :refid: folders-copy-source
-      :refname: source
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``sourceFolderId``
+      :refid: folders-copy-source-folder-id
+      :refname: sourceFolderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
-   .. _folders.copy.destination:
+   .. _folders.copy.destination^folder^id:
 
    .. api-member::
-      :name: ``destination``
-      :refid: folders-copy-destination
-      :refname: destination
-      :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
+      :name: ``destinationFolderId``
+      :refid: folders-copy-destination-folder-id
+      :refname: destinationFolderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -119,23 +119,23 @@ Copies the given source folder into the given destination folder. Throws if the 
 
 .. _folders.create:
 
-create(destination, childName)
-------------------------------
+create(folderId, childName)
+---------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 68]
 
-Creates a new subfolder in the specified folder, or at the root of the specified account.
+Creates a new subfolder in the specified folder.
 
 .. api-header::
    :label: Parameters
 
-   .. _folders.create.destination:
+   .. _folders.create.folder^id:
 
    .. api-member::
-      :name: ``destination``
-      :refid: folders-create-destination
-      :refname: destination
-      :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-create-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
    .. _folders.create.child^name:
 
@@ -154,7 +154,7 @@ Creates a new subfolder in the specified folder, or at the root of the specified
       :refid: folders-create-returns
       :refname: _returns
       :type: :ref:`folders.^mail^folder`
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 92]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -166,8 +166,8 @@ Creates a new subfolder in the specified folder, or at the root of the specified
 
 .. _folders.delete:
 
-delete(folder)
---------------
+delete(folderId)
+----------------
 
 .. api-section-annotation-hack:: -- [Added in TB 68]
 
@@ -176,13 +176,13 @@ Deletes a folder.
 .. api-header::
    :label: Parameters
 
-   .. _folders.delete.folder:
+   .. _folders.delete.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-delete-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-delete-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Required permissions
@@ -219,7 +219,7 @@ Returns the specified folder.
       :refname: includeSubFolders
       :type: (boolean, optional)
 
-      Specifies whether the returned :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`true`.
+      Specifies whether the returned :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`false`.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -240,8 +240,8 @@ Returns the specified folder.
 
 .. _folders.get^folder^capabilities:
 
-getFolderCapabilities(folder)
------------------------------
+getFolderCapabilities(folderId)
+-------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
@@ -250,13 +250,13 @@ Get capability information about a folder.
 .. api-header::
    :label: Parameters
 
-   .. _folders.get^folder^capabilities.folder:
+   .. _folders.get^folder^capabilities.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-get-folder-capabilities-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-get-folder-capabilities-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -277,23 +277,23 @@ Get capability information about a folder.
 
 .. _folders.get^folder^info:
 
-getFolderInfo(folder)
----------------------
+getFolderInfo(folderId)
+-----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Get additional information about a folder.
 
 .. api-header::
    :label: Parameters
 
-   .. _folders.get^folder^info.folder:
+   .. _folders.get^folder^info.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-get-folder-info-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-get-folder-info-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -314,8 +314,8 @@ Get additional information about a folder.
 
 .. _folders.get^parent^folders:
 
-getParentFolders(folder, [includeSubFolders])
----------------------------------------------
+getParentFolders(folderId, [includeSubFolders])
+-----------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
@@ -324,13 +324,13 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
 .. api-header::
    :label: Parameters
 
-   .. _folders.get^parent^folders.folder:
+   .. _folders.get^parent^folders.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-get-parent-folders-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-get-parent-folders-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
    .. _folders.get^parent^folders.include^sub^folders:
 
@@ -361,23 +361,23 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
 
 .. _folders.get^sub^folders:
 
-getSubFolders(folder, [includeSubFolders])
-------------------------------------------
+getSubFolders(folderId, [includeSubFolders])
+--------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 91]
 
-Get the subfolders of the specified folder or account.
+Get the subfolders of the specified folder.
 
 .. api-header::
    :label: Parameters
 
-   .. _folders.get^sub^folders.folder:
+   .. _folders.get^sub^folders.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-get-sub-folders-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-get-sub-folders-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
    .. _folders.get^sub^folders.include^sub^folders:
 
@@ -387,7 +387,7 @@ Get the subfolders of the specified folder or account.
       :refname: includeSubFolders
       :type: (boolean, optional)
 
-      Specifies whether each returned direct child :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`true`.
+      Specifies whether each returned direct child :ref:`folders.^mail^folder` should populate its :value:`subFolders` property and include all its (nested!) subfolders. Defaults to :value:`false`.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -547,8 +547,8 @@ Get one of the special unified mailbox folders, which are virtual search folders
 
 .. _folders.mark^as^read:
 
-markAsRead(folder)
-------------------
+markAsRead(folderId)
+--------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
@@ -557,13 +557,13 @@ Marks all messages in a folder as read.
 .. api-header::
    :label: Parameters
 
-   .. _folders.mark^as^read.folder:
+   .. _folders.mark^as^read.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-mark-as-read-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-mark-as-read-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Required permissions
@@ -573,31 +573,31 @@ Marks all messages in a folder as read.
 
 .. _folders.move:
 
-move(source, destination)
--------------------------
+move(sourceFolderId, destinationFolderId)
+-----------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
 .. api-header::
    :label: Parameters
 
-   .. _folders.move.source:
+   .. _folders.move.source^folder^id:
 
    .. api-member::
-      :name: ``source``
-      :refid: folders-move-source
-      :refname: source
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``sourceFolderId``
+      :refid: folders-move-source-folder-id
+      :refname: sourceFolderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
-   .. _folders.move.destination:
+   .. _folders.move.destination^folder^id:
 
    .. api-member::
-      :name: ``destination``
-      :refid: folders-move-destination
-      :refname: destination
-      :type: (:ref:`folders.^mail^folder` or :ref:`accounts.^mail^account` or :ref:`folders.^mail^folder^id`)
+      :name: ``destinationFolderId``
+      :refid: folders-move-destination-folder-id
+      :refname: destinationFolderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -913,16 +913,6 @@ Gets folders that match the specified properties, or all folders if no propertie
 
          Match only folders with the specified special use (folders have to match all specified uses).
 
-      .. _folders.query.query^info.type:
-
-      .. api-member::
-         :name: [``type``]
-         :refid: folders-query-query-info-type
-         :refname: type
-         :type: (:ref:`folders.^mail^folder^special^use`, optional)
-
-         Deprecated. Match only folders with the specified special use.
-
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -942,8 +932,8 @@ Gets folders that match the specified properties, or all folders if no propertie
 
 .. _folders.rename:
 
-rename(folder, newName)
------------------------
+rename(folderId, newName)
+-------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 68]
 
@@ -952,13 +942,13 @@ Renames a folder.
 .. api-header::
    :label: Parameters
 
-   .. _folders.rename.folder:
+   .. _folders.rename.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-rename-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-rename-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
    .. _folders.rename.new^name:
 
@@ -977,7 +967,7 @@ Renames a folder.
       :refid: folders-rename-returns
       :refname: _returns
       :type: :ref:`folders.^mail^folder`
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 92]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -989,8 +979,8 @@ Renames a folder.
 
 .. _folders.update:
 
-update(folder, updateProperties)
---------------------------------
+update(folderId, updateProperties)
+----------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 121]
 
@@ -999,13 +989,13 @@ Updates properties of a folder.
 .. api-header::
    :label: Parameters
 
-   .. _folders.update.folder:
+   .. _folders.update.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: folders-update-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: folders-update-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
    .. _folders.update.update^properties:
 
@@ -1043,7 +1033,7 @@ Events
 onCopied
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been copied.
 
@@ -1088,7 +1078,7 @@ Fired when a folder has been copied.
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been created.
 
@@ -1125,7 +1115,7 @@ Fired when a folder has been created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been deleted.
 
@@ -1162,7 +1152,7 @@ Fired when a folder has been deleted.
 onFolderInfoChanged
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
 
@@ -1207,7 +1197,7 @@ Fired when certain information of a folder have changed. Bursts of message count
 onMoved
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been moved.
 
@@ -1252,7 +1242,7 @@ Fired when a folder has been moved.
 onRenamed
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been renamed.
 
@@ -1354,6 +1344,82 @@ An object describing a folder.
 .. api-header::
    :label: object
 
+   .. _folders.^mail^folder.id:
+
+   .. api-member::
+      :name: ``id``
+      :refid: folders-mail-folder-id
+      :refname: id
+      :type: (:ref:`folders.^mail^folder^id`)
+      :annotation: -- [Added in TB 121]
+
+      An identifier for the folder.
+
+   .. _folders.^mail^folder.is^favorite:
+
+   .. api-member::
+      :name: ``isFavorite``
+      :refid: folders-mail-folder-is-favorite
+      :refname: isFavorite
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+
+      Whether this folder is a favorite folder.
+
+   .. _folders.^mail^folder.is^root:
+
+   .. api-member::
+      :name: ``isRoot``
+      :refid: folders-mail-folder-is-root
+      :refname: isRoot
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+
+      Whether this folder is a root folder.
+
+   .. _folders.^mail^folder.is^tag:
+
+   .. api-member::
+      :name: ``isTag``
+      :refid: folders-mail-folder-is-tag
+      :refname: isTag
+      :type: (boolean)
+      :annotation: -- [Added in TB 127]
+
+      Whether this folder is a virtual tag folder.
+
+   .. _folders.^mail^folder.is^unified:
+
+   .. api-member::
+      :name: ``isUnified``
+      :refid: folders-mail-folder-is-unified
+      :refname: isUnified
+      :type: (boolean)
+      :annotation: -- [Added in TB 127]
+
+      Whether this folder is a unified mailbox folder.
+
+   .. _folders.^mail^folder.is^virtual:
+
+   .. api-member::
+      :name: ``isVirtual``
+      :refid: folders-mail-folder-is-virtual
+      :refname: isVirtual
+      :type: (boolean)
+      :annotation: -- [Added in TB 121]
+
+      Whether this folder is a virtual search folder.
+
+   .. _folders.^mail^folder.name:
+
+   .. api-member::
+      :name: ``name``
+      :refid: folders-mail-folder-name
+      :refname: name
+      :type: (string)
+
+      The human-friendly name of this folder.
+
    .. _folders.^mail^folder.path:
 
    .. api-member::
@@ -1364,6 +1430,17 @@ An object describing a folder.
 
       Path to this folder in the account. Although paths look predictable, never guess a folder's path, as there are a number of reasons why it may not be what you think it is. Use :ref:`folders.get^parent^folders` or :ref:`folders.get^sub^folders` to obtain hierarchy information.
 
+   .. _folders.^mail^folder.special^use:
+
+   .. api-member::
+      :name: ``specialUse``
+      :refid: folders-mail-folder-special-use
+      :refname: specialUse
+      :type: (array of :ref:`folders.^mail^folder^special^use`)
+      :annotation: -- [Added in TB 121]
+
+      The special use of this folder. A folder can have multiple special uses.
+
    .. _folders.^mail^folder.account^id:
 
    .. api-member::
@@ -1372,94 +1449,7 @@ An object describing a folder.
       :refname: accountId
       :type: (:ref:`accounts.^mail^account^id`, optional)
 
-      The id of the account this folder belongs to.
-
-   .. _folders.^mail^folder.id:
-
-   .. api-member::
-      :name: [``id``]
-      :refid: folders-mail-folder-id
-      :refname: id
-      :type: (:ref:`folders.^mail^folder^id`, optional)
-      :annotation: -- [Added in TB 121]
-
-      An identifier for the folder.
-
-   .. _folders.^mail^folder.is^favorite:
-
-   .. api-member::
-      :name: [``isFavorite``]
-      :refid: folders-mail-folder-is-favorite
-      :refname: isFavorite
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-
-      Whether this folder is a favorite folder.
-
-   .. _folders.^mail^folder.is^root:
-
-   .. api-member::
-      :name: [``isRoot``]
-      :refid: folders-mail-folder-is-root
-      :refname: isRoot
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-
-      Whether this folder is a root folder.
-
-   .. _folders.^mail^folder.is^tag:
-
-   .. api-member::
-      :name: [``isTag``]
-      :refid: folders-mail-folder-is-tag
-      :refname: isTag
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 127]
-
-      Whether this folder is a virtual tag folder.
-
-   .. _folders.^mail^folder.is^unified:
-
-   .. api-member::
-      :name: [``isUnified``]
-      :refid: folders-mail-folder-is-unified
-      :refname: isUnified
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 127]
-
-      Whether this folder is a unified mailbox folder.
-
-   .. _folders.^mail^folder.is^virtual:
-
-   .. api-member::
-      :name: [``isVirtual``]
-      :refid: folders-mail-folder-is-virtual
-      :refname: isVirtual
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 121]
-
-      Whether this folder is a virtual search folder.
-
-   .. _folders.^mail^folder.name:
-
-   .. api-member::
-      :name: [``name``]
-      :refid: folders-mail-folder-name
-      :refname: name
-      :type: (string, optional)
-
-      The human-friendly name of this folder.
-
-   .. _folders.^mail^folder.special^use:
-
-   .. api-member::
-      :name: [``specialUse``]
-      :refid: folders-mail-folder-special-use
-      :refname: specialUse
-      :type: (array of :ref:`folders.^mail^folder^special^use`, optional)
-      :annotation: -- [Added in TB 121]
-
-      The special use of this folder. A folder can have multiple special uses.
+      The id of the account this folder belongs to. This property is optional and not available for unified mailbox folders or virtual tag folders.
 
    .. _folders.^mail^folder.sub^folders:
 
@@ -1471,16 +1461,6 @@ An object describing a folder.
       :annotation: -- [Added in TB 74]
 
       Subfolders of this folder. This property is optional and only present if the inclusion of subfolders had been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
-
-   .. _folders.^mail^folder.type:
-
-   .. api-member::
-      :name: [``type``]
-      :refid: folders-mail-folder-type
-      :refname: type
-      :type: (:ref:`folders.^mail^folder^special^use`, optional)
-
-      Deprecated. Was used to represent the type of this folder.
 
 .. _folders.^mail^folder^capabilities:
 
@@ -1561,22 +1541,12 @@ A unique id representing a :ref:`folders.^mail^folder` throughout a session. Ren
 MailFolderInfo
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 An object containing additional information about a folder.
 
 .. api-header::
    :label: object
-
-   .. _folders.^mail^folder^info.favorite:
-
-   .. api-member::
-      :name: [``favorite``]
-      :refid: folders-mail-folder-info-favorite
-      :refname: favorite
-      :type: (boolean, optional)
-
-      Deprecated. This information is now available in :ref:`folders.^mail^folder`.
 
    .. _folders.^mail^folder^info.last^used:
 

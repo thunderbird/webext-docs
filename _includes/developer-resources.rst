@@ -14,4 +14,4 @@
 * :doc:`/guides/runtimeMessaging`
 * :doc:`/guides/messageLists`
 * :doc:`/guides/vcard`
-
+* :doc:`/guides/manifestV3`

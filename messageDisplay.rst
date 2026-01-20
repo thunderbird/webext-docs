@@ -51,44 +51,6 @@ The following permissions influence the behavior of the API. Depending on which 
 Functions
 =========
 
-.. _message^display.get^displayed^message:
-
-getDisplayedMessage([tabId])
-----------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 70]
-
-Gets the currently displayed message in the specified tab (even if the tab itself is currently not visible), or the currently active tab. It returns :value:`null` if no messages are displayed, or if multiple messages are displayed.
-
-.. api-header::
-   :label: Parameters
-
-   .. _message^display.get^displayed^message.tab^id:
-
-   .. api-member::
-      :name: [``tabId``]
-      :refid: message-display-get-displayed-message-tab-id
-      :refname: tabId
-      :type: (integer, optional)
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   .. _message^display.get^displayed^message.returns:
-
-   .. api-member::
-      :refid: message-display-get-displayed-message-returns
-      :refname: _returns
-      :type: :ref:`messages.^message^header` or null
-      :annotation: -- [Added in TB 96]
-
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _message^display.get^displayed^messages:
 
 getDisplayedMessages([tabId])
@@ -117,7 +79,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
    .. api-member::
       :refid: message-display-get-displayed-messages-returns
       :refname: _returns
-      :type: array of :ref:`messages.^message^header`
+      :type: :ref:`messages.^message^list`
       :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
@@ -248,51 +210,6 @@ Opens a message in a new tab or in a new window.
 Events
 ======
 
-.. _message^display.on^message^displayed:
-
-onMessageDisplayed
-------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 70]
-
-Fired when a message is displayed, whether in a 3-pane tab, a message tab, or a message window.
-
-.. api-header::
-   :label: Parameters for onMessageDisplayed.addListener(listener)
-
-   .. _message^display.on^message^displayed.listener(tab, message):
-
-   .. api-member::
-      :name: ``listener(tab, message)``
-      :refid: message-display-on-message-displayed-listener-tab-message
-      :refname: listener(tab, message)
-
-      A function that will be called when this event occurs.
-
-.. api-header::
-   :label: Parameters passed to the listener function
-
-   .. _message^display.on^message^displayed.tab:
-
-   .. api-member::
-      :name: ``tab``
-      :refid: message-display-on-message-displayed-tab
-      :refname: tab
-      :type: (:ref:`tabs.^tab`)
-
-   .. _message^display.on^message^displayed.message:
-
-   .. api-member::
-      :name: ``message``
-      :refid: message-display-on-message-displayed-message
-      :refname: message
-      :type: (:ref:`messages.^message^header`)
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _message^display.on^messages^displayed:
 
 onMessagesDisplayed
@@ -305,12 +222,12 @@ Fired when either a single message is displayed or when multiple messages are di
 .. api-header::
    :label: Parameters for onMessagesDisplayed.addListener(listener)
 
-   .. _message^display.on^messages^displayed.listener(tab, messages):
+   .. _message^display.on^messages^displayed.listener(tab, displayed^messages):
 
    .. api-member::
-      :name: ``listener(tab, messages)``
-      :refid: message-display-on-messages-displayed-listener-tab-messages
-      :refname: listener(tab, messages)
+      :name: ``listener(tab, displayedMessages)``
+      :refid: message-display-on-messages-displayed-listener-tab-displayed-messages
+      :refname: listener(tab, displayedMessages)
 
       A function that will be called when this event occurs.
 
@@ -325,13 +242,13 @@ Fired when either a single message is displayed or when multiple messages are di
       :refname: tab
       :type: (:ref:`tabs.^tab`)
 
-   .. _message^display.on^messages^displayed.messages:
+   .. _message^display.on^messages^displayed.displayed^messages:
 
    .. api-member::
-      :name: ``messages``
-      :refid: message-display-on-messages-displayed-messages
-      :refname: messages
-      :type: (array of :ref:`messages.^message^header`)
+      :name: ``displayedMessages``
+      :refid: message-display-on-messages-displayed-displayed-messages
+      :refname: displayedMessages
+      :type: (:ref:`messages.^message^list`)
 
 .. api-header::
    :label: Required permissions

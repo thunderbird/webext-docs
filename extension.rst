@@ -50,42 +50,6 @@ Returns the JavaScript 'window' object for the background page running inside th
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _extension.get^u^r^l:
-
-getURL(path)
-------------
-
-.. api-section-annotation-hack:: -- [Added in TB 45]
-
-Converts a relative path within an extension install directory to a fully-qualified URL.
-
-.. api-header::
-   :label: Parameters
-
-   .. _extension.get^u^r^l.path:
-
-   .. api-member::
-      :name: ``path``
-      :refid: extension-get-u-r-l-path
-      :refname: path
-      :type: (string)
-
-      A path to a resource within an extension expressed relative to its install directory.
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   .. _extension.get^u^r^l.returns:
-
-   .. api-member::
-      :refid: extension-get-u-r-l-returns
-      :refname: _returns
-      :type: string
-
-      The fully-qualified URL to the resource.
-
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
 .. _extension.get^views:
 
 getViews([fetchProperties])
@@ -258,12 +222,3 @@ inIncognitoContext
 .. api-section-annotation-hack:: 
 
 True for content scripts running inside incognito tabs, and for extension pages running inside an incognito process. The latter only applies to extensions with 'split' incognito_behavior.
-
-.. _extension.last^error:
-
-lastError
----------
-
-.. api-section-annotation-hack:: 
-
-Set for the lifetime of a callback if an ansychronous extension api has resulted in an error. If no error has occured lastError will be :value:`undefined`.

@@ -415,7 +415,7 @@ Gets the window that was most recently focused — typically the window 'on top'
 openDefaultBrowser(url)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84]
+.. api-section-annotation-hack:: -- [Added in TB 85]
 
 Opens the provided URL in the default system browser.
 
@@ -745,7 +745,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
 GetInfo
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 78]
+.. api-section-annotation-hack:: -- [Added in TB 79]
 
 Specifies additional requirements for the returned windows.
 

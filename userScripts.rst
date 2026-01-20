@@ -2,10 +2,8 @@
 
   ≡ userScripts API
 
-  * `Manifest file properties`_
   * `Permissions`_
   * `Functions`_
-  * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
@@ -34,27 +32,6 @@ userScripts API
 
 .. rst-class:: api-main-section
 
-Manifest file properties
-========================
-
-.. _user^scripts.user_scripts:
-
-.. api-member::
-   :name: [``user_scripts``]
-   :refid: user-scripts-user-scripts
-   :refname: user_scripts
-   :type: (object, optional)
-
-   .. _user^scripts.user_scripts.api_script:
-
-   .. api-member::
-      :name: [``api_script``]
-      :refid: user-scripts-user-scripts-api-script
-      :refname: api_script
-      :type: (:ref:`user^scripts.^extension^u^r^l`, optional)
-
-.. rst-class:: api-main-section
-
 Permissions
 ===========
 
@@ -77,12 +54,6 @@ The following permissions influence the behavior of the API. Depending on which 
 
 .. note::
 
-   A manifest entry named :value:`user_scripts` is required to use ``messenger.userScripts.*``.
-
-.. rst-class:: api-permission-info
-
-.. note::
-
    The permission :permission:`userScripts` is required to use ``messenger.userScripts.*``.
 
 .. rst-class:: api-main-section
@@ -90,51 +61,66 @@ The following permissions influence the behavior of the API. Depending on which 
 Functions
 =========
 
-.. _user^scripts.register:
+.. _user^scripts.configure^world:
 
-register(userScriptOptions)
----------------------------
+configureWorld(properties)
+--------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 136]
 
-Register a user script programmatically given its :ref:`user^scripts.^user^script^options`, and resolves to an object with the unregister() function
-
-.. note::
-
-   An incompatible version of this function is available for Manifest V2. See `userScripts (Legacy) <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/register>`__.
+Configures the environment for scripts running in a USER_SCRIPT world.
 
 .. api-header::
    :label: Parameters
 
-   .. _user^scripts.register.user^script^options:
+   .. _user^scripts.configure^world.properties:
 
    .. api-member::
-      :name: ``userScriptOptions``
-      :refid: user-scripts-register-user-script-options
-      :refname: userScriptOptions
-      :type: (:ref:`user^scripts.^user^script^options`)
+      :name: ``properties``
+      :refid: user-scripts-configure-world-properties
+      :refname: properties
+      :type: (:ref:`user^scripts.^world^properties`)
+
+      The desired configuration for a USER_SCRIPT world.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`
+
+.. _user^scripts.get^scripts:
+
+getScripts([filter])
+--------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+Returns all dynamically-registered user scripts for this extension.
+
+.. api-header::
+   :label: Parameters
+
+   .. _user^scripts.get^scripts.filter:
+
+   .. api-member::
+      :name: [``filter``]
+      :refid: user-scripts-get-scripts-filter
+      :refname: filter
+      :type: (:ref:`user^scripts.^user^script^filter`, optional)
+
+      If specified, this method returns only the user scripts that match it.
 
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _user^scripts.register.returns:
+   .. _user^scripts.get^scripts.returns:
 
    .. api-member::
-      :refid: user-scripts-register-returns
+      :refid: user-scripts-get-scripts-returns
       :refname: _returns
-      :type: object
+      :type: array of :ref:`user^scripts.^registered^user^script`
 
-      An object that represents a user script registered programmatically
-
-      .. _user^scripts.register.returns.unregister:
-
-      .. api-member::
-         :name: ``unregister``
-         :refid: user-scripts-register-returns-unregister
-         :refname: unregister
-         :type: (function)
-
-         Unregister a user script registered programmatically
+      List of registered user scripts.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -143,82 +129,140 @@ Register a user script programmatically given its :ref:`user^scripts.^user^scrip
 
    - :permission:`userScripts`
 
-.. rst-class:: api-main-section
+.. _user^scripts.get^world^configurations:
 
-Events
-======
+getWorldConfigurations()
+------------------------
 
-.. _user^scripts.on^before^script:
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
-onBeforeScript
---------------
-
-.. api-section-annotation-hack:: 
-
-Event called when a new userScript global has been created
+Returns all registered USER_SCRIPT world configurations.
 
 .. api-header::
-   :label: Parameters for onBeforeScript.addListener(listener)
+   :label: Return type (`Promise`_)
 
-   .. _user^scripts.on^before^script.listener(user^script):
+   .. _user^scripts.get^world^configurations.returns:
 
    .. api-member::
-      :name: ``listener(userScript)``
-      :refid: user-scripts-on-before-script-listener-user-script
-      :refname: listener(userScript)
+      :refid: user-scripts-get-world-configurations-returns
+      :refname: _returns
+      :type: array of :ref:`user^scripts.^world^properties`
 
-      A function that will be called when this event occurs.
+      All configurations registered with configureWorld().
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
-   :label: Parameters passed to the listener function
+   :label: Required permissions
 
-   .. _user^scripts.on^before^script.user^script:
+   - :permission:`userScripts`
+
+.. _user^scripts.register:
+
+register(scripts)
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+Registers one or more user scripts for this extension.
+
+.. note::
+
+   An incompatible version of this function is available for Manifest V2. See `userScripts (Legacy) <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/userScripts_legacy/register>`__.
+
+.. api-header::
+   :label: Parameters
+
+   .. _user^scripts.register.scripts:
 
    .. api-member::
-      :name: ``userScript``
-      :refid: user-scripts-on-before-script-user-script
-      :refname: userScript
-      :type: (object)
+      :name: ``scripts``
+      :refid: user-scripts-register-scripts
+      :refname: scripts
+      :type: (array of :ref:`user^scripts.^registered^user^script`)
 
-      .. _user^scripts.on^before^script.user^script.define^globals:
+      List of user scripts to be registered.
 
-      .. api-member::
-         :name: ``defineGlobals``
-         :refid: user-scripts-on-before-script-user-script-define-globals
-         :refname: defineGlobals
-         :type: (function)
+.. api-header::
+   :label: Required permissions
 
-         Exports all the properties of a given plain object as userScript globals
+   - :permission:`userScripts`
 
-      .. _user^scripts.on^before^script.user^script.export:
+.. _user^scripts.reset^world^configuration:
 
-      .. api-member::
-         :name: ``export``
-         :refid: user-scripts-on-before-script-user-script-export
-         :refname: export
-         :type: (function)
+resetWorldConfiguration([worldId])
+----------------------------------
 
-         Convert a given value to make it accessible to the userScript code
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
-      .. _user^scripts.on^before^script.user^script.global:
+Resets the configuration for a given world. That world will fall back to the default world's configuration.
 
-      .. api-member::
-         :name: ``global``
-         :refid: user-scripts-on-before-script-user-script-global
-         :refname: global
-         :type: (any)
+.. api-header::
+   :label: Parameters
 
-         The userScript global
+   .. _user^scripts.reset^world^configuration.world^id:
 
-      .. _user^scripts.on^before^script.user^script.metadata:
+   .. api-member::
+      :name: [``worldId``]
+      :refid: user-scripts-reset-world-configuration-world-id
+      :refname: worldId
+      :type: (string, optional)
 
-      .. api-member::
-         :name: ``metadata``
-         :refid: user-scripts-on-before-script-user-script-metadata
-         :refname: metadata
-         :type: (any)
+      The ID of the USER_SCRIPT world to reset. If omitted or empty, resets the default world's configuration.
 
-         The userScript metadata (as set in userScripts.register)
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`
+
+.. _user^scripts.unregister:
+
+unregister([filter])
+--------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+Unregisters all dynamically-registered user scripts for this extension.
+
+.. api-header::
+   :label: Parameters
+
+   .. _user^scripts.unregister.filter:
+
+   .. api-member::
+      :name: [``filter``]
+      :refid: user-scripts-unregister-filter
+      :refname: filter
+      :type: (:ref:`user^scripts.^user^script^filter`, optional)
+
+      If specified, this method unregisters only the user scripts that match it.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`
+
+.. _user^scripts.update:
+
+update(scripts)
+---------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+Updates one or more user scripts for this extension.
+
+.. api-header::
+   :label: Parameters
+
+   .. _user^scripts.update.scripts:
+
+   .. api-member::
+      :name: ``scripts``
+      :refid: user-scripts-update-scripts
+      :refname: scripts
+      :type: (array of object)
+
+      List of user scripts to be updated.
 
 .. api-header::
    :label: Required permissions
@@ -230,62 +274,37 @@ Event called when a new userScript global has been created
 Types
 =====
 
-.. _user^scripts.^extension^file^or^code:
+.. _user^scripts.^execution^world:
 
-ExtensionFileOrCode
--------------------
+ExecutionWorld
+--------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
-Specify code, either by pointing to a file or by providing the code directly. Only one of the two is allowed.
+The JavaScript world for a script to execute within. :code:`USER_SCRIPT` is the default execution environment of user scripts, :code:`MAIN` is the web page's execution environment.
 
 .. api-header::
-   :label: object
+   :label: `string`
 
    .. container:: api-member-node
 
       .. container:: api-member-description-only
 
-         .. _user^scripts.^extension^file^or^code.file:
+         Supported values:
+
+         .. _user^scripts.^execution^world.^m^a^i^n:
 
          .. api-member::
-            :name: ``file``
-            :refid: user-scripts-extension-file-or-code-file
-            :refname: file
-            :type: (:ref:`user^scripts.^extension^u^r^l`)
+            :name: :value:`MAIN`
+            :refid: user-scripts-execution-world-m-a-i-n
+            :refname: MAIN
 
-            A URL relative to the extension's :value:`manifest.json` file, and pointing to a JavaScript file to register.
-
-*or*
-
-.. api-header::
-   :label: object
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         .. _user^scripts.^extension^file^or^code.code:
+         .. _user^scripts.^execution^world.^u^s^e^r_^s^c^r^i^p^t:
 
          .. api-member::
-            :name: ``code``
-            :refid: user-scripts-extension-file-or-code-code
-            :refname: code
-            :type: (string)
-
-            A string of JavaScript code to register.
-
-.. _user^scripts.^extension^u^r^l:
-
-ExtensionURL
-------------
-
-.. api-section-annotation-hack:: 
-
-A path relative to the root of the extension.
-
-.. api-header::
-   :label: string
+            :name: :value:`USER_SCRIPT`
+            :refid: user-scripts-execution-world-u-s-e-r-s-c-r-i-p-t
+            :refname: USER_SCRIPT
 
 .. _user^scripts.^match^pattern:
 
@@ -349,42 +368,113 @@ Mostly unrestricted match patterns for privileged add-ons. This should technical
 .. api-header::
    :label: string
 
-.. _user^scripts.^plain^j^s^o^n^value:
+.. _user^scripts.^registered^user^script:
 
-PlainJSONValue
---------------
+RegisteredUserScript
+--------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
-A plain JSON value
-
-.. api-header::
-   :label: null
-
-*or*
-
-.. api-header::
-   :label: number
-
-*or*
-
-.. api-header::
-   :label: string
-
-*or*
-
-.. api-header::
-   :label: boolean
-
-*or*
-
-.. api-header::
-   :label: array of :ref:`user^scripts.^plain^j^s^o^n^value`
-
-*or*
+An object that represents a user script registered programmatically
 
 .. api-header::
    :label: object
+
+   .. _user^scripts.^registered^user^script.id:
+
+   .. api-member::
+      :name: ``id``
+      :refid: user-scripts-registered-user-script-id
+      :refname: id
+      :type: (string)
+
+      The ID of the user script specified in the API call. This property must not start with a '_' as it's reserved as a prefix for generated script IDs.
+
+   .. _user^scripts.^registered^user^script.js:
+
+   .. api-member::
+      :name: ``js``
+      :refid: user-scripts-registered-user-script-js
+      :refname: js
+      :type: (array of :ref:`user^scripts.^script^source`)
+
+      The list of ScriptSource objects defining sources of scripts to be injected into matching pages.
+
+   .. _user^scripts.^registered^user^script.all^frames:
+
+   .. api-member::
+      :name: [``allFrames``]
+      :refid: user-scripts-registered-user-script-all-frames
+      :refname: allFrames
+      :type: (boolean, optional)
+
+      If allFrames is :code:`true`, implies that the JavaScript should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
+
+   .. _user^scripts.^registered^user^script.exclude^globs:
+
+   .. api-member::
+      :name: [``excludeGlobs``]
+      :refid: user-scripts-registered-user-script-exclude-globs
+      :refname: excludeGlobs
+      :type: (array of string, optional)
+
+   .. _user^scripts.^registered^user^script.exclude^matches:
+
+   .. api-member::
+      :name: [``excludeMatches``]
+      :refid: user-scripts-registered-user-script-exclude-matches
+      :refname: excludeMatches
+      :type: (array of :ref:`user^scripts.^match^pattern`, optional)
+
+   .. _user^scripts.^registered^user^script.include^globs:
+
+   .. api-member::
+      :name: [``includeGlobs``]
+      :refid: user-scripts-registered-user-script-include-globs
+      :refname: includeGlobs
+      :type: (array of string, optional)
+
+      At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
+
+   .. _user^scripts.^registered^user^script.matches:
+
+   .. api-member::
+      :name: [``matches``]
+      :refid: user-scripts-registered-user-script-matches
+      :refname: matches
+      :type: (array of :ref:`user^scripts.^match^pattern`, optional)
+
+      At least one of matches or includeGlobs should be non-empty. The script runs in documents whose URL match either pattern.
+
+   .. _user^scripts.^registered^user^script.run^at:
+
+   .. api-member::
+      :name: [``runAt``]
+      :refid: user-scripts-registered-user-script-run-at
+      :refname: runAt
+      :type: (:ref:`user^scripts.^run^at`, optional)
+
+      The soonest that the JavaScript will be injected into the tab. Defaults to "document_idle".
+
+   .. _user^scripts.^registered^user^script.world:
+
+   .. api-member::
+      :name: [``world``]
+      :refid: user-scripts-registered-user-script-world
+      :refname: world
+      :type: (:ref:`user^scripts.^execution^world`, optional)
+
+      The JavaScript script for a script to execute within. Defaults to "USER_SCRIPT".
+
+   .. _user^scripts.^registered^user^script.world^id:
+
+   .. api-member::
+      :name: [``worldId``]
+      :refid: user-scripts-registered-user-script-world-id
+      :refname: worldId
+      :type: (string, optional)
+
+      If specified, specifies a specific user script world ID to execute in. Only valid if :value:`world` is omitted or is :value:`USER_SCRIPT`. If :value:`worldId` is omitted, the script will execute in the default user script world (""). Values with leading underscores (:value:`_`) are reserved. The maximum length is 256.
 
 .. _user^scripts.^run^at:
 
@@ -425,106 +515,107 @@ The soonest that the JavaScript or CSS will be injected into the tab.
             :refid: user-scripts-run-at-document-start
             :refname: document_start
 
-.. _user^scripts.^user^script^options:
+.. _user^scripts.^script^source:
 
-UserScriptOptions
------------------
+ScriptSource
+------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
-Details of a user script
+Object with file xor code property. Equivalent to the ExtensionFileOrCode, except the file remains a relative URL.
 
 .. api-header::
    :label: object
 
-   .. _user^scripts.^user^script^options.js:
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. _user^scripts.^script^source.file:
+
+         .. api-member::
+            :name: ``file``
+            :refid: user-scripts-script-source-file
+            :refname: file
+            :type: (string)
+
+            The path of the JavaScript file to inject relative to the extension's root directory.
+
+*or*
+
+.. api-header::
+   :label: object
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         .. _user^scripts.^script^source.code:
+
+         .. api-member::
+            :name: ``code``
+            :refid: user-scripts-script-source-code
+            :refname: code
+            :type: (string)
+
+.. _user^scripts.^user^script^filter:
+
+UserScriptFilter
+----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+Optional filter to use with getScripts() and unregister().
+
+.. api-header::
+   :label: object
+
+   .. _user^scripts.^user^script^filter.ids:
 
    .. api-member::
-      :name: ``js``
-      :refid: user-scripts-user-script-options-js
-      :refname: js
-      :type: (array of :ref:`user^scripts.^extension^file^or^code`)
-
-      The list of JS files to inject
-
-   .. _user^scripts.^user^script^options.matches:
-
-   .. api-member::
-      :name: ``matches``
-      :refid: user-scripts-user-script-options-matches
-      :refname: matches
-      :type: (array of :ref:`user^scripts.^match^pattern`)
-
-   .. _user^scripts.^user^script^options.all^frames:
-
-   .. api-member::
-      :name: [``allFrames``]
-      :refid: user-scripts-user-script-options-all-frames
-      :refname: allFrames
-      :type: (boolean, optional)
-
-      If allFrames is :code:`true`, implies that the JavaScript should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
-
-   .. _user^scripts.^user^script^options.cookie^store^id:
-
-   .. api-member::
-      :name: [``cookieStoreId``]
-      :refid: user-scripts-user-script-options-cookie-store-id
-      :refname: cookieStoreId
-      :type: (array of string or string, optional)
-
-      limit the set of matched tabs to those that belong to the given cookie store id
-
-   .. _user^scripts.^user^script^options.exclude^globs:
-
-   .. api-member::
-      :name: [``excludeGlobs``]
-      :refid: user-scripts-user-script-options-exclude-globs
-      :refname: excludeGlobs
+      :name: [``ids``]
+      :refid: user-scripts-user-script-filter-ids
+      :refname: ids
       :type: (array of string, optional)
 
-   .. _user^scripts.^user^script^options.exclude^matches:
+.. _user^scripts.^world^properties:
+
+WorldProperties
+---------------
+
+.. api-section-annotation-hack:: -- [Added in TB 136]
+
+The configuration of a USER_SCRIPT world.
+
+.. api-header::
+   :label: object
+
+   .. _user^scripts.^world^properties.csp:
 
    .. api-member::
-      :name: [``excludeMatches``]
-      :refid: user-scripts-user-script-options-exclude-matches
-      :refname: excludeMatches
-      :type: (array of :ref:`user^scripts.^match^pattern`, optional)
+      :name: [``csp``]
+      :refid: user-scripts-world-properties-csp
+      :refname: csp
+      :type: (string, optional)
 
-   .. _user^scripts.^user^script^options.include^globs:
+      The world's Content Security Policy. Defaults to the CSP of regular content scripts, which prohibits dynamic code execution such as eval.
 
-   .. api-member::
-      :name: [``includeGlobs``]
-      :refid: user-scripts-user-script-options-include-globs
-      :refname: includeGlobs
-      :type: (array of string, optional)
-
-   .. _user^scripts.^user^script^options.match^about^blank:
+   .. _user^scripts.^world^properties.messaging:
 
    .. api-member::
-      :name: [``matchAboutBlank``]
-      :refid: user-scripts-user-script-options-match-about-blank
-      :refname: matchAboutBlank
+      :name: [``messaging``]
+      :refid: user-scripts-world-properties-messaging
+      :refname: messaging
       :type: (boolean, optional)
 
-      If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is :code:`false`.
+      Whether the runtime.sendMessage and runtime.connect methods are exposed. Defaults to not exposing these messaging APIs.
 
-   .. _user^scripts.^user^script^options.run^at:
-
-   .. api-member::
-      :name: [``runAt``]
-      :refid: user-scripts-user-script-options-run-at
-      :refname: runAt
-      :type: (:ref:`user^scripts.^run^at`, optional)
-
-      The soonest that the JavaScript will be injected into the tab. Defaults to "document_idle".
-
-   .. _user^scripts.^user^script^options.script^metadata:
+   .. _user^scripts.^world^properties.world^id:
 
    .. api-member::
-      :name: [``scriptMetadata``]
-      :refid: user-scripts-user-script-options-script-metadata
-      :refname: scriptMetadata
-      :type: (:ref:`user^scripts.^plain^j^s^o^n^value`, optional)
+      :name: [``worldId``]
+      :refid: user-scripts-world-properties-world-id
+      :refname: worldId
+      :type: (string, optional)
 
-      An opaque user script metadata value
+      The identifier of the world. Values with leading underscores (:value:`_`) are reserved. The maximum length is 256. Defaults to the default USER_SCRIPT world ("").

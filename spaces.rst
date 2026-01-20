@@ -68,7 +68,7 @@ Functions
 create(name, tabProperties, [buttonProperties])
 -----------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 114]
 
 Creates a new space and adds its button to the spaces toolbar.
 
@@ -114,6 +114,7 @@ Creates a new space and adds its button to the spaces toolbar.
       :refid: spaces-create-returns
       :refname: _returns
       :type: :ref:`spaces.^space`
+      :annotation: -- [Added in TB 115]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -156,7 +157,7 @@ Retrieves details about the specified space.
 open(spaceId, [windowId])
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 114]
 
 Opens or switches to the specified space. Throws an exception if the requested space does not exist or was not created by this extension.
 
@@ -227,16 +228,6 @@ Gets all spaces that have the specified properties, or all spaces if no properti
 
          Id of the extension which should own the spaces. The :permission:`management` permission is required to be able to match against extension ids.
 
-      .. _spaces.query.query^info.id:
-
-      .. api-member::
-         :name: [``id``]
-         :refid: spaces-query-query-info-id
-         :refname: id
-         :type: (integer, optional)
-
-         The id of the space.
-
       .. _spaces.query.query^info.is^built^in:
 
       .. api-member::
@@ -267,6 +258,17 @@ Gets all spaces that have the specified properties, or all spaces if no properti
 
          The name of the spaces (names are not unique).
 
+      .. _spaces.query.query^info.space^id:
+
+      .. api-member::
+         :name: [``spaceId``]
+         :refid: spaces-query-query-info-space-id
+         :refname: spaceId
+         :type: (integer, optional)
+         :annotation: -- [Added in TB 128]
+
+         The id of the space.
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -284,7 +286,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
 remove(spaceId)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 114]
 
 Removes the specified space, closes all its tabs and removes its button from the spaces toolbar. Throws an exception if the requested space does not exist or was not created by this extension.
 
@@ -306,7 +308,7 @@ Removes the specified space, closes all its tabs and removes its button from the
 update(spaceId, tabProperties, [buttonProperties])
 --------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 114]
 
 Updates the specified space. Throws an exception if the requested space does not exist or was not created by this extension.
 
@@ -353,7 +355,7 @@ Types
 ColorArray
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 114]
 
 An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
@@ -475,7 +477,7 @@ Space
 SpaceButtonProperties
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 114]
 
 Properties of a button in the spaces toolbar.
 
@@ -490,7 +492,7 @@ Properties of a button in the spaces toolbar.
       :refname: badgeBackgroundColor
       :type: (string or :ref:`spaces.^color^array`, optional)
 
-      Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to an empty string.
+      Sets the background color of the badge. Can be specified as an array of four integers in the range [0,255] that make up the RGBA color of the badge. For example, opaque red is :value:`[255, 0, 0, 255]`. Can also be a string with an HTML color name (:value:`red`) or a HEX color value (:value:`#FF0000` or :value:`#F00`). Reset when set to :value:`null`.
 
    .. _spaces.^space^button^properties.badge^text:
 
@@ -500,7 +502,7 @@ Properties of a button in the spaces toolbar.
       :refname: badgeText
       :type: (string, optional)
 
-      Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to an empty string.
+      Sets the badge text for the button in the spaces toolbar. The badge is displayed on top of the icon. Any number of characters can be set, but only about four can fit in the space. Removed when set to :value:`null`.
 
    .. _spaces.^space^button^properties.default^icons:
 
@@ -508,9 +510,9 @@ Properties of a button in the spaces toolbar.
       :name: [``defaultIcons``]
       :refid: spaces-space-button-properties-default-icons
       :refname: defaultIcons
-      :type: (string or :ref:`spaces.^icon^path`, optional)
+      :type: (:ref:`spaces.^icon^path`, optional)
 
-      The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to an empty string.
+      The paths to one or more icons for the button in the spaces toolbar. Reset to the extension icon, when set to :value:`null`.
 
    .. _spaces.^space^button^properties.theme^icons:
 
@@ -520,7 +522,7 @@ Properties of a button in the spaces toolbar.
       :refname: themeIcons
       :type: (array of :ref:`spaces.^theme^icons`, optional)
 
-      Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The :value:`light` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified. Reset when set to an empty array.
+      Specifies dark and light icons for the button in the spaces toolbar to be used with themes: The :value:`light` icons will be used on dark backgrounds and vice versa. At least the set for *16px* icons should be specified. The set for *32px* icons will be used on screens with a very high pixel density, if specified. Reset when set to :value:`null`.
 
    .. _spaces.^space^button^properties.title:
 
@@ -530,7 +532,7 @@ Properties of a button in the spaces toolbar.
       :refname: title
       :type: (string, optional)
 
-      The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to an empty string.
+      The title for the button in the spaces toolbar, used in the tooltip of the button and as the displayed name in the overflow menu. Reset to the name of the extension, when set to :value:`null`.
 
 .. _spaces.^space^tab^properties:
 

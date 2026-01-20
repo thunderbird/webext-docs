@@ -34,7 +34,7 @@ Manifest file properties
    :refid: cloud-file-cloud-file
    :refname: cloud_file
    :type: (object, optional)
-   :annotation: -- [Added in TB 64]
+   :annotation: -- [Added in TB 65]
 
    .. _cloud^file.cloud_file.management_url:
 
@@ -43,7 +43,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-management-url
       :refname: management_url
       :type: (string)
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 65]
 
       A page for configuring accounts, to be displayed in the preferences UI.
 
@@ -58,7 +58,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-name
       :refname: name
       :type: (string)
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 65]
 
       Name of the cloud file service.
 
@@ -91,7 +91,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-new-account-url
       :refname: new_account_url
       :type: (string, optional) **Deprecated.**
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 65]
 
       This property was never used.
 
@@ -113,7 +113,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-service-url
       :refname: service_url
       :type: (string, optional) **Deprecated.**
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 65]
 
       This property is no longer used. The :value:`service_url` property of the :ref:`cloud^file.^cloud^file^template^info` object returned by the :ref:`cloud^file.on^file^upload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
 
@@ -138,7 +138,7 @@ Functions
 getAccount(accountId)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Retrieve information about a single cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
@@ -173,7 +173,7 @@ Retrieve information about a single cloud file account. Returns :value:`undefine
 getAllAccounts()
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Retrieve all cloud file accounts for the current add-on.
 
@@ -195,7 +195,7 @@ Retrieve all cloud file accounts for the current add-on.
 updateAccount(accountId, updateProperties)
 ------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Update a cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
@@ -293,7 +293,7 @@ Events
 onAccountAdded
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Fired when a cloud file account of this add-on was created.
 
@@ -327,7 +327,7 @@ Fired when a cloud file account of this add-on was created.
 onAccountDeleted
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Fired when a cloud file account of this add-on was deleted.
 
@@ -361,7 +361,7 @@ Fired when a cloud file account of this add-on was deleted.
 onFileDeleted
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Fired when a previously uploaded file should be deleted.
 
@@ -509,7 +509,7 @@ Fired when a previously uploaded file should be renamed.
 onFileUpload
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Fired when a file should be uploaded to the cloud file provider.
 
@@ -626,7 +626,7 @@ Fired when a file should be uploaded to the cloud file provider.
 onFileUploadAbort
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 .. api-header::
    :label: Parameters for onFileUploadAbort.addListener(listener)
@@ -684,7 +684,7 @@ Types
 CloudFile
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Information about a cloud file.
 
@@ -726,7 +726,7 @@ Information about a cloud file.
 CloudFileAccount
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 65]
 
 Information about a cloud file account.
 

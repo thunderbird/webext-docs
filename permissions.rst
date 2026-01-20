@@ -615,14 +615,6 @@ OptionalPermission
             :refname: messagesImport
             :annotation: -- [Added in TB 106]
 
-         .. _permissions.^optional^permission.messages^modify:
-
-         .. api-member::
-            :name: :value:`messagesModify`
-            :refid: permissions-optional-permission-messages-modify
-            :refname: messagesModify
-            :annotation: -- [Added in TB 82]
-
          .. _permissions.^optional^permission.messages^modify^permanent:
 
          .. api-member::

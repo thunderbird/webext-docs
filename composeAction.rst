@@ -92,7 +92,7 @@ Manifest file properties
       :refid: compose-action-compose-action-default-label
       :refname: default_label
       :type: (string, optional)
-      :annotation: -- [Added in TB 84]
+      :annotation: -- [Added in TB 85]
 
       The label of the composeAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
@@ -383,7 +383,7 @@ Gets the text color of the badge.
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84]
+.. api-section-annotation-hack:: -- [Added in TB 85]
 
 Gets the label of the composeAction button. Returns :value:`null`, if no label has been set and the title is used.
 
@@ -857,7 +857,7 @@ Sets the icon for the composeAction button. Either the :value:`path` or the :val
 setLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 84]
+.. api-section-annotation-hack:: -- [Added in TB 85]
 
 Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
@@ -1038,7 +1038,7 @@ Fired when a composeAction button is clicked. This event will not fire if the co
       :refid: compose-action-on-clicked-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 74]
+      :annotation: -- [Added in TB 75]
 
    .. _compose^action.on^clicked.info:
 
@@ -1047,7 +1047,7 @@ Fired when a composeAction button is clicked. This event will not fire if the co
       :refid: compose-action-on-clicked-info
       :refname: info
       :type: (:ref:`compose^action.^on^click^data`, optional)
-      :annotation: -- [Added in TB 74]
+      :annotation: -- [Added in TB 75]
 
 .. rst-class:: api-main-section
 
@@ -1145,7 +1145,7 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 74]
+.. api-section-annotation-hack:: -- [Added in TB 75]
 
 Information sent when a composeAction button is clicked.
 

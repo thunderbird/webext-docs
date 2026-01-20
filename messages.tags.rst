@@ -454,7 +454,7 @@ Used for filtering messages by tag in various methods. Note that functions using
       :refname: mode
       :type: (`string`)
 
-      Whether all of the tag filters must apply, or any of them.
+      Whether :value:`all` of the tag filters must apply, :value:`any` of them, or :value:`none`. The :value:`none` mode ignores the provided filters and selects only messages without any tags.
 
       Supported values:
 
@@ -471,6 +471,14 @@ Used for filtering messages by tag in various methods. Note that functions using
          :name: :value:`any`
          :refid: messages-tags-tags-detail-mode-any
          :refname: any
+
+      .. _messages.tags.^tags^detail.mode.none:
+
+      .. api-member::
+         :name: :value:`none`
+         :refid: messages-tags-tags-detail-mode-none
+         :refname: none
+         :annotation: -- [Added in TB 148]
 
    .. _messages.tags.^tags^detail.tags:
 

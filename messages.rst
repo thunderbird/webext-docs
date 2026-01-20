@@ -94,15 +94,6 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Read your email messages.
 
-.. _messages.permission.messages^tags:
-
-.. api-member::
-   :name: :permission:`messagesTags`
-   :refid: messages-permission-messages-tags
-   :refname: messagesTags
-
-   Create, modify and delete message tags.
-
 .. _messages.permission.messages^update:
 
 .. api-member::
@@ -216,8 +207,8 @@ Returns the next chunk of messages in a list. See :doc:`guides/messageLists` for
 
 .. _messages.copy:
 
-copy(messageIds, destination, [options])
-----------------------------------------
+copy(messageIds, folderId, [options])
+-------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 66]
 
@@ -236,13 +227,13 @@ Copies messages to a specified folder.
 
       The IDs of the messages to copy.
 
-   .. _messages.copy.destination:
+   .. _messages.copy.folder^id:
 
    .. api-member::
-      :name: ``destination``
-      :refid: messages-copy-destination
-      :refname: destination
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: messages-copy-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
       The folder to copy the messages to.
 
@@ -272,54 +263,6 @@ Copies messages to a specified folder.
    - :permission:`accountsRead`
    - :permission:`messagesMove`
    - :permission:`messagesRead`
-
-.. _messages.create^tag:
-
-createTag(key, tag, color)
---------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
-
-.. api-header::
-   :label: Parameters
-
-   .. _messages.create^tag.key:
-
-   .. api-member::
-      :name: ``key``
-      :refid: messages-create-tag-key
-      :refname: key
-      :type: (string)
-
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-
-   .. _messages.create^tag.tag:
-
-   .. api-member::
-      :name: ``tag``
-      :refid: messages-create-tag-tag
-      :refname: tag
-      :type: (string)
-
-      Human-readable tag name.
-
-   .. _messages.create^tag.color:
-
-   .. api-member::
-      :name: ``color``
-      :refid: messages-create-tag-color
-      :refname: color
-      :type: (string)
-
-      Tag color in hex format (i.e.: :value:`#000080` for navy blue).
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
 
 .. _messages.delete:
 
@@ -426,34 +369,6 @@ Deletes the specified attachments and replaces them by placeholder text attachme
 
    - :permission:`messagesModifyPermanent`
    - :permission:`messagesRead`
-
-.. _messages.delete^tag:
-
-deleteTag(key)
---------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
-
-.. api-header::
-   :label: Parameters
-
-   .. _messages.delete^tag.key:
-
-   .. api-member::
-      :name: ``key``
-      :refid: messages-delete-tag-key
-      :refname: key
-      :type: (string)
-
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
 
 .. _messages.get:
 
@@ -730,7 +645,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
          :type: (`string`, optional)
          :annotation: -- [Added in TB 117]
 
-         The message can either be returned as a DOM File or as a `binary string <https://udn.realityripple.com/docs/Web/API/DOMString/Binary>`__. The historic default is to return a binary string (kept for backward compatibility). However, it is now recommended to use the :value:`File` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ and `File.arrayBuffer() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer>`__.
+         The message can either be returned as a DOM File (default) or as a `binary string <https://udn.realityripple.com/docs/Web/API/DOMString/Binary>`__. It is recommended to use the :value:`File` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ and `File.arrayBuffer() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer>`__.
 
          Working with binary strings is error prone and needs special handling:
 
@@ -799,8 +714,8 @@ Returns the raw content of a message. Throws if the message could not be read, f
 
 .. _messages.import:
 
-import(file, destination, [properties])
----------------------------------------
+import(file, folderId, [properties])
+------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 106]
 
@@ -817,13 +732,13 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
       :refname: file
       :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__)
 
-   .. _messages.import.destination:
+   .. _messages.import.folder^id:
 
    .. api-member::
-      :name: ``destination``
-      :refid: messages-import-destination
-      :refname: destination
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: messages-import-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
       The folder to import the messages into.
 
@@ -856,8 +771,8 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
 
 .. _messages.list:
 
-list(folder)
-------------
+list(folderId, [options])
+-------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 66]
 
@@ -866,13 +781,139 @@ Gets all messages in a folder.
 .. api-header::
    :label: Parameters
 
-   .. _messages.list.folder:
+   .. _messages.list.folder^id:
 
    .. api-member::
-      :name: ``folder``
-      :refid: messages-list-folder
-      :refname: folder
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: messages-list-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
+
+   .. _messages.list.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-list-options
+      :refname: options
+      :type: (object, optional)
+      :annotation: -- [Added in TB 96]
+
+      .. _messages.list.options.sort^order:
+
+      .. api-member::
+         :name: [``sortOrder``]
+         :refid: messages-list-options-sort-order
+         :refname: sortOrder
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 148]
+
+         The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+
+         Supported values:
+
+         .. _messages.list.options.sort^order.ascending:
+
+         .. api-member::
+            :name: :value:`ascending`
+            :refid: messages-list-options-sort-order-ascending
+            :refname: ascending
+
+         .. _messages.list.options.sort^order.descending:
+
+         .. api-member::
+            :name: :value:`descending`
+            :refid: messages-list-options-sort-order-descending
+            :refname: descending
+
+      .. _messages.list.options.sort^type:
+
+      .. api-member::
+         :name: [``sortType``]
+         :refid: messages-list-options-sort-type
+         :refname: sortType
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 148]
+
+         Specifies how the returned messages should be sorted. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+
+         Supported values:
+
+         .. _messages.list.options.sort^type.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: messages-list-options-sort-type-author
+            :refname: author
+
+         .. _messages.list.options.sort^type.date:
+
+         .. api-member::
+            :name: :value:`date`
+            :refid: messages-list-options-sort-type-date
+            :refname: date
+
+         .. _messages.list.options.sort^type.flagged:
+
+         .. api-member::
+            :name: :value:`flagged`
+            :refid: messages-list-options-sort-type-flagged
+            :refname: flagged
+
+         .. _messages.list.options.sort^type.junk:
+
+         .. api-member::
+            :name: :value:`junk`
+            :refid: messages-list-options-sort-type-junk
+            :refname: junk
+
+         .. _messages.list.options.sort^type.junk^score:
+
+         .. api-member::
+            :name: :value:`junkScore`
+            :refid: messages-list-options-sort-type-junk-score
+            :refname: junkScore
+
+         .. _messages.list.options.sort^type.priority:
+
+         .. api-member::
+            :name: :value:`priority`
+            :refid: messages-list-options-sort-type-priority
+            :refname: priority
+
+         .. _messages.list.options.sort^type.read:
+
+         .. api-member::
+            :name: :value:`read`
+            :refid: messages-list-options-sort-type-read
+            :refname: read
+
+         .. _messages.list.options.sort^type.recipients:
+
+         .. api-member::
+            :name: :value:`recipients`
+            :refid: messages-list-options-sort-type-recipients
+            :refname: recipients
+
+         .. _messages.list.options.sort^type.size:
+
+         .. api-member::
+            :name: :value:`size`
+            :refid: messages-list-options-sort-type-size
+            :refname: size
+
+         .. _messages.list.options.sort^type.subject:
+
+         .. api-member::
+            :name: :value:`subject`
+            :refid: messages-list-options-sort-type-subject
+            :refname: subject
+
+         .. _messages.list.options.sort^type.tags:
+
+         .. api-member::
+            :name: :value:`tags`
+            :refid: messages-list-options-sort-type-tags
+            :refname: tags
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -883,7 +924,7 @@ Gets all messages in a folder.
       :refid: messages-list-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 148]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -936,7 +977,7 @@ Lists the attachments of a message. If the message is encrypted, the attachments
 listInlineTextParts(messageId)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 129]
 
 Lists all inline text parts of a message. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messenger^utilities.convert^to^plain^text` can be used to retreive a plain text version. If the message is encrypted, the inline text parts of the decrypted message are listed.
 
@@ -972,37 +1013,10 @@ Lists all inline text parts of a message. These parts are not returned by :ref:`
 
    - :permission:`messagesRead`
 
-.. _messages.list^tags:
-
-listTags()
-----------
-
-.. api-section-annotation-hack:: -- [Added in TB 66]
-
-Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   .. _messages.list^tags.returns:
-
-   .. api-member::
-      :refid: messages-list-tags-returns
-      :refname: _returns
-      :type: array of :ref:`messages.tags.^message^tag`
-      :annotation: -- [Added in TB 96]
-
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-
 .. _messages.move:
 
-move(messageIds, destination, [options])
-----------------------------------------
+move(messageIds, folderId, [options])
+-------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 66]
 
@@ -1021,13 +1035,13 @@ Moves messages to a specified folder. If the messages cannot be removed from the
 
       The IDs of the messages to move.
 
-   .. _messages.move.destination:
+   .. _messages.move.folder^id:
 
    .. api-member::
-      :name: ``destination``
-      :refid: messages-move-destination
-      :refname: destination
-      :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
+      :name: ``folderId``
+      :refid: messages-move-folder-id
+      :refname: folderId
+      :type: (:ref:`folders.^mail^folder^id`)
 
       The folder to move the messages to.
 
@@ -1184,16 +1198,6 @@ Gets all messages that have the specified properties, or all messages if no prop
 
          Returns only flagged (or unflagged if false) messages.
 
-      .. _messages.query.query^info.folder:
-
-      .. api-member::
-         :name: [``folder``]
-         :refid: messages-query-query-info-folder
-         :refname: folder
-         :type: (:ref:`folders.^mail^folder`, optional) **Deprecated.**
-
-         Returns only messages from the specified folder. The :permission:`accountsRead` permission is required.
-
       .. _messages.query.query^info.folder^id:
 
       .. api-member::
@@ -1312,6 +1316,17 @@ Gets all messages that have the specified properties, or all messages if no prop
 
          Query the server directly instead of the local message database. Online queries currently only support querying the :value:`headerMessageId` property. Currently only supported for NNTP accounts.
 
+      .. _messages.query.query^info.read:
+
+      .. api-member::
+         :name: [``read``]
+         :refid: messages-query-query-info-read
+         :refname: read
+         :type: (boolean, optional)
+         :annotation: -- [Added in TB 121]
+
+         Returns only messages with the specified read state.
+
       .. _messages.query.query^info.recipients:
 
       .. api-member::
@@ -1385,17 +1400,6 @@ Gets all messages that have the specified properties, or all messages if no prop
 
          Returns only messages with at least one recipient address matching any configured identity.
 
-      .. _messages.query.query^info.unread:
-
-      .. api-member::
-         :name: [``unread``]
-         :refid: messages-query-query-info-unread
-         :refname: unread
-         :type: (boolean, optional)
-         :annotation: -- [Added in TB 70]
-
-         Returns only unread (or read if false) messages.
-
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -1447,62 +1451,6 @@ Updates message properties and tags. Updating external messages will throw an *E
 
    - :permission:`messagesRead`
    - :permission:`messagesUpdate`
-
-.. _messages.update^tag:
-
-updateTag(key, updateProperties)
---------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 102]
-
-Updates a message tag. Throws if the specified tag key does not exist.
-
-.. api-header::
-   :label: Parameters
-
-   .. _messages.update^tag.key:
-
-   .. api-member::
-      :name: ``key``
-      :refid: messages-update-tag-key
-      :refname: key
-      :type: (string)
-
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
-
-   .. _messages.update^tag.update^properties:
-
-   .. api-member::
-      :name: ``updateProperties``
-      :refid: messages-update-tag-update-properties
-      :refname: updateProperties
-      :type: (object)
-
-      .. _messages.update^tag.update^properties.color:
-
-      .. api-member::
-         :name: [``color``]
-         :refid: messages-update-tag-update-properties-color
-         :refname: color
-         :type: (string, optional)
-
-         Tag color in hex format (i.e.: :value:`#000080` for navy blue).
-
-      .. _messages.update^tag.update^properties.tag:
-
-      .. api-member::
-         :name: [``tag``]
-         :refid: messages-update-tag-update-properties-tag
-         :refname: tag
-         :type: (string, optional)
-
-         Human-readable tag name.
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messagesRead`
-   - :permission:`messagesTags`
 
 .. rst-class:: api-main-section
 
@@ -1772,7 +1720,7 @@ A *dictionary object* of headers as *key-value* pairs, with the header name as *
 InlineTextPart
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 129]
 
 An inline part with content type :value:`text/*`. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`
 
@@ -1955,6 +1903,8 @@ Basic information about a message.
       :refname: date
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
 
+      The date and time when the message was sent, according to the Date header in the message.
+
    .. _messages.^message^header.external:
 
    .. api-member::
@@ -2035,6 +1985,61 @@ Basic information about a message.
       :annotation: -- [Added in TB 106]
 
       Whether the message has been received recently and is marked as new.
+
+   .. _messages.^message^header.priority:
+
+   .. api-member::
+      :name: ``priority``
+      :refid: messages-message-header-priority
+      :refname: priority
+      :type: (`string`)
+      :annotation: -- [Added in TB 148]
+
+      The priority of the message.
+
+      Supported values:
+
+      .. _messages.^message^header.priority.high:
+
+      .. api-member::
+         :name: :value:`high`
+         :refid: messages-message-header-priority-high
+         :refname: high
+
+      .. _messages.^message^header.priority.highest:
+
+      .. api-member::
+         :name: :value:`highest`
+         :refid: messages-message-header-priority-highest
+         :refname: highest
+
+      .. _messages.^message^header.priority.low:
+
+      .. api-member::
+         :name: :value:`low`
+         :refid: messages-message-header-priority-low
+         :refname: low
+
+      .. _messages.^message^header.priority.lowest:
+
+      .. api-member::
+         :name: :value:`lowest`
+         :refid: messages-message-header-priority-lowest
+         :refname: lowest
+
+      .. _messages.^message^header.priority.none:
+
+      .. api-member::
+         :name: :value:`none`
+         :refid: messages-message-header-priority-none
+         :refname: none
+
+      .. _messages.^message^header.priority.normal:
+
+      .. api-member::
+         :name: :value:`normal`
+         :refid: messages-message-header-priority-normal
+         :refname: normal
 
    .. _messages.^message^header.recipients:
 

@@ -1,6 +1,6 @@
-# 📚 WebExtension API Documentation & Guides (Thunderbird Beta 147, Manifest V2)
+# 📚 WebExtension API Documentation & Guides (Thunderbird Daily 149, Manifest V3)
 
-Generated Thunderbird WebExtension API documentation in **reStructuredText (RST)** format, which is used by **ReadTheDocs / Sphinx** to build the public [API documentation](https://webextension-api.thunderbird.net/en/beta-mv2/).
+Generated Thunderbird WebExtension API documentation in **reStructuredText (RST)** format, which is used by **ReadTheDocs / Sphinx** to build the public [API documentation](https://webextension-api.thunderbird.net/en/daily-mv3/).
 
 Report issues at the [generator repository](https://github.com/thunderbird/webext-docs-generator/issues).
 

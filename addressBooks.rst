@@ -462,7 +462,7 @@ A node representing an address book.
       :name: [``contacts``]
       :refid: address-books-address-book-node-contacts
       :refname: contacts
-      :type: (array of :ref:`contacts.^contact^node`, optional)
+      :type: (array of :ref:`address^books.contacts.^contact^node`, optional)
 
       A list of contacts held by this node's address book or mailing list.
 
@@ -472,7 +472,7 @@ A node representing an address book.
       :name: [``mailingLists``]
       :refid: address-books-address-book-node-mailing-lists
       :refname: mailingLists
-      :type: (array of :ref:`mailing^lists.^mailing^list^node`, optional)
+      :type: (array of :ref:`address^books.mailing^lists.^mailing^list^node`, optional)
 
       A list of mailingLists in this node's address book.
 
@@ -503,7 +503,7 @@ A node representing an address book.
       :refid: address-books-address-book-node-remote
       :refname: remote
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 92]
 
       Indicates if the address book is accessed via remote look-up.
 

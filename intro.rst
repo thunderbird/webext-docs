@@ -7,9 +7,9 @@
 
   .. include:: _includes/developer-resources.rst
 
-===========================================================================
-WebExtension API Documentation & Guides (Thunderbird Beta 147, Manifest V2)
-===========================================================================
+============================================================================
+WebExtension API Documentation & Guides (Thunderbird Daily 149, Manifest V3)
+============================================================================
 
 These documents assume you already have some familiarity with the WebExtension technology. If not, it is
 highly recommended to start with the following pages:
@@ -53,7 +53,8 @@ Guides Overview
 :doc:`guides/vcard`
   Explore how to manage Thunderbird contacts using the vCard format. This section explains how to work with legacy and modern contact properties, update individual fields safely, and manipulate vCards directly using the `ical.js` library. Best practices are provided for reading, modifying, and storing contact information while avoiding common pitfalls with legacy property mappings.
 
-
+:doc:`guides/manifestV3`
+  Learn about the key changes required to convert Thunderbird WebExtensions from Manifest V2 to Manifest V3. This section explains backward-incompatible modifications across core APIs, highlights updated default behaviors, and points to sample code for guidance on adapting extensions to the new manifest version.
 
 :doc:`guides/experiments`
   Understand how to extend Thunderbird with custom Experiment APIs. This section covers declaring Experiments in the manifest, implementing their functions and events, and managing native tabs and native windows through the extension context. It also provides guidance on integrating these APIs safely alongside Thunderbird's built-in WebExtension features.

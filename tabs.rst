@@ -311,52 +311,6 @@ Duplicates a tab.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
-.. _tabs.execute^script:
-
-executeScript([tabId], details)
--------------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 62]
-
-Injects JavaScript code into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
-
-.. api-header::
-   :label: Parameters
-
-   .. _tabs.execute^script.tab^id:
-
-   .. api-member::
-      :name: [``tabId``]
-      :refid: tabs-execute-script-tab-id
-      :refname: tabId
-      :type: (integer, optional)
-
-      The ID of the tab in which to run the script; defaults to the active tab of the current window.
-
-   .. _tabs.execute^script.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: tabs-execute-script-details
-      :refname: details
-      :type: (:ref:`tabs.^inject^details`)
-
-      Details of the script to run.
-
-.. api-header::
-   :label: Return type (`Promise`_)
-
-   .. _tabs.execute^script.returns:
-
-   .. api-member::
-      :refid: tabs-execute-script-returns
-      :refname: _returns
-      :type: array of any
-
-      The result of the script in every injected frame.
-
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
 .. _tabs.get:
 
 get(tabId)
@@ -409,38 +363,6 @@ Gets the tab that this script call is being made from. Returns :value:`undefined
       :type: :ref:`tabs.^tab`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. _tabs.insert^c^s^s:
-
-insertCSS([tabId], details)
----------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 62]
-
-Injects CSS into a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
-
-.. api-header::
-   :label: Parameters
-
-   .. _tabs.insert^c^s^s.tab^id:
-
-   .. api-member::
-      :name: [``tabId``]
-      :refid: tabs-insert-c-s-s-tab-id
-      :refname: tabId
-      :type: (integer, optional)
-
-      The ID of the tab in which to insert the CSS; defaults to the active tab of the current window.
-
-   .. _tabs.insert^c^s^s.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: tabs-insert-c-s-s-details
-      :refname: details
-      :type: (:ref:`tabs.^inject^details`)
-
-      Details of the CSS text to insert.
 
 .. _tabs.move:
 
@@ -591,17 +513,6 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 
          Whether the tabs are in the last focused window.
 
-      .. _tabs.query.query^info.mail^tab:
-
-      .. api-member::
-         :name: [``mailTab``]
-         :refid: tabs-query-query-info-mail-tab
-         :refname: mailTab
-         :type: (boolean, optional)
-         :annotation: -- [Added in TB 66]
-
-         Whether the tab is a Thunderbird 3-pane tab.  If specified, the :value:`queryInfo.type` property will be ignored
-
       .. _tabs.query.query^info.space^id:
 
       .. api-member::
@@ -640,7 +551,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refid: tabs-query-query-info-type
          :refname: type
          :type: (:ref:`tabs.^tab^type` or array of :ref:`tabs.^tab^type`, optional)
-         :annotation: -- [Added in TB 91]
+         :annotation: -- [Added in TB 92]
 
          Match tabs against the given tab type or types.
 
@@ -747,38 +658,6 @@ Closes one or more tabs.
       :type: (integer or array of integer)
 
       The tab or list of tabs to close.
-
-.. _tabs.remove^c^s^s:
-
-removeCSS([tabId], details)
----------------------------
-
-.. api-section-annotation-hack:: -- [Added in TB 62]
-
-Removes injected CSS from a page. For details, see the `programmatic injection <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__ section of the content scripts doc.
-
-.. api-header::
-   :label: Parameters
-
-   .. _tabs.remove^c^s^s.tab^id:
-
-   .. api-member::
-      :name: [``tabId``]
-      :refid: tabs-remove-c-s-s-tab-id
-      :refname: tabId
-      :type: (integer, optional)
-
-      The ID of the tab from which to remove the injected CSS; defaults to the active tab of the current window.
-
-   .. _tabs.remove^c^s^s.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: tabs-remove-c-s-s-details
-      :refname: details
-      :type: (:ref:`tabs.^inject^details`)
-
-      Details of the CSS text to remove.
 
 .. _tabs.send^message:
 
@@ -1345,159 +1224,6 @@ Fired when a tab is updated.
 Types
 =====
 
-.. _tabs.^c^s^s^origin:
-
-CSSOrigin
----------
-
-.. api-section-annotation-hack:: -- [Added in TB 53]
-
-The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. _tabs.^c^s^s^origin.author:
-
-         .. api-member::
-            :name: :value:`author`
-            :refid: tabs-c-s-s-origin-author
-            :refname: author
-
-         .. _tabs.^c^s^s^origin.user:
-
-         .. api-member::
-            :name: :value:`user`
-            :refid: tabs-c-s-s-origin-user
-            :refname: user
-
-.. _tabs.^inject^details:
-
-InjectDetails
--------------
-
-.. api-section-annotation-hack:: 
-
-Details of the script or CSS to inject. Either the code or the file property must be set, but both may not be set at the same time.
-
-.. api-header::
-   :label: object
-
-   .. _tabs.^inject^details.all^frames:
-
-   .. api-member::
-      :name: [``allFrames``]
-      :refid: tabs-inject-details-all-frames
-      :refname: allFrames
-      :type: (boolean, optional)
-
-      If allFrames is :code:`true`, implies that the JavaScript or CSS should be injected into all frames of current page. By default, it's :code:`false` and is only injected into the top frame.
-
-   .. _tabs.^inject^details.code:
-
-   .. api-member::
-      :name: [``code``]
-      :refid: tabs-inject-details-code
-      :refname: code
-      :type: (string, optional)
-
-      JavaScript or CSS code to inject.  **Warning:** Be careful using the :code:`code` parameter. Incorrect use of it may open your extension to `cross site scripting <https://en.wikipedia.org/wiki/Cross-site_scripting>`__ attacks.
-
-   .. _tabs.^inject^details.css^origin:
-
-   .. api-member::
-      :name: [``cssOrigin``]
-      :refid: tabs-inject-details-css-origin
-      :refname: cssOrigin
-      :type: (:ref:`tabs.^c^s^s^origin`, optional)
-
-      The css origin of the stylesheet to inject. Defaults to "author".
-
-   .. _tabs.^inject^details.file:
-
-   .. api-member::
-      :name: [``file``]
-      :refid: tabs-inject-details-file
-      :refname: file
-      :type: (string, optional)
-
-      JavaScript or CSS file to inject.
-
-   .. _tabs.^inject^details.frame^id:
-
-   .. api-member::
-      :name: [``frameId``]
-      :refid: tabs-inject-details-frame-id
-      :refname: frameId
-      :type: (integer, optional)
-
-      The ID of the frame to inject the script into. This may not be used in combination with :code:`allFrames`.
-
-   .. _tabs.^inject^details.match^about^blank:
-
-   .. api-member::
-      :name: [``matchAboutBlank``]
-      :refid: tabs-inject-details-match-about-blank
-      :refname: matchAboutBlank
-      :type: (boolean, optional)
-
-      If matchAboutBlank is true, then the code is also injected in about:blank and about:srcdoc frames if your extension has access to its parent document. Code cannot be inserted in top-level about:-frames. By default it is :code:`false`.
-
-   .. _tabs.^inject^details.run^at:
-
-   .. api-member::
-      :name: [``runAt``]
-      :refid: tabs-inject-details-run-at
-      :refname: runAt
-      :type: (:ref:`tabs.^run^at`, optional)
-
-      The soonest that the JavaScript or CSS will be injected into the tab. Defaults to "document_idle".
-
-.. _tabs.^run^at:
-
-RunAt
------
-
-.. api-section-annotation-hack:: -- [Added in TB 45]
-
-The soonest that the JavaScript or CSS will be injected into the tab.
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. _tabs.^run^at.document_end:
-
-         .. api-member::
-            :name: :value:`document_end`
-            :refid: tabs-run-at-document-end
-            :refname: document_end
-
-         .. _tabs.^run^at.document_idle:
-
-         .. api-member::
-            :name: :value:`document_idle`
-            :refid: tabs-run-at-document-idle
-            :refname: document_idle
-
-         .. _tabs.^run^at.document_start:
-
-         .. api-member::
-            :name: :value:`document_start`
-            :refid: tabs-run-at-document-start
-            :refname: document_start
-
 .. _tabs.^tab:
 
 Tab
@@ -1580,7 +1306,7 @@ Tab
       :refid: tabs-tab-group-id
       :refname: groupId
       :type: (integer, optional)
-      :annotation: -- [Added in TB 138]
+      :annotation: -- [Added in TB 139]
 
       The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
 
@@ -1603,17 +1329,6 @@ Tab
       :type: (integer, optional)
 
       The ID of the tab. Tab IDs are unique within a session. Under some circumstances a Tab may not be assigned an ID. Tab ID can also be set to :ref:`tabs.^t^a^b_^i^d_^n^o^n^e` for apps and devtools windows.
-
-   .. _tabs.^tab.mail^tab:
-
-   .. api-member::
-      :name: [``mailTab``]
-      :refid: tabs-tab-mail-tab
-      :refname: mailTab
-      :type: (boolean, optional)
-      :annotation: -- [Added in TB 66]
-
-      Whether the tab is a 3-pane tab.
 
    .. _tabs.^tab.space^id:
 
@@ -1653,7 +1368,7 @@ Tab
       :refid: tabs-tab-type
       :refname: type
       :type: (:ref:`tabs.^tab^type`, optional)
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 92]
 
    .. _tabs.^tab.url:
 
