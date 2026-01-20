@@ -220,6 +220,8 @@ Manifest file properties
          :refid: browser-action-browser-action-type-menu
          :refname: menu
 
+         The :ref:`menus.^context^type.browser_action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed browserAction button.
+
 .. rst-class:: api-main-section
 
 Permissions

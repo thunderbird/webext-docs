@@ -398,7 +398,7 @@ deleteAttachments(messageId, partNames)
 
 .. api-section-annotation-hack:: -- [Added in TB 123]
 
-Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
+Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message. Deleting attachments of encrypted messages is not supported and will throw an *ExtensionError*.
 
 .. api-header::
    :label: Parameters
@@ -500,7 +500,7 @@ getAttachmentFile(messageId, partName)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Gets the content of a :ref:`messages.^message^attachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+Gets the content of a :ref:`messages.^message^attachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object. If the message is encrypted, the function retrieves the attachment from the decrypted message.
 
 The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
 
@@ -530,6 +530,8 @@ The most simple way to get the content of an attachment is to use the `text() <h
       :refid: messages-get-attachment-file-part-name
       :refname: partName
       :type: (string)
+
+      The :value:`partName` of an attachment to be retrieved from the decrypted message.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -621,6 +623,65 @@ Returns the specified message, including all headers and MIME parts. Throws if t
       :refname: _returns
       :type: :ref:`messages.^message^part`
       :annotation: -- [Added in TB 125]
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.get^headers:
+
+getHeaders(messageId, [options])
+--------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 147]
+
+Returns all message headers of the specified message, without MIME structure parsing. Throws an error if the message cannot be read, for example due to network issues. This function is significantly faster than :ref:`messages.get^full` when only the header information is required.
+
+.. note::
+
+   Unlike :ref:`messages.get^full`, this function is not MIME-aware and simply returns every header line found before the first blank line that separates the headers from the RFC 822 message body. This includes headers such as :value:`Content-Type` and :value:`Content-Transfer-Encoding`, which are otherwise associated with a specific MIME part.
+
+.. api-header::
+   :label: Parameters
+
+   .. _messages.get^headers.message^id:
+
+   .. api-member::
+      :name: ``messageId``
+      :refid: messages-get-headers-message-id
+      :refname: messageId
+      :type: (:ref:`messages.^message^id`)
+
+   .. _messages.get^headers.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-get-headers-options
+      :refname: options
+      :type: (object, optional)
+
+      .. _messages.get^headers.options.decode^headers:
+
+      .. api-member::
+         :name: [``decodeHeaders``]
+         :refid: messages-get-headers-options-decode-headers
+         :refname: decodeHeaders
+         :type: (boolean, optional)
+
+         Whether to decode RFC 2047 encoded headers. Defaults to :value:`true`.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messages.get^headers.returns:
+
+   .. api-member::
+      :refid: messages-get-headers-returns
+      :refname: _returns
+      :type: :ref:`messages.^headers^dictionary`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -839,7 +900,7 @@ listAttachments(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 88]
 
-Lists the attachments of a message.
+Lists the attachments of a message. If the message is encrypted, the attachments of the decrypted message are listed.
 
 .. api-header::
    :label: Parameters
@@ -877,7 +938,7 @@ listInlineTextParts(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 128]
 
-Lists all inline text parts of a message. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messenger^utilities.convert^to^plain^text` can be used to retreive a plain text version.
+Lists all inline text parts of a message. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messenger^utilities.convert^to^plain^text` can be used to retreive a plain text version. If the message is encrypted, the inline text parts of the decrypted message are listed.
 
 .. note::
 
@@ -1694,6 +1755,18 @@ Fired when one or more properties of a message have been updated.
 Types
 =====
 
+.. _messages.^headers^dictionary:
+
+HeadersDictionary
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 147]
+
+A *dictionary object* of headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+
+.. api-header::
+   :label: object
+
 .. _messages.^inline^text^part:
 
 InlineTextPart
@@ -1777,7 +1850,7 @@ Represents an attachment in a message.
       :name: ``headers``
       :refid: messages-message-attachment-headers
       :refname: headers
-      :type: (object)
+      :type: (:ref:`messages.^headers^dictionary`)
       :annotation: -- [Added in TB 135]
 
       A *dictionary object* of RFC 2047 decoded attachment headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
@@ -2143,7 +2216,7 @@ Represents an email message "part", which could be the whole message.
       :name: [``headers``]
       :refid: messages-message-part-headers
       :refname: headers
-      :type: (object, optional)
+      :type: (:ref:`messages.^headers^dictionary`, optional)
 
       A *dictionary object* of RFC 2047 decoded part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.get^full`.
 
@@ -2194,7 +2267,7 @@ Represents an email message "part", which could be the whole message.
       :name: [``rawHeaders``]
       :refid: messages-message-part-raw-headers
       :refname: rawHeaders
-      :type: (object, optional)
+      :type: (:ref:`messages.^headers^dictionary`, optional)
       :annotation: -- [Added in TB 133]
 
       A *dictionary object* of raw part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.get^full`.

@@ -707,6 +707,14 @@ OptionalPermission
             :refid: permissions-optional-permission-privacy
             :refname: privacy
 
+         .. _permissions.^optional^permission.proxy:
+
+         .. api-member::
+            :name: :value:`proxy`
+            :refid: permissions-optional-permission-proxy
+            :refname: proxy
+            :annotation: -- [Added in TB 147]
+
          .. _permissions.^optional^permission.sensitive^data^upload:
 
          .. api-member::

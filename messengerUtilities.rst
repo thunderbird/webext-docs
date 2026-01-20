@@ -2,6 +2,7 @@
 
   ≡ messengerUtilities API
 
+  * `Permissions`_
   * `Functions`_
   * `Types`_
 
@@ -18,6 +19,24 @@ messengerUtilities API
 .. role:: code
 
 The messengerUtilities API provides helpful methods for working with messages and emails.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. _messenger^utilities.permission.address^book:
+
+.. api-member::
+   :name: :permission:`addressBook`
+   :refid: messenger-utilities-permission-address-book
+   :refname: addressBook
 
 .. rst-class:: api-main-section
 
@@ -212,8 +231,8 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
 
 .. _messenger^utilities.parse^mailbox^string:
 
-parseMailboxString(mailboxString, [preserveGroups])
----------------------------------------------------
+parseMailboxString(mailboxString, [options])
+--------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 137]
 
@@ -232,13 +251,45 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
 
       The string to be parsed (e.g. :value:`User <user@example.com>, other-user@example.com`)
 
-   .. _messenger^utilities.parse^mailbox^string.preserve^groups:
+   .. _messenger^utilities.parse^mailbox^string.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messenger-utilities-parse-mailbox-string-options
+      :refname: options
+      :type: (boolean or object, optional)
+
+   .. api-member::
+      :type: (boolean) **Deprecated.**
+      :depth: 1
+
+      Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+
+   .. api-member::
+      :type: or (object)
+      :depth: 1
+
+   .. _messenger^utilities.parse^mailbox^string.options.expand^mailing^lists:
+
+   .. api-member::
+      :name: [``expandMailingLists``]
+      :refid: messenger-utilities-parse-mailbox-string-options-expand-mailing-lists
+      :refname: expandMailingLists
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 147]
+      :depth: 2
+
+      Expand Thunderbird mailing lists (specified as :value:`ListName <ListName>`) and include the parsed primary email addresses of all members. When used together with :value:`preserveGroups`, the mailing list's name and hierarchy are preserved. If the mailing list does not exist, or the :permission:`addressBook` permission is not granted, the entries are not expanded and returned unchanged.
+
+   .. _messenger^utilities.parse^mailbox^string.options.preserve^groups:
 
    .. api-member::
       :name: [``preserveGroups``]
-      :refid: messenger-utilities-parse-mailbox-string-preserve-groups
+      :refid: messenger-utilities-parse-mailbox-string-options-preserve-groups
       :refname: preserveGroups
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 147]
+      :depth: 2
 
       Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
 

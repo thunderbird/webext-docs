@@ -449,7 +449,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: -- [Added in TB 62]
 
-Moves one or more tabs to a new position within its current window, or to a different window. Tabs can only be moved to and from windows of type :value:`normal`.
+Moves one or more tabs to a new position within its current window, or to a different window. Tabs can only be moved to and from windows of type :value:`normal`. The primary mail tab cannot be moved, attempting to actively reposition it will throw an *ExtensionError*. Other tabs also cannot be placed before the primary mail tab, they will automatically be positioned after it, ensuring that the primary mail tab always remains first.
 
 .. api-header::
    :label: Parameters
