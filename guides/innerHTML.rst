@@ -186,7 +186,9 @@ Bundle ``lighterhtml`` with the add-on
    .. code-block:: markdown
       :caption: VENDOR.md
 
-      lighterhtml.js: https://cdn.jsdelivr.net/npm/lighterhtml@4.2.0/min.min.js
+      local/path/to/lighterhtml.js:
+       - Version: 4.2.0
+       - URL: https://cdn.jsdelivr.net/npm/lighterhtml@4.2.0/min.min.js
 
    This allows reviewers to verify that the file is unchanged.
 
@@ -286,7 +288,9 @@ Bundle ``DOMPurify`` with the add-on
    .. code-block:: markdown
       :caption: VENDOR.md
 
-      purify.min.js: https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
+      local/path/to/purify.min.js:
+       - Version: 3.2.7
+       - URL: https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
 
    This allows reviewers to verify that the file is unchanged.
 
