@@ -24,11 +24,10 @@ In accordance with Mozilla's `third-party library guidelines <https://extensionw
 .. code-block:: text
    :caption: VENDOR.md
 
-  local/path/to/ical.min.js:
+   local/path/to/ical.min.js:
     - Name: ical.js
     - Version: 2.2.1
     - URL: https://github.com/kewisch/ical.js/releases/download/v2.2.1/ical.min.js
-
 
 In the ``background.js`` script one can then import the library and parse vCard strings as follows:
 
