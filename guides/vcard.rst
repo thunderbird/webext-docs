@@ -25,7 +25,6 @@ In accordance with Mozilla's `third-party library guidelines <https://extensionw
    :caption: VENDOR.md
 
    local/path/to/ical.min.js:
-    - Name: ical.js
     - Version: 2.2.1
     - URL: https://github.com/kewisch/ical.js/releases/download/v2.2.1/ical.min.js
 
