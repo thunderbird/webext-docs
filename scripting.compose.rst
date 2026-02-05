@@ -38,6 +38,21 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Read and modify your email messages as you compose and send them.
 
+.. _scripting.compose.permission.scripting:
+
+.. api-member::
+   :name: :permission:`scripting`
+   :refid: scripting-compose-permission-scripting
+   :refname: scripting
+
+   Grant access to some or all methods of the scripting API.
+
+.. rst-class:: api-permission-info
+
+.. note::
+
+   The permission :permission:`scripting` is required to use ``messenger.scripting.compose.*``.
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -87,6 +102,7 @@ Returns all registered compose scripts for this extension that match the given f
    :label: Required permissions
 
    - :permission:`compose`
+   - :permission:`scripting`
 
 .. _scripting.compose.register^scripts:
 
@@ -122,6 +138,7 @@ Registers one or more compose scripts for this extension, which should be inject
    :label: Required permissions
 
    - :permission:`compose`
+   - :permission:`scripting`
 
 .. _scripting.compose.unregister^scripts:
 
@@ -149,6 +166,7 @@ Unregisters one or more compose scripts for this extension.
    :label: Required permissions
 
    - :permission:`compose`
+   - :permission:`scripting`
 
 .. rst-class:: api-main-section
 

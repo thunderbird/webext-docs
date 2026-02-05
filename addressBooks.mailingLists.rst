@@ -47,6 +47,12 @@ The following permissions influence the behavior of the API. Depending on which 
 
    The permission :permission:`addressBooks` is required to use ``messenger.addressBooks.mailingLists.*``.
 
+.. rst-class:: api-permission-info
+
+.. note::
+
+   The permission :permission:`addressBooks` is required to use ``messenger.addressBooks.mailingLists.*``.
+
 .. rst-class:: api-main-section
 
 Functions
