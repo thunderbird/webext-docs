@@ -38,6 +38,21 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Read your email messages.
 
+.. _scripting.message^display.permission.scripting:
+
+.. api-member::
+   :name: :permission:`scripting`
+   :refid: scripting-message-display-permission-scripting
+   :refname: scripting
+
+   Grant access to some or all methods of the scripting API.
+
+.. rst-class:: api-permission-info
+
+.. note::
+
+   The permission :permission:`scripting` is required to use ``messenger.scripting.messageDisplay.*``.
+
 .. rst-class:: api-permission-info
 
 .. note::
@@ -87,6 +102,7 @@ Returns all registered message display scripts for this extension that match the
    :label: Required permissions
 
    - :permission:`messagesRead`
+   - :permission:`scripting`
 
 .. _scripting.message^display.register^scripts:
 
@@ -122,6 +138,7 @@ Registers one or more message display scripts for this extension, which should b
    :label: Required permissions
 
    - :permission:`messagesRead`
+   - :permission:`scripting`
 
 .. _scripting.message^display.unregister^scripts:
 
@@ -149,6 +166,7 @@ Unregisters one or more message display scripts for this extension.
    :label: Required permissions
 
    - :permission:`messagesRead`
+   - :permission:`scripting`
 
 .. rst-class:: api-main-section
 

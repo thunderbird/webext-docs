@@ -49,6 +49,12 @@ The following permissions influence the behavior of the API. Depending on which 
 
    The permission :permission:`browserSettings` is required to use ``messenger.browserSettings.colorManagement.*``.
 
+.. rst-class:: api-permission-info
+
+.. note::
+
+   The permission :permission:`browserSettings` is required to use ``messenger.browserSettings.colorManagement.*``.
+
 .. rst-class:: api-main-section
 
 Properties
