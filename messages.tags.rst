@@ -41,6 +41,15 @@ The following permissions influence the behavior of the API. Depending on which 
 
    See your mail accounts, their identities and their folders.
 
+.. _messages.tags.permission.messages^read:
+
+.. api-member::
+   :name: :permission:`messagesRead`
+   :refid: messages-tags-permission-messages-read
+   :refname: messagesRead
+
+   Read your email messages.
+
 .. _messages.tags.permission.messages^tags:
 
 .. api-member::
@@ -58,6 +67,12 @@ The following permissions influence the behavior of the API. Depending on which 
    :refname: messagesTagsList
 
    List message tags.
+
+.. rst-class:: api-permission-info
+
+.. note::
+
+   The permission :permission:`messagesRead` is required to use ``messenger.messages.tags.*``.
 
 .. rst-class:: api-main-section
 
@@ -118,6 +133,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. _messages.tags.delete:
@@ -145,6 +161,7 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. _messages.tags.list:
@@ -171,6 +188,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTagsList`
 
 .. _messages.tags.update:
@@ -206,6 +224,7 @@ Updates a message tag. Throws if the specified tag key does not exist.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTags`
 
 .. rst-class:: api-main-section
@@ -248,6 +267,7 @@ Fired when a new message tag has been created.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTagsList`
 
 .. _messages.tags.on^deleted:
@@ -288,6 +308,7 @@ Fired when a message tag has been deleted.
    :label: Required permissions
 
    - :permission:`accountsRead`
+   - :permission:`messagesRead`
 
 .. _messages.tags.on^updated:
 
@@ -346,6 +367,7 @@ Fired when one or more properties of a message tag have been updated.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`messagesRead`
    - :permission:`messagesTagsList`
 
 .. rst-class:: api-main-section
