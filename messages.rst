@@ -856,8 +856,8 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
 
 .. _messages.list:
 
-list(folder)
-------------
+list(folder, [options])
+-----------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 66]
 
@@ -874,6 +874,132 @@ Gets all messages in a folder.
       :refname: folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
+   .. _messages.list.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-list-options
+      :refname: options
+      :type: (object, optional)
+      :annotation: -- [Added in TB 96]
+
+      .. _messages.list.options.sort^order:
+
+      .. api-member::
+         :name: [``sortOrder``]
+         :refid: messages-list-options-sort-order
+         :refname: sortOrder
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 148]
+
+         The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+
+         Supported values:
+
+         .. _messages.list.options.sort^order.ascending:
+
+         .. api-member::
+            :name: :value:`ascending`
+            :refid: messages-list-options-sort-order-ascending
+            :refname: ascending
+
+         .. _messages.list.options.sort^order.descending:
+
+         .. api-member::
+            :name: :value:`descending`
+            :refid: messages-list-options-sort-order-descending
+            :refname: descending
+
+      .. _messages.list.options.sort^type:
+
+      .. api-member::
+         :name: [``sortType``]
+         :refid: messages-list-options-sort-type
+         :refname: sortType
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 148]
+
+         Specifies how the returned messages should be sorted. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+
+         Supported values:
+
+         .. _messages.list.options.sort^type.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: messages-list-options-sort-type-author
+            :refname: author
+
+         .. _messages.list.options.sort^type.date:
+
+         .. api-member::
+            :name: :value:`date`
+            :refid: messages-list-options-sort-type-date
+            :refname: date
+
+         .. _messages.list.options.sort^type.flagged:
+
+         .. api-member::
+            :name: :value:`flagged`
+            :refid: messages-list-options-sort-type-flagged
+            :refname: flagged
+
+         .. _messages.list.options.sort^type.junk:
+
+         .. api-member::
+            :name: :value:`junk`
+            :refid: messages-list-options-sort-type-junk
+            :refname: junk
+
+         .. _messages.list.options.sort^type.junk^score:
+
+         .. api-member::
+            :name: :value:`junkScore`
+            :refid: messages-list-options-sort-type-junk-score
+            :refname: junkScore
+
+         .. _messages.list.options.sort^type.priority:
+
+         .. api-member::
+            :name: :value:`priority`
+            :refid: messages-list-options-sort-type-priority
+            :refname: priority
+
+         .. _messages.list.options.sort^type.read:
+
+         .. api-member::
+            :name: :value:`read`
+            :refid: messages-list-options-sort-type-read
+            :refname: read
+
+         .. _messages.list.options.sort^type.recipients:
+
+         .. api-member::
+            :name: :value:`recipients`
+            :refid: messages-list-options-sort-type-recipients
+            :refname: recipients
+
+         .. _messages.list.options.sort^type.size:
+
+         .. api-member::
+            :name: :value:`size`
+            :refid: messages-list-options-sort-type-size
+            :refname: size
+
+         .. _messages.list.options.sort^type.subject:
+
+         .. api-member::
+            :name: :value:`subject`
+            :refid: messages-list-options-sort-type-subject
+            :refname: subject
+
+         .. _messages.list.options.sort^type.tags:
+
+         .. api-member::
+            :name: :value:`tags`
+            :refid: messages-list-options-sort-type-tags
+            :refname: tags
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -883,7 +1009,7 @@ Gets all messages in a folder.
       :refid: messages-list-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 148]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -1955,6 +2081,8 @@ Basic information about a message.
       :refname: date
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
 
+      The date and time when the message was sent, according to the Date header in the message.
+
    .. _messages.^message^header.external:
 
    .. api-member::
@@ -2035,6 +2163,61 @@ Basic information about a message.
       :annotation: -- [Added in TB 106]
 
       Whether the message has been received recently and is marked as new.
+
+   .. _messages.^message^header.priority:
+
+   .. api-member::
+      :name: ``priority``
+      :refid: messages-message-header-priority
+      :refname: priority
+      :type: (`string`)
+      :annotation: -- [Added in TB 148]
+
+      The priority of the message.
+
+      Supported values:
+
+      .. _messages.^message^header.priority.high:
+
+      .. api-member::
+         :name: :value:`high`
+         :refid: messages-message-header-priority-high
+         :refname: high
+
+      .. _messages.^message^header.priority.highest:
+
+      .. api-member::
+         :name: :value:`highest`
+         :refid: messages-message-header-priority-highest
+         :refname: highest
+
+      .. _messages.^message^header.priority.low:
+
+      .. api-member::
+         :name: :value:`low`
+         :refid: messages-message-header-priority-low
+         :refname: low
+
+      .. _messages.^message^header.priority.lowest:
+
+      .. api-member::
+         :name: :value:`lowest`
+         :refid: messages-message-header-priority-lowest
+         :refname: lowest
+
+      .. _messages.^message^header.priority.none:
+
+      .. api-member::
+         :name: :value:`none`
+         :refid: messages-message-header-priority-none
+         :refname: none
+
+      .. _messages.^message^header.priority.normal:
+
+      .. api-member::
+         :name: :value:`normal`
+         :refid: messages-message-header-priority-normal
+         :refname: normal
 
    .. _messages.^message^header.recipients:
 
