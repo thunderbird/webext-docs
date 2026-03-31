@@ -20,6 +20,8 @@ composeAction API
 
 .. role:: code
 
+.. role:: small
+
 Use a composeAction to put a button in the message composition toolbars. In addition to its icon, a composeAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section

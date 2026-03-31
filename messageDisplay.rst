@@ -18,6 +18,8 @@ messageDisplay API
 
 .. role:: code
 
+.. role:: small
+
 A message can be displayed in either Thunderbird's main mail tab (a.k.a 3-pane tab), a tab of its own, or in a window of its own. All are referenced by :value:`tabId` in this API. Display windows are considered to have exactly one tab, which has limited functionality compared to tabs from the main window.
 
 .. rst-class:: api-main-section

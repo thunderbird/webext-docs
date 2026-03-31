@@ -20,6 +20,8 @@ commands API
 
 .. role:: code
 
+.. role:: small
+
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
 
 Thunderbird's commands API is largely the same as the `Firefox commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/commands>`__.

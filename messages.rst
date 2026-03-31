@@ -19,6 +19,8 @@ messages API
 
 .. role:: code
 
+.. role:: small
+
 The messages API allows to access and manage the user's messages.
 
 .. note::

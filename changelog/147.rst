@@ -1,0 +1,39 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 147
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 147.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`event` `onAfterSave.saveInfo.details <../compose.html#compose-on-after-save-save-info-details>`__ — The `compose.ComposeDetails <../compose.html#compose-compose-details>`__ of the saved message.
+- :small:`event` `onAfterSend.sendInfo.details <../compose.html#compose-on-after-send-send-info-details>`__ — The `compose.ComposeDetails <../compose.html#compose-compose-details>`__ of the send message.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `getHeaders <../messages.html#messages-get-headers>`__ — Returns all message headers of the specified message, without MIME structure parsing. Throws an error if the message cannot be read, for example due to network issues. This function is significantly faster than `messages.getFull <../messages.html#messages-get-full>`__ when only the header information is required.
+- :small:`type` `HeadersDictionary <../messages.html#messages-headers-dictionary>`__ — A *dictionary object* of headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../proxy.html">proxy</a>
+   </div>
+
+Provides access to global proxy settings for Thunderbird and proxy event listeners to handle dynamic proxy implementations.

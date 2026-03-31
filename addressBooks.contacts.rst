@@ -19,6 +19,8 @@ addressBooks.contacts API
 
 .. role:: code
 
+.. role:: small
+
 The contacts API allows to access and manage the user's contacts.
 
 .. rst-class:: api-main-section

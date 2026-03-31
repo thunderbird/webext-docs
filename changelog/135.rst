@@ -1,0 +1,28 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 135
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 135.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` `MessageAttachment.contentDisposition <../messages.html#messages-message-attachment-content-disposition>`__ — The content disposition of the attachment, for example :value:`attachment` for normal attachments, or :value:`inline` for inline attachments.
+- :small:`type` `MessageAttachment.headers <../messages.html#messages-message-attachment-headers>`__ — A *dictionary object* of RFC 2047 decoded attachment headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spaces.html">spaces</a>
+   </div>
+
+- :small:`type` `SpaceTabProperties <../spaces.html#spaces-space-tab-properties>`__ — Properties for the new tab being opened by clicking on the associated button in the spaces toolbar.

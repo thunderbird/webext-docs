@@ -16,6 +16,8 @@ sessions API
 
 .. role:: code
 
+.. role:: small
+
 The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
 
 Thunderbird's sessions API is similar to the `Firefox sessions API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/sessions>`__, but it doesn't support accessing or restoring closed tabs.

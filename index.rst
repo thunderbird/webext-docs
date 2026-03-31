@@ -83,3 +83,70 @@
   guides/vcard
   guides/manifestV3
   guides/experiments
+
+.. toctree::
+  :hidden:
+  :maxdepth: 1
+  :caption: Changelog
+
+  Thunderbird 149 <changelog/149>
+
+
+  Thunderbird 148 <changelog/148>
+
+
+  Thunderbird 147 <changelog/147>
+
+
+  Thunderbird 139 <changelog/139>
+
+
+  Thunderbird 137 <changelog/137>
+
+
+  Thunderbird 136 <changelog/136>
+
+
+  Thunderbird 135 <changelog/135>
+
+
+  Thunderbird 133 <changelog/133>
+
+
+  Thunderbird 131 <changelog/131>
+
+
+  Thunderbird 129 <changelog/129>
+
+
+  Thunderbird 128 <changelog/128>
+
+
+  Thunderbird 127 <changelog/127>
+
+
+  Thunderbird 125 <changelog/125>
+
+
+  Thunderbird 124 <changelog/124>
+
+
+  Thunderbird 123 <changelog/123>
+
+
+  Thunderbird 122 <changelog/122>
+
+
+  Thunderbird 121 <changelog/121>
+
+
+  Thunderbird 120 <changelog/120>
+
+
+  Thunderbird 117 <changelog/117>
+
+
+  Thunderbird 116 <changelog/116>
+
+
+  Thunderbird 115 <changelog/115>

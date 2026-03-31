@@ -16,6 +16,8 @@ oauthProvider API
 
 .. role:: code
 
+.. role:: small
+
 .. rst-class:: api-main-section
 
 Manifest file properties
