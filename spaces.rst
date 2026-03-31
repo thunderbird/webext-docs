@@ -18,6 +18,8 @@ spaces API
 
 .. role:: code
 
+.. role:: small
+
 The spaces API allows to manage built-in and custom spaces, and to add buttons for custom spaces to Thunderbird's spaces toolbar.
 
 .. rst-class:: api-main-section
@@ -68,7 +70,7 @@ Functions
 create(name, tabProperties, [buttonProperties])
 -----------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114]
+.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
 
 Creates a new space and adds its button to the spaces toolbar.
 
@@ -114,7 +116,7 @@ Creates a new space and adds its button to the spaces toolbar.
       :refid: spaces-create-returns
       :refname: _returns
       :type: :ref:`spaces.^space`
-      :annotation: -- [Added in TB 115]
+      :annotation: -- [Added in TB 115.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -123,7 +125,7 @@ Creates a new space and adds its button to the spaces toolbar.
 get(spaceId)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 115.0a1]
 
 Retrieves details about the specified space.
 
@@ -157,7 +159,7 @@ Retrieves details about the specified space.
 open(spaceId, [windowId])
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114]
+.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
 
 Opens or switches to the specified space. Throws an exception if the requested space does not exist or was not created by this extension.
 
@@ -203,7 +205,7 @@ Opens or switches to the specified space. Throws an exception if the requested s
 query([queryInfo])
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 115.0a1]
 
 Gets all spaces that have the specified properties, or all spaces if no properties are specified.
 
@@ -265,7 +267,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
          :refid: spaces-query-query-info-space-id
          :refname: spaceId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 128]
+         :annotation: -- [Added in TB 128.0a1]
 
          The id of the space.
 
@@ -286,7 +288,7 @@ Gets all spaces that have the specified properties, or all spaces if no properti
 remove(spaceId)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114]
+.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
 
 Removes the specified space, closes all its tabs and removes its button from the spaces toolbar. Throws an exception if the requested space does not exist or was not created by this extension.
 
@@ -308,7 +310,7 @@ Removes the specified space, closes all its tabs and removes its button from the
 update(spaceId, tabProperties, [buttonProperties])
 --------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114]
+.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
 
 Updates the specified space. Throws an exception if the requested space does not exist or was not created by this extension.
 
@@ -355,7 +357,7 @@ Types
 ColorArray
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 114]
+.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
 
 An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
@@ -415,7 +417,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 Space
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 115.0a1]
 
 .. api-header::
    :label: object
@@ -475,7 +477,7 @@ Space
 SpaceButtonProperties
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114]
+.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
 
 Properties of a button in the spaces toolbar.
 
@@ -537,7 +539,7 @@ Properties of a button in the spaces toolbar.
 SpaceTabProperties
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 135]
+.. api-section-annotation-hack:: -- [Added in TB 135.0a1]
 
 Properties for the new tab being opened by clicking on the associated button in the spaces toolbar.
 
@@ -569,7 +571,7 @@ Properties for the new tab being opened by clicking on the associated button in 
       :refid: spaces-space-tab-properties-link-handler
       :refname: linkHandler
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 136]
+      :annotation: -- [Added in TB 136.0a1]
 
       Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
 

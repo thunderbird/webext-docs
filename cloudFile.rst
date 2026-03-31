@@ -20,6 +20,8 @@ cloudFile API
 
 .. role:: code
 
+.. role:: small
+
 The cloudFile (a.k.a. fileLink) API allows to create a provider to store large attachments in the cloud instead of attaching them directly to the message.
 
 .. rst-class:: api-main-section
@@ -34,7 +36,7 @@ Manifest file properties
    :refid: cloud-file-cloud-file
    :refname: cloud_file
    :type: (object, optional)
-   :annotation: -- [Added in TB 64]
+   :annotation: -- [Added in TB 64.0b4]
 
    .. _cloud^file.cloud_file.management_url:
 
@@ -43,7 +45,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-management-url
       :refname: management_url
       :type: (string)
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 64.0b4]
 
       A page for configuring accounts, to be displayed in the preferences UI.
 
@@ -58,7 +60,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-name
       :refname: name
       :type: (string)
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 64.0b4]
 
       Name of the cloud file service.
 
@@ -69,7 +71,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-browser-style
       :refname: browser_style
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 90]
+      :annotation: -- [Added in TB 90.0a1]
 
       Enable browser styles in the :value:`management_url` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
 
@@ -80,7 +82,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-data-format
       :refname: data_format
       :type: (string, optional) **Deprecated.**
-      :annotation: -- [Added in TB 71]
+      :annotation: -- [Added in TB 71.0a1]
 
       This property is no longer used. The only supported data format for the :value:`data` argument in :ref:`cloud^file.on^file^upload` is `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__.
 
@@ -91,7 +93,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-new-account-url
       :refname: new_account_url
       :type: (string, optional) **Deprecated.**
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 64.0b4]
 
       This property was never used.
 
@@ -102,7 +104,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-reuse-uploads
       :refname: reuse_uploads
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 98]
+      :annotation: -- [Added in TB 98.0a1]
 
       If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloud^file.on^file^upload` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloud^file.on^file^upload` event, to let the provider decide how to handle these cases.
 
@@ -113,7 +115,7 @@ Manifest file properties
       :refid: cloud-file-cloud-file-service-url
       :refname: service_url
       :type: (string, optional) **Deprecated.**
-      :annotation: -- [Added in TB 64]
+      :annotation: -- [Added in TB 64.0b4]
 
       This property is no longer used. The :value:`service_url` property of the :ref:`cloud^file.^cloud^file^template^info` object returned by the :ref:`cloud^file.on^file^upload` event can be used to add a *Learn more about* link to the footer of the cloud file attachment element.
 
@@ -138,7 +140,7 @@ Functions
 getAccount(accountId)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Retrieve information about a single cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
@@ -164,7 +166,7 @@ Retrieve information about a single cloud file account. Returns :value:`undefine
       :refid: cloud-file-get-account-returns
       :refname: _returns
       :type: :ref:`cloud^file.^cloud^file^account`
-      :annotation: -- [Added in TB 89]
+      :annotation: -- [Added in TB 89.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -173,7 +175,7 @@ Retrieve information about a single cloud file account. Returns :value:`undefine
 getAllAccounts()
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Retrieve all cloud file accounts for the current add-on.
 
@@ -186,7 +188,7 @@ Retrieve all cloud file accounts for the current add-on.
       :refid: cloud-file-get-all-accounts-returns
       :refname: _returns
       :type: array of :ref:`cloud^file.^cloud^file^account`
-      :annotation: -- [Added in TB 89]
+      :annotation: -- [Added in TB 89.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -195,7 +197,7 @@ Retrieve all cloud file accounts for the current add-on.
 updateAccount(accountId, updateProperties)
 ------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Update a cloud file account. Returns :value:`undefined`, if the requested account does not exist.
 
@@ -279,7 +281,7 @@ Update a cloud file account. Returns :value:`undefined`, if the requested accoun
       :refid: cloud-file-update-account-returns
       :refname: _returns
       :type: :ref:`cloud^file.^cloud^file^account`
-      :annotation: -- [Added in TB 89]
+      :annotation: -- [Added in TB 89.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -293,7 +295,7 @@ Events
 onAccountAdded
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Fired when a cloud file account of this add-on was created.
 
@@ -327,7 +329,7 @@ Fired when a cloud file account of this add-on was created.
 onAccountDeleted
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Fired when a cloud file account of this add-on was deleted.
 
@@ -361,7 +363,7 @@ Fired when a cloud file account of this add-on was deleted.
 onFileDeleted
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Fired when a previously uploaded file should be deleted.
 
@@ -407,7 +409,7 @@ Fired when a previously uploaded file should be deleted.
       :refid: cloud-file-on-file-deleted-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 91.0a1]
 
       The tab where the upload was initiated. Currently only available for the message composer.
 
@@ -416,7 +418,7 @@ Fired when a previously uploaded file should be deleted.
 onFileRename
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 97]
+.. api-section-annotation-hack:: -- [Added in TB 97.0a1]
 
 Fired when a previously uploaded file should be renamed.
 
@@ -509,7 +511,7 @@ Fired when a previously uploaded file should be renamed.
 onFileUpload
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Fired when a file should be uploaded to the cloud file provider.
 
@@ -555,7 +557,7 @@ Fired when a file should be uploaded to the cloud file provider.
       :refid: cloud-file-on-file-upload-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 91.0a1]
 
       The tab where the upload was initiated. Currently only available for the message composer.
 
@@ -566,7 +568,7 @@ Fired when a file should be uploaded to the cloud file provider.
       :refid: cloud-file-on-file-upload-related-file-info
       :refname: relatedFileInfo
       :type: (:ref:`cloud^file.^related^cloud^file`, optional)
-      :annotation: -- [Added in TB 98]
+      :annotation: -- [Added in TB 98.0a1]
 
       Information about an already uploaded file, which is related to this upload.
 
@@ -596,7 +598,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :refid: cloud-file-on-file-upload-returns-error
          :refname: error
          :type: (boolean or string, optional)
-         :annotation: -- [Added in TB 97]
+         :annotation: -- [Added in TB 97.0a1]
 
          Report an error to the user. Set this to :value:`true` for showing a generic error message, or set a specific error message.
 
@@ -607,7 +609,7 @@ Fired when a file should be uploaded to the cloud file provider.
          :refid: cloud-file-on-file-upload-returns-template-info
          :refname: templateInfo
          :type: (:ref:`cloud^file.^cloud^file^template^info`, optional)
-         :annotation: -- [Added in TB 96]
+         :annotation: -- [Added in TB 96.0a1]
 
          Additional file information used in the cloud file entry added to the message.
 
@@ -626,7 +628,7 @@ Fired when a file should be uploaded to the cloud file provider.
 onFileUploadAbort
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 .. api-header::
    :label: Parameters for onFileUploadAbort.addListener(listener)
@@ -670,7 +672,7 @@ onFileUploadAbort
       :refid: cloud-file-on-file-upload-abort-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 91.0a1]
 
       The tab where the upload was initiated. Currently only available for the message composer.
 
@@ -684,7 +686,7 @@ Types
 CloudFile
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Information about a cloud file.
 
@@ -726,7 +728,7 @@ Information about a cloud file.
 CloudFileAccount
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0b4]
 
 Information about a cloud file account.
 
@@ -808,7 +810,7 @@ Information about a cloud file account.
 CloudFileTemplateInfo
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 96]
+.. api-section-annotation-hack:: -- [Added in TB 96.0a1]
 
 Defines information to be used in the cloud file entry added to the message.
 
@@ -822,7 +824,7 @@ Defines information to be used in the cloud file entry added to the message.
       :refid: cloud-file-cloud-file-template-info-download-expiry-date
       :refname: download_expiry_date
       :type: (object, optional)
-      :annotation: -- [Added in TB 97]
+      :annotation: -- [Added in TB 97.0a1]
 
       If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
 
@@ -833,7 +835,7 @@ Defines information to be used in the cloud file entry added to the message.
          :refid: cloud-file-cloud-file-template-info-download-expiry-date-timestamp
          :refname: timestamp
          :type: (integer)
-         :annotation: -- [Added in TB 97]
+         :annotation: -- [Added in TB 97.0a1]
 
          The expiry date of the link as the number of milliseconds since the UNIX epoch.
 
@@ -844,7 +846,7 @@ Defines information to be used in the cloud file entry added to the message.
          :refid: cloud-file-cloud-file-template-info-download-expiry-date-format
          :refname: format
          :type: (object, optional)
-         :annotation: -- [Added in TB 97]
+         :annotation: -- [Added in TB 97.0a1]
 
          A format options object as used by `Intl.DateTimeFormat <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat/DateTimeFormat>`__.
 
@@ -868,7 +870,7 @@ Defines information to be used in the cloud file entry added to the message.
       :refid: cloud-file-cloud-file-template-info-download-limit
       :refname: download_limit
       :type: (integer, optional)
-      :annotation: -- [Added in TB 97]
+      :annotation: -- [Added in TB 97.0a1]
 
       If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
 
@@ -879,7 +881,7 @@ Defines information to be used in the cloud file entry added to the message.
       :refid: cloud-file-cloud-file-template-info-download-password-protected
       :refname: download_password_protected
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 97]
+      :annotation: -- [Added in TB 97.0a1]
 
       If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
 
@@ -918,7 +920,7 @@ Defines information to be used in the cloud file entry added to the message.
 RelatedCloudFile
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 98]
+.. api-section-annotation-hack:: -- [Added in TB 98.0a1]
 
 Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
 

@@ -1,0 +1,20 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 120.0a1
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 120.0a1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `abortList <../messages.html#messages-abort-list>`__ — Finalizes the specified list and terminates any process currently still adding messages.
+- :small:`function` `query.queryInfo.autoPaginationTimeout <../messages.html#messages-query-query-info-auto-pagination-timeout>`__ — Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
+- :small:`function` `query.queryInfo.messagesPerPage <../messages.html#messages-query-query-info-messages-per-page>`__ — Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
+- :small:`function` `query.queryInfo.returnMessageListId <../messages.html#messages-query-query-info-return-message-list-id>`__ — The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.

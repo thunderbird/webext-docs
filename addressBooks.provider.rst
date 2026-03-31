@@ -17,6 +17,8 @@ addressBooks.provider API
 
 .. role:: code
 
+.. role:: small
+
 The address book provider API allows to add address books, which are not stored or cached by Thunderbird itself, but are handled completely by the extension. Address books created by the this API will forward all access requests to the WebExtension.
 
 Possible use cases include:
@@ -68,7 +70,7 @@ Events
 onSearchRequest
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91]
+.. api-section-annotation-hack:: -- [Added in TB 91.0a1]
 
 Registering this listener will create a read-only address book, similar to an LDAP address book. When selecting this address book, users will first see no contacts, but they can search for contacts, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
 
@@ -206,7 +208,7 @@ Example:
          :refid: address-books-provider-on-search-request-returns-is-complete-result
          :refname: isCompleteResult
          :type: (boolean)
-         :annotation: -- [Added in TB 140]
+         :annotation: -- [Added in TB 140.0.1]
 
       .. _address^books.provider.on^search^request.returns.results:
 
@@ -215,7 +217,7 @@ Example:
          :refid: address-books-provider-on-search-request-returns-results
          :refname: results
          :type: (array of :ref:`address^books.contacts.^contact^properties`)
-         :annotation: -- [Added in TB 140]
+         :annotation: -- [Added in TB 140.0.1]
 
 .. api-header::
    :label: Required permissions

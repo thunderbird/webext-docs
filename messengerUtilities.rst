@@ -17,6 +17,8 @@ messengerUtilities API
 
 .. role:: code
 
+.. role:: small
+
 The messengerUtilities API provides helpful methods for working with messages and emails.
 
 .. rst-class:: api-main-section
@@ -29,7 +31,7 @@ Functions
 convertToPlainText(body, [options])
 -----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 Converts the provided body to readable plain text, without tags and leading/trailing whitespace.
 
@@ -81,7 +83,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
 decodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
 ------------------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 Decode the provided header into a readable format according to RFC 2047.
 
@@ -131,7 +133,7 @@ Decode the provided header into a readable format according to RFC 2047.
 encodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
 ------------------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 Encode the provided header according to RFC 2047.
 
@@ -181,7 +183,7 @@ Encode the provided header according to RFC 2047.
 formatFileSize(sizeInBytes)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 Returns the provided file size in a human readable format (e.g. :value:`12 bytes` or :value:`11,4 GB`).
 
@@ -215,7 +217,7 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
 parseMailboxString(mailboxString, [preserveGroups])
 ---------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 Parse a mailbox string containing one or more email addresses (see RFC 5322, section 3.4).
 
@@ -264,7 +266,7 @@ Types
 MailboxHeaders
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 MIME headers, which by default are treated as containing one or more mailbox strings.
 
@@ -408,7 +410,7 @@ MIME headers, which by default are treated as containing one or more mailbox str
 ParsedMailbox
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: -- [Added in TB 137.0a1]
 
 Representation of a parsed mailbox string (see RFC 5322, section 3.4).
 

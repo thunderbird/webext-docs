@@ -1,0 +1,17 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 123
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 123.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contextualIdentities.html">contextualIdentities</a>
+   </div>
+
+- :small:`function` `move <../contextualIdentities.html#contextual-identities-move>`__ — Reorder one or more contextual identities by their cookieStoreIDs to a given position.

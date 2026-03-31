@@ -1,0 +1,17 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 129.0a1
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 129.0a1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `query.queryInfo.online <../messages.html#messages-query-query-info-online>`__ — Query the server directly instead of the local message database. Online queries currently only support querying the :value:`headerMessageId` property. Currently only supported for NNTP accounts.

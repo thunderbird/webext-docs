@@ -1,0 +1,17 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 124.0a1
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 124.0a1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../menus.html">menus</a>
+   </div>
+
+- :small:`type` `MenuIconDictionary <../menus.html#menus-menu-icon-dictionary>`__ — A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a `menus.MenuIconPath <../menus.html#menus-menu-icon-path>`__.
