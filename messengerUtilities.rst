@@ -18,6 +18,8 @@ messengerUtilities API
 
 .. role:: code
 
+.. role:: small
+
 The messengerUtilities API provides helpful methods for working with messages and emails.
 
 .. rst-class:: api-main-section

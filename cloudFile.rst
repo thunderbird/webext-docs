@@ -20,6 +20,8 @@ cloudFile API
 
 .. role:: code
 
+.. role:: small
+
 The cloudFile (a.k.a. fileLink) API allows to create a provider to store large attachments in the cloud instead of attaching them directly to the message.
 
 .. rst-class:: api-main-section

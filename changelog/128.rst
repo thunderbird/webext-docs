@@ -1,0 +1,131 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 128
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 128.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../action.html">action</a>
+   </div>
+
+- :small:`function` `getBadgeTextColor <../action.html#action-get-badge-text-color>`__ — Gets the text color of the badge.
+- :small:`function` `setBadgeTextColor <../action.html#action-set-badge-text-color>`__ — Sets the text color for the badge.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` `ComposeDetails.attachPublicPGPKey <../compose.html#compose-compose-details-attach-public-p-g-p-key>`__ — Whether the public OpenPGP key of the sending identity should be attached to the message.
+- :small:`type` `ComposeDetails.selectedEncryptionTechnology <../compose.html#compose-compose-details-selected-encryption-technology>`__ — The selected encryption technology (:value:`OpenPGP` or :value:`S/MIME`) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be :value:`undefined`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`function` `getBadgeTextColor <../composeAction.html#compose-action-get-badge-text-color>`__ — Gets the text color of the badge.
+- :small:`function` `setBadgeTextColor <../composeAction.html#compose-action-set-badge-text-color>`__ — Sets the text color for the badge.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../declarativeNetRequest.html">declarativeNetRequest</a>
+   </div>
+
+- :small:`function` `getDisabledRuleIds <../declarativeNetRequest.html#declarative-net-request-get-disabled-rule-ids>`__ — Returns the list of individual disabled static rules from a given static ruleset id.
+- :small:`function` `updateStaticRules <../declarativeNetRequest.html#declarative-net-request-update-static-rules>`__ — Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.
+- :small:`property` `MAX_NUMBER_OF_DISABLED_STATIC_RULES <../declarativeNetRequest.html#declarative-net-request-m-a-x-n-u-m-b-e-r-o-f-d-i-s-a-b-l-e-d-s-t-a-t-i-c-r-u-l-e-s>`__ — The maximum number of static rules that can be disabled on each static ruleset.
+- :small:`property` `MAX_NUMBER_OF_DYNAMIC_RULES <../declarativeNetRequest.html#declarative-net-request-m-a-x-n-u-m-b-e-r-o-f-d-y-n-a-m-i-c-r-u-l-e-s>`__ — The maximum number of dynamic session rules an extension can add.
+- :small:`property` `MAX_NUMBER_OF_SESSION_RULES <../declarativeNetRequest.html#declarative-net-request-m-a-x-n-u-m-b-e-r-o-f-s-e-s-s-i-o-n-r-u-l-e-s>`__ — The maximum number of dynamic session rules an extension can add.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../identities.html">identities</a>
+   </div>
+
+- :small:`type` `MailIdentity.encryptionCapabilities <../identities.html#identities-mail-identity-encryption-capabilities>`__ — The encryption capabilities of this identity. Read only.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` `getSelectedFolders <../mailTabs.html#mail-tabs-get-selected-folders>`__ — Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the `menus.onClicked <../menus.html#menus-on-clicked>`__ event of the menus API.
+- :small:`type` `MailTab.groupType <../mailTabs.html#mail-tabs-mail-tab-group-type>`__ — Grouping type of the message list.
+- :small:`type` `MailTabProperties.groupType <../mailTabs.html#mail-tabs-mail-tab-properties-group-type>`__ — Grouping type of the message list.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../menus.html">menus</a>
+   </div>
+
+- :small:`type` `OnClickData.selectedFolders <../menus.html#menus-on-click-data-selected-folders>`__ — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+- :small:`type` `OnShowData.selectedFolders <../menus.html#menus-on-show-data-selected-folders>`__ — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`function` `getBadgeTextColor <../messageDisplayAction.html#message-display-action-get-badge-text-color>`__ — Gets the text color of the badge.
+- :small:`function` `setBadgeTextColor <../messageDisplayAction.html#message-display-action-set-badge-text-color>`__ — Sets the text color for the badge.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `listInlineTextParts <../messages.html#messages-list-inline-text-parts>`__ — Lists all inline text parts of a message. These parts are not returned by `messages.listAttachments <../messages.html#messages-list-attachments>`__ and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method `messengerUtilities.convertToPlainText <../messengerUtilities.html#messenger-utilities-convert-to-plain-text>`__ can be used to retreive a plain text version. If the message is encrypted, the inline text parts of the decrypted message are listed.
+- :small:`type` `InlineTextPart <../messages.html#messages-inline-text-part>`__ — An inline part with content type :value:`text/*`. These parts are not returned by `messages.listAttachments <../messages.html#messages-list-attachments>`__ and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`
+- :small:`type` `MessageAttachment.contentId <../messages.html#messages-message-attachment-content-id>`__ — The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.html">scripting</a>
+   </div>
+
+- :small:`type` `RegisteredContentScript.matchOriginAsFallback <../scripting.html#scripting-registered-content-script-match-origin-as-fallback>`__ — If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
+- :small:`type` `RegisteredContentScript.world <../scripting.html#scripting-registered-content-script-world>`__ — The JavaScript world for a script to execute within. Defaults to "ISOLATED".
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spaces.html">spaces</a>
+   </div>
+
+- :small:`function` `query.queryInfo.spaceId <../spaces.html#spaces-query-query-info-space-id>`__ — The id of the space.

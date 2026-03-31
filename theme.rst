@@ -20,6 +20,8 @@ theme API
 
 .. role:: code
 
+.. role:: small
+
 The theme API allows for customization of Thunderbird's visual elements.
 
 .. rst-class:: api-main-section
