@@ -1,0 +1,17 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 138
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 138.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`type` `Tab.groupId <../tabs.html#tabs-tab-group-id>`__ — The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.

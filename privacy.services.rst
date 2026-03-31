@@ -17,6 +17,8 @@ privacy.services API
 
 .. role:: code
 
+.. role:: small
+
 .. hint::
 
    The privacy.services API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/privacy/services>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
@@ -60,11 +62,22 @@ The following permissions influence the behavior of the API. Depending on which 
 Properties
 ==========
 
-.. _privacy.services.password^saving^enabled:
+.. toctree::
+  :hidden:
 
-passwordSavingEnabled
----------------------
+  passwordSavingEnabled <privacy.services.passwordSavingEnabled>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="privacy.services.passwordSavingEnabled.html">passwordSavingEnabled</a>
+   </div>
+   </section><section class="api-section-body">
 
 If enabled, the password manager will ask if you want to save passwords. This preference's value is a boolean, defaulting to :code:`true`.
+
+.. raw:: html
+
+   </section>

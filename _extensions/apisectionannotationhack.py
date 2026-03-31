@@ -27,6 +27,10 @@ def visit_node(self, node):
     pass
 
 def depart_node(self, node=None):
+    # Closes the RST section heading (rendered as <section> by Sphinx) and
+    # opens a new <section class='api-section-body'> for the entry content.
+    # Relies on Sphinx rendering headings as <section> elements. If the
+    # Sphinx theme changes its heading structure, this must be updated.
     self.body.append("</section><section class='api-section-body'>")
 
 class ApiMainSectionAnnotation(nodes.General, nodes.Element): 

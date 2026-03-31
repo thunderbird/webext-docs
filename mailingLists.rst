@@ -19,6 +19,8 @@ mailingLists API
 
 .. role:: code
 
+.. role:: small
+
 The mailingLists API allows to access and manage the user's mailing lists.
 
 .. rst-class:: api-main-section

@@ -20,6 +20,8 @@ tabs API
 
 .. role:: code
 
+.. role:: small
+
 The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.
 
 .. rst-class:: api-main-section

@@ -20,6 +20,8 @@ messageDisplayAction API
 
 .. role:: code
 
+.. role:: small
+
 Use a messageDisplayAction to put a button in the message display toolbar. In addition to its icon, a messageDisplayAction button can also have a tooltip, a badge, and a popup.
 
 .. rst-class:: api-main-section
