@@ -1,0 +1,57 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 127
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 127.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../declarativeNetRequest.html">declarativeNetRequest</a>
+   </div>
+
+- :small:`function` `getDynamicRules.filter <../declarativeNetRequest.html#declarative-net-request-get-dynamic-rules-filter>`__ — An object to filter the set of dynamic rules for the extension.
+- :small:`function` `getSessionRules.filter <../declarativeNetRequest.html#declarative-net-request-get-session-rules-filter>`__ — An object to filter the set of session scoped rules for the extension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` `getTagFolder <../folders.html#folders-get-tag-folder>`__ — Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags. Throws if the requested folder does not exist.
+- :small:`function` `getUnifiedFolder <../folders.html#folders-get-unified-folder>`__ — Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts. Throws if the requested folder does not exist.
+- :small:`function` `query.queryInfo.isTag <../folders.html#folders-query-query-info-is-tag>`__ — Whether the folder is a virtual tag folder, or not. Virtual tag folders are always skipped, unless this property is set to :value:`true`
+- :small:`function` `query.queryInfo.isUnified <../folders.html#folders-query-query-info-is-unified>`__ — Whether the folder is a unified mailbox folder, or not. Unified mailbox folders are always skipped, unless this property is set to :value:`true`
+- :small:`type` `MailFolder.isTag <../folders.html#folders-mail-folder-is-tag>`__ — Whether this folder is a virtual tag folder.
+- :small:`type` `MailFolder.isUnified <../folders.html#folders-mail-folder-is-unified>`__ — Whether this folder is a unified mailbox folder.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`type` `FolderMode <../mailTabs.html#mail-tabs-folder-mode>`__ — A supported folder mode in the folder pane.
+- :small:`type` `MailTab.folderMode <../mailTabs.html#mail-tabs-mail-tab-folder-mode>`__ — The folder mode of the currently displayed folder.
+- :small:`type` `MailTab.folderModesEnabled <../mailTabs.html#mail-tabs-mail-tab-folder-modes-enabled>`__ — The enabled folder modes in the folder pane, and their sort order.
+- :small:`type` `MailTabProperties.folderMode <../mailTabs.html#mail-tabs-mail-tab-properties-folder-mode>`__ — Sets the currently used folder mode, enabling it if required. If used without also specifying :value:`displayedFolder`, the currently selected folder is re-selected in the new folder mode, if possible.
+- :small:`type` `MailTabProperties.folderModesEnabled <../mailTabs.html#mail-tabs-mail-tab-properties-folder-modes-enabled>`__ — Set the enabled folder modes in the folder pane, and their sort order.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../runtime.html">runtime</a>
+   </div>
+
+- :small:`function` `getContexts <../runtime.html#runtime-get-contexts>`__ — Fetches information about active contexts associated with this extension

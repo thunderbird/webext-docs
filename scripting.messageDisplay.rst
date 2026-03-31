@@ -18,6 +18,8 @@ scripting.messageDisplay API
 
 .. role:: code
 
+.. role:: small
+
 .. rst-class:: api-main-section
 
 Permissions

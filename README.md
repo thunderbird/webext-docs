@@ -1,4 +1,4 @@
-# 📚 WebExtension API Documentation & Guides (Thunderbird 148, Manifest V2)
+# 📚 WebExtension API Documentation & Guides (Thunderbird 149, Manifest V2)
 
 Generated Thunderbird WebExtension API documentation in **reStructuredText (RST)** format, which is used by **ReadTheDocs / Sphinx** to build the public [API documentation](https://webextension-api.thunderbird.net/en/mv2/).
 

@@ -19,6 +19,8 @@ proxy API
 
 .. role:: code
 
+.. role:: small
+
 .. hint::
 
    The proxy API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/proxy>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
@@ -497,19 +499,22 @@ An object which describes proxy settings.
 Properties
 ==========
 
-.. _proxy.settings:
+.. toctree::
+  :hidden:
 
-settings
---------
+  settings <proxy.settings>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="proxy.settings.html">settings</a>
+   </div>
+   </section><section class="api-section-body">
 
 Configures proxy settings. This setting's value is an object of type ProxyConfig.
 
-.. note::
+.. raw:: html
 
-   Not supported in Thunderbird because it depends on private browsing functionality, which Thunderbird does not fully implement.
-
-.. note::
-
-   From version 88, the :code:`ftp` setting has no effect because FTP is no longer supported (see `bug 1626365 <https://bugzil.la/1626365>`__).
+   </section>

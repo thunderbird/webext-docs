@@ -20,6 +20,8 @@ tabs API
 
 .. role:: code
 
+.. role:: small
+
 The tabs API supports creating, modifying and interacting with tabs in Thunderbird windows.
 
 .. rst-class:: api-main-section
@@ -1584,6 +1586,10 @@ Tab
 
       The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
 
+      .. note::
+
+         Thunderbird does not support tab groups. This property will always be :code:`-1` and cannot be changed.
+
    .. _tabs.^tab.height:
 
    .. api-member::
@@ -1625,6 +1631,21 @@ Tab
       :annotation: -- [Added in TB 115]
 
       The id of the space.
+
+   .. _tabs.^tab.split^view^id:
+
+   .. api-member::
+      :name: [``splitViewId``]
+      :refid: tabs-tab-split-view-id
+      :refname: splitViewId
+      :type: (integer, optional)
+      :annotation: -- [Added in TB 149]
+
+      The ID of the Split View that the tab belongs to. -1 if the tab does not belong to a split view.
+
+      .. note::
+
+         Thunderbird does not support Split View. This property will always be :code:`-1` and cannot be changed.
 
    .. _tabs.^tab.status:
 

@@ -20,6 +20,8 @@ folders API
 
 .. role:: code
 
+.. role:: small
+
 The folders API allows to access and manage the user's message folders.
 
 .. rst-class:: api-main-section

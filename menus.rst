@@ -20,6 +20,8 @@ menus API
 
 .. role:: code
 
+.. role:: small
+
 The part of the menus API that is available in all extension contexts, including content scripts.
 
 Thunderbird's menus API is similar to the `Firefox menus API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/menus>`__, but has been adapted to better suit Thunderbird's specific needs.

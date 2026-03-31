@@ -19,6 +19,8 @@ addressBooks API
 
 .. role:: code
 
+.. role:: small
+
 The addressBooks API allows to access and manage the user's address books.
 
 .. rst-class:: api-main-section
