@@ -1,3 +1,8 @@
+span.small {
+  font-size: 0.8em;
+  color: #666;
+}
+
 /* override table width restrictions */
 @media screen and (min-width: 767px) {
 
@@ -125,12 +130,72 @@ div.container > ul {
     /*color: #1abc9c;*/
 }
 #properties > section:not(.api-section-body) {
-  border-top: 3px solid #ccc;  
+  border-top: 3px solid #ccc;
   background: #f0f0f0;
 }
 #properties > section:not(.api-section-body) > span::after {
-    content: "prop";
+    content: "const";
     color: #888;
+}
+/* Setting property headers use raw HTML <section> elements to mimic Sphinx's
+   heading structure (see also apisectionannotationhack.py). The setting name
+   links directly to the setting's sub-page. If the Sphinx theme changes its
+   section elements, format_setting_heading in writer.mjs must be updated. */
+.setting-prop-header {
+  border-top: 3px solid #ccc;
+  background: #f0f0f0;
+  margin-bottom: 1ex;
+  display: inline-flex;
+  align-items: center;
+}
+.setting-prop-label {
+  font-size: 80%;
+  font-weight: bold;
+  font-style: italic;
+  padding: 5px;
+  display: block;
+  color: #888;
+}
+.setting-prop-header a {
+  padding: 6px 1.5em 6px 6px;
+  margin: 0;
+  font-size: 90%;
+  font-weight: bold;
+  line-height: normal;
+  color: #404040;
+  text-decoration: none;
+}
+.setting-prop-header a:hover {
+  text-decoration: underline;
+}
+/* Changelog API headers */
+.changelog-api-header {
+  border-top: 3px solid #6ab0de;
+  background: #e7f2fa;
+  margin-bottom: 1ex;
+  margin-top: 1.5em;
+  display: inline-flex;
+  align-items: center;
+}
+.changelog-api-label {
+  font-size: 80%;
+  font-weight: bold;
+  font-style: italic;
+  padding: 5px;
+  display: block;
+  color: #3782bb;
+}
+.changelog-api-header a {
+  padding: 6px 1.5em 6px 6px;
+  margin: 0;
+  font-size: 90%;
+  font-weight: bold;
+  line-height: normal;
+  color: #404040;
+  text-decoration: none;
+}
+.changelog-api-header a:hover {
+  text-decoration: underline;
 }
 
 /* api section class embraces only the section title, */

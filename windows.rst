@@ -20,6 +20,8 @@ windows API
 
 .. role:: code
 
+.. role:: small
+
 The windows API supports creating, modifying and interacting with Thunderbird windows.
 
 .. note::

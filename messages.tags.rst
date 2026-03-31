@@ -19,6 +19,8 @@ messages.tags API
 
 .. role:: code
 
+.. role:: small
+
 The messages.tags API allows to manage the user's message tags.
 
 .. rst-class:: api-main-section

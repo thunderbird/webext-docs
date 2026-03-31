@@ -1,0 +1,18 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 130
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 130.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`type` `ExtensionMailAccountType <../accounts.html#accounts-extension-mail-account-type>`__ — The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
+- :small:`type` `NativeMailAccountType <../accounts.html#accounts-native-mail-account-type>`__ — The type of an account natively supported by Thunderbird.

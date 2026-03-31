@@ -19,6 +19,8 @@ identities API
 
 .. role:: code
 
+.. role:: small
+
 The identities API allows to manage the user's identities (each account can have multiple identities).
 
 .. rst-class:: api-main-section

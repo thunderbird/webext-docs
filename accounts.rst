@@ -19,6 +19,8 @@ accounts API
 
 .. role:: code
 
+.. role:: small
+
 The accounts API provides access to the user's server accounts.
 
 .. rst-class:: api-main-section

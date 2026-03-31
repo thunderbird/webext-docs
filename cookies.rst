@@ -19,6 +19,8 @@ cookies API
 
 .. role:: code
 
+.. role:: small
+
 Use the :code:`browser.cookies` API to query and modify cookies, and to be notified when they change.
 
 .. rst-class:: api-main-section

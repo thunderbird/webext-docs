@@ -19,6 +19,8 @@ mailTabs API
 
 .. role:: code
 
+.. role:: small
+
 The mailTabs API allows to interact with Thunderbird's main mail tab (a.k.a 3-pane tab).
 
 .. rst-class:: api-main-section

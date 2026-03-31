@@ -18,6 +18,8 @@ browsingData API
 
 .. role:: code
 
+.. role:: small
+
 .. hint::
 
    The browsingData API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browsingData>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.

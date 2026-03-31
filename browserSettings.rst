@@ -18,6 +18,8 @@ browserSettings API
 
 .. role:: code
 
+.. role:: small
+
 .. hint::
 
    The browserSettings API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
@@ -170,105 +172,310 @@ How images should be animated in the browser.
 Properties
 ==========
 
-.. _browser^settings.allow^popups^for^user^events:
+.. toctree::
+  :hidden:
 
-allowPopupsForUserEvents
-------------------------
+  allowPopupsForUserEvents <browserSettings.allowPopupsForUserEvents>
+  cacheEnabled <browserSettings.cacheEnabled>
+  closeTabsByDoubleClick <browserSettings.closeTabsByDoubleClick>
+  contextMenuShowEvent <browserSettings.contextMenuShowEvent>
+  ftpProtocolEnabled <browserSettings.ftpProtocolEnabled>
+  homepageOverride <browserSettings.homepageOverride>
+  imageAnimationBehavior <browserSettings.imageAnimationBehavior>
+  newTabPageOverride <browserSettings.newTabPageOverride>
+  newTabPosition <browserSettings.newTabPosition>
+  openBookmarksInNewTabs <browserSettings.openBookmarksInNewTabs>
+  openSearchResultsInNewTabs <browserSettings.openSearchResultsInNewTabs>
+  openUrlbarResultsInNewTabs <browserSettings.openUrlbarResultsInNewTabs>
+  overrideContentColorScheme <browserSettings.overrideContentColorScheme>
+  overrideDocumentColors <browserSettings.overrideDocumentColors>
+  useDocumentFonts <browserSettings.useDocumentFonts>
+  verticalTabs <browserSettings.verticalTabs>
+  webNotificationsDisabled <browserSettings.webNotificationsDisabled>
+  zoomFullPage <browserSettings.zoomFullPage>
+  zoomSiteSpecific <browserSettings.zoomSiteSpecific>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.allowPopupsForUserEvents.html">allowPopupsForUserEvents</a>
+   </div>
+   </section><section class="api-section-body">
 
 Allows or disallows pop-up windows from opening in response to user events.
 
-.. _browser^settings.cache^enabled:
+.. raw:: html
 
-cacheEnabled
-------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.cacheEnabled.html">cacheEnabled</a>
+   </div>
+   </section><section class="api-section-body">
 
 Enables or disables the browser cache.
 
-.. _browser^settings.context^menu^show^event:
+.. raw:: html
 
-contextMenuShowEvent
---------------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.closeTabsByDoubleClick.html">closeTabsByDoubleClick</a>
+   </div>
+   </section><section class="api-section-body">
+
+This boolean setting controls whether the selected tab can be closed with a double click.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.contextMenuShowEvent.html">contextMenuShowEvent</a>
+   </div>
+   </section><section class="api-section-body">
 
 Controls after which mouse event context menus popup. This setting's value is of type ContextMenuMouseEvent, which has possible values of :code:`mouseup` and :code:`mousedown`.
 
-.. _browser^settings.ftp^protocol^enabled:
+.. raw:: html
 
-ftpProtocolEnabled
-------------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.ftpProtocolEnabled.html">ftpProtocolEnabled</a>
+   </div>
+   </section><section class="api-section-body">
 
 Returns whether the FTP protocol is enabled. Read-only.
 
-.. note::
+.. raw:: html
 
-   From version 88, this setting is read-only (see `bug 1626365 <https://bugzil.la/1626365>`__).
+   </section>
 
-.. _browser^settings.image^animation^behavior:
+.. raw:: html
 
-imageAnimationBehavior
-----------------------
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.homepageOverride.html">homepageOverride</a>
+   </div>
+   </section><section class="api-section-body">
 
-.. api-section-annotation-hack:: 
+Returns the value of the overridden home page. Read-only.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.imageAnimationBehavior.html">imageAnimationBehavior</a>
+   </div>
+   </section><section class="api-section-body">
 
 Controls the behaviour of image animation in the browser. This setting's value is of type ImageAnimationBehavior, defaulting to :code:`normal`.
 
-.. _browser^settings.override^content^color^scheme:
+.. raw:: html
 
-overrideContentColorScheme
---------------------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.newTabPageOverride.html">newTabPageOverride</a>
+   </div>
+   </section><section class="api-section-body">
+
+Returns the value of the overridden new tab page. Read-only.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.newTabPosition.html">newTabPosition</a>
+   </div>
+   </section><section class="api-section-body">
+
+Controls where new tabs are opened. :value:`afterCurrent` will open all new tabs next to the current tab, :value:`relatedAfterCurrent` will open only related tabs next to the current tab, and :value:`atEnd` will open all tabs at the end of the tab strip. The default is :value:`relatedAfterCurrent`.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.openBookmarksInNewTabs.html">openBookmarksInNewTabs</a>
+   </div>
+   </section><section class="api-section-body">
+
+This boolean setting controls whether bookmarks are opened in the current tab or in a new tab.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.openSearchResultsInNewTabs.html">openSearchResultsInNewTabs</a>
+   </div>
+   </section><section class="api-section-body">
+
+This boolean setting controls whether search results are opened in the current tab or in a new tab.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.openUrlbarResultsInNewTabs.html">openUrlbarResultsInNewTabs</a>
+   </div>
+   </section><section class="api-section-body">
+
+This boolean setting controls whether urlbar results are opened in the current tab or in a new tab.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.overrideContentColorScheme.html">overrideContentColorScheme</a>
+   </div>
+   </section><section class="api-section-body">
 
 This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
 
-.. _browser^settings.override^document^colors:
+.. raw:: html
 
-overrideDocumentColors
-----------------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.overrideDocumentColors.html">overrideDocumentColors</a>
+   </div>
+   </section><section class="api-section-body">
 
 This setting controls whether the user-chosen colors override the page's colors.
 
-.. _browser^settings.use^document^fonts:
+.. raw:: html
 
-useDocumentFonts
-----------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.useDocumentFonts.html">useDocumentFonts</a>
+   </div>
+   </section><section class="api-section-body">
 
 This setting controls whether the document's fonts are used.
 
-.. _browser^settings.vertical^tabs:
+.. raw:: html
 
-verticalTabs
-------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.verticalTabs.html">verticalTabs</a>
+   </div>
+   </section><section class="api-section-body">
 
 This boolean setting controls whether vertical tabs are enabled.
 
-.. _browser^settings.web^notifications^disabled:
+.. raw:: html
 
-webNotificationsDisabled
-------------------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.webNotificationsDisabled.html">webNotificationsDisabled</a>
+   </div>
+   </section><section class="api-section-body">
 
 Disables webAPI notifications.
 
-.. _browser^settings.zoom^full^page:
+.. raw:: html
 
-zoomFullPage
-------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.zoomFullPage.html">zoomFullPage</a>
+   </div>
+   </section><section class="api-section-body">
 
 This boolean setting controls whether zoom is applied to the full page or to text only.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.zoomSiteSpecific.html">zoomSiteSpecific</a>
+   </div>
+   </section><section class="api-section-body">
+
+This boolean setting controls whether zoom is applied on a per-site basis or to the current tab only. If privacy.resistFingerprinting is true, this setting has no effect and zoom is applied to the current tab only.
+
+.. raw:: html
+
+   </section>

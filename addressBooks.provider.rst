@@ -17,6 +17,8 @@ addressBooks.provider API
 
 .. role:: code
 
+.. role:: small
+
 The address book provider API allows to add address books, which are not stored or cached by Thunderbird itself, but are handled completely by the extension. Address books created by the this API will forward all access requests to the WebExtension.
 
 Possible use cases include:
