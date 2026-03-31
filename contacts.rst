@@ -19,6 +19,8 @@ contacts API
 
 .. role:: code
 
+.. role:: small
+
 The contacts API allows to access and manage the user's contacts.
 
 .. rst-class:: api-main-section
@@ -57,7 +59,7 @@ Functions
 create(parentId, [id], properties)
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Adds a new contact to the address book with the id :value:`parentId`.
 
@@ -89,7 +91,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
       :refid: contacts-create-properties
       :refname: properties
       :type: (:ref:`contacts.^contact^properties`)
-      :annotation: -- [Added in TB 68]
+      :annotation: -- [Added in TB 68.0a1]
 
       The properties object for the new contact. If it includes a :value:`vCard` member, all specified `legacy properties <https://searchfox.org/comm-central/rev/8a1ae67088acf237dab2fd704db18589e7bf119e/mailnews/addrbook/modules/VCardUtils.jsm#295-334>`__ are ignored and the new contact will be based on the provided vCard string. If a UID is specified in the vCard string, which is already used by another contact, an exception is thrown.
 
@@ -106,7 +108,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
       :refid: contacts-create-returns
       :refname: _returns
       :type: string
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 96.0a1]
 
       The ID of the new contact.
 
@@ -122,7 +124,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
 delete(id)
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
 
@@ -147,7 +149,7 @@ Removes a contact from the address book. The contact is also removed from any ma
 get(id)
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Gets a single contact.
 
@@ -171,7 +173,7 @@ Gets a single contact.
       :refid: contacts-get-returns
       :refname: _returns
       :type: :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 96.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -185,7 +187,7 @@ Gets a single contact.
 getPhoto(id)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 106]
+.. api-section-annotation-hack:: -- [Added in TB 106.0a1]
 
 Gets the photo associated with this contact. Returns :value:`null`, if no photo is available.
 
@@ -222,7 +224,7 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
 list(parentId)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Gets all the contacts in the address book with the id :value:`parentId`.
 
@@ -246,7 +248,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
       :refid: contacts-list-returns
       :refname: _returns
       :type: array of :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 96.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -260,7 +262,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
 quickSearch([parentId], queryInfo)
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 68]
+.. api-section-annotation-hack:: -- [Added in TB 68.0a1]
 
 Gets all contacts matching :value:`queryInfo` in the address book with the id :value:`parentId`.
 
@@ -296,7 +298,7 @@ Gets all contacts matching :value:`queryInfo` in the address book with the id :v
       :refid: contacts-quick-search-returns
       :refname: _returns
       :type: array of :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96]
+      :annotation: -- [Added in TB 96.0a1]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -310,7 +312,7 @@ Gets all contacts matching :value:`queryInfo` in the address book with the id :v
 setPhoto(id, file)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 107]
+.. api-section-annotation-hack:: -- [Added in TB 107.0a1]
 
 Sets the photo associated with this contact.
 
@@ -343,7 +345,7 @@ Sets the photo associated with this contact.
 update(id, properties)
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Updates a contact.
 
@@ -387,7 +389,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Fired when a contact is created.
 
@@ -424,7 +426,7 @@ Fired when a contact is created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Fired when a contact is removed from an address book.
 
@@ -469,7 +471,7 @@ Fired when a contact is removed from an address book.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 Fired when a contact is changed.
 
@@ -503,7 +505,7 @@ Fired when a contact is changed.
       :refid: contacts-on-updated-changed-properties
       :refname: changedProperties
       :type: (:ref:`contacts.^property^change`)
-      :annotation: -- [Added in TB 83]
+      :annotation: -- [Added in TB 83.0a1]
 
 .. api-header::
    :label: Required permissions
@@ -520,7 +522,7 @@ Types
 ContactNode
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 A node representing a contact in an address book.
 
@@ -582,7 +584,7 @@ A node representing a contact in an address book.
       :refid: contacts-contact-node-remote
       :refname: remote
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 91]
+      :annotation: -- [Added in TB 91.0b2]
 
       Indicates if the object came from a remote address book.
 
@@ -591,7 +593,7 @@ A node representing a contact in an address book.
 ContactProperties
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
 
 A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`guides/vcard`.
 
@@ -603,7 +605,7 @@ A set of individual properties for a particular contact, and its vCard string. F
 PropertyChange
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 83]
+.. api-section-annotation-hack:: -- [Added in TB 83.0a1]
 
 A dictionary of changed properties. Keys are the property name that changed, values are an object containing :value:`oldValue` and :value:`newValue`. Values can be either a string or :value:`null`.
 
@@ -615,7 +617,7 @@ A dictionary of changed properties. Keys are the property name that changed, val
 QueryInfo
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 108]
+.. api-section-annotation-hack:: -- [Added in TB 108.0a1]
 
 Object defining a query for :ref:`contacts.quick^search`.
 

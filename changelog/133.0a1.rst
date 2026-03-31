@@ -1,0 +1,20 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 133.0a1
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 133.0a1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `getFull.options.decodeContent <../messages.html#messages-get-full-options-decode-content>`__ — Whether to decode quoted-printable or base64 encoded content of message parts. Defaults to :value:`true`.
+- :small:`function` `getFull.options.decodeHeaders <../messages.html#messages-get-full-options-decode-headers>`__ — Whether to decode RFC 2047 encoded headers of message parts. Defaults to :value:`true`.
+- :small:`type` `MessagePart.rawBody <../messages.html#messages-message-part-raw-body>`__ — The raw content of the part. Only present if requested, see the :value:`decodeContent` option of `messages.getFull <../messages.html#messages-get-full>`__.
+- :small:`type` `MessagePart.rawHeaders <../messages.html#messages-message-part-raw-headers>`__ — A *dictionary object* of raw part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of `messages.getFull <../messages.html#messages-get-full>`__.

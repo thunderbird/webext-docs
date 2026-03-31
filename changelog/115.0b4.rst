@@ -1,0 +1,17 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 115.0b4
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 115.0b4.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../sessions.html">sessions</a>
+   </div>
+
+The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.

@@ -18,6 +18,8 @@ composeScripts API
 
 .. role:: code
 
+.. role:: small
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -54,7 +56,7 @@ Functions
 register(composeScriptOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
 
 Register a compose script programmatically.
 
@@ -145,7 +147,7 @@ A path relative to the root of the extension.
 RegisteredComposeScript
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
 
 An object that represents a compose script registered programmatically.
 
@@ -157,7 +159,7 @@ An object that represents a compose script registered programmatically.
 RegisteredComposeScriptOptions
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
 
 Details of a compose script registered programmatically.
 

@@ -1,0 +1,28 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 128.0b2
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 128.0b2.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` `getSelectedFolders <../mailTabs.html#mail-tabs-get-selected-folders>`__ — Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the `menus.onClicked <../menus.html#menus-on-clicked>`__ event of the menus API.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `listInlineTextParts <../messages.html#messages-list-inline-text-parts>`__ — Lists all inline text parts of a message. These parts are not returned by `messages.listAttachments <../messages.html#messages-list-attachments>`__ and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method `messengerUtilities.convertToPlainText <../messengerUtilities.html#messenger-utilities-convert-to-plain-text>`__ can be used to retreive a plain text version.
+- :small:`type` `InlineTextPart <../messages.html#messages-inline-text-part>`__ — An inline part with content type :value:`text/*`. These parts are not returned by `messages.listAttachments <../messages.html#messages-list-attachments>`__ and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`

@@ -17,6 +17,8 @@ browserSettings.colorManagement API
 
 .. role:: code
 
+.. role:: small
+
 .. hint::
 
    The browserSettings.colorManagement API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/colorManagement>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
@@ -60,29 +62,54 @@ The following permissions influence the behavior of the API. Depending on which 
 Properties
 ==========
 
-.. _browser^settings.color^management.mode:
+.. toctree::
+  :hidden:
 
-mode
-----
+  mode <browserSettings.colorManagement.mode>
+  useNativeSRGB <browserSettings.colorManagement.useNativeSRGB>
+  useWebRenderCompositor <browserSettings.colorManagement.useWebRenderCompositor>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.colorManagement.mode.html">mode</a>
+   </div>
+   </section><section class="api-section-body">
 
 This setting controls the mode used for color management and must be a string from :ref:`browser^settings.^color^management^mode`
 
-.. _browser^settings.color^management.use^native^s^r^g^b:
+.. raw:: html
 
-useNativeSRGB
--------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.colorManagement.useNativeSRGB.html">useNativeSRGB</a>
+   </div>
+   </section><section class="api-section-body">
 
 This boolean setting controls whether or not native sRGB color management is used.
 
-.. _browser^settings.color^management.use^web^render^compositor:
+.. raw:: html
 
-useWebRenderCompositor
-----------------------
+   </section>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.colorManagement.useWebRenderCompositor.html">useWebRenderCompositor</a>
+   </div>
+   </section><section class="api-section-body">
 
 This boolean setting controls whether or not the WebRender compositor is used.
+
+.. raw:: html
+
+   </section>

@@ -18,6 +18,8 @@ scripting.messageDisplay API
 
 .. role:: code
 
+.. role:: small
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -69,7 +71,7 @@ Functions
 getRegisteredScripts([filter])
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
 
 Returns all registered message display scripts for this extension that match the given filter.
 
@@ -109,7 +111,7 @@ Returns all registered message display scripts for this extension that match the
 registerScripts(scripts)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
 
 Registers one or more message display scripts for this extension, which should be injected into displayed messages.
 
@@ -141,7 +143,7 @@ Registers one or more message display scripts for this extension, which should b
 unregisterScripts([filter])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
 
 Unregisters one or more message display scripts for this extension.
 
@@ -186,7 +188,7 @@ A path relative to the root of the extension.
 MessageDisplayScriptDetails
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
 
 .. api-header::
    :label: object
@@ -236,7 +238,7 @@ MessageDisplayScriptDetails
 MessageDisplayScriptFilter
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
 
 .. api-header::
    :label: object

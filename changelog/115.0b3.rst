@@ -1,0 +1,17 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 115.0b3
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 115.0b3.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spaces.html">spaces</a>
+   </div>
+
+The spaces API allows to manage built-in and custom spaces, and to add buttons for custom spaces to Thunderbird's spaces toolbar.

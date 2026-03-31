@@ -16,6 +16,8 @@ sessions API
 
 .. role:: code
 
+.. role:: small
+
 The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
 
 Thunderbird's sessions API is similar to the `Firefox sessions API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/sessions>`__, but it doesn't support accessing or restoring closed tabs.
@@ -34,7 +36,7 @@ Functions
 getTabValue(tabId, key)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 115.0b4]
 
 Retrieve a previously stored value for a given tab, given its key. Returns :value:`undefined` if the requested :value:`key` does not exist for the given :value:`tabId`.
 
@@ -78,7 +80,7 @@ Retrieve a previously stored value for a given tab, given its key. Returns :valu
 removeTabValue(tabId, key)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 115.0b4]
 
 Remove a key/value pair from a given tab.
 
@@ -110,7 +112,7 @@ Remove a key/value pair from a given tab.
 setTabValue(tabId, key, value)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 115]
+.. api-section-annotation-hack:: -- [Added in TB 115.0b4]
 
 Store a key/value pair associated with a given tab.
 

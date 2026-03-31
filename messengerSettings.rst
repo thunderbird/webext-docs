@@ -17,6 +17,8 @@ messengerSettings API
 
 .. role:: code
 
+.. role:: small
+
 The messengerSettings API allows to access global messenger settings.
 
 .. rst-class:: api-main-section
@@ -50,20 +52,38 @@ The following permissions influence the behavior of the API. Depending on which 
 Properties
 ==========
 
-.. _messenger^settings.message^line^length^limit:
+.. toctree::
+  :hidden:
 
-messageLineLengthLimit
-----------------------
+  messageLineLengthLimit <messengerSettings.messageLineLengthLimit>
+  messagePlainTextFlowedOutputEnabled <messengerSettings.messagePlainTextFlowedOutputEnabled>
 
-.. api-section-annotation-hack:: 
+.. raw:: html
 
-The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of :ref:`messenger^settings.message^plain^text^flowed^output^enabled`.
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="messengerSettings.messageLineLengthLimit.html">messageLineLengthLimit</a>
+   </div>
+   </section><section class="api-section-body">
 
-.. _messenger^settings.message^plain^text^flowed^output^enabled:
+The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of :ref:`messagePlainTextFlowedOutputEnabled <messenger^settings.message^plain^text^flowed^output^enabled>`.
 
-messagePlainTextFlowedOutputEnabled
------------------------------------
+.. raw:: html
 
-.. api-section-annotation-hack:: 
+   </section>
 
-Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messenger^settings.message^line^length^limit`.
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="messengerSettings.messagePlainTextFlowedOutputEnabled.html">messagePlainTextFlowedOutputEnabled</a>
+   </div>
+   </section><section class="api-section-body">
+
+Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messageLineLengthLimit <messenger^settings.message^line^length^limit>`.
+
+.. raw:: html
+
+   </section>
