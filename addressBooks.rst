@@ -59,7 +59,7 @@ Functions
 closeUI()
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Closes the address book user interface.
 
@@ -73,7 +73,7 @@ Closes the address book user interface.
 create(properties)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Creates a new, empty address book.
 
@@ -105,7 +105,7 @@ Creates a new, empty address book.
       :refid: address-books-create-returns
       :refname: _returns
       :type: string
-      :annotation: -- [Added in TB 89.0a1]
+      :annotation: -- [Added in TB 91.0]
 
       The id of the new address book.
 
@@ -121,7 +121,7 @@ Creates a new, empty address book.
 delete(id)
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Removes an address book, and all associated contacts and mailing lists.
 
@@ -146,7 +146,7 @@ Removes an address book, and all associated contacts and mailing lists.
 get(id, [complete])
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Gets a single address book, optionally including all contacts and mailing lists.
 
@@ -180,7 +180,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
       :refid: address-books-get-returns
       :refname: _returns
       :type: :ref:`address^books.^address^book^node`
-      :annotation: -- [Added in TB 89.0a1]
+      :annotation: -- [Added in TB 91.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -194,7 +194,7 @@ Gets a single address book, optionally including all contacts and mailing lists.
 list([complete])
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Gets a list of the user's address books, optionally including all contacts and mailing lists.
 
@@ -220,7 +220,7 @@ Gets a list of the user's address books, optionally including all contacts and m
       :refid: address-books-list-returns
       :refname: _returns
       :type: array of :ref:`address^books.^address^book^node`
-      :annotation: -- [Added in TB 89.0a1]
+      :annotation: -- [Added in TB 91.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -234,7 +234,7 @@ Gets a list of the user's address books, optionally including all contacts and m
 openUI()
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Opens the address book user interface.
 
@@ -247,7 +247,7 @@ Opens the address book user interface.
       :refid: address-books-open-u-i-returns
       :refname: _returns
       :type: :ref:`tabs.^tab`
-      :annotation: -- [Added in TB 114.0a1]
+      :annotation: -- [Added in TB 115.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -261,7 +261,7 @@ Opens the address book user interface.
 update(id, properties)
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Renames an address book.
 
@@ -307,7 +307,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when an address book is created.
 
@@ -344,7 +344,7 @@ Fired when an address book is created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when an addressBook is deleted.
 
@@ -381,7 +381,7 @@ Fired when an addressBook is deleted.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when an address book is renamed.
 
@@ -423,7 +423,7 @@ Types
 AddressBookNode
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 A node representing an address book.
 
@@ -505,7 +505,7 @@ A node representing an address book.
       :refid: address-books-address-book-node-remote
       :refname: remote
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 91.0b2]
+      :annotation: -- [Added in TB 91.0]
 
       Indicates if the address book is accessed via remote look-up.
 
@@ -514,7 +514,7 @@ A node representing an address book.
 NodeType
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Indicates the type of a Node.
 

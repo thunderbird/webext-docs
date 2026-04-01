@@ -63,7 +63,7 @@ Functions
 create(details)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Creates a contextual identity with the given data.
 
@@ -124,7 +124,7 @@ Creates a contextual identity with the given data.
 get(cookieStoreId)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves information about a single contextual identity.
 
@@ -159,7 +159,7 @@ Retrieves information about a single contextual identity.
 move(cookieStoreIds, position)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 123]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Reorder one or more contextual identities by their cookieStoreIDs to a given position.
 
@@ -196,7 +196,7 @@ Reorder one or more contextual identities by their cookieStoreIDs to a given pos
 query(details)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves all contextual identities
 
@@ -237,7 +237,7 @@ Retrieves all contextual identities
 remove(cookieStoreId)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Deletes a contextual identity by its cookie Store ID.
 
@@ -272,7 +272,7 @@ Deletes a contextual identity by its cookie Store ID.
 update(cookieStoreId, details)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Updates a contextual identity with the given data.
 
@@ -352,7 +352,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 57]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a new container is created.
 
@@ -399,7 +399,7 @@ Fired when a new container is created.
 onRemoved
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 57]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a container is removed.
 
@@ -446,7 +446,7 @@ Fired when a container is removed.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 57]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a container is updated.
 
@@ -498,7 +498,7 @@ Types
 ContextualIdentity
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Represents information about a contextual identity.
 
@@ -522,7 +522,6 @@ Represents information about a contextual identity.
       :refid: contextual-identities-contextual-identity-color-code
       :refname: colorCode
       :type: (string)
-      :annotation: -- [Added in TB 57]
 
       The color hash of the contextual identity.
 
@@ -553,7 +552,6 @@ Represents information about a contextual identity.
       :refid: contextual-identities-contextual-identity-icon-url
       :refname: iconUrl
       :type: (string)
-      :annotation: -- [Added in TB 57]
 
       The icon url of the contextual identity.
 

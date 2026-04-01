@@ -1,0 +1,17 @@
+.. role:: small
+
+================================
+Changelog for Thunderbird 78.7.1
+================================
+
+The following WebExtension API changes were introduced in Thunderbird 78.7.1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../theme.html">theme</a>
+   </div>
+
+The theme API allows for customization of Thunderbird's visual elements.

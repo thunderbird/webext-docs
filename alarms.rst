@@ -61,7 +61,7 @@ Functions
 clear([name])
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the alarm with the given name.
 
@@ -102,7 +102,7 @@ Clears the alarm with the given name.
 clearAll()
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears all alarms.
 
@@ -130,7 +130,7 @@ Clears all alarms.
 create([name], alarmInfo)
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Creates an alarm. After the delay is expired, the onAlarm event is fired. If there is another alarm with the same name (or no name if none is specified), it will be cancelled and replaced by this alarm.
 
@@ -197,7 +197,7 @@ Creates an alarm. After the delay is expired, the onAlarm event is fired. If the
 get([name])
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves details about the specified alarm.
 
@@ -236,7 +236,7 @@ Retrieves details about the specified alarm.
 getAll()
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Gets an array of all the alarms.
 
@@ -267,7 +267,7 @@ Events
 onAlarm
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an alarm has expired. Useful for transient background pages.
 
@@ -311,7 +311,7 @@ Types
 Alarm
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: object

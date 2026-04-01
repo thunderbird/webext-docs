@@ -1,0 +1,175 @@
+.. role:: small
+
+===============================
+Changelog for Thunderbird 115.0
+===============================
+
+The following WebExtension API changes were introduced in Thunderbird 115.0.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../action.html">action</a>
+   </div>
+
+Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../commands.html">commands</a>
+   </div>
+
+- :small:`event` `onChanged <../commands.html#commands-on-changed>`__ — Fired when a registered command's shortcut is changed.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`function` `getBadgeBackgroundColor.details.tabId <../composeAction.html#compose-action-get-badge-background-color-details-tab-id>`__ — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getBadgeBackgroundColor.details.windowId <../composeAction.html#compose-action-get-badge-background-color-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getBadgeText.details.tabId <../composeAction.html#compose-action-get-badge-text-details-tab-id>`__ — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getBadgeText.details.windowId <../composeAction.html#compose-action-get-badge-text-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getLabel.details.tabId <../composeAction.html#compose-action-get-label-details-tab-id>`__ — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getLabel.details.windowId <../composeAction.html#compose-action-get-label-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getPopup.details.tabId <../composeAction.html#compose-action-get-popup-details-tab-id>`__ — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getPopup.details.windowId <../composeAction.html#compose-action-get-popup-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getTitle.details.tabId <../composeAction.html#compose-action-get-title-details-tab-id>`__ — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getTitle.details.windowId <../composeAction.html#compose-action-get-title-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `isEnabled.details.tabId <../composeAction.html#compose-action-is-enabled-details-tab-id>`__ — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `isEnabled.details.windowId <../composeAction.html#compose-action-is-enabled-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `openPopup.options <../composeAction.html#compose-action-open-popup-options>`__ — An object with information about the popup to open.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../declarativeNetRequest.html">declarativeNetRequest</a>
+   </div>
+
+Use the declarativeNetRequest API to block or modify network requests by specifying declarative rules.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplay.html">messageDisplay</a>
+   </div>
+
+- :small:`function` `open.openProperties.file <../messageDisplay.html#message-display-open-open-properties-file>`__ — The DOM file object of a message to be opened.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`function` `getBadgeBackgroundColor.details.tabId <../messageDisplayAction.html#message-display-action-get-badge-background-color-details-tab-id>`__ — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getBadgeBackgroundColor.details.windowId <../messageDisplayAction.html#message-display-action-get-badge-background-color-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getBadgeText.details.tabId <../messageDisplayAction.html#message-display-action-get-badge-text-details-tab-id>`__ — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getBadgeText.details.windowId <../messageDisplayAction.html#message-display-action-get-badge-text-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getLabel.details.tabId <../messageDisplayAction.html#message-display-action-get-label-details-tab-id>`__ — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getLabel.details.windowId <../messageDisplayAction.html#message-display-action-get-label-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getPopup.details.tabId <../messageDisplayAction.html#message-display-action-get-popup-details-tab-id>`__ — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getPopup.details.windowId <../messageDisplayAction.html#message-display-action-get-popup-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `getTitle.details.tabId <../messageDisplayAction.html#message-display-action-get-title-details-tab-id>`__ — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `getTitle.details.windowId <../messageDisplayAction.html#message-display-action-get-title-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `isEnabled.details.tabId <../messageDisplayAction.html#message-display-action-is-enabled-details-tab-id>`__ — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` `isEnabled.details.windowId <../messageDisplayAction.html#message-display-action-is-enabled-details-window-id>`__ — Will throw an error if used.
+- :small:`function` `openPopup.options <../messageDisplayAction.html#message-display-action-open-popup-options>`__ — An object with information about the popup to open.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `import <../messages.html#messages-import>`__ — Imports a message into a folder. Supports local folders, POP and IMAP folders. Throws, if the destination folder already contains a message with the Message-ID of the message being imported.
+- :small:`function` `openAttachment <../messages.html#messages-open-attachment>`__ — Opens the specified attachment.
+- :small:`type` `MessageAttachment.message <../messages.html#messages-message-attachment-message>`__ — A MessageHeader, if this attachment is a message.
+- :small:`type` `MessageHeader.external <../messages.html#messages-message-header-external>`__ — Whether this message is a real message or an external message (opened from a file or from an attachment).
+- :small:`type` `MessageHeader.new <../messages.html#messages-message-header-new>`__ — Whether the message has been received recently and is marked as new.
+- :small:`type` `MessageProperties <../messages.html#messages-message-properties>`__ — Message properties used in `messages.update <../messages.html#messages-update>`__ and `messages.import <../messages.html#messages-import>`__. They can also be monitored by `messages.onUpdated <../messages.html#messages-on-updated>`__.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../sessions.html">sessions</a>
+   </div>
+
+The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spaces.html">spaces</a>
+   </div>
+
+The spaces API allows to manage built-in and custom spaces, and to add buttons for custom spaces to Thunderbird's spaces toolbar.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../storage.html">storage</a>
+   </div>
+
+- :small:`property` `session <../storage.html#storage-session>`__ — Items in the :code:`session` storage area are kept in memory, and only until the either browser or extension is closed or reloaded.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` `create.createProperties.cookieStoreId <../tabs.html#tabs-create-create-properties-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` `query.queryInfo.cookieStoreId <../tabs.html#tabs-query-query-info-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` `query.queryInfo.spaceId <../tabs.html#tabs-query-query-info-space-id>`__ — The id of the space the tabs should belong to.
+- :small:`event` `onActivated.activeInfo.previousTabId <../tabs.html#tabs-on-activated-active-info-previous-tab-id>`__ — The ID of the tab that was previously active, if that tab is still open.
+- :small:`type` `Tab.cookieStoreId <../tabs.html#tabs-tab-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`type` `Tab.spaceId <../tabs.html#tabs-tab-space-id>`__ — The id of the space.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../webRequest.html">webRequest</a>
+   </div>
+
+- :small:`type` `SecurityInfo.secretKeyLength <../webRequest.html#web-request-security-info-secret-key-length>`__ — The length (in bits) of the secret key.
+- :small:`type` `SecurityInfo.usedDelegatedCredentials <../webRequest.html#web-request-security-info-used-delegated-credentials>`__ — True if the TLS connection used Delegated Credentials.
+- :small:`type` `SecurityInfo.usedEch <../webRequest.html#web-request-security-info-used-ech>`__ — True if the TLS connection used Encrypted Client Hello.
+- :small:`type` `SecurityInfo.usedOcsp <../webRequest.html#web-request-security-info-used-ocsp>`__ — True if the TLS connection made OCSP requests.
+- :small:`type` `SecurityInfo.usedPrivateDns <../webRequest.html#web-request-security-info-used-private-dns>`__ — True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`function` `create.createData.cookieStoreId <../windows.html#windows-create-create-data-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.

@@ -1,0 +1,17 @@
+.. role:: small
+
+================================
+Changelog for Thunderbird 91.3.1
+================================
+
+The following WebExtension API changes were introduced in Thunderbird 91.3.1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` `ComposeDetails.relatedMessageId <../compose.html#compose-compose-details-related-message-id>`__ — The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file.

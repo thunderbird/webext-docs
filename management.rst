@@ -57,7 +57,7 @@ Functions
 get(id)
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 56]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns information about the installed extension that has the given ID.
 
@@ -96,7 +96,7 @@ Returns information about the installed extension that has the given ID.
 getAll()
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 55]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns a list of information about installed extensions.
 
@@ -126,7 +126,7 @@ Returns a list of information about installed extensions.
 getSelf()
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns information about the calling extension. Note: This function can be used without requesting the 'management' permission in the manifest.
 
@@ -147,7 +147,7 @@ Returns information about the calling extension. Note: This function can be used
 install(options)
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 63]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Installs and enables a theme extension from the given url.
 
@@ -216,7 +216,7 @@ Installs and enables a theme extension from the given url.
 setEnabled(id, enabled)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 55]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Enables or disables the given add-on.
 
@@ -257,7 +257,7 @@ Enables or disables the given add-on.
 uninstallSelf([options])
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Uninstalls the calling extension. Note: This function can be used without requesting the 'management' permission in the manifest.
 
@@ -302,7 +302,7 @@ Events
 onDisabled
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 55]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an addon has been disabled.
 
@@ -343,7 +343,7 @@ Fired when an addon has been disabled.
 onEnabled
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 55]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an addon has been enabled.
 
@@ -384,7 +384,7 @@ Fired when an addon has been enabled.
 onInstalled
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 55]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an addon has been installed.
 
@@ -425,7 +425,7 @@ Fired when an addon has been installed.
 onUninstalled
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 55]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an addon has been uninstalled.
 
@@ -522,7 +522,7 @@ ExtensionID
 ExtensionInfo
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Information about an installed extension.
 
@@ -606,7 +606,6 @@ Information about an installed extension.
       :refid: management-extension-info-type
       :refname: type
       :type: (:ref:`management.^extension^type`)
-      :annotation: -- [Added in TB 55]
 
       The type of this extension, 'extension' or 'theme'.
 

@@ -192,7 +192,7 @@ Retrieves email address and obfuscated gaia id of the user signed into a profile
 getRedirectURL([path])
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Generates a redirect URL to be used in :ref:`identity.launch^web^auth^flow`.
 
@@ -231,7 +231,7 @@ Generates a redirect URL to be used in :ref:`identity.launch^web^auth^flow`.
 launchWebAuthFlow(details)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Starts an auth flow at the specified URL.
 

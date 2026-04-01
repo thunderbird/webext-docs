@@ -1,0 +1,147 @@
+.. role:: small
+
+==============================
+Changelog for Thunderbird 78.0
+==============================
+
+The following WebExtension API changes were introduced in Thunderbird 78.0.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserSettings.ftpProtocolEnabled.html">browserSettings.ftpProtocolEnabled</a>
+   </div>
+
+Returns whether the FTP protocol is enabled. Read-only.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserSettings.zoomFullPage.html">browserSettings.zoomFullPage</a>
+   </div>
+
+This boolean setting controls whether zoom is applied to the full page or to text only.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` `addAttachment <../compose.html#compose-add-attachment>`__ — Adds an attachment to the message being composed in the specified tab.
+- :small:`function` `getComposeDetails <../compose.html#compose-get-compose-details>`__ — Fetches the current state of a compose window. Currently only a limited amount of information is available, more will be added in later versions.
+- :small:`function` `listAttachments <../compose.html#compose-list-attachments>`__ — Lists all of the attachments of the message being composed in the specified tab.
+- :small:`function` `removeAttachment <../compose.html#compose-remove-attachment>`__ — Removes an attachment from the message being composed in the specified tab.
+- :small:`function` `setComposeDetails <../compose.html#compose-set-compose-details>`__ — Updates the compose window. The properties of the given `compose.ComposeDetails <../compose.html#compose-compose-details>`__ object will be used to overwrite the current values of the specified compose window, so only properties that are to be changed should be included. Modified settings will be treated as user initiated, and turn off further automatic changes on these settings.
+- :small:`function` `updateAttachment <../compose.html#compose-update-attachment>`__ — Updates the name and/or the content of an attachment in the message being composed in the specified tab. If the specified attachment is a cloud file attachment and the associated provider failed to update the attachment, the function will throw an *ExtensionError*.
+- :small:`event` `onAttachmentAdded <../compose.html#compose-on-attachment-added>`__ — Fired when an attachment is added to a message being composed.
+- :small:`event` `onAttachmentRemoved <../compose.html#compose-on-attachment-removed>`__ — Fired when an attachment is removed from a message being composed.
+- :small:`event` `onBeforeSend <../compose.html#compose-on-before-send>`__ — Fired when a message is about to be sent from the compose window. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
+- :small:`event` `onIdentityChanged <../compose.html#compose-on-identity-changed>`__ — Fired when the user changes the identity that will be used to send a message being composed.
+- :small:`type` `ComposeAttachment <../compose.html#compose-compose-attachment>`__ — Represents an attachment in a message being composed.
+- :small:`type` `ComposeDetails <../compose.html#compose-compose-details>`__ — Used by various functions to represent the state of a message being composed. Note that functions using this type may have a partial implementation.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`type` `OnClickData <../composeAction.html#compose-action-on-click-data>`__ — Information sent when a composeAction button is clicked.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`type` `MailFolder.subFolders <../folders.html#folders-mail-folder-sub-folders>`__ — Subfolders of this folder. This property is optional and only present if the inclusion of subfolders had been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`type` `OnClickData <../messageDisplayAction.html#message-display-action-on-click-data>`__ — Information sent when a messageDisplayAction button is clicked.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `query.queryInfo.tags <../messages.html#messages-query-query-info-tags>`__ — Returns only messages with the specified tags. For a list of available tags, call the `messages.tags.list <../messages.tags.html#messages-tags-list>`__ method.
+- :small:`event` `onNewMailReceived <../messages.html#messages-on-new-mail-received>`__ — Fired when a new message is received, and has been handled by message filters and junk classification. Filters running after junk classification may move the message again.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../permissions.html">permissions</a>
+   </div>
+
+- :small:`event` `onAdded <../permissions.html#permissions-on-added>`__ — Fired when the extension acquires new permissions.
+- :small:`event` `onRemoved <../permissions.html#permissions-on-removed>`__ — Fired when permissions are removed from the extension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../storage.html">storage</a>
+   </div>
+
+- :small:`type` `StorageArea.getBytesInUse <../storage.html#storage-storage-area-get-bytes-in-use>`__ — Gets the amount of space (in bytes) being used by one or more items.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../webRequest.html">webRequest</a>
+   </div>
+
+- :small:`event` `onAuthRequired.details.thirdParty <../webRequest.html#web-request-on-auth-required-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onAuthRequired.details.urlClassification <../webRequest.html#web-request-on-auth-required-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onBeforeRedirect.details.thirdParty <../webRequest.html#web-request-on-before-redirect-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onBeforeRedirect.details.urlClassification <../webRequest.html#web-request-on-before-redirect-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onBeforeRequest.details.thirdParty <../webRequest.html#web-request-on-before-request-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onBeforeRequest.details.urlClassification <../webRequest.html#web-request-on-before-request-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onBeforeSendHeaders.details.thirdParty <../webRequest.html#web-request-on-before-send-headers-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onBeforeSendHeaders.details.urlClassification <../webRequest.html#web-request-on-before-send-headers-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onCompleted.details.thirdParty <../webRequest.html#web-request-on-completed-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onCompleted.details.urlClassification <../webRequest.html#web-request-on-completed-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onErrorOccurred.details.thirdParty <../webRequest.html#web-request-on-error-occurred-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onErrorOccurred.details.urlClassification <../webRequest.html#web-request-on-error-occurred-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onHeadersReceived.details.thirdParty <../webRequest.html#web-request-on-headers-received-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onHeadersReceived.details.urlClassification <../webRequest.html#web-request-on-headers-received-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onResponseStarted.details.thirdParty <../webRequest.html#web-request-on-response-started-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onResponseStarted.details.urlClassification <../webRequest.html#web-request-on-response-started-details-url-classification>`__ — Tracking classification if the request has been classified.
+- :small:`event` `onSendHeaders.details.thirdParty <../webRequest.html#web-request-on-send-headers-details-third-party>`__ — Indicates if this request and its content window hierarchy is third party.
+- :small:`event` `onSendHeaders.details.urlClassification <../webRequest.html#web-request-on-send-headers-details-url-classification>`__ — Tracking classification if the request has been classified.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`type` `GetInfo <../windows.html#windows-get-info>`__ — Specifies additional requirements for the returned windows.

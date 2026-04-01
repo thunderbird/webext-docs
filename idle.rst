@@ -63,7 +63,7 @@ Functions
 queryState(detectionIntervalInSeconds)
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns "idle" if the user has not generated any input for a specified number of seconds, or "active" otherwise.
 
@@ -106,7 +106,7 @@ Returns "idle" if the user has not generated any input for a specified number of
 setDetectionInterval(intervalInSeconds)
 ---------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Sets the interval, in seconds, used to determine when the system is in an idle state for onStateChanged events. The default interval is 60 seconds.
 
@@ -138,7 +138,7 @@ Events
 onStateChanged
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the system changes to an active or idle state. The event fires with "idle" if the the user has not generated any input for a specified number of seconds, and "active" when the user generates input on an idle system.
 
@@ -180,7 +180,7 @@ Types
 IdleState
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: `string`

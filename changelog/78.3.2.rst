@@ -1,0 +1,28 @@
+.. role:: small
+
+================================
+Changelog for Thunderbird 78.3.2
+================================
+
+The following WebExtension API changes were introduced in Thunderbird 78.3.2.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` `ComposeDetails.attachments <../compose.html#compose-compose-details-attachments>`__ — Only used in the begin* functions. Attachments to add to the message.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplay.html">messageDisplay</a>
+   </div>
+
+- :small:`function` `getDisplayedMessages <../messageDisplay.html#message-display-get-displayed-messages>`__ — Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.
+- :small:`event` `onMessagesDisplayed <../messageDisplay.html#message-display-on-messages-displayed>`__ — Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.

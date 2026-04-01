@@ -62,7 +62,7 @@ Functions
 remove(options, dataToRemove)
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears various types of browsing data stored in a user's profile.
 
@@ -126,7 +126,7 @@ Clears websites' appcache data.
 removeCache(options)
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's cache.
 
@@ -155,7 +155,7 @@ Clears the browser's cache.
 removeCookies(options)
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's cookies and server-bound certificates modified within a particular timeframe.
 
@@ -180,7 +180,7 @@ Clears the browser's cookies and server-bound certificates modified within a par
 removeDownloads(options)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's list of downloaded files (*not* the downloaded files themselves).
 
@@ -230,7 +230,7 @@ Clears websites' file system data.
 removeFormData(options)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's stored form data (autofill).
 
@@ -255,7 +255,7 @@ Clears the browser's stored form data (autofill).
 removeHistory(options)
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's history.
 
@@ -309,7 +309,7 @@ Clears websites' IndexedDB data.
 removeLocalStorage(options)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 57]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears websites' local storage data.
 
@@ -338,7 +338,7 @@ Clears websites' local storage data.
 removePasswords(options)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's stored passwords.
 
@@ -363,7 +363,7 @@ Clears the browser's stored passwords.
 removePluginData(options)
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears plugins' data.
 
@@ -413,7 +413,7 @@ Clears websites' WebSQL data.
 settings()
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 53]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Reports which types of data are currently selected in the 'Clear browsing data' settings UI.  Note: some of the data types included in this API are not available in the settings UI, and some UI settings control more than one data type listed here.
 
@@ -536,7 +536,6 @@ A set of data types. Missing data types are interpreted as :code:`false`.
       :refid: browsing-data-data-type-set-indexed-d-b
       :refname: indexedDB
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 57]
 
       Websites' IndexedDB data.
 
@@ -547,7 +546,6 @@ A set of data types. Missing data types are interpreted as :code:`false`.
       :refid: browsing-data-data-type-set-local-storage
       :refname: localStorage
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 57]
 
       Websites' local storage data.
 
@@ -610,7 +608,7 @@ Options that determine exactly what data will be removed.
       :refid: browsing-data-removal-options-cookie-store-id
       :refname: cookieStoreId
       :type: (string, optional)
-      :annotation: -- [Added in TB 84]
+      :annotation: -- [Added in TB 91.0]
 
       Only remove data associated with this specific cookieStoreId.
 
@@ -621,7 +619,6 @@ Options that determine exactly what data will be removed.
       :refid: browsing-data-removal-options-hostnames
       :refname: hostnames
       :type: (array of string, optional)
-      :annotation: -- [Added in TB 56]
 
       Only remove data associated with these hostnames (only applies to cookies and localStorage).
 

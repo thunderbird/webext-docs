@@ -63,7 +63,7 @@ Functions
 getAllFrames(details)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves information about all frames of a given tab.
 
@@ -118,7 +118,7 @@ Retrieves information about all frames of a given tab.
 getFrame(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves information about the given frame. A frame refers to an &lt;iframe&gt; or a &lt;frame&gt; of a web page and is identified by a tab ID and a frame ID.
 
@@ -244,7 +244,7 @@ Events
 onBeforeNavigate
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a navigation is about to occur.
 
@@ -357,7 +357,7 @@ Fired when a navigation is about to occur.
 onCommitted
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a navigation is committed. The document (and the resources it refers to, such as images and subframes) might still be downloading, but at least part of the document has been received from the server and the browser has decided to switch to the new document.
 
@@ -480,7 +480,7 @@ Fired when a navigation is committed. The document (and the resources it refers 
 onCompleted
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a document, including the resources it refers to, is completely loaded and initialized.
 
@@ -583,7 +583,7 @@ Fired when a document, including the resources it refers to, is completely loade
 onCreatedNavigationTarget
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 54]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a new window, or a new tab in an existing window, is created to host a navigation.
 
@@ -698,7 +698,7 @@ Fired when a new window, or a new tab in an existing window, is created to host 
 onDOMContentLoaded
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the page's DOM is fully constructed, but the referenced resources may not finish loading.
 
@@ -801,7 +801,7 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
 onErrorOccurred
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an error occurs and the navigation is aborted. This can happen if either a network error occurred, or the user aborted the navigation.
 
@@ -914,7 +914,7 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
 onHistoryStateUpdated
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the frame's history was updated to a new URL. All future events for that frame will use the updated URL.
 
@@ -1029,7 +1029,7 @@ Fired when the frame's history was updated to a new URL. All future events for t
 onReferenceFragmentUpdated
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the reference fragment of a frame was updated. All future events for that frame will use the updated URL.
 
@@ -1152,7 +1152,7 @@ Fired when the reference fragment of a frame was updated. All future events for 
 onTabReplaced
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the contents of the tab is replaced by a different (usually previously pre-rendered) tab.
 
@@ -1246,7 +1246,7 @@ EventUrlFilters
 TransitionQualifier
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. note::
 
@@ -1281,7 +1281,6 @@ TransitionQualifier
             :name: :value:`from_address_bar`
             :refid: web-navigation-transition-qualifier-from-address-bar
             :refname: from_address_bar
-            :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^qualifier.server_redirect:
 
@@ -1295,7 +1294,7 @@ TransitionQualifier
 TransitionType
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Cause of the navigation. The same transition types as defined in the history API are used. These are the same transition types as defined in the history API except with :code:`"start_page"` in place of :code:`"auto_toplevel"` (for backwards compatibility).
 
@@ -1314,7 +1313,6 @@ Cause of the navigation. The same transition types as defined in the history API
             :name: :value:`auto_bookmark`
             :refid: web-navigation-transition-type-auto-bookmark
             :refname: auto_bookmark
-            :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^type.auto_subframe:
 
@@ -1340,7 +1338,6 @@ Cause of the navigation. The same transition types as defined in the history API
             :name: :value:`generated`
             :refid: web-navigation-transition-type-generated
             :refname: generated
-            :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^type.keyword:
 
@@ -1348,7 +1345,6 @@ Cause of the navigation. The same transition types as defined in the history API
             :name: :value:`keyword`
             :refid: web-navigation-transition-type-keyword
             :refname: keyword
-            :annotation: -- [Added in TB 49]
 
          .. _web^navigation.^transition^type.keyword_generated:
 
@@ -1395,14 +1391,13 @@ Cause of the navigation. The same transition types as defined in the history API
             :name: :value:`typed`
             :refid: web-navigation-transition-type-typed
             :refname: typed
-            :annotation: -- [Added in TB 49]
 
 .. _web^navigation.^url^filter:
 
 UrlFilter
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 50]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Filters URLs for various criteria. See `event filtering <events#filtered>`__. All criteria are case sensitive.
 

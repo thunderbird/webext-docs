@@ -1,0 +1,29 @@
+.. role:: small
+
+================================
+Changelog for Thunderbird 78.6.1
+================================
+
+The following WebExtension API changes were introduced in Thunderbird 78.6.1.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`function` `getLabel <../composeAction.html#compose-action-get-label>`__ — Gets the label of the composeAction button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` `setLabel <../composeAction.html#compose-action-set-label>`__ — Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`function` `getLabel <../messageDisplayAction.html#message-display-action-get-label>`__ — Gets the label of the messageDisplayAction button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` `setLabel <../messageDisplayAction.html#message-display-action-set-label>`__ — Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.

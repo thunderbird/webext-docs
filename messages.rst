@@ -121,7 +121,7 @@ Functions
 abortList(messageListId)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 120.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Finalizes the specified list and terminates any process currently still adding messages.
 
@@ -146,7 +146,7 @@ Finalizes the specified list and terminates any process currently still adding m
 archive(messageIds)
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 68.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Archives messages using the current settings. Archiving external messages will throw an *ExtensionError*.
 
@@ -174,7 +174,7 @@ Archives messages using the current settings. Archiving external messages will t
 continueList(messageListId)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Returns the next chunk of messages in a list. See :doc:`guides/messageLists` for more information.
 
@@ -198,7 +198,7 @@ Returns the next chunk of messages in a list. See :doc:`guides/messageLists` for
       :refid: messages-continue-list-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -212,7 +212,7 @@ Returns the next chunk of messages in a list. See :doc:`guides/messageLists` for
 copy(messageIds, folderId, [options])
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Copies messages to a specified folder.
 
@@ -246,7 +246,7 @@ Copies messages to a specified folder.
       :refid: messages-copy-options
       :refname: options
       :type: (object, optional)
-      :annotation: -- [Added in TB 137.0a1]
+      :annotation: -- [Added in TB 140.0]
 
       .. _messages.copy.options.is^user^action:
 
@@ -255,7 +255,7 @@ Copies messages to a specified folder.
          :refid: messages-copy-options-is-user-action
          :refname: isUserAction
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 137.0a1]
+         :annotation: -- [Added in TB 140.0]
 
          Whether this copy operation should be treated as a user action, for example allowing undo.
 
@@ -271,7 +271,7 @@ Copies messages to a specified folder.
 delete(messageIds, [options])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Deletes messages permanently, or moves them to the trash folder (honoring the account's deletion behavior settings). Deleting external messages will throw an *ExtensionError*. The :value:`deletePermanently` parameter allows immediate permanent deletion, bypassing the trash folder.
 
@@ -313,7 +313,7 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
       :refid: messages-delete-options-delete-permanently
       :refname: deletePermanently
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 137.0a1]
+      :annotation: -- [Added in TB 140.0]
       :depth: 2
 
       Whether the message will be deleted permanently, regardless of the account's deletion behavior settings. A permanently deleted message cannot be restored, even if the action is defined as a user action. Use this with care!
@@ -325,7 +325,7 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
       :refid: messages-delete-options-is-user-action
       :refname: isUserAction
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 137.0a1]
+      :annotation: -- [Added in TB 140.0]
       :depth: 2
 
       Whether this copy operation should be treated as a user action, for example allowing undo.
@@ -341,7 +341,7 @@ Deletes messages permanently, or moves them to the trash folder (honoring the ac
 deleteAttachments(messageId, partNames)
 ---------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 123.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
 
@@ -377,7 +377,7 @@ Deletes the specified attachments and replaces them by placeholder text attachme
 get(messageId)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Returns the specified message.
 
@@ -401,7 +401,7 @@ Returns the specified message.
       :refid: messages-get-returns
       :refname: _returns
       :type: :ref:`messages.^message^header`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -415,7 +415,7 @@ Returns the specified message.
 getAttachmentFile(messageId, partName)
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 88.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Gets the content of a :ref:`messages.^message^attachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
 
@@ -457,7 +457,7 @@ The most simple way to get the content of an attachment is to use the `text() <h
       :refid: messages-get-attachment-file-returns
       :refname: _returns
       :type: `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -471,7 +471,7 @@ The most simple way to get the content of an attachment is to use the `text() <h
 getFull(messageId, [options])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Returns the specified message, including all headers and MIME parts. Throws if the message could not be read, for example due to network issues.
 
@@ -493,7 +493,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
       :refid: messages-get-full-options
       :refname: options
       :type: (object, optional)
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
       .. _messages.get^full.options.decode^content:
 
@@ -502,7 +502,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
          :refid: messages-get-full-options-decode-content
          :refname: decodeContent
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 133.0a1]
+         :annotation: -- [Added in TB 140.0]
 
          Whether to decode quoted-printable or base64 encoded content of message parts. Defaults to :value:`true`.
 
@@ -513,7 +513,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
          :refid: messages-get-full-options-decode-headers
          :refname: decodeHeaders
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 133.0a1]
+         :annotation: -- [Added in TB 140.0]
 
          Whether to decode RFC 2047 encoded headers of message parts. Defaults to :value:`true`.
 
@@ -524,7 +524,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
          :refid: messages-get-full-options-decrypt
          :refname: decrypt
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 125.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to :value:`true`.
 
@@ -537,7 +537,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
       :refid: messages-get-full-returns
       :refname: _returns
       :type: :ref:`messages.^message^part`
-      :annotation: -- [Added in TB 125.0a1]
+      :annotation: -- [Added in TB 128.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -551,7 +551,7 @@ Returns the specified message, including all headers and MIME parts. Throws if t
 getRaw(message, [options])
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 72.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.7.0]
 
 Returns the raw content of a message. Throws if the message could not be read, for example due to network issues.
 
@@ -575,7 +575,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
       :refid: messages-get-raw-options
       :refname: options
       :type: (object, optional)
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
       .. _messages.get^raw.options.data_format:
 
@@ -584,7 +584,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
          :refid: messages-get-raw-options-data-format
          :refname: data_format
          :type: (`string`, optional)
-         :annotation: -- [Added in TB 117.0a1]
+         :annotation: -- [Added in TB 115.3.2]
 
          The message can either be returned as a DOM File (default) or as a `binary string <https://udn.realityripple.com/docs/Web/API/DOMString/Binary>`__. It is recommended to use the :value:`File` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ and `File.arrayBuffer() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer>`__.
 
@@ -631,7 +631,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
          :refid: messages-get-raw-options-decrypt
          :refname: decrypt
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 125.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Whether the message should be decrypted. Throws, if the message could not be decrypted.
 
@@ -644,7 +644,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
       :refid: messages-get-raw-returns
       :refname: _returns
       :type: string or `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__
-      :annotation: -- [Added in TB 117.0a1]
+      :annotation: -- [Added in TB 115.3.2]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -658,7 +658,7 @@ Returns the raw content of a message. Throws if the message could not be read, f
 import(file, folderId, [properties])
 ------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 106.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Imports a message into a folder. Supports local folders, POP and IMAP folders. Throws, if the destination folder already contains a message with the Message-ID of the message being imported.
 
@@ -715,7 +715,7 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
 list(folderId)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Gets all messages in a folder.
 
@@ -739,7 +739,7 @@ Gets all messages in a folder.
       :refid: messages-list-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -754,7 +754,7 @@ Gets all messages in a folder.
 listAttachments(messageId)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 88.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Lists the attachments of a message.
 
@@ -778,7 +778,7 @@ Lists the attachments of a message.
       :refid: messages-list-attachments-returns
       :refname: _returns
       :type: array of :ref:`messages.^message^attachment`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -792,7 +792,7 @@ Lists the attachments of a message.
 listInlineTextParts(messageId)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0b2]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Lists all inline text parts of a message. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messenger^utilities.convert^to^plain^text` can be used to retreive a plain text version.
 
@@ -833,7 +833,7 @@ Lists all inline text parts of a message. These parts are not returned by :ref:`
 move(messageIds, folderId, [options])
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Moves messages to a specified folder. If the messages cannot be removed from the source folder, they will be copied instead of moved. Moving external messages will throw an *ExtensionError*.
 
@@ -867,7 +867,7 @@ Moves messages to a specified folder. If the messages cannot be removed from the
       :refid: messages-move-options
       :refname: options
       :type: (object, optional)
-      :annotation: -- [Added in TB 137.0a1]
+      :annotation: -- [Added in TB 140.0]
 
       .. _messages.move.options.is^user^action:
 
@@ -876,7 +876,7 @@ Moves messages to a specified folder. If the messages cannot be removed from the
          :refid: messages-move-options-is-user-action
          :refname: isUserAction
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 137.0a1]
+         :annotation: -- [Added in TB 140.0]
 
          Whether this move operation should be treated as a user action, for example allowing undo.
 
@@ -892,7 +892,7 @@ Moves messages to a specified folder. If the messages cannot be removed from the
 openAttachment(messageId, partName, tabId)
 ------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Opens the specified attachment.
 
@@ -935,7 +935,7 @@ Opens the specified attachment.
 query([queryInfo])
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 69.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.1.3]
 
 Gets all messages that have the specified properties, or all messages if no properties are specified. Messages of unified mailbox folders are not included by default (as that could double the amount of returned messages), but explicitly specifying a unified mailbox folder is supported.
 
@@ -957,7 +957,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-account-id
          :refname: accountId
          :type: (:ref:`accounts.^mail^account^id` or array of :ref:`accounts.^mail^account^id`, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Limits the search to the specified account(s). Accounts are searched in the specified order.
 
@@ -968,7 +968,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-attachment
          :refname: attachment
          :type: (boolean or :ref:`messages.^query^range`, optional)
-         :annotation: -- [Added in TB 96.0a1]
+         :annotation: -- [Added in TB 91.4.1]
 
          Whether the message has attachments, or not. Supports to specify a :ref:`messages.^query^range` (min/max) instead of a simple boolean value (none/some).
 
@@ -989,7 +989,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-auto-pagination-timeout
          :refname: autoPaginationTimeout
          :type: (integer, optional)
-         :annotation: -- [Added in TB 120.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
 
@@ -1020,7 +1020,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-folder-id
          :refname: folderId
          :type: (:ref:`folders.^mail^folder^id` or array of :ref:`folders.^mail^folder^id`, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
 
@@ -1061,7 +1061,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-header-message-id
          :refname: headerMessageId
          :type: (string, optional)
-         :annotation: -- [Added in TB 85.0a1]
+         :annotation: -- [Added in TB 91.0]
 
          Returns only messages with a Message-ID header matching this value.
 
@@ -1072,7 +1072,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-include-sub-folders
          :refname: includeSubFolders
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 91.0a1]
+         :annotation: -- [Added in TB 91.0]
 
          Search the specified folder recursively.
 
@@ -1083,7 +1083,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-junk
          :refname: junk
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Returns only messages whith the specified junk state.
 
@@ -1094,7 +1094,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-junk-score
          :refname: junkScore
          :type: (:ref:`messages.^query^range`, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Returns only messages with a junk score in the specified range.
 
@@ -1105,7 +1105,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-messages-per-page
          :refname: messagesPerPage
          :type: (integer, optional)
-         :annotation: -- [Added in TB 120.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
 
@@ -1116,7 +1116,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-new
          :refname: new
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Returns only messages with the specified new state.
 
@@ -1127,7 +1127,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-online
          :refname: online
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 129.0a1]
+         :annotation: -- [Added in TB 140.0]
 
          Query the server directly instead of the local message database. Online queries currently only support querying the :value:`headerMessageId` property. Currently only supported for NNTP accounts.
 
@@ -1138,7 +1138,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-read
          :refname: read
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Returns only messages with the specified read state.
 
@@ -1159,7 +1159,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-return-message-list-id
          :refname: returnMessageListId
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 120.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.
 
@@ -1170,7 +1170,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-size
          :refname: size
          :type: (:ref:`messages.^query^range`, optional)
-         :annotation: -- [Added in TB 121.0a1]
+         :annotation: -- [Added in TB 128.0]
 
          Returns only messages with a size in the specified byte range.
 
@@ -1191,7 +1191,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-tags
          :refname: tags
          :type: (:ref:`messages.tags.^tags^detail`, optional)
-         :annotation: -- [Added in TB 74.0a1]
+         :annotation: -- [Added in TB 78.0]
 
          Returns only messages with the specified tags. For a list of available tags, call the :ref:`messages.tags.list` method.
 
@@ -1224,7 +1224,7 @@ Gets all messages that have the specified properties, or all messages if no prop
       :refid: messages-query-returns
       :refname: _returns
       :type: :ref:`messages.^message^list` or string
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -1238,7 +1238,7 @@ Gets all messages that have the specified properties, or all messages if no prop
 update(messageId, newProperties)
 --------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Updates message properties and tags. Updating external messages will throw an *ExtensionError*.
 
@@ -1277,7 +1277,7 @@ Events
 onCopied
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 91.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Fired when messages have been copied.
 
@@ -1323,7 +1323,7 @@ Fired when messages have been copied.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 91.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Fired when messages have been permanently deleted.
 
@@ -1361,7 +1361,7 @@ Fired when messages have been permanently deleted.
 onMoved
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 91.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Fired when messages have been moved.
 
@@ -1407,7 +1407,7 @@ Fired when messages have been moved.
 onNewMailReceived
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 75.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.0]
 
 Fired when a new message is received, and has been handled by message filters and junk classification. Filters running after junk classification may move the message again.
 
@@ -1430,7 +1430,7 @@ Fired when a new message is received, and has been handled by message filters an
       :refid: messages-on-new-mail-received-monitor-all-folders
       :refname: monitorAllFolders
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 121.0a1]
+      :annotation: -- [Added in TB 128.0]
 
       Monitor all folders (including all special use folders as defined by :ref:`folders.^mail^folder^special^use`) instead of just inbox folders and normal folders.
 
@@ -1464,7 +1464,7 @@ Fired when a new message is received, and has been handled by message filters an
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 91.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Fired when one or more properties of a message have been updated.
 
@@ -1506,7 +1506,7 @@ Fired when one or more properties of a message have been updated.
       :refid: messages-on-updated-old-properties
       :refname: oldProperties
       :type: (:ref:`messages.^message^properties`)
-      :annotation: -- [Added in TB 137.0a1]
+      :annotation: -- [Added in TB 140.0]
 
 .. api-header::
    :label: Required permissions
@@ -1523,7 +1523,7 @@ Types
 InlineTextPart
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0b2]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 An inline part with content type :value:`text/*`. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`
 
@@ -1555,7 +1555,7 @@ An inline part with content type :value:`text/*`. These parts are not returned b
 MailBoxHeaderString
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 131.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.3.2]
 
 Content may either be a single email address, or a mailbox string (see RFC 5322, section 3.4). Use :ref:`messenger^utilities.parse^mailbox^string` to extract the name and/or the email from the mailbox string.
 
@@ -1567,7 +1567,7 @@ Content may either be a single email address, or a mailbox string (see RFC 5322,
 MessageAttachment
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 98.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Represents an attachment in a message.
 
@@ -1581,7 +1581,7 @@ Represents an attachment in a message.
       :refid: messages-message-attachment-content-disposition
       :refname: contentDisposition
       :type: (string)
-      :annotation: -- [Added in TB 135.0a1]
+      :annotation: -- [Added in TB 140.0]
 
       The content disposition of the attachment, for example :value:`attachment` for normal attachments, or :value:`inline` for inline attachments.
 
@@ -1602,7 +1602,7 @@ Represents an attachment in a message.
       :refid: messages-message-attachment-headers
       :refname: headers
       :type: (object)
-      :annotation: -- [Added in TB 135.0a1]
+      :annotation: -- [Added in TB 140.0]
 
       A *dictionary object* of RFC 2047 decoded attachment headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
 
@@ -1643,7 +1643,7 @@ Represents an attachment in a message.
       :refid: messages-message-attachment-content-id
       :refname: contentId
       :type: (string, optional)
-      :annotation: -- [Added in TB 128.0a1]
+      :annotation: -- [Added in TB 128.0]
 
       The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).
 
@@ -1654,7 +1654,7 @@ Represents an attachment in a message.
       :refid: messages-message-attachment-message
       :refname: message
       :type: (:ref:`messages.^message^header`, optional)
-      :annotation: -- [Added in TB 106.0a1]
+      :annotation: -- [Added in TB 115.0]
 
       A MessageHeader, if this attachment is a message.
 
@@ -1663,7 +1663,7 @@ Represents an attachment in a message.
 MessageHeader
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 89.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Basic information about a message.
 
@@ -1713,7 +1713,7 @@ Basic information about a message.
       :refid: messages-message-header-external
       :refname: external
       :type: (boolean)
-      :annotation: -- [Added in TB 106.0a1]
+      :annotation: -- [Added in TB 115.0]
 
       Whether this message is a real message or an external message (opened from a file or from an attachment).
 
@@ -1744,7 +1744,7 @@ Basic information about a message.
       :refid: messages-message-header-headers-only
       :refname: headersOnly
       :type: (boolean)
-      :annotation: -- [Added in TB 102.0a1]
+      :annotation: -- [Added in TB 102.0]
 
       Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
 
@@ -1783,7 +1783,7 @@ Basic information about a message.
       :refid: messages-message-header-new
       :refname: new
       :type: (boolean)
-      :annotation: -- [Added in TB 106.0a1]
+      :annotation: -- [Added in TB 115.0]
 
       Whether the message has been received recently and is marked as new.
 
@@ -1804,7 +1804,6 @@ Basic information about a message.
       :refid: messages-message-header-size
       :refname: size
       :type: (integer)
-      :annotation: -- [Added in TB 90.0a1]
 
       The total size of the message in bytes.
 
@@ -1853,7 +1852,7 @@ Basic information about a message.
 MessageId
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 122.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 A unique id representing a :ref:`messages.^message^header` and the associated message. This id doesn’t refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.
 
@@ -1865,7 +1864,7 @@ A unique id representing a :ref:`messages.^message^header` and the associated me
 MessageList
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 89.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 See :doc:`guides/messageLists` for more information.
 
@@ -1895,7 +1894,7 @@ See :doc:`guides/messageLists` for more information.
 MessagePart
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 89.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Represents an email message "part", which could be the whole message.
 
@@ -1927,7 +1926,7 @@ Represents an email message "part", which could be the whole message.
       :refid: messages-message-part-decryption-status
       :refname: decryptionStatus
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 125.0a1]
+      :annotation: -- [Added in TB 128.0]
 
       The decryption status, only available for the root part.
 
@@ -2008,7 +2007,7 @@ Represents an email message "part", which could be the whole message.
       :refid: messages-message-part-raw-body
       :refname: rawBody
       :type: (string, optional)
-      :annotation: -- [Added in TB 133.0a1]
+      :annotation: -- [Added in TB 140.0]
 
       The raw content of the part. Only present if requested, see the :value:`decodeContent` option of :ref:`messages.get^full`.
 
@@ -2019,7 +2018,7 @@ Represents an email message "part", which could be the whole message.
       :refid: messages-message-part-raw-headers
       :refname: rawHeaders
       :type: (object, optional)
-      :annotation: -- [Added in TB 133.0a1]
+      :annotation: -- [Added in TB 140.0]
 
       A *dictionary object* of raw part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.get^full`.
 
@@ -2038,7 +2037,7 @@ Represents an email message "part", which could be the whole message.
 MessageProperties
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 106.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Message properties used in :ref:`messages.update` and :ref:`messages.import`. They can also be monitored by :ref:`messages.on^updated`.
 
@@ -2100,7 +2099,7 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
 QueryRange
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 121.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 An object defining a range.
 

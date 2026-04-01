@@ -61,7 +61,7 @@ Functions
 getModuleSlots(name)
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 58]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Enumerate a module's slots, each with their name and whether a token is present
 
@@ -86,7 +86,7 @@ Enumerate a module's slots, each with their name and whether a token is present
 installModule(name, [flags])
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 58]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Install a PKCS#11 module with a given name
 
@@ -119,7 +119,7 @@ Install a PKCS#11 module with a given name
 isModuleInstalled(name)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 58]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 checks whether a PKCS#11 module, given by name, is installed
 
@@ -144,7 +144,7 @@ checks whether a PKCS#11 module, given by name, is installed
 uninstallModule(name)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 58]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Remove an installed PKCS#11 module from firefox
 

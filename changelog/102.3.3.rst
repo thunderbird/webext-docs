@@ -1,0 +1,27 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 102.3.3
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 102.3.3.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../commands.html">commands</a>
+   </div>
+
+- :small:`event` `onCommand.tab <../commands.html#commands-on-command-tab>`__ — The details of the active tab while the command occurred.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` `setSelectedMessages <../mailTabs.html#mail-tabs-set-selected-messages>`__ — Selects none, one or multiple messages. Opens collapsed threads to show the selection, if required.

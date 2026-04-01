@@ -68,7 +68,7 @@ Functions
 configureWorld(properties)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Configures the environment for scripts running in a USER_SCRIPT world.
 
@@ -95,7 +95,7 @@ Configures the environment for scripts running in a USER_SCRIPT world.
 getScripts([filter])
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Returns all dynamically-registered user scripts for this extension.
 
@@ -136,7 +136,7 @@ Returns all dynamically-registered user scripts for this extension.
 getWorldConfigurations()
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Returns all registered USER_SCRIPT world configurations.
 
@@ -164,7 +164,7 @@ Returns all registered USER_SCRIPT world configurations.
 register(scripts)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Registers one or more user scripts for this extension.
 
@@ -195,7 +195,7 @@ Registers one or more user scripts for this extension.
 resetWorldConfiguration([worldId])
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Resets the configuration for a given world. That world will fall back to the default world's configuration.
 
@@ -222,7 +222,7 @@ Resets the configuration for a given world. That world will fall back to the def
 unregister([filter])
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Unregisters all dynamically-registered user scripts for this extension.
 
@@ -249,7 +249,7 @@ Unregisters all dynamically-registered user scripts for this extension.
 update(scripts)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Updates one or more user scripts for this extension.
 
@@ -281,7 +281,7 @@ Types
 ExecutionWorld
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 The JavaScript world for a script to execute within. :code:`USER_SCRIPT` is the default execution environment of user scripts, :code:`MAIN` is the web page's execution environment.
 
@@ -375,7 +375,7 @@ Mostly unrestricted match patterns for privileged add-ons. This should technical
 RegisteredUserScript
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 An object that represents a user script registered programmatically
 
@@ -483,7 +483,7 @@ An object that represents a user script registered programmatically
 RunAt
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The soonest that the JavaScript or CSS will be injected into the tab.
 
@@ -522,7 +522,7 @@ The soonest that the JavaScript or CSS will be injected into the tab.
 ScriptSource
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Object with file xor code property. Equivalent to the ExtensionFileOrCode, except the file remains a relative URL.
 
@@ -565,7 +565,7 @@ Object with file xor code property. Equivalent to the ExtensionFileOrCode, excep
 UserScriptFilter
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Optional filter to use with getScripts() and unregister().
 
@@ -585,7 +585,7 @@ Optional filter to use with getScripts() and unregister().
 WorldProperties
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 The configuration of a USER_SCRIPT world.
 

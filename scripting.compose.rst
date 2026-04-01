@@ -71,7 +71,7 @@ Functions
 getRegisteredScripts([filter])
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Returns all registered compose scripts for this extension that match the given filter.
 
@@ -111,7 +111,7 @@ Returns all registered compose scripts for this extension that match the given f
 registerScripts(scripts)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Registers one or more compose scripts for this extension, which should be injected into the message compose editor.
 
@@ -143,7 +143,7 @@ Registers one or more compose scripts for this extension, which should be inject
 unregisterScripts([filter])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Unregisters one or more compose scripts for this extension.
 
@@ -176,7 +176,7 @@ Types
 ComposeScriptDetails
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 .. api-header::
    :label: object
@@ -226,7 +226,7 @@ ComposeScriptDetails
 ComposeScriptFilter
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 .. api-header::
    :label: object
@@ -258,7 +258,7 @@ A path relative to the root of the extension.
 RunAt
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The soonest that the JavaScript or CSS will be injected into the tab.
 

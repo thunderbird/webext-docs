@@ -57,7 +57,7 @@ Functions
 detectLanguage(text)
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Detects the language of the provided text using CLD.
 
@@ -113,7 +113,7 @@ Detects the language of the provided text using CLD.
 getAcceptLanguages()
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Gets the accept-languages of the browser. This is different from the locale used by the browser; to get the locale, use :ref:`i18n.get^u^i^language`.
 
@@ -136,7 +136,7 @@ Gets the accept-languages of the browser. This is different from the locale used
 getMessage(messageName, [substitutions])
 ----------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Gets the localized string for the specified message. If the message is missing, this method returns an empty string (''). If the format of the :code:`getMessage()` call is wrong — for example, *messageName* is not a string or the *substitutions* array has more than 9 elements — this method returns :code:`undefined`.
 
@@ -186,7 +186,7 @@ Gets the localized string for the specified message. If the message is missing, 
 getUILanguage()
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Gets the browser UI language of the browser. This is different from :ref:`i18n.get^accept^languages` which returns the preferred user languages.
 
@@ -218,7 +218,7 @@ Types
 LanguageCode
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An ISO language code such as :code:`en` or :code:`fr`. For a complete list of languages supported by this method, see `kLanguageInfoTable <http://src.chromium.org/viewvc/chrome/trunk/src/third_party/cld/languages/internal/languages.cc>`__. For an unknown language, :code:`und` will be returned, which means that [percentage] of the text is unknown to CLD
 

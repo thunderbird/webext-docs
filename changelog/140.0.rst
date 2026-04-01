@@ -1,0 +1,153 @@
+.. role:: small
+
+===============================
+Changelog for Thunderbird 140.0
+===============================
+
+The following WebExtension API changes were introduced in Thunderbird 140.0.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../commands.html">commands</a>
+   </div>
+
+- :small:`function` `openShortcutSettings <../commands.html#commands-open-shortcut-settings>`__ — Open extension shortcuts configuration page.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` `query.queryInfo.lastUsed <../folders.html#folders-query-query-info-last-used>`__ — Date the folder was last used (folder was accessed, user moved or copied messages into the folder or folder received new messages).
+- :small:`function` `query.queryInfo.lastUsedAsDestination <../folders.html#folders-query-query-info-last-used-as-destination>`__ — Date the folder was last used as a destination (user moved or copied messages into the folder).
+- :small:`function` `query.queryInfo.sort <../folders.html#folders-query-query-info-sort>`__ — The sort order of the returned folders. If not specified, folders will be sorted by :value:`path`. Sorting by :value:`name` is case-insensitive.
+- :small:`type` `MailFolderInfo.lastUsedAsDestination <../folders.html#folders-mail-folder-info-last-used-as-destination>`__ — Date the folder was last used as a destination. It is updated every time the user moved or copied messages into the folder. (precision: seconds).
+- :small:`type` `QueryDateRange <../folders.html#folders-query-date-range>`__ — An object defining a range for a date value to be used in queries.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `delete.options.deletePermanently <../messages.html#messages-delete-options-delete-permanently>`__ — Whether the message will be deleted permanently, regardless of the account's deletion behavior settings. A permanently deleted message cannot be restored, even if the action is defined as a user action. Use this with care!
+- :small:`function` `delete.options.isUserAction <../messages.html#messages-delete-options-is-user-action>`__ — Whether this copy operation should be treated as a user action, for example allowing undo.
+- :small:`function` `getFull.options.decodeContent <../messages.html#messages-get-full-options-decode-content>`__ — Whether to decode quoted-printable or base64 encoded content of message parts. Defaults to :value:`true`.
+- :small:`function` `getFull.options.decodeHeaders <../messages.html#messages-get-full-options-decode-headers>`__ — Whether to decode RFC 2047 encoded headers of message parts. Defaults to :value:`true`.
+- :small:`function` `query.queryInfo.online <../messages.html#messages-query-query-info-online>`__ — Query the server directly instead of the local message database. Online queries currently only support querying the :value:`headerMessageId` property. Currently only supported for NNTP accounts.
+- :small:`type` `MessageAttachment.contentDisposition <../messages.html#messages-message-attachment-content-disposition>`__ — The content disposition of the attachment, for example :value:`attachment` for normal attachments, or :value:`inline` for inline attachments.
+- :small:`type` `MessageAttachment.headers <../messages.html#messages-message-attachment-headers>`__ — A *dictionary object* of RFC 2047 decoded attachment headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+- :small:`type` `MessagePart.rawBody <../messages.html#messages-message-part-raw-body>`__ — The raw content of the part. Only present if requested, see the :value:`decodeContent` option of `messages.getFull <../messages.html#messages-get-full>`__.
+- :small:`type` `MessagePart.rawHeaders <../messages.html#messages-message-part-raw-headers>`__ — A *dictionary object* of raw part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of `messages.getFull <../messages.html#messages-get-full>`__.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.tags.html">messages.tags</a>
+   </div>
+
+- :small:`event` `onCreated <../messages.tags.html#messages-tags-on-created>`__ — Fired when a new message tag has been created.
+- :small:`event` `onDeleted <../messages.tags.html#messages-tags-on-deleted>`__ — Fired when a message tag has been deleted.
+- :small:`event` `onUpdated <../messages.tags.html#messages-tags-on-updated>`__ — Fired when one or more properties of a message tag have been updated.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.html">messengerSettings</a>
+   </div>
+
+The messengerSettings API allows to access global messenger settings.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.messageLineLengthLimit.html">messengerSettings.messageLineLengthLimit</a>
+   </div>
+
+The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of `messengerSettings.messagePlainTextFlowedOutputEnabled <../messengerSettings.html#messenger-settings-message-plain-text-flowed-output-enabled>`__.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.messagePlainTextFlowedOutputEnabled.html">messengerSettings.messagePlainTextFlowedOutputEnabled</a>
+   </div>
+
+Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See `messengerSettings.messageLineLengthLimit <../messengerSettings.html#messenger-settings-message-line-length-limit>`__.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerUtilities.html">messengerUtilities</a>
+   </div>
+
+The messengerUtilities API provides helpful methods for working with messages and emails.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../runtime.html">runtime</a>
+   </div>
+
+- :small:`event` `onUserScriptConnect <../runtime.html#runtime-on-user-script-connect>`__ — Fired when a connection is made from a USER_SCRIPT world registered through the userScripts API.
+- :small:`event` `onUserScriptMessage <../runtime.html#runtime-on-user-script-message>`__ — Fired when a message is sent from a USER_SCRIPT world registered through the userScripts API.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spaces.html">spaces</a>
+   </div>
+
+- :small:`type` `SpaceTabProperties <../spaces.html#spaces-space-tab-properties>`__ — Properties for the new tab being opened by clicking on the associated button in the spaces toolbar.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../storage.html">storage</a>
+   </div>
+
+- :small:`property` `session.QUOTA_BYTES <../storage.html#storage-session-q-u-o-t-a-b-y-t-e-s>`__ — The maximum amount of data (in bytes, currently at 10MB) that can be stored in session storage, as measured by the StructuredCloneHolder of every value plus every key's length.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` `create.createProperties.linkHandler <../tabs.html#tabs-create-create-properties-link-handler>`__ — Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
+- :small:`type` `Tab.groupId <../tabs.html#tabs-tab-group-id>`__ — The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`function` `create.createData.linkHandler <../windows.html#windows-create-create-data-link-handler>`__ — Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.

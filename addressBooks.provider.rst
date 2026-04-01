@@ -70,7 +70,7 @@ Events
 onSearchRequest
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 91.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Registering this listener will create a read-only address book, similar to an LDAP address book. When selecting this address book, users will first see no contacts, but they can search for contacts, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
 

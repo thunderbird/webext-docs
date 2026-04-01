@@ -71,7 +71,7 @@ Functions
 getRegisteredScripts([filter])
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Returns all registered message display scripts for this extension that match the given filter.
 
@@ -111,7 +111,7 @@ Returns all registered message display scripts for this extension that match the
 registerScripts(scripts)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Registers one or more message display scripts for this extension, which should be injected into displayed messages.
 
@@ -143,7 +143,7 @@ Registers one or more message display scripts for this extension, which should b
 unregisterScripts([filter])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Unregisters one or more message display scripts for this extension.
 
@@ -188,7 +188,7 @@ A path relative to the root of the extension.
 MessageDisplayScriptDetails
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 .. api-header::
    :label: object
@@ -238,7 +238,7 @@ MessageDisplayScriptDetails
 MessageDisplayScriptFilter
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 .. api-header::
    :label: object
@@ -258,7 +258,7 @@ MessageDisplayScriptFilter
 RunAt
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The soonest that the JavaScript or CSS will be injected into the tab.
 
