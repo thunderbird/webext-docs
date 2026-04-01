@@ -77,7 +77,7 @@ Functions
 create([key], tag, color, [callback])
 -------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Creates a new message tag and returns the associated key. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
 
@@ -121,6 +121,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
       :refid: messages-tags-create-callback
       :refname: callback
       :type: (function, optional)
+      :annotation: -- [Added in TB 136]
 
 .. api-header::
    :label: Required permissions
@@ -133,7 +134,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
 delete(key)
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
 
@@ -161,7 +162,7 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
 list()
 ------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Returns a list of tags that can be set on messages, and their human-friendly name, colour, and sort order.
 
@@ -188,7 +189,7 @@ Returns a list of tags that can be set on messages, and their human-friendly nam
 update(key, updateProperties)
 -----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Updates a message tag. Throws if the specified tag key does not exist.
 
@@ -229,7 +230,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
 Fired when a new message tag has been created.
 
@@ -267,7 +268,7 @@ Fired when a new message tag has been created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
 Fired when a message tag has been deleted.
 
@@ -307,7 +308,7 @@ Fired when a message tag has been deleted.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
 Fired when one or more properties of a message tag have been updated.
 
@@ -372,7 +373,7 @@ Types
 MessageTag
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 .. api-header::
    :label: object
@@ -422,7 +423,7 @@ MessageTag
 MessageTagProperties
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 136]
 
 .. api-header::
    :label: object
@@ -462,7 +463,7 @@ MessageTagProperties
 TagsDetail
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Used for filtering messages by tag in various methods. Note that functions using this type may have a partial implementation.
 
@@ -501,6 +502,7 @@ Used for filtering messages by tag in various methods. Note that functions using
          :name: :value:`none`
          :refid: messages-tags-tags-detail-mode-none
          :refname: none
+         :annotation: -- [Added in TB 148]
 
    .. _messages.tags.^tags^detail.tags:
 

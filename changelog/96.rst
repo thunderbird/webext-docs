@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -7,6 +13,35 @@ Changelog for Thunderbird 96
 The following WebExtension API changes were introduced in Thunderbird 96.
 
 
+cloudFile
+---------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`type` :ref:`CloudFileTemplateInfo <cloud^file.^cloud^file^template^info>` — Defines information to be used in the cloud file entry added to the message.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`query.queryInfo.attachment <messages.query.query^info.attachment>` — Whether the message has attachments, or not. Supports to specify a :ref:`messages.QueryRange <messages.^query^range>` (min/max) instead of a simple boolean value (none/some).
+
+
+runtime
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,4 +49,4 @@ The following WebExtension API changes were introduced in Thunderbird 96.
      <a href="../runtime.html">runtime</a>
    </div>
 
-- :small:`function` `getFrameId <../runtime.html#runtime-get-frame-id>`__ — Get the frameId of any window global or frame element.
+- :small:`function` :ref:`getFrameId <runtime.get^frame^id>` — Get the frameId of any window global or frame element.

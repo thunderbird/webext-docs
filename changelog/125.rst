@@ -1,0 +1,41 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 125
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 125.
+
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` :ref:`ComposeDetails.isModified <compose.^compose^details.is^modified>` — Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`getFull.options.decrypt <messages.get^full.options.decrypt>` — Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to :value:`true`.
+- :small:`function` :ref:`getRaw.options.decrypt <messages.get^raw.options.decrypt>` — Whether the message should be decrypted. Throws, if the message could not be decrypted.
+- :small:`type` :ref:`MessagePart.decryptionStatus <messages.^message^part.decryption^status>` — The decryption status, only available for the root part.

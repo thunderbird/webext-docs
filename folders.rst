@@ -78,7 +78,7 @@ Functions
 copy(sourceFolderId, destinationFolderId)
 -----------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
@@ -124,7 +124,7 @@ Copies the given source folder into the given destination folder. Throws if the 
 create(folderId, childName)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 68]
 
 Creates a new subfolder in the specified folder.
 
@@ -156,6 +156,7 @@ Creates a new subfolder in the specified folder.
       :refid: folders-create-returns
       :refname: _returns
       :type: :ref:`folders.^mail^folder`
+      :annotation: -- [Added in TB 92]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -170,7 +171,7 @@ Creates a new subfolder in the specified folder.
 delete(folderId)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 68]
 
 Deletes a folder.
 
@@ -197,7 +198,7 @@ Deletes a folder.
 get(folderId, [includeSubFolders])
 ----------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Returns the specified folder.
 
@@ -244,7 +245,7 @@ Returns the specified folder.
 getFolderCapabilities(folderId)
 -------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Get capability information about a folder.
 
@@ -281,7 +282,7 @@ Get capability information about a folder.
 getFolderInfo(folderId)
 -----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Get additional information about a folder.
 
@@ -318,7 +319,7 @@ Get additional information about a folder.
 getParentFolders(folderId, [includeSubFolders])
 -----------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Get all parent folders as a flat ordered array. The first array entry is the direct parent.
 
@@ -365,7 +366,7 @@ Get all parent folders as a flat ordered array. The first array entry is the dir
 getSubFolders(folderId, [includeSubFolders])
 --------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Get the subfolders of the specified folder.
 
@@ -412,7 +413,7 @@ Get the subfolders of the specified folder.
 getTagFolder(key)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags. Throws if the requested folder does not exist.
 
@@ -451,7 +452,7 @@ Get one of the special virtual tag folders, which are virtual search folders and
 getUnifiedFolder(type, [includeSubFolders])
 -------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts. Throws if the requested folder does not exist.
 
@@ -551,7 +552,7 @@ Get one of the special unified mailbox folders, which are virtual search folders
 markAsRead(folderId)
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Marks all messages in a folder as read.
 
@@ -577,7 +578,7 @@ Marks all messages in a folder as read.
 move(sourceFolderId, destinationFolderId)
 -----------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
 
@@ -623,7 +624,7 @@ Moves the given source folder into the given destination folder. Throws if the d
 query([queryInfo])
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Gets folders that match the specified properties, or all folders if no properties are specified.
 
@@ -775,6 +776,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :refid: folders-query-query-info-is-tag
          :refname: isTag
          :type: (boolean, optional)
+         :annotation: -- [Added in TB 127]
 
          Whether the folder is a virtual tag folder, or not. Virtual tag folders are always skipped, unless this property is set to :value:`true`
 
@@ -785,6 +787,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :refid: folders-query-query-info-is-unified
          :refname: isUnified
          :type: (boolean, optional)
+         :annotation: -- [Added in TB 127]
 
          Whether the folder is a unified mailbox folder, or not. Unified mailbox folders are always skipped, unless this property is set to :value:`true`
 
@@ -805,6 +808,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :refid: folders-query-query-info-last-used
          :refname: lastUsed
          :type: (:ref:`folders.^query^date^range`, optional)
+         :annotation: -- [Added in TB 137]
 
          Date the folder was last used (folder was accessed, user moved or copied messages into the folder or folder received new messages).
 
@@ -815,6 +819,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :refid: folders-query-query-info-last-used-as-destination
          :refname: lastUsedAsDestination
          :type: (:ref:`folders.^query^date^range`, optional)
+         :annotation: -- [Added in TB 137]
 
          Date the folder was last used as a destination (user moved or copied messages into the folder).
 
@@ -825,6 +830,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :refid: folders-query-query-info-limit
          :refname: limit
          :type: (integer, optional)
+         :annotation: -- [Added in TB 122]
 
          Limits the number of returned folders. If used together with :value:`recent`, supports being set to :ref:`folders.^d^e^f^a^u^l^t_^m^o^s^t_^r^e^c^e^n^t_^l^i^m^i^t`
 
@@ -865,6 +871,7 @@ Gets folders that match the specified properties, or all folders if no propertie
          :refid: folders-query-query-info-sort
          :refname: sort
          :type: (`string`, optional)
+         :annotation: -- [Added in TB 137]
 
          The sort order of the returned folders. If not specified, folders will be sorted by :value:`path`. Sorting by :value:`name` is case-insensitive.
 
@@ -930,7 +937,7 @@ Gets folders that match the specified properties, or all folders if no propertie
 rename(folderId, newName)
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 68]
 
 Renames a folder.
 
@@ -962,6 +969,7 @@ Renames a folder.
       :refid: folders-rename-returns
       :refname: _returns
       :type: :ref:`folders.^mail^folder`
+      :annotation: -- [Added in TB 92]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -976,7 +984,7 @@ Renames a folder.
 update(folderId, updateProperties)
 ----------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Updates properties of a folder.
 
@@ -1027,7 +1035,7 @@ Events
 onCopied
 --------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been copied.
 
@@ -1072,7 +1080,7 @@ Fired when a folder has been copied.
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been created.
 
@@ -1109,7 +1117,7 @@ Fired when a folder has been created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been deleted.
 
@@ -1146,7 +1154,7 @@ Fired when a folder has been deleted.
 onFolderInfoChanged
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
 
@@ -1191,7 +1199,7 @@ Fired when certain information of a folder have changed. Bursts of message count
 onMoved
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been moved.
 
@@ -1236,7 +1244,7 @@ Fired when a folder has been moved.
 onRenamed
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 Fired when a folder has been renamed.
 
@@ -1281,7 +1289,7 @@ Fired when a folder has been renamed.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Fired when properties of a folder have changed (:value:`specialUse` and :value:`isFavorite`).
 
@@ -1331,7 +1339,7 @@ Types
 MailFolder
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 68]
 
 An object describing a folder.
 
@@ -1345,6 +1353,7 @@ An object describing a folder.
       :refid: folders-mail-folder-id
       :refname: id
       :type: (:ref:`folders.^mail^folder^id`)
+      :annotation: -- [Added in TB 121]
 
       An identifier for the folder.
 
@@ -1355,6 +1364,7 @@ An object describing a folder.
       :refid: folders-mail-folder-is-favorite
       :refname: isFavorite
       :type: (boolean)
+      :annotation: -- [Added in TB 121]
 
       Whether this folder is a favorite folder.
 
@@ -1365,6 +1375,7 @@ An object describing a folder.
       :refid: folders-mail-folder-is-root
       :refname: isRoot
       :type: (boolean)
+      :annotation: -- [Added in TB 121]
 
       Whether this folder is a root folder.
 
@@ -1375,6 +1386,7 @@ An object describing a folder.
       :refid: folders-mail-folder-is-tag
       :refname: isTag
       :type: (boolean)
+      :annotation: -- [Added in TB 127]
 
       Whether this folder is a virtual tag folder.
 
@@ -1385,6 +1397,7 @@ An object describing a folder.
       :refid: folders-mail-folder-is-unified
       :refname: isUnified
       :type: (boolean)
+      :annotation: -- [Added in TB 127]
 
       Whether this folder is a unified mailbox folder.
 
@@ -1395,6 +1408,7 @@ An object describing a folder.
       :refid: folders-mail-folder-is-virtual
       :refname: isVirtual
       :type: (boolean)
+      :annotation: -- [Added in TB 121]
 
       Whether this folder is a virtual search folder.
 
@@ -1425,6 +1439,7 @@ An object describing a folder.
       :refid: folders-mail-folder-special-use
       :refname: specialUse
       :type: (array of :ref:`folders.^mail^folder^special^use`)
+      :annotation: -- [Added in TB 121]
 
       The special use of this folder. A folder can have multiple special uses.
 
@@ -1445,6 +1460,7 @@ An object describing a folder.
       :refid: folders-mail-folder-sub-folders
       :refname: subFolders
       :type: (array of :ref:`folders.^mail^folder`, optional)
+      :annotation: -- [Added in TB 74]
 
       Subfolders of this folder. This property is optional and only present if the inclusion of subfolders had been requested. The folders will be returned in the same order as used in Thunderbird's folder pane.
 
@@ -1453,7 +1469,7 @@ An object describing a folder.
 MailFolderCapabilities
 ----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 An object containing capability information about a folder.
 
@@ -1515,7 +1531,7 @@ An object containing capability information about a folder.
 MailFolderId
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 A unique id representing a :ref:`folders.^mail^folder` throughout a session. Renaming or moving a folder will invalidate its id.
 
@@ -1527,7 +1543,7 @@ A unique id representing a :ref:`folders.^mail^folder` throughout a session. Ren
 MailFolderInfo
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 92]
 
 An object containing additional information about a folder.
 
@@ -1541,6 +1557,7 @@ An object containing additional information about a folder.
       :refid: folders-mail-folder-info-last-used
       :refname: lastUsed
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+      :annotation: -- [Added in TB 121]
 
       Date the folder was last used. It is updated every time the folder was accessed, when the user moved or copied messages into the folder and when the folder received new messages. (precision: seconds).
 
@@ -1551,6 +1568,7 @@ An object containing additional information about a folder.
       :refid: folders-mail-folder-info-last-used-as-destination
       :refname: lastUsedAsDestination
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__, optional)
+      :annotation: -- [Added in TB 137]
 
       Date the folder was last used as a destination. It is updated every time the user moved or copied messages into the folder. (precision: seconds).
 
@@ -1561,6 +1579,7 @@ An object containing additional information about a folder.
       :refid: folders-mail-folder-info-new-message-count
       :refname: newMessageCount
       :type: (integer, optional)
+      :annotation: -- [Added in TB 121]
 
       Number of new messages in this folder.
 
@@ -1571,6 +1590,7 @@ An object containing additional information about a folder.
       :refid: folders-mail-folder-info-quota
       :refname: quota
       :type: (array of :ref:`folders.^mail^folder^quota`, optional)
+      :annotation: -- [Added in TB 121]
 
       Quota information, if available.
 
@@ -1599,7 +1619,7 @@ An object containing additional information about a folder.
 MailFolderQuota
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 An object containing quota information.
 
@@ -1667,7 +1687,7 @@ An object containing quota information.
 MailFolderSpecialUse
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 Supported values for the special use of a folder.
 
@@ -1741,7 +1761,7 @@ Supported values for the special use of a folder.
 QueryDateRange
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 137]
 
 An object defining a range for a date value to be used in queries.
 
@@ -1796,7 +1816,7 @@ An object defining a range for a date value to be used in queries.
 QueryRange
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 An object defining a range for an integer value to be used in queries.
 
@@ -1828,7 +1848,7 @@ An object defining a range for an integer value to be used in queries.
 RegularExpression
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 .. api-header::
    :label: object

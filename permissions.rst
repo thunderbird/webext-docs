@@ -488,6 +488,7 @@ OptionalPermission
             :name: :value:`accountsFolders`
             :refid: permissions-optional-permission-accounts-folders
             :refname: accountsFolders
+            :annotation: -- [Added in TB 68]
 
          .. _permissions.^optional^permission.accounts^identities:
 
@@ -495,6 +496,7 @@ OptionalPermission
             :name: :value:`accountsIdentities`
             :refid: permissions-optional-permission-accounts-identities
             :refname: accountsIdentities
+            :annotation: -- [Added in TB 91]
 
          .. _permissions.^optional^permission.accounts^read:
 
@@ -502,6 +504,7 @@ OptionalPermission
             :name: :value:`accountsRead`
             :refid: permissions-optional-permission-accounts-read
             :refname: accountsRead
+            :annotation: -- [Added in TB 66]
 
          .. _permissions.^optional^permission.address^books:
 
@@ -509,6 +512,7 @@ OptionalPermission
             :name: :value:`addressBooks`
             :refid: permissions-optional-permission-address-books
             :refname: addressBooks
+            :annotation: -- [Added in TB 64]
 
          .. _permissions.^optional^permission.browser^settings:
 
@@ -544,6 +548,7 @@ OptionalPermission
             :name: :value:`compose`
             :refid: permissions-optional-permission-compose
             :refname: compose
+            :annotation: -- [Added in TB 74]
 
          .. _permissions.^optional^permission.compose.save:
 
@@ -551,6 +556,7 @@ OptionalPermission
             :name: :value:`compose.save`
             :refid: permissions-optional-permission-compose-save
             :refname: compose.save
+            :annotation: -- [Added in TB 102]
 
          .. _permissions.^optional^permission.compose.send:
 
@@ -558,6 +564,7 @@ OptionalPermission
             :name: :value:`compose.send`
             :refid: permissions-optional-permission-compose-send
             :refname: compose.send
+            :annotation: -- [Added in TB 90]
 
          .. _permissions.^optional^permission.declarative^net^request^feedback:
 
@@ -600,6 +607,7 @@ OptionalPermission
             :name: :value:`messagesDelete`
             :refid: permissions-optional-permission-messages-delete
             :refname: messagesDelete
+            :annotation: -- [Added in TB 91]
 
          .. _permissions.^optional^permission.messages^import:
 
@@ -607,6 +615,7 @@ OptionalPermission
             :name: :value:`messagesImport`
             :refid: permissions-optional-permission-messages-import
             :refname: messagesImport
+            :annotation: -- [Added in TB 106]
 
          .. _permissions.^optional^permission.messages^modify^permanent:
 
@@ -614,6 +623,7 @@ OptionalPermission
             :name: :value:`messagesModifyPermanent`
             :refid: permissions-optional-permission-messages-modify-permanent
             :refname: messagesModifyPermanent
+            :annotation: -- [Added in TB 123]
 
          .. _permissions.^optional^permission.messages^move:
 
@@ -621,6 +631,7 @@ OptionalPermission
             :name: :value:`messagesMove`
             :refid: permissions-optional-permission-messages-move
             :refname: messagesMove
+            :annotation: -- [Added in TB 66]
 
          .. _permissions.^optional^permission.messages^read:
 
@@ -628,6 +639,7 @@ OptionalPermission
             :name: :value:`messagesRead`
             :refid: permissions-optional-permission-messages-read
             :refname: messagesRead
+            :annotation: -- [Added in TB 66]
 
          .. _permissions.^optional^permission.messages^tags:
 
@@ -635,6 +647,7 @@ OptionalPermission
             :name: :value:`messagesTags`
             :refid: permissions-optional-permission-messages-tags
             :refname: messagesTags
+            :annotation: -- [Added in TB 102]
 
          .. _permissions.^optional^permission.messages^tags^list:
 
@@ -642,6 +655,7 @@ OptionalPermission
             :name: :value:`messagesTagsList`
             :refid: permissions-optional-permission-messages-tags-list
             :refname: messagesTagsList
+            :annotation: -- [Added in TB 122]
 
          .. _permissions.^optional^permission.messages^update:
 
@@ -649,6 +663,7 @@ OptionalPermission
             :name: :value:`messagesUpdate`
             :refid: permissions-optional-permission-messages-update
             :refname: messagesUpdate
+            :annotation: -- [Added in TB 122]
 
          .. _permissions.^optional^permission.messenger^settings:
 
@@ -656,6 +671,7 @@ OptionalPermission
             :name: :value:`messengerSettings`
             :refid: permissions-optional-permission-messenger-settings
             :refname: messengerSettings
+            :annotation: -- [Added in TB 137]
 
          .. _permissions.^optional^permission.native^messaging:
 
@@ -699,6 +715,7 @@ OptionalPermission
             :name: :value:`sensitiveDataUpload`
             :refid: permissions-optional-permission-sensitive-data-upload
             :refname: sensitiveDataUpload
+            :annotation: -- [Added in TB 115]
 
          .. _permissions.^optional^permission.sessions:
 
@@ -706,6 +723,7 @@ OptionalPermission
             :name: :value:`sessions`
             :refid: permissions-optional-permission-sessions
             :refname: sessions
+            :annotation: -- [Added in TB 140]
 
          .. _permissions.^optional^permission.tabs:
 
@@ -713,6 +731,7 @@ OptionalPermission
             :name: :value:`tabs`
             :refid: permissions-optional-permission-tabs
             :refname: tabs
+            :annotation: -- [Added in TB 62]
 
          .. _permissions.^optional^permission.web^navigation:
 
@@ -844,6 +863,7 @@ PermissionNoPrompt
             :name: :value:`menus`
             :refid: permissions-permission-no-prompt-menus
             :refname: menus
+            :annotation: -- [Added in TB 77]
 
          .. _permissions.^permission^no^prompt.storage:
 
@@ -858,6 +878,7 @@ PermissionNoPrompt
             :name: :value:`theme`
             :refid: permissions-permission-no-prompt-theme
             :refname: theme
+            :annotation: -- [Added in TB 86]
 
          .. _permissions.^permission^no^prompt.unlimited^storage:
 

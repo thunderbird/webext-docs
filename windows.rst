@@ -76,7 +76,7 @@ Functions
 create([createData])
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Creates (opens) a new window with any optional sizing, position or default URL provided. When loading a page into a popup window, same-site links are opened within the same window, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually. Same-site links with targets other than :value:`_self` are opened in a new tab in the most recent :value:`normal` Thunderbird window.
 
@@ -108,6 +108,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :refid: windows-create-create-data-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
+         :annotation: -- [Added in TB 115]
 
          The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
 
@@ -164,6 +165,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
          :refid: windows-create-create-data-link-handler
          :refname: linkHandler
          :type: (`string`, optional)
+         :annotation: -- [Added in TB 136]
 
          Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
 
@@ -279,7 +281,7 @@ Creates (opens) a new window with any optional sizing, position or default URL p
 get(windowId, [getInfo])
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets details about a window.
 
@@ -319,7 +321,7 @@ Gets details about a window.
 getAll([getInfo])
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets all windows.
 
@@ -351,7 +353,7 @@ Gets all windows.
 getCurrent([getInfo])
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets the active or topmost window.
 
@@ -383,7 +385,7 @@ Gets the active or topmost window.
 getLastFocused([getInfo])
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Gets the window that was most recently focused — typically the window 'on top'.
 
@@ -415,7 +417,7 @@ Gets the window that was most recently focused — typically the window 'on top'
 openDefaultBrowser(url)
 -----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 85]
 
 Opens the provided URL in the default system browser.
 
@@ -435,7 +437,7 @@ Opens the provided URL in the default system browser.
 remove(windowId)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Removes (closes) a window, and all the tabs inside it.
 
@@ -455,7 +457,7 @@ Removes (closes) a window, and all the tabs inside it.
 update(windowId, updateInfo)
 ----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Updates the properties of a window. Specify only the properties that you want to change; unspecified properties will be left unchanged.
 
@@ -580,7 +582,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a window is created.
 
@@ -614,7 +616,7 @@ Fired when a window is created.
 onFocusChanged
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when the currently focused window changes. Will be :ref:`windows.^w^i^n^d^o^w_^i^d_^n^o^n^e`, if all windows have lost focus.
 
@@ -652,7 +654,7 @@ Fired when the currently focused window changes. Will be :ref:`windows.^w^i^n^d^
 onRemoved
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Fired when a window is removed (closed).
 
@@ -691,7 +693,7 @@ Types
 CreateType
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 Specifies what type of window to create. Thunderbird does not support :value:`panel` and :value:`detached_panel`, they are interpreted as :value:`popup`.
 
@@ -745,7 +747,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
 GetInfo
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 79]
 
 Specifies additional requirements for the returned windows.
 
@@ -777,7 +779,7 @@ Specifies additional requirements for the returned windows.
 Window
 ------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 .. api-header::
    :label: object
@@ -907,7 +909,7 @@ Window
 WindowState
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 The state of this window.
 
@@ -964,7 +966,7 @@ The state of this window.
 WindowType
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 The type of a window. Under some circumstances a window may not be assigned a type property.
 
@@ -983,6 +985,7 @@ The type of a window. Under some circumstances a window may not be assigned a ty
             :name: :value:`messageCompose`
             :refid: windows-window-type-message-compose
             :refname: messageCompose
+            :annotation: -- [Added in TB 70]
 
             A non-modal stand-alone message compose window.
 
@@ -992,6 +995,7 @@ The type of a window. Under some circumstances a window may not be assigned a ty
             :name: :value:`messageDisplay`
             :refid: windows-window-type-message-display
             :refname: messageDisplay
+            :annotation: -- [Added in TB 70]
 
             A non-modal stand-alone message display window, viewing a single message.
 

@@ -1,0 +1,26 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 117
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 117.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`getRaw.options.data_format <messages.get^raw.options.data_format>` — The message can either be returned as a DOM File (default) or as a `binary string <https://udn.realityripple.com/docs/Web/API/DOMString/Binary>`__. It is recommended to use the :value:`File` format, because the DOM File object can be used as-is with the downloads API and has useful methods to access the content, like `File.text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ and `File.arrayBuffer() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/arrayBuffer>`__.

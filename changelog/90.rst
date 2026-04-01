@@ -1,0 +1,83 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+============================
+Changelog for Thunderbird 90
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 90.
+
+
+cloudFile
+---------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`property` :ref:`cloud_file.browser_style <cloud^file.cloud_file.browser_style>` — Enable browser styles in the :value:`management_url` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` :ref:`getComposeState <compose.get^compose^state>` — Returns information about the current state of the message composer.
+- :small:`function` :ref:`sendMessage <compose.send^message>` — Sends the message currently being composed. If the send mode is not specified or set to :value:`default`, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an :ref:`compose.onBeforeSend <compose.on^before^send>` event or if there has been an error while sending the message to the outgoing mail server.
+- :small:`event` :ref:`onComposeStateChanged <compose.on^compose^state^changed>` — Fired when the state of the message composer changed.
+- :small:`type` :ref:`ComposeState <compose.^compose^state>` — Represent the state of the message composer.
+
+
+composeAction
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`type` :ref:`ImageDataDictionary <compose^action.^image^data^dictionary>` — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` :ref:`compose_action.type <compose^action.compose_action.type>` — Specifies the type of the button. Default type is :value:`button`.
+
+
+messageDisplayAction
+--------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`type` :ref:`ImageDataDictionary <message^display^action.^image^data^dictionary>` — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` :ref:`message_display_action.type <message^display^action.message_display_action.type>` — Specifies the type of the button. Default type is :value:`button`.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` :ref:`MessageHeader.size <messages.^message^header.size>` — The total size of the message in bytes.

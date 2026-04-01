@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,24 @@ Changelog for Thunderbird 136
 The following WebExtension API changes were introduced in Thunderbird 136.
 
 
+messages.tags
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.tags.html">messages.tags</a>
+   </div>
+
+- :small:`event` :ref:`onCreated <messages.tags.on^created>` — Fired when a new message tag has been created.
+- :small:`event` :ref:`onDeleted <messages.tags.on^deleted>` — Fired when a message tag has been deleted.
+- :small:`event` :ref:`onUpdated <messages.tags.on^updated>` — Fired when one or more properties of a message tag have been updated.
+
+
+runtime
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,5 +38,44 @@ The following WebExtension API changes were introduced in Thunderbird 136.
      <a href="../runtime.html">runtime</a>
    </div>
 
-- :small:`event` `onUserScriptConnect <../runtime.html#runtime-on-user-script-connect>`__ — Fired when a connection is made from a USER_SCRIPT world registered through the userScripts API.
-- :small:`event` `onUserScriptMessage <../runtime.html#runtime-on-user-script-message>`__ — Fired when a message is sent from a USER_SCRIPT world registered through the userScripts API.
+- :small:`event` :ref:`onUserScriptConnect <runtime.on^user^script^connect>` — Fired when a connection is made from a USER_SCRIPT world registered through the userScripts API.
+- :small:`event` :ref:`onUserScriptMessage <runtime.on^user^script^message>` — Fired when a message is sent from a USER_SCRIPT world registered through the userScripts API.
+
+
+spaces
+------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spaces.html">spaces</a>
+   </div>
+
+- :small:`type` :ref:`SpaceTabProperties.linkHandler <spaces.^space^tab^properties.link^handler>` — Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
+
+
+tabs
+----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` :ref:`create.createProperties.linkHandler <tabs.create.create^properties.link^handler>` — Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
+
+
+windows
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`function` :ref:`create.createData.linkHandler <windows.create.create^data.link^handler>` — Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.

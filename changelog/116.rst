@@ -1,0 +1,39 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 116
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 116.
+
+
+action
+------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../action.html">action</a>
+   </div>
+
+- :small:`property` :ref:`action.type <action.action.type>` — Specifies the type of the button. Default type is :value:`button`.
+
+
+sessions
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../sessions.html">sessions</a>
+   </div>
+
+The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.

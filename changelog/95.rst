@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -6,6 +12,9 @@ Changelog for Thunderbird 95
 
 The following WebExtension API changes were introduced in Thunderbird 95.
 
+
+browserSettings.overrideContentColorScheme
+------------------------------------------
 
 .. raw:: html
 
@@ -16,6 +25,22 @@ The following WebExtension API changes were introduced in Thunderbird 95.
 
 This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
 
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` :ref:`ComposeDetails.relatedMessageId <compose.^compose^details.related^message^id>` — The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file. The :permission:`messagesRead` permission is required to use this property.
+
+
+privacy.network.globalPrivacyControl
+------------------------------------
 
 .. raw:: html
 

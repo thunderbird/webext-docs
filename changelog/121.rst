@@ -1,0 +1,118 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 121
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 121.
+
+
+accounts
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`type` :ref:`MailAccount.rootFolder <accounts.^mail^account.root^folder>` — The root folder associated with this account.
+- :small:`type` :ref:`MailAccountId <accounts.^mail^account^id>` — A unique id representing a :ref:`accounts.MailAccount <accounts.^mail^account>`.
+
+
+folders
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` :ref:`get <folders.get>` — Returns the specified folder.
+- :small:`function` :ref:`getFolderCapabilities <folders.get^folder^capabilities>` — Get capability information about a folder.
+- :small:`function` :ref:`markAsRead <folders.mark^as^read>` — Marks all messages in a folder as read.
+- :small:`function` :ref:`query <folders.query>` — Gets folders that match the specified properties, or all folders if no properties are specified.
+- :small:`function` :ref:`update <folders.update>` — Updates properties of a folder.
+- :small:`event` :ref:`onUpdated <folders.on^updated>` — Fired when properties of a folder have changed (:value:`specialUse` and :value:`isFavorite`).
+- :small:`type` :ref:`MailFolder.id <folders.^mail^folder.id>` — An identifier for the folder.
+- :small:`type` :ref:`MailFolder.isFavorite <folders.^mail^folder.is^favorite>` — Whether this folder is a favorite folder.
+- :small:`type` :ref:`MailFolder.isRoot <folders.^mail^folder.is^root>` — Whether this folder is a root folder.
+- :small:`type` :ref:`MailFolder.isVirtual <folders.^mail^folder.is^virtual>` — Whether this folder is a virtual search folder.
+- :small:`type` :ref:`MailFolder.specialUse <folders.^mail^folder.special^use>` — The special use of this folder. A folder can have multiple special uses.
+- :small:`type` :ref:`MailFolderCapabilities <folders.^mail^folder^capabilities>` — An object containing capability information about a folder.
+- :small:`type` :ref:`MailFolderId <folders.^mail^folder^id>` — A unique id representing a :ref:`folders.MailFolder <folders.^mail^folder>` throughout a session. Renaming or moving a folder will invalidate its id.
+- :small:`type` :ref:`MailFolderInfo.lastUsed <folders.^mail^folder^info.last^used>` — Date the folder was last used. It is updated every time the folder was accessed, when the user moved or copied messages into the folder and when the folder received new messages. (precision: seconds).
+- :small:`type` :ref:`MailFolderInfo.newMessageCount <folders.^mail^folder^info.new^message^count>` — Number of new messages in this folder.
+- :small:`type` :ref:`MailFolderInfo.quota <folders.^mail^folder^info.quota>` — Quota information, if available.
+- :small:`type` :ref:`MailFolderQuota <folders.^mail^folder^quota>` — An object containing quota information.
+- :small:`type` :ref:`MailFolderSpecialUse <folders.^mail^folder^special^use>` — Supported values for the special use of a folder.
+- :small:`type` :ref:`QueryRange <folders.^query^range>` — An object defining a range for an integer value to be used in queries.
+
+
+mailTabs
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` :ref:`create <mail^tabs.create>` — Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update <tabs.update>` after the mail tab has been created. A new mail window can be created via :ref:`windows.create <windows.create>`.
+- :small:`function` :ref:`getListedMessages <mail^tabs.get^listed^messages>` — Lists the messages in the current view, honoring sort order and filters as used in the UI. Sort order of the returned messages can be overridden via the :value:`options` parameter
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`query.queryInfo.accountId <messages.query.query^info.account^id>` — Limits the search to the specified account(s). Accounts are searched in the specified order.
+- :small:`function` :ref:`query.queryInfo.folderId <messages.query.query^info.folder^id>` — Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
+- :small:`function` :ref:`query.queryInfo.junk <messages.query.query^info.junk>` — Returns only messages whith the specified junk state.
+- :small:`function` :ref:`query.queryInfo.junkScore <messages.query.query^info.junk^score>` — Returns only messages with a junk score in the specified range.
+- :small:`function` :ref:`query.queryInfo.new <messages.query.query^info.new>` — Returns only messages with the specified new state.
+- :small:`function` :ref:`query.queryInfo.read <messages.query.query^info.read>` — Returns only messages with the specified read state.
+- :small:`function` :ref:`query.queryInfo.size <messages.query.query^info.size>` — Returns only messages with a size in the specified byte range.
+- :small:`type` :ref:`QueryRange <messages.^query^range>` — An object defining a range.
+
+
+messages.tags
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.tags.html">messages.tags</a>
+   </div>
+
+The messages.tags API allows to manage the user's message tags.
+
+
+tabs
+----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`type` :ref:`TabType <tabs.^tab^type>` — Tab types supported by the tabs API.

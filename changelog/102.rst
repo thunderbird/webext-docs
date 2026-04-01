@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -6,6 +12,57 @@ Changelog for Thunderbird 102
 
 The following WebExtension API changes were introduced in Thunderbird 102.
 
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` :ref:`getActiveDictionaries <compose.get^active^dictionaries>` — Returns a :ref:`compose.ComposeDictionaries <compose.^compose^dictionaries>` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+- :small:`function` :ref:`saveMessage <compose.save^message>` — Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
+- :small:`function` :ref:`setActiveDictionaries <compose.set^active^dictionaries>` — Updates the active dictionaries. Throws if the :value:`activeDictionaries` array contains unknown or invalid language identifiers.
+- :small:`event` :ref:`onActiveDictionariesChanged <compose.on^active^dictionaries^changed>` — Fired when one or more dictionaries have been activated or deactivated.
+- :small:`type` :ref:`ComposeDetails.attachVCard <compose.^compose^details.attach^v^card>` — Whether or not the vCard of the used identity will be attached to the message during send.
+- :small:`type` :ref:`ComposeDetails.deliveryFormat <compose.^compose^details.delivery^format>` — Defines the MIME format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
+- :small:`type` :ref:`ComposeDetails.deliveryStatusNotification <compose.^compose^details.delivery^status^notification>` — Let the sender know when the recipient's server received the message. Not supported by all servers.
+- :small:`type` :ref:`ComposeDetails.priority <compose.^compose^details.priority>` — The priority of the message.
+- :small:`type` :ref:`ComposeDetails.returnReceipt <compose.^compose^details.return^receipt>` — Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
+- :small:`type` :ref:`ComposeDictionaries <compose.^compose^dictionaries>` — A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
+
+
+messageDisplay
+--------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplay.html">messageDisplay</a>
+   </div>
+
+- :small:`function` :ref:`open <message^display.open>` — Opens a message in a new tab or in a new window.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` :ref:`MessageHeader.headersOnly <messages.^message^header.headers^only>` — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
+
+
+scripting
+---------
 
 .. raw:: html
 

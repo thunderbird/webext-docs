@@ -70,7 +70,7 @@ Events
 onSearchRequest
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Registering this listener will create a read-only address book, similar to an LDAP address book. When selecting this address book, users will first see no contacts, but they can search for contacts, which will fire this event. Contacts returned by the listener callback will be displayed as contact cards in the address book. Several listeners can be registered, to create multiple address books.
 
@@ -208,6 +208,7 @@ Example:
          :refid: address-books-provider-on-search-request-returns-is-complete-result
          :refname: isCompleteResult
          :type: (boolean)
+         :annotation: -- [Added in TB 142]
 
       .. _address^books.provider.on^search^request.returns.results:
 
@@ -216,6 +217,7 @@ Example:
          :refid: address-books-provider-on-search-request-returns-results
          :refname: results
          :type: (array of :ref:`address^books.contacts.^contact^properties`)
+         :annotation: -- [Added in TB 142]
 
 .. api-header::
    :label: Required permissions

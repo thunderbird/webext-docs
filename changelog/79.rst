@@ -1,0 +1,39 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+============================
+Changelog for Thunderbird 79
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 79.
+
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`event` :ref:`onIdentityChanged <compose.on^identity^changed>` — Fired when the user changes the identity that will be used to send a message being composed.
+
+
+windows
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`type` :ref:`GetInfo <windows.^get^info>` — Specifies additional requirements for the returned windows.

@@ -1,0 +1,70 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+============================
+Changelog for Thunderbird 98
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 98.
+
+
+accounts
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`event` :ref:`onCreated <accounts.on^created>` — Fired when a new account has been created.
+- :small:`event` :ref:`onDeleted <accounts.on^deleted>` — Fired when an account has been removed.
+- :small:`event` :ref:`onUpdated <accounts.on^updated>` — Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed :value:`defaultIdentity` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
+
+
+cloudFile
+---------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`event` :ref:`onFileUpload.relatedFileInfo <cloud^file.on^file^upload.related^file^info>` — Information about an already uploaded file, which is related to this upload.
+- :small:`type` :ref:`RelatedCloudFile <cloud^file.^related^cloud^file>` — Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
+- :small:`property` :ref:`cloud_file.reuse_uploads <cloud^file.cloud_file.reuse_uploads>` — If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloudFile.onFileUpload <cloud^file.on^file^upload>` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloudFile.onFileUpload <cloud^file.on^file^upload>` event, to let the provider decide how to handle these cases.
+
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` :ref:`getAttachmentFile <compose.get^attachment^file>` — Gets the content of a :ref:`compose.ComposeAttachment <compose.^compose^attachment>` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+- :small:`type` :ref:`FileAttachment <compose.^file^attachment>` — Object used to add, update or rename an attachment in a message being composed.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` :ref:`MessageAttachment <messages.^message^attachment>` — Represents an attachment in a message.

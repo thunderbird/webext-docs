@@ -65,7 +65,7 @@ Functions
 create(parentId, vCard)
 -----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Adds a new contact to the address book with the id :value:`parentId`.
 
@@ -99,6 +99,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
       :refid: address-books-contacts-create-returns
       :refname: _returns
       :type: string
+      :annotation: -- [Added in TB 128]
 
       The ID of the new contact.
 
@@ -114,7 +115,7 @@ Adds a new contact to the address book with the id :value:`parentId`.
 delete(id)
 ----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Removes a contact from the address book. The contact is also removed from any mailing lists it is a member of.
 
@@ -139,7 +140,7 @@ Removes a contact from the address book. The contact is also removed from any ma
 get(id)
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets a single contact.
 
@@ -176,7 +177,7 @@ Gets a single contact.
 getPhoto(id)
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets the photo associated with this contact. Returns :value:`null`, if no photo is available.
 
@@ -213,7 +214,7 @@ Gets the photo associated with this contact. Returns :value:`null`, if no photo 
 list(parentId)
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets all the contacts in the address book with the id :value:`parentId`.
 
@@ -250,7 +251,7 @@ Gets all the contacts in the address book with the id :value:`parentId`.
 query(queryInfo)
 ----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Gets all contacts matching :value:`queryInfo`.
 
@@ -287,7 +288,7 @@ Gets all contacts matching :value:`queryInfo`.
 setPhoto(id, file)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Sets the photo associated with this contact.
 
@@ -320,7 +321,7 @@ Sets the photo associated with this contact.
 update(id, vCard)
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Updates a contact.
 
@@ -360,7 +361,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Fired when a contact is created.
 
@@ -397,7 +398,7 @@ Fired when a contact is created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Fired when a contact is removed from an address book.
 
@@ -442,7 +443,7 @@ Fired when a contact is removed from an address book.
 onManyCreated
 -------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 149]
 
 Fired when a large number of contacts are added. The contacts are not emitted for performance reasons. The event indicates significant changes, and consumers should rebuild any cached representation of the address book.
 
@@ -479,7 +480,7 @@ Fired when a large number of contacts are added. The contacts are not emitted fo
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Fired when a contact is changed.
 
@@ -529,7 +530,7 @@ Types
 ContactNode
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 A node representing a contact in an address book.
 
@@ -563,6 +564,7 @@ A node representing a contact in an address book.
       :refid: address-books-contacts-contact-node-v-card
       :refname: vCard
       :type: (string)
+      :annotation: -- [Added in TB 128]
 
    .. _address^books.contacts.^contact^node.parent^id:
 
@@ -599,7 +601,7 @@ A node representing a contact in an address book.
 ContactProperties
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 A set of individual properties for a particular contact, and its vCard string. Further information can be found in :doc:`guides/vcard`.
 
@@ -611,7 +613,7 @@ A set of individual properties for a particular contact, and its vCard string. F
 PropertyChange
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 A dictionary of changed properties. Keys are the property name that changed, values are an object containing :value:`oldValue` and :value:`newValue`. Values can be either a string or :value:`null`.
 
@@ -623,7 +625,7 @@ A dictionary of changed properties. Keys are the property name that changed, val
 QueryInfo
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 127]
 
 Object defining a query for :ref:`address^books.contacts.query`.
 

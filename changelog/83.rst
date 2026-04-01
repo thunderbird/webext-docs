@@ -1,0 +1,39 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+============================
+Changelog for Thunderbird 83
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 83.
+
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` :ref:`ComposeAttachment.size <compose.^compose^attachment.size>` — The size in bytes of this attachment. Read-only.
+
+
+menus
+-----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../menus.html">menus</a>
+   </div>
+
+- :small:`type` :ref:`OnClickData.attachments <menus.^on^click^data.attachments>` — The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.

@@ -68,7 +68,7 @@ Functions
 create(accountId, details)
 --------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Create a new identity in the specified account.
 
@@ -114,7 +114,7 @@ Create a new identity in the specified account.
 delete(identityId)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Attempts to delete the requested identity. Default identities cannot be deleted.
 
@@ -140,7 +140,7 @@ Attempts to delete the requested identity. Default identities cannot be deleted.
 get(identityId)
 ---------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Returns details of the requested identity, or :value:`null` if it doesn't exist.
 
@@ -177,7 +177,7 @@ Returns details of the requested identity, or :value:`null` if it doesn't exist.
 getDefault(accountId)
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Returns the default identity for the requested account, or :value:`null` if it is not defined.
 
@@ -214,7 +214,7 @@ Returns the default identity for the requested account, or :value:`null` if it i
 list([accountId])
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Returns the identities of the specified account, or all identities if no account is specified. Do not expect the returned identities to be in any specific order. Use :ref:`identities.get^default` to get the default identity of an account.
 
@@ -251,7 +251,7 @@ Returns the identities of the specified account, or all identities if no account
 setDefault(accountId, identityId)
 ---------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Sets the default identity for the requested account.
 
@@ -284,7 +284,7 @@ Sets the default identity for the requested account.
 update(identityId, details)
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Updates the details of an identity.
 
@@ -335,7 +335,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when a new identity has been created and added to an account. The event also fires for default identities that are created when a new account is added.
 
@@ -380,7 +380,7 @@ Fired when a new identity has been created and added to an account. The event al
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when an identity has been removed from an account.
 
@@ -417,7 +417,7 @@ Fired when an identity has been removed from an account.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 Fired when one or more properties of an identity have been modified. The returned :ref:`identities.^mail^identity` includes only the changed values.
 
@@ -467,7 +467,7 @@ Types
 EncryptionCapabilities
 ----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 .. api-header::
    :label: object
@@ -497,7 +497,7 @@ EncryptionCapabilities
 MailIdentity
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 91]
 
 .. api-header::
    :label: object
@@ -539,6 +539,7 @@ MailIdentity
       :refid: identities-mail-identity-encryption-capabilities
       :refname: encryptionCapabilities
       :type: (object, optional)
+      :annotation: -- [Added in TB 128]
 
       The encryption capabilities of this identity. Read only.
 
@@ -549,6 +550,7 @@ MailIdentity
          :refid: identities-mail-identity-encryption-capabilities-open-p-g-p
          :refname: OpenPGP
          :type: (:ref:`identities.^encryption^capabilities`)
+         :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the OpenPGP encryption technology.
 
@@ -559,6 +561,7 @@ MailIdentity
          :refid: identities-mail-identity-encryption-capabilities-s-m-i-m-e
          :refname: S/MIME
          :type: (:ref:`identities.^encryption^capabilities`)
+         :annotation: -- [Added in TB 128]
 
          The capabilities of this identity for the S/MIME encryption technology.
 

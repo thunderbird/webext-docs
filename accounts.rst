@@ -59,7 +59,7 @@ Functions
 get(accountId, [includeSubFolders])
 -----------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Returns details of the requested account, or :value:`null` if it doesn't exist.
 
@@ -81,6 +81,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
       :refid: accounts-get-include-sub-folders
       :refname: includeSubFolders
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 89]
 
       Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of the returned :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. Defaults to :value:`false`.
 
@@ -93,6 +94,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
       :refid: accounts-get-returns
       :refname: _returns
       :type: :ref:`accounts.^mail^account` or null
+      :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -106,7 +108,7 @@ Returns details of the requested account, or :value:`null` if it doesn't exist.
 getDefault([includeSubFolders])
 -------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 85]
 
 Returns the default account, or :value:`null` if it is not defined.
 
@@ -120,6 +122,7 @@ Returns the default account, or :value:`null` if it is not defined.
       :refid: accounts-get-default-include-sub-folders
       :refname: includeSubFolders
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 89]
 
       Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of the default :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. Defaults to :value:`false`
 
@@ -132,6 +135,7 @@ Returns the default account, or :value:`null` if it is not defined.
       :refid: accounts-get-default-returns
       :refname: _returns
       :type: :ref:`accounts.^mail^account` or null
+      :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -145,7 +149,7 @@ Returns the default account, or :value:`null` if it is not defined.
 list([includeSubFolders])
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 Returns all mail accounts. They will be returned in the same order as used in Thunderbird's folder pane.
 
@@ -159,6 +163,7 @@ Returns all mail accounts. They will be returned in the same order as used in Th
       :refid: accounts-list-include-sub-folders
       :refname: includeSubFolders
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 89]
 
       Specifies whether the :ref:`folders.^mail^folder` in the :value:`rootFolder` property of each found :ref:`accounts.^mail^account` should populate its :value:`subFolders` property, and include all (nested!) subfolders. Defaults to :value:`false`.
 
@@ -171,6 +176,7 @@ Returns all mail accounts. They will be returned in the same order as used in Th
       :refid: accounts-list-returns
       :refname: _returns
       :type: array of :ref:`accounts.^mail^account`
+      :annotation: -- [Added in TB 91]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -189,7 +195,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 98]
 
 Fired when a new account has been created.
 
@@ -234,7 +240,7 @@ Fired when a new account has been created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 98]
 
 Fired when an account has been removed.
 
@@ -271,7 +277,7 @@ Fired when an account has been removed.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 98]
 
 Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed :value:`defaultIdentity` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
 
@@ -341,7 +347,7 @@ Types
 ExtensionMailAccountType
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 131]
 
 The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
 
@@ -353,7 +359,7 @@ The type of an account which was added by an extension. For the time being there
 MailAccount
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 88]
 
 An object describing a mail account, as returned for example by the :ref:`accounts.list` and :ref:`accounts.get` methods.
 
@@ -397,6 +403,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
       :refid: accounts-mail-account-root-folder
       :refname: rootFolder
       :type: (:ref:`folders.^mail^folder`)
+      :annotation: -- [Added in TB 121]
 
       The root folder associated with this account.
 
@@ -415,7 +422,7 @@ An object describing a mail account, as returned for example by the :ref:`accoun
 MailAccountId
 -------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 121]
 
 A unique id representing a :ref:`accounts.^mail^account`.
 
@@ -427,7 +434,7 @@ A unique id representing a :ref:`accounts.^mail^account`.
 NativeMailAccountType
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 131]
 
 The type of an account natively supported by Thunderbird.
 
@@ -446,6 +453,7 @@ The type of an account natively supported by Thunderbird.
             :name: :value:`ews`
             :refid: accounts-native-mail-account-type-ews
             :refname: ews
+            :annotation: -- [Added in TB 142]
 
          .. _accounts.^native^mail^account^type.imap:
 

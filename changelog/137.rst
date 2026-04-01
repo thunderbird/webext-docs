@@ -1,0 +1,109 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 137
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 137.
+
+
+commands
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../commands.html">commands</a>
+   </div>
+
+- :small:`function` :ref:`openShortcutSettings <commands.open^shortcut^settings>` — Open extension shortcuts configuration page.
+
+
+folders
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` :ref:`query.queryInfo.lastUsed <folders.query.query^info.last^used>` — Date the folder was last used (folder was accessed, user moved or copied messages into the folder or folder received new messages).
+- :small:`function` :ref:`query.queryInfo.lastUsedAsDestination <folders.query.query^info.last^used^as^destination>` — Date the folder was last used as a destination (user moved or copied messages into the folder).
+- :small:`function` :ref:`query.queryInfo.sort <folders.query.query^info.sort>` — The sort order of the returned folders. If not specified, folders will be sorted by :value:`path`. Sorting by :value:`name` is case-insensitive.
+- :small:`type` :ref:`MailFolderInfo.lastUsedAsDestination <folders.^mail^folder^info.last^used^as^destination>` — Date the folder was last used as a destination. It is updated every time the user moved or copied messages into the folder. (precision: seconds).
+- :small:`type` :ref:`QueryDateRange <folders.^query^date^range>` — An object defining a range for a date value to be used in queries.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`delete.options.deletePermanently <messages.delete.options.delete^permanently>` — Whether the message will be deleted permanently, regardless of the account's deletion behavior settings. A permanently deleted message cannot be restored, even if the action is defined as a user action. Use this with care!
+- :small:`function` :ref:`delete.options.isUserAction <messages.delete.options.is^user^action>` — Whether this copy operation should be treated as a user action, for example allowing undo.
+
+
+messengerSettings
+-----------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.html">messengerSettings</a>
+   </div>
+
+The messengerSettings API allows to access global messenger settings.
+
+
+messengerSettings.messageLineLengthLimit
+----------------------------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.messageLineLengthLimit.html">messengerSettings.messageLineLengthLimit</a>
+   </div>
+
+The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of :ref:`messengerSettings.messagePlainTextFlowedOutputEnabled <messenger^settings.message^plain^text^flowed^output^enabled>`. This property is read-only.
+
+
+messengerSettings.messagePlainTextFlowedOutputEnabled
+-----------------------------------------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.messagePlainTextFlowedOutputEnabled.html">messengerSettings.messagePlainTextFlowedOutputEnabled</a>
+   </div>
+
+Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messengerSettings.messageLineLengthLimit <messenger^settings.message^line^length^limit>`. This property is read-only.
+
+
+messengerUtilities
+------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerUtilities.html">messengerUtilities</a>
+   </div>
+
+The messengerUtilities API provides helpful methods for working with messages and emails.

@@ -30,6 +30,7 @@ Manifest file properties
    :refid: chrome-settings-overrides-chrome-settings-overrides
    :refname: chrome_settings_overrides
    :type: (object, optional)
+   :annotation: -- [Added in TB 68]
 
    .. _chrome^settings^overrides.chrome_settings_overrides.search_provider:
 
@@ -38,6 +39,7 @@ Manifest file properties
       :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider
       :refname: search_provider
       :type: (object, optional)
+      :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.name:
 
@@ -46,6 +48,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-name
          :refname: name
          :type: (string)
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.search_url:
 
@@ -54,6 +57,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-search-url
          :refname: search_url
          :type: (string)
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.alternate_urls:
 
@@ -62,6 +66,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-alternate-urls
          :refname: alternate_urls
          :type: (array of string, optional) **Deprecated.**
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.encoding:
 
@@ -70,6 +75,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-encoding
          :refname: encoding
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
          Encoding of the search term.
 
@@ -80,6 +86,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-favicon-url
          :refname: favicon_url
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.image_url:
 
@@ -88,6 +95,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-image-url
          :refname: image_url
          :type: (string, optional) **Deprecated.**
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.image_url_post_params:
 
@@ -96,6 +104,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-image-url-post-params
          :refname: image_url_post_params
          :type: (string, optional) **Deprecated.**
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.instant_url:
 
@@ -104,6 +113,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-instant-url
          :refname: instant_url
          :type: (string, optional) **Deprecated.**
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.instant_url_post_params:
 
@@ -112,6 +122,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-instant-url-post-params
          :refname: instant_url_post_params
          :type: (string, optional) **Deprecated.**
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.is_default:
 
@@ -120,6 +131,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-is-default
          :refname: is_default
          :type: (boolean, optional)
+         :annotation: -- [Added in TB 68]
 
          Sets the default engine to a built-in engine only.
 
@@ -130,6 +142,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-keyword
          :refname: keyword
          :type: (string or array of string, optional)
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.params:
 
@@ -138,6 +151,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-params
          :refname: params
          :type: (array of object, optional)
+         :annotation: -- [Added in TB 68]
 
          A list of optional search url parameters. This allows the addition of search url parameters based on how the search is performed in Thunderbird.
 
@@ -148,6 +162,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-prepopulated-id
          :refname: prepopulated_id
          :type: (integer, optional) **Deprecated.**
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.search_form:
 
@@ -156,6 +171,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-search-form
          :refname: search_form
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.search_url_get_params:
 
@@ -164,6 +180,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-search-url-get-params
          :refname: search_url_get_params
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
          GET parameters to the search_url as a query string.
 
@@ -174,6 +191,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-search-url-post-params
          :refname: search_url_post_params
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
          POST parameters to the search_url as a query string.
 
@@ -184,6 +202,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-suggest-url
          :refname: suggest_url
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
       .. _chrome^settings^overrides.chrome_settings_overrides.search_provider.suggest_url_get_params:
 
@@ -192,6 +211,7 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-suggest-url-get-params
          :refname: suggest_url_get_params
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
          GET parameters to the suggest_url as a query string.
 
@@ -202,5 +222,6 @@ Manifest file properties
          :refid: chrome-settings-overrides-chrome-settings-overrides-search-provider-suggest-url-post-params
          :refname: suggest_url_post_params
          :type: (string, optional)
+         :annotation: -- [Added in TB 68]
 
          POST parameters to the suggest_url as a query string.

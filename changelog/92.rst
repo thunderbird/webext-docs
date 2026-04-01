@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -7,6 +13,22 @@ Changelog for Thunderbird 92
 The following WebExtension API changes were introduced in Thunderbird 92.
 
 
+addressBooks
+------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.html">addressBooks</a>
+   </div>
+
+- :small:`type` :ref:`AddressBookNode.remote <address^books.^address^book^node.remote>` — Indicates if the address book is accessed via remote look-up.
+
+
+downloads
+---------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,5 +36,40 @@ The following WebExtension API changes were introduced in Thunderbird 92.
      <a href="../downloads.html">downloads</a>
    </div>
 
-- :small:`type` `DownloadItem.cookieStoreId <../downloads.html#downloads-download-item-cookie-store-id>`__ — The cookie store ID of the contextual identity.
-- :small:`type` `DownloadQuery.cookieStoreId <../downloads.html#downloads-download-query-cookie-store-id>`__ — The cookie store ID of the contextual identity.
+- :small:`type` :ref:`DownloadItem.cookieStoreId <downloads.^download^item.cookie^store^id>` — The cookie store ID of the contextual identity.
+- :small:`type` :ref:`DownloadQuery.cookieStoreId <downloads.^download^query.cookie^store^id>` — The cookie store ID of the contextual identity.
+
+
+folders
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` :ref:`copy <folders.copy>` — Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
+- :small:`function` :ref:`getFolderInfo <folders.get^folder^info>` — Get additional information about a folder.
+- :small:`function` :ref:`move <folders.move>` — Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
+- :small:`event` :ref:`onCopied <folders.on^copied>` — Fired when a folder has been copied.
+- :small:`event` :ref:`onCreated <folders.on^created>` — Fired when a folder has been created.
+- :small:`event` :ref:`onDeleted <folders.on^deleted>` — Fired when a folder has been deleted.
+- :small:`event` :ref:`onFolderInfoChanged <folders.on^folder^info^changed>` — Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
+- :small:`event` :ref:`onMoved <folders.on^moved>` — Fired when a folder has been moved.
+- :small:`event` :ref:`onRenamed <folders.on^renamed>` — Fired when a folder has been renamed.
+- :small:`type` :ref:`MailFolderInfo <folders.^mail^folder^info>` — An object containing additional information about a folder.
+
+
+tabs
+----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` :ref:`query.queryInfo.type <tabs.query.query^info.type>` — Match tabs against the given tab type or types.

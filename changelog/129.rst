@@ -1,0 +1,41 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 129
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 129.
+
+
+mailTabs
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` :ref:`getSelectedFolders <mail^tabs.get^selected^folders>` — Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the :ref:`menus.onClicked <menus.on^clicked>` event of the menus API.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`listInlineTextParts <messages.list^inline^text^parts>` — Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments <messages.list^attachments>` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText <messenger^utilities.convert^to^plain^text>` can be used to retreive a plain text version. If the message is encrypted, the inline text parts of the decrypted message are listed.
+- :small:`function` :ref:`query.queryInfo.online <messages.query.query^info.online>` — Query the server directly instead of the local message database. Online queries currently only support querying the :value:`headerMessageId` property. Currently only supported for NNTP accounts.
+- :small:`type` :ref:`InlineTextPart <messages.^inline^text^part>` — An inline part with content type :value:`text/*`. These parts are not returned by :ref:`messages.listAttachments <messages.list^attachments>` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`

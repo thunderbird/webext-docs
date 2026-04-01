@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 112
 The following WebExtension API changes were introduced in Thunderbird 112.
 
 
+webRequest
+----------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,7 +23,7 @@ The following WebExtension API changes were introduced in Thunderbird 112.
      <a href="../webRequest.html">webRequest</a>
    </div>
 
-- :small:`type` `SecurityInfo.usedDelegatedCredentials <../webRequest.html#web-request-security-info-used-delegated-credentials>`__ — True if the TLS connection used Delegated Credentials.
-- :small:`type` `SecurityInfo.usedEch <../webRequest.html#web-request-security-info-used-ech>`__ — True if the TLS connection used Encrypted Client Hello.
-- :small:`type` `SecurityInfo.usedOcsp <../webRequest.html#web-request-security-info-used-ocsp>`__ — True if the TLS connection made OCSP requests.
-- :small:`type` `SecurityInfo.usedPrivateDns <../webRequest.html#web-request-security-info-used-private-dns>`__ — True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.
+- :small:`type` :ref:`SecurityInfo.usedDelegatedCredentials <web^request.^security^info.used^delegated^credentials>` — True if the TLS connection used Delegated Credentials.
+- :small:`type` :ref:`SecurityInfo.usedEch <web^request.^security^info.used^ech>` — True if the TLS connection used Encrypted Client Hello.
+- :small:`type` :ref:`SecurityInfo.usedOcsp <web^request.^security^info.used^ocsp>` — True if the TLS connection made OCSP requests.
+- :small:`type` :ref:`SecurityInfo.usedPrivateDns <web^request.^security^info.used^private^dns>` — True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.
