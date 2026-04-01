@@ -116,7 +116,7 @@ Functions
 create(createProperties, [callback])
 ------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Creates a new context menu item. Note that if an error occurs during creation, you may not find out until the creation callback fires (the details will be in `runtime.lastError <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/lastError>`__).
 
@@ -305,7 +305,7 @@ Creates a new context menu item. Note that if an error occurs during creation, y
 getTargetElement(targetElementId)
 ---------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Retrieve the element that was associated with a recent `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event.
 
@@ -344,7 +344,7 @@ Retrieve the element that was associated with a recent `contextmenu <https://dev
 overrideContext(contextOptions)
 -------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Show the matching menu items from this extension instead of the default menu. This should be called during a `contextmenu <https://developer.mozilla.org/en-US/docs/Web/API/Element/contextmenu_event>`__ event handler, and only applies to the menu that opens after this event.
 
@@ -409,7 +409,7 @@ Show the matching menu items from this extension instead of the default menu. Th
 refresh()
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Updates the extension items in the shown menu, including changes that have been made since the menu was shown. Has no effect if the menu is hidden. Rebuilding a shown menu is an expensive operation, only invoke this method when necessary.
 
@@ -423,7 +423,7 @@ Updates the extension items in the shown menu, including changes that have been 
 remove(menuItemId)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Removes a context menu item.
 
@@ -450,7 +450,7 @@ Removes a context menu item.
 removeAll()
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Removes all context menu items added by this extension.
 
@@ -464,7 +464,7 @@ Removes all context menu items added by this extension.
 update(id, updateProperties)
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Updates a previously created context menu item.
 
@@ -606,7 +606,7 @@ Events
 onClicked
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a context menu item is clicked. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
@@ -655,7 +655,7 @@ Fired when a context menu item is clicked. This is a user input event handler. F
 onHidden
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a menu is hidden. This event is only fired if onShown has fired before.
 
@@ -681,7 +681,7 @@ Fired when a menu is hidden. This event is only fired if onShown has fired befor
 onShown
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a menu is shown. The extension can add, modify or remove menu items and call :ref:`menus.refresh` to update the menu.
 
@@ -735,7 +735,7 @@ Types
 ContextType
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 The different contexts a menu can appear in. Specifying :value:`all` is equivalent to the combination of all other contexts excluding :value:`tab` and :value:`tools_menu`. More information about each context can be found in the `Supported UI Elements <https://developer.thunderbird.net/add-ons/mailextensions/supported-ui-elements#menu-items>`__ article on developer.thunderbird.net.
 
@@ -763,7 +763,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`all_message_attachments`
             :refid: menus-context-type-all-message-attachments
             :refname: all_message_attachments
-            :annotation: -- [Added in TB 98.0a1]
+            :annotation: -- [Added in TB 102.0]
 
             Applies when the user context-clicks the summary of the message attachments of a displayed message with more than one attachment.
 
@@ -791,7 +791,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`browser_action_menu`
             :refid: menus-context-type-browser-action-menu
             :refname: browser_action_menu
-            :annotation: -- [Added in TB 90.0a1]
+            :annotation: -- [Added in TB 91.0]
 
             Applies when the user opened a browserAction button of type :value:`menu`.
 
@@ -801,7 +801,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`compose_action`
             :refid: menus-context-type-compose-action
             :refname: compose_action
-            :annotation: -- [Added in TB 89.0a1]
+            :annotation: -- [Added in TB 91.0]
 
             Applies when the user context-clicks a composeAction button.
 
@@ -811,7 +811,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`compose_action_menu`
             :refid: menus-context-type-compose-action-menu
             :refname: compose_action_menu
-            :annotation: -- [Added in TB 90.0a1]
+            :annotation: -- [Added in TB 91.0]
 
             Applies when the user opened a composeAction button of type :value:`menu`.
 
@@ -821,7 +821,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`compose_attachments`
             :refid: menus-context-type-compose-attachments
             :refname: compose_attachments
-            :annotation: -- [Added in TB 83.0a1]
+            :annotation: -- [Added in TB 78.5.0]
 
             Applies when the user context-clicks an attachment in the compose window.
 
@@ -831,7 +831,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`compose_body`
             :refid: menus-context-type-compose-body
             :refname: compose_body
-            :annotation: -- [Added in TB 111.0a1]
+            :annotation: -- [Added in TB 115.0]
 
             Applies when the user context-clicks in the compose editor.
 
@@ -868,7 +868,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`header_pane_link`
             :refid: menus-context-type-header-pane-link
             :refname: header_pane_link
-            :annotation: -- [Added in TB 137.0a1]
+            :annotation: -- [Added in TB 140.0]
 
          .. _menus.^context^type.image:
 
@@ -894,7 +894,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`message_attachments`
             :refid: menus-context-type-message-attachments
             :refname: message_attachments
-            :annotation: -- [Added in TB 98.0a1]
+            :annotation: -- [Added in TB 102.0]
 
             Applies when the user context-clicks a single attachment of a displayed message.
 
@@ -904,7 +904,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`message_display_action`
             :refid: menus-context-type-message-display-action
             :refname: message_display_action
-            :annotation: -- [Added in TB 89.0a1]
+            :annotation: -- [Added in TB 91.0]
 
             Applies when the user context-clicks a messageDisplayAction button.
 
@@ -914,7 +914,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`message_display_action_menu`
             :refid: menus-context-type-message-display-action-menu
             :refname: message_display_action_menu
-            :annotation: -- [Added in TB 90.0a1]
+            :annotation: -- [Added in TB 91.0]
 
             Applies when the user opened a messageDisplayAction button of type :value:`menu`.
 
@@ -969,7 +969,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :name: :value:`tools_menu`
             :refid: menus-context-type-tools-menu
             :refname: tools_menu
-            :annotation: -- [Added in TB 88.0a1]
+            :annotation: -- [Added in TB 91.0]
 
             Applies when the user opens the :value:`Tools` menu of Thunderbird's main menu.
 
@@ -987,7 +987,7 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
 ItemType
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 The type of menu item.
 
@@ -1033,7 +1033,7 @@ The type of menu item.
 MenuActionCommand
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 131.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.3.2]
 
 A predefined command to open an action popup.
 
@@ -1072,7 +1072,7 @@ A predefined command to open an action popup.
 MenuIconDictionary
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 124.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.^menu^icon^path`.
 
@@ -1095,7 +1095,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 MenuIconPath
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 122.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 115.8.0]
 
 The path for a menu icon may be a relative path to an icon file, a :value:`moz-extension:` URL, an image :value:`data:` URL, a :value:`blob:` URL, or a remote :value:`http(s):` URL.
 
@@ -1112,7 +1112,7 @@ The path for a menu icon may be a relative path to an icon file, a :value:`moz-e
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 66.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Information sent when a context menu item is clicked.
 
@@ -1178,7 +1178,7 @@ Information sent when a context menu item is clicked.
       :refid: menus-on-click-data-attachments
       :refname: attachments
       :type: (array of :ref:`compose.^compose^attachment` or :ref:`messages.^message^attachment`, optional)
-      :annotation: -- [Added in TB 83.0a1]
+      :annotation: -- [Added in TB 78.5.0]
 
       The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.
 
@@ -1219,7 +1219,7 @@ Information sent when a context menu item is clicked.
       :refid: menus-on-click-data-field-id
       :refname: fieldId
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 89.0a1]
+      :annotation: -- [Added in TB 91.0]
 
       An identifier of the clicked Thunderbird UI element, if any.
 
@@ -1231,7 +1231,6 @@ Information sent when a context menu item is clicked.
          :name: :value:`composeBcc`
          :refid: menus-on-click-data-field-id-compose-bcc
          :refname: composeBcc
-         :annotation: -- [Added in TB 90.0a1]
 
       .. _menus.^on^click^data.field^id.compose^cc:
 
@@ -1239,7 +1238,6 @@ Information sent when a context menu item is clicked.
          :name: :value:`composeCc`
          :refid: menus-on-click-data-field-id-compose-cc
          :refname: composeCc
-         :annotation: -- [Added in TB 90.0a1]
 
       .. _menus.^on^click^data.field^id.compose^newsgroup^to:
 
@@ -1247,7 +1245,6 @@ Information sent when a context menu item is clicked.
          :name: :value:`composeNewsgroupTo`
          :refid: menus-on-click-data-field-id-compose-newsgroup-to
          :refname: composeNewsgroupTo
-         :annotation: -- [Added in TB 90.0a1]
 
       .. _menus.^on^click^data.field^id.compose^reply^to:
 
@@ -1255,7 +1252,6 @@ Information sent when a context menu item is clicked.
          :name: :value:`composeReplyTo`
          :refid: menus-on-click-data-field-id-compose-reply-to
          :refname: composeReplyTo
-         :annotation: -- [Added in TB 90.0a1]
 
       .. _menus.^on^click^data.field^id.compose^subject:
 
@@ -1263,7 +1259,6 @@ Information sent when a context menu item is clicked.
          :name: :value:`composeSubject`
          :refid: menus-on-click-data-field-id-compose-subject
          :refname: composeSubject
-         :annotation: -- [Added in TB 90.0a1]
 
       .. _menus.^on^click^data.field^id.compose^to:
 
@@ -1271,7 +1266,6 @@ Information sent when a context menu item is clicked.
          :name: :value:`composeTo`
          :refid: menus-on-click-data-field-id-compose-to
          :refname: composeTo
-         :annotation: -- [Added in TB 90.0a1]
 
    .. _menus.^on^click^data.frame^id:
 
@@ -1350,7 +1344,7 @@ Information sent when a context menu item is clicked.
       :refid: menus-on-click-data-selected-account
       :refname: selectedAccount
       :type: (:ref:`accounts.^mail^account`, optional) **Deprecated.**
-      :annotation: -- [Added in TB 88.0a1]
+      :annotation: -- [Added in TB 91.0]
 
       The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
 
@@ -1371,7 +1365,7 @@ Information sent when a context menu item is clicked.
       :refid: menus-on-click-data-selected-folders
       :refname: selectedFolders
       :type: (array of :ref:`folders.^mail^folder`, optional)
-      :annotation: -- [Added in TB 128.0a1]
+      :annotation: -- [Added in TB 128.0]
 
       The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
@@ -1440,7 +1434,7 @@ Information sent when a context menu item is clicked.
 OnShowData
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 88.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 91.0]
 
 Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
 
@@ -1504,7 +1498,6 @@ Information sent when a context menu is being shown. Some properties are only in
       :refid: menus-on-show-data-field-id
       :refname: fieldId
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 89.0a1]
 
       An identifier of the clicked Thunderbird UI element, if any.
 
@@ -1516,7 +1509,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :name: :value:`composeBcc`
          :refid: menus-on-show-data-field-id-compose-bcc
          :refname: composeBcc
-         :annotation: -- [Added in TB 98.0a1]
+         :annotation: -- [Added in TB 102.0]
 
       .. _menus.^on^show^data.field^id.compose^cc:
 
@@ -1524,7 +1517,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :name: :value:`composeCc`
          :refid: menus-on-show-data-field-id-compose-cc
          :refname: composeCc
-         :annotation: -- [Added in TB 98.0a1]
+         :annotation: -- [Added in TB 102.0]
 
       .. _menus.^on^show^data.field^id.compose^newsgroup^to:
 
@@ -1532,7 +1525,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :name: :value:`composeNewsgroupTo`
          :refid: menus-on-show-data-field-id-compose-newsgroup-to
          :refname: composeNewsgroupTo
-         :annotation: -- [Added in TB 98.0a1]
+         :annotation: -- [Added in TB 102.0]
 
       .. _menus.^on^show^data.field^id.compose^reply^to:
 
@@ -1540,7 +1533,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :name: :value:`composeReplyTo`
          :refid: menus-on-show-data-field-id-compose-reply-to
          :refname: composeReplyTo
-         :annotation: -- [Added in TB 98.0a1]
+         :annotation: -- [Added in TB 102.0]
 
       .. _menus.^on^show^data.field^id.compose^subject:
 
@@ -1548,7 +1541,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :name: :value:`composeSubject`
          :refid: menus-on-show-data-field-id-compose-subject
          :refname: composeSubject
-         :annotation: -- [Added in TB 98.0a1]
+         :annotation: -- [Added in TB 102.0]
 
       .. _menus.^on^show^data.field^id.compose^to:
 
@@ -1556,7 +1549,7 @@ Information sent when a context menu is being shown. Some properties are only in
          :name: :value:`composeTo`
          :refid: menus-on-show-data-field-id-compose-to
          :refname: composeTo
-         :annotation: -- [Added in TB 98.0a1]
+         :annotation: -- [Added in TB 102.0]
 
    .. _menus.^on^show^data.frame^url:
 
@@ -1651,7 +1644,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :refid: menus-on-show-data-selected-folders
       :refname: selectedFolders
       :type: (array of :ref:`folders.^mail^folder`, optional)
-      :annotation: -- [Added in TB 128.0a1]
+      :annotation: -- [Added in TB 128.0]
 
       The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 

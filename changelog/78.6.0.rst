@@ -1,0 +1,17 @@
+.. role:: small
+
+================================
+Changelog for Thunderbird 78.6.0
+================================
+
+The following WebExtension API changes were introduced in Thunderbird 78.6.0.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`function` `openDefaultBrowser <../windows.html#windows-open-default-browser>`__ — Opens the provided URL in the default system browser.

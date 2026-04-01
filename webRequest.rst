@@ -73,7 +73,7 @@ Functions
 filterResponseData(requestId)
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 57]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 ...
 
@@ -111,7 +111,7 @@ filterResponseData(requestId)
 getSecurityInfo(requestId, [options])
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Retrieves the security information for the request.  Returns a promise that will resolve to a SecurityInfo object.
 
@@ -183,7 +183,7 @@ Events
 onAuthRequired
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 54]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an authentication failure is received. The listener has three options: it can provide authentication credentials, it can cancel the request and display the error page, or it can take no action on the challenge. If bad user credentials are provided, this may be called multiple times for the same request.
 
@@ -361,7 +361,7 @@ Fired when an authentication failure is received. The listener has three options
          :refid: web-request-on-auth-required-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -400,7 +400,7 @@ Fired when an authentication failure is received. The listener has three options
          :refid: web-request-on-auth-required-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -421,7 +421,7 @@ Fired when an authentication failure is received. The listener has three options
          :refid: web-request-on-auth-required-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -462,7 +462,7 @@ Fired when an authentication failure is received. The listener has three options
          :refid: web-request-on-auth-required-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -499,7 +499,7 @@ Fired when an authentication failure is received. The listener has three options
 onBeforeRedirect
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 46]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a server-initiated redirect is about to occur.
 
@@ -643,7 +643,7 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -682,7 +682,7 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -693,7 +693,6 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -704,7 +703,7 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -725,7 +724,6 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -746,7 +744,7 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -764,7 +762,7 @@ Fired when a server-initiated redirect is about to occur.
 onBeforeRequest
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 46]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a request is about to occur.
 
@@ -872,7 +870,7 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -911,7 +909,7 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -922,7 +920,6 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -933,7 +930,7 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -944,7 +941,6 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -955,7 +951,6 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-request-body
          :refname: requestBody
          :type: (object, optional)
-         :annotation: -- [Added in TB 53]
 
          Contains the HTTP request body data. Only provided if extraInfoSpec contains 'requestBody'.
 
@@ -996,7 +991,7 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -1025,7 +1020,7 @@ Fired when a request is about to occur.
 onBeforeSendHeaders
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any HTTP data is sent.
 
@@ -1133,7 +1128,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -1172,7 +1167,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -1183,7 +1178,6 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -1194,7 +1188,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -1205,7 +1199,6 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -1216,7 +1209,6 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-request-headers
          :refname: requestHeaders
          :type: (:ref:`web^request.^http^headers`, optional)
-         :annotation: -- [Added in TB 53]
 
          The HTTP request headers that are going to be sent out with this request.
 
@@ -1227,7 +1219,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -1256,7 +1248,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
 onCompleted
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a request is completed.
 
@@ -1410,7 +1402,7 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -1449,7 +1441,7 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -1464,7 +1456,7 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -1475,7 +1467,6 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -1486,7 +1477,7 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -1507,7 +1498,6 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -1531,7 +1521,7 @@ Fired when a request is completed.
 onErrorOccurred
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an error occurs.
 
@@ -1645,7 +1635,7 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -1684,7 +1674,7 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -1695,7 +1685,6 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -1706,7 +1695,7 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -1727,7 +1716,6 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -1738,7 +1726,7 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -1756,7 +1744,7 @@ Fired when an error occurs.
 onHeadersReceived
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when HTTP response headers of a request have been received.
 
@@ -1888,7 +1876,7 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -1927,7 +1915,7 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -1938,7 +1926,6 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -1949,7 +1936,7 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -1960,7 +1947,6 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -1981,7 +1967,7 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -2010,7 +1996,7 @@ Fired when HTTP response headers of a request have been received.
 onResponseStarted
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
 
@@ -2144,7 +2130,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -2183,7 +2169,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -2194,7 +2180,6 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -2205,7 +2190,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -2226,7 +2211,6 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -2247,7 +2231,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -2265,7 +2249,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 onSendHeaders
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired just before a request is going to be sent to the server (modifications of previous onBeforeSendHeaders callbacks are visible by the time onSendHeaders is fired).
 
@@ -2369,7 +2353,7 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-third-party
          :refname: thirdParty
          :type: (boolean)
-         :annotation: -- [Added in TB 72]
+         :annotation: -- [Added in TB 78.0]
 
          Indicates if this request and its content window hierarchy is third party.
 
@@ -2408,7 +2392,7 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          The cookie store ID of the contextual identity.
 
@@ -2419,7 +2403,6 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-document-url
          :refname: documentUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 54]
 
          URL of the page into which the requested resource will be loaded.
 
@@ -2430,7 +2413,7 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-incognito
          :refname: incognito
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
+         :annotation: -- [Added in TB 68.0]
 
          True for private browsing requests.
 
@@ -2441,7 +2424,6 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-origin-url
          :refname: originUrl
          :type: (string, optional)
-         :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
 
@@ -2462,7 +2444,7 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-url-classification
          :refname: urlClassification
          :type: (:ref:`web^request.^url^classification`, optional)
-         :annotation: -- [Added in TB 74]
+         :annotation: -- [Added in TB 78.0]
 
          Tracking classification if the request has been classified.
 
@@ -2485,7 +2467,7 @@ Types
 BlockingResponse
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns value for event handlers that have the 'blocking' extraInfoSpec applied. Allows the event handler to modify network requests.
 
@@ -2565,7 +2547,6 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
       :refid: web-request-blocking-response-upgrade-to-secure
       :refname: upgradeToSecure
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 59]
 
       Only used as a response to the onBeforeRequest event. If set, the original request is prevented from being sent/completed and is instead upgraded to a secure request.  If any extension returns :code:`redirectUrl` during onBeforeRequest, :code:`upgradeToSecure` will have no affect.
 
@@ -2574,7 +2555,7 @@ Returns value for event handlers that have the 'blocking' extraInfoSpec applied.
 CertificateInfo
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Contains the certificate properties of the request if it is a secure request.
 
@@ -2736,7 +2717,7 @@ CertificateTransparencyStatus
 HttpHeaders
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An array of HTTP headers. Each header is represented as a dictionary containing the keys :code:`name` and either :code:`value` or :code:`binaryValue`.
 
@@ -2967,7 +2948,7 @@ OnSendHeadersOptions
 RequestFilter
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An object describing filters to apply to webRequest events.
 
@@ -3013,7 +2994,6 @@ An object describing filters to apply to webRequest events.
       :refid: web-request-request-filter-tab-id
       :refname: tabId
       :type: (integer, optional)
-      :annotation: -- [Added in TB 53]
 
    .. _web^request.^request^filter.types:
 
@@ -3032,14 +3012,13 @@ An object describing filters to apply to webRequest events.
       :refid: web-request-request-filter-window-id
       :refname: windowId
       :type: (integer, optional)
-      :annotation: -- [Added in TB 53]
 
 .. _web^request.^resource^type:
 
 ResourceType
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: `string`
@@ -3091,7 +3070,7 @@ ResourceType
             :name: :value:`json`
             :refid: web-request-resource-type-json
             :refname: json
-            :annotation: -- [Added in TB 138]
+            :annotation: -- [Added in TB 140.0]
 
             .. note::
 
@@ -3145,7 +3124,7 @@ ResourceType
             :name: :value:`speculative`
             :refid: web-request-resource-type-speculative
             :refname: speculative
-            :annotation: -- [Added in TB 63]
+            :annotation: -- [Added in TB 68.0]
 
          .. _web^request.^resource^type.stylesheet:
 
@@ -3201,7 +3180,7 @@ ResourceType
 SecurityInfo
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Contains the security properties of the request (ie. SSL/TLS information).
 
@@ -3439,7 +3418,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       :refid: web-request-security-info-secret-key-length
       :refname: secretKeyLength
       :type: (number, optional)
-      :annotation: -- [Added in TB 109]
+      :annotation: -- [Added in TB 115.0]
 
       The length (in bits) of the secret key.
 
@@ -3460,7 +3439,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       :refid: web-request-security-info-used-delegated-credentials
       :refname: usedDelegatedCredentials
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 112]
+      :annotation: -- [Added in TB 115.0]
 
       True if the TLS connection used Delegated Credentials.
 
@@ -3471,7 +3450,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       :refid: web-request-security-info-used-ech
       :refname: usedEch
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 112]
+      :annotation: -- [Added in TB 115.0]
 
       True if the TLS connection used Encrypted Client Hello.
 
@@ -3482,7 +3461,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       :refid: web-request-security-info-used-ocsp
       :refname: usedOcsp
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 112]
+      :annotation: -- [Added in TB 115.0]
 
       True if the TLS connection made OCSP requests.
 
@@ -3493,7 +3472,7 @@ Contains the security properties of the request (ie. SSL/TLS information).
       :refid: web-request-security-info-used-private-dns
       :refname: usedPrivateDns
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 112]
+      :annotation: -- [Added in TB 115.0]
 
       True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.
 
@@ -3535,7 +3514,7 @@ TransportWeaknessReasons
 UploadData
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Contains data uploaded in a URL request.
 

@@ -70,7 +70,7 @@ Functions
 cancel(downloadId)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Cancel a download. When :code:`callback` is run, the download is cancelled, completed, interrupted or doesn't exist anymore.
 
@@ -97,7 +97,7 @@ Cancel a download. When :code:`callback` is run, the download is cancelled, comp
 download(options)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Download a URL. If the URL uses the HTTP[S] protocol, then the request will include all cookies currently set for its hostname. If both :code:`filename` and :code:`saveAs` are specified, then the Save As dialog will be displayed, pre-populated with the specified :code:`filename`. If the download started successfully, :code:`callback` will be called with the new `DownloadItem <#type-DownloadItem>`__'s :code:`downloadId`. If there was an error starting the download, then :code:`callback` will be called with :code:`downloadId=undefined` and `chrome.extension.lastError <extension.html#property-lastError>`__ will contain a descriptive string. The error strings are not guaranteed to remain backwards compatible between releases. You must not parse it.
 
@@ -275,7 +275,7 @@ Initiate dragging the file to another application.
 erase(query)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 
@@ -312,7 +312,7 @@ Erase matching `DownloadItems <#type-DownloadItem>`__ from history
 getFileIcon(downloadId, [options])
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieve an icon for the specified download. For new downloads, file icons are available after the `onCreated <#event-onCreated>`__ event has been received. The image returned by this function while a download is in progress may be different from the image returned after the download is complete. Icon retrieval is done by querying the underlying operating system or toolkit depending on the platform. The icon that is returned will therefore depend on a number of factors including state of the download, platform, registered file types and visual theme. If a file icon cannot be determined, `chrome.extension.lastError <extension.html#property-lastError>`__ will contain an error message.
 
@@ -369,7 +369,7 @@ Retrieve an icon for the specified download. For new downloads, file icons are a
 open(downloadId)
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Open the downloaded file.
 
@@ -395,7 +395,7 @@ Open the downloaded file.
 pause(downloadId)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Pause the download. If the request was successful the download is in a paused state. Otherwise `chrome.extension.lastError <extension.html#property-lastError>`__ contains an error message. The request will fail if the download is not active.
 
@@ -422,7 +422,7 @@ Pause the download. If the request was successful the download is in a paused st
 removeFile(downloadId)
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: Parameters
@@ -445,7 +445,7 @@ removeFile(downloadId)
 resume(downloadId)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Resume a paused download. If the request was successful the download is in progress and unpaused. Otherwise `chrome.extension.lastError <extension.html#property-lastError>`__ contains an error message. The request will fail if the download is not active.
 
@@ -472,7 +472,7 @@ Resume a paused download. If the request was successful the download is in progr
 search(query)
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty object to get all `DownloadItems <#type-DownloadItem>`__. To get a specific `DownloadItem <#type-DownloadItem>`__, set only the :code:`id` field.
 
@@ -509,7 +509,7 @@ Find `DownloadItems <#type-DownloadItem>`__. Set :code:`query` to the empty obje
 show(downloadId)
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Show the downloaded file in its folder in a file manager.
 
@@ -546,7 +546,7 @@ Show the downloaded file in its folder in a file manager.
 showDefaultFolder()
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: Required permissions
@@ -563,7 +563,7 @@ Events
 onChanged
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`bytesReceived` changes, this event fires with the :code:`downloadId` and an object containing the properties that changed.
 
@@ -736,7 +736,7 @@ When any of a `DownloadItem <#type-DownloadItem>`__'s properties except :code:`b
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 This event fires with the `DownloadItem <#type-DownloadItem>`__ object when a download begins.
 
@@ -773,7 +773,7 @@ This event fires with the `DownloadItem <#type-DownloadItem>`__ object when a do
 onErased
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fires with the :code:`downloadId` when a download is erased from history.
 
@@ -817,7 +817,7 @@ Types
 BooleanDelta
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: object
@@ -843,7 +843,7 @@ BooleanDelta
 DangerType
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 These string constants will never change, however the set of DangerTypes may change.
 
@@ -927,7 +927,7 @@ These string constants will never change, however the set of DangerTypes may cha
 DoubleDelta
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: object
@@ -1111,7 +1111,7 @@ DownloadItem
       :refid: downloads-download-item-cookie-store-id
       :refname: cookieStoreId
       :type: (string, optional)
-      :annotation: -- [Added in TB 92]
+      :annotation: -- [Added in TB 102.0]
 
       The cookie store ID of the contextual identity.
 
@@ -1142,7 +1142,6 @@ DownloadItem
       :refid: downloads-download-item-estimated-end-time
       :refname: estimatedEndTime
       :type: (string, optional)
-      :annotation: -- [Added in TB 57]
 
    .. _downloads.^download^item.mime:
 
@@ -1167,7 +1166,7 @@ DownloadItem
 DownloadQuery
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Parameters that combine to specify a predicate that can be used to select a set of downloads.  Used for example in search() and erase()
 
@@ -1191,7 +1190,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
       :refid: downloads-download-query-cookie-store-id
       :refname: cookieStoreId
       :type: (string, optional)
-      :annotation: -- [Added in TB 92]
+      :annotation: -- [Added in TB 102.0]
 
       The cookie store ID of the contextual identity.
 
@@ -1440,7 +1439,7 @@ Parameters that combine to specify a predicate that can be used to select a set 
 DownloadTime
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 A time specified as a Date object, a number or string representing milliseconds since the epoch, or an ISO 8601 string
 
@@ -1457,7 +1456,7 @@ A time specified as a Date object, a number or string representing milliseconds 
 FilenameConflictAction
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: `string`
@@ -1494,7 +1493,7 @@ FilenameConflictAction
 InterruptReason
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. note::
 
@@ -1682,7 +1681,7 @@ InterruptReason
 State
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 These string constants will never change, however the set of States may change.
 
@@ -1727,7 +1726,7 @@ These string constants will never change, however the set of States may change.
 StringDelta
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: object

@@ -1,0 +1,18 @@
+.. role:: small
+
+=================================
+Changelog for Thunderbird 102.3.0
+=================================
+
+The following WebExtension API changes were introduced in Thunderbird 102.3.0.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`event` `onAfterSave <../compose.html#compose-on-after-save>`__ — Fired when saving a message as draft or template succeeded or failed.
+- :small:`event` `onAfterSend <../compose.html#compose-on-after-send>`__ — Fired when sending a message succeeded or failed.

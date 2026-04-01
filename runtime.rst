@@ -67,7 +67,7 @@ Functions
 connect([extensionId], [connectInfo])
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Attempts to connect to connect listeners within an extension/app (such as the background page), or other extensions/apps. This is useful for content scripts connecting to their extension processes, inter-app/extension communication, and web messaging. Note that this does not connect to any listeners in a content script. Extensions may connect to content scripts embedded in tabs via :ref:`tabs.connect`.
 
@@ -131,7 +131,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
 connectNative(application)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 50]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Connects to a native application in the host machine.
 
@@ -172,7 +172,7 @@ Connects to a native application in the host machine.
 getBackgroundPage()
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves the JavaScript 'window' object for the background page running inside the current extension/app. If the background page is an event page, the system will ensure it is loaded before calling the callback. If there is no background page, an error is set.
 
@@ -199,7 +199,7 @@ Retrieves the JavaScript 'window' object for the background page running inside 
 getBrowserInfo()
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns information about the current browser.
 
@@ -220,7 +220,7 @@ Returns information about the current browser.
 getContexts(filter)
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 127]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Fetches information about active contexts associated with this extension
 
@@ -256,7 +256,7 @@ Fetches information about active contexts associated with this extension
 getFrameId(target)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 96]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Get the frameId of any window global or frame element.
 
@@ -292,7 +292,7 @@ Get the frameId of any window global or frame element.
 getManifest()
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns details about the app or extension from the manifest. The object returned is a serialization of the full manifest file.
 
@@ -319,7 +319,7 @@ Returns details about the app or extension from the manifest. The object returne
 getPlatformInfo()
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns information about the current platform.
 
@@ -340,7 +340,7 @@ Returns information about the current platform.
 getURL(path)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Converts a relative path within an app/extension install directory to a fully-qualified URL.
 
@@ -376,7 +376,7 @@ Converts a relative path within an app/extension install directory to a fully-qu
 openOptionsPage()
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Open your Extension's options page, if possible.The precise behavior may depend on your manifest's :code:`options_ui` or :code:`options_page` key, or what the browser happens to support at the time.If your Extension does not declare an options page, or the browser failed to create one for some other reason, the callback will set :ref:`runtime.last^error`.
 
@@ -385,7 +385,7 @@ Open your Extension's options page, if possible.The precise behavior may depend 
 reload()
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Reloads the app or extension.
 
@@ -403,7 +403,7 @@ Restart the device when the app runs in kiosk mode. Otherwise, it's no-op.
 sendMessage([extensionId], message, [options])
 ----------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Sends a single message to event listeners within your extension/app or a different extension/app. Similar to :ref:`runtime.connect` but only sends a single message, with an optional response. If sending to your extension, the :ref:`runtime.on^message` event will be fired in each page, or :ref:`runtime.on^message^external`, if a different extension. Note that extensions cannot send messages to content scripts using this method. To send messages to content scripts, use :ref:`tabs.send^message`.
 
@@ -465,7 +465,7 @@ Sends a single message to event listeners within your extension/app or a differe
 sendNativeMessage(application, message)
 ---------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 50]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Send a single message to a native application.
 
@@ -543,7 +543,7 @@ Events
 onConnect
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a connection is made from either an extension process or a content script.
 
@@ -575,7 +575,7 @@ Fired when a connection is made from either an extension process or a content sc
 onConnectExternal
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 54]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a connection is made from another extension.
 
@@ -607,7 +607,7 @@ Fired when a connection is made from another extension.
 onInstalled
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 52]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the extension is first installed, when the extension is updated to a new version, and when the browser is updated to a new version.
 
@@ -655,7 +655,6 @@ Fired when the extension is first installed, when the extension is updated to a 
          :refid: runtime-on-installed-details-temporary
          :refname: temporary
          :type: (boolean)
-         :annotation: -- [Added in TB 55]
 
          Indicates whether the addon is installed as a temporary extension.
 
@@ -676,7 +675,6 @@ Fired when the extension is first installed, when the extension is updated to a 
          :refid: runtime-on-installed-details-previous-version
          :refname: previousVersion
          :type: (string, optional)
-         :annotation: -- [Added in TB 55]
 
          Indicates the previous version of the extension, which has just been updated. This is present only if 'reason' is 'update'.
 
@@ -685,7 +683,7 @@ Fired when the extension is first installed, when the extension is updated to a 
 onMessage
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a message is sent from either an extension process or a content script.
 
@@ -748,7 +746,7 @@ Fired when a message is sent from either an extension process or a content scrip
 onMessageExternal
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 54]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a message is sent from another extension/app. Cannot be used in a content script.
 
@@ -811,7 +809,7 @@ Fired when a message is sent from another extension/app. Cannot be used in a con
 onPerformanceWarning
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 124]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.
 
@@ -883,7 +881,7 @@ Fired when a runtime performance issue is detected with the extension. Observe t
 onStartup
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 52]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a profile that has this extension installed first starts up. This event is not fired for incognito profiles.
 
@@ -904,7 +902,7 @@ Fired when a profile that has this extension installed first starts up. This eve
 onSuspend
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 100]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Sent to the event page just before it is unloaded. This gives the extension opportunity to do some clean up. Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete. If more activity for the event page occurs before it gets unloaded the onSuspendCanceled event will be sent and the page won't be unloaded.
 
@@ -929,7 +927,7 @@ Sent to the event page just before it is unloaded. This gives the extension oppo
 onSuspendCanceled
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 100]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Sent after onSuspend to indicate that the app won't be unloaded after all.
 
@@ -954,7 +952,7 @@ Sent after onSuspend to indicate that the app won't be unloaded after all.
 onUpdateAvailable
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 51]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when an update is available, but isn't installed immediately because the app is currently running. If you do nothing, the update will be installed the next time the background page gets unloaded, if you want it to be installed sooner you can explicitly call :ref:`runtime.reload`. If your extension is using a persistent background page, the background page of course never gets unloaded, so unless you call :ref:`runtime.reload` manually in response to this event the update will not get installed until the next time the browser itself restarts. If no handlers are listening for this event, and your extension has a persistent background page, it behaves as if :ref:`runtime.reload` is called in response to this event.
 
@@ -998,7 +996,7 @@ Fired when an update is available, but isn't installed immediately because the a
 onUserScriptConnect
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Fired when a connection is made from a USER_SCRIPT world registered through the userScripts API.
 
@@ -1043,7 +1041,7 @@ Fired when a connection is made from a USER_SCRIPT world registered through the 
 onUserScriptMessage
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Fired when a message is sent from a USER_SCRIPT world registered through the userScripts API.
 
@@ -1336,7 +1334,7 @@ A context hosting extension content
 MessageSender
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An object containing information about the script context that sent a message or request.
 
@@ -1412,7 +1410,7 @@ An object containing information about the script context that sent a message or
 OnInstalledReason
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The reason that this event is being dispatched.
 
@@ -1451,7 +1449,7 @@ The reason that this event is being dispatched.
 OnPerformanceWarningCategory
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 124]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 The performance warning event category, e.g. 'content_script'.
 
@@ -1476,7 +1474,7 @@ The performance warning event category, e.g. 'content_script'.
 OnPerformanceWarningSeverity
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 124]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 The performance warning event severity. Will be 'high' for serious and user-visible issues.
 
@@ -1515,7 +1513,7 @@ The performance warning event severity. Will be 'high' for serious and user-visi
 OnRestartRequiredReason
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The reason that the event is being dispatched. 'app_update' is used when the restart is needed because the application is updated to a newer version. 'os_update' is used when the restart is needed because the browser/OS is updated to a newer version. 'periodic' is used when the system runs for more than the permitted uptime set in the enterprise policy.
 
@@ -1554,7 +1552,7 @@ The reason that the event is being dispatched. 'app_update' is used when the res
 PlatformArch
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The machine's processor architecture.
 
@@ -1628,7 +1626,7 @@ The machine's processor architecture.
 PlatformInfo
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An object containing information about the current platform.
 
@@ -1670,7 +1668,7 @@ An object containing information about the current platform.
 PlatformOs
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The operating system the browser is running on.
 
@@ -1730,7 +1728,7 @@ The operating system the browser is running on.
 Port
 ----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An object which allows two way communication with other pages.
 

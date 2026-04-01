@@ -36,7 +36,7 @@ Functions
 getBackgroundPage()
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns the JavaScript 'window' object for the background page running inside the current extension. Returns null if the extension has no background page.
 
@@ -57,7 +57,7 @@ Returns the JavaScript 'window' object for the background page running inside th
 getURL(path)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Converts a relative path within an extension install directory to a fully-qualified URL.
 
@@ -93,7 +93,7 @@ Converts a relative path within an extension install directory to a fully-qualif
 getViews([fetchProperties])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Returns an array of the JavaScript 'window' objects for each of the pages running inside the current extension.
 
@@ -161,7 +161,7 @@ Returns an array of the JavaScript 'window' objects for each of the pages runnin
 isAllowedFileSchemeAccess()
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves the state of the extension's access to the 'file://' scheme (as determined by the user-controlled 'Allow access to File URLs' checkbox.
 
@@ -184,7 +184,7 @@ Retrieves the state of the extension's access to the 'file://' scheme (as determ
 isAllowedIncognitoAccess()
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 48]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves the state of the extension's access to Incognito-mode (as determined by the user-controlled 'Allowed in Incognito' checkbox.
 
@@ -212,7 +212,7 @@ Types
 ViewType
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The type of extension view.
 
@@ -238,7 +238,6 @@ The type of extension view.
             :name: :value:`sidebar`
             :refid: extension-view-type-sidebar
             :refname: sidebar
-            :annotation: -- [Added in TB 54]
 
          .. _extension.^view^type.tab:
 

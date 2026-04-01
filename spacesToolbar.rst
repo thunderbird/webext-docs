@@ -31,7 +31,7 @@ Functions
 addButton(id, properties)
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 100.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Adds a new button to the spaces toolbar. Throws an exception, if the used :value:`id` is not unique within the extension.
 
@@ -67,7 +67,7 @@ Adds a new button to the spaces toolbar. Throws an exception, if the used :value
       :refid: spaces-toolbar-add-button-returns
       :refname: _returns
       :type: integer
-      :annotation: -- [Added in TB 115.0a1]
+      :annotation: -- [Added in TB 115.0]
 
       The id of the space belonging to the newly created button, as used by the tabs API.
 
@@ -78,7 +78,7 @@ Adds a new button to the spaces toolbar. Throws an exception, if the used :value
 clickButton(id, [windowId])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 114.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
 
@@ -124,7 +124,7 @@ Trigger a click on the specified spaces toolbar button. Throws an exception if t
 removeButton(id)
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 100.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Removes the specified button from the spaces toolbar. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension. If the tab of this button is currently open, it will be closed.
 
@@ -146,7 +146,7 @@ Removes the specified button from the spaces toolbar. Throws an exception if the
 updateButton(id, properties)
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 100.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Updates properties of the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
 
@@ -183,7 +183,7 @@ Types
 ButtonProperties
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 100.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 .. api-header::
    :label: object
@@ -253,7 +253,7 @@ ButtonProperties
 ColorArray
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 100.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 

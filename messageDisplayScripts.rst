@@ -56,7 +56,7 @@ Functions
 register(messageDisplayScriptOptions)
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.4.0]
 
 Register a message display script programmatically.
 
@@ -147,7 +147,7 @@ A path relative to the root of the extension.
 RegisteredMessageDisplayScript
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.4.0]
 
 An object that represents a message display script registered programmatically
 
@@ -159,7 +159,7 @@ An object that represents a message display script registered programmatically
 RegisteredMessageDisplayScriptOptions
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.4.0]
 
 Details of a message display script registered programmatically
 
@@ -193,7 +193,7 @@ Details of a message display script registered programmatically
       :refid: message-display-scripts-registered-message-display-script-options-run-at
       :refname: runAt
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 126.0a1]
+      :annotation: -- [Added in TB 128.0]
 
       Determines when the files specified in css and js are injected. The states directly correspond to :code:`Document.readyState`: :value:`loading`, :value:`interactive` and :value:`complete`
 

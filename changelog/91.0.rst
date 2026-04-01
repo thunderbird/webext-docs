@@ -1,0 +1,231 @@
+.. role:: small
+
+==============================
+Changelog for Thunderbird 91.0
+==============================
+
+The following WebExtension API changes were introduced in Thunderbird 91.0.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`function` `get.includeSubFolders <../accounts.html#accounts-get-include-sub-folders>`__ — Specifies whether the `folders.MailFolder <../folders.html#folders-mail-folder>`__ in the :value:`rootFolder` property of the returned `accounts.MailAccount <../accounts.html#accounts-mail-account>`__ should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the returned `accounts.MailAccount <../accounts.html#accounts-mail-account>`__. Defaults to :value:`true`.
+- :small:`function` `getDefault.includeSubFolders <../accounts.html#accounts-get-default-include-sub-folders>`__ — Specifies whether the `folders.MailFolder <../folders.html#folders-mail-folder>`__ in the :value:`rootFolder` property of the default `accounts.MailAccount <../accounts.html#accounts-mail-account>`__ should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the default `accounts.MailAccount <../accounts.html#accounts-mail-account>`__. Defaults to :value:`true`
+- :small:`function` `list.includeSubFolders <../accounts.html#accounts-list-include-sub-folders>`__ — Specifies whether the `folders.MailFolder <../folders.html#folders-mail-folder>`__ in the :value:`rootFolder` property of each found `accounts.MailAccount <../accounts.html#accounts-mail-account>`__ should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of each found `accounts.MailAccount <../accounts.html#accounts-mail-account>`__. Defaults to :value:`true`.
+- :small:`type` `MailAccount <../accounts.html#accounts-mail-account>`__ — An object describing a mail account, as returned for example by the `accounts.list <../accounts.html#accounts-list>`__ and `accounts.get <../accounts.html#accounts-get>`__ methods.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.html">addressBooks</a>
+   </div>
+
+- :small:`type` `AddressBookNode.remote <../addressBooks.html#address-books-address-book-node-remote>`__ — Indicates if the address book is accessed via remote look-up.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.provider.html">addressBooks.provider</a>
+   </div>
+
+The address book provider API allows to add address books, which are not stored or cached by Thunderbird itself, but are handled completely by the extension. Address books created by the this API will forward all access requests to the WebExtension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserAction.html">browserAction</a>
+   </div>
+
+- :small:`type` `ImageDataDictionary <../browserAction.html#browser-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserSettings.colorManagement.html">browserSettings.colorManagement</a>
+   </div>
+
+Use the :code:`browserSettings.colorManagement` API to query and set items related to color management.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browsingData.html">browsingData</a>
+   </div>
+
+- :small:`type` `RemovalOptions.cookieStoreId <../browsingData.html#browsing-data-removal-options-cookie-store-id>`__ — Only remove data associated with this specific cookieStoreId.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`event` `onFileDeleted.tab <../cloudFile.html#cloud-file-on-file-deleted-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`event` `onFileUpload.tab <../cloudFile.html#cloud-file-on-file-upload-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`event` `onFileUploadAbort.tab <../cloudFile.html#cloud-file-on-file-upload-abort-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` `getComposeState <../compose.html#compose-get-compose-state>`__ — Returns information about the current state of the message composer.
+- :small:`function` `sendMessage <../compose.html#compose-send-message>`__ — Sends the message currently being composed. If the send mode is not specified or set to :value:`default`, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an `compose.onBeforeSend <../compose.html#compose-on-before-send>`__ event or if there has been an error while sending the message to the outgoing mail server.
+- :small:`event` `onComposeStateChanged <../compose.html#compose-on-compose-state-changed>`__ — Fired when the state of the message composer changed.
+- :small:`type` `ComposeDetails.from <../compose.html#compose-compose-details-from>`__ — *Caution*: Setting a value for :value:`from` does not change the used identity, it overrides the *From* header. Many email servers do not accept emails where the *From* header does not match the sender identity. Must be set to exactly one valid email address.
+- :small:`type` `ComposeDetails.type <../compose.html#compose-compose-details-type>`__ — Read-only. The type of the message being composed, depending on how the compose window was opened by the user.
+- :small:`type` `ComposeState <../compose.html#compose-compose-state>`__ — Represent the state of the message composer.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`type` `ImageDataDictionary <../composeAction.html#compose-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contacts.html">contacts</a>
+   </div>
+
+- :small:`type` `ContactNode.remote <../contacts.html#contacts-contact-node-remote>`__ — Indicates if the object came from a remote address book.
+- :small:`type` `PropertyChange <../contacts.html#contacts-property-change>`__ — A dictionary of changed properties. Keys are the property name that changed, values are an object containing :value:`oldValue` and :value:`newValue`. Values can be either a string or :value:`null`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` `copy <../folders.html#folders-copy>`__ — Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
+- :small:`function` `getFolderInfo <../folders.html#folders-get-folder-info>`__ — Get additional information about a folder.
+- :small:`function` `getParentFolders <../folders.html#folders-get-parent-folders>`__ — Get all parent folders as a flat ordered array. The first array entry is the direct parent.
+- :small:`function` `getSubFolders <../folders.html#folders-get-sub-folders>`__ — Get the subfolders of the specified folder or account.
+- :small:`function` `move <../folders.html#folders-move>`__ — Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
+- :small:`event` `onCopied <../folders.html#folders-on-copied>`__ — Fired when a folder has been copied.
+- :small:`event` `onCreated <../folders.html#folders-on-created>`__ — Fired when a folder has been created.
+- :small:`event` `onDeleted <../folders.html#folders-on-deleted>`__ — Fired when a folder has been deleted.
+- :small:`event` `onFolderInfoChanged <../folders.html#folders-on-folder-info-changed>`__ — Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
+- :small:`event` `onMoved <../folders.html#folders-on-moved>`__ — Fired when a folder has been moved.
+- :small:`event` `onRenamed <../folders.html#folders-on-renamed>`__ — Fired when a folder has been renamed.
+- :small:`type` `MailFolderInfo <../folders.html#folders-mail-folder-info>`__ — An object containing additional information about a folder.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../identities.html">identities</a>
+   </div>
+
+The identities API allows to manage the user's identities (each account can have multiple identities).
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailingLists.html">mailingLists</a>
+   </div>
+
+- :small:`type` `MailingListNode.remote <../mailingLists.html#mailing-lists-mailing-list-node-remote>`__ — Indicates if the object came from a remote address book.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` `get <../mailTabs.html#mail-tabs-get>`__ — Get the `mailTabs.MailTab <../mailTabs.html#mail-tabs-mail-tab>`__ properties of a mail tab.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../menus.html">menus</a>
+   </div>
+
+- :small:`type` `OnClickData.fieldId <../menus.html#menus-on-click-data-field-id>`__ — An identifier of the clicked Thunderbird UI element, if any.
+- :small:`type` `OnClickData.selectedAccount <../menus.html#menus-on-click-data-selected-account>`__ — The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
+- :small:`type` `OnShowData <../menus.html#menus-on-show-data>`__ — Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`type` `ImageDataDictionary <../messageDisplayAction.html#message-display-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `getAttachmentFile <../messages.html#messages-get-attachment-file>`__ — Gets the content of a `messages.MessageAttachment <../messages.html#messages-message-attachment>`__ as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+- :small:`function` `listAttachments <../messages.html#messages-list-attachments>`__ — Lists the attachments of a message.
+- :small:`function` `query.queryInfo.headerMessageId <../messages.html#messages-query-query-info-header-message-id>`__ — Returns only messages with a Message-ID header matching this value.
+- :small:`function` `query.queryInfo.includeSubFolders <../messages.html#messages-query-query-info-include-sub-folders>`__ — Search the specified folder recursively.
+- :small:`event` `onCopied <../messages.html#messages-on-copied>`__ — Fired when messages have been copied.
+- :small:`event` `onDeleted <../messages.html#messages-on-deleted>`__ — Fired when messages have been permanently deleted.
+- :small:`event` `onMoved <../messages.html#messages-on-moved>`__ — Fired when messages have been moved.
+- :small:`event` `onUpdated <../messages.html#messages-on-updated>`__ — Fired when one or more properties of a message have been updated.
+- :small:`type` `MessageHeader <../messages.html#messages-message-header>`__ — Basic information about a message.
+- :small:`type` `MessageList <../messages.html#messages-message-list>`__ — See :doc:`../guides/messageLists` for more information.
+- :small:`type` `MessagePart <../messages.html#messages-message-part>`__ — Represents an email message "part", which could be the whole message.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../privacy.network.httpsOnlyMode.html">privacy.network.httpsOnlyMode</a>
+   </div>
+
+Allow users to query the mode for 'HTTPS-Only Mode'. This setting's value is of type HTTPSOnlyModeOption, defaulting to :code:`never`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` `query.queryInfo.type <../tabs.html#tabs-query-query-info-type>`__ — Match tabs against the given tab type or types.

@@ -67,7 +67,7 @@ Events
 onChanged
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when one or more items change.
 
@@ -121,7 +121,7 @@ Types
 StorageArea
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: object
@@ -141,7 +141,7 @@ StorageAreaWithUsage
 StorageChange
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. api-header::
    :label: object

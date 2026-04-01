@@ -61,7 +61,7 @@ Functions
 setImageData(imageData, imageType)
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 57]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Copy an image to the clipboard. The image is re-encoded before it is written to the clipboard. If the image is invalid, the clipboard is not modified.
 

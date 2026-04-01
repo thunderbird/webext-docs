@@ -59,7 +59,7 @@ Functions
 get(details)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves information about a single cookie. If more than one cookie of the same name exists for the given URL, the one with the longest path will be returned. For cookies with the same path length, the cookie with the earliest creation time will be returned.
 
@@ -158,7 +158,7 @@ Retrieves information about a single cookie. If more than one cookie of the same
 getAll(details)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves all cookies from a single cookie store that match the given information.  The cookies returned will be sorted, with those with the longest path first.  If multiple cookies have the same path length, those with the earliest creation time will be first.
 
@@ -297,7 +297,7 @@ Retrieves all cookies from a single cookie store that match the given informatio
 getAllCookieStores()
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Lists all existing cookie stores.
 
@@ -329,7 +329,7 @@ Lists all existing cookie stores.
 remove(details)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Deletes a cookie by name.
 
@@ -478,7 +478,7 @@ Deletes a cookie by name.
 set(details)
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Sets a cookie with the given cookie data; may overwrite equivalent cookies if they exist.
 
@@ -652,7 +652,7 @@ Events
 onChanged
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when a cookie is set or removed. As a special case, note that updating a cookie's properties is implemented as a two step process: the cookie to be updated is first removed entirely, generating a notification with "cause" of "overwrite" .  Afterwards, a new cookie is written with the updated values, generating a second notification with "cause" "explicit".
 
@@ -724,7 +724,7 @@ Types
 Cookie
 ------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Represents information about an HTTP cookie.
 
@@ -748,7 +748,6 @@ Represents information about an HTTP cookie.
       :refid: cookies-cookie-first-party-domain
       :refname: firstPartyDomain
       :type: (string)
-      :annotation: -- [Added in TB 59]
 
       The first-party domain of the cookie.
 
@@ -799,7 +798,7 @@ Represents information about an HTTP cookie.
       :refid: cookies-cookie-same-site
       :refname: sameSite
       :type: (:ref:`cookies.^same^site^status`)
-      :annotation: -- [Added in TB 63]
+      :annotation: -- [Added in TB 68.0]
 
       The cookie's same-site status (i.e. whether the cookie is sent with cross-site requests).
 
@@ -860,7 +859,7 @@ Represents information about an HTTP cookie.
       :refid: cookies-cookie-partition-key
       :refname: partitionKey
       :type: (:ref:`cookies.^partition^key`, optional)
-      :annotation: -- [Added in TB 94]
+      :annotation: -- [Added in TB 102.0]
 
       The cookie's storage partition, if any. null if not partitioned.
 
@@ -869,7 +868,7 @@ Represents information about an HTTP cookie.
 CookieStore
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Represents a cookie store in the browser. An incognito mode window, for instance, uses a separate cookie store from a non-incognito window.
 
@@ -893,7 +892,6 @@ Represents a cookie store in the browser. An incognito mode window, for instance
       :refid: cookies-cookie-store-incognito
       :refname: incognito
       :type: (boolean)
-      :annotation: -- [Added in TB 52]
 
       Indicates if this is an incognito cookie store
 
@@ -904,7 +902,6 @@ Represents a cookie store in the browser. An incognito mode window, for instance
       :refid: cookies-cookie-store-tab-ids
       :refname: tabIds
       :type: (array of integer)
-      :annotation: -- [Added in TB 52]
 
       Identifiers of all the browser tabs that share this cookie store.
 
@@ -913,7 +910,7 @@ Represents a cookie store in the browser. An incognito mode window, for instance
 OnChangedCause
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The underlying reason behind the cookie's change. If a cookie was inserted, or removed via an explicit call to :ref:`cookies.remove`, "cause" will be "explicit". If a cookie was automatically removed due to expiry, "cause" will be "expired". If a cookie was removed due to being overwritten with an already-expired expiration date, "cause" will be set to "expired_overwrite".  If a cookie was automatically removed due to garbage collection, "cause" will be "evicted".  If a cookie was automatically removed due to a "set" call that overwrote it, "cause" will be "overwrite". Plan your response accordingly.
 

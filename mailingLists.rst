@@ -59,7 +59,7 @@ Functions
 addMember(id, contactId)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Adds a contact to the mailing list with id :value:`id`. If the contact and mailing list are in different address books, the contact will also be copied to the list's address book.
 
@@ -92,7 +92,7 @@ Adds a contact to the mailing list with id :value:`id`. If the contact and maili
 create(parentId, properties)
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Creates a new mailing list in the address book with id :value:`parentId`.
 
@@ -148,7 +148,7 @@ Creates a new mailing list in the address book with id :value:`parentId`.
       :refid: mailing-lists-create-returns
       :refname: _returns
       :type: string
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
       The ID of the new mailing list.
 
@@ -164,7 +164,7 @@ Creates a new mailing list in the address book with id :value:`parentId`.
 delete(id)
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Removes the mailing list.
 
@@ -189,7 +189,7 @@ Removes the mailing list.
 get(id)
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Gets a single mailing list.
 
@@ -213,7 +213,7 @@ Gets a single mailing list.
       :refid: mailing-lists-get-returns
       :refname: _returns
       :type: :ref:`mailing^lists.^mailing^list^node`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -227,7 +227,7 @@ Gets a single mailing list.
 list(parentId)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Gets all the mailing lists in the address book with id :value:`parentId`.
 
@@ -251,7 +251,7 @@ Gets all the mailing lists in the address book with id :value:`parentId`.
       :refid: mailing-lists-list-returns
       :refname: _returns
       :type: array of :ref:`mailing^lists.^mailing^list^node`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -265,7 +265,7 @@ Gets all the mailing lists in the address book with id :value:`parentId`.
 listMembers(id)
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Gets all contacts that are members of the mailing list with id :value:`id`.
 
@@ -289,7 +289,7 @@ Gets all contacts that are members of the mailing list with id :value:`id`.
       :refid: mailing-lists-list-members-returns
       :refname: _returns
       :type: array of :ref:`contacts.^contact^node`
-      :annotation: -- [Added in TB 96.0a1]
+      :annotation: -- [Added in TB 102.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -303,7 +303,7 @@ Gets all contacts that are members of the mailing list with id :value:`id`.
 removeMember(id, contactId)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Removes a contact from the mailing list with id :value:`id`. This does not delete the contact from the address book.
 
@@ -336,7 +336,7 @@ Removes a contact from the mailing list with id :value:`id`. This does not delet
 update(id, properties)
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Edits the properties of a mailing list.
 
@@ -398,7 +398,7 @@ Events
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a mailing list is created.
 
@@ -435,7 +435,7 @@ Fired when a mailing list is created.
 onDeleted
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a mailing list is deleted.
 
@@ -480,7 +480,7 @@ Fired when a mailing list is deleted.
 onMemberAdded
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a contact is added to the mailing list.
 
@@ -517,7 +517,7 @@ Fired when a contact is added to the mailing list.
 onMemberRemoved
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a contact is removed from the mailing list.
 
@@ -562,7 +562,7 @@ Fired when a contact is removed from the mailing list.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a mailing list is changed.
 
@@ -604,7 +604,7 @@ Types
 MailingListNode
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 A node representing a mailing list.
 
@@ -692,6 +692,6 @@ A node representing a mailing list.
       :refid: mailing-lists-mailing-list-node-remote
       :refname: remote
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 91.0b2]
+      :annotation: -- [Added in TB 91.0]
 
       Indicates if the object came from a remote address book.

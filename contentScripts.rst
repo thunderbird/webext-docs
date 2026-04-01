@@ -33,7 +33,7 @@ Functions
 register(contentScriptOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 59]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Register a content script programmatically
 
@@ -209,7 +209,7 @@ Mostly unrestricted match patterns for privileged add-ons. This should technical
 RegisteredContentScript
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 59]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 An object that represents a content script registered programmatically
 
@@ -345,7 +345,7 @@ Details of a content script registered programmatically
 RunAt
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The soonest that the JavaScript or CSS will be injected into the tab.
 

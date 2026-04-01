@@ -92,88 +92,64 @@
   :maxdepth: 1
   :caption: Changelog
 
-  Thunderbird 138.0b3 <changelog/138.0b3>
+  Thunderbird 140.0 <changelog/140.0>
 
 
-  Thunderbird 137.0a1 <changelog/137.0a1>
+  Thunderbird 128.3.2 <changelog/128.3.2>
 
 
-  Thunderbird 136.0a1 <changelog/136.0a1>
+  Thunderbird 128.2.0 <changelog/128.2.0>
 
 
-  Thunderbird 136 <changelog/136>
+  Thunderbird 128.0 <changelog/128.0>
 
 
-  Thunderbird 135.0a1 <changelog/135.0a1>
+  Thunderbird 115.8.0 <changelog/115.8.0>
 
 
-  Thunderbird 133.0a1 <changelog/133.0a1>
+  Thunderbird 115.3.2 <changelog/115.3.2>
 
 
-  Thunderbird 131.0a1 <changelog/131.0a1>
+  Thunderbird 115.0 <changelog/115.0>
 
 
-  Thunderbird 131 <changelog/131>
+  Thunderbird 102.3.3 <changelog/102.3.3>
 
 
-  Thunderbird 130.0b2 <changelog/130.0b2>
+  Thunderbird 102.3.0 <changelog/102.3.0>
 
 
-  Thunderbird 129.0a1 <changelog/129.0a1>
+  Thunderbird 102.0 <changelog/102.0>
 
 
-  Thunderbird 128.0a1 <changelog/128.0a1>
+  Thunderbird 91.4.1 <changelog/91.4.1>
 
 
-  Thunderbird 128 <changelog/128>
+  Thunderbird 91.3.1 <changelog/91.3.1>
 
 
-  Thunderbird 128.0b2 <changelog/128.0b2>
+  Thunderbird 91.0 <changelog/91.0>
 
 
-  Thunderbird 127 <changelog/127>
+  Thunderbird 78.7.1 <changelog/78.7.1>
 
 
-  Thunderbird 127.0a1 <changelog/127.0a1>
+  Thunderbird 78.7.0 <changelog/78.7.0>
 
 
-  Thunderbird 126.0a1 <changelog/126.0a1>
+  Thunderbird 78.6.1 <changelog/78.6.1>
 
 
-  Thunderbird 125.0a1 <changelog/125.0a1>
+  Thunderbird 78.6.0 <changelog/78.6.0>
 
 
-  Thunderbird 124.0a1 <changelog/124.0a1>
+  Thunderbird 78.5.0 <changelog/78.5.0>
 
 
-  Thunderbird 124 <changelog/124>
+  Thunderbird 78.4.0 <changelog/78.4.0>
 
 
-  Thunderbird 123 <changelog/123>
+  Thunderbird 78.3.2 <changelog/78.3.2>
 
 
-  Thunderbird 123.0a1 <changelog/123.0a1>
-
-
-  Thunderbird 122.0a1 <changelog/122.0a1>
-
-
-  Thunderbird 121.0a1 <changelog/121.0a1>
-
-
-  Thunderbird 120.0a1 <changelog/120.0a1>
-
-
-  Thunderbird 117.0a1 <changelog/117.0a1>
-
-
-  Thunderbird 115.0a1 <changelog/115.0a1>
-
-
-  Thunderbird 115.0b4 <changelog/115.0b4>
-
-
-  Thunderbird 115.0b3 <changelog/115.0b3>
-
-
-  Thunderbird 115 <changelog/115>
+  Thunderbird 78.0 <changelog/78.0>

@@ -61,7 +61,7 @@ Functions
 clear(notificationId)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears an existing notification.
 
@@ -102,7 +102,7 @@ Clears an existing notification.
 create([notificationId], options)
 ---------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Creates and displays a notification.
 
@@ -153,7 +153,7 @@ Creates and displays a notification.
 getAll()
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Retrieves all the notifications.
 
@@ -214,7 +214,7 @@ Events
 onClicked
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 47]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the user clicked in a non-button area of the notification.
 
@@ -253,7 +253,7 @@ Fired when the user clicked in a non-button area of the notification.
 onClosed
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the notification closed, either by the system or by user action.
 
@@ -341,7 +341,7 @@ Fired when the user changes the permission level.
 onShown
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 56]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Fired when the notification is shown.
 
@@ -611,7 +611,7 @@ PermissionLevel
 TemplateType
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 .. note::
 

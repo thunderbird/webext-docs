@@ -62,7 +62,7 @@ Functions
 executeScript(injection)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Injects a script into a target context. The script will be run at :code:`document_idle`.
 
@@ -101,7 +101,7 @@ Injects a script into a target context. The script will be run at :code:`documen
 getRegisteredContentScripts([filter])
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Returns all dynamically registered content scripts for this extension that match the given filter.
 
@@ -140,7 +140,7 @@ Returns all dynamically registered content scripts for this extension that match
 insertCSS(injection)
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Inserts a CSS stylesheet into a target context. If multiple frames are specified, unsuccessful injections are ignored.
 
@@ -167,7 +167,7 @@ Inserts a CSS stylesheet into a target context. If multiple frames are specified
 registerContentScripts(scripts)
 -------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Registers one or more content scripts for this extension.
 
@@ -194,7 +194,7 @@ Registers one or more content scripts for this extension.
 removeCSS(injection)
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Removes a CSS stylesheet that was previously inserted by this extension from a target context.
 
@@ -221,7 +221,7 @@ Removes a CSS stylesheet that was previously inserted by this extension from a t
 unregisterContentScripts([filter])
 ----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Unregisters one or more content scripts for this extension.
 
@@ -248,7 +248,7 @@ Unregisters one or more content scripts for this extension.
 updateContentScripts(scripts)
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 Updates one or more content scripts for this extension.
 
@@ -366,7 +366,7 @@ CSSInjection
 ExecutionWorld
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 The JavaScript world for a script to execute within. :code:`ISOLATED` is the default execution environment of content scripts, :code:`MAIN` is the web page's execution environment.
 
@@ -392,7 +392,7 @@ The JavaScript world for a script to execute within. :code:`ISOLATED` is the def
             :name: :value:`MAIN`
             :refid: scripting-execution-world-m-a-i-n
             :refname: MAIN
-            :annotation: -- [Added in TB 128]
+            :annotation: -- [Added in TB 128.0]
 
 .. _scripting.^extension^u^r^l:
 
@@ -453,7 +453,7 @@ Result of a script injection.
 InjectionTarget
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 .. api-header::
    :label: object
@@ -493,7 +493,7 @@ InjectionTarget
 RegisteredContentScript
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: -- [Added in TB 102.0]
 
 .. api-header::
    :label: object
@@ -565,7 +565,7 @@ RegisteredContentScript
       :refid: scripting-registered-content-script-match-origin-as-fallback
       :refname: matchOriginAsFallback
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 128]
+      :annotation: -- [Added in TB 128.0]
 
       If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
 
@@ -604,7 +604,7 @@ RegisteredContentScript
       :refid: scripting-registered-content-script-world
       :refname: world
       :type: (:ref:`scripting.^execution^world`, optional)
-      :annotation: -- [Added in TB 128]
+      :annotation: -- [Added in TB 128.0]
 
       The JavaScript world for a script to execute within. Defaults to "ISOLATED".
 
@@ -613,7 +613,7 @@ RegisteredContentScript
 RunAt
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The soonest that the JavaScript or CSS will be injected into the tab.
 

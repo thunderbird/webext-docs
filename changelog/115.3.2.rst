@@ -1,10 +1,10 @@
 .. role:: small
 
 =================================
-Changelog for Thunderbird 117.0a1
+Changelog for Thunderbird 115.3.2
 =================================
 
-The following WebExtension API changes were introduced in Thunderbird 117.0a1.
+The following WebExtension API changes were introduced in Thunderbird 115.3.2.
 
 
 .. raw:: html

@@ -62,7 +62,7 @@ Functions
 resolve(hostname, [flags])
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 60]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Resolves a hostname to a DNS record.
 

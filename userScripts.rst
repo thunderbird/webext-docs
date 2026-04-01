@@ -97,7 +97,7 @@ Functions
 register(userScriptOptions)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 136]
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
 
 Register a user script programmatically given its :ref:`user^scripts.^user^script^options`, and resolves to an object with the unregister() function
 
@@ -393,7 +393,7 @@ A plain JSON value
 RunAt
 -----
 
-.. api-section-annotation-hack:: -- [Added in TB 45]
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The soonest that the JavaScript or CSS will be injected into the tab.
 

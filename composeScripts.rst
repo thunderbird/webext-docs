@@ -56,7 +56,7 @@ Functions
 register(composeScriptOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.4.0]
 
 Register a compose script programmatically.
 
@@ -147,7 +147,7 @@ A path relative to the root of the extension.
 RegisteredComposeScript
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.4.0]
 
 An object that represents a compose script registered programmatically.
 
@@ -159,7 +159,7 @@ An object that represents a compose script registered programmatically.
 RegisteredComposeScriptOptions
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82.0a1]
+.. api-section-annotation-hack:: -- [Added in TB 78.4.0]
 
 Details of a compose script registered programmatically.
 

@@ -103,7 +103,7 @@ Functions
 getAvailableStaticRuleCount()
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Returns the remaining number of static rules an extension can enable
 
@@ -130,7 +130,7 @@ Returns the remaining number of static rules an extension can enable
 getDisabledRuleIds(options)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Returns the list of individual disabled static rules from a given static ruleset id.
 
@@ -176,7 +176,7 @@ Returns the list of individual disabled static rules from a given static ruleset
 getDynamicRules([filter])
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Returns the current set of dynamic rules for the extension.
 
@@ -190,7 +190,7 @@ Returns the current set of dynamic rules for the extension.
       :refid: declarative-net-request-get-dynamic-rules-filter
       :refname: filter
       :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
-      :annotation: -- [Added in TB 127]
+      :annotation: -- [Added in TB 128.0]
 
       An object to filter the set of dynamic rules for the extension.
 
@@ -217,7 +217,7 @@ Returns the current set of dynamic rules for the extension.
 getEnabledRulesets()
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Returns the ids for the current set of enabled static rulesets.
 
@@ -244,7 +244,7 @@ Returns the ids for the current set of enabled static rulesets.
 getSessionRules([filter])
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Returns the current set of session scoped rules for the extension.
 
@@ -258,7 +258,7 @@ Returns the current set of session scoped rules for the extension.
       :refid: declarative-net-request-get-session-rules-filter
       :refname: filter
       :type: (:ref:`declarative^net^request.^get^rules^filter`, optional)
-      :annotation: -- [Added in TB 127]
+      :annotation: -- [Added in TB 128.0]
 
       An object to filter the set of session scoped rules for the extension.
 
@@ -285,7 +285,7 @@ Returns the current set of session scoped rules for the extension.
 isRegexSupported(regexOptions)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Checks if the given regular expression will be supported as a 'regexFilter' rule condition.
 
@@ -373,7 +373,7 @@ Checks if the given regular expression will be supported as a 'regexFilter' rule
 testMatchOutcome(request, [options])
 ------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Checks if any of the extension's declarativeNetRequest rules would match a hypothetical request.
 
@@ -492,7 +492,7 @@ Checks if any of the extension's declarativeNetRequest rules would match a hypot
 updateDynamicRules(options)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Modifies the current set of dynamic rules for the extension. The rules with IDs listed in options.removeRuleIds are first removed, and then the rules given in options.addRules are added. These rules are persisted across browser sessions and extension updates.
 
@@ -538,7 +538,7 @@ Modifies the current set of dynamic rules for the extension. The rules with IDs 
 updateEnabledRulesets(updateRulesetOptions)
 -------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Modifies the static rulesets enabled/disabled state.
 
@@ -580,7 +580,7 @@ Modifies the static rulesets enabled/disabled state.
 updateSessionRules(options)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Modifies the current set of session scoped rules for the extension. The rules with IDs listed in options.removeRuleIds are first removed, and then the rules given in options.addRules are added. These rules are not persisted across sessions and are backed in memory.
 
@@ -626,7 +626,7 @@ Modifies the current set of session scoped rules for the extension. The rules wi
 updateStaticRules(options)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.
 
@@ -701,7 +701,7 @@ GetRulesFilter
 MatchedRule
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 .. api-header::
    :label: object
@@ -741,7 +741,7 @@ MatchedRule
 ResourceType
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 How the requested resource will be used. Comparable to the webRequest.ResourceType type. object_subrequest is unsupported.
 
@@ -795,7 +795,7 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
             :name: :value:`json`
             :refid: declarative-net-request-resource-type-json
             :refname: json
-            :annotation: -- [Added in TB 138]
+            :annotation: -- [Added in TB 140.0]
 
             .. note::
 
@@ -911,7 +911,7 @@ How the requested resource will be used. Comparable to the webRequest.ResourceTy
 Rule
 ----
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 .. api-header::
    :label: object
@@ -1271,7 +1271,7 @@ Describes the reason why a given regular expression isn't supported.
 URLTransform
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 113]
+.. api-section-annotation-hack:: -- [Added in TB 115.0]
 
 Describes the type of the Rule.action.redirect.transform property.
 
