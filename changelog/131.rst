@@ -11,37 +11,6 @@ The following WebExtension API changes were introduced in Thunderbird 131.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../accounts.html">accounts</a>
-   </div>
-
-- :small:`type` `ExtensionMailAccountType <../accounts.html#accounts-extension-mail-account-type>`__ — The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
-- :small:`type` `NativeMailAccountType <../accounts.html#accounts-native-mail-account-type>`__ — The type of an account natively supported by Thunderbird.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../menus.html">menus</a>
-   </div>
-
-- :small:`type` `MenuActionCommand <../menus.html#menus-menu-action-command>`__ — A predefined command to open an action popup.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../messages.html">messages</a>
-   </div>
-
-- :small:`type` `MailBoxHeaderString <../messages.html#messages-mail-box-header-string>`__ — Content may either be a single email address, or a mailbox string (see RFC 5322, section 3.4). Use `messengerUtilities.parseMailboxString <../messengerUtilities.html#messenger-utilities-parse-mailbox-string>`__ to extract the name and/or the email from the mailbox string.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
      <a href="../storage.html">storage</a>
    </div>
 

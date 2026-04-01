@@ -36,7 +36,6 @@ Manifest file properties
    :refid: compose-action-compose-action
    :refname: compose_action
    :type: (object, optional)
-   :annotation: -- [Added in TB 64]
 
    .. _compose^action.compose_action.browser_style:
 
@@ -45,7 +44,6 @@ Manifest file properties
       :refid: compose-action-compose-action-browser-style
       :refname: browser_style
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 64]
 
       Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
 
@@ -56,7 +54,6 @@ Manifest file properties
       :refid: compose-action-compose-action-default-area
       :refname: default_area
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 64]
 
       Defines the location the composeAction button will appear. The default location is :value:`maintoolbar`.
 
@@ -83,7 +80,6 @@ Manifest file properties
       :refid: compose-action-compose-action-default-icon
       :refname: default_icon
       :type: (:ref:`compose^action.^icon^path`, optional)
-      :annotation: -- [Added in TB 64]
 
       The paths to one or more icons for the composeAction button.
 
@@ -94,7 +90,6 @@ Manifest file properties
       :refid: compose-action-compose-action-default-label
       :refname: default_label
       :type: (string, optional)
-      :annotation: -- [Added in TB 85]
 
       The label of the composeAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
@@ -105,7 +100,6 @@ Manifest file properties
       :refid: compose-action-compose-action-default-popup
       :refname: default_popup
       :type: (string, optional)
-      :annotation: -- [Added in TB 64]
 
       The html document to be opened as a popup when the user clicks on the composeAction button. Ignored for action buttons with type :value:`menu`.
 
@@ -116,7 +110,6 @@ Manifest file properties
       :refid: compose-action-compose-action-default-title
       :refname: default_title
       :type: (string, optional)
-      :annotation: -- [Added in TB 64]
 
       The title of the composeAction button. This shows up in the tooltip and the label. Defaults to the add-on name.
 
@@ -127,7 +120,6 @@ Manifest file properties
       :refid: compose-action-compose-action-theme-icons
       :refname: theme_icons
       :type: (array of :ref:`compose^action.^theme^icons`, optional)
-      :annotation: -- [Added in TB 64]
 
       Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
 
@@ -138,7 +130,6 @@ Manifest file properties
       :refid: compose-action-compose-action-type
       :refname: type
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 90]
 
       Specifies the type of the button. Default type is :value:`button`.
 
@@ -181,7 +172,7 @@ Functions
 disable([tabId])
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Disables the composeAction button for a specific tab (if a :value:`tabId` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well.
 
@@ -203,7 +194,7 @@ Disables the composeAction button for a specific tab (if a :value:`tabId` is pro
 enable([tabId])
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Enables the composeAction button for a specific tab (if a :value:`tabId` is provided), or for all tabs which do not have a custom enable state. Once the enable state of a tab has been updated individually, all further changes to its state have to be done individually as well. By default, a composeAction button is enabled.
 
@@ -225,7 +216,7 @@ Enables the composeAction button for a specific tab (if a :value:`tabId` is prov
 getBadgeBackgroundColor(details)
 --------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Gets the badge background color of the composeAction button.
 
@@ -247,7 +238,6 @@ Gets the badge background color of the composeAction button.
          :refid: compose-action-get-badge-background-color-details-tab-id
          :refname: tabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 108]
 
          Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
 
@@ -258,7 +248,6 @@ Gets the badge background color of the composeAction button.
          :refid: compose-action-get-badge-background-color-details-window-id
          :refname: windowId
          :type: (integer, optional) **Unsupported.**
-         :annotation: -- [Added in TB 108]
 
          Will throw an error if used.
 
@@ -279,7 +268,7 @@ Gets the badge background color of the composeAction button.
 getBadgeText(details)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Gets the badge text of the composeAction button.
 
@@ -301,7 +290,6 @@ Gets the badge text of the composeAction button.
          :refid: compose-action-get-badge-text-details-tab-id
          :refname: tabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 108]
 
          Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
 
@@ -312,7 +300,6 @@ Gets the badge text of the composeAction button.
          :refid: compose-action-get-badge-text-details-window-id
          :refname: windowId
          :type: (integer, optional) **Unsupported.**
-         :annotation: -- [Added in TB 108]
 
          Will throw an error if used.
 
@@ -333,7 +320,7 @@ Gets the badge text of the composeAction button.
 getBadgeTextColor(details)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 Gets the text color of the badge.
 
@@ -385,7 +372,7 @@ Gets the text color of the badge.
 getLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 85]
+.. api-section-annotation-hack:: 
 
 Gets the label of the composeAction button. Returns :value:`null`, if no label has been set and the title is used.
 
@@ -407,7 +394,6 @@ Gets the label of the composeAction button. Returns :value:`null`, if no label h
          :refid: compose-action-get-label-details-tab-id
          :refname: tabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 108]
 
          Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
 
@@ -418,7 +404,6 @@ Gets the label of the composeAction button. Returns :value:`null`, if no label h
          :refid: compose-action-get-label-details-window-id
          :refname: windowId
          :type: (integer, optional) **Unsupported.**
-         :annotation: -- [Added in TB 108]
 
          Will throw an error if used.
 
@@ -439,7 +424,7 @@ Gets the label of the composeAction button. Returns :value:`null`, if no label h
 getPopup(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Gets the html document set as the popup for this composeAction button.
 
@@ -461,7 +446,6 @@ Gets the html document set as the popup for this composeAction button.
          :refid: compose-action-get-popup-details-tab-id
          :refname: tabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 108]
 
          Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
 
@@ -472,7 +456,6 @@ Gets the html document set as the popup for this composeAction button.
          :refid: compose-action-get-popup-details-window-id
          :refname: windowId
          :type: (integer, optional) **Unsupported.**
-         :annotation: -- [Added in TB 108]
 
          Will throw an error if used.
 
@@ -493,7 +476,7 @@ Gets the html document set as the popup for this composeAction button.
 getTitle(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Gets the title of the composeAction button.
 
@@ -515,7 +498,6 @@ Gets the title of the composeAction button.
          :refid: compose-action-get-title-details-tab-id
          :refname: tabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 108]
 
          Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
 
@@ -526,7 +508,6 @@ Gets the title of the composeAction button.
          :refid: compose-action-get-title-details-window-id
          :refname: windowId
          :type: (integer, optional) **Unsupported.**
-         :annotation: -- [Added in TB 108]
 
          Will throw an error if used.
 
@@ -547,7 +528,7 @@ Gets the title of the composeAction button.
 isEnabled(details)
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Checks whether the composeAction button is enabled.
 
@@ -569,7 +550,6 @@ Checks whether the composeAction button is enabled.
          :refid: compose-action-is-enabled-details-tab-id
          :refname: tabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 108]
 
          Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
 
@@ -580,7 +560,6 @@ Checks whether the composeAction button is enabled.
          :refid: compose-action-is-enabled-details-window-id
          :refname: windowId
          :type: (integer, optional) **Unsupported.**
-         :annotation: -- [Added in TB 108]
 
          Will throw an error if used.
 
@@ -593,7 +572,6 @@ Checks whether the composeAction button is enabled.
       :refid: compose-action-is-enabled-returns
       :refname: _returns
       :type: boolean
-      :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -602,7 +580,7 @@ Checks whether the composeAction button is enabled.
 openPopup([options])
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Opens the action's popup window in the specified window. Defaults to the current window. Returns false if the popup could not be opened because the action has no popup, is of type :value:`menu`, is disabled or has been removed from the toolbar.
 
@@ -616,7 +594,6 @@ Opens the action's popup window in the specified window. Defaults to the current
       :refid: compose-action-open-popup-options
       :refname: options
       :type: (object, optional)
-      :annotation: -- [Added in TB 113]
 
       An object with information about the popup to open.
 
@@ -627,7 +604,6 @@ Opens the action's popup window in the specified window. Defaults to the current
          :refid: compose-action-open-popup-options-window-id
          :refname: windowId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 113]
 
          Defaults to the current window.
 
@@ -640,7 +616,6 @@ Opens the action's popup window in the specified window. Defaults to the current
       :refid: compose-action-open-popup-returns
       :refname: _returns
       :type: boolean
-      :annotation: -- [Added in TB 113]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -649,7 +624,7 @@ Opens the action's popup window in the specified window. Defaults to the current
 setBadgeBackgroundColor(details)
 --------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Sets the background color for the badge.
 
@@ -699,7 +674,7 @@ Sets the background color for the badge.
 setBadgeText(details)
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Sets the badge text for the composeAction button. The badge is displayed on top of the icon.
 
@@ -749,7 +724,7 @@ Sets the badge text for the composeAction button. The badge is displayed on top 
 setBadgeTextColor(details)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 Sets the text color for the badge.
 
@@ -799,7 +774,7 @@ Sets the text color for the badge.
 setIcon(details)
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Sets the icon for the composeAction button. Either the :value:`path` or the :value:`imageData` property must be specified.
 
@@ -859,7 +834,7 @@ Sets the icon for the composeAction button. Either the :value:`path` or the :val
 setLabel(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 85]
+.. api-section-annotation-hack:: 
 
 Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
 
@@ -909,7 +884,7 @@ Sets the label of the composeAction button. Can be used to set different values 
 setPopup(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Sets the html document to be opened as a popup when the user clicks on the composeAction button.
 
@@ -959,7 +934,7 @@ Sets the html document to be opened as a popup when the user clicks on the compo
 setTitle(details)
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Sets the title of the composeAction button. Is used as tooltip and as the label.
 
@@ -1014,7 +989,7 @@ Events
 onClicked
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Fired when a composeAction button is clicked. This event will not fire if the composeAction has a popup. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
@@ -1040,7 +1015,6 @@ Fired when a composeAction button is clicked. This event will not fire if the co
       :refid: compose-action-on-clicked-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 75]
 
    .. _compose^action.on^clicked.info:
 
@@ -1049,7 +1023,6 @@ Fired when a composeAction button is clicked. This event will not fire if the co
       :refid: compose-action-on-clicked-info
       :refname: info
       :type: (:ref:`compose^action.^on^click^data`, optional)
-      :annotation: -- [Added in TB 75]
 
 .. rst-class:: api-main-section
 
@@ -1061,7 +1034,7 @@ Types
 ColorArray
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 An array of four integers in the range [0,255] that make up the RGBA color. For example, opaque red is :value:`[255, 0, 0, 255]`.
 
@@ -1123,7 +1096,7 @@ See the `MDN documentation about choosing icon sizes <https://developer.mozilla.
 ImageDataDictionary
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 90]
+.. api-section-annotation-hack:: 
 
 A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
 
@@ -1135,7 +1108,7 @@ A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.
 ImageDataType
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 64]
+.. api-section-annotation-hack:: 
 
 Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object (for example, from a `canvas <https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/canvas>`__ element).
 
@@ -1147,7 +1120,7 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 75]
+.. api-section-annotation-hack:: 
 
 Information sent when a composeAction button is clicked.
 

@@ -71,7 +71,7 @@ Functions
 getRegisteredScripts([filter])
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 Returns all registered message display scripts for this extension that match the given filter.
 
@@ -111,7 +111,7 @@ Returns all registered message display scripts for this extension that match the
 registerScripts(scripts)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 Registers one or more message display scripts for this extension, which should be injected into displayed messages.
 
@@ -147,7 +147,7 @@ Registers one or more message display scripts for this extension, which should b
 unregisterScripts([filter])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 Unregisters one or more message display scripts for this extension.
 
@@ -192,7 +192,7 @@ A path relative to the root of the extension.
 MessageDisplayScriptDetails
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object
@@ -242,7 +242,7 @@ MessageDisplayScriptDetails
 MessageDisplayScriptFilter
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 128]
+.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object

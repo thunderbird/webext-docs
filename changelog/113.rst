@@ -11,37 +11,7 @@ The following WebExtension API changes were introduced in Thunderbird 113.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../action.html">action</a>
-   </div>
-
-- :small:`function` `openPopup.options <../action.html#action-open-popup-options>`__ — An object with information about the popup to open.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../composeAction.html">composeAction</a>
-   </div>
-
-- :small:`function` `openPopup.options <../composeAction.html#compose-action-open-popup-options>`__ — An object with information about the popup to open.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
      <a href="../declarativeNetRequest.html">declarativeNetRequest</a>
    </div>
 
 Use the declarativeNetRequest API to block or modify network requests by specifying declarative rules.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../messageDisplayAction.html">messageDisplayAction</a>
-   </div>
-
-- :small:`function` `openPopup.options <../messageDisplayAction.html#message-display-action-open-popup-options>`__ — An object with information about the popup to open.

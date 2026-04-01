@@ -36,7 +36,6 @@ Manifest file properties
    :refid: theme-theme-experiment
    :refname: theme_experiment
    :type: (:ref:`theme.^theme^experiment`, optional)
-   :annotation: -- [Added in TB 86]
 
    A theme experiment allows modifying the user interface of Thunderbird beyond what is currently possible using the built-in color, image and property keys of :ref:`theme.^theme^type`. These experiments are a precursor to proposing new theme features for inclusion in Thunderbird. Experimentation is done by mapping internal CSS color, image and property variables to new theme keys and using them in :ref:`theme.^theme^type` and by loading additional style sheets to add new CSS variables, extending the theme-able areas of Thunderbird. Can be used in static and dynamic themes.
 
@@ -70,7 +69,7 @@ Functions
 getCurrent([windowId])
 ----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Returns the current theme for the specified window or the last focused window.
 
@@ -96,7 +95,6 @@ Returns the current theme for the specified window or the last focused window.
       :refid: theme-get-current-returns
       :refname: _returns
       :type: :ref:`theme.^theme^type`
-      :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -105,7 +103,7 @@ Returns the current theme for the specified window or the last focused window.
 reset([windowId])
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Removes the updates made to the theme.
 
@@ -132,7 +130,7 @@ Removes the updates made to the theme.
 update([windowId], details)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Make complete updates to the theme. Resolves when the update has completed.
 
@@ -174,7 +172,7 @@ Events
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Fired when a new theme has been applied
 
@@ -243,7 +241,7 @@ Example for a base64 encoded :value:`PNG` image:
 ThemeColor
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Defines a color value.
 
@@ -291,7 +289,7 @@ Defines a color value.
 ThemeExperiment
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Defines additional color, image and property keys to be used in :ref:`theme.^theme^type`, extending the theme-able areas of Thunderbird.
 
@@ -403,7 +401,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.^the
 ThemeManifest
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Contents of manifest.json for a static theme
 
@@ -463,7 +461,7 @@ Contents of manifest.json for a static theme
 ThemeType
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Contains the color, image and property settings of a theme.
 
@@ -1043,7 +1041,6 @@ Contains the color, image and property settings of a theme.
          :refid: theme-theme-type-properties-color-scheme
          :refname: color_scheme
          :type: (`string`, optional)
-         :annotation: -- [Added in TB 100]
 
          If set, overrides the general theme (context menus, toolbars, content area).
 
@@ -1076,7 +1073,6 @@ Contains the color, image and property settings of a theme.
             :name: :value:`system`
             :refid: theme-theme-type-properties-color-scheme-system
             :refname: system
-            :annotation: -- [Added in TB 148]
 
       .. _theme.^theme^type.properties.content_color_scheme:
 
@@ -1085,7 +1081,6 @@ Contains the color, image and property settings of a theme.
          :refid: theme-theme-type-properties-content-color-scheme
          :refname: content_color_scheme
          :type: (`string`, optional)
-         :annotation: -- [Added in TB 100]
 
          If set, overrides the color scheme for the content area.
 
@@ -1118,14 +1113,13 @@ Contains the color, image and property settings of a theme.
             :name: :value:`system`
             :refid: theme-theme-type-properties-content-color-scheme-system
             :refname: system
-            :annotation: -- [Added in TB 148]
 
 .. _theme.^theme^update^info:
 
 ThemeUpdateInfo
 ---------------
 
-.. api-section-annotation-hack:: -- [Added in TB 86]
+.. api-section-annotation-hack:: 
 
 Info provided in the onUpdated listener.
 

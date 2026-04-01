@@ -50,7 +50,7 @@ Functions
 convertToPlainText(body, [options])
 -----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 Converts the provided body to readable plain text, without tags and leading/trailing whitespace.
 
@@ -102,7 +102,7 @@ Converts the provided body to readable plain text, without tags and leading/trai
 decodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
 ------------------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 Decode the provided header into a readable format according to RFC 2047.
 
@@ -152,7 +152,7 @@ Decode the provided header into a readable format according to RFC 2047.
 encodeMimeHeader(headerName, headerValue, [isMailBoxHeader])
 ------------------------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 Encode the provided header according to RFC 2047.
 
@@ -202,7 +202,7 @@ Encode the provided header according to RFC 2047.
 formatFileSize(sizeInBytes)
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 Returns the provided file size in a human readable format (e.g. :value:`12 bytes` or :value:`11,4 GB`).
 
@@ -236,7 +236,7 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
 parseMailboxString(mailboxString, [options])
 --------------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 Parse a mailbox string containing one or more email addresses (see RFC 5322, section 3.4).
 
@@ -278,7 +278,6 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
       :refid: messenger-utilities-parse-mailbox-string-options-expand-mailing-lists
       :refname: expandMailingLists
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 147]
       :depth: 2
 
       Expand Thunderbird mailing lists (specified as :value:`ListName <ListName>`) and include the parsed primary email addresses of all members. When used together with :value:`preserveGroups`, the mailing list's name and hierarchy are preserved. If the mailing list does not exist, or the :permission:`addressBook` permission is not granted, the entries are not expanded and returned unchanged.
@@ -290,7 +289,6 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
       :refid: messenger-utilities-parse-mailbox-string-options-preserve-groups
       :refname: preserveGroups
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 147]
       :depth: 2
 
       Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
@@ -317,7 +315,7 @@ Types
 MailboxHeaders
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 MIME headers, which by default are treated as containing one or more mailbox strings.
 
@@ -461,7 +459,7 @@ MIME headers, which by default are treated as containing one or more mailbox str
 ParsedMailbox
 -------------
 
-.. api-section-annotation-hack:: -- [Added in TB 137]
+.. api-section-annotation-hack:: 
 
 Representation of a parsed mailbox string (see RFC 5322, section 3.4).
 

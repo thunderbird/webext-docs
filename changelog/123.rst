@@ -15,13 +15,3 @@ The following WebExtension API changes were introduced in Thunderbird 123.
    </div>
 
 - :small:`function` `move <../contextualIdentities.html#contextual-identities-move>`__ — Reorder one or more contextual identities by their cookieStoreIDs to a given position.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../messages.html">messages</a>
-   </div>
-
-- :small:`function` `deleteAttachments <../messages.html#messages-delete-attachments>`__ — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message. Deleting attachments of encrypted messages is not supported and will throw an *ExtensionError*.

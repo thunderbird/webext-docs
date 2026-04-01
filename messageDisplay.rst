@@ -58,7 +58,7 @@ Functions
 getDisplayedMessages([tabId])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 81]
+.. api-section-annotation-hack:: 
 
 Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.
 
@@ -82,7 +82,6 @@ Gets an array of the currently displayed messages in the specified tab (even if 
       :refid: message-display-get-displayed-messages-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 96]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -96,7 +95,7 @@ Gets an array of the currently displayed messages in the specified tab (even if 
 open(openProperties)
 --------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102]
+.. api-section-annotation-hack:: 
 
 Opens a message in a new tab or in a new window.
 
@@ -130,7 +129,6 @@ Opens a message in a new tab or in a new window.
          :refid: message-display-open-open-properties-file
          :refname: file
          :type: (`File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__, optional)
-         :annotation: -- [Added in TB 114]
 
          The DOM file object of a message to be opened.
 
@@ -217,7 +215,7 @@ Events
 onMessagesDisplayed
 -------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 81]
+.. api-section-annotation-hack:: 
 
 Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
 

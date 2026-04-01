@@ -21,16 +21,6 @@ This setting controls whether a light or dark color scheme overrides the page's 
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../compose.html">compose</a>
-   </div>
-
-- :small:`type` `ComposeDetails.relatedMessageId <../compose.html#compose-compose-details-related-message-id>`__ — The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file. The :permission:`messagesRead` permission is required to use this property.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
      <a href="../privacy.network.globalPrivacyControl.html">privacy.network.globalPrivacyControl</a>
    </div>
 

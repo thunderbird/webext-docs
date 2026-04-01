@@ -81,7 +81,7 @@ Functions
 connect(tabId, [connectInfo])
 -----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: 
 
 Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`__ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__.
 
@@ -143,7 +143,7 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
 create(createProperties)
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Creates a new content tab. To create message tabs, use the :ref:`message^display.open`. Only supported in :value:`normal` windows. Same-site links in the loaded page are opened within Thunderbird, all other links are opened in the user's default browser. To override this behavior, add-ons have to register a `content script <https://bugzilla.mozilla.org/show_bug.cgi?id=1618828#c3>`__ , capture click events and handle them manually.
 
@@ -177,7 +177,6 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
          :refid: tabs-create-create-properties-cookie-store-id
          :refname: cookieStoreId
          :type: (string, optional)
-         :annotation: -- [Added in TB 115]
 
          The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
 
@@ -206,7 +205,6 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
          :refid: tabs-create-create-properties-link-handler
          :refname: linkHandler
          :type: (`string`, optional)
-         :annotation: -- [Added in TB 136]
 
          Thunderbird is a mail client, not a browser. It is possible to load a web page, but opening follow-up pages through hyperlinks should be handled by the user's default browser. This property specifies to what extent this behavior should be enforced. The default :value:`balanced` link handler will open links to the same host directly in Thunderbird, everything else will be opened in the user's default browser. A :value:`relaxed` link handler will open all links inside of Thunderbird, a :value:`strict` link handler will open all links in the user's default browser, except links to the same page.
 
@@ -282,7 +280,7 @@ Creates a new content tab. To create message tabs, use the :ref:`message^display
 duplicate(tabId)
 ----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Duplicates a tab.
 
@@ -318,7 +316,7 @@ Duplicates a tab.
 get(tabId)
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Retrieves details about the specified tab.
 
@@ -350,7 +348,7 @@ Retrieves details about the specified tab.
 getCurrent()
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Gets the tab that this script call is being made from. Returns :value:`undefined` if called from a non-tab context (for example a background page or a popup view).
 
@@ -371,7 +369,7 @@ Gets the tab that this script call is being made from. Returns :value:`undefined
 move(tabIds, moveProperties)
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Moves one or more tabs to a new position within its current window, or to a different window. Tabs can only be moved to and from windows of type :value:`normal`. The primary mail tab cannot be moved, attempting to actively reposition it will throw an *ExtensionError*. Other tabs also cannot be placed before the primary mail tab, they will automatically be positioned after it, ensuring that the primary mail tab always remains first.
 
@@ -435,7 +433,7 @@ Moves one or more tabs to a new position within its current window, or to a diff
 query([queryInfo])
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Gets all tabs that have the specified properties, or all tabs if no properties are specified.
 
@@ -467,7 +465,6 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refid: tabs-query-query-info-cookie-store-id
          :refname: cookieStoreId
          :type: (array of string or string, optional)
-         :annotation: -- [Added in TB 115]
 
          The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
 
@@ -522,7 +519,6 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refid: tabs-query-query-info-space-id
          :refname: spaceId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 115]
 
          The id of the space the tabs should belong to.
 
@@ -553,7 +549,6 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refid: tabs-query-query-info-type
          :refname: type
          :type: (:ref:`tabs.^tab^type` or array of :ref:`tabs.^tab^type`, optional)
-         :annotation: -- [Added in TB 92]
 
          Match tabs against the given tab type or types.
 
@@ -604,7 +599,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
 reload([tabId], [reloadProperties])
 -----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Reload a tab. Only applicable for tabs which display a content page.
 
@@ -644,7 +639,7 @@ Reload a tab. Only applicable for tabs which display a content page.
 remove(tabIds)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Closes one or more tabs.
 
@@ -666,7 +661,7 @@ Closes one or more tabs.
 sendMessage(tabId, message, [options])
 --------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 82]
+.. api-section-annotation-hack:: 
 
 Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.
 
@@ -726,7 +721,7 @@ Sends a single message to the content script(s) in the specified tab, with an op
 update([tabId], updateProperties)
 ---------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Modifies the properties of a tab. Properties that are not specified in :value:`updateProperties` are not modified.
 
@@ -801,7 +796,7 @@ Events
 onActivated
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fires when the active tab in a window changes. The tab's URL may not be set at the time this event fired, listen to the :ref:`tabs.on^updated` event instead to be notified when a URL is set.
 
@@ -855,7 +850,6 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
          :refid: tabs-on-activated-active-info-previous-tab-id
          :refname: previousTabId
          :type: (integer, optional)
-         :annotation: -- [Added in TB 114]
 
          The ID of the tab that was previously active, if that tab is still open.
 
@@ -864,7 +858,7 @@ Fires when the active tab in a window changes. The tab's URL may not be set at t
 onAttached
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fired when a tab is attached to a window, for example because it was moved between windows.
 
@@ -920,7 +914,7 @@ Fired when a tab is attached to a window, for example because it was moved betwe
 onCreated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fired when a tab is created. The tab may still be loading, with its title being :value:`loading...` and its URL being :value:`about:blank`. To detect when the tab has finished loading, listen to the :ref:`tabs.on^updated` event.
 
@@ -954,7 +948,7 @@ Fired when a tab is created. The tab may still be loading, with its title being 
 onDetached
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fired when a tab is detached from a window, for example because it is being moved between windows.
 
@@ -1010,7 +1004,7 @@ Fired when a tab is detached from a window, for example because it is being move
 onMoved
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fired when a tab is moved within a window. Only one move event is fired, representing the tab the user directly moved. Move events are not fired for the other tabs that must move in response. This event is not fired when a tab is moved between windows. For that, see :ref:`tabs.on^detached`.
 
@@ -1074,7 +1068,7 @@ Fired when a tab is moved within a window. Only one move event is fired, represe
 onRemoved
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fired when a tab is closed.
 
@@ -1134,7 +1128,7 @@ Fired when a tab is closed.
 onUpdated
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Fired when a tab is updated.
 
@@ -1231,7 +1225,7 @@ Types
 Tab
 ---
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object
@@ -1283,7 +1277,6 @@ Tab
       :refid: tabs-tab-cookie-store-id
       :refname: cookieStoreId
       :type: (string, optional)
-      :annotation: -- [Added in TB 115]
 
       The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
 
@@ -1308,7 +1301,6 @@ Tab
       :refid: tabs-tab-group-id
       :refname: groupId
       :type: (integer, optional)
-      :annotation: -- [Added in TB 139]
 
       The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
 
@@ -1343,7 +1335,6 @@ Tab
       :refid: tabs-tab-space-id
       :refname: spaceId
       :type: (integer, optional)
-      :annotation: -- [Added in TB 115]
 
       The id of the space.
 
@@ -1354,7 +1345,6 @@ Tab
       :refid: tabs-tab-split-view-id
       :refname: splitViewId
       :type: (integer, optional)
-      :annotation: -- [Added in TB 149]
 
       The ID of the Split View that the tab belongs to. -1 if the tab does not belong to a split view.
 
@@ -1389,7 +1379,6 @@ Tab
       :refid: tabs-tab-type
       :refname: type
       :type: (:ref:`tabs.^tab^type`, optional)
-      :annotation: -- [Added in TB 92]
 
    .. _tabs.^tab.url:
 
@@ -1426,7 +1415,7 @@ Tab
 TabStatus
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Whether the tabs have completed loading.
 
@@ -1458,7 +1447,7 @@ Whether the tabs have completed loading.
 TabType
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 121]
+.. api-section-annotation-hack:: 
 
 Tab types supported by the tabs API.
 
@@ -1553,7 +1542,7 @@ Tab types supported by the tabs API.
 UpdateFilter
 ------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 An object describing filters to apply to :ref:`tabs.on^updated` events.
 
@@ -1601,7 +1590,7 @@ An object describing filters to apply to :ref:`tabs.on^updated` events.
 UpdatePropertyName
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 Event names supported in :ref:`tabs.on^updated`.
 
@@ -1640,7 +1629,7 @@ Event names supported in :ref:`tabs.on^updated`.
 WindowType
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 62]
+.. api-section-annotation-hack:: 
 
 The type of a window. Under some circumstances a Window may not be assigned a type property.
 
@@ -1673,7 +1662,6 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
             :name: :value:`messageCompose`
             :refid: tabs-window-type-message-compose
             :refname: messageCompose
-            :annotation: -- [Added in TB 88]
 
          .. _tabs.^window^type.message^display:
 
@@ -1681,7 +1669,6 @@ The type of a window. Under some circumstances a Window may not be assigned a ty
             :name: :value:`messageDisplay`
             :refid: tabs-window-type-message-display
             :refname: messageDisplay
-            :annotation: -- [Added in TB 88]
 
          .. _tabs.^window^type.normal:
 

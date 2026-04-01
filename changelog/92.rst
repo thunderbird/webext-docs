@@ -11,47 +11,8 @@ The following WebExtension API changes were introduced in Thunderbird 92.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../addressBooks.html">addressBooks</a>
-   </div>
-
-- :small:`type` `AddressBookNode.remote <../addressBooks.html#address-books-address-book-node-remote>`__ — Indicates if the address book is accessed via remote look-up.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
      <a href="../downloads.html">downloads</a>
    </div>
 
 - :small:`type` `DownloadItem.cookieStoreId <../downloads.html#downloads-download-item-cookie-store-id>`__ — The cookie store ID of the contextual identity.
 - :small:`type` `DownloadQuery.cookieStoreId <../downloads.html#downloads-download-query-cookie-store-id>`__ — The cookie store ID of the contextual identity.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../folders.html">folders</a>
-   </div>
-
-- :small:`function` `copy <../folders.html#folders-copy>`__ — Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
-- :small:`function` `getFolderInfo <../folders.html#folders-get-folder-info>`__ — Get additional information about a folder.
-- :small:`function` `move <../folders.html#folders-move>`__ — Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
-- :small:`event` `onCopied <../folders.html#folders-on-copied>`__ — Fired when a folder has been copied.
-- :small:`event` `onCreated <../folders.html#folders-on-created>`__ — Fired when a folder has been created.
-- :small:`event` `onDeleted <../folders.html#folders-on-deleted>`__ — Fired when a folder has been deleted.
-- :small:`event` `onFolderInfoChanged <../folders.html#folders-on-folder-info-changed>`__ — Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
-- :small:`event` `onMoved <../folders.html#folders-on-moved>`__ — Fired when a folder has been moved.
-- :small:`event` `onRenamed <../folders.html#folders-on-renamed>`__ — Fired when a folder has been renamed.
-- :small:`type` `MailFolderInfo <../folders.html#folders-mail-folder-info>`__ — An object containing additional information about a folder.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../tabs.html">tabs</a>
-   </div>
-
-- :small:`function` `query.queryInfo.type <../tabs.html#tabs-query-query-info-type>`__ — Match tabs against the given tab type or types.

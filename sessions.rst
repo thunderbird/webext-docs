@@ -36,7 +36,7 @@ Functions
 getTabValue(tabId, key)
 -----------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 116]
+.. api-section-annotation-hack:: 
 
 Retrieve a previously stored value for a given tab, given its key. Returns :value:`undefined` if the requested :value:`key` does not exist for the given :value:`tabId`.
 
@@ -80,7 +80,7 @@ Retrieve a previously stored value for a given tab, given its key. Returns :valu
 removeTabValue(tabId, key)
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 116]
+.. api-section-annotation-hack:: 
 
 Remove a key/value pair from a given tab.
 
@@ -112,7 +112,7 @@ Remove a key/value pair from a given tab.
 setTabValue(tabId, key, value)
 ------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 116]
+.. api-section-annotation-hack:: 
 
 Store a key/value pair associated with a given tab.
 

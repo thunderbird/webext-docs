@@ -11,72 +11,11 @@ The following WebExtension API changes were introduced in Thunderbird 127.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../addressBooks.contacts.html">addressBooks.contacts</a>
-   </div>
-
-The contacts API allows to access and manage the user's contacts.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../addressBooks.mailingLists.html">addressBooks.mailingLists</a>
-   </div>
-
-The mailingLists API allows to access and manage the user's mailing lists.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../compose.html">compose</a>
-   </div>
-
-- :small:`type` `ComposeDetails.additionalFccFolderId <../compose.html#compose-compose-details-additional-fcc-folder-id>`__ — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.overrideDefaultFccFolderId <../compose.html#compose-compose-details-override-default-fcc-folder-id>`__ — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a `folders.MailFolderId <../folders.html#folders-mail-folder-id>`__ specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
      <a href="../declarativeNetRequest.html">declarativeNetRequest</a>
    </div>
 
 - :small:`function` `getDynamicRules.filter <../declarativeNetRequest.html#declarative-net-request-get-dynamic-rules-filter>`__ — An object to filter the set of dynamic rules for the extension.
 - :small:`function` `getSessionRules.filter <../declarativeNetRequest.html#declarative-net-request-get-session-rules-filter>`__ — An object to filter the set of session scoped rules for the extension.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../folders.html">folders</a>
-   </div>
-
-- :small:`function` `getTagFolder <../folders.html#folders-get-tag-folder>`__ — Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags. Throws if the requested folder does not exist.
-- :small:`function` `getUnifiedFolder <../folders.html#folders-get-unified-folder>`__ — Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts. Throws if the requested folder does not exist.
-- :small:`function` `query.queryInfo.isTag <../folders.html#folders-query-query-info-is-tag>`__ — Whether the folder is a virtual tag folder, or not. Virtual tag folders are always skipped, unless this property is set to :value:`true`
-- :small:`function` `query.queryInfo.isUnified <../folders.html#folders-query-query-info-is-unified>`__ — Whether the folder is a unified mailbox folder, or not. Unified mailbox folders are always skipped, unless this property is set to :value:`true`
-- :small:`type` `MailFolder.isTag <../folders.html#folders-mail-folder-is-tag>`__ — Whether this folder is a virtual tag folder.
-- :small:`type` `MailFolder.isUnified <../folders.html#folders-mail-folder-is-unified>`__ — Whether this folder is a unified mailbox folder.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../mailTabs.html">mailTabs</a>
-   </div>
-
-- :small:`type` `FolderMode <../mailTabs.html#mail-tabs-folder-mode>`__ — A supported folder mode in the folder pane.
-- :small:`type` `MailTab.folderMode <../mailTabs.html#mail-tabs-mail-tab-folder-mode>`__ — The folder mode of the currently displayed folder.
-- :small:`type` `MailTab.folderModesEnabled <../mailTabs.html#mail-tabs-mail-tab-folder-modes-enabled>`__ — The enabled folder modes in the folder pane, and their sort order.
-- :small:`type` `MailTabProperties.displayedFolderId <../mailTabs.html#mail-tabs-mail-tab-properties-displayed-folder-id>`__ — Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any.
-- :small:`type` `MailTabProperties.folderMode <../mailTabs.html#mail-tabs-mail-tab-properties-folder-mode>`__ — Sets the currently used folder mode, enabling it if required. If used without also specifying :value:`displayedFolder`, the currently selected folder is re-selected in the new folder mode, if possible.
-- :small:`type` `MailTabProperties.folderModesEnabled <../mailTabs.html#mail-tabs-mail-tab-properties-folder-modes-enabled>`__ — Set the enabled folder modes in the folder pane, and their sort order.
 
 
 .. raw:: html

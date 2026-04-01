@@ -11,49 +11,6 @@ The following WebExtension API changes were introduced in Thunderbird 147.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../compose.html">compose</a>
-   </div>
-
-- :small:`event` `onAfterSave.saveInfo.details <../compose.html#compose-on-after-save-save-info-details>`__ — The `compose.ComposeDetails <../compose.html#compose-compose-details>`__ of the saved message.
-- :small:`event` `onAfterSend.sendInfo.details <../compose.html#compose-on-after-send-send-info-details>`__ — The `compose.ComposeDetails <../compose.html#compose-compose-details>`__ of the send message.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../messages.html">messages</a>
-   </div>
-
-- :small:`function` `getHeaders <../messages.html#messages-get-headers>`__ — Returns all message headers of the specified message, without MIME structure parsing. Throws an error if the message cannot be read, for example due to network issues. This function is significantly faster than `messages.getFull <../messages.html#messages-get-full>`__ when only the header information is required.
-- :small:`type` `HeadersDictionary <../messages.html#messages-headers-dictionary>`__ — A *dictionary object* of headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../messengerSettings.readerDisplayAttachmentsInline.html">messengerSettings.readerDisplayAttachmentsInline</a>
-   </div>
-
-Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../messengerUtilities.html">messengerUtilities</a>
-   </div>
-
-- :small:`function` `parseMailboxString.options.expandMailingLists <../messengerUtilities.html#messenger-utilities-parse-mailbox-string-options-expand-mailing-lists>`__ — Expand Thunderbird mailing lists (specified as :value:`ListName <ListName>`) and include the parsed primary email addresses of all members. When used together with :value:`preserveGroups`, the mailing list's name and hierarchy are preserved. If the mailing list does not exist, or the :permission:`addressBook` permission is not granted, the entries are not expanded and returned unchanged.
-- :small:`function` `parseMailboxString.options.preserveGroups <../messengerUtilities.html#messenger-utilities-parse-mailbox-string-options-preserve-groups>`__ — Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
-
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
      <a href="../proxy.html">proxy</a>
    </div>
 

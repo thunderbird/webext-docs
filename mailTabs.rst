@@ -62,7 +62,7 @@ Functions
 create([createProperties])
 --------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 121]
+.. api-section-annotation-hack:: 
 
 Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update` after the mail tab has been created. A new mail window can be created via :ref:`windows.create`.
 
@@ -96,7 +96,7 @@ Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.u
 get(tabId)
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 89]
+.. api-section-annotation-hack:: 
 
 Get the :ref:`mail^tabs.^mail^tab` properties of a mail tab.
 
@@ -130,7 +130,7 @@ Get the :ref:`mail^tabs.^mail^tab` properties of a mail tab.
 getListedMessages([tabId], [options])
 -------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 121]
+.. api-section-annotation-hack:: 
 
 Lists the messages in the current view, honoring sort order and filters as used in the UI. Sort order of the returned messages can be overridden via the :value:`options` parameter
 
@@ -162,7 +162,6 @@ Lists the messages in the current view, honoring sort order and filters as used 
          :refid: mail-tabs-get-listed-messages-options-sort-order
          :refname: sortOrder
          :type: (`string`, optional)
-         :annotation: -- [Added in TB 148]
 
          The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
 
@@ -189,7 +188,6 @@ Lists the messages in the current view, honoring sort order and filters as used 
          :refid: mail-tabs-get-listed-messages-options-sort-type
          :refname: sortType
          :type: (`string`, optional)
-         :annotation: -- [Added in TB 148]
 
          Specifies how the returned messages should be sorted. This does not change the actual sort of the displayed messages. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
 
@@ -281,7 +279,6 @@ Lists the messages in the current view, honoring sort order and filters as used 
       :refid: mail-tabs-get-listed-messages-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 148]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -295,7 +292,7 @@ Lists the messages in the current view, honoring sort order and filters as used 
 getSelectedFolders([tabId])
 ---------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 129]
+.. api-section-annotation-hack:: 
 
 Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the :ref:`menus.on^clicked` event of the menus API.
 
@@ -334,7 +331,7 @@ Lists the selected folders in the folder pane. Does not include folders which ar
 getSelectedMessages([tabId])
 ----------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 Lists the selected messages in the current folder. Includes messages in collapsed threads. Does not include messages which are context-clicked, but not selected. The context-clicked messages are always returned by the :ref:`menus.on^clicked` event of the menus API.
 
@@ -360,7 +357,6 @@ Lists the selected messages in the current folder. Includes messages in collapse
       :refid: mail-tabs-get-selected-messages-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -374,7 +370,7 @@ Lists the selected messages in the current folder. Includes messages in collapse
 query([queryInfo])
 ------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 Gets all mail tabs that have the specified properties, or all mail tabs if no properties are specified.
 
@@ -438,7 +434,6 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
       :refid: mail-tabs-query-returns
       :refname: _returns
       :type: array of :ref:`mail^tabs.^mail^tab`
-      :annotation: -- [Added in TB 89]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -447,7 +442,7 @@ Gets all mail tabs that have the specified properties, or all mail tabs if no pr
 setQuickFilter([tabId], properties)
 -----------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 Sets the Quick Filter user interface based on the options specified.
 
@@ -499,7 +494,6 @@ Sets the Quick Filter user interface based on the options specified.
          :refid: mail-tabs-set-quick-filter-properties-flagged
          :refname: flagged
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 68]
 
          Shows only flagged messages.
 
@@ -548,7 +542,7 @@ Sets the Quick Filter user interface based on the options specified.
 setSelectedMessages([tabId], messageIds)
 ----------------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 106]
+.. api-section-annotation-hack:: 
 
 Selects none, one or multiple messages. Opens collapsed threads to show the selection, if required.
 
@@ -586,7 +580,7 @@ Selects none, one or multiple messages. Opens collapsed threads to show the sele
 update([tabId], updateProperties)
 ---------------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 Modifies the properties of a mail tab. Properties that are not specified in :value:`updateProperties` are not modified.
 
@@ -620,7 +614,6 @@ Modifies the properties of a mail tab. Properties that are not specified in :val
       :refid: mail-tabs-update-returns
       :refname: _returns
       :type: :ref:`mail^tabs.^mail^tab`
-      :annotation: -- [Added in TB 121]
 
       Details about the updated mail tab.
 
@@ -636,7 +629,7 @@ Events
 onDisplayedFolderChanged
 ------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 Fired when the displayed folder changes in any mail tab.
 
@@ -662,7 +655,6 @@ Fired when the displayed folder changes in any mail tab.
       :refid: mail-tabs-on-displayed-folder-changed-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 76]
 
    .. _mail^tabs.on^displayed^folder^changed.displayed^folder:
 
@@ -671,7 +663,6 @@ Fired when the displayed folder changes in any mail tab.
       :refid: mail-tabs-on-displayed-folder-changed-displayed-folder
       :refname: displayedFolder
       :type: (:ref:`folders.^mail^folder`)
-      :annotation: -- [Added in TB 76]
 
 .. api-header::
    :label: Required permissions
@@ -683,7 +674,7 @@ Fired when the displayed folder changes in any mail tab.
 onSelectedMessagesChanged
 -------------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 Fired when the selected messages change in any mail tab.
 
@@ -709,7 +700,6 @@ Fired when the selected messages change in any mail tab.
       :refid: mail-tabs-on-selected-messages-changed-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 76]
 
    .. _mail^tabs.on^selected^messages^changed.selected^messages:
 
@@ -718,7 +708,6 @@ Fired when the selected messages change in any mail tab.
       :refid: mail-tabs-on-selected-messages-changed-selected-messages
       :refname: selectedMessages
       :type: (:ref:`messages.^message^list`)
-      :annotation: -- [Added in TB 76]
 
 .. api-header::
    :label: Required permissions
@@ -735,7 +724,7 @@ Types
 FolderMode
 ----------
 
-.. api-section-annotation-hack:: -- [Added in TB 127]
+.. api-section-annotation-hack:: 
 
 A supported folder mode in the folder pane.
 
@@ -795,7 +784,7 @@ A supported folder mode in the folder pane.
 MailTab
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 89]
+.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object
@@ -848,7 +837,6 @@ MailTab
       :refid: mail-tabs-mail-tab-tab-id
       :refname: tabId
       :type: (integer)
-      :annotation: -- [Added in TB 128]
 
    .. _mail^tabs.^mail^tab.window^id:
 
@@ -875,7 +863,6 @@ MailTab
       :refid: mail-tabs-mail-tab-folder-mode
       :refname: folderMode
       :type: (:ref:`mail^tabs.^folder^mode`, optional)
-      :annotation: -- [Added in TB 127]
 
       The folder mode of the currently displayed folder.
 
@@ -886,7 +873,6 @@ MailTab
       :refid: mail-tabs-mail-tab-folder-modes-enabled
       :refname: folderModesEnabled
       :type: (array of :ref:`mail^tabs.^folder^mode`, optional)
-      :annotation: -- [Added in TB 127]
 
       The enabled folder modes in the folder pane, and their sort order.
 
@@ -907,7 +893,6 @@ MailTab
       :refid: mail-tabs-mail-tab-group-type
       :refname: groupType
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 128]
 
       Grouping type of the message list.
 
@@ -1134,7 +1119,7 @@ MailTab
 MailTabProperties
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 121]
+.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object
@@ -1146,7 +1131,6 @@ MailTabProperties
       :refid: mail-tabs-mail-tab-properties-displayed-folder-id
       :refname: displayedFolderId
       :type: (:ref:`folders.^mail^folder^id`, optional)
-      :annotation: -- [Added in TB 127]
 
       Sets the folder displayed in the mail tab. Requires the :permission:`accountsRead` permission. The previous message selection in the given folder will be restored, if any.
 
@@ -1157,7 +1141,6 @@ MailTabProperties
       :refid: mail-tabs-mail-tab-properties-folder-mode
       :refname: folderMode
       :type: (:ref:`mail^tabs.^folder^mode`, optional)
-      :annotation: -- [Added in TB 127]
 
       Sets the currently used folder mode, enabling it if required. If used without also specifying :value:`displayedFolder`, the currently selected folder is re-selected in the new folder mode, if possible.
 
@@ -1168,7 +1151,6 @@ MailTabProperties
       :refid: mail-tabs-mail-tab-properties-folder-modes-enabled
       :refname: folderModesEnabled
       :type: (array of :ref:`mail^tabs.^folder^mode`, optional)
-      :annotation: -- [Added in TB 127]
 
       Set the enabled folder modes in the folder pane, and their sort order.
 
@@ -1189,7 +1171,6 @@ MailTabProperties
       :refid: mail-tabs-mail-tab-properties-group-type
       :refname: groupType
       :type: (`string`, optional)
-      :annotation: -- [Added in TB 128]
 
       Grouping type of the message list.
 
@@ -1449,7 +1430,7 @@ MailTabProperties
 QuickFilterTextDetail
 ---------------------
 
-.. api-section-annotation-hack:: -- [Added in TB 66]
+.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object
@@ -1471,7 +1452,6 @@ QuickFilterTextDetail
       :refid: mail-tabs-quick-filter-text-detail-author
       :refname: author
       :type: (boolean, optional)
-      :annotation: -- [Added in TB 68]
 
       Shows messages where :value:`text` matches the author.
 
