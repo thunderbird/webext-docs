@@ -27,6 +27,7 @@ The following WebExtension API changes were introduced in Thunderbird 128.0.
 
 - :small:`function` `getBadgeTextColor <../action.html#action-get-badge-text-color>`__ — Gets the text color of the badge.
 - :small:`function` `setBadgeTextColor <../action.html#action-set-badge-text-color>`__ — Sets the text color for the badge.
+- :small:`property` `action.default_area <../action.html#action-action-default-area>`__ — Defines the location the action button will appear. Deprecated and ignored. Replaced by :value:`allowed_spaces`
 
 
 .. raw:: html
