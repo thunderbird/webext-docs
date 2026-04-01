@@ -33,6 +33,27 @@ The following WebExtension API changes were introduced in Thunderbird 147.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.readerDisplayAttachmentsInline.html">messengerSettings.readerDisplayAttachmentsInline</a>
+   </div>
+
+Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerUtilities.html">messengerUtilities</a>
+   </div>
+
+- :small:`function` `parseMailboxString.options.expandMailingLists <../messengerUtilities.html#messenger-utilities-parse-mailbox-string-options-expand-mailing-lists>`__ — Expand Thunderbird mailing lists (specified as :value:`ListName <ListName>`) and include the parsed primary email addresses of all members. When used together with :value:`preserveGroups`, the mailing list's name and hierarchy are preserved. If the mailing list does not exist, or the :permission:`addressBook` permission is not granted, the entries are not expanded and returned unchanged.
+- :small:`function` `parseMailboxString.options.preserveGroups <../messengerUtilities.html#messenger-utilities-parse-mailbox-string-options-preserve-groups>`__ — Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
      <a href="../proxy.html">proxy</a>
    </div>
 

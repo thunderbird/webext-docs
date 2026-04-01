@@ -1,0 +1,47 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 114
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 114.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplay.html">messageDisplay</a>
+   </div>
+
+- :small:`function` `open.openProperties.file <../messageDisplay.html#message-display-open-open-properties-file>`__ — The DOM file object of a message to be opened.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `openAttachment <../messages.html#messages-open-attachment>`__ — Opens the specified attachment.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../spacesToolbar.html">spacesToolbar</a>
+   </div>
+
+- :small:`function` `clickButton <../spacesToolbar.html#spaces-toolbar-click-button>`__ — Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`event` `onActivated.activeInfo.previousTabId <../tabs.html#tabs-on-activated-active-info-previous-tab-id>`__ — The ID of the tab that was previously active, if that tab is still open.

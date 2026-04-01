@@ -1,0 +1,20 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 112
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 112.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../webRequest.html">webRequest</a>
+   </div>
+
+- :small:`type` `SecurityInfo.usedDelegatedCredentials <../webRequest.html#web-request-security-info-used-delegated-credentials>`__ — True if the TLS connection used Delegated Credentials.
+- :small:`type` `SecurityInfo.usedEch <../webRequest.html#web-request-security-info-used-ech>`__ — True if the TLS connection used Encrypted Client Hello.
+- :small:`type` `SecurityInfo.usedOcsp <../webRequest.html#web-request-security-info-used-ocsp>`__ — True if the TLS connection made OCSP requests.
+- :small:`type` `SecurityInfo.usedPrivateDns <../webRequest.html#web-request-security-info-used-private-dns>`__ — True if the TLS connection used a privacy-preserving DNS transport like DNS-over-HTTPS.

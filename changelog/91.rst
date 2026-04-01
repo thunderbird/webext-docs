@@ -1,0 +1,134 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 91
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 91.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.html">addressBooks</a>
+   </div>
+
+- :small:`type` `AddressBookNode.remote <../addressBooks.html#address-books-address-book-node-remote>`__ — Indicates if the address book is accessed via remote look-up.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.provider.html">addressBooks.provider</a>
+   </div>
+
+The address book provider API allows to add address books, which are not stored or cached by Thunderbird itself, but are handled completely by the extension. Address books created by the this API will forward all access requests to the WebExtension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserSettings.colorManagement.html">browserSettings.colorManagement</a>
+   </div>
+
+Use the :code:`browserSettings.colorManagement` API to query and set items related to color management.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`event` `onFileDeleted.tab <../cloudFile.html#cloud-file-on-file-deleted-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`event` `onFileUpload.tab <../cloudFile.html#cloud-file-on-file-upload-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`event` `onFileUploadAbort.tab <../cloudFile.html#cloud-file-on-file-upload-abort-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contacts.html">contacts</a>
+   </div>
+
+- :small:`type` `ContactNode.remote <../contacts.html#contacts-contact-node-remote>`__ — Indicates if the object came from a remote address book.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` `copy <../folders.html#folders-copy>`__ — Copies the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
+- :small:`function` `getFolderInfo <../folders.html#folders-get-folder-info>`__ — Get additional information about a folder.
+- :small:`function` `getParentFolders <../folders.html#folders-get-parent-folders>`__ — Get all parent folders as a flat ordered array. The first array entry is the direct parent.
+- :small:`function` `getSubFolders <../folders.html#folders-get-sub-folders>`__ — Get the subfolders of the specified folder or account.
+- :small:`function` `move <../folders.html#folders-move>`__ — Moves the given source folder into the given destination folder. Throws if the destination already contains a folder with the name of the source folder.
+- :small:`event` `onCopied <../folders.html#folders-on-copied>`__ — Fired when a folder has been copied.
+- :small:`event` `onCreated <../folders.html#folders-on-created>`__ — Fired when a folder has been created.
+- :small:`event` `onDeleted <../folders.html#folders-on-deleted>`__ — Fired when a folder has been deleted.
+- :small:`event` `onFolderInfoChanged <../folders.html#folders-on-folder-info-changed>`__ — Fired when certain information of a folder have changed. Bursts of message count changes are collapsed to a single event.
+- :small:`event` `onMoved <../folders.html#folders-on-moved>`__ — Fired when a folder has been moved.
+- :small:`event` `onRenamed <../folders.html#folders-on-renamed>`__ — Fired when a folder has been renamed.
+- :small:`type` `MailFolderInfo <../folders.html#folders-mail-folder-info>`__ — An object containing additional information about a folder.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../identities.html">identities</a>
+   </div>
+
+The identities API allows to manage the user's identities (each account can have multiple identities).
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailingLists.html">mailingLists</a>
+   </div>
+
+- :small:`type` `MailingListNode.remote <../mailingLists.html#mailing-lists-mailing-list-node-remote>`__ — Indicates if the object came from a remote address book.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`type` `MailTab.viewType <../mailTabs.html#mail-tabs-mail-tab-view-type>`__ — Grouping type of the message list.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `query.queryInfo.includeSubFolders <../messages.html#messages-query-query-info-include-sub-folders>`__ — Search the specified folder recursively.
+- :small:`event` `onCopied <../messages.html#messages-on-copied>`__ — Fired when messages have been copied.
+- :small:`event` `onDeleted <../messages.html#messages-on-deleted>`__ — Fired when messages have been permanently deleted.
+- :small:`event` `onMoved <../messages.html#messages-on-moved>`__ — Fired when messages have been moved.
+- :small:`event` `onUpdated <../messages.html#messages-on-updated>`__ — Fired when one or more properties of a message have been updated.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` `query.queryInfo.type <../tabs.html#tabs-query-query-info-type>`__ — Match tabs against the given tab type or types.

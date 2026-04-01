@@ -1,0 +1,17 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 107
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 107.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contacts.html">contacts</a>
+   </div>
+
+- :small:`function` `setPhoto <../contacts.html#contacts-set-photo>`__ — Sets the photo associated with this contact.
