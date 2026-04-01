@@ -15,6 +15,17 @@ The following WebExtension API changes were introduced in Thunderbird 90.
    </div>
 
 - :small:`type` `ImageDataDictionary <../browserAction.html#browser-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` `browser_action.type <../browserAction.html#browser-action-browser-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`property` `cloud_file.browser_style <../cloudFile.html#cloud-file-cloud-file-browser-style>`__ — Enable browser styles in the :value:`management_url` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
 
 
 .. raw:: html
@@ -38,6 +49,7 @@ The following WebExtension API changes were introduced in Thunderbird 90.
    </div>
 
 - :small:`type` `ImageDataDictionary <../composeAction.html#compose-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` `compose_action.type <../composeAction.html#compose-action-compose-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
 
 
 .. raw:: html
@@ -48,6 +60,7 @@ The following WebExtension API changes were introduced in Thunderbird 90.
    </div>
 
 - :small:`type` `ImageDataDictionary <../messageDisplayAction.html#message-display-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` `message_display_action.type <../messageDisplayAction.html#message-display-action-message-display-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
 
 
 .. raw:: html

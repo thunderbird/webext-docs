@@ -102,6 +102,9 @@
   Thunderbird 147 <changelog/147>
 
 
+  Thunderbird 140 <changelog/140>
+
+
   Thunderbird 138 <changelog/138>
 
 
