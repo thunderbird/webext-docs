@@ -1,0 +1,50 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 88
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 88.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`type` `MailAccount <../accounts.html#accounts-mail-account>`__ — An object describing a mail account, as returned for example by the `accounts.list <../accounts.html#accounts-list>`__ and `accounts.get <../accounts.html#accounts-get>`__ methods.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` `ComposeDetails.from <../compose.html#compose-compose-details-from>`__ — *Caution*: Setting a value for :value:`from` does not change the used identity, it overrides the *From* header. Many email servers do not accept emails where the *From* header does not match the sender identity. Must be set to exactly one valid email address.
+- :small:`type` `ComposeDetails.type <../compose.html#compose-compose-details-type>`__ — Read-only. The type of the message being composed, depending on how the compose window was opened by the user.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../menus.html">menus</a>
+   </div>
+
+- :small:`type` `OnClickData.selectedAccount <../menus.html#menus-on-click-data-selected-account>`__ — The selected account in the folder pane, if the context menu was opened on an account entry. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required.
+- :small:`type` `OnShowData <../menus.html#menus-on-show-data>`__ — Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `getAttachmentFile <../messages.html#messages-get-attachment-file>`__ — Gets the content of a `messages.MessageAttachment <../messages.html#messages-message-attachment>`__ as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object. If the message is encrypted, the function retrieves the attachment from the decrypted message.
+- :small:`function` `listAttachments <../messages.html#messages-list-attachments>`__ — Lists the attachments of a message. If the message is encrypted, the attachments of the decrypted message are listed.

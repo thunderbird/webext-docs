@@ -1,0 +1,18 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 92
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 92.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../downloads.html">downloads</a>
+   </div>
+
+- :small:`type` `DownloadItem.cookieStoreId <../downloads.html#downloads-download-item-cookie-store-id>`__ — The cookie store ID of the contextual identity.
+- :small:`type` `DownloadQuery.cookieStoreId <../downloads.html#downloads-download-query-cookie-store-id>`__ — The cookie store ID of the contextual identity.

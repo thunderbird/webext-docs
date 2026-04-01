@@ -1,0 +1,37 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 83
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 83.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`type` `ComposeAttachment.size <../compose.html#compose-compose-attachment-size>`__ — The size in bytes of this attachment. Read-only.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contacts.html">contacts</a>
+   </div>
+
+- :small:`type` `PropertyChange <../contacts.html#contacts-property-change>`__ — A dictionary of changed properties. Keys are the property name that changed, values are an object containing :value:`oldValue` and :value:`newValue`. Values can be either a string or :value:`null`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../menus.html">menus</a>
+   </div>
+
+- :small:`type` `OnClickData.attachments <../menus.html#menus-on-click-data-attachments>`__ — The selected attachments. The :permission:`compose` permission is required to return attachments of a message being composed. The :permission:`messagesRead` permission is required to return attachments of displayed messages.

@@ -1,0 +1,51 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 106
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 106.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../commands.html">commands</a>
+   </div>
+
+- :small:`event` `onCommand.tab <../commands.html#commands-on-command-tab>`__ — The details of the active tab while the command occurred.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contacts.html">contacts</a>
+   </div>
+
+- :small:`function` `getPhoto <../contacts.html#contacts-get-photo>`__ — Gets the photo associated with this contact. Returns :value:`null`, if no photo is available.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` `setSelectedMessages <../mailTabs.html#mail-tabs-set-selected-messages>`__ — Selects none, one or multiple messages. Opens collapsed threads to show the selection, if required.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `import <../messages.html#messages-import>`__ — Imports a message into a folder. Supports local folders, POP and IMAP folders. Throws, if the destination folder already contains a message with the Message-ID of the message being imported.
+- :small:`type` `MessageAttachment.message <../messages.html#messages-message-attachment-message>`__ — A MessageHeader, if this attachment is a message.
+- :small:`type` `MessageHeader.external <../messages.html#messages-message-header-external>`__ — Whether this message is a real message or an external message (opened from a file or from an attachment).
+- :small:`type` `MessageHeader.new <../messages.html#messages-message-header-new>`__ — Whether the message has been received recently and is marked as new.
+- :small:`type` `MessageProperties <../messages.html#messages-message-properties>`__ — Message properties used in `messages.update <../messages.html#messages-update>`__ and `messages.import <../messages.html#messages-import>`__. They can also be monitored by `messages.onUpdated <../messages.html#messages-on-updated>`__.

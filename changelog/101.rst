@@ -1,0 +1,17 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 101
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 101.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../storage.html">storage</a>
+   </div>
+
+- :small:`type` `StorageArea.onChanged <../storage.html#storage-storage-area-on-changed>`__ — Fired when one or more items change.

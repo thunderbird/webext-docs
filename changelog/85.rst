@@ -1,0 +1,71 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 85
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 85.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`function` `getDefault <../accounts.html#accounts-get-default>`__ — Returns the default account, or :value:`null` if it is not defined.
+- :small:`function` `getDefaultIdentity <../accounts.html#accounts-get-default-identity>`__ — Returns the default identity for an account, or :value:`null` if it is not defined.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserAction.html">browserAction</a>
+   </div>
+
+- :small:`function` `getLabel <../browserAction.html#browser-action-get-label>`__ — Gets the label of the action button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` `setLabel <../browserAction.html#browser-action-set-label>`__ — Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`function` `getLabel <../composeAction.html#compose-action-get-label>`__ — Gets the label of the composeAction button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` `setLabel <../composeAction.html#compose-action-set-label>`__ — Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`function` `getLabel <../messageDisplayAction.html#message-display-action-get-label>`__ — Gets the label of the messageDisplayAction button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` `setLabel <../messageDisplayAction.html#message-display-action-set-label>`__ — Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `query.queryInfo.headerMessageId <../messages.html#messages-query-query-info-header-message-id>`__ — Returns only messages with a Message-ID header matching this value.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../windows.html">windows</a>
+   </div>
+
+- :small:`function` `openDefaultBrowser <../windows.html#windows-open-default-browser>`__ — Opens the provided URL in the default system browser.

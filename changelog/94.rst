@@ -1,0 +1,17 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 94
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 94.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cookies.html">cookies</a>
+   </div>
+
+- :small:`type` `Cookie.partitionKey <../cookies.html#cookies-cookie-partition-key>`__ — The cookie's storage partition, if any. null if not partitioned.
