@@ -278,9 +278,9 @@ Properties
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="privacy.network.globalPrivacyControl.html">globalPrivacyControl</a>
    </div>
    </section><section class="api-section-body">
@@ -293,9 +293,9 @@ Allow users to query the status of 'Global Privacy Control'. This setting's valu
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="privacy.network.httpsOnlyMode.html">httpsOnlyMode</a>
    </div>
    </section><section class="api-section-body">

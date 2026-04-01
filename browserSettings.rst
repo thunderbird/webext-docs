@@ -257,9 +257,9 @@ Controls after which mouse event context menus popup. This setting's value is of
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="browserSettings.ftpProtocolEnabled.html">ftpProtocolEnabled</a>
    </div>
    </section><section class="api-section-body">
@@ -272,9 +272,9 @@ Returns whether the FTP protocol is enabled. Read-only.
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="browserSettings.homepageOverride.html">homepageOverride</a>
    </div>
    </section><section class="api-section-body">
@@ -302,9 +302,9 @@ Controls the behaviour of image animation in the browser. This setting's value i
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="browserSettings.newTabPageOverride.html">newTabPageOverride</a>
    </div>
    </section><section class="api-section-body">

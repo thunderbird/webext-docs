@@ -75,43 +75,6 @@ The following permissions influence the behavior of the API. Depending on which 
 Functions
 =========
 
-.. _browser^settings.ftp^protocol^enabled.clear:
-
-clear(details)
---------------
-
-.. api-section-annotation-hack:: 
-
-Clears the setting, restoring any default value.
-
-.. api-header::
-   :label: Parameters
-
-   .. _browser^settings.ftp^protocol^enabled.clear.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: browser-settings-ftp-protocol-enabled-clear-details
-      :refname: details
-      :type: (object)
-
-      Which setting to clear.
-
-      .. _browser^settings.ftp^protocol^enabled.clear.details.scope:
-
-      .. api-member::
-         :name: [``scope``]
-         :refid: browser-settings-ftp-protocol-enabled-clear-details-scope
-         :refname: scope
-         :type: (:ref:`browser^settings.ftp^protocol^enabled.^setting^scope`, optional)
-
-         Where to clear the setting (default: regular).
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`browserSettings`
-
 .. _browser^settings.ftp^protocol^enabled.get:
 
 get(details)
@@ -187,53 +150,6 @@ Gets the value of a setting.
          Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`browserSettings`
-
-.. _browser^settings.ftp^protocol^enabled.set:
-
-set(details)
-------------
-
-.. api-section-annotation-hack:: 
-
-Sets the value of a setting.
-
-.. api-header::
-   :label: Parameters
-
-   .. _browser^settings.ftp^protocol^enabled.set.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: browser-settings-ftp-protocol-enabled-set-details
-      :refname: details
-      :type: (object)
-
-      Which setting to change.
-
-      .. _browser^settings.ftp^protocol^enabled.set.details.value:
-
-      .. api-member::
-         :name: ``value``
-         :refid: browser-settings-ftp-protocol-enabled-set-details-value
-         :refname: value
-         :type: (any)
-
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
-
-      .. _browser^settings.ftp^protocol^enabled.set.details.scope:
-
-      .. api-member::
-         :name: [``scope``]
-         :refid: browser-settings-ftp-protocol-enabled-set-details-scope
-         :refname: scope
-         :type: (:ref:`browser^settings.ftp^protocol^enabled.^setting^scope`, optional)
-
-         Where to set the setting (default: regular).
 
 .. api-header::
    :label: Required permissions
@@ -370,57 +286,3 @@ One of
             :name: :value:`not_controllable`
             :refid: browser-settings-ftp-protocol-enabled-level-of-control-not-controllable
             :refname: not_controllable
-
-.. _browser^settings.ftp^protocol^enabled.^setting^scope:
-
-SettingScope
-------------
-
-.. api-section-annotation-hack:: 
-
-The scope of the Setting. One of
-
- * :value:`regular`: setting for the regular profile (which is inherited by the incognito profile if not overridden elsewhere),
-
- * :value:`regular_only`: setting for the regular profile only (not inherited by the incognito profile),
-
- * :value:`incognito_persistent`: setting for the incognito profile that survives browser restarts (overrides regular preferences),
-
- * :value:`incognito_session_only`: setting for the incognito profile that can only be set during an incognito session and is deleted when the incognito session ends (overrides regular and incognito_persistent preferences). Only :value:`regular` is supported by Thunderbird at this time.
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. _browser^settings.ftp^protocol^enabled.^setting^scope.incognito_persistent:
-
-         .. api-member::
-            :name: :value:`incognito_persistent`
-            :refid: browser-settings-ftp-protocol-enabled-setting-scope-incognito-persistent
-            :refname: incognito_persistent
-
-         .. _browser^settings.ftp^protocol^enabled.^setting^scope.incognito_session_only:
-
-         .. api-member::
-            :name: :value:`incognito_session_only`
-            :refid: browser-settings-ftp-protocol-enabled-setting-scope-incognito-session-only
-            :refname: incognito_session_only
-
-         .. _browser^settings.ftp^protocol^enabled.^setting^scope.regular:
-
-         .. api-member::
-            :name: :value:`regular`
-            :refid: browser-settings-ftp-protocol-enabled-setting-scope-regular
-            :refname: regular
-
-         .. _browser^settings.ftp^protocol^enabled.^setting^scope.regular_only:
-
-         .. api-member::
-            :name: :value:`regular_only`
-            :refid: browser-settings-ftp-protocol-enabled-setting-scope-regular-only
-            :refname: regular_only

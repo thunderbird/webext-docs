@@ -1,0 +1,74 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 91
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 91.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.provider.html">addressBooks.provider</a>
+   </div>
+
+The address book provider API allows to add address books, which are not stored or cached by Thunderbird itself, but are handled completely by the extension. Address books created by the this API will forward all access requests to the WebExtension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../browserSettings.colorManagement.html">browserSettings.colorManagement</a>
+   </div>
+
+Use the :code:`browserSettings.colorManagement` API to query and set items related to color management.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`event` `onFileDeleted.tab <../cloudFile.html#cloud-file-on-file-deleted-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`event` `onFileUpload.tab <../cloudFile.html#cloud-file-on-file-upload-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`event` `onFileUploadAbort.tab <../cloudFile.html#cloud-file-on-file-upload-abort-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../folders.html">folders</a>
+   </div>
+
+- :small:`function` `getParentFolders <../folders.html#folders-get-parent-folders>`__ — Get all parent folders as a flat ordered array. The first array entry is the direct parent.
+- :small:`function` `getSubFolders <../folders.html#folders-get-sub-folders>`__ — Get the subfolders of the specified folder.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../identities.html">identities</a>
+   </div>
+
+The identities API allows to manage the user's identities (each account can have multiple identities).
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` `query.queryInfo.includeSubFolders <../messages.html#messages-query-query-info-include-sub-folders>`__ — Search the specified folder recursively.
+- :small:`event` `onCopied <../messages.html#messages-on-copied>`__ — Fired when messages have been copied.
+- :small:`event` `onDeleted <../messages.html#messages-on-deleted>`__ — Fired when messages have been permanently deleted.
+- :small:`event` `onMoved <../messages.html#messages-on-moved>`__ — Fired when messages have been moved.
+- :small:`event` `onUpdated <../messages.html#messages-on-updated>`__ — Fired when one or more properties of a message have been updated.

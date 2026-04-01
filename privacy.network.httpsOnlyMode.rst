@@ -73,43 +73,6 @@ The following permissions influence the behavior of the API. Depending on which 
 Functions
 =========
 
-.. _privacy.network.https^only^mode.clear:
-
-clear(details)
---------------
-
-.. api-section-annotation-hack:: 
-
-Clears the setting, restoring any default value.
-
-.. api-header::
-   :label: Parameters
-
-   .. _privacy.network.https^only^mode.clear.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: privacy-network-https-only-mode-clear-details
-      :refname: details
-      :type: (object)
-
-      Which setting to clear.
-
-      .. _privacy.network.https^only^mode.clear.details.scope:
-
-      .. api-member::
-         :name: [``scope``]
-         :refid: privacy-network-https-only-mode-clear-details-scope
-         :refname: scope
-         :type: (:ref:`privacy.network.https^only^mode.^setting^scope`, optional)
-
-         Where to clear the setting (default: regular).
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`privacy`
-
 .. _privacy.network.https^only^mode.get:
 
 get(details)
@@ -185,53 +148,6 @@ Gets the value of a setting.
          Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`privacy`
-
-.. _privacy.network.https^only^mode.set:
-
-set(details)
-------------
-
-.. api-section-annotation-hack:: 
-
-Sets the value of a setting.
-
-.. api-header::
-   :label: Parameters
-
-   .. _privacy.network.https^only^mode.set.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: privacy-network-https-only-mode-set-details
-      :refname: details
-      :type: (object)
-
-      Which setting to change.
-
-      .. _privacy.network.https^only^mode.set.details.value:
-
-      .. api-member::
-         :name: ``value``
-         :refid: privacy-network-https-only-mode-set-details-value
-         :refname: value
-         :type: (any)
-
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
-
-      .. _privacy.network.https^only^mode.set.details.scope:
-
-      .. api-member::
-         :name: [``scope``]
-         :refid: privacy-network-https-only-mode-set-details-scope
-         :refname: scope
-         :type: (:ref:`privacy.network.https^only^mode.^setting^scope`, optional)
-
-         Where to set the setting (default: regular).
 
 .. api-header::
    :label: Required permissions
@@ -368,57 +284,3 @@ One of
             :name: :value:`not_controllable`
             :refid: privacy-network-https-only-mode-level-of-control-not-controllable
             :refname: not_controllable
-
-.. _privacy.network.https^only^mode.^setting^scope:
-
-SettingScope
-------------
-
-.. api-section-annotation-hack:: 
-
-The scope of the Setting. One of
-
- * :value:`regular`: setting for the regular profile (which is inherited by the incognito profile if not overridden elsewhere),
-
- * :value:`regular_only`: setting for the regular profile only (not inherited by the incognito profile),
-
- * :value:`incognito_persistent`: setting for the incognito profile that survives browser restarts (overrides regular preferences),
-
- * :value:`incognito_session_only`: setting for the incognito profile that can only be set during an incognito session and is deleted when the incognito session ends (overrides regular and incognito_persistent preferences). Only :value:`regular` is supported by Thunderbird at this time.
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. _privacy.network.https^only^mode.^setting^scope.incognito_persistent:
-
-         .. api-member::
-            :name: :value:`incognito_persistent`
-            :refid: privacy-network-https-only-mode-setting-scope-incognito-persistent
-            :refname: incognito_persistent
-
-         .. _privacy.network.https^only^mode.^setting^scope.incognito_session_only:
-
-         .. api-member::
-            :name: :value:`incognito_session_only`
-            :refid: privacy-network-https-only-mode-setting-scope-incognito-session-only
-            :refname: incognito_session_only
-
-         .. _privacy.network.https^only^mode.^setting^scope.regular:
-
-         .. api-member::
-            :name: :value:`regular`
-            :refid: privacy-network-https-only-mode-setting-scope-regular
-            :refname: regular
-
-         .. _privacy.network.https^only^mode.^setting^scope.regular_only:
-
-         .. api-member::
-            :name: :value:`regular_only`
-            :refid: privacy-network-https-only-mode-setting-scope-regular-only
-            :refname: regular_only

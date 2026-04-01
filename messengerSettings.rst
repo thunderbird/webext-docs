@@ -61,9 +61,9 @@ Properties
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="messengerSettings.messageLineLengthLimit.html">messageLineLengthLimit</a>
    </div>
    </section><section class="api-section-body">
@@ -76,9 +76,9 @@ The line length limit for outgoing messages, to comply with requirements from RF
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="messengerSettings.messagePlainTextFlowedOutputEnabled.html">messagePlainTextFlowedOutputEnabled</a>
    </div>
    </section><section class="api-section-body">
@@ -91,9 +91,9 @@ Whether long lines in outgoing plain text messages will get soft line breaks (:v
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="messengerSettings.readerDisplayAttachmentsInline.html">readerDisplayAttachmentsInline</a>
    </div>
    </section><section class="api-section-body">

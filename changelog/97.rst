@@ -1,0 +1,20 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 97
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 97.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`event` `onFileRename <../cloudFile.html#cloud-file-on-file-rename>`__ — Fired when a previously uploaded file should be renamed.
+- :small:`type` `CloudFileTemplateInfo.download_expiry_date <../cloudFile.html#cloud-file-cloud-file-template-info-download-expiry-date>`__ — If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
+- :small:`type` `CloudFileTemplateInfo.download_limit <../cloudFile.html#cloud-file-cloud-file-template-info-download-limit>`__ — If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
+- :small:`type` `CloudFileTemplateInfo.download_password_protected <../cloudFile.html#cloud-file-cloud-file-template-info-download-password-protected>`__ — If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
