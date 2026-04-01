@@ -150,3 +150,84 @@
 
 
   Thunderbird 115 <changelog/115>
+
+
+  Thunderbird 114 <changelog/114>
+
+
+  Thunderbird 113 <changelog/113>
+
+
+  Thunderbird 112 <changelog/112>
+
+
+  Thunderbird 109 <changelog/109>
+
+
+  Thunderbird 108 <changelog/108>
+
+
+  Thunderbird 106 <changelog/106>
+
+
+  Thunderbird 105 <changelog/105>
+
+
+  Thunderbird 102 <changelog/102>
+
+
+  Thunderbird 101 <changelog/101>
+
+
+  Thunderbird 100 <changelog/100>
+
+
+  Thunderbird 98 <changelog/98>
+
+
+  Thunderbird 97 <changelog/97>
+
+
+  Thunderbird 96 <changelog/96>
+
+
+  Thunderbird 95 <changelog/95>
+
+
+  Thunderbird 94 <changelog/94>
+
+
+  Thunderbird 92 <changelog/92>
+
+
+  Thunderbird 91 <changelog/91>
+
+
+  Thunderbird 90 <changelog/90>
+
+
+  Thunderbird 89 <changelog/89>
+
+
+  Thunderbird 88 <changelog/88>
+
+
+  Thunderbird 86 <changelog/86>
+
+
+  Thunderbird 85 <changelog/85>
+
+
+  Thunderbird 84 <changelog/84>
+
+
+  Thunderbird 83 <changelog/83>
+
+
+  Thunderbird 82 <changelog/82>
+
+
+  Thunderbird 81 <changelog/81>
+
+
+  Thunderbird 78 <changelog/78>

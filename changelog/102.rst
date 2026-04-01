@@ -1,0 +1,56 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 102
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 102.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` `getActiveDictionaries <../compose.html#compose-get-active-dictionaries>`__ — Returns a `compose.ComposeDictionaries <../compose.html#compose-compose-dictionaries>`__ object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+- :small:`function` `saveMessage <../compose.html#compose-save-message>`__ — Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
+- :small:`function` `setActiveDictionaries <../compose.html#compose-set-active-dictionaries>`__ — Updates the active dictionaries. Throws if the :value:`activeDictionaries` array contains unknown or invalid language identifiers.
+- :small:`event` `onActiveDictionariesChanged <../compose.html#compose-on-active-dictionaries-changed>`__ — Fired when one or more dictionaries have been activated or deactivated.
+- :small:`type` `ComposeDetails.attachVCard <../compose.html#compose-compose-details-attach-v-card>`__ — Whether or not the vCard of the used identity will be attached to the message during send.
+- :small:`type` `ComposeDetails.deliveryFormat <../compose.html#compose-compose-details-delivery-format>`__ — Defines the MIME format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
+- :small:`type` `ComposeDetails.deliveryStatusNotification <../compose.html#compose-compose-details-delivery-status-notification>`__ — Let the sender know when the recipient's server received the message. Not supported by all servers.
+- :small:`type` `ComposeDetails.priority <../compose.html#compose-compose-details-priority>`__ — The priority of the message.
+- :small:`type` `ComposeDetails.returnReceipt <../compose.html#compose-compose-details-return-receipt>`__ — Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
+- :small:`type` `ComposeDictionaries <../compose.html#compose-compose-dictionaries>`__ — A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplay.html">messageDisplay</a>
+   </div>
+
+- :small:`function` `open <../messageDisplay.html#message-display-open>`__ — Opens a message in a new tab or in a new window.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` `MessageHeader.headersOnly <../messages.html#messages-message-header-headers-only>`__ — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.html">scripting</a>
+   </div>
+
+Use the scripting API to execute script in different contexts.

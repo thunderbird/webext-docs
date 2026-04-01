@@ -1,0 +1,17 @@
+.. role:: small
+
+=============================
+Changelog for Thunderbird 109
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 109.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../webRequest.html">webRequest</a>
+   </div>
+
+- :small:`type` `SecurityInfo.secretKeyLength <../webRequest.html#web-request-security-info-secret-key-length>`__ — The length (in bits) of the secret key.
