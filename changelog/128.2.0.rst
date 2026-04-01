@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 128.2.0
 The following WebExtension API changes were introduced in Thunderbird 128.2.0.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,5 +23,5 @@ The following WebExtension API changes were introduced in Thunderbird 128.2.0.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`type` `ExtensionMailAccountType <../accounts.html#accounts-extension-mail-account-type>`__ — The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
-- :small:`type` `NativeMailAccountType <../accounts.html#accounts-native-mail-account-type>`__ — The type of an account natively supported by Thunderbird.
+- :small:`type` :ref:`ExtensionMailAccountType <accounts.^extension^mail^account^type>` — The type of an account which was added by an extension. For the time being there is no guarantee for account types added by extensions to always work as expected.
+- :small:`type` :ref:`NativeMailAccountType <accounts.^native^mail^account^type>` — The type of an account natively supported by Thunderbird.

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 78.4.0
 The following WebExtension API changes were introduced in Thunderbird 78.4.0.
 
 
+tabs
+----
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,5 +23,5 @@ The following WebExtension API changes were introduced in Thunderbird 78.4.0.
      <a href="../tabs.html">tabs</a>
    </div>
 
-- :small:`function` `connect <../tabs.html#tabs-connect>`__ — Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`__ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__.
-- :small:`function` `sendMessage <../tabs.html#tabs-send-message>`__ — Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.
+- :small:`function` :ref:`connect <tabs.connect>` — Connects to the content script(s) in the specified tab. The `runtime.onConnect <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onConnect>`__ event is fired in each content script running in the specified tab for the current extension. For more details, see `Content Script Messaging <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Content_scripts>`__.
+- :small:`function` :ref:`sendMessage <tabs.send^message>` — Sends a single message to the content script(s) in the specified tab, with an optional callback to run when a response is sent back. The `runtime.onMessage <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage>`__ event is fired in each content script running in the specified tab for the current extension.

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 115.8.0
 The following WebExtension API changes were introduced in Thunderbird 115.8.0.
 
 
+menus
+-----
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,4 +23,4 @@ The following WebExtension API changes were introduced in Thunderbird 115.8.0.
      <a href="../menus.html">menus</a>
    </div>
 
-- :small:`type` `MenuIconPath <../menus.html#menus-menu-icon-path>`__ — The path for a menu icon may be a relative path to an icon file, a :value:`moz-extension:` URL, an image :value:`data:` URL, a :value:`blob:` URL, or a remote :value:`http(s):` URL.
+- :small:`type` :ref:`MenuIconPath <menus.^menu^icon^path>` — The path for a menu icon may be a relative path to an icon file, a :value:`moz-extension:` URL, an image :value:`data:` URL, a :value:`blob:` URL, or a remote :value:`http(s):` URL.

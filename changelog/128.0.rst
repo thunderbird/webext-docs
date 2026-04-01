@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ===============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 128.0
 The following WebExtension API changes were introduced in Thunderbird 128.0.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,9 +23,12 @@ The following WebExtension API changes were introduced in Thunderbird 128.0.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`type` `MailAccount.rootFolder <../accounts.html#accounts-mail-account-root-folder>`__ — The root folder associated with this account.
-- :small:`type` `MailAccountId <../accounts.html#accounts-mail-account-id>`__ — A unique id representing a `accounts.MailAccount <../accounts.html#accounts-mail-account>`__.
+- :small:`type` :ref:`MailAccount.rootFolder <accounts.^mail^account.root^folder>` — The root folder associated with this account.
+- :small:`type` :ref:`MailAccountId <accounts.^mail^account^id>` — A unique id representing a :ref:`accounts.MailAccount <accounts.^mail^account>`.
 
+
+action
+------
 
 .. raw:: html
 
@@ -25,10 +37,13 @@ The following WebExtension API changes were introduced in Thunderbird 128.0.
      <a href="../action.html">action</a>
    </div>
 
-- :small:`function` `getBadgeTextColor <../action.html#action-get-badge-text-color>`__ — Gets the text color of the badge.
-- :small:`function` `setBadgeTextColor <../action.html#action-set-badge-text-color>`__ — Sets the text color for the badge.
-- :small:`property` `action.default_area <../action.html#action-action-default-area>`__ — Defines the location the action button will appear. Deprecated and ignored. Replaced by :value:`allowed_spaces`
+- :small:`function` :ref:`getBadgeTextColor <action.get^badge^text^color>` — Gets the text color of the badge.
+- :small:`function` :ref:`setBadgeTextColor <action.set^badge^text^color>` — Sets the text color for the badge.
+- :small:`property` :ref:`action.default_area <action.action.default_area>` — Defines the location the action button will appear. Deprecated and ignored. Replaced by :value:`allowed_spaces`
 
+
+addressBooks.contacts
+---------------------
 
 .. raw:: html
 
@@ -40,6 +55,9 @@ The following WebExtension API changes were introduced in Thunderbird 128.0.
 The contacts API allows to access and manage the user's contacts.
 
 
+addressBooks.mailingLists
+-------------------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -50,6 +68,9 @@ The contacts API allows to access and manage the user's contacts.
 The mailingLists API allows to access and manage the user's mailing lists.
 
 
+compose
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -57,13 +78,16 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`type` `ComposeDetails.additionalFccFolderId <../compose.html#compose-compose-details-additional-fcc-folder-id>`__ — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.attachPublicPGPKey <../compose.html#compose-compose-details-attach-public-p-g-p-key>`__ — Whether the public OpenPGP key of the sending identity should be attached to the message.
-- :small:`type` `ComposeDetails.isModified <../compose.html#compose-compose-details-is-modified>`__ — Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.
-- :small:`type` `ComposeDetails.overrideDefaultFccFolderId <../compose.html#compose-compose-details-override-default-fcc-folder-id>`__ — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a `folders.MailFolderId <../folders.html#folders-mail-folder-id>`__ specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.selectedEncryptionTechnology <../compose.html#compose-compose-details-selected-encryption-technology>`__ — The selected encryption technology (:value:`OpenPGP` or :value:`S/MIME`) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be :value:`undefined`.
-- :small:`type` `ComposeRecipient.nodeId <../compose.html#compose-compose-recipient-node-id>`__ — The ID of a contact or mailing list node from the :doc:`../addressBook.contacts` or :doc:`../addressBook.mailingLists`.
+- :small:`type` :ref:`ComposeDetails.additionalFccFolderId <compose.^compose^details.additional^fcc^folder^id>` — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.attachPublicPGPKey <compose.^compose^details.attach^public^p^g^p^key>` — Whether the public OpenPGP key of the sending identity should be attached to the message.
+- :small:`type` :ref:`ComposeDetails.isModified <compose.^compose^details.is^modified>` — Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.
+- :small:`type` :ref:`ComposeDetails.overrideDefaultFccFolderId <compose.^compose^details.override^default^fcc^folder^id>` — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId <folders.^mail^folder^id>` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.selectedEncryptionTechnology <compose.^compose^details.selected^encryption^technology>` — The selected encryption technology (:value:`OpenPGP` or :value:`S/MIME`) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be :value:`undefined`.
+- :small:`type` :ref:`ComposeRecipient.nodeId <compose.^compose^recipient.node^id>` — The ID of a contact or mailing list node from the :doc:`../addressBook.contacts` or :doc:`../addressBook.mailingLists`.
 
+
+composeAction
+-------------
 
 .. raw:: html
 
@@ -72,9 +96,12 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../composeAction.html">composeAction</a>
    </div>
 
-- :small:`function` `getBadgeTextColor <../composeAction.html#compose-action-get-badge-text-color>`__ — Gets the text color of the badge.
-- :small:`function` `setBadgeTextColor <../composeAction.html#compose-action-set-badge-text-color>`__ — Sets the text color for the badge.
+- :small:`function` :ref:`getBadgeTextColor <compose^action.get^badge^text^color>` — Gets the text color of the badge.
+- :small:`function` :ref:`setBadgeTextColor <compose^action.set^badge^text^color>` — Sets the text color for the badge.
 
+
+contextualIdentities
+--------------------
 
 .. raw:: html
 
@@ -83,8 +110,11 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../contextualIdentities.html">contextualIdentities</a>
    </div>
 
-- :small:`function` `move <../contextualIdentities.html#contextual-identities-move>`__ — Reorder one or more contextual identities by their cookieStoreIDs to a given position.
+- :small:`function` :ref:`move <contextual^identities.move>` — Reorder one or more contextual identities by their cookieStoreIDs to a given position.
 
+
+declarativeNetRequest
+---------------------
 
 .. raw:: html
 
@@ -93,14 +123,17 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../declarativeNetRequest.html">declarativeNetRequest</a>
    </div>
 
-- :small:`function` `getDisabledRuleIds <../declarativeNetRequest.html#declarative-net-request-get-disabled-rule-ids>`__ — Returns the list of individual disabled static rules from a given static ruleset id.
-- :small:`function` `getDynamicRules.filter <../declarativeNetRequest.html#declarative-net-request-get-dynamic-rules-filter>`__ — An object to filter the set of dynamic rules for the extension.
-- :small:`function` `getSessionRules.filter <../declarativeNetRequest.html#declarative-net-request-get-session-rules-filter>`__ — An object to filter the set of session scoped rules for the extension.
-- :small:`function` `updateStaticRules <../declarativeNetRequest.html#declarative-net-request-update-static-rules>`__ — Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.
-- :small:`property` `MAX_NUMBER_OF_DISABLED_STATIC_RULES <../declarativeNetRequest.html#declarative-net-request-m-a-x-n-u-m-b-e-r-o-f-d-i-s-a-b-l-e-d-s-t-a-t-i-c-r-u-l-e-s>`__ — The maximum number of static rules that can be disabled on each static ruleset.
-- :small:`property` `MAX_NUMBER_OF_DYNAMIC_RULES <../declarativeNetRequest.html#declarative-net-request-m-a-x-n-u-m-b-e-r-o-f-d-y-n-a-m-i-c-r-u-l-e-s>`__ — The maximum number of dynamic session rules an extension can add.
-- :small:`property` `MAX_NUMBER_OF_SESSION_RULES <../declarativeNetRequest.html#declarative-net-request-m-a-x-n-u-m-b-e-r-o-f-s-e-s-s-i-o-n-r-u-l-e-s>`__ — The maximum number of dynamic session rules an extension can add.
+- :small:`function` :ref:`getDisabledRuleIds <declarative^net^request.get^disabled^rule^ids>` — Returns the list of individual disabled static rules from a given static ruleset id.
+- :small:`function` :ref:`getDynamicRules.filter <declarative^net^request.get^dynamic^rules.filter>` — An object to filter the set of dynamic rules for the extension.
+- :small:`function` :ref:`getSessionRules.filter <declarative^net^request.get^session^rules.filter>` — An object to filter the set of session scoped rules for the extension.
+- :small:`function` :ref:`updateStaticRules <declarative^net^request.update^static^rules>` — Modified individual static rules enabled/disabled state. Changes to rules belonging to a disabled ruleset will take effect when the ruleset becomes enabled.
+- :small:`property` :ref:`MAX_NUMBER_OF_DISABLED_STATIC_RULES <declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^i^s^a^b^l^e^d_^s^t^a^t^i^c_^r^u^l^e^s>` — The maximum number of static rules that can be disabled on each static ruleset.
+- :small:`property` :ref:`MAX_NUMBER_OF_DYNAMIC_RULES <declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^d^y^n^a^m^i^c_^r^u^l^e^s>` — The maximum number of dynamic session rules an extension can add.
+- :small:`property` :ref:`MAX_NUMBER_OF_SESSION_RULES <declarative^net^request.^m^a^x_^n^u^m^b^e^r_^o^f_^s^e^s^s^i^o^n_^r^u^l^e^s>` — The maximum number of dynamic session rules an extension can add.
 
+
+folders
+-------
 
 .. raw:: html
 
@@ -109,31 +142,34 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../folders.html">folders</a>
    </div>
 
-- :small:`function` `get <../folders.html#folders-get>`__ — Returns the specified folder.
-- :small:`function` `getFolderCapabilities <../folders.html#folders-get-folder-capabilities>`__ — Get capability information about a folder.
-- :small:`function` `getTagFolder <../folders.html#folders-get-tag-folder>`__ — Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags. Throws if the requested folder does not exist.
-- :small:`function` `getUnifiedFolder <../folders.html#folders-get-unified-folder>`__ — Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts. Throws if the requested folder does not exist.
-- :small:`function` `markAsRead <../folders.html#folders-mark-as-read>`__ — Marks all messages in a folder as read.
-- :small:`function` `query <../folders.html#folders-query>`__ — Gets folders that match the specified properties, or all folders if no properties are specified.
-- :small:`function` `update <../folders.html#folders-update>`__ — Updates properties of a folder.
-- :small:`event` `onUpdated <../folders.html#folders-on-updated>`__ — Fired when properties of a folder have changed (:value:`specialUse` and :value:`isFavorite`).
-- :small:`type` `MailFolder.id <../folders.html#folders-mail-folder-id>`__ — An identifier for the folder.
-- :small:`type` `MailFolder.isFavorite <../folders.html#folders-mail-folder-is-favorite>`__ — Whether this folder is a favorite folder.
-- :small:`type` `MailFolder.isRoot <../folders.html#folders-mail-folder-is-root>`__ — Whether this folder is a root folder.
-- :small:`type` `MailFolder.isTag <../folders.html#folders-mail-folder-is-tag>`__ — Whether this folder is a virtual tag folder.
-- :small:`type` `MailFolder.isUnified <../folders.html#folders-mail-folder-is-unified>`__ — Whether this folder is a unified mailbox folder.
-- :small:`type` `MailFolder.isVirtual <../folders.html#folders-mail-folder-is-virtual>`__ — Whether this folder is a virtual search folder.
-- :small:`type` `MailFolder.specialUse <../folders.html#folders-mail-folder-special-use>`__ — The special use of this folder. A folder can have multiple special uses.
-- :small:`type` `MailFolderCapabilities <../folders.html#folders-mail-folder-capabilities>`__ — An object containing capability information about a folder.
-- :small:`type` `MailFolderId <../folders.html#folders-mail-folder-id>`__ — A unique id representing a `folders.MailFolder <../folders.html#folders-mail-folder>`__ throughout a session. Renaming or moving a folder will invalidate its id.
-- :small:`type` `MailFolderInfo.lastUsed <../folders.html#folders-mail-folder-info-last-used>`__ — Date the folder was last used. It is updated every time the folder was accessed, when the user moved or copied messages into the folder and when the folder received new messages. (precision: seconds).
-- :small:`type` `MailFolderInfo.newMessageCount <../folders.html#folders-mail-folder-info-new-message-count>`__ — Number of new messages in this folder.
-- :small:`type` `MailFolderInfo.quota <../folders.html#folders-mail-folder-info-quota>`__ — Quota information, if available.
-- :small:`type` `MailFolderQuota <../folders.html#folders-mail-folder-quota>`__ — An object containing quota information.
-- :small:`type` `MailFolderSpecialUse <../folders.html#folders-mail-folder-special-use>`__ — Supported values for the special use of a folder.
-- :small:`type` `QueryRange <../folders.html#folders-query-range>`__ — An object defining a range for an integer value to be used in queries.
-- :small:`property` `DEFAULT_MOST_RECENT_LIMIT <../folders.html#folders-d-e-f-a-u-l-t-m-o-s-t-r-e-c-e-n-t-l-i-m-i-t>`__ — The number of most recent folders used in Thunderbird's UI. Controlled by the :value:`mail.folder_widget.max_recent` preference.
+- :small:`function` :ref:`get <folders.get>` — Returns the specified folder.
+- :small:`function` :ref:`getFolderCapabilities <folders.get^folder^capabilities>` — Get capability information about a folder.
+- :small:`function` :ref:`getTagFolder <folders.get^tag^folder>` — Get one of the special virtual tag folders, which are virtual search folders and group messages from all mail accounts based on their tags. Throws if the requested folder does not exist.
+- :small:`function` :ref:`getUnifiedFolder <folders.get^unified^folder>` — Get one of the special unified mailbox folders, which are virtual search folders and return the content from all mail accounts. Throws if the requested folder does not exist.
+- :small:`function` :ref:`markAsRead <folders.mark^as^read>` — Marks all messages in a folder as read.
+- :small:`function` :ref:`query <folders.query>` — Gets folders that match the specified properties, or all folders if no properties are specified.
+- :small:`function` :ref:`update <folders.update>` — Updates properties of a folder.
+- :small:`event` :ref:`onUpdated <folders.on^updated>` — Fired when properties of a folder have changed (:value:`specialUse` and :value:`isFavorite`).
+- :small:`type` :ref:`MailFolder.id <folders.^mail^folder.id>` — An identifier for the folder.
+- :small:`type` :ref:`MailFolder.isFavorite <folders.^mail^folder.is^favorite>` — Whether this folder is a favorite folder.
+- :small:`type` :ref:`MailFolder.isRoot <folders.^mail^folder.is^root>` — Whether this folder is a root folder.
+- :small:`type` :ref:`MailFolder.isTag <folders.^mail^folder.is^tag>` — Whether this folder is a virtual tag folder.
+- :small:`type` :ref:`MailFolder.isUnified <folders.^mail^folder.is^unified>` — Whether this folder is a unified mailbox folder.
+- :small:`type` :ref:`MailFolder.isVirtual <folders.^mail^folder.is^virtual>` — Whether this folder is a virtual search folder.
+- :small:`type` :ref:`MailFolder.specialUse <folders.^mail^folder.special^use>` — The special use of this folder. A folder can have multiple special uses.
+- :small:`type` :ref:`MailFolderCapabilities <folders.^mail^folder^capabilities>` — An object containing capability information about a folder.
+- :small:`type` :ref:`MailFolderId <folders.^mail^folder^id>` — A unique id representing a :ref:`folders.MailFolder <folders.^mail^folder>` throughout a session. Renaming or moving a folder will invalidate its id.
+- :small:`type` :ref:`MailFolderInfo.lastUsed <folders.^mail^folder^info.last^used>` — Date the folder was last used. It is updated every time the folder was accessed, when the user moved or copied messages into the folder and when the folder received new messages. (precision: seconds).
+- :small:`type` :ref:`MailFolderInfo.newMessageCount <folders.^mail^folder^info.new^message^count>` — Number of new messages in this folder.
+- :small:`type` :ref:`MailFolderInfo.quota <folders.^mail^folder^info.quota>` — Quota information, if available.
+- :small:`type` :ref:`MailFolderQuota <folders.^mail^folder^quota>` — An object containing quota information.
+- :small:`type` :ref:`MailFolderSpecialUse <folders.^mail^folder^special^use>` — Supported values for the special use of a folder.
+- :small:`type` :ref:`QueryRange <folders.^query^range>` — An object defining a range for an integer value to be used in queries.
+- :small:`property` :ref:`DEFAULT_MOST_RECENT_LIMIT <folders.^d^e^f^a^u^l^t_^m^o^s^t_^r^e^c^e^n^t_^l^i^m^i^t>` — The number of most recent folders used in Thunderbird's UI. Controlled by the :value:`mail.folder_widget.max_recent` preference.
 
+
+identities
+----------
 
 .. raw:: html
 
@@ -142,8 +178,11 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../identities.html">identities</a>
    </div>
 
-- :small:`type` `MailIdentity.encryptionCapabilities <../identities.html#identities-mail-identity-encryption-capabilities>`__ — The encryption capabilities of this identity. Read only.
+- :small:`type` :ref:`MailIdentity.encryptionCapabilities <identities.^mail^identity.encryption^capabilities>` — The encryption capabilities of this identity. Read only.
 
+
+mailTabs
+--------
 
 .. raw:: html
 
@@ -152,14 +191,17 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../mailTabs.html">mailTabs</a>
    </div>
 
-- :small:`function` `create <../mailTabs.html#mail-tabs-create>`__ — Creates a new mail tab. Standard tab properties can be adjusted via `tabs.update <../tabs.html#tabs-update>`__ after the mail tab has been created. A new mail window can be created via `windows.create <../windows.html#windows-create>`__.
-- :small:`function` `getListedMessages <../mailTabs.html#mail-tabs-get-listed-messages>`__ — Lists the messages in the current view, honoring sort order and filters.
-- :small:`function` `getSelectedFolders <../mailTabs.html#mail-tabs-get-selected-folders>`__ — Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the `menus.onClicked <../menus.html#menus-on-clicked>`__ event of the menus API.
-- :small:`type` `FolderMode <../mailTabs.html#mail-tabs-folder-mode>`__ — A supported folder mode in the folder pane.
-- :small:`type` `MailTab.folderMode <../mailTabs.html#mail-tabs-mail-tab-folder-mode>`__ — The folder mode of the currently displayed folder.
-- :small:`type` `MailTab.folderModesEnabled <../mailTabs.html#mail-tabs-mail-tab-folder-modes-enabled>`__ — The enabled folder modes in the folder pane, and their sort order.
-- :small:`type` `MailTab.groupType <../mailTabs.html#mail-tabs-mail-tab-group-type>`__ — Grouping type of the message list.
+- :small:`function` :ref:`create <mail^tabs.create>` — Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update <tabs.update>` after the mail tab has been created. A new mail window can be created via :ref:`windows.create <windows.create>`.
+- :small:`function` :ref:`getListedMessages <mail^tabs.get^listed^messages>` — Lists the messages in the current view, honoring sort order and filters.
+- :small:`function` :ref:`getSelectedFolders <mail^tabs.get^selected^folders>` — Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the :ref:`menus.onClicked <menus.on^clicked>` event of the menus API.
+- :small:`type` :ref:`FolderMode <mail^tabs.^folder^mode>` — A supported folder mode in the folder pane.
+- :small:`type` :ref:`MailTab.folderMode <mail^tabs.^mail^tab.folder^mode>` — The folder mode of the currently displayed folder.
+- :small:`type` :ref:`MailTab.folderModesEnabled <mail^tabs.^mail^tab.folder^modes^enabled>` — The enabled folder modes in the folder pane, and their sort order.
+- :small:`type` :ref:`MailTab.groupType <mail^tabs.^mail^tab.group^type>` — Grouping type of the message list.
 
+
+menus
+-----
 
 .. raw:: html
 
@@ -168,10 +210,13 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../menus.html">menus</a>
    </div>
 
-- :small:`type` `MenuIconDictionary <../menus.html#menus-menu-icon-dictionary>`__ — A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a `menus.MenuIconPath <../menus.html#menus-menu-icon-path>`__.
-- :small:`type` `OnClickData.selectedFolders <../menus.html#menus-on-click-data-selected-folders>`__ — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
-- :small:`type` `OnShowData.selectedFolders <../menus.html#menus-on-show-data-selected-folders>`__ — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+- :small:`type` :ref:`MenuIconDictionary <menus.^menu^icon^dictionary>` — A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath <menus.^menu^icon^path>`.
+- :small:`type` :ref:`OnClickData.selectedFolders <menus.^on^click^data.selected^folders>` — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+- :small:`type` :ref:`OnShowData.selectedFolders <menus.^on^show^data.selected^folders>` — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
+
+messageDisplayAction
+--------------------
 
 .. raw:: html
 
@@ -180,9 +225,12 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../messageDisplayAction.html">messageDisplayAction</a>
    </div>
 
-- :small:`function` `getBadgeTextColor <../messageDisplayAction.html#message-display-action-get-badge-text-color>`__ — Gets the text color of the badge.
-- :small:`function` `setBadgeTextColor <../messageDisplayAction.html#message-display-action-set-badge-text-color>`__ — Sets the text color for the badge.
+- :small:`function` :ref:`getBadgeTextColor <message^display^action.get^badge^text^color>` — Gets the text color of the badge.
+- :small:`function` :ref:`setBadgeTextColor <message^display^action.set^badge^text^color>` — Sets the text color for the badge.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -191,27 +239,30 @@ The mailingLists API allows to access and manage the user's mailing lists.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `abortList <../messages.html#messages-abort-list>`__ — Finalizes the specified list and terminates any process currently still adding messages.
-- :small:`function` `deleteAttachments <../messages.html#messages-delete-attachments>`__ — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
-- :small:`function` `getFull.options.decrypt <../messages.html#messages-get-full-options-decrypt>`__ — Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to :value:`true`.
-- :small:`function` `getRaw.options.decrypt <../messages.html#messages-get-raw-options-decrypt>`__ — Whether the message should be decrypted. Throws, if the message could not be decrypted.
-- :small:`function` `listInlineTextParts <../messages.html#messages-list-inline-text-parts>`__ — Lists all inline text parts of a message. These parts are not returned by `messages.listAttachments <../messages.html#messages-list-attachments>`__ and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method `messengerUtilities.convertToPlainText <../messengerUtilities.html#messenger-utilities-convert-to-plain-text>`__ can be used to retreive a plain text version.
-- :small:`function` `query.queryInfo.accountId <../messages.html#messages-query-query-info-account-id>`__ — Limits the search to the specified account(s). Accounts are searched in the specified order.
-- :small:`function` `query.queryInfo.autoPaginationTimeout <../messages.html#messages-query-query-info-auto-pagination-timeout>`__ — Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
-- :small:`function` `query.queryInfo.folderId <../messages.html#messages-query-query-info-folder-id>`__ — Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
-- :small:`function` `query.queryInfo.junk <../messages.html#messages-query-query-info-junk>`__ — Returns only messages whith the specified junk state.
-- :small:`function` `query.queryInfo.junkScore <../messages.html#messages-query-query-info-junk-score>`__ — Returns only messages with a junk score in the specified range.
-- :small:`function` `query.queryInfo.messagesPerPage <../messages.html#messages-query-query-info-messages-per-page>`__ — Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
-- :small:`function` `query.queryInfo.new <../messages.html#messages-query-query-info-new>`__ — Returns only messages with the specified new state.
-- :small:`function` `query.queryInfo.read <../messages.html#messages-query-query-info-read>`__ — Returns only messages with the specified read state.
-- :small:`function` `query.queryInfo.returnMessageListId <../messages.html#messages-query-query-info-return-message-list-id>`__ — The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.
-- :small:`function` `query.queryInfo.size <../messages.html#messages-query-query-info-size>`__ — Returns only messages with a size in the specified byte range.
-- :small:`type` `InlineTextPart <../messages.html#messages-inline-text-part>`__ — An inline part with content type :value:`text/*`. These parts are not returned by `messages.listAttachments <../messages.html#messages-list-attachments>`__ and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`
-- :small:`type` `MessageAttachment.contentId <../messages.html#messages-message-attachment-content-id>`__ — The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).
-- :small:`type` `MessageId <../messages.html#messages-message-id>`__ — A unique id representing a `messages.MessageHeader <../messages.html#messages-message-header>`__ and the associated message. This id doesn’t refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.
-- :small:`type` `MessagePart.decryptionStatus <../messages.html#messages-message-part-decryption-status>`__ — The decryption status, only available for the root part.
-- :small:`type` `QueryRange <../messages.html#messages-query-range>`__ — An object defining a range.
+- :small:`function` :ref:`abortList <messages.abort^list>` — Finalizes the specified list and terminates any process currently still adding messages.
+- :small:`function` :ref:`deleteAttachments <messages.delete^attachments>` — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
+- :small:`function` :ref:`getFull.options.decrypt <messages.get^full.options.decrypt>` — Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to :value:`true`.
+- :small:`function` :ref:`getRaw.options.decrypt <messages.get^raw.options.decrypt>` — Whether the message should be decrypted. Throws, if the message could not be decrypted.
+- :small:`function` :ref:`listInlineTextParts <messages.list^inline^text^parts>` — Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments <messages.list^attachments>` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText <messenger^utilities.convert^to^plain^text>` can be used to retreive a plain text version.
+- :small:`function` :ref:`query.queryInfo.accountId <messages.query.query^info.account^id>` — Limits the search to the specified account(s). Accounts are searched in the specified order.
+- :small:`function` :ref:`query.queryInfo.autoPaginationTimeout <messages.query.query^info.auto^pagination^timeout>` — Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
+- :small:`function` :ref:`query.queryInfo.folderId <messages.query.query^info.folder^id>` — Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
+- :small:`function` :ref:`query.queryInfo.junk <messages.query.query^info.junk>` — Returns only messages whith the specified junk state.
+- :small:`function` :ref:`query.queryInfo.junkScore <messages.query.query^info.junk^score>` — Returns only messages with a junk score in the specified range.
+- :small:`function` :ref:`query.queryInfo.messagesPerPage <messages.query.query^info.messages^per^page>` — Set the nominal number of messages-per-page for this query. Defaults to :value:`100` messages.
+- :small:`function` :ref:`query.queryInfo.new <messages.query.query^info.new>` — Returns only messages with the specified new state.
+- :small:`function` :ref:`query.queryInfo.read <messages.query.query^info.read>` — Returns only messages with the specified read state.
+- :small:`function` :ref:`query.queryInfo.returnMessageListId <messages.query.query^info.return^message^list^id>` — The *messageListId* is usually returned together with the first page, after some messages have been found. Enabling this option will change the return value of this function and return the *messageListId* directly.
+- :small:`function` :ref:`query.queryInfo.size <messages.query.query^info.size>` — Returns only messages with a size in the specified byte range.
+- :small:`type` :ref:`InlineTextPart <messages.^inline^text^part>` — An inline part with content type :value:`text/*`. These parts are not returned by :ref:`messages.listAttachments <messages.list^attachments>` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`
+- :small:`type` :ref:`MessageAttachment.contentId <messages.^message^attachment.content^id>` — The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).
+- :small:`type` :ref:`MessageId <messages.^message^id>` — A unique id representing a :ref:`messages.MessageHeader <messages.^message^header>` and the associated message. This id doesn’t refer to the Message-ID email header. It is an internal tracking number that does not remain after a restart. Nor does it follow an email that has been moved to a different folder.
+- :small:`type` :ref:`MessagePart.decryptionStatus <messages.^message^part.decryption^status>` — The decryption status, only available for the root part.
+- :small:`type` :ref:`QueryRange <messages.^query^range>` — An object defining a range.
 
+
+messages.tags
+-------------
 
 .. raw:: html
 
@@ -223,6 +274,9 @@ The mailingLists API allows to access and manage the user's mailing lists.
 The messages.tags API allows to manage the user's message tags.
 
 
+runtime
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -230,11 +284,14 @@ The messages.tags API allows to manage the user's message tags.
      <a href="../runtime.html">runtime</a>
    </div>
 
-- :small:`function` `getContexts <../runtime.html#runtime-get-contexts>`__ — Fetches information about active contexts associated with this extension
-- :small:`event` `onPerformanceWarning <../runtime.html#runtime-on-performance-warning>`__ — Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.
-- :small:`type` `OnPerformanceWarningCategory <../runtime.html#runtime-on-performance-warning-category>`__ — The performance warning event category, e.g. 'content_script'.
-- :small:`type` `OnPerformanceWarningSeverity <../runtime.html#runtime-on-performance-warning-severity>`__ — The performance warning event severity. Will be 'high' for serious and user-visible issues.
+- :small:`function` :ref:`getContexts <runtime.get^contexts>` — Fetches information about active contexts associated with this extension
+- :small:`event` :ref:`onPerformanceWarning <runtime.on^performance^warning>` — Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.
+- :small:`type` :ref:`OnPerformanceWarningCategory <runtime.^on^performance^warning^category>` — The performance warning event category, e.g. 'content_script'.
+- :small:`type` :ref:`OnPerformanceWarningSeverity <runtime.^on^performance^warning^severity>` — The performance warning event severity. Will be 'high' for serious and user-visible issues.
 
+
+scripting
+---------
 
 .. raw:: html
 
@@ -243,9 +300,12 @@ The messages.tags API allows to manage the user's message tags.
      <a href="../scripting.html">scripting</a>
    </div>
 
-- :small:`type` `RegisteredContentScript.matchOriginAsFallback <../scripting.html#scripting-registered-content-script-match-origin-as-fallback>`__ — If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
-- :small:`type` `RegisteredContentScript.world <../scripting.html#scripting-registered-content-script-world>`__ — The JavaScript world for a script to execute within. Defaults to "ISOLATED".
+- :small:`type` :ref:`RegisteredContentScript.matchOriginAsFallback <scripting.^registered^content^script.match^origin^as^fallback>` — If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
+- :small:`type` :ref:`RegisteredContentScript.world <scripting.^registered^content^script.world>` — The JavaScript world for a script to execute within. Defaults to "ISOLATED".
 
+
+spaces
+------
 
 .. raw:: html
 
@@ -254,8 +314,11 @@ The messages.tags API allows to manage the user's message tags.
      <a href="../spaces.html">spaces</a>
    </div>
 
-- :small:`function` `query.queryInfo.spaceId <../spaces.html#spaces-query-query-info-space-id>`__ — The id of the space.
+- :small:`function` :ref:`query.queryInfo.spaceId <spaces.query.query^info.space^id>` — The id of the space.
 
+
+tabs
+----
 
 .. raw:: html
 
@@ -264,4 +327,4 @@ The messages.tags API allows to manage the user's message tags.
      <a href="../tabs.html">tabs</a>
    </div>
 
-- :small:`type` `TabType <../tabs.html#tabs-tab-type>`__ — Tab types supported by the tabs API.
+- :small:`type` :ref:`TabType <tabs.^tab^type>` — Tab types supported by the tabs API.
