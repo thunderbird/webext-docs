@@ -28,6 +28,7 @@ The following WebExtension API changes were introduced in Thunderbird 98.
 
 - :small:`event` `onFileUpload.relatedFileInfo <../cloudFile.html#cloud-file-on-file-upload-related-file-info>`__ — Information about an already uploaded file, which is related to this upload.
 - :small:`type` `RelatedCloudFile <../cloudFile.html#cloud-file-related-cloud-file>`__ — Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
+- :small:`property` `cloud_file.reuse_uploads <../cloudFile.html#cloud-file-cloud-file-reuse-uploads>`__ — If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered `cloudFile.onFileUpload <../cloudFile.html#cloud-file-on-file-upload>`__ listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the `cloudFile.onFileUpload <../cloudFile.html#cloud-file-on-file-upload>`__ event, to let the provider decide how to handle these cases.
 
 
 .. raw:: html
