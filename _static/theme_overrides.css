@@ -168,12 +168,16 @@ div.container > ul {
 .setting-prop-header a:hover {
   text-decoration: underline;
 }
+/* Hide RST heading used only for TOC entries */
+section:has(> .changelog-api-header) > h2 {
+  display: none;
+}
 /* Changelog API headers */
 .changelog-api-header {
   border-top: 3px solid #6ab0de;
   background: #e7f2fa;
-  margin-bottom: 1ex;
-  margin-top: 1.5em;
+  margin-bottom: 0.5ex;
+  margin-top: 0.8em;
   display: inline-flex;
   align-items: center;
 }
