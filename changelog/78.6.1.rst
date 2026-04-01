@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 78.6.1
 The following WebExtension API changes were introduced in Thunderbird 78.6.1.
 
 
+browserAction
+-------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,10 +23,13 @@ The following WebExtension API changes were introduced in Thunderbird 78.6.1.
      <a href="../browserAction.html">browserAction</a>
    </div>
 
-- :small:`function` `getLabel <../browserAction.html#browser-action-get-label>`__ — Gets the label of the action button. Returns :value:`null`, if no label has been set and the title is used.
-- :small:`function` `setLabel <../browserAction.html#browser-action-set-label>`__ — Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
-- :small:`property` `browser_action.default_label <../browserAction.html#browser-action-browser-action-default-label>`__ — The label of the browserAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+- :small:`function` :ref:`getLabel <browser^action.get^label>` — Gets the label of the action button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` :ref:`setLabel <browser^action.set^label>` — Sets the label of the action button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+- :small:`property` :ref:`browser_action.default_label <browser^action.browser_action.default_label>` — The label of the browserAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
+
+composeAction
+-------------
 
 .. raw:: html
 
@@ -26,10 +38,13 @@ The following WebExtension API changes were introduced in Thunderbird 78.6.1.
      <a href="../composeAction.html">composeAction</a>
    </div>
 
-- :small:`function` `getLabel <../composeAction.html#compose-action-get-label>`__ — Gets the label of the composeAction button. Returns :value:`null`, if no label has been set and the title is used.
-- :small:`function` `setLabel <../composeAction.html#compose-action-set-label>`__ — Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
-- :small:`property` `compose_action.default_label <../composeAction.html#compose-action-compose-action-default-label>`__ — The label of the composeAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+- :small:`function` :ref:`getLabel <compose^action.get^label>` — Gets the label of the composeAction button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` :ref:`setLabel <compose^action.set^label>` — Sets the label of the composeAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+- :small:`property` :ref:`compose_action.default_label <compose^action.compose_action.default_label>` — The label of the composeAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
 
+
+messageDisplayAction
+--------------------
 
 .. raw:: html
 
@@ -38,6 +53,6 @@ The following WebExtension API changes were introduced in Thunderbird 78.6.1.
      <a href="../messageDisplayAction.html">messageDisplayAction</a>
    </div>
 
-- :small:`function` `getLabel <../messageDisplayAction.html#message-display-action-get-label>`__ — Gets the label of the messageDisplayAction button. Returns :value:`null`, if no label has been set and the title is used.
-- :small:`function` `setLabel <../messageDisplayAction.html#message-display-action-set-label>`__ — Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
-- :small:`property` `message_display_action.default_label <../messageDisplayAction.html#message-display-action-message-display-action-default-label>`__ — The label of the messageDisplayAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+- :small:`function` :ref:`getLabel <message^display^action.get^label>` — Gets the label of the messageDisplayAction button. Returns :value:`null`, if no label has been set and the title is used.
+- :small:`function` :ref:`setLabel <message^display^action.set^label>` — Sets the label of the messageDisplayAction button. Can be used to set different values for the tooltip (defined by the title) and the label. Additionally, the label can be set to an empty string, not showing any label at all.
+- :small:`property` :ref:`message_display_action.default_label <message^display^action.message_display_action.default_label>` — The label of the messageDisplayAction button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 78.3.2
 The following WebExtension API changes were introduced in Thunderbird 78.3.2.
 
 
+compose
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 78.3.2.
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`type` `ComposeDetails.attachments <../compose.html#compose-compose-details-attachments>`__ — Only used in the begin* functions. Attachments to add to the message.
+- :small:`type` :ref:`ComposeDetails.attachments <compose.^compose^details.attachments>` — Only used in the begin* functions. Attachments to add to the message.
 
+
+messageDisplay
+--------------
 
 .. raw:: html
 
@@ -24,5 +36,5 @@ The following WebExtension API changes were introduced in Thunderbird 78.3.2.
      <a href="../messageDisplay.html">messageDisplay</a>
    </div>
 
-- :small:`function` `getDisplayedMessages <../messageDisplay.html#message-display-get-displayed-messages>`__ — Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.
-- :small:`event` `onMessagesDisplayed <../messageDisplay.html#message-display-on-messages-displayed>`__ — Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.
+- :small:`function` :ref:`getDisplayedMessages <message^display.get^displayed^messages>` — Gets an array of the currently displayed messages in the specified tab (even if the tab itself is currently not visible), or the currently active tab. The array is empty if no messages are displayed.
+- :small:`event` :ref:`onMessagesDisplayed <message^display.on^messages^displayed>` — Fired when either a single message is displayed or when multiple messages are displayed, whether in a 3-pane tab, a message tab, or a message window.

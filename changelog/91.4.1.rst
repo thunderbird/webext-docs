@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 91.4.1
 The following WebExtension API changes were introduced in Thunderbird 91.4.1.
 
 
+cloudFile
+---------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 91.4.1.
      <a href="../cloudFile.html">cloudFile</a>
    </div>
 
-- :small:`type` `CloudFileTemplateInfo <../cloudFile.html#cloud-file-cloud-file-template-info>`__ — Defines information to be used in the cloud file entry added to the message.
+- :small:`type` :ref:`CloudFileTemplateInfo <cloud^file.^cloud^file^template^info>` — Defines information to be used in the cloud file entry added to the message.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -24,4 +36,4 @@ The following WebExtension API changes were introduced in Thunderbird 91.4.1.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `query.queryInfo.attachment <../messages.html#messages-query-query-info-attachment>`__ — Whether the message has attachments, or not. Supports to specify a `messages.QueryRange <../messages.html#messages-query-range>`__ (min/max) instead of a simple boolean value (none/some).
+- :small:`function` :ref:`query.queryInfo.attachment <messages.query.query^info.attachment>` — Whether the message has attachments, or not. Supports to specify a :ref:`messages.QueryRange <messages.^query^range>` (min/max) instead of a simple boolean value (none/some).

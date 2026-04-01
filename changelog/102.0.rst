@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ===============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 102.0
 The following WebExtension API changes were introduced in Thunderbird 102.0.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,10 +23,13 @@ The following WebExtension API changes were introduced in Thunderbird 102.0.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`event` `onCreated <../accounts.html#accounts-on-created>`__ — Fired when a new account has been created.
-- :small:`event` `onDeleted <../accounts.html#accounts-on-deleted>`__ — Fired when an account has been removed.
-- :small:`event` `onUpdated <../accounts.html#accounts-on-updated>`__ — Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed :value:`defaultIdentity` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
+- :small:`event` :ref:`onCreated <accounts.on^created>` — Fired when a new account has been created.
+- :small:`event` :ref:`onDeleted <accounts.on^deleted>` — Fired when an account has been removed.
+- :small:`event` :ref:`onUpdated <accounts.on^updated>` — Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed :value:`defaultIdentity` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
 
+
+browserSettings.overrideContentColorScheme
+------------------------------------------
 
 .. raw:: html
 
@@ -29,6 +41,9 @@ The following WebExtension API changes were introduced in Thunderbird 102.0.
 This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
 
 
+cloudFile
+---------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -36,14 +51,17 @@ This setting controls whether a light or dark color scheme overrides the page's 
      <a href="../cloudFile.html">cloudFile</a>
    </div>
 
-- :small:`event` `onFileRename <../cloudFile.html#cloud-file-on-file-rename>`__ — Fired when a previously uploaded file should be renamed.
-- :small:`event` `onFileUpload.relatedFileInfo <../cloudFile.html#cloud-file-on-file-upload-related-file-info>`__ — Information about an already uploaded file, which is related to this upload.
-- :small:`type` `CloudFileTemplateInfo.download_expiry_date <../cloudFile.html#cloud-file-cloud-file-template-info-download-expiry-date>`__ — If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
-- :small:`type` `CloudFileTemplateInfo.download_limit <../cloudFile.html#cloud-file-cloud-file-template-info-download-limit>`__ — If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
-- :small:`type` `CloudFileTemplateInfo.download_password_protected <../cloudFile.html#cloud-file-cloud-file-template-info-download-password-protected>`__ — If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
-- :small:`type` `RelatedCloudFile <../cloudFile.html#cloud-file-related-cloud-file>`__ — Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
-- :small:`property` `cloud_file.reuse_uploads <../cloudFile.html#cloud-file-cloud-file-reuse-uploads>`__ — If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered `cloudFile.onFileUpload <../cloudFile.html#cloud-file-on-file-upload>`__ listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the `cloudFile.onFileUpload <../cloudFile.html#cloud-file-on-file-upload>`__ event, to let the provider decide how to handle these cases.
+- :small:`event` :ref:`onFileRename <cloud^file.on^file^rename>` — Fired when a previously uploaded file should be renamed.
+- :small:`event` :ref:`onFileUpload.relatedFileInfo <cloud^file.on^file^upload.related^file^info>` — Information about an already uploaded file, which is related to this upload.
+- :small:`type` :ref:`CloudFileTemplateInfo.download_expiry_date <cloud^file.^cloud^file^template^info.download_expiry_date>` — If set, the cloud file entry for this upload will include a hint, that the link will only be available for a limited time.
+- :small:`type` :ref:`CloudFileTemplateInfo.download_limit <cloud^file.^cloud^file^template^info.download_limit>` — If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
+- :small:`type` :ref:`CloudFileTemplateInfo.download_password_protected <cloud^file.^cloud^file^template^info.download_password_protected>` — If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
+- :small:`type` :ref:`RelatedCloudFile <cloud^file.^related^cloud^file>` — Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
+- :small:`property` :ref:`cloud_file.reuse_uploads <cloud^file.cloud_file.reuse_uploads>` — If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloudFile.onFileUpload <cloud^file.on^file^upload>` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloudFile.onFileUpload <cloud^file.on^file^upload>` event, to let the provider decide how to handle these cases.
 
+
+commands
+--------
 
 .. raw:: html
 
@@ -55,6 +73,9 @@ This setting controls whether a light or dark color scheme overrides the page's 
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
 
 
+commands
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -62,8 +83,11 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
      <a href="../commands.html">commands</a>
    </div>
 
-- :small:`property` `commands <../commands.html#commands-commands>`__ — A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a `CommandsShortcut <../.html#commands-shortcut>`__.
+- :small:`property` :ref:`commands <commands.commands>` — A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`CommandsShortcut <^commands^shortcut>`.
 
+
+compose
+-------
 
 .. raw:: html
 
@@ -72,24 +96,27 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`function` `getActiveDictionaries <../compose.html#compose-get-active-dictionaries>`__ — Returns a `compose.ComposeDictionaries <../compose.html#compose-compose-dictionaries>`__ object, listing all installed dictionaries, including the information whether they are currently enabled or not.
-- :small:`function` `getAttachmentFile <../compose.html#compose-get-attachment-file>`__ — Gets the content of a `compose.ComposeAttachment <../compose.html#compose-compose-attachment>`__ as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
-- :small:`function` `saveMessage <../compose.html#compose-save-message>`__ — Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
-- :small:`function` `setActiveDictionaries <../compose.html#compose-set-active-dictionaries>`__ — Updates the active dictionaries. Throws if the :value:`activeDictionaries` array contains unknown or invalid language identifiers.
-- :small:`event` `onActiveDictionariesChanged <../compose.html#compose-on-active-dictionaries-changed>`__ — Fired when one or more dictionaries have been activated or deactivated.
-- :small:`type` `ComposeDetails.additionalFccFolder <../compose.html#compose-compose-details-additional-fcc-folder>`__ — An additional fcc folder which can be selected while composing the message, an empty string if not used. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.attachVCard <../compose.html#compose-compose-details-attach-v-card>`__ — Whether or not the vCard of the used identity will be attached to the message during send.
-- :small:`type` `ComposeDetails.customHeaders <../compose.html#compose-compose-details-custom-headers>`__ — Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
-- :small:`type` `ComposeDetails.deliveryFormat <../compose.html#compose-compose-details-delivery-format>`__ — Defines the MIME format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
-- :small:`type` `ComposeDetails.deliveryStatusNotification <../compose.html#compose-compose-details-delivery-status-notification>`__ — Let the sender know when the recipient's server received the message. Not supported by all servers.
-- :small:`type` `ComposeDetails.overrideDefaultFcc <../compose.html#compose-compose-details-override-default-fcc>`__ — Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if :value:`overrideDefaultFccFolder` is not set as well. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.overrideDefaultFccFolder <../compose.html#compose-compose-details-override-default-fcc-folder>`__ — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a `folders.MailFolder <../folders.html#folders-mail-folder>`__ specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.priority <../compose.html#compose-compose-details-priority>`__ — The priority of the message.
-- :small:`type` `ComposeDetails.returnReceipt <../compose.html#compose-compose-details-return-receipt>`__ — Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
-- :small:`type` `ComposeDictionaries <../compose.html#compose-compose-dictionaries>`__ — A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
-- :small:`type` `CustomHeader <../compose.html#compose-custom-header>`__ — A custom header definition.
-- :small:`type` `FileAttachment <../compose.html#compose-file-attachment>`__ — Object used to add, update or rename an attachment in a message being composed.
+- :small:`function` :ref:`getActiveDictionaries <compose.get^active^dictionaries>` — Returns a :ref:`compose.ComposeDictionaries <compose.^compose^dictionaries>` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+- :small:`function` :ref:`getAttachmentFile <compose.get^attachment^file>` — Gets the content of a :ref:`compose.ComposeAttachment <compose.^compose^attachment>` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+- :small:`function` :ref:`saveMessage <compose.save^message>` — Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
+- :small:`function` :ref:`setActiveDictionaries <compose.set^active^dictionaries>` — Updates the active dictionaries. Throws if the :value:`activeDictionaries` array contains unknown or invalid language identifiers.
+- :small:`event` :ref:`onActiveDictionariesChanged <compose.on^active^dictionaries^changed>` — Fired when one or more dictionaries have been activated or deactivated.
+- :small:`type` :ref:`ComposeDetails.additionalFccFolder <compose.^compose^details.additional^fcc^folder>` — An additional fcc folder which can be selected while composing the message, an empty string if not used. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.attachVCard <compose.^compose^details.attach^v^card>` — Whether or not the vCard of the used identity will be attached to the message during send.
+- :small:`type` :ref:`ComposeDetails.customHeaders <compose.^compose^details.custom^headers>` — Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
+- :small:`type` :ref:`ComposeDetails.deliveryFormat <compose.^compose^details.delivery^format>` — Defines the MIME format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
+- :small:`type` :ref:`ComposeDetails.deliveryStatusNotification <compose.^compose^details.delivery^status^notification>` — Let the sender know when the recipient's server received the message. Not supported by all servers.
+- :small:`type` :ref:`ComposeDetails.overrideDefaultFcc <compose.^compose^details.override^default^fcc>` — Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if :value:`overrideDefaultFccFolder` is not set as well. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.overrideDefaultFccFolder <compose.^compose^details.override^default^fcc^folder>` — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder <folders.^mail^folder>` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.priority <compose.^compose^details.priority>` — The priority of the message.
+- :small:`type` :ref:`ComposeDetails.returnReceipt <compose.^compose^details.return^receipt>` — Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
+- :small:`type` :ref:`ComposeDictionaries <compose.^compose^dictionaries>` — A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
+- :small:`type` :ref:`CustomHeader <compose.^custom^header>` — A custom header definition.
+- :small:`type` :ref:`FileAttachment <compose.^file^attachment>` — Object used to add, update or rename an attachment in a message being composed.
 
+
+cookies
+-------
 
 .. raw:: html
 
@@ -98,8 +125,11 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
      <a href="../cookies.html">cookies</a>
    </div>
 
-- :small:`type` `Cookie.partitionKey <../cookies.html#cookies-cookie-partition-key>`__ — The cookie's storage partition, if any. null if not partitioned.
+- :small:`type` :ref:`Cookie.partitionKey <cookies.^cookie.partition^key>` — The cookie's storage partition, if any. null if not partitioned.
 
+
+downloads
+---------
 
 .. raw:: html
 
@@ -108,9 +138,12 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
      <a href="../downloads.html">downloads</a>
    </div>
 
-- :small:`type` `DownloadItem.cookieStoreId <../downloads.html#downloads-download-item-cookie-store-id>`__ — The cookie store ID of the contextual identity.
-- :small:`type` `DownloadQuery.cookieStoreId <../downloads.html#downloads-download-query-cookie-store-id>`__ — The cookie store ID of the contextual identity.
+- :small:`type` :ref:`DownloadItem.cookieStoreId <downloads.^download^item.cookie^store^id>` — The cookie store ID of the contextual identity.
+- :small:`type` :ref:`DownloadQuery.cookieStoreId <downloads.^download^query.cookie^store^id>` — The cookie store ID of the contextual identity.
 
+
+messageDisplay
+--------------
 
 .. raw:: html
 
@@ -119,8 +152,11 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
      <a href="../messageDisplay.html">messageDisplay</a>
    </div>
 
-- :small:`function` `open <../messageDisplay.html#message-display-open>`__ — Opens a message in a new tab or in a new window.
+- :small:`function` :ref:`open <message^display.open>` — Opens a message in a new tab or in a new window.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -129,12 +165,15 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `createTag <../messages.html#messages-create-tag>`__ — Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
-- :small:`function` `deleteTag <../messages.html#messages-delete-tag>`__ — Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
-- :small:`function` `updateTag <../messages.html#messages-update-tag>`__ — Updates a message tag. Throws if the specified tag key does not exist.
-- :small:`type` `MessageAttachment <../messages.html#messages-message-attachment>`__ — Represents an attachment in a message.
-- :small:`type` `MessageHeader.headersOnly <../messages.html#messages-message-header-headers-only>`__ — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
+- :small:`function` :ref:`createTag <messages.create^tag>` — Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
+- :small:`function` :ref:`deleteTag <messages.delete^tag>` — Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
+- :small:`function` :ref:`updateTag <messages.update^tag>` — Updates a message tag. Throws if the specified tag key does not exist.
+- :small:`type` :ref:`MessageAttachment <messages.^message^attachment>` — Represents an attachment in a message.
+- :small:`type` :ref:`MessageHeader.headersOnly <messages.^message^header.headers^only>` — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
 
+
+privacy.network.globalPrivacyControl
+------------------------------------
 
 .. raw:: html
 
@@ -146,6 +185,9 @@ Use the commands API to add keyboard shortcuts that trigger actions in your exte
 Allow users to query the status of 'Global Privacy Control'. This setting's value is of type boolean, defaulting to :code:`false`.
 
 
+runtime
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -153,10 +195,13 @@ Allow users to query the status of 'Global Privacy Control'. This setting's valu
      <a href="../runtime.html">runtime</a>
    </div>
 
-- :small:`function` `getFrameId <../runtime.html#runtime-get-frame-id>`__ — Get the frameId of any window global or frame element.
-- :small:`event` `onSuspend <../runtime.html#runtime-on-suspend>`__ — Sent to the event page just before it is unloaded. This gives the extension opportunity to do some clean up. Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete. If more activity for the event page occurs before it gets unloaded the onSuspendCanceled event will be sent and the page won't be unloaded.
-- :small:`event` `onSuspendCanceled <../runtime.html#runtime-on-suspend-canceled>`__ — Sent after onSuspend to indicate that the app won't be unloaded after all.
+- :small:`function` :ref:`getFrameId <runtime.get^frame^id>` — Get the frameId of any window global or frame element.
+- :small:`event` :ref:`onSuspend <runtime.on^suspend>` — Sent to the event page just before it is unloaded. This gives the extension opportunity to do some clean up. Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete. If more activity for the event page occurs before it gets unloaded the onSuspendCanceled event will be sent and the page won't be unloaded.
+- :small:`event` :ref:`onSuspendCanceled <runtime.on^suspend^canceled>` — Sent after onSuspend to indicate that the app won't be unloaded after all.
 
+
+scripting
+---------
 
 .. raw:: html
 
@@ -168,6 +213,9 @@ Allow users to query the status of 'Global Privacy Control'. This setting's valu
 Use the scripting API to execute script in different contexts.
 
 
+spacesToolbar
+-------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -178,6 +226,9 @@ Use the scripting API to execute script in different contexts.
 The spacesToolbar API allows to manage built-in and custom spaces, and to add buttons for custom spaces to Thunderbird's spaces toolbar.
 
 
+storage
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -185,8 +236,11 @@ The spacesToolbar API allows to manage built-in and custom spaces, and to add bu
      <a href="../storage.html">storage</a>
    </div>
 
-- :small:`type` `StorageArea.onChanged <../storage.html#storage-storage-area-on-changed>`__ — Fired when one or more items change.
+- :small:`type` :ref:`StorageArea.onChanged <storage.^storage^area.on^changed>` — Fired when one or more items change.
 
+
+theme
+-----
 
 .. raw:: html
 
@@ -195,5 +249,5 @@ The spacesToolbar API allows to manage built-in and custom spaces, and to add bu
      <a href="../theme.html">theme</a>
    </div>
 
-- :small:`type` `ThemeType.properties.color_scheme <../theme.html#theme-theme-type-properties-color-scheme>`__ — If set, overrides the general theme (context menus, toolbars, content area).
-- :small:`type` `ThemeType.properties.content_color_scheme <../theme.html#theme-theme-type-properties-content-color-scheme>`__ — If set, overrides the color scheme for the content area.
+- :small:`type` :ref:`ThemeType.properties.color_scheme <theme.^theme^type.properties.color_scheme>` — If set, overrides the general theme (context menus, toolbars, content area).
+- :small:`type` :ref:`ThemeType.properties.content_color_scheme <theme.^theme^type.properties.content_color_scheme>` — If set, overrides the color scheme for the content area.

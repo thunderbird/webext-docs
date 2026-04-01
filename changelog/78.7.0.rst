@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ================================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 78.7.0
 The following WebExtension API changes were introduced in Thunderbird 78.7.0.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,5 +23,5 @@ The following WebExtension API changes were introduced in Thunderbird 78.7.0.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`function` `getDefault <../accounts.html#accounts-get-default>`__ — Returns the default account, or :value:`null` if it is not defined.
-- :small:`function` `getDefaultIdentity <../accounts.html#accounts-get-default-identity>`__ — Returns the default identity for an account, or :value:`null` if it is not defined.
+- :small:`function` :ref:`getDefault <accounts.get^default>` — Returns the default account, or :value:`null` if it is not defined.
+- :small:`function` :ref:`getDefaultIdentity <accounts.get^default^identity>` — Returns the default identity for an account, or :value:`null` if it is not defined.
