@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 123
 The following WebExtension API changes were introduced in Thunderbird 123.
 
 
+contextualIdentities
+--------------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 123.
      <a href="../contextualIdentities.html">contextualIdentities</a>
    </div>
 
-- :small:`function` `move <../contextualIdentities.html#contextual-identities-move>`__ — Reorder one or more contextual identities by their cookieStoreIDs to a given position.
+- :small:`function` :ref:`move <contextual^identities.move>` — Reorder one or more contextual identities by their cookieStoreIDs to a given position.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -24,4 +36,4 @@ The following WebExtension API changes were introduced in Thunderbird 123.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `deleteAttachments <../messages.html#messages-delete-attachments>`__ — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message. Deleting attachments of encrypted messages is not supported and will throw an *ExtensionError*.
+- :small:`function` :ref:`deleteAttachments <messages.delete^attachments>` — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message. Deleting attachments of encrypted messages is not supported and will throw an *ExtensionError*.

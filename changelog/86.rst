@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -6,6 +12,9 @@ Changelog for Thunderbird 86
 
 The following WebExtension API changes were introduced in Thunderbird 86.
 
+
+theme
+-----
 
 .. raw:: html
 
@@ -17,6 +26,9 @@ The following WebExtension API changes were introduced in Thunderbird 86.
 The theme API allows for customization of Thunderbird's visual elements.
 
 
+theme
+-----
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -24,4 +36,4 @@ The theme API allows for customization of Thunderbird's visual elements.
      <a href="../theme.html">theme</a>
    </div>
 
-- :small:`property` `theme_experiment <../theme.html#theme-theme-experiment>`__ — A theme experiment allows modifying the user interface of Thunderbird beyond what is currently possible using the built-in color, image and property keys of `theme.ThemeType <../theme.html#theme-theme-type>`__. These experiments are a precursor to proposing new theme features for inclusion in Thunderbird. Experimentation is done by mapping internal CSS color, image and property variables to new theme keys and using them in `theme.ThemeType <../theme.html#theme-theme-type>`__ and by loading additional style sheets to add new CSS variables, extending the theme-able areas of Thunderbird. Can be used in static and dynamic themes.
+- :small:`property` :ref:`theme_experiment <theme.theme_experiment>` — A theme experiment allows modifying the user interface of Thunderbird beyond what is currently possible using the built-in color, image and property keys of :ref:`theme.ThemeType <theme.^theme^type>`. These experiments are a precursor to proposing new theme features for inclusion in Thunderbird. Experimentation is done by mapping internal CSS color, image and property variables to new theme keys and using them in :ref:`theme.ThemeType <theme.^theme^type>` and by loading additional style sheets to add new CSS variables, extending the theme-able areas of Thunderbird. Can be used in static and dynamic themes.
