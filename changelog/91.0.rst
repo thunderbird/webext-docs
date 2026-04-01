@@ -48,6 +48,7 @@ The address book provider API allows to add address books, which are not stored 
    </div>
 
 - :small:`type` `ImageDataDictionary <../browserAction.html#browser-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` `browser_action.type <../browserAction.html#browser-action-browser-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
 
 
 .. raw:: html
@@ -80,6 +81,7 @@ Use the :code:`browserSettings.colorManagement` API to query and set items relat
 - :small:`event` `onFileDeleted.tab <../cloudFile.html#cloud-file-on-file-deleted-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
 - :small:`event` `onFileUpload.tab <../cloudFile.html#cloud-file-on-file-upload-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
 - :small:`event` `onFileUploadAbort.tab <../cloudFile.html#cloud-file-on-file-upload-abort-tab>`__ — The tab where the upload was initiated. Currently only available for the message composer.
+- :small:`property` `cloud_file.browser_style <../cloudFile.html#cloud-file-cloud-file-browser-style>`__ — Enable browser styles in the :value:`management_url` page. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
 
 
 .. raw:: html
@@ -105,6 +107,7 @@ Use the :code:`browserSettings.colorManagement` API to query and set items relat
    </div>
 
 - :small:`type` `ImageDataDictionary <../composeAction.html#compose-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` `compose_action.type <../composeAction.html#compose-action-compose-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
 
 
 .. raw:: html
@@ -189,6 +192,7 @@ The identities API allows to manage the user's identities (each account can have
    </div>
 
 - :small:`type` `ImageDataDictionary <../messageDisplayAction.html#message-display-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+- :small:`property` `message_display_action.type <../messageDisplayAction.html#message-display-action-message-display-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
 
 
 .. raw:: html

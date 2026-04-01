@@ -42,6 +42,7 @@ This setting controls whether a light or dark color scheme overrides the page's 
 - :small:`type` `CloudFileTemplateInfo.download_limit <../cloudFile.html#cloud-file-cloud-file-template-info-download-limit>`__ — If set, the cloud file entry for this upload will include a hint, that the file has a download limit.
 - :small:`type` `CloudFileTemplateInfo.download_password_protected <../cloudFile.html#cloud-file-cloud-file-template-info-download-password-protected>`__ — If set to true, the cloud file entry for this upload will include a hint, that the download link is password protected.
 - :small:`type` `RelatedCloudFile <../cloudFile.html#cloud-file-related-cloud-file>`__ — Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
+- :small:`property` `cloud_file.reuse_uploads <../cloudFile.html#cloud-file-cloud-file-reuse-uploads>`__ — If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered `cloudFile.onFileUpload <../cloudFile.html#cloud-file-on-file-upload>`__ listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the `cloudFile.onFileUpload <../cloudFile.html#cloud-file-on-file-upload>`__ event, to let the provider decide how to handle these cases.
 
 
 .. raw:: html
@@ -52,6 +53,16 @@ This setting controls whether a light or dark color scheme overrides the page's 
    </div>
 
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../commands.html">commands</a>
+   </div>
+
+- :small:`property` `commands <../commands.html#commands-commands>`__ — A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a `CommandsShortcut <../.html#commands-shortcut>`__.
 
 
 .. raw:: html

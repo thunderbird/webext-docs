@@ -105,6 +105,16 @@ The messengerUtilities API provides helpful methods for working with messages an
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
+     <a href="../oauthProvider.html">oauthProvider</a>
+   </div>
+
+- :small:`property` `oauth_provider <../oauthProvider.html#oauth-provider-oauth-provider>`__ — Describes an OAuth authentication provider for Thunderbird to use when connecting to mail/address book/calendar services. You will need to have a client ID registered with the provider to use this API.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
      <a href="../runtime.html">runtime</a>
    </div>
 

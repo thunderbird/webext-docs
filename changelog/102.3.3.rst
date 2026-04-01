@@ -11,6 +11,16 @@ The following WebExtension API changes were introduced in Thunderbird 102.3.3.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
+     <a href="../browserAction.html">browserAction</a>
+   </div>
+
+- :small:`property` `browser_action.default_windows <../browserAction.html#browser-action-browser-action-default-windows>`__ — Defines the windows, the browserAction button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
      <a href="../commands.html">commands</a>
    </div>
 
