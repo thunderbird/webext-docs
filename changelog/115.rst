@@ -11,6 +11,24 @@ The following WebExtension API changes were introduced in Thunderbird 115.
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
+     <a href="../action.html">action</a>
+   </div>
+
+- :small:`property` `action.allowed_spaces <../action.html#action-action-allowed-spaces>`__ — Defines for which spaces the action button will be added to Thunderbird's unified toolbar. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
+- :small:`property` `action.browser_style <../action.html#action-action-browser-style>`__ — Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+- :small:`property` `action.default_icon <../action.html#action-action-default-icon>`__ — The paths to one or more icons for the action button.
+- :small:`property` `action.default_label <../action.html#action-action-default-label>`__ — The label of the action button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+- :small:`property` `action.default_popup <../action.html#action-action-default-popup>`__ — The html document to be opened as a popup when the user clicks on the action button. Ignored for action buttons with type :value:`menu`.
+- :small:`property` `action.default_title <../action.html#action-action-default-title>`__ — The title of the action button. This shows up in the tooltip and the label. Defaults to the add-on name.
+- :small:`property` `action.default_windows <../action.html#action-action-default-windows>`__ — Defines the windows, the action button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
+- :small:`property` `action.theme_icons <../action.html#action-action-theme-icons>`__ — Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
+- :small:`property` `action.type <../action.html#action-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
      <a href="../commands.html">commands</a>
    </div>
 
