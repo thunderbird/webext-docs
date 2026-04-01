@@ -27,6 +27,7 @@ The following WebExtension API changes were introduced in Thunderbird 128.
 
 - :small:`type` `ComposeDetails.attachPublicPGPKey <../compose.html#compose-compose-details-attach-public-p-g-p-key>`__ — Whether the public OpenPGP key of the sending identity should be attached to the message.
 - :small:`type` `ComposeDetails.selectedEncryptionTechnology <../compose.html#compose-compose-details-selected-encryption-technology>`__ — The selected encryption technology (:value:`OpenPGP` or :value:`S/MIME`) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be :value:`undefined`.
+- :small:`type` `ComposeRecipient.nodeId <../compose.html#compose-compose-recipient-node-id>`__ — The ID of a contact or mailing list node from the :doc:`../addressBooks.contacts` or :doc:`../addressBooks.mailingLists`.
 
 
 .. raw:: html

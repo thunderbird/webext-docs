@@ -1,0 +1,51 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 98
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 98.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../accounts.html">accounts</a>
+   </div>
+
+- :small:`event` `onCreated <../accounts.html#accounts-on-created>`__ — Fired when a new account has been created.
+- :small:`event` `onDeleted <../accounts.html#accounts-on-deleted>`__ — Fired when an account has been removed.
+- :small:`event` `onUpdated <../accounts.html#accounts-on-updated>`__ — Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed :value:`defaultIdentity` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../cloudFile.html">cloudFile</a>
+   </div>
+
+- :small:`event` `onFileUpload.relatedFileInfo <../cloudFile.html#cloud-file-on-file-upload-related-file-info>`__ — Information about an already uploaded file, which is related to this upload.
+- :small:`type` `RelatedCloudFile <../cloudFile.html#cloud-file-related-cloud-file>`__ — Information about an already uploaded cloud file, which is related to a new upload. For example if the content of a cloud attachment is updated, if a repeatedly used cloud attachment is renamed (and therefore should be re-uploaded to not invalidate existing links) or if the provider has its manifest property :value:`reuse_uploads` set to :value:`false`.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` `getAttachmentFile <../compose.html#compose-get-attachment-file>`__ — Gets the content of a `compose.ComposeAttachment <../compose.html#compose-compose-attachment>`__ as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+- :small:`type` `FileAttachment <../compose.html#compose-file-attachment>`__ — Object used to add, update or rename an attachment in a message being composed.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` `MessageAttachment <../messages.html#messages-message-attachment>`__ — Represents an attachment in a message.

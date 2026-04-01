@@ -1,0 +1,50 @@
+.. role:: small
+
+============================
+Changelog for Thunderbird 90
+============================
+
+The following WebExtension API changes were introduced in Thunderbird 90.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`function` `getComposeState <../compose.html#compose-get-compose-state>`__ — Returns information about the current state of the message composer.
+- :small:`function` `sendMessage <../compose.html#compose-send-message>`__ — Sends the message currently being composed. If the send mode is not specified or set to :value:`default`, the message will be send directly if the user is online and placed in the users outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when the send process has been aborted by the user, by an `compose.onBeforeSend <../compose.html#compose-on-before-send>`__ event or if there has been an error while sending the message to the outgoing mail server.
+- :small:`event` `onComposeStateChanged <../compose.html#compose-on-compose-state-changed>`__ — Fired when the state of the message composer changed.
+- :small:`type` `ComposeState <../compose.html#compose-compose-state>`__ — Represent the state of the message composer.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeAction.html">composeAction</a>
+   </div>
+
+- :small:`type` `ImageDataDictionary <../composeAction.html#compose-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayAction.html">messageDisplayAction</a>
+   </div>
+
+- :small:`type` `ImageDataDictionary <../messageDisplayAction.html#message-display-action-image-data-dictionary>`__ — A *dictionary object* to specify multiple `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ objects in different sizes, so the icon does not have to be scaled for a device with a different pixel density. Each entry is a *name-value* pair with *value* being an `ImageData <https://developer.mozilla.org/en-US/docs/Web/API/ImageData>`__ object, and *name* its size.
+
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` `MessageHeader.size <../messages.html#messages-message-header-size>`__ — The total size of the message in bytes.
