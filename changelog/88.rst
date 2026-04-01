@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 88
 The following WebExtension API changes were introduced in Thunderbird 88.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 88.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`type` `MailAccount <../accounts.html#accounts-mail-account>`__ — An object describing a mail account, as returned for example by the `accounts.list <../accounts.html#accounts-list>`__ and `accounts.get <../accounts.html#accounts-get>`__ methods.
+- :small:`type` :ref:`MailAccount <accounts.^mail^account>` — An object describing a mail account, as returned for example by the :ref:`accounts.list <accounts.list>` and :ref:`accounts.get <accounts.get>` methods.
 
+
+compose
+-------
 
 .. raw:: html
 
@@ -24,9 +36,12 @@ The following WebExtension API changes were introduced in Thunderbird 88.
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`type` `ComposeDetails.from <../compose.html#compose-compose-details-from>`__ — *Caution*: Setting a value for :value:`from` does not change the used identity, it overrides the *From* header. Many email servers do not accept emails where the *From* header does not match the sender identity. Must be set to exactly one valid email address.
-- :small:`type` `ComposeDetails.type <../compose.html#compose-compose-details-type>`__ — Read-only. The type of the message being composed, depending on how the compose window was opened by the user.
+- :small:`type` :ref:`ComposeDetails.from <compose.^compose^details.from>` — *Caution*: Setting a value for :value:`from` does not change the used identity, it overrides the *From* header. Many email servers do not accept emails where the *From* header does not match the sender identity. Must be set to exactly one valid email address.
+- :small:`type` :ref:`ComposeDetails.type <compose.^compose^details.type>` — Read-only. The type of the message being composed, depending on how the compose window was opened by the user.
 
+
+menus
+-----
 
 .. raw:: html
 
@@ -35,8 +50,11 @@ The following WebExtension API changes were introduced in Thunderbird 88.
      <a href="../menus.html">menus</a>
    </div>
 
-- :small:`type` `OnShowData <../menus.html#menus-on-show-data>`__ — Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
+- :small:`type` :ref:`OnShowData <menus.^on^show^data>` — Information sent when a context menu is being shown. Some properties are only included if the extension has host permission for the given context, for example :permission:`activeTab` for content tabs, :permission:`compose` for compose tabs and :permission:`messagesRead` for message display tabs.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -45,5 +63,5 @@ The following WebExtension API changes were introduced in Thunderbird 88.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `getAttachmentFile <../messages.html#messages-get-attachment-file>`__ — Gets the content of a `messages.MessageAttachment <../messages.html#messages-message-attachment>`__ as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object. If the message is encrypted, the function retrieves the attachment from the decrypted message.
-- :small:`function` `listAttachments <../messages.html#messages-list-attachments>`__ — Lists the attachments of a message. If the message is encrypted, the attachments of the decrypted message are listed.
+- :small:`function` :ref:`getAttachmentFile <messages.get^attachment^file>` — Gets the content of a :ref:`messages.MessageAttachment <messages.^message^attachment>` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object. If the message is encrypted, the function retrieves the attachment from the decrypted message.
+- :small:`function` :ref:`listAttachments <messages.list^attachments>` — Lists the attachments of a message. If the message is encrypted, the attachments of the decrypted message are listed.

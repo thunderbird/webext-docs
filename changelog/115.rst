@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 115
 The following WebExtension API changes were introduced in Thunderbird 115.
 
 
+action
+------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,16 +23,19 @@ The following WebExtension API changes were introduced in Thunderbird 115.
      <a href="../action.html">action</a>
    </div>
 
-- :small:`property` `action.allowed_spaces <../action.html#action-action-allowed-spaces>`__ — Defines for which spaces the action button will be added to Thunderbird's unified toolbar. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
-- :small:`property` `action.browser_style <../action.html#action-action-browser-style>`__ — Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
-- :small:`property` `action.default_icon <../action.html#action-action-default-icon>`__ — The paths to one or more icons for the action button.
-- :small:`property` `action.default_label <../action.html#action-action-default-label>`__ — The label of the action button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
-- :small:`property` `action.default_popup <../action.html#action-action-default-popup>`__ — The html document to be opened as a popup when the user clicks on the action button. Ignored for action buttons with type :value:`menu`.
-- :small:`property` `action.default_title <../action.html#action-action-default-title>`__ — The title of the action button. This shows up in the tooltip and the label. Defaults to the add-on name.
-- :small:`property` `action.default_windows <../action.html#action-action-default-windows>`__ — Defines the windows, the action button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
-- :small:`property` `action.theme_icons <../action.html#action-action-theme-icons>`__ — Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
-- :small:`property` `action.type <../action.html#action-action-type>`__ — Specifies the type of the button. Default type is :value:`button`.
+- :small:`property` :ref:`action.allowed_spaces <action.action.allowed_spaces>` — Defines for which spaces the action button will be added to Thunderbird's unified toolbar. Defaults to only allowing the action in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the action button is shown in all spaces.
+- :small:`property` :ref:`action.browser_style <action.action.browser_style>` — Enable browser styles. See the `MDN documentation on browser styles <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Browser_styles>`__ for more information.
+- :small:`property` :ref:`action.default_icon <action.action.default_icon>` — The paths to one or more icons for the action button.
+- :small:`property` :ref:`action.default_label <action.action.default_label>` — The label of the action button, defaults to its title. Can be set to an empty string to not display any label. If the containing toolbar is configured to display text only, the title will be used as fallback.
+- :small:`property` :ref:`action.default_popup <action.action.default_popup>` — The html document to be opened as a popup when the user clicks on the action button. Ignored for action buttons with type :value:`menu`.
+- :small:`property` :ref:`action.default_title <action.action.default_title>` — The title of the action button. This shows up in the tooltip and the label. Defaults to the add-on name.
+- :small:`property` :ref:`action.default_windows <action.action.default_windows>` — Defines the windows, the action button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
+- :small:`property` :ref:`action.theme_icons <action.action.theme_icons>` — Specifies dark and light icons to be used with themes. The :value:`light` icon is used on dark backgrounds and vice versa. The default theme uses the :value:`default_icon` for light backgrounds (if specified).
+- :small:`property` :ref:`action.type <action.action.type>` — Specifies the type of the button. Default type is :value:`button`.
 
+
+commands
+--------
 
 .. raw:: html
 
@@ -32,8 +44,11 @@ The following WebExtension API changes were introduced in Thunderbird 115.
      <a href="../commands.html">commands</a>
    </div>
 
-- :small:`event` `onChanged <../commands.html#commands-on-changed>`__ — Fired when a registered command's shortcut is changed.
+- :small:`event` :ref:`onChanged <commands.on^changed>` — Fired when a registered command's shortcut is changed.
 
+
+sessions
+--------
 
 .. raw:: html
 
@@ -45,6 +60,9 @@ The following WebExtension API changes were introduced in Thunderbird 115.
 The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
 
 
+spaces
+------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -52,9 +70,12 @@ The sessions API allows to add tab related session data to Thunderbird's tabs, w
      <a href="../spaces.html">spaces</a>
    </div>
 
-- :small:`function` `get <../spaces.html#spaces-get>`__ — Retrieves details about the specified space.
-- :small:`function` `query <../spaces.html#spaces-query>`__ — Gets all spaces that have the specified properties, or all spaces if no properties are specified.
+- :small:`function` :ref:`get <spaces.get>` — Retrieves details about the specified space.
+- :small:`function` :ref:`query <spaces.query>` — Gets all spaces that have the specified properties, or all spaces if no properties are specified.
 
+
+storage
+-------
 
 .. raw:: html
 
@@ -63,8 +84,11 @@ The sessions API allows to add tab related session data to Thunderbird's tabs, w
      <a href="../storage.html">storage</a>
    </div>
 
-- :small:`property` `session <../storage.html#storage-session>`__ — Items in the :code:`session` storage area are kept in memory, and only until the either browser or extension is closed or reloaded.
+- :small:`property` :ref:`session <storage.session>` — Items in the :code:`session` storage area are kept in memory, and only until the either browser or extension is closed or reloaded.
 
+
+tabs
+----
 
 .. raw:: html
 
@@ -73,12 +97,15 @@ The sessions API allows to add tab related session data to Thunderbird's tabs, w
      <a href="../tabs.html">tabs</a>
    </div>
 
-- :small:`function` `create.createProperties.cookieStoreId <../tabs.html#tabs-create-create-properties-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
-- :small:`function` `query.queryInfo.cookieStoreId <../tabs.html#tabs-query-query-info-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
-- :small:`function` `query.queryInfo.spaceId <../tabs.html#tabs-query-query-info-space-id>`__ — The id of the space the tabs should belong to.
-- :small:`type` `Tab.cookieStoreId <../tabs.html#tabs-tab-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
-- :small:`type` `Tab.spaceId <../tabs.html#tabs-tab-space-id>`__ — The id of the space.
+- :small:`function` :ref:`create.createProperties.cookieStoreId <tabs.create.create^properties.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` :ref:`query.queryInfo.cookieStoreId <tabs.query.query^info.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` :ref:`query.queryInfo.spaceId <tabs.query.query^info.space^id>` — The id of the space the tabs should belong to.
+- :small:`type` :ref:`Tab.cookieStoreId <tabs.^tab.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`type` :ref:`Tab.spaceId <tabs.^tab.space^id>` — The id of the space.
 
+
+windows
+-------
 
 .. raw:: html
 
@@ -87,4 +114,4 @@ The sessions API allows to add tab related session data to Thunderbird's tabs, w
      <a href="../windows.html">windows</a>
    </div>
 
-- :small:`function` `create.createData.cookieStoreId <../windows.html#windows-create-create-data-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` :ref:`create.createData.cookieStoreId <windows.create.create^data.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 100
 The following WebExtension API changes were introduced in Thunderbird 100.
 
 
+compose
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,9 +23,12 @@ The following WebExtension API changes were introduced in Thunderbird 100.
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`type` `ComposeDetails.customHeaders <../compose.html#compose-compose-details-custom-headers>`__ — Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
-- :small:`type` `CustomHeader <../compose.html#compose-custom-header>`__ — A custom header definition.
+- :small:`type` :ref:`ComposeDetails.customHeaders <compose.^compose^details.custom^headers>` — Array of custom headers. Headers will be returned in *Http-Header-Case* (a.k.a. *Train-Case*). Set an empty array to clear all custom headers.
+- :small:`type` :ref:`CustomHeader <compose.^custom^header>` — A custom header definition.
 
+
+runtime
+-------
 
 .. raw:: html
 
@@ -25,9 +37,12 @@ The following WebExtension API changes were introduced in Thunderbird 100.
      <a href="../runtime.html">runtime</a>
    </div>
 
-- :small:`event` `onSuspend <../runtime.html#runtime-on-suspend>`__ — Sent to the event page just before it is unloaded. This gives the extension opportunity to do some clean up. Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete. If more activity for the event page occurs before it gets unloaded the onSuspendCanceled event will be sent and the page won't be unloaded.
-- :small:`event` `onSuspendCanceled <../runtime.html#runtime-on-suspend-canceled>`__ — Sent after onSuspend to indicate that the app won't be unloaded after all.
+- :small:`event` :ref:`onSuspend <runtime.on^suspend>` — Sent to the event page just before it is unloaded. This gives the extension opportunity to do some clean up. Note that since the page is unloading, any asynchronous operations started while handling this event are not guaranteed to complete. If more activity for the event page occurs before it gets unloaded the onSuspendCanceled event will be sent and the page won't be unloaded.
+- :small:`event` :ref:`onSuspendCanceled <runtime.on^suspend^canceled>` — Sent after onSuspend to indicate that the app won't be unloaded after all.
 
+
+theme
+-----
 
 .. raw:: html
 
@@ -36,5 +51,5 @@ The following WebExtension API changes were introduced in Thunderbird 100.
      <a href="../theme.html">theme</a>
    </div>
 
-- :small:`type` `ThemeType.properties.color_scheme <../theme.html#theme-theme-type-properties-color-scheme>`__ — If set, overrides the general theme (context menus, toolbars, content area).
-- :small:`type` `ThemeType.properties.content_color_scheme <../theme.html#theme-theme-type-properties-content-color-scheme>`__ — If set, overrides the color scheme for the content area.
+- :small:`type` :ref:`ThemeType.properties.color_scheme <theme.^theme^type.properties.color_scheme>` — If set, overrides the general theme (context menus, toolbars, content area).
+- :small:`type` :ref:`ThemeType.properties.content_color_scheme <theme.^theme^type.properties.content_color_scheme>` — If set, overrides the color scheme for the content area.

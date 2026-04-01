@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 140
 The following WebExtension API changes were introduced in Thunderbird 140.
 
 
+oauthProvider
+-------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,4 +23,4 @@ The following WebExtension API changes were introduced in Thunderbird 140.
      <a href="../oauthProvider.html">oauthProvider</a>
    </div>
 
-- :small:`property` `oauth_provider <../oauthProvider.html#oauth-provider-oauth-provider>`__ — Describes an OAuth authentication provider for Thunderbird to use when connecting to mail/address book/calendar services. You will need to have a client ID registered with the provider to use this API.
+- :small:`property` :ref:`oauth_provider <oauth^provider.oauth_provider>` — Describes an OAuth authentication provider for Thunderbird to use when connecting to mail/address book/calendar services. You will need to have a client ID registered with the provider to use this API.

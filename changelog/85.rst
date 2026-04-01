@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 85
 The following WebExtension API changes were introduced in Thunderbird 85.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 85.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`function` `getDefault <../accounts.html#accounts-get-default>`__ — Returns the default account, or :value:`null` if it is not defined.
+- :small:`function` :ref:`getDefault <accounts.get^default>` — Returns the default account, or :value:`null` if it is not defined.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -24,4 +36,4 @@ The following WebExtension API changes were introduced in Thunderbird 85.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `query.queryInfo.headerMessageId <../messages.html#messages-query-query-info-header-message-id>`__ — Returns only messages with a Message-ID header matching this value.
+- :small:`function` :ref:`query.queryInfo.headerMessageId <messages.query.query^info.header^message^id>` — Returns only messages with a Message-ID header matching this value.

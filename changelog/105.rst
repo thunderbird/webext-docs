@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -6,6 +12,9 @@ Changelog for Thunderbird 105
 
 The following WebExtension API changes were introduced in Thunderbird 105.
 
+
+action
+------
 
 .. raw:: html
 
@@ -17,6 +26,9 @@ The following WebExtension API changes were introduced in Thunderbird 105.
 Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
 
 
+compose
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -24,5 +36,5 @@ Use the action API to add a button to Thunderbird's unified toolbar. In addition
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`event` `onAfterSave <../compose.html#compose-on-after-save>`__ — Fired when saving a message as draft or template succeeded or failed.
-- :small:`event` `onAfterSend <../compose.html#compose-on-after-send>`__ — Fired when sending a message succeeded or failed.
+- :small:`event` :ref:`onAfterSave <compose.on^after^save>` — Fired when saving a message as draft or template succeeded or failed.
+- :small:`event` :ref:`onAfterSend <compose.on^after^send>` — Fired when sending a message succeeded or failed.
