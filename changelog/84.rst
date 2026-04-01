@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 84
 The following WebExtension API changes were introduced in Thunderbird 84.
 
 
+browsingData
+------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 84.
      <a href="../browsingData.html">browsingData</a>
    </div>
 
-- :small:`type` `RemovalOptions.cookieStoreId <../browsingData.html#browsing-data-removal-options-cookie-store-id>`__ — Only remove data associated with this specific cookieStoreId.
+- :small:`type` :ref:`RemovalOptions.cookieStoreId <browsing^data.^removal^options.cookie^store^id>` — Only remove data associated with this specific cookieStoreId.
 
+
+privacy.network.httpsOnlyMode
+-----------------------------
 
 .. raw:: html
 

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 115
 The following WebExtension API changes were introduced in Thunderbird 115.
 
 
+browserAction
+-------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,9 +23,12 @@ The following WebExtension API changes were introduced in Thunderbird 115.
      <a href="../browserAction.html">browserAction</a>
    </div>
 
-- :small:`property` `browser_action.allowed_spaces <../browserAction.html#browser-action-browser-action-allowed-spaces>`__ — Defines for which spaces the browserAction button will be added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.
-- :small:`property` `browser_action.default_windows <../browserAction.html#browser-action-browser-action-default-windows>`__ — Defines the windows, the browserAction button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
+- :small:`property` :ref:`browser_action.allowed_spaces <browser^action.browser_action.allowed_spaces>` — Defines for which spaces the browserAction button will be added to Thunderbird's unified toolbar. Defaults to only allowing the browserAction in the :value:`mail` space. The :value:`default` space is for tabs that don't belong to any space. If this is an empty array, the browserAction button is shown in all spaces.
+- :small:`property` :ref:`browser_action.default_windows <browser^action.browser_action.default_windows>` — Defines the windows, the browserAction button should appear in. Defaults to showing it only in the :value:`normal` Thunderbird window, but can also be shown in the :value:`messageDisplay` window.
 
+
+commands
+--------
 
 .. raw:: html
 
@@ -25,8 +37,11 @@ The following WebExtension API changes were introduced in Thunderbird 115.
      <a href="../commands.html">commands</a>
    </div>
 
-- :small:`event` `onChanged <../commands.html#commands-on-changed>`__ — Fired when a registered command's shortcut is changed.
+- :small:`event` :ref:`onChanged <commands.on^changed>` — Fired when a registered command's shortcut is changed.
 
+
+sessions
+--------
 
 .. raw:: html
 
@@ -38,6 +53,9 @@ The following WebExtension API changes were introduced in Thunderbird 115.
 The sessions API allows to add tab related session data to Thunderbird's tabs, which will be restored on app restart.
 
 
+spaces
+------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -48,6 +66,9 @@ The sessions API allows to add tab related session data to Thunderbird's tabs, w
 The spaces API allows to manage built-in and custom spaces, and to add buttons for custom spaces to Thunderbird's spaces toolbar.
 
 
+storage
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -55,8 +76,11 @@ The spaces API allows to manage built-in and custom spaces, and to add buttons f
      <a href="../storage.html">storage</a>
    </div>
 
-- :small:`property` `session <../storage.html#storage-session>`__ — Items in the :code:`session` storage area are kept in memory, and only until the either browser or extension is closed or reloaded.
+- :small:`property` :ref:`session <storage.session>` — Items in the :code:`session` storage area are kept in memory, and only until the either browser or extension is closed or reloaded.
 
+
+tabs
+----
 
 .. raw:: html
 
@@ -65,12 +89,15 @@ The spaces API allows to manage built-in and custom spaces, and to add buttons f
      <a href="../tabs.html">tabs</a>
    </div>
 
-- :small:`function` `create.createProperties.cookieStoreId <../tabs.html#tabs-create-create-properties-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
-- :small:`function` `query.queryInfo.cookieStoreId <../tabs.html#tabs-query-query-info-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
-- :small:`function` `query.queryInfo.spaceId <../tabs.html#tabs-query-query-info-space-id>`__ — The id of the space the tabs should belong to.
-- :small:`type` `Tab.cookieStoreId <../tabs.html#tabs-tab-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
-- :small:`type` `Tab.spaceId <../tabs.html#tabs-tab-space-id>`__ — The id of the space.
+- :small:`function` :ref:`create.createProperties.cookieStoreId <tabs.create.create^properties.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id the new tab should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` :ref:`query.queryInfo.cookieStoreId <tabs.query.query^info.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id(s) used by the tabs. Either custom ids created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or built-in ones: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` :ref:`query.queryInfo.spaceId <tabs.query.query^info.space^id>` — The id of the space the tabs should belong to.
+- :small:`type` :ref:`Tab.cookieStoreId <tabs.^tab.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id used by the tab. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`type` :ref:`Tab.spaceId <tabs.^tab.space^id>` — The id of the space.
 
+
+windows
+-------
 
 .. raw:: html
 
@@ -79,4 +106,4 @@ The spaces API allows to manage built-in and custom spaces, and to add buttons f
      <a href="../windows.html">windows</a>
    </div>
 
-- :small:`function` `create.createData.cookieStoreId <../windows.html#windows-create-create-data-cookie-store-id>`__ — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.
+- :small:`function` :ref:`create.createData.cookieStoreId <windows.create.create^data.cookie^store^id>` — The `CookieStore <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities/ContextualIdentity#cookiestoreid>`__ id which all initially opened tabs should use. Either a custom id created using the `contextualIdentities API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/contextualIdentities>`__, or a built-in one: :value:`firefox-default`, :value:`firefox-container-1`, :value:`firefox-container-2`, :value:`firefox-container-3`, :value:`firefox-container-4`, :value:`firefox-container-5`.

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 126
 The following WebExtension API changes were introduced in Thunderbird 126.
 
 
+messageDisplayScripts
+---------------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,4 +23,4 @@ The following WebExtension API changes were introduced in Thunderbird 126.
      <a href="../messageDisplayScripts.html">messageDisplayScripts</a>
    </div>
 
-- :small:`type` `RegisteredMessageDisplayScriptOptions.runAt <../messageDisplayScripts.html#message-display-scripts-registered-message-display-script-options-run-at>`__ — Determines when the files specified in css and js are injected. The states directly correspond to :code:`Document.readyState`: :value:`loading`, :value:`interactive` and :value:`complete`
+- :small:`type` :ref:`RegisteredMessageDisplayScriptOptions.runAt <message^display^scripts.^registered^message^display^script^options.run^at>` — Determines when the files specified in css and js are injected. The states directly correspond to :code:`Document.readyState`: :value:`loading`, :value:`interactive` and :value:`complete`

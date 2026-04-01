@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 113
 The following WebExtension API changes were introduced in Thunderbird 113.
 
 
+browserAction
+-------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 113.
      <a href="../browserAction.html">browserAction</a>
    </div>
 
-- :small:`function` `openPopup.options <../browserAction.html#browser-action-open-popup-options>`__ — An object with information about the popup to open.
+- :small:`function` :ref:`openPopup.options <browser^action.open^popup.options>` — An object with information about the popup to open.
 
+
+composeAction
+-------------
 
 .. raw:: html
 
@@ -24,8 +36,11 @@ The following WebExtension API changes were introduced in Thunderbird 113.
      <a href="../composeAction.html">composeAction</a>
    </div>
 
-- :small:`function` `openPopup.options <../composeAction.html#compose-action-open-popup-options>`__ — An object with information about the popup to open.
+- :small:`function` :ref:`openPopup.options <compose^action.open^popup.options>` — An object with information about the popup to open.
 
+
+declarativeNetRequest
+---------------------
 
 .. raw:: html
 
@@ -37,6 +52,9 @@ The following WebExtension API changes were introduced in Thunderbird 113.
 Use the declarativeNetRequest API to block or modify network requests by specifying declarative rules.
 
 
+messageDisplayAction
+--------------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -44,4 +62,4 @@ Use the declarativeNetRequest API to block or modify network requests by specify
      <a href="../messageDisplayAction.html">messageDisplayAction</a>
    </div>
 
-- :small:`function` `openPopup.options <../messageDisplayAction.html#message-display-action-open-popup-options>`__ — An object with information about the popup to open.
+- :small:`function` :ref:`openPopup.options <message^display^action.open^popup.options>` — An object with information about the popup to open.

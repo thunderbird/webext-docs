@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 114
 The following WebExtension API changes were introduced in Thunderbird 114.
 
 
+messageDisplay
+--------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 114.
      <a href="../messageDisplay.html">messageDisplay</a>
    </div>
 
-- :small:`function` `open.openProperties.file <../messageDisplay.html#message-display-open-open-properties-file>`__ — The DOM file object of a message to be opened.
+- :small:`function` :ref:`open.openProperties.file <message^display.open.open^properties.file>` — The DOM file object of a message to be opened.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -24,8 +36,11 @@ The following WebExtension API changes were introduced in Thunderbird 114.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `openAttachment <../messages.html#messages-open-attachment>`__ — Opens the specified attachment.
+- :small:`function` :ref:`openAttachment <messages.open^attachment>` — Opens the specified attachment.
 
+
+spacesToolbar
+-------------
 
 .. raw:: html
 
@@ -34,8 +49,11 @@ The following WebExtension API changes were introduced in Thunderbird 114.
      <a href="../spacesToolbar.html">spacesToolbar</a>
    </div>
 
-- :small:`function` `clickButton <../spacesToolbar.html#spaces-toolbar-click-button>`__ — Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
+- :small:`function` :ref:`clickButton <spaces^toolbar.click^button>` — Trigger a click on the specified spaces toolbar button. Throws an exception if the requested spaces toolbar button does not exist or was not created by this extension.
 
+
+tabs
+----
 
 .. raw:: html
 
@@ -44,4 +62,4 @@ The following WebExtension API changes were introduced in Thunderbird 114.
      <a href="../tabs.html">tabs</a>
    </div>
 
-- :small:`event` `onActivated.activeInfo.previousTabId <../tabs.html#tabs-on-activated-active-info-previous-tab-id>`__ — The ID of the tab that was previously active, if that tab is still open.
+- :small:`event` :ref:`onActivated.activeInfo.previousTabId <tabs.on^activated.active^info.previous^tab^id>` — The ID of the tab that was previously active, if that tab is still open.

@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 106
 The following WebExtension API changes were introduced in Thunderbird 106.
 
 
+commands
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 106.
      <a href="../commands.html">commands</a>
    </div>
 
-- :small:`event` `onCommand.tab <../commands.html#commands-on-command-tab>`__ — The details of the active tab while the command occurred.
+- :small:`event` :ref:`onCommand.tab <commands.on^command.tab>` — The details of the active tab while the command occurred.
 
+
+contacts
+--------
 
 .. raw:: html
 
@@ -24,8 +36,11 @@ The following WebExtension API changes were introduced in Thunderbird 106.
      <a href="../contacts.html">contacts</a>
    </div>
 
-- :small:`function` `getPhoto <../contacts.html#contacts-get-photo>`__ — Gets the photo associated with this contact. Returns :value:`null`, if no photo is available.
+- :small:`function` :ref:`getPhoto <contacts.get^photo>` — Gets the photo associated with this contact. Returns :value:`null`, if no photo is available.
 
+
+mailTabs
+--------
 
 .. raw:: html
 
@@ -34,8 +49,11 @@ The following WebExtension API changes were introduced in Thunderbird 106.
      <a href="../mailTabs.html">mailTabs</a>
    </div>
 
-- :small:`function` `setSelectedMessages <../mailTabs.html#mail-tabs-set-selected-messages>`__ — Selects none, one or multiple messages. Opens collapsed threads to show the selection, if required.
+- :small:`function` :ref:`setSelectedMessages <mail^tabs.set^selected^messages>` — Selects none, one or multiple messages. Opens collapsed threads to show the selection, if required.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -44,8 +62,8 @@ The following WebExtension API changes were introduced in Thunderbird 106.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `import <../messages.html#messages-import>`__ — Imports a message into a folder. Supports local folders, POP and IMAP folders. Throws, if the destination folder already contains a message with the Message-ID of the message being imported.
-- :small:`type` `MessageAttachment.message <../messages.html#messages-message-attachment-message>`__ — A MessageHeader, if this attachment is a message.
-- :small:`type` `MessageHeader.external <../messages.html#messages-message-header-external>`__ — Whether this message is a real message or an external message (opened from a file or from an attachment).
-- :small:`type` `MessageHeader.new <../messages.html#messages-message-header-new>`__ — Whether the message has been received recently and is marked as new.
-- :small:`type` `MessageProperties <../messages.html#messages-message-properties>`__ — Message properties used in `messages.update <../messages.html#messages-update>`__ and `messages.import <../messages.html#messages-import>`__. They can also be monitored by `messages.onUpdated <../messages.html#messages-on-updated>`__.
+- :small:`function` :ref:`import <messages.import>` — Imports a message into a folder. Supports local folders, POP and IMAP folders. Throws, if the destination folder already contains a message with the Message-ID of the message being imported.
+- :small:`type` :ref:`MessageAttachment.message <messages.^message^attachment.message>` — A MessageHeader, if this attachment is a message.
+- :small:`type` :ref:`MessageHeader.external <messages.^message^header.external>` — Whether this message is a real message or an external message (opened from a file or from an attachment).
+- :small:`type` :ref:`MessageHeader.new <messages.^message^header.new>` — Whether the message has been received recently and is marked as new.
+- :small:`type` :ref:`MessageProperties <messages.^message^properties>` — Message properties used in :ref:`messages.update <messages.update>` and :ref:`messages.import <messages.import>`. They can also be monitored by :ref:`messages.onUpdated <messages.on^updated>`.
