@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 102
 The following WebExtension API changes were introduced in Thunderbird 102.
 
 
+compose
+-------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,20 +23,23 @@ The following WebExtension API changes were introduced in Thunderbird 102.
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`function` `getActiveDictionaries <../compose.html#compose-get-active-dictionaries>`__ — Returns a `compose.ComposeDictionaries <../compose.html#compose-compose-dictionaries>`__ object, listing all installed dictionaries, including the information whether they are currently enabled or not.
-- :small:`function` `saveMessage <../compose.html#compose-save-message>`__ — Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
-- :small:`function` `setActiveDictionaries <../compose.html#compose-set-active-dictionaries>`__ — Updates the active dictionaries. Throws if the :value:`activeDictionaries` array contains unknown or invalid language identifiers.
-- :small:`event` `onActiveDictionariesChanged <../compose.html#compose-on-active-dictionaries-changed>`__ — Fired when one or more dictionaries have been activated or deactivated.
-- :small:`type` `ComposeDetails.additionalFccFolder <../compose.html#compose-compose-details-additional-fcc-folder>`__ — An additional fcc folder which can be selected while composing the message, an empty string if not used. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.attachVCard <../compose.html#compose-compose-details-attach-v-card>`__ — Whether or not the vCard of the used identity will be attached to the message during send.
-- :small:`type` `ComposeDetails.deliveryFormat <../compose.html#compose-compose-details-delivery-format>`__ — Defines the MIME format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
-- :small:`type` `ComposeDetails.deliveryStatusNotification <../compose.html#compose-compose-details-delivery-status-notification>`__ — Let the sender know when the recipient's server received the message. Not supported by all servers.
-- :small:`type` `ComposeDetails.overrideDefaultFcc <../compose.html#compose-compose-details-override-default-fcc>`__ — Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if :value:`overrideDefaultFccFolder` is not set as well. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.overrideDefaultFccFolder <../compose.html#compose-compose-details-override-default-fcc-folder>`__ — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a `folders.MailFolder <../folders.html#folders-mail-folder>`__ specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. The permission :permission:`accountsRead` is required to use this property.
-- :small:`type` `ComposeDetails.priority <../compose.html#compose-compose-details-priority>`__ — The priority of the message.
-- :small:`type` `ComposeDetails.returnReceipt <../compose.html#compose-compose-details-return-receipt>`__ — Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
-- :small:`type` `ComposeDictionaries <../compose.html#compose-compose-dictionaries>`__ — A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
+- :small:`function` :ref:`getActiveDictionaries <compose.get^active^dictionaries>` — Returns a :ref:`compose.ComposeDictionaries <compose.^compose^dictionaries>` object, listing all installed dictionaries, including the information whether they are currently enabled or not.
+- :small:`function` :ref:`saveMessage <compose.save^message>` — Saves the message currently being composed as a draft or as a template. If the save mode is not specified, the message will be saved as a draft. The returned Promise fulfills once the message has been successfully saved.
+- :small:`function` :ref:`setActiveDictionaries <compose.set^active^dictionaries>` — Updates the active dictionaries. Throws if the :value:`activeDictionaries` array contains unknown or invalid language identifiers.
+- :small:`event` :ref:`onActiveDictionariesChanged <compose.on^active^dictionaries^changed>` — Fired when one or more dictionaries have been activated or deactivated.
+- :small:`type` :ref:`ComposeDetails.additionalFccFolder <compose.^compose^details.additional^fcc^folder>` — An additional fcc folder which can be selected while composing the message, an empty string if not used. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.attachVCard <compose.^compose^details.attach^v^card>` — Whether or not the vCard of the used identity will be attached to the message during send.
+- :small:`type` :ref:`ComposeDetails.deliveryFormat <compose.^compose^details.delivery^format>` — Defines the MIME format of the sent message (ignored on plain text messages). Defaults to :value:`auto`, which will send html messages as plain text, if they do not include any formatting, and as :value:`both` otherwise (a multipart/mixed message).
+- :small:`type` :ref:`ComposeDetails.deliveryStatusNotification <compose.^compose^details.delivery^status^notification>` — Let the sender know when the recipient's server received the message. Not supported by all servers.
+- :small:`type` :ref:`ComposeDetails.overrideDefaultFcc <compose.^compose^details.override^default^fcc>` — Indicates whether the default fcc setting (defined by the used identity) is being overridden for this message. Setting :value:`false` will clear the override. Setting :value:`true` will throw an *ExtensionError*, if :value:`overrideDefaultFccFolder` is not set as well. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.overrideDefaultFccFolder <compose.^compose^details.override^default^fcc^folder>` — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolder <folders.^mail^folder>` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.priority <compose.^compose^details.priority>` — The priority of the message.
+- :small:`type` :ref:`ComposeDetails.returnReceipt <compose.^compose^details.return^receipt>` — Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
+- :small:`type` :ref:`ComposeDictionaries <compose.^compose^dictionaries>` — A *dictionary object* with entries for all installed dictionaries, having a language identifier as *key* (for example :value:`en-US`) and a boolean expression as *value*, indicating whether that dictionary is enabled for spellchecking or not.
 
+
+messageDisplay
+--------------
 
 .. raw:: html
 
@@ -36,8 +48,11 @@ The following WebExtension API changes were introduced in Thunderbird 102.
      <a href="../messageDisplay.html">messageDisplay</a>
    </div>
 
-- :small:`function` `open <../messageDisplay.html#message-display-open>`__ — Opens a message in a new tab or in a new window.
+- :small:`function` :ref:`open <message^display.open>` — Opens a message in a new tab or in a new window.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -46,11 +61,14 @@ The following WebExtension API changes were introduced in Thunderbird 102.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `createTag <../messages.html#messages-create-tag>`__ — Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
-- :small:`function` `deleteTag <../messages.html#messages-delete-tag>`__ — Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
-- :small:`function` `updateTag <../messages.html#messages-update-tag>`__ — Updates a message tag. Throws if the specified tag key does not exist.
-- :small:`type` `MessageHeader.headersOnly <../messages.html#messages-message-header-headers-only>`__ — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
+- :small:`function` :ref:`createTag <messages.create^tag>` — Creates a new message tag. Tagging a message will store the tag's key in the user's message. Throws if the specified tag key is used already.
+- :small:`function` :ref:`deleteTag <messages.delete^tag>` — Deletes a message tag, removing it from the list of known tags. Its key will not be removed from tagged messages, but they will appear untagged. Recreating a deleted tag, will make all former tagged messages appear tagged again.
+- :small:`function` :ref:`updateTag <messages.update^tag>` — Updates a message tag. Throws if the specified tag key does not exist.
+- :small:`type` :ref:`MessageHeader.headersOnly <messages.^message^header.headers^only>` — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
 
+
+scripting
+---------
 
 .. raw:: html
 

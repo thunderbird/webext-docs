@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 124
 The following WebExtension API changes were introduced in Thunderbird 124.
 
 
+menus
+-----
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,8 +23,11 @@ The following WebExtension API changes were introduced in Thunderbird 124.
      <a href="../menus.html">menus</a>
    </div>
 
-- :small:`type` `MenuIconDictionary <../menus.html#menus-menu-icon-dictionary>`__ — A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a `menus.MenuIconPath <../menus.html#menus-menu-icon-path>`__.
+- :small:`type` :ref:`MenuIconDictionary <menus.^menu^icon^dictionary>` — A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath <menus.^menu^icon^path>`.
 
+
+runtime
+-------
 
 .. raw:: html
 
@@ -24,6 +36,6 @@ The following WebExtension API changes were introduced in Thunderbird 124.
      <a href="../runtime.html">runtime</a>
    </div>
 
-- :small:`event` `onPerformanceWarning <../runtime.html#runtime-on-performance-warning>`__ — Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.
-- :small:`type` `OnPerformanceWarningCategory <../runtime.html#runtime-on-performance-warning-category>`__ — The performance warning event category, e.g. 'content_script'.
-- :small:`type` `OnPerformanceWarningSeverity <../runtime.html#runtime-on-performance-warning-severity>`__ — The performance warning event severity. Will be 'high' for serious and user-visible issues.
+- :small:`event` :ref:`onPerformanceWarning <runtime.on^performance^warning>` — Fired when a runtime performance issue is detected with the extension. Observe this event to be proactively notified of runtime performance problems with the extension.
+- :small:`type` :ref:`OnPerformanceWarningCategory <runtime.^on^performance^warning^category>` — The performance warning event category, e.g. 'content_script'.
+- :small:`type` :ref:`OnPerformanceWarningSeverity <runtime.^on^performance^warning^severity>` — The performance warning event severity. Will be 'high' for serious and user-visible issues.

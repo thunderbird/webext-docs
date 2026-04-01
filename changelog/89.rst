@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 ============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 89
 The following WebExtension API changes were introduced in Thunderbird 89.
 
 
+accounts
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,10 +23,13 @@ The following WebExtension API changes were introduced in Thunderbird 89.
      <a href="../accounts.html">accounts</a>
    </div>
 
-- :small:`function` `get.includeSubFolders <../accounts.html#accounts-get-include-sub-folders>`__ — Specifies whether the `folders.MailFolder <../folders.html#folders-mail-folder>`__ in the :value:`rootFolder` property of the returned `accounts.MailAccount <../accounts.html#accounts-mail-account>`__ should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the returned `accounts.MailAccount <../accounts.html#accounts-mail-account>`__. Defaults to :value:`true`.
-- :small:`function` `getDefault.includeSubFolders <../accounts.html#accounts-get-default-include-sub-folders>`__ — Specifies whether the `folders.MailFolder <../folders.html#folders-mail-folder>`__ in the :value:`rootFolder` property of the default `accounts.MailAccount <../accounts.html#accounts-mail-account>`__ should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the default `accounts.MailAccount <../accounts.html#accounts-mail-account>`__. Defaults to :value:`true`
-- :small:`function` `list.includeSubFolders <../accounts.html#accounts-list-include-sub-folders>`__ — Specifies whether the `folders.MailFolder <../folders.html#folders-mail-folder>`__ in the :value:`rootFolder` property of each found `accounts.MailAccount <../accounts.html#accounts-mail-account>`__ should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of each found `accounts.MailAccount <../accounts.html#accounts-mail-account>`__. Defaults to :value:`true`.
+- :small:`function` :ref:`get.includeSubFolders <accounts.get.include^sub^folders>` — Specifies whether the :ref:`folders.MailFolder <folders.^mail^folder>` in the :value:`rootFolder` property of the returned :ref:`accounts.MailAccount <accounts.^mail^account>` should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the returned :ref:`accounts.MailAccount <accounts.^mail^account>`. Defaults to :value:`true`.
+- :small:`function` :ref:`getDefault.includeSubFolders <accounts.get^default.include^sub^folders>` — Specifies whether the :ref:`folders.MailFolder <folders.^mail^folder>` in the :value:`rootFolder` property of the default :ref:`accounts.MailAccount <accounts.^mail^account>` should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of the default :ref:`accounts.MailAccount <accounts.^mail^account>`. Defaults to :value:`true`
+- :small:`function` :ref:`list.includeSubFolders <accounts.list.include^sub^folders>` — Specifies whether the :ref:`folders.MailFolder <folders.^mail^folder>` in the :value:`rootFolder` property of each found :ref:`accounts.MailAccount <accounts.^mail^account>` should populate its :value:`subFolders` property, and include all (nested!) subfolders. This also affects the deprecated :value:`folders` property of each found :ref:`accounts.MailAccount <accounts.^mail^account>`. Defaults to :value:`true`.
 
+
+mailTabs
+--------
 
 .. raw:: html
 
@@ -26,8 +38,11 @@ The following WebExtension API changes were introduced in Thunderbird 89.
      <a href="../mailTabs.html">mailTabs</a>
    </div>
 
-- :small:`function` `get <../mailTabs.html#mail-tabs-get>`__ — Get the `mailTabs.MailTab <../mailTabs.html#mail-tabs-mail-tab>`__ properties of a mail tab.
+- :small:`function` :ref:`get <mail^tabs.get>` — Get the :ref:`mailTabs.MailTab <mail^tabs.^mail^tab>` properties of a mail tab.
 
+
+menus
+-----
 
 .. raw:: html
 
@@ -36,9 +51,12 @@ The following WebExtension API changes were introduced in Thunderbird 89.
      <a href="../menus.html">menus</a>
    </div>
 
-- :small:`type` `OnClickData.fieldId <../menus.html#menus-on-click-data-field-id>`__ — An identifier of the clicked Thunderbird UI element, if any.
-- :small:`type` `OnShowData.fieldId <../menus.html#menus-on-show-data-field-id>`__ — An identifier of the clicked Thunderbird UI element, if any.
+- :small:`type` :ref:`OnClickData.fieldId <menus.^on^click^data.field^id>` — An identifier of the clicked Thunderbird UI element, if any.
+- :small:`type` :ref:`OnShowData.fieldId <menus.^on^show^data.field^id>` — An identifier of the clicked Thunderbird UI element, if any.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -47,6 +65,6 @@ The following WebExtension API changes were introduced in Thunderbird 89.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`type` `MessageHeader <../messages.html#messages-message-header>`__ — Basic information about a message.
-- :small:`type` `MessageList <../messages.html#messages-message-list>`__ — See :doc:`../guides/messageLists` for more information.
-- :small:`type` `MessagePart <../messages.html#messages-message-part>`__ — Represents an email message "part", which could be the whole message.
+- :small:`type` :ref:`MessageHeader <messages.^message^header>` — Basic information about a message.
+- :small:`type` :ref:`MessageList <messages.^message^list>` — See :doc:`../guides/messageLists` for more information.
+- :small:`type` :ref:`MessagePart <messages.^message^part>` — Represents an email message "part", which could be the whole message.

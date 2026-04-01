@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 108
 The following WebExtension API changes were introduced in Thunderbird 108.
 
 
+browserAction
+-------------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,19 +23,22 @@ The following WebExtension API changes were introduced in Thunderbird 108.
      <a href="../browserAction.html">browserAction</a>
    </div>
 
-- :small:`function` `getBadgeBackgroundColor.details.tabId <../browserAction.html#browser-action-get-badge-background-color-details-tab-id>`__ — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getBadgeBackgroundColor.details.windowId <../browserAction.html#browser-action-get-badge-background-color-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getBadgeText.details.tabId <../browserAction.html#browser-action-get-badge-text-details-tab-id>`__ — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getBadgeText.details.windowId <../browserAction.html#browser-action-get-badge-text-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getLabel.details.tabId <../browserAction.html#browser-action-get-label-details-tab-id>`__ — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getLabel.details.windowId <../browserAction.html#browser-action-get-label-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getPopup.details.tabId <../browserAction.html#browser-action-get-popup-details-tab-id>`__ — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getPopup.details.windowId <../browserAction.html#browser-action-get-popup-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getTitle.details.tabId <../browserAction.html#browser-action-get-title-details-tab-id>`__ — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getTitle.details.windowId <../browserAction.html#browser-action-get-title-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `isEnabled.details.tabId <../browserAction.html#browser-action-is-enabled-details-tab-id>`__ — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `isEnabled.details.windowId <../browserAction.html#browser-action-is-enabled-details-window-id>`__ — Will throw an error if used.
+- :small:`function` :ref:`getBadgeBackgroundColor.details.tabId <browser^action.get^badge^background^color.details.tab^id>` — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getBadgeBackgroundColor.details.windowId <browser^action.get^badge^background^color.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getBadgeText.details.tabId <browser^action.get^badge^text.details.tab^id>` — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getBadgeText.details.windowId <browser^action.get^badge^text.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getLabel.details.tabId <browser^action.get^label.details.tab^id>` — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getLabel.details.windowId <browser^action.get^label.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getPopup.details.tabId <browser^action.get^popup.details.tab^id>` — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getPopup.details.windowId <browser^action.get^popup.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getTitle.details.tabId <browser^action.get^title.details.tab^id>` — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getTitle.details.windowId <browser^action.get^title.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`isEnabled.details.tabId <browser^action.is^enabled.details.tab^id>` — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`isEnabled.details.windowId <browser^action.is^enabled.details.window^id>` — Will throw an error if used.
 
+
+composeAction
+-------------
 
 .. raw:: html
 
@@ -35,19 +47,22 @@ The following WebExtension API changes were introduced in Thunderbird 108.
      <a href="../composeAction.html">composeAction</a>
    </div>
 
-- :small:`function` `getBadgeBackgroundColor.details.tabId <../composeAction.html#compose-action-get-badge-background-color-details-tab-id>`__ — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getBadgeBackgroundColor.details.windowId <../composeAction.html#compose-action-get-badge-background-color-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getBadgeText.details.tabId <../composeAction.html#compose-action-get-badge-text-details-tab-id>`__ — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getBadgeText.details.windowId <../composeAction.html#compose-action-get-badge-text-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getLabel.details.tabId <../composeAction.html#compose-action-get-label-details-tab-id>`__ — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getLabel.details.windowId <../composeAction.html#compose-action-get-label-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getPopup.details.tabId <../composeAction.html#compose-action-get-popup-details-tab-id>`__ — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getPopup.details.windowId <../composeAction.html#compose-action-get-popup-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getTitle.details.tabId <../composeAction.html#compose-action-get-title-details-tab-id>`__ — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getTitle.details.windowId <../composeAction.html#compose-action-get-title-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `isEnabled.details.tabId <../composeAction.html#compose-action-is-enabled-details-tab-id>`__ — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `isEnabled.details.windowId <../composeAction.html#compose-action-is-enabled-details-window-id>`__ — Will throw an error if used.
+- :small:`function` :ref:`getBadgeBackgroundColor.details.tabId <compose^action.get^badge^background^color.details.tab^id>` — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getBadgeBackgroundColor.details.windowId <compose^action.get^badge^background^color.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getBadgeText.details.tabId <compose^action.get^badge^text.details.tab^id>` — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getBadgeText.details.windowId <compose^action.get^badge^text.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getLabel.details.tabId <compose^action.get^label.details.tab^id>` — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getLabel.details.windowId <compose^action.get^label.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getPopup.details.tabId <compose^action.get^popup.details.tab^id>` — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getPopup.details.windowId <compose^action.get^popup.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getTitle.details.tabId <compose^action.get^title.details.tab^id>` — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getTitle.details.windowId <compose^action.get^title.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`isEnabled.details.tabId <compose^action.is^enabled.details.tab^id>` — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`isEnabled.details.windowId <compose^action.is^enabled.details.window^id>` — Will throw an error if used.
 
+
+contacts
+--------
 
 .. raw:: html
 
@@ -56,8 +71,11 @@ The following WebExtension API changes were introduced in Thunderbird 108.
      <a href="../contacts.html">contacts</a>
    </div>
 
-- :small:`type` `QueryInfo <../contacts.html#contacts-query-info>`__ — Object defining a query for `contacts.quickSearch <../contacts.html#contacts-quick-search>`__.
+- :small:`type` :ref:`QueryInfo <contacts.^query^info>` — Object defining a query for :ref:`contacts.quickSearch <contacts.quick^search>`.
 
+
+messageDisplayAction
+--------------------
 
 .. raw:: html
 
@@ -66,15 +84,15 @@ The following WebExtension API changes were introduced in Thunderbird 108.
      <a href="../messageDisplayAction.html">messageDisplayAction</a>
    </div>
 
-- :small:`function` `getBadgeBackgroundColor.details.tabId <../messageDisplayAction.html#message-display-action-get-badge-background-color-details-tab-id>`__ — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getBadgeBackgroundColor.details.windowId <../messageDisplayAction.html#message-display-action-get-badge-background-color-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getBadgeText.details.tabId <../messageDisplayAction.html#message-display-action-get-badge-text-details-tab-id>`__ — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getBadgeText.details.windowId <../messageDisplayAction.html#message-display-action-get-badge-text-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getLabel.details.tabId <../messageDisplayAction.html#message-display-action-get-label-details-tab-id>`__ — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getLabel.details.windowId <../messageDisplayAction.html#message-display-action-get-label-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getPopup.details.tabId <../messageDisplayAction.html#message-display-action-get-popup-details-tab-id>`__ — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getPopup.details.windowId <../messageDisplayAction.html#message-display-action-get-popup-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `getTitle.details.tabId <../messageDisplayAction.html#message-display-action-get-title-details-tab-id>`__ — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `getTitle.details.windowId <../messageDisplayAction.html#message-display-action-get-title-details-window-id>`__ — Will throw an error if used.
-- :small:`function` `isEnabled.details.tabId <../messageDisplayAction.html#message-display-action-is-enabled-details-tab-id>`__ — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
-- :small:`function` `isEnabled.details.windowId <../messageDisplayAction.html#message-display-action-is-enabled-details-window-id>`__ — Will throw an error if used.
+- :small:`function` :ref:`getBadgeBackgroundColor.details.tabId <message^display^action.get^badge^background^color.details.tab^id>` — Specifies for which tab the badge background color should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getBadgeBackgroundColor.details.windowId <message^display^action.get^badge^background^color.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getBadgeText.details.tabId <message^display^action.get^badge^text.details.tab^id>` — Specifies for which tab the badge text should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getBadgeText.details.windowId <message^display^action.get^badge^text.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getLabel.details.tabId <message^display^action.get^label.details.tab^id>` — Specifies for which tab the label should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getLabel.details.windowId <message^display^action.get^label.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getPopup.details.tabId <message^display^action.get^popup.details.tab^id>` — Specifies for which tab the popup document should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getPopup.details.windowId <message^display^action.get^popup.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`getTitle.details.tabId <message^display^action.get^title.details.tab^id>` — Specifies for which tab the title should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`getTitle.details.windowId <message^display^action.get^title.details.window^id>` — Will throw an error if used.
+- :small:`function` :ref:`isEnabled.details.tabId <message^display^action.is^enabled.details.tab^id>` — Specifies for which tab the state should be retrieved. If no tab is specified, the global value is retrieved.
+- :small:`function` :ref:`isEnabled.details.windowId <message^display^action.is^enabled.details.window^id>` — Will throw an error if used.

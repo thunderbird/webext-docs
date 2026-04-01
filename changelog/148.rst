@@ -1,3 +1,9 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
 .. role:: small
 
 =============================
@@ -7,6 +13,9 @@ Changelog for Thunderbird 148
 The following WebExtension API changes were introduced in Thunderbird 148.
 
 
+mailTabs
+--------
+
 .. raw:: html
 
    <div class="changelog-api-header">
@@ -14,9 +23,12 @@ The following WebExtension API changes were introduced in Thunderbird 148.
      <a href="../mailTabs.html">mailTabs</a>
    </div>
 
-- :small:`function` `getListedMessages.options.sortOrder <../mailTabs.html#mail-tabs-get-listed-messages-options-sort-order>`__ — The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
-- :small:`function` `getListedMessages.options.sortType <../mailTabs.html#mail-tabs-get-listed-messages-options-sort-type>`__ — Specifies how the returned messages should be sorted. This does not change the actual sort of the displayed messages. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+- :small:`function` :ref:`getListedMessages.options.sortOrder <mail^tabs.get^listed^messages.options.sort^order>` — The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+- :small:`function` :ref:`getListedMessages.options.sortType <mail^tabs.get^listed^messages.options.sort^type>` — Specifies how the returned messages should be sorted. This does not change the actual sort of the displayed messages. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
 
+
+messages
+--------
 
 .. raw:: html
 
@@ -25,6 +37,6 @@ The following WebExtension API changes were introduced in Thunderbird 148.
      <a href="../messages.html">messages</a>
    </div>
 
-- :small:`function` `list.options.sortOrder <../messages.html#messages-list-options-sort-order>`__ — The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
-- :small:`function` `list.options.sortType <../messages.html#messages-list-options-sort-type>`__ — Specifies how the returned messages should be sorted. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
-- :small:`type` `MessageHeader.priority <../messages.html#messages-message-header-priority>`__ — The priority of the message.
+- :small:`function` :ref:`list.options.sortOrder <messages.list.options.sort^order>` — The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+- :small:`function` :ref:`list.options.sortType <messages.list.options.sort^type>` — Specifies how the returned messages should be sorted. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+- :small:`type` :ref:`MessageHeader.priority <messages.^message^header.priority>` — The priority of the message.
