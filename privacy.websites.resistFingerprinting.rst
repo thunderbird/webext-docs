@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ privacy.websites API
+  ≡ resistFingerprinting Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-====================
-privacy.websites API
-====================
+============================
+resistFingerprinting Setting
+============================
 
 .. role:: permission
 
@@ -21,20 +22,9 @@ privacy.websites API
 
 .. role:: small
 
-Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: resistFingerprinting</h2>
-
 .. _privacy.websites.resist^fingerprinting:
 
 If enabled, the browser attempts to appear similar to other users by reporting generic information to websites. This can prevent websites from uniquely identifying users. Examples of data that is spoofed include number of CPU cores, precision of JavaScript timers, the local timezone, and disabling features such as GamePad support, and the WebSpeech and Navigator APIs. The value of this preference is of type boolean, and the default value is :code:`false`.
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -67,6 +57,29 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`privacy` is required to use ``messenger.privacy.websites.resistFingerprinting.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`resistFingerprinting` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.privacy.websites.resistFingerprinting.get({});
+
+To update the :value:`resistFingerprinting` setting:
+
+.. code-block:: javascript
+
+   await messenger.privacy.websites.resistFingerprinting.set({ value: <newValue> });
+
+To clear the :value:`resistFingerprinting` setting and restore the default value:
+
+.. code-block:: javascript
+
+   await messenger.privacy.websites.resistFingerprinting.clear({});
 
 .. rst-class:: api-main-section
 
@@ -182,7 +195,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -221,7 +234,7 @@ Sets the value of a setting.
          :refname: value
          :type: (any)
 
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
+         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
 
       .. _privacy.websites.resist^fingerprinting.set.details.scope:
 
@@ -303,7 +316,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions
