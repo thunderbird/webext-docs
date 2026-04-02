@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ privacy.network API
+  ≡ webRTCIPHandlingPolicy Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-===================
-privacy.network API
-===================
+==============================
+webRTCIPHandlingPolicy Setting
+==============================
 
 .. role:: permission
 
@@ -21,13 +22,6 @@ privacy.network API
 
 .. role:: small
 
-Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: webRTCIPHandlingPolicy</h2>
-
 .. _privacy.network.web^r^t^c^i^p^handling^policy:
 
 Allow users to specify the media performance/privacy tradeoffs which impacts how WebRTC traffic will be routed and how much local address information is exposed. This preference's value is of type IPHandlingPolicy, defaulting to :code:`default`.
@@ -35,10 +29,6 @@ Allow users to specify the media performance/privacy tradeoffs which impacts how
 .. note::
 
    Starting in Thunderbird 70, a value of :code:`disable_non_proxied_udp` requires a proxy if one is configured, but allows connections to go through if no proxy is set up. Previously, in this mode WebRTC could only be used if a proxy was configured and TURN over TCP was available; this behavior is now exposed as :code:`proxy_only`.
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -71,6 +61,29 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`privacy` is required to use ``messenger.privacy.network.webRTCIPHandlingPolicy.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`webRTCIPHandlingPolicy` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.privacy.network.webRTCIPHandlingPolicy.get({});
+
+To update the :value:`webRTCIPHandlingPolicy` setting:
+
+.. code-block:: javascript
+
+   await messenger.privacy.network.webRTCIPHandlingPolicy.set({ value: <newValue> });
+
+To clear the :value:`webRTCIPHandlingPolicy` setting and restore the default value:
+
+.. code-block:: javascript
+
+   await messenger.privacy.network.webRTCIPHandlingPolicy.clear({});
 
 .. rst-class:: api-main-section
 
@@ -186,7 +199,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -225,7 +238,7 @@ Sets the value of a setting.
          :refname: value
          :type: (any)
 
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
+         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
 
       .. _privacy.network.web^r^t^c^i^p^handling^policy.set.details.scope:
 
@@ -307,7 +320,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

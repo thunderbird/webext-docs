@@ -3,7 +3,7 @@
   ≡ browserSettings.colorManagement API
 
   * `Permissions`_
-  * `Properties`_
+  * `Settings`_
 
   .. include:: /_includes/developer-resources.rst
 
@@ -59,8 +59,8 @@ The following permissions influence the behavior of the API. Depending on which 
 
 .. rst-class:: api-main-section
 
-Properties
-==========
+Settings
+========
 
 .. toctree::
   :hidden:
@@ -76,7 +76,8 @@ Properties
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.colorManagement.mode.html">mode</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This setting controls the mode used for color management and must be a string from :ref:`browser^settings.^color^management^mode`
 
@@ -91,7 +92,8 @@ This setting controls the mode used for color management and must be a string fr
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.colorManagement.useNativeSRGB.html">useNativeSRGB</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether or not native sRGB color management is used.
 
@@ -106,7 +108,8 @@ This boolean setting controls whether or not native sRGB color management is use
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.colorManagement.useWebRenderCompositor.html">useWebRenderCompositor</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether or not the WebRender compositor is used.
 

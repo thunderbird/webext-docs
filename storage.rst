@@ -166,7 +166,7 @@ Properties
 local
 -----
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 Items in the :code:`local` storage area are local to each machine.
 
@@ -179,7 +179,7 @@ Items in the :code:`local` storage area are local to each machine.
 managed
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 57]
 
 Items in the :code:`managed` storage area are set by administrators or native applications, and are read-only for the extension; trying to modify this namespace results in an error.
 
@@ -200,7 +200,7 @@ Items in the :code:`managed` storage area are set by administrators or native ap
 session
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 115]
 
 Items in the :code:`session` storage area are kept in memory, and only until the either browser or extension is closed or reloaded.
 
@@ -209,7 +209,7 @@ Items in the :code:`session` storage area are kept in memory, and only until the
 sync
 ----
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 53]
 
 Items in the :code:`sync` storage area are synced by the browser.
 
