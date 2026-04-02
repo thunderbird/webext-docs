@@ -1683,6 +1683,6 @@ Properties
 ACTION_MENU_TOP_LEVEL_LIMIT
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 66]
 
 The maximum number of top level extension items that can be added to an extension action context menu. Any items beyond this limit will be ignored.

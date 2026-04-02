@@ -4,7 +4,7 @@
 
   * `Permissions`_
   * `Types`_
-  * `Properties`_
+  * `Settings`_
 
   .. include:: /_includes/developer-resources.rst
 
@@ -169,8 +169,8 @@ How images should be animated in the browser.
 
 .. rst-class:: api-main-section
 
-Properties
-==========
+Settings
+========
 
 .. toctree::
   :hidden:
@@ -202,7 +202,8 @@ Properties
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.allowPopupsForUserEvents.html">allowPopupsForUserEvents</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 57]
 
 Allows or disallows pop-up windows from opening in response to user events.
 
@@ -217,7 +218,8 @@ Allows or disallows pop-up windows from opening in response to user events.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.cacheEnabled.html">cacheEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 56]
 
 Enables or disables the browser cache.
 
@@ -232,7 +234,8 @@ Enables or disables the browser cache.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.closeTabsByDoubleClick.html">closeTabsByDoubleClick</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether the selected tab can be closed with a double click.
 
@@ -247,7 +250,8 @@ This boolean setting controls whether the selected tab can be closed with a doub
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.contextMenuShowEvent.html">contextMenuShowEvent</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 59]
 
 Controls after which mouse event context menus popup. This setting's value is of type ContextMenuMouseEvent, which has possible values of :code:`mouseup` and :code:`mousedown`.
 
@@ -262,9 +266,14 @@ Controls after which mouse event context menus popup. This setting's value is of
      <span class="setting-prop-label">read</span>
      <a href="browserSettings.ftpProtocolEnabled.html">ftpProtocolEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 72]
 
 Returns whether the FTP protocol is enabled. Read-only.
+
+.. note::
+
+   From version 88, this setting is read-only (see `bug 1626365 <https://bugzil.la/1626365>`__).
 
 .. raw:: html
 
@@ -277,7 +286,8 @@ Returns whether the FTP protocol is enabled. Read-only.
      <span class="setting-prop-label">read</span>
      <a href="browserSettings.homepageOverride.html">homepageOverride</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 Returns the value of the overridden home page. Read-only.
 
@@ -292,7 +302,8 @@ Returns the value of the overridden home page. Read-only.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.imageAnimationBehavior.html">imageAnimationBehavior</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 57]
 
 Controls the behaviour of image animation in the browser. This setting's value is of type ImageAnimationBehavior, defaulting to :code:`normal`.
 
@@ -307,7 +318,8 @@ Controls the behaviour of image animation in the browser. This setting's value i
      <span class="setting-prop-label">read</span>
      <a href="browserSettings.newTabPageOverride.html">newTabPageOverride</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 Returns the value of the overridden new tab page. Read-only.
 
@@ -322,7 +334,8 @@ Returns the value of the overridden new tab page. Read-only.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.newTabPosition.html">newTabPosition</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 Controls where new tabs are opened. :value:`afterCurrent` will open all new tabs next to the current tab, :value:`relatedAfterCurrent` will open only related tabs next to the current tab, and :value:`atEnd` will open all tabs at the end of the tab strip. The default is :value:`relatedAfterCurrent`.
 
@@ -337,7 +350,8 @@ Controls where new tabs are opened. :value:`afterCurrent` will open all new tabs
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.openBookmarksInNewTabs.html">openBookmarksInNewTabs</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether bookmarks are opened in the current tab or in a new tab.
 
@@ -352,7 +366,8 @@ This boolean setting controls whether bookmarks are opened in the current tab or
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.openSearchResultsInNewTabs.html">openSearchResultsInNewTabs</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether search results are opened in the current tab or in a new tab.
 
@@ -367,7 +382,8 @@ This boolean setting controls whether search results are opened in the current t
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.openUrlbarResultsInNewTabs.html">openUrlbarResultsInNewTabs</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether urlbar results are opened in the current tab or in a new tab.
 
@@ -382,7 +398,8 @@ This boolean setting controls whether urlbar results are opened in the current t
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.overrideContentColorScheme.html">overrideContentColorScheme</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 95]
 
 This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
 
@@ -397,7 +414,8 @@ This setting controls whether a light or dark color scheme overrides the page's 
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.overrideDocumentColors.html">overrideDocumentColors</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 61]
 
 This setting controls whether the user-chosen colors override the page's colors.
 
@@ -412,7 +430,8 @@ This setting controls whether the user-chosen colors override the page's colors.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.useDocumentFonts.html">useDocumentFonts</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 61]
 
 This setting controls whether the document's fonts are used.
 
@@ -427,7 +446,8 @@ This setting controls whether the document's fonts are used.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.verticalTabs.html">verticalTabs</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether vertical tabs are enabled.
 
@@ -442,7 +462,8 @@ This boolean setting controls whether vertical tabs are enabled.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.webNotificationsDisabled.html">webNotificationsDisabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 Disables webAPI notifications.
 
@@ -457,7 +478,8 @@ Disables webAPI notifications.
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.zoomFullPage.html">zoomFullPage</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 75]
 
 This boolean setting controls whether zoom is applied to the full page or to text only.
 
@@ -472,7 +494,8 @@ This boolean setting controls whether zoom is applied to the full page or to tex
      <span class="setting-prop-label">write</span>
      <a href="browserSettings.zoomSiteSpecific.html">zoomSiteSpecific</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This boolean setting controls whether zoom is applied on a per-site basis or to the current tab only. If privacy.resistFingerprinting is true, this setting has no effect and zoom is applied to the current tab only.
 

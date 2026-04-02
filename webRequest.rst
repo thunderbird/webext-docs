@@ -3744,6 +3744,6 @@ Properties
 MAX_HANDLER_BEHAVIOR_CHANGED_CALLS_PER_10_MINUTES
 -------------------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 The maximum number of times that :code:`handlerBehaviorChanged` can be called per 10 minute sustained interval. :code:`handlerBehaviorChanged` is an expensive function call that shouldn't be called often.

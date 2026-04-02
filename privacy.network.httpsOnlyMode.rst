@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ privacy.network API
+  ≡ httpsOnlyMode Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-===================
-privacy.network API
-===================
+=====================
+httpsOnlyMode Setting
+=====================
 
 .. role:: permission
 
@@ -21,20 +22,9 @@ privacy.network API
 
 .. role:: small
 
-Use the :code:`browser.privacy` API to control usage of the features in the browser that can affect a user's privacy.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: httpsOnlyMode</h2>
-
 .. _privacy.network.https^only^mode:
 
 Allow users to query the mode for 'HTTPS-Only Mode'. This setting's value is of type HTTPSOnlyModeOption, defaulting to :code:`never`.
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -67,6 +57,17 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`privacy` is required to use ``messenger.privacy.network.httpsOnlyMode.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`httpsOnlyMode` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.privacy.network.httpsOnlyMode.get({});
 
 .. rst-class:: api-main-section
 
@@ -145,7 +146,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -219,7 +220,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

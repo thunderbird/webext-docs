@@ -4,7 +4,7 @@
 
   * `Permissions`_
   * `Types`_
-  * `Properties`_
+  * `Settings`_
 
   .. include:: /_includes/developer-resources.rst
 
@@ -263,8 +263,8 @@ An object which describes TLS minimum and maximum versions.
 
 .. rst-class:: api-main-section
 
-Properties
-==========
+Settings
+========
 
 .. toctree::
   :hidden:
@@ -283,7 +283,8 @@ Properties
      <span class="setting-prop-label">read</span>
      <a href="privacy.network.globalPrivacyControl.html">globalPrivacyControl</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 95]
 
 Allow users to query the status of 'Global Privacy Control'. This setting's value is of type boolean, defaulting to :code:`false`.
 
@@ -298,7 +299,8 @@ Allow users to query the status of 'Global Privacy Control'. This setting's valu
      <span class="setting-prop-label">read</span>
      <a href="privacy.network.httpsOnlyMode.html">httpsOnlyMode</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 84]
 
 Allow users to query the mode for 'HTTPS-Only Mode'. This setting's value is of type HTTPSOnlyModeOption, defaulting to :code:`never`.
 
@@ -313,7 +315,8 @@ Allow users to query the mode for 'HTTPS-Only Mode'. This setting's value is of 
      <span class="setting-prop-label">write</span>
      <a href="privacy.network.networkPredictionEnabled.html">networkPredictionEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 54]
 
 If enabled, the browser attempts to speed up your web browsing experience by pre-resolving DNS entries, prerendering sites (:code:`&lt;link rel='prefetch' ...&gt;`), and preemptively opening TCP and SSL connections to servers.  This preference's value is a boolean, defaulting to :code:`true`.
 
@@ -328,7 +331,8 @@ If enabled, the browser attempts to speed up your web browsing experience by pre
      <span class="setting-prop-label">write</span>
      <a href="privacy.network.peerConnectionEnabled.html">peerConnectionEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 55]
 
 Allow users to enable and disable RTCPeerConnections (aka WebRTC).
 
@@ -343,7 +347,8 @@ Allow users to enable and disable RTCPeerConnections (aka WebRTC).
      <span class="setting-prop-label">write</span>
      <a href="privacy.network.tlsVersionRestriction.html">tlsVersionRestriction</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 This property controls the minimum and maximum TLS versions. This setting's value is an object of :ref:`privacy.network.tls^version^restriction^config`.
 
@@ -358,9 +363,14 @@ This property controls the minimum and maximum TLS versions. This setting's valu
      <span class="setting-prop-label">write</span>
      <a href="privacy.network.webRTCIPHandlingPolicy.html">webRTCIPHandlingPolicy</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 54]
 
 Allow users to specify the media performance/privacy tradeoffs which impacts how WebRTC traffic will be routed and how much local address information is exposed. This preference's value is of type IPHandlingPolicy, defaulting to :code:`default`.
+
+.. note::
+
+   Starting in Thunderbird 70, a value of :code:`disable_non_proxied_udp` requires a proxy if one is configured, but allows connections to go through if no proxy is set up. Previously, in this mode WebRTC could only be used if a proxy was configured and TURN over TCP was available; this behavior is now exposed as :code:`proxy_only`.
 
 .. raw:: html
 

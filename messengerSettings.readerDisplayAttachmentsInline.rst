@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ messengerSettings API
+  ≡ readerDisplayAttachmentsInline Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-=====================
-messengerSettings API
-=====================
+======================================
+readerDisplayAttachmentsInline Setting
+======================================
 
 .. role:: permission
 
@@ -21,20 +22,9 @@ messengerSettings API
 
 .. role:: small
 
-The messengerSettings API allows to access global messenger settings.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: readerDisplayAttachmentsInline</h2>
-
 .. _messenger^settings.reader^display^attachments^inline:
 
 Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -61,6 +51,17 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`messengerSettings` is required to use ``messenger.messengerSettings.readerDisplayAttachmentsInline.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`readerDisplayAttachmentsInline` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.messengerSettings.readerDisplayAttachmentsInline.get({});
 
 .. rst-class:: api-main-section
 
@@ -139,7 +140,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -213,7 +214,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

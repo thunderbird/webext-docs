@@ -1421,7 +1421,7 @@ Properties
 DYNAMIC_RULESET_ID
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Ruleset ID for the dynamic rules added by the extension.
 
@@ -1430,7 +1430,7 @@ Ruleset ID for the dynamic rules added by the extension.
 GUARANTEED_MINIMUM_STATIC_RULES
 -------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 The minimum number of static rules guaranteed to an extension across its enabled static rulesets. Any rules above this limit will count towards the global static rule limit.
 
@@ -1439,7 +1439,7 @@ The minimum number of static rules guaranteed to an extension across its enabled
 MAX_NUMBER_OF_DISABLED_STATIC_RULES
 -----------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 The maximum number of static rules that can be disabled on each static ruleset.
 
@@ -1448,7 +1448,7 @@ The maximum number of static rules that can be disabled on each static ruleset.
 MAX_NUMBER_OF_DYNAMIC_AND_SESSION_RULES
 ---------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Deprecated property returning the maximum number of dynamic and session rules an extension can add, replaced by MAX_NUMBER_OF_DYNAMIC_RULES/MAX_NUMBER_OF_SESSION_RULES.
 
@@ -1461,7 +1461,7 @@ Deprecated property returning the maximum number of dynamic and session rules an
 MAX_NUMBER_OF_DYNAMIC_RULES
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 The maximum number of dynamic session rules an extension can add.
 
@@ -1470,7 +1470,7 @@ The maximum number of dynamic session rules an extension can add.
 MAX_NUMBER_OF_ENABLED_STATIC_RULESETS
 -------------------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 The maximum number of static Rulesets an extension can enable at any one time.
 
@@ -1479,7 +1479,7 @@ The maximum number of static Rulesets an extension can enable at any one time.
 MAX_NUMBER_OF_REGEX_RULES
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 The maximum number of regular expression rules that an extension can add. This limit is evaluated separately for the set of session rules, dynamic rules and those specified in the rule_resources file.
 
@@ -1488,7 +1488,7 @@ The maximum number of regular expression rules that an extension can add. This l
 MAX_NUMBER_OF_SESSION_RULES
 ---------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128]
 
 The maximum number of dynamic session rules an extension can add.
 
@@ -1497,7 +1497,7 @@ The maximum number of dynamic session rules an extension can add.
 MAX_NUMBER_OF_STATIC_RULESETS
 -----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 The maximum number of static Rulesets an extension can specify as part of the rule_resources manifest key.
 
@@ -1506,6 +1506,6 @@ The maximum number of static Rulesets an extension can specify as part of the ru
 SESSION_RULESET_ID
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 113]
 
 Ruleset ID for the session-scoped rules added by the extension.
