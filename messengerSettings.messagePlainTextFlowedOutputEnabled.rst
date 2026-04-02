@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ messengerSettings API
+  ≡ messagePlainTextFlowedOutputEnabled Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-=====================
-messengerSettings API
-=====================
+===========================================
+messagePlainTextFlowedOutputEnabled Setting
+===========================================
 
 .. role:: permission
 
@@ -21,20 +22,9 @@ messengerSettings API
 
 .. role:: small
 
-The messengerSettings API allows to access global messenger settings.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: messagePlainTextFlowedOutputEnabled</h2>
-
 .. _messenger^settings.message^plain^text^flowed^output^enabled:
 
 Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messageLineLengthLimit <messenger^settings.message^line^length^limit>`.
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -61,6 +51,29 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`messengerSettings` is required to use ``messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`messagePlainTextFlowedOutputEnabled` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.get({});
+
+To update the :value:`messagePlainTextFlowedOutputEnabled` setting:
+
+.. code-block:: javascript
+
+   await messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.set({ value: <newValue> });
+
+To clear the :value:`messagePlainTextFlowedOutputEnabled` setting and restore the default value:
+
+.. code-block:: javascript
+
+   await messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.clear({});
 
 .. rst-class:: api-main-section
 
@@ -176,7 +189,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -215,7 +228,7 @@ Sets the value of a setting.
          :refname: value
          :type: (any)
 
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
+         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
 
       .. _messenger^settings.message^plain^text^flowed^output^enabled.set.details.scope:
 
@@ -297,7 +310,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

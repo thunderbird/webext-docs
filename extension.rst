@@ -256,7 +256,7 @@ Properties
 inIncognitoContext
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 True for content scripts running inside incognito tabs, and for extension pages running inside an incognito process. The latter only applies to extensions with 'split' incognito_behavior.
 
@@ -265,6 +265,6 @@ True for content scripts running inside incognito tabs, and for extension pages 
 lastError
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Set for the lifetime of a callback if an ansychronous extension api has resulted in an error. If no error has occured lastError will be :value:`undefined`.

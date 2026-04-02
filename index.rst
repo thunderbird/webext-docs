@@ -120,36 +120,3 @@
 
 
   Thunderbird 102.0 <changelog/102.0>
-
-
-  Thunderbird 91.4.1 <changelog/91.4.1>
-
-
-  Thunderbird 91.3.1 <changelog/91.3.1>
-
-
-  Thunderbird 91.0 <changelog/91.0>
-
-
-  Thunderbird 78.7.1 <changelog/78.7.1>
-
-
-  Thunderbird 78.7.0 <changelog/78.7.0>
-
-
-  Thunderbird 78.6.1 <changelog/78.6.1>
-
-
-  Thunderbird 78.6.0 <changelog/78.6.0>
-
-
-  Thunderbird 78.5.0 <changelog/78.5.0>
-
-
-  Thunderbird 78.4.0 <changelog/78.4.0>
-
-
-  Thunderbird 78.3.2 <changelog/78.3.2>
-
-
-  Thunderbird 78.0 <changelog/78.0>

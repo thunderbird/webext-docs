@@ -1910,6 +1910,6 @@ Properties
 DEFAULT_MOST_RECENT_LIMIT
 -------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 128.0]
 
 The number of most recent folders used in Thunderbird's UI. Controlled by the :value:`mail.folder_widget.max_recent` preference.
