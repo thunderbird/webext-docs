@@ -1918,7 +1918,7 @@ Properties
 id
 --
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 The ID of the extension/app.
 
@@ -1927,6 +1927,6 @@ The ID of the extension/app.
 lastError
 ---------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 This will be defined during an API method callback if there was an error

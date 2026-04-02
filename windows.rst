@@ -1023,7 +1023,7 @@ Properties
 WINDOW_ID_CURRENT
 -----------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.3.0]
 
 The windowId value that represents the current window.
 
@@ -1032,6 +1032,6 @@ The windowId value that represents the current window.
 WINDOW_ID_NONE
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.3.0]
 
 The windowId value that represents the absence of a window.
