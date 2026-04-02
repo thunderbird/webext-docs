@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ browserSettings API
+  ≡ contextMenuShowEvent Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-===================
-browserSettings API
-===================
+============================
+contextMenuShowEvent Setting
+============================
 
 .. role:: permission
 
@@ -25,20 +26,9 @@ browserSettings API
 
    The browserSettings.contextMenuShowEvent API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/contextMenuShowEvent>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
-Use the :code:`browser.browserSettings` API to control global settings of the browser.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: contextMenuShowEvent</h2>
-
 .. _browser^settings.context^menu^show^event:
 
 Controls after which mouse event context menus popup. This setting's value is of type ContextMenuMouseEvent, which has possible values of :code:`mouseup` and :code:`mousedown`.
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -65,6 +55,29 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`browserSettings` is required to use ``messenger.browserSettings.contextMenuShowEvent.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`contextMenuShowEvent` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.browserSettings.contextMenuShowEvent.get({});
+
+To update the :value:`contextMenuShowEvent` setting:
+
+.. code-block:: javascript
+
+   await messenger.browserSettings.contextMenuShowEvent.set({ value: <newValue> });
+
+To clear the :value:`contextMenuShowEvent` setting and restore the default value:
+
+.. code-block:: javascript
+
+   await messenger.browserSettings.contextMenuShowEvent.clear({});
 
 .. rst-class:: api-main-section
 
@@ -180,7 +193,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -219,7 +232,7 @@ Sets the value of a setting.
          :refname: value
          :type: (any)
 
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
+         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
 
       .. _browser^settings.context^menu^show^event.set.details.scope:
 
@@ -301,7 +314,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

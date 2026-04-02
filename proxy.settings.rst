@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ proxy API
+  ≡ settings Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-=========
-proxy API
-=========
+================
+settings Setting
+================
 
 .. role:: permission
 
@@ -25,13 +26,6 @@ proxy API
 
    The proxy.settings API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/proxy/settings>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
-Provides access to global proxy settings for Thunderbird and proxy event listeners to handle dynamic proxy implementations.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: settings</h2>
-
 .. _proxy.settings:
 
 Configures proxy settings. This setting's value is an object of type ProxyConfig.
@@ -43,10 +37,6 @@ Configures proxy settings. This setting's value is an object of type ProxyConfig
 .. note::
 
    From version 88, the :code:`ftp` setting has no effect because FTP is no longer supported (see `bug 1626365 <https://bugzil.la/1626365>`__).
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -73,6 +63,29 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`proxy` is required to use ``messenger.proxy.settings.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`settings` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.proxy.settings.get({});
+
+To update the :value:`settings` setting:
+
+.. code-block:: javascript
+
+   await messenger.proxy.settings.set({ value: <newValue> });
+
+To clear the :value:`settings` setting and restore the default value:
+
+.. code-block:: javascript
+
+   await messenger.proxy.settings.clear({});
 
 .. rst-class:: api-main-section
 
@@ -188,7 +201,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -227,7 +240,7 @@ Sets the value of a setting.
          :refname: value
          :type: (any)
 
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
+         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
 
       .. _proxy.settings.set.details.scope:
 
@@ -309,7 +322,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

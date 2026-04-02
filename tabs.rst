@@ -1999,6 +1999,6 @@ Properties
 TAB_ID_NONE
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 62]
 
 An ID which represents the absence of a tab.

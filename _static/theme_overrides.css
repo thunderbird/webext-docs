@@ -93,7 +93,7 @@ div.container > ul {
   border-top: 3px solid #6ab0de;
   margin-bottom:1ex;
   display: inline-flex;
-  align-items: center;  
+  align-items: center;
 }
 .api-main-section > section:not(.api-section-body)  > span {
     font-size: 80%;
@@ -141,10 +141,16 @@ div.container > ul {
    heading structure (see also apisectionannotationhack.py). The setting name
    links directly to the setting's sub-page. If the Sphinx theme changes its
    section elements, format_setting_heading in writer.mjs must be updated. */
-.setting-prop-header {
+.setting-prop-header-section {
   border-top: 3px solid #ccc;
+  margin-bottom: 0;
+}
+.setting-prop-header-section > .api-section-annotation {
   background: #f0f0f0;
-  margin-bottom: 1ex;
+}
+.setting-prop-header {
+  background: #f0f0f0;
+  margin-bottom: 0;
   display: inline-flex;
   align-items: center;
 }

@@ -5,7 +5,7 @@
   * `Permissions`_
   * `Events`_
   * `Types`_
-  * `Properties`_
+  * `Settings`_
 
   .. include:: /_includes/developer-resources.rst
 
@@ -496,8 +496,8 @@ An object which describes proxy settings.
 
 .. rst-class:: api-main-section
 
-Properties
-==========
+Settings
+========
 
 .. toctree::
   :hidden:
@@ -511,9 +511,18 @@ Properties
      <span class="setting-prop-label">write</span>
      <a href="proxy.settings.html">settings</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB false]
 
 Configures proxy settings. This setting's value is an object of type ProxyConfig.
+
+.. note::
+
+   Not supported in Thunderbird because it depends on private browsing functionality, which Thunderbird does not fully implement.
+
+.. note::
+
+   From version 88, the :code:`ftp` setting has no effect because FTP is no longer supported (see `bug 1626365 <https://bugzil.la/1626365>`__).
 
 .. raw:: html
 
