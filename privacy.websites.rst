@@ -4,7 +4,7 @@
 
   * `Permissions`_
   * `Types`_
-  * `Properties`_
+  * `Settings`_
 
   .. include:: /_includes/developer-resources.rst
 
@@ -180,8 +180,8 @@ The mode for tracking protection.
 
 .. rst-class:: api-main-section
 
-Properties
-==========
+Settings
+========
 
 .. toctree::
   :hidden:
@@ -202,9 +202,18 @@ Properties
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.cookieConfig.html">cookieConfig</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 59]
 
 Allow users to specify the default settings for allowing cookies, as well as whether all cookies should be created as non-persistent cookies. This setting's value is of type CookieConfig.
+
+.. note::
+
+   The :code:`behavior` property value "reject_trackers_and_partition_foreign" was introduced in version 78.
+
+.. note::
+
+   The :code:`behavior` property value "reject_trackers" was introduced in version 64.
 
 .. raw:: html
 
@@ -217,7 +226,8 @@ Allow users to specify the default settings for allowing cookies, as well as whe
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.firstPartyIsolate.html">firstPartyIsolate</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 If enabled, the browser will associate all data (including cookies, HSTS data, cached images, and more) for any third party domains with the domain in the address bar. This prevents third party trackers from using directly stored information to identify you across different websites, but may break websites where you login with a third party account (such as a Facebook or Google login.) The value of this preference is of type boolean, and the default value is :code:`false`.
 
@@ -232,7 +242,8 @@ If enabled, the browser will associate all data (including cookies, HSTS data, c
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.hyperlinkAuditingEnabled.html">hyperlinkAuditingEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 54]
 
 If enabled, the browser sends auditing pings when requested by a website (:code:`&lt;a ping&gt;`). The value of this preference is of type boolean, and the default value is :code:`true`.
 
@@ -247,7 +258,8 @@ If enabled, the browser sends auditing pings when requested by a website (:code:
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.protectedContentEnabled.html">protectedContentEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 **Available on Windows and ChromeOS only**: If enabled, the browser provides a unique ID to plugins in order to run protected content. The value of this preference is of type boolean, and the default value is :code:`true`.
 
@@ -262,7 +274,8 @@ If enabled, the browser sends auditing pings when requested by a website (:code:
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.referrersEnabled.html">referrersEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 56]
 
 If enabled, the browser sends :code:`referer` headers with your requests. Yes, the name of this preference doesn't match the misspelled header. No, we're not going to change it. The value of this preference is of type boolean, and the default value is :code:`true`.
 
@@ -277,7 +290,8 @@ If enabled, the browser sends :code:`referer` headers with your requests. Yes, t
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.resistFingerprinting.html">resistFingerprinting</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 58]
 
 If enabled, the browser attempts to appear similar to other users by reporting generic information to websites. This can prevent websites from uniquely identifying users. Examples of data that is spoofed include number of CPU cores, precision of JavaScript timers, the local timezone, and disabling features such as GamePad support, and the WebSpeech and Navigator APIs. The value of this preference is of type boolean, and the default value is :code:`false`.
 
@@ -292,7 +306,8 @@ If enabled, the browser attempts to appear similar to other users by reporting g
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.thirdPartyCookiesAllowed.html">thirdPartyCookiesAllowed</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: 
 
 If disabled, the browser blocks third-party sites from setting cookies. The value of this preference is of type boolean, and the default value is :code:`true`.
 
@@ -307,7 +322,8 @@ If disabled, the browser blocks third-party sites from setting cookies. The valu
      <span class="setting-prop-label">write</span>
      <a href="privacy.websites.trackingProtectionMode.html">trackingProtectionMode</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 57]
 
 Allow users to specify the mode for tracking protection. This setting's value is of type TrackingProtectionModeOption, defaulting to :code:`private_browsing_only`.
 

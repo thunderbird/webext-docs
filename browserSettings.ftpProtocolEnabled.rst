@@ -1,17 +1,18 @@
 .. container:: sticky-sidebar
 
-  ≡ browserSettings API
+  ≡ ftpProtocolEnabled Setting
 
   * `Permissions`_
+  * `Examples`_
   * `Functions`_
   * `Events`_
   * `Types`_
 
   .. include:: /_includes/developer-resources.rst
 
-===================
-browserSettings API
-===================
+==========================
+ftpProtocolEnabled Setting
+==========================
 
 .. role:: permission
 
@@ -25,13 +26,6 @@ browserSettings API
 
    The browserSettings.ftpProtocolEnabled API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/browserSettings/ftpProtocolEnabled>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
-Use the :code:`browser.browserSettings` API to control global settings of the browser.
-
-.. raw:: html
-
-   <section class="api-main-section" id="setting-property">
-   <h2>Property: ftpProtocolEnabled</h2>
-
 .. _browser^settings.ftp^protocol^enabled:
 
 Returns whether the FTP protocol is enabled. Read-only.
@@ -39,10 +33,6 @@ Returns whether the FTP protocol is enabled. Read-only.
 .. note::
 
    From version 88, this setting is read-only (see `bug 1626365 <https://bugzil.la/1626365>`__).
-
-.. raw:: html
-
-   </section>
 
 .. rst-class:: api-main-section
 
@@ -69,6 +59,29 @@ The following permissions influence the behavior of the API. Depending on which 
 .. note::
 
    The permission :permission:`browserSettings` is required to use ``messenger.browserSettings.ftpProtocolEnabled.*``.
+
+.. rst-class:: api-main-section
+
+Examples
+========
+
+To read the :value:`ftpProtocolEnabled` setting:
+
+.. code-block:: javascript
+
+   let { value } = await messenger.browserSettings.ftpProtocolEnabled.get({});
+
+To update the :value:`ftpProtocolEnabled` setting:
+
+.. code-block:: javascript
+
+   await messenger.browserSettings.ftpProtocolEnabled.set({ value: <newValue> });
+
+To clear the :value:`ftpProtocolEnabled` setting and restore the default value:
+
+.. code-block:: javascript
+
+   await messenger.browserSettings.ftpProtocolEnabled.clear({});
 
 .. rst-class:: api-main-section
 
@@ -184,7 +197,7 @@ Gets the value of a setting.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the effective value is specific to the incognito session.<br/>This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
+         Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -223,7 +236,7 @@ Sets the value of a setting.
          :refname: value
          :type: (any)
 
-         The value of the setting. <br/>Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
+         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
 
       .. _browser^settings.ftp^protocol^enabled.set.details.scope:
 
@@ -305,7 +318,7 @@ Fired after the setting changes.
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
-         Whether the value that has changed is specific to the incognito session.<br/>This property will *only* be present if the user has enabled the extension in incognito mode.
+         Whether the value that has changed is specific to the incognito session. This property will *only* be present if the user has enabled the extension in incognito mode.
 
 .. api-header::
    :label: Required permissions

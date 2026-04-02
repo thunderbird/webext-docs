@@ -3,7 +3,7 @@
   ≡ privacy.services API
 
   * `Permissions`_
-  * `Properties`_
+  * `Settings`_
 
   .. include:: /_includes/developer-resources.rst
 
@@ -59,8 +59,8 @@ The following permissions influence the behavior of the API. Depending on which 
 
 .. rst-class:: api-main-section
 
-Properties
-==========
+Settings
+========
 
 .. toctree::
   :hidden:
@@ -74,7 +74,8 @@ Properties
      <span class="setting-prop-label">write</span>
      <a href="privacy.services.passwordSavingEnabled.html">passwordSavingEnabled</a>
    </div>
-   </section><section class="api-section-body">
+
+.. api-section-annotation-hack:: -- [Added in TB 56]
 
 If enabled, the password manager will ask if you want to save passwords. This preference's value is a boolean, defaulting to :code:`true`.
 
