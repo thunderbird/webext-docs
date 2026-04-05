@@ -28,17 +28,17 @@ accounts
 - :small:`event` :ref:`onUpdated <accounts.on^updated>` — Fired when a property of an account has been modified. Folders and identities of accounts are not monitored by this event, use the dedicated folder and identity events instead. A changed :value:`defaultIdentity` is reported only after a different identity has been assigned as default identity, but not after a property of the default identity has been changed.
 
 
-browserSettings.overrideContentColorScheme
-------------------------------------------
+browserSettings
+---------------
 
 .. raw:: html
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../browserSettings.overrideContentColorScheme.html">browserSettings.overrideContentColorScheme</a>
+     <a href="../browserSettings.html">browserSettings</a>
    </div>
 
-This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
+- :small:`setting` :ref:`overrideContentColorScheme <browser^settings.override^content^color^scheme>` — This setting controls whether a light or dark color scheme overrides the page's preferred color scheme.
 
 
 cloudFile
@@ -71,17 +71,6 @@ commands
    </div>
 
 Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
-
-
-commands
---------
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../commands.html">commands</a>
-   </div>
 
 - :small:`property` :ref:`commands <commands.commands>` — A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`CommandsShortcut <^commands^shortcut>`.
 
@@ -172,17 +161,17 @@ messages
 - :small:`type` :ref:`MessageHeader.headersOnly <messages.^message^header.headers^only>` — Some account types (for example :value:`pop3`) allow to download only the headers of the message, but not its body. The body of such messages will not be available.
 
 
-privacy.network.globalPrivacyControl
-------------------------------------
+privacy.network
+---------------
 
 .. raw:: html
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../privacy.network.globalPrivacyControl.html">privacy.network.globalPrivacyControl</a>
+     <a href="../privacy.network.html">privacy.network</a>
    </div>
 
-Allow users to query the status of 'Global Privacy Control'. This setting's value is of type boolean, defaulting to :code:`false`.
+- :small:`setting` :ref:`globalPrivacyControl <privacy.network.global^privacy^control>` — Allow users to query the status of 'Global Privacy Control'. This setting's value is of type boolean, defaulting to :code:`false`.
 
 
 runtime
