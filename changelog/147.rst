@@ -41,17 +41,17 @@ messages
 - :small:`type` :ref:`HeadersDictionary <messages.^headers^dictionary>` — A *dictionary object* of headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
 
 
-messengerSettings.readerDisplayAttachmentsInline
-------------------------------------------------
+messengerSettings
+-----------------
 
 .. raw:: html
 
    <div class="changelog-api-header">
      <span class="changelog-api-label">api</span>
-     <a href="../messengerSettings.readerDisplayAttachmentsInline.html">messengerSettings.readerDisplayAttachmentsInline</a>
+     <a href="../messengerSettings.html">messengerSettings</a>
    </div>
 
-Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
+- :small:`setting` :ref:`readerDisplayAttachmentsInline <messenger^settings.reader^display^attachments^inline>` — Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
 
 
 messengerUtilities
