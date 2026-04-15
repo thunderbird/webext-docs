@@ -1,0 +1,45 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 151
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 151.
+
+
+composeScripts
+--------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeScripts.html">composeScripts</a>
+   </div>
+
+- :small:`type` :ref:`ComposeScript <compose^scripts.^compose^script>` — A script and/or CSS to inject into compose windows via the manifest.
+- :small:`type` :ref:`MessageDisplayScript <compose^scripts.^message^display^script>` — A script and/or CSS to inject into message display pages via the manifest.
+- :small:`property` :ref:`compose_scripts <compose^scripts.compose_scripts>` — Scripts and CSS to inject into compose windows.
+- :small:`property` :ref:`message_display_scripts <compose^scripts.message_display_scripts>` — Scripts and CSS to inject into message display pages.
+
+
+messageDisplayScripts
+---------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayScripts.html">messageDisplayScripts</a>
+   </div>
+
+- :small:`type` :ref:`ComposeScript <message^display^scripts.^compose^script>` — A script and/or CSS to inject into compose windows via the manifest.
+- :small:`type` :ref:`MessageDisplayScript <message^display^scripts.^message^display^script>` — A script and/or CSS to inject into message display pages via the manifest.
+- :small:`property` :ref:`compose_scripts <message^display^scripts.compose_scripts>` — Scripts and CSS to inject into compose windows.
+- :small:`property` :ref:`message_display_scripts <message^display^scripts.message_display_scripts>` — Scripts and CSS to inject into message display pages.

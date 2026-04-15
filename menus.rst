@@ -871,6 +871,8 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :refname: header_pane_link
             :annotation: -- [Added in TB 137]
 
+            Applies when the user context-clicks a link in the message header pane.
+
          .. _menus.^context^type.image:
 
          .. api-member::
@@ -1008,12 +1010,16 @@ The type of menu item.
             :refid: menus-item-type-checkbox
             :refname: checkbox
 
+            A menu item with a checkbox.
+
          .. _menus.^item^type.normal:
 
          .. api-member::
             :name: :value:`normal`
             :refid: menus-item-type-normal
             :refname: normal
+
+            A normal menu item.
 
          .. _menus.^item^type.radio:
 
@@ -1022,12 +1028,16 @@ The type of menu item.
             :refid: menus-item-type-radio
             :refname: radio
 
+            A menu item with a radio button.
+
          .. _menus.^item^type.separator:
 
          .. api-member::
             :name: :value:`separator`
             :refid: menus-item-type-separator
             :refname: separator
+
+            A separator line in the menu.
 
 .. _menus.^menu^action^command:
 
@@ -1054,6 +1064,8 @@ A predefined command to open an action popup.
             :refid: menus-menu-action-command-execute-action
             :refname: _execute_action
 
+            Triggers the action of the extension.
+
          .. _menus.^menu^action^command._execute_compose_action:
 
          .. api-member::
@@ -1061,12 +1073,16 @@ A predefined command to open an action popup.
             :refid: menus-menu-action-command-execute-compose-action
             :refname: _execute_compose_action
 
+            Triggers the compose action of the extension.
+
          .. _menus.^menu^action^command._execute_message_display_action:
 
          .. api-member::
             :name: :value:`_execute_message_display_action`
             :refid: menus-menu-action-command-execute-message-display-action
             :refname: _execute_message_display_action
+
+            Triggers the message display action of the extension.
 
 .. _menus.^menu^icon^dictionary:
 
@@ -1234,6 +1250,8 @@ Information sent when a context menu item is clicked.
          :refname: composeBcc
          :annotation: -- [Added in TB 90]
 
+         The Bcc field of the message compose window.
+
       .. _menus.^on^click^data.field^id.compose^cc:
 
       .. api-member::
@@ -1241,6 +1259,8 @@ Information sent when a context menu item is clicked.
          :refid: menus-on-click-data-field-id-compose-cc
          :refname: composeCc
          :annotation: -- [Added in TB 90]
+
+         The Cc field of the message compose window.
 
       .. _menus.^on^click^data.field^id.compose^newsgroup^to:
 
@@ -1250,6 +1270,8 @@ Information sent when a context menu item is clicked.
          :refname: composeNewsgroupTo
          :annotation: -- [Added in TB 90]
 
+         The Newsgroup field of the message compose window.
+
       .. _menus.^on^click^data.field^id.compose^reply^to:
 
       .. api-member::
@@ -1257,6 +1279,8 @@ Information sent when a context menu item is clicked.
          :refid: menus-on-click-data-field-id-compose-reply-to
          :refname: composeReplyTo
          :annotation: -- [Added in TB 90]
+
+         The Reply-To field of the message compose window.
 
       .. _menus.^on^click^data.field^id.compose^subject:
 
@@ -1266,6 +1290,8 @@ Information sent when a context menu item is clicked.
          :refname: composeSubject
          :annotation: -- [Added in TB 90]
 
+         The subject field of the message compose window.
+
       .. _menus.^on^click^data.field^id.compose^to:
 
       .. api-member::
@@ -1273,6 +1299,8 @@ Information sent when a context menu item is clicked.
          :refid: menus-on-click-data-field-id-compose-to
          :refname: composeTo
          :annotation: -- [Added in TB 90]
+
+         The To field of the message compose window.
 
    .. _menus.^on^click^data.frame^id:
 
@@ -1498,6 +1526,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refname: composeBcc
          :annotation: -- [Added in TB 98]
 
+         The Bcc field of the message compose window.
+
       .. _menus.^on^show^data.field^id.compose^cc:
 
       .. api-member::
@@ -1505,6 +1535,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refid: menus-on-show-data-field-id-compose-cc
          :refname: composeCc
          :annotation: -- [Added in TB 98]
+
+         The Cc field of the message compose window.
 
       .. _menus.^on^show^data.field^id.compose^newsgroup^to:
 
@@ -1514,6 +1546,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refname: composeNewsgroupTo
          :annotation: -- [Added in TB 98]
 
+         The Newsgroup field of the message compose window.
+
       .. _menus.^on^show^data.field^id.compose^reply^to:
 
       .. api-member::
@@ -1521,6 +1555,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refid: menus-on-show-data-field-id-compose-reply-to
          :refname: composeReplyTo
          :annotation: -- [Added in TB 98]
+
+         The Reply-To field of the message compose window.
 
       .. _menus.^on^show^data.field^id.compose^subject:
 
@@ -1530,6 +1566,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refname: composeSubject
          :annotation: -- [Added in TB 98]
 
+         The subject field of the message compose window.
+
       .. _menus.^on^show^data.field^id.compose^to:
 
       .. api-member::
@@ -1537,6 +1575,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refid: menus-on-show-data-field-id-compose-to
          :refname: composeTo
          :annotation: -- [Added in TB 98]
+
+         The To field of the message compose window.
 
    .. _menus.^on^show^data.frame^url:
 

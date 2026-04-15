@@ -25,6 +25,8 @@ alarms API
 
    The alarms API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/alarms>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
+The alarms API allows to schedule code to run at a specific time or periodically.
+
 .. rst-class:: api-main-section
 
 Permissions

@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 71]
 
+   Defines the appearance and behavior of a messageDisplayAction button in the message display window.
+
    .. _message^display^action.message_display_action.browser_style:
 
    .. api-member::

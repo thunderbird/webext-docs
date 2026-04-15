@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 65]
 
+   Defines a cloud file provider for uploading large attachments to a remote server.
+
    .. _cloud^file.cloud_file.management_url:
 
    .. api-member::

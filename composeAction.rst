@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 64]
 
+   Defines the appearance and behavior of a composeAction button in the message compose window.
+
    .. _compose^action.compose_action.browser_style:
 
    .. api-member::
@@ -69,12 +71,16 @@ Manifest file properties
          :refid: compose-action-compose-action-default-area-formattoolbar
          :refname: formattoolbar
 
+         The formatting toolbar of the message compose window.
+
       .. _compose^action.compose_action.default_area.maintoolbar:
 
       .. api-member::
          :name: :value:`maintoolbar`
          :refid: compose-action-compose-action-default-area-maintoolbar
          :refname: maintoolbar
+
+         The main toolbar of the message compose window.
 
    .. _compose^action.compose_action.default_icon:
 

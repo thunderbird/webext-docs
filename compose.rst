@@ -173,12 +173,16 @@ Open a new message compose window forwarding a given message.
          :refid: compose-begin-forward-forward-type-forward-as-attachment
          :refname: forwardAsAttachment
 
+         Forward the message as an attachment.
+
       .. _compose.begin^forward.forward^type.forward^inline:
 
       .. api-member::
          :name: :value:`forwardInline`
          :refid: compose-begin-forward-forward-type-forward-inline
          :refname: forwardInline
+
+         Forward the message inline.
 
    .. _compose.begin^forward.details:
 
@@ -292,6 +296,8 @@ Open a new message compose window replying to a given message.
          :refid: compose-begin-reply-reply-type-reply-to-all
          :refname: replyToAll
 
+         Reply to all recipients.
+
       .. _compose.begin^reply.reply^type.reply^to^list:
 
       .. api-member::
@@ -299,12 +305,16 @@ Open a new message compose window replying to a given message.
          :refid: compose-begin-reply-reply-type-reply-to-list
          :refname: replyToList
 
+         Reply to the mailing list.
+
       .. _compose.begin^reply.reply^type.reply^to^sender:
 
       .. api-member::
          :name: :value:`replyToSender`
          :refid: compose-begin-reply-reply-type-reply-to-sender
          :refname: replyToSender
+
+         Reply to the sender only.
 
    .. _compose.begin^reply.details:
 
@@ -585,12 +595,16 @@ Saves the message currently being composed as a draft or as a template. If the s
             :refid: compose-save-message-options-mode-draft
             :refname: draft
 
+            Save as a draft.
+
          .. _compose.save^message.options.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-save-message-options-mode-template
             :refname: template
+
+            Save as a template.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -694,6 +708,8 @@ Sends the message currently being composed. If the send mode is not specified or
             :refid: compose-send-message-options-mode-default
             :refname: default
 
+            Send using the default send mode.
+
          .. _compose.send^message.options.mode.send^later:
 
          .. api-member::
@@ -701,12 +717,16 @@ Sends the message currently being composed. If the send mode is not specified or
             :refid: compose-send-message-options-mode-send-later
             :refname: sendLater
 
+            Queue the message to be sent later.
+
          .. _compose.send^message.options.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-send-message-options-mode-send-now
             :refname: sendNow
+
+            Send the message immediately.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -1032,6 +1052,8 @@ Fired when saving a message as draft or template succeeded or failed.
             :refname: autoSave
             :annotation: -- [Added in TB 125]
 
+            The message was auto-saved.
+
          .. _compose.on^after^save.save^info.mode.draft:
 
          .. api-member::
@@ -1039,12 +1061,16 @@ Fired when saving a message as draft or template succeeded or failed.
             :refid: compose-on-after-save-save-info-mode-draft
             :refname: draft
 
+            The message was saved as a draft.
+
          .. _compose.on^after^save.save^info.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-on-after-save-save-info-mode-template
             :refname: template
+
+            The message was saved as a template.
 
       .. _compose.on^after^save.save^info.error:
 
@@ -1143,12 +1169,16 @@ Fired when sending a message succeeded or failed.
             :refid: compose-on-after-send-send-info-mode-send-later
             :refname: sendLater
 
+            The message was queued to be sent later.
+
          .. _compose.on^after^send.send^info.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-on-after-send-send-info-mode-send-now
             :refname: sendNow
+
+            The message was sent immediately.
 
       .. _compose.on^after^send.send^info.error:
 
@@ -1592,12 +1622,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-delivery-format-auto
          :refname: auto
 
+         Send as plain text if the message does not include any formatting, otherwise send as :value:`both`.
+
       .. _compose.^compose^details.delivery^format.both:
 
       .. api-member::
          :name: :value:`both`
          :refid: compose-compose-details-delivery-format-both
          :refname: both
+
+         Send as both plain text and HTML (multipart/alternative).
 
       .. _compose.^compose^details.delivery^format.html:
 
@@ -1606,12 +1640,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-delivery-format-html
          :refname: html
 
+         Send as HTML only.
+
       .. _compose.^compose^details.delivery^format.plaintext:
 
       .. api-member::
          :name: :value:`plaintext`
          :refid: compose-compose-details-delivery-format-plaintext
          :refname: plaintext
+
+         Send as plain text only.
 
    .. _compose.^compose^details.delivery^status^notification:
 
@@ -1728,12 +1766,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-priority-high
          :refname: high
 
+         High priority.
+
       .. _compose.^compose^details.priority.highest:
 
       .. api-member::
          :name: :value:`highest`
          :refid: compose-compose-details-priority-highest
          :refname: highest
+
+         Highest priority.
 
       .. _compose.^compose^details.priority.low:
 
@@ -1742,6 +1784,8 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-priority-low
          :refname: low
 
+         Low priority.
+
       .. _compose.^compose^details.priority.lowest:
 
       .. api-member::
@@ -1749,12 +1793,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-priority-lowest
          :refname: lowest
 
+         Lowest priority.
+
       .. _compose.^compose^details.priority.normal:
 
       .. api-member::
          :name: :value:`normal`
          :refid: compose-compose-details-priority-normal
          :refname: normal
+
+         Normal priority (default).
 
    .. _compose.^compose^details.related^message^id:
 
@@ -1833,6 +1881,8 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-type-draft
          :refname: draft
 
+         A draft message is being edited.
+
       .. _compose.^compose^details.type.forward:
 
       .. api-member::
@@ -1840,12 +1890,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-type-forward
          :refname: forward
 
+         A forwarded message is being composed.
+
       .. _compose.^compose^details.type.new:
 
       .. api-member::
          :name: :value:`new`
          :refid: compose-compose-details-type-new
          :refname: new
+
+         A new message is being composed.
 
       .. _compose.^compose^details.type.redirect:
 
@@ -1855,12 +1909,16 @@ Used by various functions to represent the state of a message being composed. No
          :refname: redirect
          :annotation: -- [Added in TB 90]
 
+         A redirected message is being composed.
+
       .. _compose.^compose^details.type.reply:
 
       .. api-member::
          :name: :value:`reply`
          :refid: compose-compose-details-type-reply
          :refname: reply
+
+         A reply is being composed.
 
 .. _compose.^compose^dictionaries:
 

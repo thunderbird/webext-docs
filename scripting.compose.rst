@@ -20,6 +20,8 @@ scripting.compose API
 
 .. role:: small
 
+The scripting.compose API allows to register and unregister scripts for the message compose window.
+
 .. rst-class:: api-main-section
 
 Permissions

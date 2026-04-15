@@ -308,7 +308,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.^the
 
       A *dictionary object* with one or more *key-value* pairs to map new theme color keys to internal Thunderbird CSS color variables. The new color key is usable as a color reference in :ref:`theme.^theme^type`.
 
-      The following example maps the theme color key :value:`popup_affordance` to the CSS variable `--arrowpanel-dimmed`:
+      The following example maps the theme color key :value:`popup_affordance` to the CSS variable :value:`--arrowpanel-dimmed`:
 
       .. code-block:: JSON
 
@@ -326,7 +326,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.^the
 
       A *dictionary object* with one or more *key-value* pairs to map new theme image keys to internal Thunderbird CSS image variables. The new image key is usable as an image reference in :ref:`theme.^theme^type`.
 
-      The following example maps the theme image key :value:`theme_toolbar` to the CSS variable `--toolbar-bgimage`:
+      The following example maps the theme image key :value:`theme_toolbar` to the CSS variable :value:`--toolbar-bgimage`:
 
       .. code-block:: JSON
 
@@ -344,7 +344,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.^the
 
       A *dictionary object* with one or more *key-value* pairs to map new theme property keys to internal Thunderbird CSS property variables. The new property key is usable as a property reference in :ref:`theme.^theme^type`.
 
-      The following example maps the theme property key :value:`toolbar_image_alignment` to the CSS variable `--toolbar-bgalignment`:
+      The following example maps the theme property key :value:`toolbar_image_alignment` to the CSS variable :value:`--toolbar-bgalignment`:
 
       .. code-block:: JSON
 
@@ -370,7 +370,7 @@ Defines additional color, image and property keys to be used in :ref:`theme.^the
            fill: var(--chat-button-color);
          }
 
-      The following *manifest.json* file maps the `--chat-button-color` CSS variable to the theme color key :value:`exp_chat_button` and uses it to set a color for the chat button:
+      The following *manifest.json* file maps the :value:`--chat-button-color` CSS variable to the theme color key :value:`exp_chat_button` and uses it to set a color for the chat button:
 
       .. code-block:: JSON
 
@@ -952,63 +952,93 @@ Contains the color, image and property settings of a theme.
          :refname: additional_backgrounds_alignment
          :type: (array of `string`, optional)
 
+         An array of alignment values, one for each image in :value:`additional_backgrounds`.
+
          Supported values:
 
          .. api-member::
             :name: :value:`bottom`
             :refname: bottom
 
+            Align to the bottom.
+
          .. api-member::
             :name: :value:`center`
             :refname: center
+
+            Align to the center horizontally.
 
          .. api-member::
             :name: :value:`center bottom`
             :refname: center bottom
 
+            Align to the center bottom.
+
          .. api-member::
             :name: :value:`center center`
             :refname: center center
+
+            Align to the center horizontally and vertically.
 
          .. api-member::
             :name: :value:`center top`
             :refname: center top
 
+            Align to the center top.
+
          .. api-member::
             :name: :value:`left`
             :refname: left
+
+            Align to the left.
 
          .. api-member::
             :name: :value:`left bottom`
             :refname: left bottom
 
+            Align to the left bottom.
+
          .. api-member::
             :name: :value:`left center`
             :refname: left center
+
+            Align to the left center.
 
          .. api-member::
             :name: :value:`left top`
             :refname: left top
 
+            Align to the left top.
+
          .. api-member::
             :name: :value:`right`
             :refname: right
+
+            Align to the right.
 
          .. api-member::
             :name: :value:`right bottom`
             :refname: right bottom
 
+            Align to the right bottom.
+
          .. api-member::
             :name: :value:`right center`
             :refname: right center
+
+            Align to the right center.
 
          .. api-member::
             :name: :value:`right top`
             :refname: right top
 
+            Align to the right top.
+
          .. api-member::
             :name: :value:`top`
             :refname: top
+
+            Align to the top.
 
       .. _theme.^theme^type.properties.additional_backgrounds_tiling:
 
@@ -1018,23 +1048,33 @@ Contains the color, image and property settings of a theme.
          :refname: additional_backgrounds_tiling
          :type: (array of `string`, optional)
 
+         An array of tiling values, one for each image in :value:`additional_backgrounds`.
+
          Supported values:
 
          .. api-member::
             :name: :value:`no-repeat`
             :refname: no-repeat
 
+            The background image is not repeated.
+
          .. api-member::
             :name: :value:`repeat`
             :refname: repeat
+
+            The background image is repeated both horizontally and vertically.
 
          .. api-member::
             :name: :value:`repeat-x`
             :refname: repeat-x
 
+            The background image is repeated horizontally.
+
          .. api-member::
             :name: :value:`repeat-y`
             :refname: repeat-y
+
+            The background image is repeated vertically.
 
       .. _theme.^theme^type.properties.color_scheme:
 
@@ -1056,12 +1096,16 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-color-scheme-auto
             :refname: auto
 
+            Automatically determine the color scheme.
+
          .. _theme.^theme^type.properties.color_scheme.dark:
 
          .. api-member::
             :name: :value:`dark`
             :refid: theme-theme-type-properties-color-scheme-dark
             :refname: dark
+
+            Use a dark color scheme.
 
          .. _theme.^theme^type.properties.color_scheme.light:
 
@@ -1070,6 +1114,8 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-color-scheme-light
             :refname: light
 
+            Use a light color scheme.
+
          .. _theme.^theme^type.properties.color_scheme.system:
 
          .. api-member::
@@ -1077,6 +1123,8 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-color-scheme-system
             :refname: system
             :annotation: -- [Added in TB 148]
+
+            Use the system color scheme.
 
       .. _theme.^theme^type.properties.content_color_scheme:
 
@@ -1098,12 +1146,16 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-content-color-scheme-auto
             :refname: auto
 
+            Automatically determine the color scheme.
+
          .. _theme.^theme^type.properties.content_color_scheme.dark:
 
          .. api-member::
             :name: :value:`dark`
             :refid: theme-theme-type-properties-content-color-scheme-dark
             :refname: dark
+
+            Use a dark color scheme.
 
          .. _theme.^theme^type.properties.content_color_scheme.light:
 
@@ -1112,6 +1164,8 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-content-color-scheme-light
             :refname: light
 
+            Use a light color scheme.
+
          .. _theme.^theme^type.properties.content_color_scheme.system:
 
          .. api-member::
@@ -1119,6 +1173,8 @@ Contains the color, image and property settings of a theme.
             :refid: theme-theme-type-properties-content-color-scheme-system
             :refname: system
             :annotation: -- [Added in TB 148]
+
+            Use the system color scheme.
 
 .. _theme.^theme^update^info:
 

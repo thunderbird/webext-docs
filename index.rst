@@ -27,6 +27,7 @@
   commands
   compose
   composeAction
+  composeScripts
   contextualIdentities
   cookies
   declarativeNetRequest
@@ -43,6 +44,7 @@
   menus
   messageDisplay
   messageDisplayAction
+  messageDisplayScripts
   messages
   messages.tags
   messengerSettings
@@ -88,6 +90,9 @@
   :hidden:
   :maxdepth: 1
   :caption: Changelog
+
+  Thunderbird 151 <changelog/151>
+
 
   Thunderbird 149 <changelog/149>
 
