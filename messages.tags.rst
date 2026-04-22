@@ -157,6 +157,46 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
    - :permission:`messagesRead`
    - :permission:`messagesTags`
 
+.. _messages.tags.get:
+
+get(key)
+--------
+
+.. api-section-annotation-hack:: -- [Added in TB 151]
+
+Returns a message tag identified by its key.
+
+.. api-header::
+   :label: Parameters
+
+   .. _messages.tags.get.key:
+
+   .. api-member::
+      :name: ``key``
+      :refid: messages-tags-get-key
+      :refname: key
+      :type: (string)
+
+      The key of the message tag to retrieve.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messages.tags.get.returns:
+
+   .. api-member::
+      :refid: messages-tags-get-returns
+      :refname: _returns
+      :type: :ref:`messages.tags.^message^tag`
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTagsList`
+
 .. _messages.tags.list:
 
 list()

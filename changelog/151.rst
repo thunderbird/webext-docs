@@ -43,3 +43,16 @@ messageDisplayScripts
 - :small:`type` :ref:`MessageDisplayScript <message^display^scripts.^message^display^script>` — A script and/or CSS to inject into message display pages via the manifest.
 - :small:`property` :ref:`compose_scripts <message^display^scripts.compose_scripts>` — Scripts and CSS to inject into compose windows.
 - :small:`property` :ref:`message_display_scripts <message^display^scripts.message_display_scripts>` — Scripts and CSS to inject into message display pages.
+
+
+messages.tags
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.tags.html">messages.tags</a>
+   </div>
+
+- :small:`function` :ref:`get <messages.tags.get>` — Returns a message tag identified by its key.
