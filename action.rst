@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 105]
 
+   Defines the appearance and behavior of an action button in the toolbar.
+
    .. _action.action.allowed_spaces:
 
    .. api-member::
@@ -55,29 +57,43 @@ Manifest file properties
          :name: :value:`addressbook`
          :refname: addressbook
 
+         The address book space.
+
       .. api-member::
          :name: :value:`calendar`
          :refname: calendar
+
+         The calendar space.
 
       .. api-member::
          :name: :value:`chat`
          :refname: chat
 
+         The chat space.
+
       .. api-member::
          :name: :value:`default`
          :refname: default
+
+         Tabs that do not belong to any space.
 
       .. api-member::
          :name: :value:`mail`
          :refname: mail
 
+         The mail space.
+
       .. api-member::
          :name: :value:`settings`
          :refname: settings
 
+         The settings space.
+
       .. api-member::
          :name: :value:`tasks`
          :refname: tasks
+
+         The tasks space.
 
    .. _action.action.browser_style:
 
@@ -162,9 +178,13 @@ Manifest file properties
          :name: :value:`messageDisplay`
          :refname: messageDisplay
 
+         A stand-alone message display window.
+
       .. api-member::
          :name: :value:`normal`
          :refname: normal
+
+         The normal Thunderbird application window.
 
    .. _action.action.theme_icons:
 

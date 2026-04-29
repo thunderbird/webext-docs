@@ -337,12 +337,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-approved
             :refname: approved
 
+            The moderator approval header, used in mailing lists.
+
          .. _messenger^utilities.^mailbox^headers.bcc:
 
          .. api-member::
             :name: :value:`bcc`
             :refid: messenger-utilities-mailbox-headers-bcc
             :refname: bcc
+
+            Bcc recipients.
 
          .. _messenger^utilities.^mailbox^headers.cc:
 
@@ -351,12 +355,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-cc
             :refname: cc
 
+            Cc recipients.
+
          .. _messenger^utilities.^mailbox^headers.delivered-to:
 
          .. api-member::
             :name: :value:`delivered-to`
             :refid: messenger-utilities-mailbox-headers-delivered-to
             :refname: delivered-to
+
+            The address the message was delivered to.
 
          .. _messenger^utilities.^mailbox^headers.disposition-notification-to:
 
@@ -365,12 +373,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-disposition-notification-to
             :refname: disposition-notification-to
 
+            The address to send return receipts to.
+
          .. _messenger^utilities.^mailbox^headers.from:
 
          .. api-member::
             :name: :value:`from`
             :refid: messenger-utilities-mailbox-headers-from
             :refname: from
+
+            Who the message is from.
 
          .. _messenger^utilities.^mailbox^headers.mail-followup-to:
 
@@ -379,12 +391,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-mail-followup-to
             :refname: mail-followup-to
 
+            The address for follow-up messages (used in mailing lists).
+
          .. _messenger^utilities.^mailbox^headers.mail-reply-to:
 
          .. api-member::
             :name: :value:`mail-reply-to`
             :refid: messenger-utilities-mailbox-headers-mail-reply-to
             :refname: mail-reply-to
+
+            The address for direct replies to the author (used in mailing lists).
 
          .. _messenger^utilities.^mailbox^headers.reply-to:
 
@@ -393,12 +409,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-reply-to
             :refname: reply-to
 
+            The address for replies.
+
          .. _messenger^utilities.^mailbox^headers.resent-bcc:
 
          .. api-member::
             :name: :value:`resent-bcc`
             :refid: messenger-utilities-mailbox-headers-resent-bcc
             :refname: resent-bcc
+
+            Bcc recipients of the resent message.
 
          .. _messenger^utilities.^mailbox^headers.resent-cc:
 
@@ -407,12 +427,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-resent-cc
             :refname: resent-cc
 
+            Cc recipients of the resent message.
+
          .. _messenger^utilities.^mailbox^headers.resent-from:
 
          .. api-member::
             :name: :value:`resent-from`
             :refid: messenger-utilities-mailbox-headers-resent-from
             :refname: resent-from
+
+            The sender of the resent message.
 
          .. _messenger^utilities.^mailbox^headers.resent-reply-to:
 
@@ -421,12 +445,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-resent-reply-to
             :refname: resent-reply-to
 
+            The reply-to address of the resent message.
+
          .. _messenger^utilities.^mailbox^headers.resent-sender:
 
          .. api-member::
             :name: :value:`resent-sender`
             :refid: messenger-utilities-mailbox-headers-resent-sender
             :refname: resent-sender
+
+            The actual sender of the resent message.
 
          .. _messenger^utilities.^mailbox^headers.resent-to:
 
@@ -435,12 +463,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-resent-to
             :refname: resent-to
 
+            The primary recipients of the resent message.
+
          .. _messenger^utilities.^mailbox^headers.return-receipt-to:
 
          .. api-member::
             :name: :value:`return-receipt-to`
             :refid: messenger-utilities-mailbox-headers-return-receipt-to
             :refname: return-receipt-to
+
+            The address to send return receipts to. (Deprecated.)
 
          .. _messenger^utilities.^mailbox^headers.sender:
 
@@ -449,12 +481,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-sender
             :refname: sender
 
+            The actual sender of the message (may differ from :value:`from`).
+
          .. _messenger^utilities.^mailbox^headers.to:
 
          .. api-member::
             :name: :value:`to`
             :refid: messenger-utilities-mailbox-headers-to
             :refname: to
+
+            The primary recipients of the message.
 
 .. _messenger^utilities.^parsed^mailbox:
 

@@ -2008,12 +2008,16 @@ Basic information about a message.
          :refid: messages-message-header-priority-high
          :refname: high
 
+         High priority.
+
       .. _messages.^message^header.priority.highest:
 
       .. api-member::
          :name: :value:`highest`
          :refid: messages-message-header-priority-highest
          :refname: highest
+
+         Highest priority.
 
       .. _messages.^message^header.priority.low:
 
@@ -2022,12 +2026,16 @@ Basic information about a message.
          :refid: messages-message-header-priority-low
          :refname: low
 
+         Low priority.
+
       .. _messages.^message^header.priority.lowest:
 
       .. api-member::
          :name: :value:`lowest`
          :refid: messages-message-header-priority-lowest
          :refname: lowest
+
+         Lowest priority.
 
       .. _messages.^message^header.priority.none:
 
@@ -2036,12 +2044,16 @@ Basic information about a message.
          :refid: messages-message-header-priority-none
          :refname: none
 
+         No priority set.
+
       .. _messages.^message^header.priority.normal:
 
       .. api-member::
          :name: :value:`normal`
          :refid: messages-message-header-priority-normal
          :refname: normal
+
+         Normal priority.
 
    .. _messages.^message^header.recipients:
 
@@ -2196,12 +2208,16 @@ Represents an email message "part", which could be the whole message.
          :refid: messages-message-part-decryption-status-fail
          :refname: fail
 
+         Decryption failed.
+
       .. _messages.^message^part.decryption^status.none:
 
       .. api-member::
          :name: :value:`none`
          :refid: messages-message-part-decryption-status-none
          :refname: none
+
+         The part is not encrypted.
 
       .. _messages.^message^part.decryption^status.skipped:
 
@@ -2210,12 +2226,16 @@ Represents an email message "part", which could be the whole message.
          :refid: messages-message-part-decryption-status-skipped
          :refname: skipped
 
+         Decryption was skipped.
+
       .. _messages.^message^part.decryption^status.success:
 
       .. api-member::
          :name: :value:`success`
          :refid: messages-message-part-decryption-status-success
          :refname: success
+
+         The part was successfully decrypted.
 
    .. _messages.^message^part.headers:
 
