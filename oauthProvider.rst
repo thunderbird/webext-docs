@@ -18,6 +18,8 @@ oauthProvider API
 
 .. role:: small
 
+The oauthProvider API allows to manage OAuth authentication providers for Thunderbird to use when connecting to mail/address book/calendar services.
+
 .. rst-class:: api-main-section
 
 Manifest file properties
@@ -32,7 +34,7 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 140]
 
-   Describes an OAuth authentication provider for Thunderbird to use when connecting to mail/address book/calendar services. You will need to have a client ID registered with the provider to use this API.
+   Describes an OAuth authentication provider for Thunderbird. You will need to have a client ID registered with the provider to use this API.
 
    .. _oauth^provider.oauth_provider.authorization^endpoint:
 

@@ -153,3 +153,29 @@ scripting
 
 - :small:`type` :ref:`RegisteredContentScript.matchOriginAsFallback <scripting.^registered^content^script.match^origin^as^fallback>` — If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
 - :small:`type` :ref:`RegisteredContentScript.world <scripting.^registered^content^script.world>` — The JavaScript world for a script to execute within. Defaults to "ISOLATED".
+
+
+scripting.compose
+-----------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.compose.html">scripting.compose</a>
+   </div>
+
+The scripting.compose API allows to register and unregister scripts for the message compose window.
+
+
+scripting.messageDisplay
+------------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.messageDisplay.html">scripting.messageDisplay</a>
+   </div>
+
+The scripting.messageDisplay API allows to register and unregister scripts for the message display window.
