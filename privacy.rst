@@ -22,6 +22,8 @@ privacy API
 
    The privacy API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/privacy>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
+The privacy API allows to control privacy-related settings.
+
 .. rst-class:: api-main-section
 
 Permissions

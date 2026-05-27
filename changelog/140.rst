@@ -23,4 +23,4 @@ oauthProvider
      <a href="../oauthProvider.html">oauthProvider</a>
    </div>
 
-- :small:`property` :ref:`oauth_provider <oauth^provider.oauth_provider>` — Describes an OAuth authentication provider for Thunderbird to use when connecting to mail/address book/calendar services. You will need to have a client ID registered with the provider to use this API.
+- :small:`property` :ref:`oauth_provider <oauth^provider.oauth_provider>` — Describes an OAuth authentication provider for Thunderbird. You will need to have a client ID registered with the provider to use this API.

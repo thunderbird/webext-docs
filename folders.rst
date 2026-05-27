@@ -884,12 +884,16 @@ Gets folders that match the specified properties, or all folders if no propertie
             :refid: folders-query-query-info-sort-last-used
             :refname: lastUsed
 
+            Sort by last used time.
+
          .. _folders.query.query^info.sort.last^used^as^destination:
 
          .. api-member::
             :name: :value:`lastUsedAsDestination`
             :refid: folders-query-query-info-sort-last-used-as-destination
             :refname: lastUsedAsDestination
+
+            Sort by the time the folder was last used as a message destination (e.g. for copy or move operations).
 
          .. _folders.query.query^info.sort.name:
 
@@ -898,12 +902,16 @@ Gets folders that match the specified properties, or all folders if no propertie
             :refid: folders-query-query-info-sort-name
             :refname: name
 
+            Sort by folder name (case-insensitive).
+
          .. _folders.query.query^info.sort.path:
 
          .. api-member::
             :name: :value:`path`
             :refid: folders-query-query-info-sort-path
             :refname: path
+
+            Sort by folder path.
 
       .. _folders.query.query^info.special^use:
 
@@ -1685,12 +1693,16 @@ An object containing quota information.
          :refid: folders-mail-folder-quota-type-m-e-s-s-a-g-e
          :refname: MESSAGE
 
+         A message quota constraining the number of storable messages.
+
       .. _folders.^mail^folder^quota.type.^s^t^o^r^a^g^e:
 
       .. api-member::
          :name: :value:`STORAGE`
          :refid: folders-mail-folder-quota-type-s-t-o-r-a-g-e
          :refname: STORAGE
+
+         A storage quota constraining the available storage in bytes.
 
    .. _folders.^mail^folder^quota.unused:
 
@@ -1737,12 +1749,16 @@ Supported values for the special use of a folder.
             :refid: folders-mail-folder-special-use-archives
             :refname: archives
 
+            A folder for archived messages.
+
          .. _folders.^mail^folder^special^use.drafts:
 
          .. api-member::
             :name: :value:`drafts`
             :refid: folders-mail-folder-special-use-drafts
             :refname: drafts
+
+            A folder for draft messages.
 
          .. _folders.^mail^folder^special^use.inbox:
 
@@ -1751,12 +1767,16 @@ Supported values for the special use of a folder.
             :refid: folders-mail-folder-special-use-inbox
             :refname: inbox
 
+            The inbox folder.
+
          .. _folders.^mail^folder^special^use.junk:
 
          .. api-member::
             :name: :value:`junk`
             :refid: folders-mail-folder-special-use-junk
             :refname: junk
+
+            The spam folder.
 
          .. _folders.^mail^folder^special^use.outbox:
 
@@ -1765,12 +1785,16 @@ Supported values for the special use of a folder.
             :refid: folders-mail-folder-special-use-outbox
             :refname: outbox
 
+            The outbox folder for messages waiting to be sent.
+
          .. _folders.^mail^folder^special^use.sent:
 
          .. api-member::
             :name: :value:`sent`
             :refid: folders-mail-folder-special-use-sent
             :refname: sent
+
+            A folder for sent messages.
 
          .. _folders.^mail^folder^special^use.templates:
 
@@ -1779,12 +1803,16 @@ Supported values for the special use of a folder.
             :refid: folders-mail-folder-special-use-templates
             :refname: templates
 
+            A folder for message templates.
+
          .. _folders.^mail^folder^special^use.trash:
 
          .. api-member::
             :name: :value:`trash`
             :refid: folders-mail-folder-special-use-trash
             :refname: trash
+
+            The trash folder.
 
 .. _folders.^query^date^range:
 
