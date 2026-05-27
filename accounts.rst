@@ -455,12 +455,16 @@ The type of an account natively supported by Thunderbird.
             :refname: ews
             :annotation: -- [Added in TB 142]
 
+            An Exchange Web Services (EWS) account.
+
          .. _accounts.^native^mail^account^type.imap:
 
          .. api-member::
             :name: :value:`imap`
             :refid: accounts-native-mail-account-type-imap
             :refname: imap
+
+            An IMAP account.
 
          .. _accounts.^native^mail^account^type.local:
 
@@ -469,12 +473,16 @@ The type of an account natively supported by Thunderbird.
             :refid: accounts-native-mail-account-type-local
             :refname: local
 
+            A local account for managing local folders.
+
          .. _accounts.^native^mail^account^type.nntp:
 
          .. api-member::
             :name: :value:`nntp`
             :refid: accounts-native-mail-account-type-nntp
             :refname: nntp
+
+            An NNTP account.
 
          .. _accounts.^native^mail^account^type.pop3:
 
@@ -483,9 +491,13 @@ The type of an account natively supported by Thunderbird.
             :refid: accounts-native-mail-account-type-pop3
             :refname: pop3
 
+            A POP3 account.
+
          .. _accounts.^native^mail^account^type.rss:
 
          .. api-member::
             :name: :value:`rss`
             :refid: accounts-native-mail-account-type-rss
             :refname: rss
+
+            A Feed account.

@@ -20,6 +20,8 @@ scripting.messageDisplay API
 
 .. role:: small
 
+The scripting.messageDisplay API allows to register and unregister scripts for the message display window.
+
 .. rst-class:: api-main-section
 
 Permissions

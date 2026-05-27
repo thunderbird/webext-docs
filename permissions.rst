@@ -24,6 +24,8 @@ permissions API
 
    The permissions API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/permissions>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
+The permissions API allows to manage optional permissions at runtime.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -616,6 +618,14 @@ OptionalPermission
             :refid: permissions-optional-permission-messages-import
             :refname: messagesImport
             :annotation: -- [Added in TB 106]
+
+         .. _permissions.^optional^permission.messages^modify:
+
+         .. api-member::
+            :name: :value:`messagesModify`
+            :refid: permissions-optional-permission-messages-modify
+            :refname: messagesModify
+            :annotation: -- [Added in TB 82]
 
          .. _permissions.^optional^permission.messages^modify^permanent:
 

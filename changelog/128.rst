@@ -159,6 +159,32 @@ scripting
 - :small:`type` :ref:`RegisteredContentScript.world <scripting.^registered^content^script.world>` — The JavaScript world for a script to execute within. Defaults to "ISOLATED".
 
 
+scripting.compose
+-----------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.compose.html">scripting.compose</a>
+   </div>
+
+The scripting.compose API allows to register and unregister scripts for the message compose window.
+
+
+scripting.messageDisplay
+------------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.messageDisplay.html">scripting.messageDisplay</a>
+   </div>
+
+The scripting.messageDisplay API allows to register and unregister scripts for the message display window.
+
+
 spaces
 ------
 
