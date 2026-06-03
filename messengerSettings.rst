@@ -55,9 +55,26 @@ Settings
 .. toctree::
   :hidden:
 
+  composeInlineSpellCheckEnabled <messengerSettings.composeInlineSpellCheckEnabled>
   messageLineLengthLimit <messengerSettings.messageLineLengthLimit>
   messagePlainTextFlowedOutputEnabled <messengerSettings.messagePlainTextFlowedOutputEnabled>
   readerDisplayAttachmentsInline <messengerSettings.readerDisplayAttachmentsInline>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="messengerSettings.composeInlineSpellCheckEnabled.html">composeInlineSpellCheckEnabled</a>
+   </div>
+
+.. api-section-annotation-hack:: -- [Added in TB 153]
+
+Whether the inline (real-time) spell checker is enabled in the message compose window.
+
+.. raw:: html
+
+   </section>
 
 .. raw:: html
 
