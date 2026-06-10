@@ -13,6 +13,22 @@ Changelog for Thunderbird 153
 The following WebExtension API changes were introduced in Thunderbird 153.
 
 
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`type` :ref:`AttachmentType <messages.^attachment^type>` — The type of an attachment in a message.
+- :small:`type` :ref:`MessageAttachment.cloudFileUrl <messages.^message^attachment.cloud^file^url>` — The remote location a :value:`cloudFile` attachment's content is stored at. Present for :value:`cloudFile` attachments (see :ref:`messages.AttachmentType <messages.^attachment^type>`), whose content is not part of the message.
+- :small:`type` :ref:`MessageAttachment.linkUrl <messages.^message^attachment.link^url>` — The remote location the attachment's content is linked to. Present for :value:`linked` attachments (see :ref:`messages.AttachmentType <messages.^attachment^type>`), whose content is not part of the message and can be fetched from this url.
+- :small:`type` :ref:`MessageAttachment.type <messages.^message^attachment.type>` — The type of this attachment.
+
+
 messengerSettings
 -----------------
 

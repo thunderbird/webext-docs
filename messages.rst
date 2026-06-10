@@ -1705,6 +1705,69 @@ Fired when one or more properties of a message have been updated.
 Types
 =====
 
+.. _messages.^attachment^type:
+
+AttachmentType
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153]
+
+The type of an attachment in a message.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. _messages.^attachment^type.cloud^file:
+
+         .. api-member::
+            :name: :value:`cloudFile`
+            :refid: messages-attachment-type-cloud-file
+            :refname: cloudFile
+
+            The attachment's content is not part of the message but stored by a cloud provider.
+
+         .. _messages.^attachment^type.deleted:
+
+         .. api-member::
+            :name: :value:`deleted`
+            :refid: messages-attachment-type-deleted
+            :refname: deleted
+
+            The attachment's content was permanently removed and only a placeholder remains.
+
+         .. _messages.^attachment^type.detached:
+
+         .. api-member::
+            :name: :value:`detached`
+            :refid: messages-attachment-type-detached
+            :refname: detached
+
+            The attachment's content is stored in a detached local file.
+
+         .. _messages.^attachment^type.linked:
+
+         .. api-member::
+            :name: :value:`linked`
+            :refid: messages-attachment-type-linked
+            :refname: linked
+
+            The attachment's content is not part of the message but referenced by a link.
+
+         .. _messages.^attachment^type.normal:
+
+         .. api-member::
+            :name: :value:`normal`
+            :refid: messages-attachment-type-normal
+            :refname: normal
+
+            A normal attachment.
+
 .. _messages.^headers^dictionary:
 
 HeadersDictionary
@@ -1813,7 +1876,7 @@ Represents an attachment in a message.
       :refname: name
       :type: (string)
 
-      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file. For a :value:`cloudFile` attachment, this is the real name of the linked file, when the message provides one.
 
    .. _messages.^message^attachment.part^name:
 
@@ -1835,6 +1898,28 @@ Represents an attachment in a message.
 
       The size in bytes of this attachment.
 
+   .. _messages.^message^attachment.type:
+
+   .. api-member::
+      :name: ``type``
+      :refid: messages-message-attachment-type
+      :refname: type
+      :type: (:ref:`messages.^attachment^type`)
+      :annotation: -- [Added in TB 153]
+
+      The type of this attachment.
+
+   .. _messages.^message^attachment.cloud^file^url:
+
+   .. api-member::
+      :name: [``cloudFileUrl``]
+      :refid: messages-message-attachment-cloud-file-url
+      :refname: cloudFileUrl
+      :type: (string, optional)
+      :annotation: -- [Added in TB 153]
+
+      The remote location a :value:`cloudFile` attachment's content is stored at. Present for :value:`cloudFile` attachments (see :ref:`messages.^attachment^type`), whose content is not part of the message.
+
    .. _messages.^message^attachment.content^id:
 
    .. api-member::
@@ -1845,6 +1930,17 @@ Represents an attachment in a message.
       :annotation: -- [Added in TB 128]
 
       The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).
+
+   .. _messages.^message^attachment.link^url:
+
+   .. api-member::
+      :name: [``linkUrl``]
+      :refid: messages-message-attachment-link-url
+      :refname: linkUrl
+      :type: (string, optional)
+      :annotation: -- [Added in TB 153]
+
+      The remote location the attachment's content is linked to. Present for :value:`linked` attachments (see :ref:`messages.^attachment^type`), whose content is not part of the message and can be fetched from this url.
 
    .. _messages.^message^attachment.message:
 
