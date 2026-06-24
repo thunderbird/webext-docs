@@ -75,6 +75,7 @@
   :maxdepth: 1
   :caption: Guides
 
+  guides/vendoring
   guides/innerHTML
   guides/eventListeners
   guides/runtimeMessaging
