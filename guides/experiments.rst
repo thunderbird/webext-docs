@@ -155,7 +155,7 @@ extension calls ``browser.myapi.onToolbarClick.removeListener``, or shuts down.
 Using folder and message types
 ==============================
 
-The built-in schema define some common objects that you may wish to return, namely
+The built-in schemas define some common objects that you may wish to return, namely
 :ref:`folders.^mail^folder`, :ref:`messages.^message^header`,
 and :ref:`messages.^message^list`.
 
@@ -183,7 +183,7 @@ Using tabs and windows
 ======================
 
 To access tabs or windows using the ID values from the built-in APIs, use the ``tabManager`` or
-``windowManager`` objects. These are have functions similar to, but not the same as, the APIs:
+``windowManager`` objects. These have functions similar to, but not the same as, the APIs:
 
 .. code-block:: javascript
 
@@ -214,8 +214,3 @@ properties refer to the window itself.
 
   // Get all windows: (note this returns a Generator, not an array like the API)
   context.extension.windowManager.getAll();
-
-For more things you could use on ``tabObject`` or ``windowObject`` in the examples above, see
-`the Tab, TabMailTab, and Window classes in the source code`__.
-
-__ https://hg.mozilla.org/releases/comm-esr78/file/tip/mail/components/extensions/parent/ext-mail.js#l763
