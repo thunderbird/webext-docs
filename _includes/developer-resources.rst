@@ -9,6 +9,7 @@
 
 ≡ Guides
 
+* :doc:`/guides/vendoring`
 * :doc:`/guides/innerHTML`
 * :doc:`/guides/eventListeners`
 * :doc:`/guides/runtimeMessaging`
