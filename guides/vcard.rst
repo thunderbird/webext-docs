@@ -8,7 +8,7 @@ Working with vCard contacts
 
 Since Thunderbird 102, contact details are stored as vCards. They are exposed via the ``vCard`` property, and updating this property will modify the contact according to the newly set vCard string.
 
-Instead of manually parsing or manipulating the vCard string, we recommend using the same `library that Thunderbird itself is using <https://github.com/mozilla-comm/ical.js/releases>`__. This can be done by bundling the ``ical.min.js`` file from the linked repository with the add-on and importing it into the background script. The background script must be declared as a module in order to import ES6 modules:
+Instead of manually parsing or manipulating the vCard string, we recommend using the same `ical.js <https://github.com/kewisch/ical.js>`__ library that Thunderbird itself uses. Bundle its ``ical.min.js`` build with the add-on from a trusted source (see :doc:`/guides/vendoring`) and import it into the background script. The background script must be declared as a module in order to import ES6 modules:
 
 .. code-block:: json
 
@@ -19,14 +19,14 @@ Instead of manually parsing or manipulating the vCard string, we recommend using
     "type": "module"
   },
 
-In accordance with Mozilla's `third-party library guidelines <https://extensionworkshop.com/documentation/publish/third-party-library-usage/>`__, please include a ``VENDOR.md`` file that references this, as well as any other included third-party library files.
+Declare the bundled ``ical.min.js`` file, and any other third-party library you ship, so reviewers can verify it is unmodified. See :doc:`/guides/vendoring` for the trusted sources and the accepted declaration formats. The ``VENDOR.md`` entry could look like this:
 
 .. code-block:: text
    :caption: VENDOR.md
 
    local/path/to/ical.min.js:
     - Version: 2.2.1
-    - URL: https://github.com/kewisch/ical.js/releases/download/v2.2.1/ical.min.js
+    - URL: https://cdn.jsdelivr.net/npm/ical.js@2.2.1/dist/ical.min.js
 
 In the ``background.js`` script one can then import the library and parse vCard strings as follows:
 
@@ -42,9 +42,9 @@ In the ``background.js`` script one can then import the library and parse vCard 
    *  
    * Array(3)
    *  0: "vcard"     // Name of the component.
-   *  1: Array(4)    // Array of entries.
+   *  1: Array(3)    // Array of entries.
    *     0: Array(4) ["version", {}, "text", "4.0" ]
-   *     1: Array(4) [ "n", {}, "text", [ "", "first", "", "", "" ] ]
+   *     1: Array(4) [ "n", {}, "text", [ "LastName", "FirstName", "", "", "" ] ]
    *     2: Array(4) [ "email", { pref: "1" }, "text", "user@inter.net"]
    *  2: Array []    // Array of subcomponents, should be empty for vCard, used
    *                 // by vCalendar, which has vEvent subcomponents.
@@ -93,7 +93,7 @@ The ical library also supports manipulating the data on a higher level, using th
     email.jCal[3] = "other@inter.net";
     // Option 2: Remove the existing entry and add a new one (changes order of entries)
     vCard.removeProperty(email);
-    vCard.addProperty(new ICAL.Property(["email", {}, "text", "other@inter.net"]);
+    vCard.addProperty(new ICAL.Property(["email", {}, "text", "other@inter.net"]));
   }
 
   // Update the contact.
