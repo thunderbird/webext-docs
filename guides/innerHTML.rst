@@ -6,7 +6,7 @@ issue is that it encourages a pattern where entire DOM trees are replaced instea
 of being updated selectively. Even if it is only used for initial rendering, it
 can easily lead to adopting the same pattern for updates later, which may cause
 layout flicker, loss of state, and unnecessary re-rendering. Replacing an existing
-DOM tree is highly inefficient; it is better to use explicit DOM manipulation
+DOM tree is highly inefficient, it is better to use explicit DOM manipulation
 methods or data-driven rendering approaches instead. Some common alternatives to
 ``innerHTML`` include:
 
@@ -16,11 +16,13 @@ methods or data-driven rendering approaches instead. Some common alternatives to
 - libraries such as `lighterhtml <https://github.com/WebReflection/lighterhtml>`__,
   which create DOM trees efficiently and update them via diffing instead of replacement
 
-If external or user-provided HTML must be rendered, it has to be sanitized first
-(for example, with `DOMPurify <https://github.com/cure53/DOMPurify>`__).
-``insertAdjacentHTML()`` works well with sanitized markup and will also benefit
-from the upcoming built-in `Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__,
-allowing code to drop the extra sanitization step later without further restructuring.
+If external or user-provided HTML must be rendered, it has to be sanitized first.
+Thunderbird 153 and later provide the built-in
+`Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__, so
+``Element.setHTML()`` can sanitize and insert markup in a single step without a
+third-party library. To support older Thunderbird versions, sanitize the markup
+with a library such as `DOMPurify <https://github.com/cure53/DOMPurify>`__ and
+insert it with ``insertAdjacentHTML()``.
 
 .. note::
  
@@ -172,25 +174,10 @@ torn down and rebuilt from scratch.
 Bundle ``lighterhtml`` with the add-on
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Download** the desired ``lighterhtml`` release from a CDN such as jsDelivr or
-   cdnjs (for example, version 4.2.0) from a trusted source such as
-   https://cdn.jsdelivr.net/npm/lighterhtml@4.2.0/min.min.js
-
-2. **Include** it in the extension under a local folder, for example in
-   ``vendor/lighterhtml.min.js``
-
-3. **Document** this dependency in a file named ``VENDOR.md`` in the
-   root of the extension. The file should specify the file name and the
-   original source URL:
-
-   .. code-block:: markdown
-      :caption: VENDOR.md
-
-      local/path/to/lighterhtml.js:
-       - Version: 4.2.0
-       - URL: https://cdn.jsdelivr.net/npm/lighterhtml@4.2.0/min.min.js
-
-   This allows reviewers to verify that the file is unchanged.
+Download a ``lighterhtml`` release from a trusted source and place it in a local
+folder of the add-on, for example ``vendor/lighterhtml.min.js``, then declare it so
+reviewers can verify the bundled file is unchanged. See :doc:`/guides/vendoring` for
+the trusted sources and the accepted declaration formats.
 
 Create DOM nodes from strings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -258,7 +245,7 @@ which can be updated later:
 The library supports many additional features, such as automatically converting
 ``onclick`` attributes into real event listeners.
 
-Safely sanitizing external markup with ``DOMPurify``
+Safely sanitizing external markup
 ----------------------------------------------------
 
 In some cases, an extension may need to display **externally sourced or user-generated
@@ -267,35 +254,42 @@ situations, using ``innerHTML`` or any other method to directly insert the raw
 HTML is unsafe, because it allows potentially malicious HTML or script content
 to be injected into the page.
 
-To handle this scenario safely, the recommended approach is to **sanitize the
-markup first using** `DOMPurify <https://github.com/cure53/DOMPurify>`__, and then
-insert the sanitized content using ``insertAdjacentHTML()``.
+The markup has to be sanitized before it reaches the DOM.
 
-Bundle ``DOMPurify`` with the add-on
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Sanitize with ``Element.setHTML()``
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. **Download** the desired ``DOMPurify`` release from a CDN such as jsDelivr or
-   cdnjs (for example, version 3.2.7) from a trusted source such as
-   https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
+On Thunderbird 153 and later, the built-in
+`Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__
+parses and sanitizes the markup in a single step, with no third-party library to
+bundle. Given a ``<div id="preview">`` element in the page, the sanitized content
+can be rendered with ``Element.setHTML()``:
 
-2. **Include** it in the extension under a local folder, for example in
-   ``vendor/purify.min.js``
+.. code-block:: javascript
+   :caption: popup.js
 
-3. **Document** this dependency in a file named ``VENDOR.md`` in the
-   root of the extension. The file should specify the file name and the
-   original source URL:
+   async function renderExternalMarkup(url) {
+       const response = await fetch(url);
+       const rawHtml = await response.text();
 
-   .. code-block:: markdown
-      :caption: VENDOR.md
+       // Parse and sanitize the received HTML, then render it.
+       const preview = document.getElementById('preview');
+       preview.setHTML(rawHtml);
+   }
 
-      local/path/to/purify.min.js:
-       - Version: 3.2.7
-       - URL: https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.7/purify.min.js
+   renderExternalMarkup('https://example.com/feed-entry.html');
 
-   This allows reviewers to verify that the file is unchanged.
-
-Insert purified markup with ``insertAdjacentHTML()``
+Sanitize with ``DOMPurify`` on older versions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To run on Thunderbird versions before 153, sanitize the markup with ``DOMPurify``
+and insert the result with ``insertAdjacentHTML()``. First bundle it with the
+add-on.
+
+Download a ``DOMPurify`` release from a trusted source and place it in a local
+folder of the add-on, for example ``vendor/purify.min.js``, then declare it so
+reviewers can verify the bundled file is unchanged. See :doc:`/guides/vendoring` for
+the trusted sources and the accepted declaration formats.
 
 Load the ``DOMPurify`` library:
 
@@ -331,9 +325,3 @@ Sanitize external HTML and add it to the DOM via ``insertAdjacentHTML()``:
    }
 
    renderExternalMarkup('https://example.com/feed-entry.html');
-
-This combination provides a controlled way to render external HTML safely within
-Thunderbird extensions. In the future, ``insertAdjacentHTML()`` will support
-built-in sanitization with the
-`Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__,
-but for now, ``DOMPurify`` remains necessary.

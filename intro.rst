@@ -44,21 +44,59 @@ repository can be used to obtain a copy of the relevant files.
 Guides Overview
 ===============
 
+:doc:`guides/vendoring`
+  Learn how to bundle third-party libraries into your add-on and declare them so
+  reviewers can verify the sources are unmodified and automated tooling can audit
+  them for known vulnerabilities. This guide covers the trusted source
+  requirements and both accepted declaration formats: a ``VENDOR.md`` file and a
+  version-pinned ``package.json``.
+
+:doc:`guides/innerHTML`
+  Understand why ``innerHTML`` is discouraged in Thunderbird WebExtensions and which
+  safer patterns to use instead. This guide covers alternatives such as
+  ``textContent``, ``createElement()``, templates, and diffing libraries, replacing
+  inline event handlers with real listeners, and safely rendering external or
+  user-provided markup. On Thunderbird 153 and later this uses the built-in
+  ``Sanitizer API`` through ``Element.setHTML()``, with ``DOMPurify`` and
+  ``insertAdjacentHTML()`` as the fallback for older versions.
+  
 :doc:`guides/eventListeners`
-  Learn how to attach listeners to Thunderbird WebExtension events and respond to user actions or changes in the application. This guide covers handling event parameters, working with events that provide additional options, and offers best practices for implementing event listeners.
+  Attach listeners to Thunderbird WebExtension events with
+  ``addListener()``. This guide shows how to register both named and anonymous
+  listener functions, how to read the parameters an event passes to its listener,
+  and how to use the extra ``addListener()`` arguments that some events accept, such
+  as ``monitorAllFolders`` on ``messages.onNewMailReceived``.
  
+:doc:`guides/runtimeMessaging`
+  See how different parts of a Thunderbird WebExtension communicate using runtime
+  messages. This guide explains how to register ``runtime.onMessage`` listeners and
+  send messages between scripts, common quirks to be aware of, and how multiple
+  listeners coordinate their responses.
+  
 :doc:`guides/messageLists`
-  Discover how to efficiently work with large mail folders in Thunderbird WebExtensions. This guide explains how message lists are paginated to handle thousands of messages, how to retrieve pages of messages using the API, and how to iterate over messages using generators. It also covers executing asynchronous queries, handling auto-pagination, and safely aborting ongoing queries to manage performance and resource usage.
- 
+  Discover how to efficiently work with large mail folders in Thunderbird
+  WebExtensions. This guide explains how message lists are paginated so a single
+  query does not load thousands of messages at once, how to walk through the pages
+  returned by the API, and how to iterate over messages with generators. It also
+  covers running asynchronous queries, handling auto-pagination, and safely aborting
+  an ongoing query to keep performance and memory use under control.
+
 :doc:`guides/vcard`
-  Explore how to manage Thunderbird contacts using the vCard format. This section explains how to work with legacy and modern contact properties, update individual fields safely, and manipulate vCards directly using the `ical.js` library. Best practices are provided for reading, modifying, and storing contact information while avoiding common pitfalls with legacy property mappings.
+  Explore how to manage Thunderbird contacts, which are stored as vCards and exposed
+  through the ``vCard`` property. This guide recommends parsing and editing them with
+  the same ``ical.js`` library Thunderbird itself uses, shows how to bundle it and
+  import it from a module background script, and how to read and update individual
+  vCard fields safely. It also points to :doc:`guides/vendoring` for declaring the
+  bundled library.
 
 :doc:`guides/manifestV3`
-  Learn about the key changes required to convert Thunderbird WebExtensions from Manifest V2 to Manifest V3. This section explains backward-incompatible modifications across core APIs, highlights updated default behaviors, and points to sample code for guidance on adapting extensions to the new manifest version.
+  Migrate a Thunderbird WebExtension from Manifest V2 to Manifest V3, officially
+  supported since Thunderbird 128 ESR. This
+  guide documents the backward-incompatible API changes the add-on team made on top
+  of the general Firefox migration, grouped by API, covering changed default values,
+  removed or replaced functions, and adjusted types. It also points to the converted
+  sample extensions for reference.
 
-:doc:`guides/experiments`
-  Understand how to extend Thunderbird with custom Experiment APIs. This section covers declaring Experiments in the manifest, implementing their functions and events, and managing native tabs and native windows through the extension context. It also provides guidance on integrating these APIs safely alongside Thunderbird's built-in WebExtension features.
- 
 Where to get help and more information
 ======================================
 
