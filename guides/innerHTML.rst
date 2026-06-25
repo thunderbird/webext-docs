@@ -13,22 +13,18 @@ methods or data-driven rendering approaches instead. Some common alternatives to
 - ``textContent`` to safely replace text
 - ``createElement()``, ``append()``, or templating functions to build new structures
 - CSS or visibility toggles instead of rebuilding markup
-- libraries such as `lighterhtml <https://github.com/WebReflection/lighterhtml>`__,
-  which create DOM trees efficiently and update them via diffing instead of replacement
 
 If external or user-provided HTML must be rendered, it has to be sanitized first.
-Thunderbird 153 and later provide the built-in
+Thunderbird 148 and later provide the built-in
 `Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__, so
 ``Element.setHTML()`` can sanitize and insert markup in a single step without a
-third-party library. To support older Thunderbird versions, sanitize the markup
-with a library such as `DOMPurify <https://github.com/cure53/DOMPurify>`__ and
-insert it with ``insertAdjacentHTML()``.
+third-party library.
 
 .. note::
- 
-   Using ``innerHTML`` is accepted for add-ons hosted on ATN when it is not used
-   to update existing DOM nodes. However, the alternatives described in this guide
-   are generally suggested.
+
+   Avoid ``innerHTML`` (and ``outerHTML`` / ``srcdoc`` / ``insertAdjacentHTML()``).
+   Use the alternatives described in this guide instead, and ``Element.setHTML()``
+   for HTML that must be inserted from external or user-provided data.
 
 More information on this topic is available on
 `MDN <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page>`__.
@@ -162,89 +158,6 @@ markup and populate it programmatically:
 This approach avoids both uses of ``innerHTML`` and inline event handlers,
 ensures safe text insertion, and cleanly separates structure from behavior.
 
-Inserting and updating content dynamically with ``lighterhtml``
----------------------------------------------------------------
-
-The `lighterhtml <https://github.com/WebReflection/lighterhtml>`__ library (based
-on `hyperHTML <https://github.com/WebReflection/hyperHTML>`__) uses ``template literals``
-and allows creating DOM trees from strings just like ``innerHTML``, but later
-updates to already rendered nodes are done incrementally instead of being fully
-torn down and rebuilt from scratch.
-
-Bundle ``lighterhtml`` with the add-on
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Download a ``lighterhtml`` release from a trusted source and place it in a local
-folder of the add-on, for example ``vendor/lighterhtml.min.js``, then declare it so
-reviewers can verify the bundled file is unchanged. See :doc:`/guides/vendoring` for
-the trusted sources and the accepted declaration formats.
-
-Create DOM nodes from strings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Load the ``lighterhtml`` library:
-
-.. code-block:: html
-   :caption: popup.html
-
-   <html>
-      <head>
-         <script src="/vendor/lighterhtml.min.js"></script>
-         <script defer src="popup.js"></script>
-      </head>
-      <body>
-         ...
-      </body>
-   </html>
-
-Use ``lighterhtml.html.node`` to create DOM nodes via ``template literals``:
-
-.. code-block:: javascript
-   :caption: popup.js
-
-   // Shortcut.
-   const lhNode = lighterhtml.html.node;
-
-   const list = ['some', '<b>nasty</b>', 'list'];
-   const node = lhNode`
-      <p>This is a simple <i>test</i></p>
-      <ul>${list.map(text => lhNode`
-         <li>${text}</li>
-      `)}
-      </ul>
-   `
-   document.body.appendChild(node);
-
-
-Render and update DOM nodes from strings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Use ``lighterhtml.html`` and ``lighterhtml.render`` to create wired content,
-which can be updated later:
-
-.. code-block:: javascript
-   :caption: popup.js
-   
-   const names = [
-      'Arianna',
-      'Luca',
-      'Isa'
-   ]
-
-   setInterval(greetings, 2000);
-
-   function greetings() {
-      names.unshift(names.pop());
-      lighterhtml.render(
-         document.body, lighterhtml.html`${names.map(
-            name => lighterhtml.html`<p>Hello ${name}!</p>`
-         )}`
-      );
-   }
-
-The library supports many additional features, such as automatically converting
-``onclick`` attributes into real event listeners.
-
 Safely sanitizing external markup
 ----------------------------------------------------
 
@@ -259,7 +172,7 @@ The markup has to be sanitized before it reaches the DOM.
 Sanitize with ``Element.setHTML()``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-On Thunderbird 153 and later, the built-in
+On Thunderbird 148 and later, the built-in
 `Sanitizer API <https://developer.mozilla.org/en-US/docs/Web/API/Sanitizer>`__
 parses and sanitizes the markup in a single step, with no third-party library to
 bundle. Given a ``<div id="preview">`` element in the page, the sanitized content
@@ -275,53 +188,6 @@ can be rendered with ``Element.setHTML()``:
        // Parse and sanitize the received HTML, then render it.
        const preview = document.getElementById('preview');
        preview.setHTML(rawHtml);
-   }
-
-   renderExternalMarkup('https://example.com/feed-entry.html');
-
-Sanitize with ``DOMPurify`` on older versions
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-To run on Thunderbird versions before 153, sanitize the markup with ``DOMPurify``
-and insert the result with ``insertAdjacentHTML()``. First bundle it with the
-add-on.
-
-Download a ``DOMPurify`` release from a trusted source and place it in a local
-folder of the add-on, for example ``vendor/purify.min.js``, then declare it so
-reviewers can verify the bundled file is unchanged. See :doc:`/guides/vendoring` for
-the trusted sources and the accepted declaration formats.
-
-Load the ``DOMPurify`` library:
-
-.. code-block:: html
-   :caption: popup.html
-
-   <html>
-      <head>
-         <script src="/vendor/purify.min.js"></script>
-         <script defer src="popup.js"></script>
-      </head>
-      <body>
-         <div id="preview"></div>
-      </body>
-   </html>
-
-
-Sanitize external HTML and add it to the DOM via ``insertAdjacentHTML()``:
-
-.. code-block:: javascript
-   :caption: popup.js
-
-   async function renderExternalMarkup(url) {
-       const response = await fetch(url);
-       const rawHtml = await response.text();
-
-       // Sanitize the received HTML.
-       const safeHtml = DOMPurify.sanitize(rawHtml);
-
-       // Insert the sanitized markup.
-       const preview = document.getElementById('preview');
-       preview.insertAdjacentHTML('beforeend', safeHtml);
    }
 
    renderExternalMarkup('https://example.com/feed-entry.html');
