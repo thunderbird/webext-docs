@@ -450,6 +450,16 @@ Result of a script injection.
 .. api-header::
    :label: object
 
+   .. _scripting.^injection^result.document^id:
+
+   .. api-member::
+      :name: ``documentId``
+      :refid: scripting-injection-result-document-id
+      :refname: documentId
+      :type: (string)
+
+      The document associated with the injection.
+
    .. _scripting.^injection^result.frame^id:
 
    .. api-member::
@@ -509,6 +519,16 @@ InjectionTarget
       :type: (boolean, optional)
 
       Whether the script should inject into all frames within the tab. Defaults to false. This must not be true if :code:`frameIds` is specified.
+
+   .. _scripting.^injection^target.document^ids:
+
+   .. api-member::
+      :name: [``documentIds``]
+      :refid: scripting-injection-target-document-ids
+      :refname: documentIds
+      :type: (array of string, optional)
+
+      The IDs of specific documents to inject into. This must not be set if :code:`frameIds` or :code:`allFrames` is set.
 
    .. _scripting.^injection^target.frame^ids:
 

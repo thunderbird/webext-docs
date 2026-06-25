@@ -49,7 +49,7 @@ compose
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`type` :ref:`ComposeDetails.additionalFccFolderId <compose.^compose^details.additional^fcc^folder^id>` — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.additionalFccFolderId <compose.^compose^details.additional^fcc^folder^id>` — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. Has no effect when the message is saved as a draft or template; the additional copy is only created when the message is actually sent or queued for sending. The permission :permission:`accountsRead` is required to use this property.
 - :small:`type` :ref:`ComposeDetails.overrideDefaultFccFolderId <compose.^compose^details.override^default^fcc^folder^id>` — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId <folders.^mail^folder^id>` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 
 
