@@ -54,11 +54,10 @@ Guides Overview
 :doc:`guides/innerHTML`
   Understand why ``innerHTML`` is discouraged in Thunderbird WebExtensions and which
   safer patterns to use instead. This guide covers alternatives such as
-  ``textContent``, ``createElement()``, templates, and diffing libraries, replacing
+  ``textContent``, ``createElement()``, templates, and CSS show/hide, replacing
   inline event handlers with real listeners, and safely rendering external or
-  user-provided markup. On Thunderbird 153 and later this uses the built-in
-  ``Sanitizer API`` through ``Element.setHTML()``, with ``DOMPurify`` and
-  ``insertAdjacentHTML()`` as the fallback for older versions.
+  user-provided markup with the built-in ``Sanitizer API`` through
+  ``Element.setHTML()`` (Thunderbird 148 and later).
   
 :doc:`guides/eventListeners`
   Attach listeners to Thunderbird WebExtension events with
