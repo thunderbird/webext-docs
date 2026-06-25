@@ -308,12 +308,12 @@ Defines additional color, image and property keys to be used in :ref:`theme.^the
 
       A *dictionary object* with one or more *key-value* pairs to map new theme color keys to internal Thunderbird CSS color variables. The new color key is usable as a color reference in :ref:`theme.^theme^type`.
 
-      The following example maps the theme color key :value:`popup_affordance` to the CSS variable :value:`--panel-dimmed`:
+      The following example maps the theme color key :value:`popup_affordance` to the CSS variable :value:`--panel-background-color-dimmed`:
 
       .. code-block:: JSON
 
          {
-           "popup_affordance": "--panel-dimmed"
+           "popup_affordance": "--panel-background-color-dimmed"
          }
 
    .. _theme.^theme^experiment.images:
