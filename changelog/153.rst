@@ -23,10 +23,13 @@ messages
      <a href="../messages.html">messages</a>
    </div>
 
+- :small:`function` :ref:`saveMessage <messages.save^message>` — Saves a message programmatically as a draft or as a template in the background without user interaction. The save mode defaults to <value>draft</value>. The returned Promise fulfills once the message has been successfully saved. Throws when there has been an error while saving the message.\\n**Note:** If no <value>deliveryFormat</value> is specified, the message is saved as plain text when the body contains no HTML formatting.
+- :small:`function` :ref:`sendMessage <messages.send^message>` — Sends a message programmatically in the background without user interaction. If the send mode is not specified or set to <value>default</value>, the message will be sent directly if the user is online and placed in the user's outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when there has been an error while sending the message to the outgoing mail server.\\n**Note:** If no <value>deliveryFormat</value> is specified, the message is sent as plain text when the body contains no HTML formatting.\\n**Note:** It is possible to pass in a :ref:`compose.ComposeDetails <compose.^compose^details>` object as the <value>details</value> parameter, and it will be interpreted as a :ref:`messages.NewMessageDetails <messages.^new^message^details>` object.
 - :small:`type` :ref:`AttachmentType <messages.^attachment^type>` — The type of an attachment in a message.
 - :small:`type` :ref:`MessageAttachment.cloudFileUrl <messages.^message^attachment.cloud^file^url>` — The remote location a :value:`cloudFile` attachment's content is stored at. Present for :value:`cloudFile` attachments (see :ref:`messages.AttachmentType <messages.^attachment^type>`), whose content is not part of the message.
 - :small:`type` :ref:`MessageAttachment.linkUrl <messages.^message^attachment.link^url>` — The remote location the attachment's content is linked to. Present for :value:`linked` attachments (see :ref:`messages.AttachmentType <messages.^attachment^type>`), whose content is not part of the message and can be fetched from this url.
 - :small:`type` :ref:`MessageAttachment.type <messages.^message^attachment.type>` — The type of this attachment.
+- :small:`type` :ref:`NewMessageDetails <messages.^new^message^details>` — Details of a message to be sent.
 
 
 messengerSettings
@@ -40,3 +43,31 @@ messengerSettings
    </div>
 
 - :small:`setting` :ref:`composeInlineSpellCheckEnabled <messenger^settings.compose^inline^spell^check^enabled>` — Whether the inline (real-time) spell checker is enabled in the message compose window.
+
+
+oauthProvider
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../oauthProvider.html">oauthProvider</a>
+   </div>
+
+- :small:`property` :ref:`oauth_provider.issuerIdentifier <oauth^provider.oauth_provider.issuer^identifier>` — The OAuth authorization server issuer identifier, as defined by RFC 9207. If provided, it *must* be an exact string match to what the provider gives in the iss field.
+- :small:`property` :ref:`oauth_provider.useExternalBrowser <oauth^provider.oauth_provider.use^external^browser>` — If the login flow should use the system web browser. If true, the redirectionEndpoint *must* be a loopback address, so an origin of http://127.0.0.1 or http://localhost.
+
+
+tabs
+----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` :ref:`connect.connectInfo.documentId <tabs.connect.connect^info.document^id>` — Open a port to a specific document identified by :value:`documentId` instead of all frames in the tab.
+- :small:`function` :ref:`sendMessage.options.documentId <tabs.send^message.options.document^id>` — Send a message to a specific document identified by :value:`documentId` instead of all frames in the tab.

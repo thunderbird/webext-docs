@@ -104,6 +104,17 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
       :refname: connectInfo
       :type: (object, optional)
 
+      .. _tabs.connect.connect^info.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: tabs-connect-connect-info-document-id
+         :refname: documentId
+         :type: (string, optional)
+         :annotation: -- [Added in TB 153]
+
+         Open a port to a specific document identified by :value:`documentId` instead of all frames in the tab.
+
       .. _tabs.connect.connect^info.frame^id:
 
       .. api-member::
@@ -696,6 +707,17 @@ Sends a single message to the content script(s) in the specified tab, with an op
       :refid: tabs-send-message-options
       :refname: options
       :type: (object, optional)
+
+      .. _tabs.send^message.options.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: tabs-send-message-options-document-id
+         :refname: documentId
+         :type: (string, optional)
+         :annotation: -- [Added in TB 153]
+
+         Send a message to a specific document identified by :value:`documentId` instead of all frames in the tab.
 
       .. _tabs.send^message.options.frame^id:
 

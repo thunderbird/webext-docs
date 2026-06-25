@@ -1526,7 +1526,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 127]
 
-      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. Has no effect when the message is saved as a draft or template; the additional copy is only created when the message is actually sent or queued for sending. The permission :permission:`accountsRead` is required to use this property.
 
    .. _compose.^compose^details.attachments:
 
