@@ -183,8 +183,8 @@ Then build the add-on with:
 
    npm run build
 
-This kind of build only **copies** files — the library files verbatim and your own
-source untouched — so the packaged add-on stays **readable** and can be reviewed
+This kind of build only **copies** files (the library files verbatim and your own
+source untouched), so the packaged add-on stays **readable** and can be reviewed
 as-is. You ship only the resulting XPI, and it already contains everything the
 review needs: the copied library files, your readable source, and the
 ``package.json`` (and lock file) at its root, which declare each bundled library.
@@ -192,8 +192,8 @@ You do not ship the ``node_modules`` folder, and you do not submit a separate
 source archive.
 
 This is different from a real `source code submission`__, where the build
-*transforms* your authored code — transpiling it (for example from TypeScript) or
-bundling it (for example with webpack) — into what actually ships. That output is
+*transforms* your authored code into what actually ships, for example by
+transpiling it (from TypeScript) or bundling it (with webpack). That output is
 minified, machine-generated, and not reviewable on its own, so it has to be
 accompanied by an archive of the original source and the steps to reproduce the
 build. Please note that source code submissions take considerably longer to be
