@@ -69,11 +69,12 @@ Declare libraries in ``package.json``
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 A ``package.json`` lets you declare each bundled library as a structured
-dependency, listing the package name and the version you ship. You do not need an
-existing npm setup to use it. You can write the file purely to document your
-vendored libraries, and when you do, no separate ``VENDOR.md`` is needed for those
-libraries. Each dependency must resolve to an **exact** version so the bundled copy
-can be checked against a known release:
+dependency, listing the package name and the version you ship. This is the file a
+local npm project already produces for you: ``npm install`` records each library
+and its exact version there. When a ``package.json`` declares your bundled
+libraries, no separate ``VENDOR.md`` is needed for them. Each dependency must
+resolve to an **exact** version so the bundled copy can be checked against a known
+release:
 
 .. code-block:: json
    :caption: package.json
@@ -103,7 +104,7 @@ it can resolve to different releases over time:
 If you want to keep using ranges in ``package.json``, commit the lock file
 alongside it. The lock file records the exact resolved version that was bundled,
 which is what gets verified. Any of ``package-lock.json``, ``npm-shrinkwrap.json``,
-``yarn.lock``, or ``pnpm-lock.yaml`` is accepted:
+or ``pnpm-lock.yaml`` is accepted:
 
 .. code-block:: json
    :caption: package-lock.json
@@ -154,6 +155,52 @@ add-on project folder:
 The ``node_modules`` folder is only used to obtain the files and does not need to
 ship with the add-on. The ``package.json`` and the lock file are what document the
 bundled versions for review.
+
+Automate the copy with a build script
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Copying files by hand is fine, but you can let npm do it. Add a ``build`` script to
+``package.json`` that copies the files you load out of ``node_modules`` and then
+packs the add-on:
+
+.. code-block:: json
+   :caption: package.json
+
+   {
+     "name": "my-addon",
+     "version": "1.0.0",
+     "scripts": {
+       "build": "cp node_modules/dompurify/dist/purify.min.js vendor/ && web-ext build"
+     },
+     "dependencies": {
+       "dompurify": "3.4.11"
+     }
+   }
+
+Then build the add-on with:
+
+.. code-block:: shell
+
+   npm run build
+
+This kind of build only **copies** files — the library files verbatim and your own
+source untouched — so the packaged add-on stays **readable** and can be reviewed
+as-is. You ship only the resulting XPI, and it already contains everything the
+review needs: the copied library files, your readable source, and the
+``package.json`` (and lock file) at its root, which declare each bundled library.
+You do not ship the ``node_modules`` folder, and you do not submit a separate
+source archive.
+
+This is different from a real `source code submission`__, where the build
+*transforms* your authored code — transpiling it (for example from TypeScript) or
+bundling it (for example with webpack) — into what actually ships. That output is
+minified, machine-generated, and not reviewable on its own, so it has to be
+accompanied by an archive of the original source and the steps to reproduce the
+build. Please note that source code submissions take considerably longer to be
+reviewed, so avoid them where you can: a copy-only build like the one above keeps
+your add-on reviewable as-is and needs no source archive.
+
+__ https://extensionworkshop.com/documentation/publish/source-code-submission/
 
 Update a vendored library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
