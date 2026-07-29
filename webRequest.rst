@@ -404,6 +404,16 @@ Fired when an authentication failure is received. The listener has three options
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^auth^required.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-auth-required-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^auth^required.details.document^url:
 
       .. api-member::
@@ -434,6 +444,16 @@ Fired when an authentication failure is received. The listener has three options
          :type: (string, optional)
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^auth^required.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-auth-required-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^auth^required.details.realm:
 
@@ -686,6 +706,16 @@ Fired when a server-initiated redirect is about to occur.
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^before^redirect.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-before-redirect-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^before^redirect.details.document^url:
 
       .. api-member::
@@ -728,6 +758,16 @@ Fired when a server-initiated redirect is about to occur.
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^before^redirect.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-before-redirect-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^before^redirect.details.response^headers:
 
@@ -915,6 +955,16 @@ Fired when a request is about to occur.
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^before^request.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-before-request-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^before^request.details.document^url:
 
       .. api-member::
@@ -947,6 +997,16 @@ Fired when a request is about to occur.
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^before^request.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-before-request-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^before^request.details.request^body:
 
@@ -1176,6 +1236,16 @@ Fired before sending an HTTP request, once the request headers are available. Th
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^before^send^headers.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-before-send-headers-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^before^send^headers.details.document^url:
 
       .. api-member::
@@ -1208,6 +1278,16 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^before^send^headers.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-before-send-headers-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^before^send^headers.details.request^headers:
 
@@ -1468,6 +1548,16 @@ Fired when a request is completed.
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^completed.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-completed-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^completed.details.document^url:
 
       .. api-member::
@@ -1510,6 +1600,16 @@ Fired when a request is completed.
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^completed.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-completed-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^completed.details.response^headers:
 
@@ -1688,6 +1788,16 @@ Fired when an error occurs.
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^error^occurred.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-error-occurred-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request. This value is not present if the request is a navigation of a frame.
+
       .. _web^request.on^error^occurred.details.document^url:
 
       .. api-member::
@@ -1730,6 +1840,16 @@ Fired when an error occurs.
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^error^occurred.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-error-occurred-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^error^occurred.details.url^classification:
 
@@ -1931,6 +2051,16 @@ Fired when HTTP response headers of a request have been received.
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^headers^received.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-headers-received-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^headers^received.details.document^url:
 
       .. api-member::
@@ -1963,6 +2093,16 @@ Fired when HTTP response headers of a request have been received.
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^headers^received.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-headers-received-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^headers^received.details.response^headers:
 
@@ -2187,6 +2327,16 @@ Fired when the first byte of the response body is received. For HTTP requests, t
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^response^started.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-response-started-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^response^started.details.document^url:
 
       .. api-member::
@@ -2229,6 +2379,16 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^response^started.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-response-started-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^response^started.details.response^headers:
 
@@ -2412,6 +2572,16 @@ Fired just before a request is going to be sent to the server (modifications of 
 
          The cookie store ID of the contextual identity.
 
+      .. _web^request.on^send^headers.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-request-on-send-headers-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _web^request.on^send^headers.details.document^url:
 
       .. api-member::
@@ -2444,6 +2614,16 @@ Fired just before a request is going to be sent to the server (modifications of 
          :annotation: -- [Added in TB 48]
 
          URL of the resource that triggered this request.
+
+      .. _web^request.on^send^headers.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-request-on-send-headers-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _web^request.on^send^headers.details.request^headers:
 

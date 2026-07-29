@@ -120,7 +120,7 @@ getFrame(details)
 
 .. api-section-annotation-hack:: -- [Added in TB 47]
 
-Retrieves information about the given frame. A frame refers to an &lt;iframe&gt; or a &lt;frame&gt; of a web page and is identified by a tab ID and a frame ID.
+Retrieves information about the given frame. A frame refers to an &lt;iframe&gt; or a &lt;frame&gt; of a web page and is identified by a tab ID and a frame ID, or by its document ID.
 
 .. api-header::
    :label: Parameters
@@ -135,25 +135,25 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
 
       Information about the frame to retrieve information about.
 
+      .. _web^navigation.get^frame.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: web-navigation-get-frame-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document. If provided, tabId and frameId are optional. If all are provided, the frame is only returned if all properties match.
+
       .. _web^navigation.get^frame.details.frame^id:
 
       .. api-member::
-         :name: ``frameId``
+         :name: [``frameId``]
          :refid: web-navigation-get-frame-details-frame-id
          :refname: frameId
-         :type: (integer)
+         :type: (integer, optional)
 
-         The ID of the frame in the given tab.
-
-      .. _web^navigation.get^frame.details.tab^id:
-
-      .. api-member::
-         :name: ``tabId``
-         :refid: web-navigation-get-frame-details-tab-id
-         :refname: tabId
-         :type: (integer)
-
-         The ID of the tab in which the frame is.
+         The ID of the frame in the given tab. Must be specified if documentId is not set.
 
       .. _web^navigation.get^frame.details.process^id:
 
@@ -164,6 +164,16 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
          :type: (integer, optional)
 
          The ID of the process runs the renderer for this tab.
+
+      .. _web^navigation.get^frame.details.tab^id:
+
+      .. api-member::
+         :name: [``tabId``]
+         :refid: web-navigation-get-frame-details-tab-id
+         :refname: tabId
+         :type: (integer, optional)
+
+         The ID of the tab in which the frame is. Must be specified if documentId is not set.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -176,6 +186,16 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
       :type: object
 
       Information about the requested frame, null if the specified frame ID and/or tab ID are invalid.
+
+      .. _web^navigation.get^frame.returns.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-get-frame-returns-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
 
       .. _web^navigation.get^frame.returns.frame^id:
 
@@ -226,6 +246,16 @@ Retrieves information about the given frame. A frame refers to an &lt;iframe&gt;
          :type: (boolean, optional)
 
          True if the last navigation in this frame was interrupted by an error, i.e. the onErrorOccurred event fired.
+
+      .. _web^navigation.get^frame.returns.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-get-frame-returns-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -347,6 +377,16 @@ Fired when a navigation is about to occur.
          :refname: url
          :type: (string)
 
+      .. _web^navigation.on^before^navigate.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-before-navigate-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
+
 .. api-header::
    :label: Required permissions
 
@@ -401,6 +441,16 @@ Fired when a navigation is committed. The document (and the resources it refers 
       :refid: web-navigation-on-committed-details
       :refname: details
       :type: (object)
+
+      .. _web^navigation.on^committed.details.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-on-committed-details-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
 
       .. _web^navigation.on^committed.details.frame^id:
 
@@ -470,6 +520,16 @@ Fired when a navigation is committed. The document (and the resources it refers 
          :refname: url
          :type: (string)
 
+      .. _web^navigation.on^committed.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-committed-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
+
 .. api-header::
    :label: Required permissions
 
@@ -525,6 +585,16 @@ Fired when a document, including the resources it refers to, is completely loade
       :refname: details
       :type: (object)
 
+      .. _web^navigation.on^completed.details.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-on-completed-details-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
+
       .. _web^navigation.on^completed.details.frame^id:
 
       .. api-member::
@@ -572,6 +642,16 @@ Fired when a document, including the resources it refers to, is completely loade
          :refid: web-navigation-on-completed-details-url
          :refname: url
          :type: (string)
+
+      .. _web^navigation.on^completed.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-completed-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
 
 .. api-header::
    :label: Required permissions
@@ -743,6 +823,16 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
       :refname: details
       :type: (object)
 
+      .. _web^navigation.on^d^o^m^content^loaded.details.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-on-d-o-m-content-loaded-details-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
+
       .. _web^navigation.on^d^o^m^content^loaded.details.frame^id:
 
       .. api-member::
@@ -790,6 +880,16 @@ Fired when the page's DOM is fully constructed, but the referenced resources may
          :refid: web-navigation-on-d-o-m-content-loaded-details-url
          :refname: url
          :type: (string)
+
+      .. _web^navigation.on^d^o^m^content^loaded.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-d-o-m-content-loaded-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
 
 .. api-header::
    :label: Required permissions
@@ -845,6 +945,16 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
       :refid: web-navigation-on-error-occurred-details
       :refname: details
       :type: (object)
+
+      .. _web^navigation.on^error^occurred.details.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-on-error-occurred-details-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
 
       .. _web^navigation.on^error^occurred.details.error:
 
@@ -904,6 +1014,16 @@ Fired when an error occurs and the navigation is aborted. This can happen if eit
          :refname: url
          :type: (string)
 
+      .. _web^navigation.on^error^occurred.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-error-occurred-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
+
 .. api-header::
    :label: Required permissions
 
@@ -950,6 +1070,16 @@ Fired when the frame's history was updated to a new URL. All future events for t
       :refid: web-navigation-on-history-state-updated-details
       :refname: details
       :type: (object)
+
+      .. _web^navigation.on^history^state^updated.details.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-on-history-state-updated-details-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
 
       .. _web^navigation.on^history^state^updated.details.frame^id:
 
@@ -1019,6 +1149,16 @@ Fired when the frame's history was updated to a new URL. All future events for t
          :refname: url
          :type: (string)
 
+      .. _web^navigation.on^history^state^updated.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-history-state-updated-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
+
 .. api-header::
    :label: Required permissions
 
@@ -1073,6 +1213,16 @@ Fired when the reference fragment of a frame was updated. All future events for 
       :refid: web-navigation-on-reference-fragment-updated-details
       :refname: details
       :type: (object)
+
+      .. _web^navigation.on^reference^fragment^updated.details.document^id:
+
+      .. api-member::
+         :name: ``documentId``
+         :refid: web-navigation-on-reference-fragment-updated-details-document-id
+         :refname: documentId
+         :type: (string)
+
+         A UUID of the document loaded.
 
       .. _web^navigation.on^reference^fragment^updated.details.frame^id:
 
@@ -1141,6 +1291,16 @@ Fired when the reference fragment of a frame was updated. All future events for 
          :refid: web-navigation-on-reference-fragment-updated-details-url
          :refname: url
          :type: (string)
+
+      .. _web^navigation.on^reference^fragment^updated.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: web-navigation-on-reference-fragment-updated-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         A UUID of the parent document owning this frame. This is not set if there is no parent.
 
 .. api-header::
    :label: Required permissions

@@ -603,6 +603,14 @@ OptionalPermission
             :refid: permissions-optional-permission-management
             :refname: management
 
+         .. _permissions.^optional^permission.messages.save:
+
+         .. api-member::
+            :name: :value:`messages.save`
+            :refid: permissions-optional-permission-messages-save
+            :refname: messages.save
+            :annotation: -- [Added in TB 153]
+
          .. _permissions.^optional^permission.messages^delete:
 
          .. api-member::
