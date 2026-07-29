@@ -275,6 +275,16 @@ Fired when proxy data is needed for a request.
 
          The cookie store ID of the contextual identity.
 
+      .. _proxy.on^request.details.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: proxy-on-request-details-document-id
+         :refname: documentId
+         :type: (string, optional)
+
+         The UUID of the document making the request.
+
       .. _proxy.on^request.details.document^url:
 
       .. api-member::
@@ -304,6 +314,16 @@ Fired when proxy data is needed for a request.
          :type: (string, optional)
 
          URL of the resource that triggered this request.
+
+      .. _proxy.on^request.details.parent^document^id:
+
+      .. api-member::
+         :name: [``parentDocumentId``]
+         :refid: proxy-on-request-details-parent-document-id
+         :refname: parentDocumentId
+         :type: (string, optional)
+
+         The UUID of the parent document owning this frame. This is not set if there is no parent.
 
       .. _proxy.on^request.details.request^headers:
 
