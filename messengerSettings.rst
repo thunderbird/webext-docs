@@ -55,20 +55,22 @@ Settings
 .. toctree::
   :hidden:
 
+  composeInlineSpellCheckEnabled <messengerSettings.composeInlineSpellCheckEnabled>
   messageLineLengthLimit <messengerSettings.messageLineLengthLimit>
   messagePlainTextFlowedOutputEnabled <messengerSettings.messagePlainTextFlowedOutputEnabled>
+  readerDisplayAttachmentsInline <messengerSettings.readerDisplayAttachmentsInline>
 
 .. raw:: html
 
    <section class="setting-prop-header-section write">
    <div class="setting-prop-header">
      <span class="setting-prop-label">write</span>
-     <a href="messengerSettings.messageLineLengthLimit.html">messageLineLengthLimit</a>
+     <a href="messengerSettings.composeInlineSpellCheckEnabled.html">composeInlineSpellCheckEnabled</a>
    </div>
 
-.. api-section-annotation-hack:: -- [Added in TB 140.0]
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
 
-The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of :ref:`messagePlainTextFlowedOutputEnabled <messenger^settings.message^plain^text^flowed^output^enabled>`.
+Whether the inline (real-time) spell checker is enabled in the message compose window.
 
 .. raw:: html
 
@@ -76,15 +78,47 @@ The line length limit for outgoing messages, to comply with requirements from RF
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
+     <a href="messengerSettings.messageLineLengthLimit.html">messageLineLengthLimit</a>
+   </div>
+
+.. api-section-annotation-hack:: -- [Added in TB 140.0]
+
+The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of :ref:`messagePlainTextFlowedOutputEnabled <messenger^settings.message^plain^text^flowed^output^enabled>`. This property is read-only.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section read">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">read</span>
      <a href="messengerSettings.messagePlainTextFlowedOutputEnabled.html">messagePlainTextFlowedOutputEnabled</a>
    </div>
 
 .. api-section-annotation-hack:: -- [Added in TB 140.0]
 
-Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messageLineLengthLimit <messenger^settings.message^line^length^limit>`.
+Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messageLineLengthLimit <messenger^settings.message^line^length^limit>`. This property is read-only.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section read">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">read</span>
+     <a href="messengerSettings.readerDisplayAttachmentsInline.html">readerDisplayAttachmentsInline</a>
+   </div>
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
 
 .. raw:: html
 

@@ -127,12 +127,12 @@ Get the :ref:`mail^tabs.^mail^tab` properties of a mail tab.
 
 .. _mail^tabs.get^listed^messages:
 
-getListedMessages([tabId])
---------------------------
+getListedMessages([tabId], [options])
+-------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 128.0]
 
-Lists the messages in the current view, honoring sort order and filters.
+Lists the messages in the current view, honoring sort order and filters as used in the UI. Sort order of the returned messages can be overridden via the :value:`options` parameter
 
 .. api-header::
    :label: Parameters
@@ -147,6 +147,131 @@ Lists the messages in the current view, honoring sort order and filters.
 
       Defaults to the active tab of the current window.
 
+   .. _mail^tabs.get^listed^messages.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: mail-tabs-get-listed-messages-options
+      :refname: options
+      :type: (object, optional)
+
+      .. _mail^tabs.get^listed^messages.options.sort^order:
+
+      .. api-member::
+         :name: [``sortOrder``]
+         :refid: mail-tabs-get-listed-messages-options-sort-order
+         :refname: sortOrder
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 153.0]
+
+         The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+
+         Supported values:
+
+         .. _mail^tabs.get^listed^messages.options.sort^order.ascending:
+
+         .. api-member::
+            :name: :value:`ascending`
+            :refid: mail-tabs-get-listed-messages-options-sort-order-ascending
+            :refname: ascending
+
+         .. _mail^tabs.get^listed^messages.options.sort^order.descending:
+
+         .. api-member::
+            :name: :value:`descending`
+            :refid: mail-tabs-get-listed-messages-options-sort-order-descending
+            :refname: descending
+
+      .. _mail^tabs.get^listed^messages.options.sort^type:
+
+      .. api-member::
+         :name: [``sortType``]
+         :refid: mail-tabs-get-listed-messages-options-sort-type
+         :refname: sortType
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 153.0]
+
+         Specifies how the returned messages should be sorted. This does not change the actual sort of the displayed messages. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+
+         Supported values:
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-author
+            :refname: author
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.date:
+
+         .. api-member::
+            :name: :value:`date`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-date
+            :refname: date
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.flagged:
+
+         .. api-member::
+            :name: :value:`flagged`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-flagged
+            :refname: flagged
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.junk:
+
+         .. api-member::
+            :name: :value:`junk`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-junk
+            :refname: junk
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.junk^score:
+
+         .. api-member::
+            :name: :value:`junkScore`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-junk-score
+            :refname: junkScore
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.priority:
+
+         .. api-member::
+            :name: :value:`priority`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-priority
+            :refname: priority
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.read:
+
+         .. api-member::
+            :name: :value:`read`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-read
+            :refname: read
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.recipients:
+
+         .. api-member::
+            :name: :value:`recipients`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-recipients
+            :refname: recipients
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.size:
+
+         .. api-member::
+            :name: :value:`size`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-size
+            :refname: size
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.subject:
+
+         .. api-member::
+            :name: :value:`subject`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-subject
+            :refname: subject
+
+         .. _mail^tabs.get^listed^messages.options.sort^type.tags:
+
+         .. api-member::
+            :name: :value:`tags`
+            :refid: mail-tabs-get-listed-messages-options-sort-type-tags
+            :refname: tags
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -156,6 +281,7 @@ Lists the messages in the current view, honoring sort order and filters.
       :refid: mail-tabs-get-listed-messages-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
+      :annotation: -- [Added in TB 153.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -628,12 +754,16 @@ A supported folder mode in the folder pane.
             :refid: mail-tabs-folder-mode-all
             :refname: all
 
+            Show all folders.
+
          .. _mail^tabs.^folder^mode.favorite:
 
          .. api-member::
             :name: :value:`favorite`
             :refid: mail-tabs-folder-mode-favorite
             :refname: favorite
+
+            Show only favorite folders.
 
          .. _mail^tabs.^folder^mode.recent:
 
@@ -642,12 +772,16 @@ A supported folder mode in the folder pane.
             :refid: mail-tabs-folder-mode-recent
             :refname: recent
 
+            Show recently used folders.
+
          .. _mail^tabs.^folder^mode.tags:
 
          .. api-member::
             :name: :value:`tags`
             :refid: mail-tabs-folder-mode-tags
             :refname: tags
+
+            Show virtual tag folders.
 
          .. _mail^tabs.^folder^mode.unified:
 
@@ -656,12 +790,16 @@ A supported folder mode in the folder pane.
             :refid: mail-tabs-folder-mode-unified
             :refname: unified
 
+            Show the unified folder view.
+
          .. _mail^tabs.^folder^mode.unread:
 
          .. api-member::
             :name: :value:`unread`
             :refid: mail-tabs-folder-mode-unread
             :refname: unread
+
+            Show only folders with unread messages.
 
 .. _mail^tabs.^mail^tab:
 
@@ -700,6 +838,8 @@ MailTab
          :refid: mail-tabs-mail-tab-layout-standard
          :refname: standard
 
+         The standard layout with the folder pane on the left, and the message list and message display stacked on the right.
+
       .. _mail^tabs.^mail^tab.layout.vertical:
 
       .. api-member::
@@ -707,12 +847,16 @@ MailTab
          :refid: mail-tabs-mail-tab-layout-vertical
          :refname: vertical
 
+         The vertical layout with the folder pane, message list, and message display side by side in three columns.
+
       .. _mail^tabs.^mail^tab.layout.wide:
 
       .. api-member::
          :name: :value:`wide`
          :refid: mail-tabs-mail-tab-layout-wide
          :refname: wide
+
+         The wide layout with the folder pane and message list side by side on top, and the message display on the bottom.
 
    .. _mail^tabs.^mail^tab.tab^id:
 
@@ -793,6 +937,8 @@ MailTab
          :refid: mail-tabs-mail-tab-group-type-grouped-by-sort-type
          :refname: groupedBySortType
 
+         Messages are grouped by the current sort type.
+
       .. _mail^tabs.^mail^tab.group^type.grouped^by^thread:
 
       .. api-member::
@@ -800,12 +946,16 @@ MailTab
          :refid: mail-tabs-mail-tab-group-type-grouped-by-thread
          :refname: groupedByThread
 
+         Messages are grouped by threads.
+
       .. _mail^tabs.^mail^tab.group^type.ungrouped:
 
       .. api-member::
          :name: :value:`ungrouped`
          :refid: mail-tabs-mail-tab-group-type-ungrouped
          :refname: ungrouped
+
+         Messages are not grouped.
 
    .. _mail^tabs.^mail^tab.message^pane^visible:
 
@@ -836,6 +986,8 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-order-ascending
          :refname: ascending
 
+         Ascending sort order.
+
       .. _mail^tabs.^mail^tab.sort^order.descending:
 
       .. api-member::
@@ -843,12 +995,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-order-descending
          :refname: descending
 
+         Descending sort order.
+
       .. _mail^tabs.^mail^tab.sort^order.none:
 
       .. api-member::
          :name: :value:`none`
          :refid: mail-tabs-mail-tab-sort-order-none
          :refname: none
+
+         No sort order.
 
    .. _mail^tabs.^mail^tab.sort^type:
 
@@ -869,12 +1025,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-account
          :refname: account
 
+         Sort by account, grouping messages belonging to the same account.
+
       .. _mail^tabs.^mail^tab.sort^type.attachments:
 
       .. api-member::
          :name: :value:`attachments`
          :refid: mail-tabs-mail-tab-sort-type-attachments
          :refname: attachments
+
+         Sort by attachment status.
 
       .. _mail^tabs.^mail^tab.sort^type.author:
 
@@ -883,12 +1043,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-author
          :refname: author
 
+         Sort by author.
+
       .. _mail^tabs.^mail^tab.sort^type.correspondent:
 
       .. api-member::
          :name: :value:`correspondent`
          :refid: mail-tabs-mail-tab-sort-type-correspondent
          :refname: correspondent
+
+         Sort by correspondents.
 
       .. _mail^tabs.^mail^tab.sort^type.custom:
 
@@ -897,12 +1061,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-custom
          :refname: custom
 
+         Sort by a custom column.
+
       .. _mail^tabs.^mail^tab.sort^type.date:
 
       .. api-member::
          :name: :value:`date`
          :refid: mail-tabs-mail-tab-sort-type-date
          :refname: date
+
+         Sort by date.
 
       .. _mail^tabs.^mail^tab.sort^type.flagged:
 
@@ -911,12 +1079,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-flagged
          :refname: flagged
 
+         Sort by starred status.
+
       .. _mail^tabs.^mail^tab.sort^type.id:
 
       .. api-member::
          :name: :value:`id`
          :refid: mail-tabs-mail-tab-sort-type-id
          :refname: id
+
+         Sort by the Message-ID header, a unique identifier assigned by the sending server.
 
       .. _mail^tabs.^mail^tab.sort^type.junk^status:
 
@@ -925,12 +1097,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-junk-status
          :refname: junkStatus
 
+         Sort by spam status.
+
       .. _mail^tabs.^mail^tab.sort^type.location:
 
       .. api-member::
          :name: :value:`location`
          :refid: mail-tabs-mail-tab-sort-type-location
          :refname: location
+
+         Sort by folder location.
 
       .. _mail^tabs.^mail^tab.sort^type.none:
 
@@ -939,12 +1115,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-none
          :refname: none
 
+         Not sorted.
+
       .. _mail^tabs.^mail^tab.sort^type.priority:
 
       .. api-member::
          :name: :value:`priority`
          :refid: mail-tabs-mail-tab-sort-type-priority
          :refname: priority
+
+         Sort by priority.
 
       .. _mail^tabs.^mail^tab.sort^type.received:
 
@@ -953,12 +1133,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-received
          :refname: received
 
+         Sort by received date.
+
       .. _mail^tabs.^mail^tab.sort^type.recipient:
 
       .. api-member::
          :name: :value:`recipient`
          :refid: mail-tabs-mail-tab-sort-type-recipient
          :refname: recipient
+
+         Sort by recipient.
 
       .. _mail^tabs.^mail^tab.sort^type.size:
 
@@ -967,12 +1151,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-size
          :refname: size
 
+         Sort by message size.
+
       .. _mail^tabs.^mail^tab.sort^type.status:
 
       .. api-member::
          :name: :value:`status`
          :refid: mail-tabs-mail-tab-sort-type-status
          :refname: status
+
+         Sort by message status.
 
       .. _mail^tabs.^mail^tab.sort^type.subject:
 
@@ -981,12 +1169,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-subject
          :refname: subject
 
+         Sort by subject.
+
       .. _mail^tabs.^mail^tab.sort^type.tags:
 
       .. api-member::
          :name: :value:`tags`
          :refid: mail-tabs-mail-tab-sort-type-tags
          :refname: tags
+
+         Sort by tags.
 
       .. _mail^tabs.^mail^tab.sort^type.thread:
 
@@ -995,12 +1187,16 @@ MailTab
          :refid: mail-tabs-mail-tab-sort-type-thread
          :refname: thread
 
+         Sort by thread, grouping messages that belong to the same conversation.
+
       .. _mail^tabs.^mail^tab.sort^type.unread:
 
       .. api-member::
          :name: :value:`unread`
          :refid: mail-tabs-mail-tab-sort-type-unread
          :refname: unread
+
+         Sort by unread status.
 
 .. _mail^tabs.^mail^tab^properties:
 
@@ -1071,6 +1267,8 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-group-type-grouped-by-sort-type
          :refname: groupedBySortType
 
+         Messages are grouped by the current sort type.
+
       .. _mail^tabs.^mail^tab^properties.group^type.grouped^by^thread:
 
       .. api-member::
@@ -1078,12 +1276,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-group-type-grouped-by-thread
          :refname: groupedByThread
 
+         Messages are grouped by threads.
+
       .. _mail^tabs.^mail^tab^properties.group^type.ungrouped:
 
       .. api-member::
          :name: :value:`ungrouped`
          :refid: mail-tabs-mail-tab-properties-group-type-ungrouped
          :refname: ungrouped
+
+         Messages are not grouped.
 
    .. _mail^tabs.^mail^tab^properties.layout:
 
@@ -1104,6 +1306,8 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-layout-standard
          :refname: standard
 
+         The standard layout with the folder pane on the left, and the message list and message display stacked on the right.
+
       .. _mail^tabs.^mail^tab^properties.layout.vertical:
 
       .. api-member::
@@ -1111,12 +1315,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-layout-vertical
          :refname: vertical
 
+         The vertical layout with the folder pane, message list, and message display side by side in three columns.
+
       .. _mail^tabs.^mail^tab^properties.layout.wide:
 
       .. api-member::
          :name: :value:`wide`
          :refid: mail-tabs-mail-tab-properties-layout-wide
          :refname: wide
+
+         The wide layout with the folder pane and message list side by side on top, and the message display on the bottom.
 
    .. _mail^tabs.^mail^tab^properties.message^pane^visible:
 
@@ -1147,6 +1355,8 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-order-ascending
          :refname: ascending
 
+         Ascending sort order.
+
       .. _mail^tabs.^mail^tab^properties.sort^order.descending:
 
       .. api-member::
@@ -1154,12 +1364,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-order-descending
          :refname: descending
 
+         Descending sort order.
+
       .. _mail^tabs.^mail^tab^properties.sort^order.none:
 
       .. api-member::
          :name: :value:`none`
          :refid: mail-tabs-mail-tab-properties-sort-order-none
          :refname: none
+
+         No sort order.
 
    .. _mail^tabs.^mail^tab^properties.sort^type:
 
@@ -1180,12 +1394,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-account
          :refname: account
 
+         Sort by account, grouping messages belonging to the same account.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.attachments:
 
       .. api-member::
          :name: :value:`attachments`
          :refid: mail-tabs-mail-tab-properties-sort-type-attachments
          :refname: attachments
+
+         Sort by attachment status.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.author:
 
@@ -1194,12 +1412,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-author
          :refname: author
 
+         Sort by author.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.correspondent:
 
       .. api-member::
          :name: :value:`correspondent`
          :refid: mail-tabs-mail-tab-properties-sort-type-correspondent
          :refname: correspondent
+
+         Sort by correspondents.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.custom:
 
@@ -1208,12 +1430,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-custom
          :refname: custom
 
+         Sort by a custom column.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.date:
 
       .. api-member::
          :name: :value:`date`
          :refid: mail-tabs-mail-tab-properties-sort-type-date
          :refname: date
+
+         Sort by date.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.flagged:
 
@@ -1222,12 +1448,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-flagged
          :refname: flagged
 
+         Sort by starred status.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.id:
 
       .. api-member::
          :name: :value:`id`
          :refid: mail-tabs-mail-tab-properties-sort-type-id
          :refname: id
+
+         Sort by the Message-ID header, a unique identifier assigned by the sending server.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.junk^status:
 
@@ -1236,12 +1466,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-junk-status
          :refname: junkStatus
 
+         Sort by spam status.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.location:
 
       .. api-member::
          :name: :value:`location`
          :refid: mail-tabs-mail-tab-properties-sort-type-location
          :refname: location
+
+         Sort by folder location.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.none:
 
@@ -1250,12 +1484,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-none
          :refname: none
 
+         Not sorted.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.priority:
 
       .. api-member::
          :name: :value:`priority`
          :refid: mail-tabs-mail-tab-properties-sort-type-priority
          :refname: priority
+
+         Sort by priority.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.received:
 
@@ -1264,12 +1502,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-received
          :refname: received
 
+         Sort by received date.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.recipient:
 
       .. api-member::
          :name: :value:`recipient`
          :refid: mail-tabs-mail-tab-properties-sort-type-recipient
          :refname: recipient
+
+         Sort by recipient.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.size:
 
@@ -1278,12 +1520,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-size
          :refname: size
 
+         Sort by message size.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.status:
 
       .. api-member::
          :name: :value:`status`
          :refid: mail-tabs-mail-tab-properties-sort-type-status
          :refname: status
+
+         Sort by message status.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.subject:
 
@@ -1292,12 +1538,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-subject
          :refname: subject
 
+         Sort by subject.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.tags:
 
       .. api-member::
          :name: :value:`tags`
          :refid: mail-tabs-mail-tab-properties-sort-type-tags
          :refname: tags
+
+         Sort by tags.
 
       .. _mail^tabs.^mail^tab^properties.sort^type.thread:
 
@@ -1306,12 +1556,16 @@ MailTabProperties
          :refid: mail-tabs-mail-tab-properties-sort-type-thread
          :refname: thread
 
+         Sort by thread, grouping messages that belong to the same conversation.
+
       .. _mail^tabs.^mail^tab^properties.sort^type.unread:
 
       .. api-member::
          :name: :value:`unread`
          :refid: mail-tabs-mail-tab-properties-sort-type-unread
          :refname: unread
+
+         Sort by unread status.
 
 .. _mail^tabs.^quick^filter^text^detail:
 

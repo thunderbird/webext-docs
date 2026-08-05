@@ -34,15 +34,6 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
-.. _messages.tags.permission.accounts^read:
-
-.. api-member::
-   :name: :permission:`accountsRead`
-   :refid: messages-tags-permission-accounts-read
-   :refname: accountsRead
-
-   See your mail accounts, their identities and their folders.
-
 .. _messages.tags.permission.messages^read:
 
 .. api-member::
@@ -165,6 +156,46 @@ Deletes a message tag, removing it from the list of known tags. Its key will not
 
    - :permission:`messagesRead`
    - :permission:`messagesTags`
+
+.. _messages.tags.get:
+
+get(key)
+--------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Returns a message tag identified by its key.
+
+.. api-header::
+   :label: Parameters
+
+   .. _messages.tags.get.key:
+
+   .. api-member::
+      :name: ``key``
+      :refid: messages-tags-get-key
+      :refname: key
+      :type: (string)
+
+      The key of the message tag to retrieve.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messages.tags.get.returns:
+
+   .. api-member::
+      :refid: messages-tags-get-returns
+      :refname: _returns
+      :type: :ref:`messages.tags.^message^tag`
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+   - :permission:`messagesTagsList`
 
 .. _messages.tags.list:
 
@@ -309,8 +340,8 @@ Fired when a message tag has been deleted.
 .. api-header::
    :label: Required permissions
 
-   - :permission:`accountsRead`
    - :permission:`messagesRead`
+   - :permission:`messagesTagsList`
 
 .. _messages.tags.on^updated:
 
@@ -487,7 +518,7 @@ Used for filtering messages by tag in various methods. Note that functions using
       :refname: mode
       :type: (`string`)
 
-      Whether all of the tag filters must apply, or any of them.
+      Whether :value:`all` of the tag filters must apply, :value:`any` of them, or :value:`none`. The :value:`none` mode ignores the provided filters and selects only messages without any tags.
 
       Supported values:
 
@@ -504,6 +535,14 @@ Used for filtering messages by tag in various methods. Note that functions using
          :name: :value:`any`
          :refid: messages-tags-tags-detail-mode-any
          :refname: any
+
+      .. _messages.tags.^tags^detail.mode.none:
+
+      .. api-member::
+         :name: :value:`none`
+         :refid: messages-tags-tags-detail-mode-none
+         :refname: none
+         :annotation: -- [Added in TB 153.0]
 
    .. _messages.tags.^tags^detail.tags:
 

@@ -78,12 +78,12 @@ compose
      <a href="../compose.html">compose</a>
    </div>
 
-- :small:`type` :ref:`ComposeDetails.additionalFccFolderId <compose.^compose^details.additional^fcc^folder^id>` — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+- :small:`type` :ref:`ComposeDetails.additionalFccFolderId <compose.^compose^details.additional^fcc^folder^id>` — An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. Has no effect when the message is saved as a draft or template; the additional copy is only created when the message is actually sent or queued for sending. The permission :permission:`accountsRead` is required to use this property.
 - :small:`type` :ref:`ComposeDetails.attachPublicPGPKey <compose.^compose^details.attach^public^p^g^p^key>` — Whether the public OpenPGP key of the sending identity should be attached to the message.
 - :small:`type` :ref:`ComposeDetails.isModified <compose.^compose^details.is^modified>` — Whether the composer is considered modified by the user. A modified composer asks for confirmation, when it is closed.
 - :small:`type` :ref:`ComposeDetails.overrideDefaultFccFolderId <compose.^compose^details.override^default^fcc^folder^id>` — This value overrides the default fcc setting (defined by the used identity) for this message only. Either a :ref:`folders.MailFolderId <folders.^mail^folder^id>` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all. Reset when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
 - :small:`type` :ref:`ComposeDetails.selectedEncryptionTechnology <compose.^compose^details.selected^encryption^technology>` — The selected encryption technology (:value:`OpenPGP` or :value:`S/MIME`) which is to be used to sign and/or encrypt the message. If the sending identity does not support encryption at all, this will be :value:`undefined`.
-- :small:`type` :ref:`ComposeRecipient.nodeId <compose.^compose^recipient.node^id>` — The ID of a contact or mailing list node from the :doc:`../addressBook.contacts` or :doc:`../addressBook.mailingLists`.
+- :small:`type` :ref:`ComposeRecipient.nodeId <compose.^compose^recipient.node^id>` — The ID of a contact or mailing list node from the :doc:`../addressBooks.contacts` or :doc:`../addressBooks.mailingLists`.
 
 
 composeAction
@@ -192,7 +192,7 @@ mailTabs
    </div>
 
 - :small:`function` :ref:`create <mail^tabs.create>` — Creates a new mail tab. Standard tab properties can be adjusted via :ref:`tabs.update <tabs.update>` after the mail tab has been created. A new mail window can be created via :ref:`windows.create <windows.create>`.
-- :small:`function` :ref:`getListedMessages <mail^tabs.get^listed^messages>` — Lists the messages in the current view, honoring sort order and filters.
+- :small:`function` :ref:`getListedMessages <mail^tabs.get^listed^messages>` — Lists the messages in the current view, honoring sort order and filters as used in the UI. Sort order of the returned messages can be overridden via the :value:`options` parameter
 - :small:`function` :ref:`getSelectedFolders <mail^tabs.get^selected^folders>` — Lists the selected folders in the folder pane. Does not include folders which are context-clicked, but not selected. The context-clicked folders are always returned by the :ref:`menus.onClicked <menus.on^clicked>` event of the menus API.
 - :small:`type` :ref:`FolderMode <mail^tabs.^folder^mode>` — A supported folder mode in the folder pane.
 - :small:`type` :ref:`MailTab.folderMode <mail^tabs.^mail^tab.folder^mode>` — The folder mode of the currently displayed folder.
@@ -211,8 +211,8 @@ menus
    </div>
 
 - :small:`type` :ref:`MenuIconDictionary <menus.^menu^icon^dictionary>` — A *dictionary object* to specify paths for multiple icons in different sizes, so the best matching icon can be used, instead of scaling a standard icon to fit the pixel density of the user's display. Each entry is a *name-value* pair, with *name* being a size and *value* being a :ref:`menus.MenuIconPath <menus.^menu^icon^path>`.
-- :small:`type` :ref:`OnClickData.selectedFolders <menus.^on^click^data.selected^folders>` — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
-- :small:`type` :ref:`OnShowData.selectedFolders <menus.^on^show^data.selected^folders>` — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+- :small:`type` :ref:`OnClickData.selectedFolders <menus.^on^click^data.selected^folders>` — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+- :small:`type` :ref:`OnShowData.selectedFolders <menus.^on^show^data.selected^folders>` — The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
 
 messageDisplayAction
@@ -240,10 +240,10 @@ messages
    </div>
 
 - :small:`function` :ref:`abortList <messages.abort^list>` — Finalizes the specified list and terminates any process currently still adding messages.
-- :small:`function` :ref:`deleteAttachments <messages.delete^attachments>` — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
+- :small:`function` :ref:`deleteAttachments <messages.delete^attachments>` — Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message. Deleting attachments of encrypted messages is not supported and will throw an *ExtensionError*.
 - :small:`function` :ref:`getFull.options.decrypt <messages.get^full.options.decrypt>` — Whether the message should be decrypted. If the message could not be decrypted, its parts are omitted. Defaults to :value:`true`.
 - :small:`function` :ref:`getRaw.options.decrypt <messages.get^raw.options.decrypt>` — Whether the message should be decrypted. Throws, if the message could not be decrypted.
-- :small:`function` :ref:`listInlineTextParts <messages.list^inline^text^parts>` — Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments <messages.list^attachments>` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText <messenger^utilities.convert^to^plain^text>` can be used to retreive a plain text version.
+- :small:`function` :ref:`listInlineTextParts <messages.list^inline^text^parts>` — Lists all inline text parts of a message. These parts are not returned by :ref:`messages.listAttachments <messages.list^attachments>` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messengerUtilities.convertToPlainText <messenger^utilities.convert^to^plain^text>` can be used to retreive a plain text version. If the message is encrypted, the inline text parts of the decrypted message are listed.
 - :small:`function` :ref:`query.queryInfo.accountId <messages.query.query^info.account^id>` — Limits the search to the specified account(s). Accounts are searched in the specified order.
 - :small:`function` :ref:`query.queryInfo.autoPaginationTimeout <messages.query.query^info.auto^pagination^timeout>` — Set the timeout in ms after which results should be returned, even if the nominal number of messages-per-page has not yet been reached. Defaults to :value:`1000` ms. Setting it to :value:`0` will disable auto-pagination.
 - :small:`function` :ref:`query.queryInfo.folderId <messages.query.query^info.folder^id>` — Limits the search to the specified folder(s). Folders are searched in the specified order. The :permission:`accountsRead` permission is required.
@@ -302,6 +302,32 @@ scripting
 
 - :small:`type` :ref:`RegisteredContentScript.matchOriginAsFallback <scripting.^registered^content^script.match^origin^as^fallback>` — If matchOriginAsFallback is true, then the code is also injected in about:, data:, blob: when their origin matches the pattern in 'matches', even if the actual document origin is opaque (due to the use of CSP sandbox or iframe sandbox). Match patterns in 'matches' must specify a wildcard path glob. By default it is :code:`false`.
 - :small:`type` :ref:`RegisteredContentScript.world <scripting.^registered^content^script.world>` — The JavaScript world for a script to execute within. Defaults to "ISOLATED".
+
+
+scripting.compose
+-----------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.compose.html">scripting.compose</a>
+   </div>
+
+The scripting.compose API allows to register and unregister scripts for the message compose window.
+
+
+scripting.messageDisplay
+------------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.messageDisplay.html">scripting.messageDisplay</a>
+   </div>
+
+The scripting.messageDisplay API allows to register and unregister scripts for the message display window.
 
 
 spaces

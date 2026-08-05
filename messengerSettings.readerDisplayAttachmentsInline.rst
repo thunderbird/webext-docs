@@ -1,6 +1,6 @@
 .. container:: sticky-sidebar
 
-  ≡ messageLineLengthLimit Setting
+  ≡ readerDisplayAttachmentsInline Setting
 
   * `Permissions`_
   * `Examples`_
@@ -10,9 +10,9 @@
 
   .. include:: /_includes/developer-resources.rst
 
-==============================
-messageLineLengthLimit Setting
-==============================
+======================================
+readerDisplayAttachmentsInline Setting
+======================================
 
 .. role:: permission
 
@@ -22,9 +22,9 @@ messageLineLengthLimit Setting
 
 .. role:: small
 
-.. _messenger^settings.message^line^length^limit:
+.. _messenger^settings.reader^display^attachments^inline:
 
-The line length limit for outgoing messages, to comply with requirements from RFC 2822. See description of :ref:`messagePlainTextFlowedOutputEnabled <messenger^settings.message^plain^text^flowed^output^enabled>`. This property is read-only.
+Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
 
 .. rst-class:: api-main-section
 
@@ -37,11 +37,11 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
-.. _messenger^settings.message^line^length^limit.permission.messenger^settings:
+.. _messenger^settings.reader^display^attachments^inline.permission.messenger^settings:
 
 .. api-member::
    :name: :permission:`messengerSettings`
-   :refid: messenger-settings-message-line-length-limit-permission-messenger-settings
+   :refid: messenger-settings-reader-display-attachments-inline-permission-messenger-settings
    :refname: messengerSettings
 
    Read Thunderbird settings.
@@ -50,25 +50,25 @@ The following permissions influence the behavior of the API. Depending on which 
 
 .. note::
 
-   The permission :permission:`messengerSettings` is required to use ``messenger.messengerSettings.messageLineLengthLimit.*``.
+   The permission :permission:`messengerSettings` is required to use ``messenger.messengerSettings.readerDisplayAttachmentsInline.*``.
 
 .. rst-class:: api-main-section
 
 Examples
 ========
 
-To read the :value:`messageLineLengthLimit` setting:
+To read the :value:`readerDisplayAttachmentsInline` setting:
 
 .. code-block:: javascript
 
-   let { value } = await messenger.messengerSettings.messageLineLengthLimit.get({});
+   let { value } = await messenger.messengerSettings.readerDisplayAttachmentsInline.get({});
 
 .. rst-class:: api-main-section
 
 Functions
 =========
 
-.. _messenger^settings.message^line^length^limit.get:
+.. _messenger^settings.reader^display^attachments^inline.get:
 
 get(details)
 ------------
@@ -80,21 +80,21 @@ Gets the value of a setting.
 .. api-header::
    :label: Parameters
 
-   .. _messenger^settings.message^line^length^limit.get.details:
+   .. _messenger^settings.reader^display^attachments^inline.get.details:
 
    .. api-member::
       :name: ``details``
-      :refid: messenger-settings-message-line-length-limit-get-details
+      :refid: messenger-settings-reader-display-attachments-inline-get-details
       :refname: details
       :type: (object)
 
       Which setting to consider.
 
-      .. _messenger^settings.message^line^length^limit.get.details.incognito:
+      .. _messenger^settings.reader^display^attachments^inline.get.details.incognito:
 
       .. api-member::
          :name: [``incognito``]
-         :refid: messenger-settings-message-line-length-limit-get-details-incognito
+         :refid: messenger-settings-reader-display-attachments-inline-get-details-incognito
          :refname: incognito
          :type: (boolean, optional)
 
@@ -103,40 +103,40 @@ Gets the value of a setting.
 .. api-header::
    :label: Return type (`Promise`_)
 
-   .. _messenger^settings.message^line^length^limit.get.returns:
+   .. _messenger^settings.reader^display^attachments^inline.get.returns:
 
    .. api-member::
-      :refid: messenger-settings-message-line-length-limit-get-returns
+      :refid: messenger-settings-reader-display-attachments-inline-get-returns
       :refname: _returns
       :type: object
 
       Details of the currently effective value.
 
-      .. _messenger^settings.message^line^length^limit.get.returns.level^of^control:
+      .. _messenger^settings.reader^display^attachments^inline.get.returns.level^of^control:
 
       .. api-member::
          :name: ``levelOfControl``
-         :refid: messenger-settings-message-line-length-limit-get-returns-level-of-control
+         :refid: messenger-settings-reader-display-attachments-inline-get-returns-level-of-control
          :refname: levelOfControl
-         :type: (:ref:`messenger^settings.message^line^length^limit.^level^of^control`)
+         :type: (:ref:`messenger^settings.reader^display^attachments^inline.^level^of^control`)
 
          The level of control of the setting.
 
-      .. _messenger^settings.message^line^length^limit.get.returns.value:
+      .. _messenger^settings.reader^display^attachments^inline.get.returns.value:
 
       .. api-member::
          :name: ``value``
-         :refid: messenger-settings-message-line-length-limit-get-returns-value
+         :refid: messenger-settings-reader-display-attachments-inline-get-returns-value
          :refname: value
          :type: (any)
 
          The value of the setting.
 
-      .. _messenger^settings.message^line^length^limit.get.returns.incognito^specific:
+      .. _messenger^settings.reader^display^attachments^inline.get.returns.incognito^specific:
 
       .. api-member::
          :name: [``incognitoSpecific``]
-         :refid: messenger-settings-message-line-length-limit-get-returns-incognito-specific
+         :refid: messenger-settings-reader-display-attachments-inline-get-returns-incognito-specific
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
@@ -154,7 +154,7 @@ Gets the value of a setting.
 Events
 ======
 
-.. _messenger^settings.message^line^length^limit.on^change:
+.. _messenger^settings.reader^display^attachments^inline.on^change:
 
 onChange
 --------
@@ -166,11 +166,11 @@ Fired after the setting changes.
 .. api-header::
    :label: Parameters for onChange.addListener(listener)
 
-   .. _messenger^settings.message^line^length^limit.on^change.listener(details):
+   .. _messenger^settings.reader^display^attachments^inline.on^change.listener(details):
 
    .. api-member::
       :name: ``listener(details)``
-      :refid: messenger-settings-message-line-length-limit-on-change-listener-details
+      :refid: messenger-settings-reader-display-attachments-inline-on-change-listener-details
       :refname: listener(details)
 
       A function that will be called when this event occurs.
@@ -178,39 +178,39 @@ Fired after the setting changes.
 .. api-header::
    :label: Parameters passed to the listener function
 
-   .. _messenger^settings.message^line^length^limit.on^change.details:
+   .. _messenger^settings.reader^display^attachments^inline.on^change.details:
 
    .. api-member::
       :name: ``details``
-      :refid: messenger-settings-message-line-length-limit-on-change-details
+      :refid: messenger-settings-reader-display-attachments-inline-on-change-details
       :refname: details
       :type: (object)
 
-      .. _messenger^settings.message^line^length^limit.on^change.details.level^of^control:
+      .. _messenger^settings.reader^display^attachments^inline.on^change.details.level^of^control:
 
       .. api-member::
          :name: ``levelOfControl``
-         :refid: messenger-settings-message-line-length-limit-on-change-details-level-of-control
+         :refid: messenger-settings-reader-display-attachments-inline-on-change-details-level-of-control
          :refname: levelOfControl
-         :type: (:ref:`messenger^settings.message^line^length^limit.^level^of^control`)
+         :type: (:ref:`messenger^settings.reader^display^attachments^inline.^level^of^control`)
 
          The level of control of the setting.
 
-      .. _messenger^settings.message^line^length^limit.on^change.details.value:
+      .. _messenger^settings.reader^display^attachments^inline.on^change.details.value:
 
       .. api-member::
          :name: ``value``
-         :refid: messenger-settings-message-line-length-limit-on-change-details-value
+         :refid: messenger-settings-reader-display-attachments-inline-on-change-details-value
          :refname: value
          :type: (any)
 
          The value of the setting after the change.
 
-      .. _messenger^settings.message^line^length^limit.on^change.details.incognito^specific:
+      .. _messenger^settings.reader^display^attachments^inline.on^change.details.incognito^specific:
 
       .. api-member::
          :name: [``incognitoSpecific``]
-         :refid: messenger-settings-message-line-length-limit-on-change-details-incognito-specific
+         :refid: messenger-settings-reader-display-attachments-inline-on-change-details-incognito-specific
          :refname: incognitoSpecific
          :type: (boolean, optional)
 
@@ -226,7 +226,7 @@ Fired after the setting changes.
 Types
 =====
 
-.. _messenger^settings.message^line^length^limit.^level^of^control:
+.. _messenger^settings.reader^display^attachments^inline.^level^of^control:
 
 LevelOfControl
 --------------
@@ -252,30 +252,30 @@ One of
 
          Supported values:
 
-         .. _messenger^settings.message^line^length^limit.^level^of^control.controllable_by_this_extension:
+         .. _messenger^settings.reader^display^attachments^inline.^level^of^control.controllable_by_this_extension:
 
          .. api-member::
             :name: :value:`controllable_by_this_extension`
-            :refid: messenger-settings-message-line-length-limit-level-of-control-controllable-by-this-extension
+            :refid: messenger-settings-reader-display-attachments-inline-level-of-control-controllable-by-this-extension
             :refname: controllable_by_this_extension
 
-         .. _messenger^settings.message^line^length^limit.^level^of^control.controlled_by_other_extensions:
+         .. _messenger^settings.reader^display^attachments^inline.^level^of^control.controlled_by_other_extensions:
 
          .. api-member::
             :name: :value:`controlled_by_other_extensions`
-            :refid: messenger-settings-message-line-length-limit-level-of-control-controlled-by-other-extensions
+            :refid: messenger-settings-reader-display-attachments-inline-level-of-control-controlled-by-other-extensions
             :refname: controlled_by_other_extensions
 
-         .. _messenger^settings.message^line^length^limit.^level^of^control.controlled_by_this_extension:
+         .. _messenger^settings.reader^display^attachments^inline.^level^of^control.controlled_by_this_extension:
 
          .. api-member::
             :name: :value:`controlled_by_this_extension`
-            :refid: messenger-settings-message-line-length-limit-level-of-control-controlled-by-this-extension
+            :refid: messenger-settings-reader-display-attachments-inline-level-of-control-controlled-by-this-extension
             :refname: controlled_by_this_extension
 
-         .. _messenger^settings.message^line^length^limit.^level^of^control.not_controllable:
+         .. _messenger^settings.reader^display^attachments^inline.^level^of^control.not_controllable:
 
          .. api-member::
             :name: :value:`not_controllable`
-            :refid: messenger-settings-message-line-length-limit-level-of-control-not-controllable
+            :refid: messenger-settings-reader-display-attachments-inline-level-of-control-not-controllable
             :refname: not_controllable

@@ -1,0 +1,193 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+===============================
+Changelog for Thunderbird 153.0
+===============================
+
+The following WebExtension API changes were introduced in Thunderbird 153.0.
+
+
+addressBooks.contacts
+---------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../addressBooks.contacts.html">addressBooks.contacts</a>
+   </div>
+
+- :small:`event` :ref:`onManyCreated <address^books.contacts.on^many^created>` — Fired when a large number of contacts are added. The contacts are not emitted for performance reasons. The event indicates significant changes, and consumers should rebuild any cached representation of the address book.
+
+
+compose
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../compose.html">compose</a>
+   </div>
+
+- :small:`event` :ref:`onAfterSave.saveInfo.details <compose.on^after^save.save^info.details>` — The :ref:`compose.ComposeDetails <compose.^compose^details>` of the saved message.
+- :small:`event` :ref:`onAfterSend.sendInfo.details <compose.on^after^send.send^info.details>` — The :ref:`compose.ComposeDetails <compose.^compose^details>` of the send message.
+
+
+composeScripts
+--------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../composeScripts.html">composeScripts</a>
+   </div>
+
+- :small:`type` :ref:`ComposeScript <compose^scripts.^compose^script>` — A script and/or CSS to inject into compose windows via the manifest.
+- :small:`type` :ref:`MessageDisplayScript <compose^scripts.^message^display^script>` — A script and/or CSS to inject into message display pages via the manifest.
+- :small:`property` :ref:`compose_scripts <compose^scripts.compose_scripts>` — Scripts and CSS to inject into compose windows.
+- :small:`property` :ref:`message_display_scripts <compose^scripts.message_display_scripts>` — Scripts and CSS to inject into message display pages.
+
+
+mailTabs
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../mailTabs.html">mailTabs</a>
+   </div>
+
+- :small:`function` :ref:`getListedMessages.options.sortOrder <mail^tabs.get^listed^messages.options.sort^order>` — The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+- :small:`function` :ref:`getListedMessages.options.sortType <mail^tabs.get^listed^messages.options.sort^type>` — Specifies how the returned messages should be sorted. This does not change the actual sort of the displayed messages. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+
+
+messageDisplayScripts
+---------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messageDisplayScripts.html">messageDisplayScripts</a>
+   </div>
+
+- :small:`type` :ref:`ComposeScript <message^display^scripts.^compose^script>` — A script and/or CSS to inject into compose windows via the manifest.
+- :small:`type` :ref:`MessageDisplayScript <message^display^scripts.^message^display^script>` — A script and/or CSS to inject into message display pages via the manifest.
+- :small:`property` :ref:`compose_scripts <message^display^scripts.compose_scripts>` — Scripts and CSS to inject into compose windows.
+- :small:`property` :ref:`message_display_scripts <message^display^scripts.message_display_scripts>` — Scripts and CSS to inject into message display pages.
+
+
+messages
+--------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.html">messages</a>
+   </div>
+
+- :small:`function` :ref:`getHeaders <messages.get^headers>` — Returns all message headers of the specified message, without MIME structure parsing. Throws an error if the message cannot be read, for example due to network issues. This function is significantly faster than :ref:`messages.getFull <messages.get^full>` when only the header information is required.
+- :small:`function` :ref:`list.options.sortOrder <messages.list.options.sort^order>` — The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+- :small:`function` :ref:`list.options.sortType <messages.list.options.sort^type>` — Specifies how the returned messages should be sorted. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+- :small:`function` :ref:`saveMessage <messages.save^message>` — Saves a message programmatically as a draft or as a template in the background without user interaction. The save mode defaults to <value>draft</value>. The returned Promise fulfills once the message has been successfully saved. Throws when there has been an error while saving the message.\\n**Note:** If no <value>deliveryFormat</value> is specified, the message is saved as plain text when the body contains no HTML formatting.
+- :small:`function` :ref:`sendMessage <messages.send^message>` — Sends a message programmatically in the background without user interaction. If the send mode is not specified or set to <value>default</value>, the message will be sent directly if the user is online and placed in the user's outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when there has been an error while sending the message to the outgoing mail server.\\n**Note:** If no <value>deliveryFormat</value> is specified, the message is sent as plain text when the body contains no HTML formatting.\\n**Note:** It is possible to pass in a :ref:`compose.ComposeDetails <compose.^compose^details>` object as the <value>details</value> parameter, and it will be interpreted as a :ref:`messages.NewMessageDetails <messages.^new^message^details>` object.
+- :small:`type` :ref:`AttachmentType <messages.^attachment^type>` — The type of an attachment in a message.
+- :small:`type` :ref:`HeadersDictionary <messages.^headers^dictionary>` — A *dictionary object* of headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+- :small:`type` :ref:`MessageAttachment.cloudFileUrl <messages.^message^attachment.cloud^file^url>` — The remote location a :value:`cloudFile` attachment's content is stored at. Present for :value:`cloudFile` attachments (see :ref:`messages.AttachmentType <messages.^attachment^type>`), whose content is not part of the message.
+- :small:`type` :ref:`MessageAttachment.linkUrl <messages.^message^attachment.link^url>` — The remote location the attachment's content is linked to. Present for :value:`linked` attachments (see :ref:`messages.AttachmentType <messages.^attachment^type>`), whose content is not part of the message and can be fetched from this url.
+- :small:`type` :ref:`MessageAttachment.type <messages.^message^attachment.type>` — The type of this attachment.
+- :small:`type` :ref:`MessageHeader.priority <messages.^message^header.priority>` — The priority of the message.
+- :small:`type` :ref:`NewMessageDetails <messages.^new^message^details>` — Details of a message to be sent.
+
+
+messages.tags
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messages.tags.html">messages.tags</a>
+   </div>
+
+- :small:`function` :ref:`get <messages.tags.get>` — Returns a message tag identified by its key.
+
+
+messengerSettings
+-----------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerSettings.html">messengerSettings</a>
+   </div>
+
+- :small:`setting` :ref:`composeInlineSpellCheckEnabled <messenger^settings.compose^inline^spell^check^enabled>` — Whether the inline (real-time) spell checker is enabled in the message compose window.
+- :small:`setting` :ref:`readerDisplayAttachmentsInline <messenger^settings.reader^display^attachments^inline>` — Whether supported attachments (for example, media files) are shown inline within the body of displayed messages. This property is read-only.
+
+
+messengerUtilities
+------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../messengerUtilities.html">messengerUtilities</a>
+   </div>
+
+- :small:`function` :ref:`parseMailboxString.options.expandMailingLists <messenger^utilities.parse^mailbox^string.options.expand^mailing^lists>` — Expand Thunderbird mailing lists (specified as :value:`ListName <ListName>`) and include the parsed primary email addresses of all members. When used together with :value:`preserveGroups`, the mailing list's name and hierarchy are preserved. If the mailing list does not exist, or the :permission:`addressBook` permission is not granted, the entries are not expanded and returned unchanged.
+- :small:`function` :ref:`parseMailboxString.options.preserveGroups <messenger^utilities.parse^mailbox^string.options.preserve^groups>` — Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+
+
+oauthProvider
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../oauthProvider.html">oauthProvider</a>
+   </div>
+
+- :small:`property` :ref:`oauth_provider.issuerIdentifier <oauth^provider.oauth_provider.issuer^identifier>` — The OAuth authorization server issuer identifier, as defined by RFC 9207. If provided, it *must* be an exact string match to what the provider gives in the iss field.
+- :small:`property` :ref:`oauth_provider.useExternalBrowser <oauth^provider.oauth_provider.use^external^browser>` — If the login flow should use the system web browser. If true, the redirectionEndpoint *must* be a loopback address, so an origin of http://127.0.0.1 or http://localhost.
+
+
+proxy
+-----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../proxy.html">proxy</a>
+   </div>
+
+Provides access to global proxy settings for Thunderbird and proxy event listeners to handle dynamic proxy implementations.
+
+
+tabs
+----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../tabs.html">tabs</a>
+   </div>
+
+- :small:`function` :ref:`connect.connectInfo.documentId <tabs.connect.connect^info.document^id>` — Open a port to a specific document identified by :value:`documentId` instead of all frames in the tab.
+- :small:`function` :ref:`sendMessage.options.documentId <tabs.send^message.options.document^id>` — Send a message to a specific document identified by :value:`documentId` instead of all frames in the tab.
+- :small:`type` :ref:`Tab.splitViewId <tabs.^tab.split^view^id>` — The ID of the Split View that the tab belongs to. -1 if the tab does not belong to a split view.

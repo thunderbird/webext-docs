@@ -122,7 +122,7 @@ Attempts to connect to connect listeners within an extension/app (such as the ba
       :refname: _returns
       :type: :ref:`runtime.^port`
 
-      Port through which messages can be sent and received. The port's :ref:`runtime.^port on^disconnect` event is fired if the extension/app does not exist.
+      Port through which messages can be sent and received. The port's :ref:`runtime.^port.on^disconnect` event is fired if the extension/app does not exist.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -251,6 +251,42 @@ Fetches information about active contexts associated with this extension
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _runtime.get^document^id:
+
+getDocumentId(target)
+---------------------
+
+.. api-section-annotation-hack:: 
+
+Get the documentId of any window global or frame element. Throws for invalid targets, such as unloaded frames.
+
+.. api-header::
+   :label: Parameters
+
+   .. _runtime.get^document^id.target:
+
+   .. api-member::
+      :name: ``target``
+      :refid: runtime-get-document-id-target
+      :refname: target
+      :type: (any)
+
+      A WindowProxy or a browsing context container Element (iframe, frame, embed, or object) for the target frame.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _runtime.get^document^id.returns:
+
+   .. api-member::
+      :refid: runtime-get-document-id-returns
+      :refname: _returns
+      :type: string
+
+      The documentId of the target document.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _runtime.get^frame^id:
 
 getFrameId(target)
@@ -271,7 +307,7 @@ Get the frameId of any window global or frame element.
       :refname: target
       :type: (any)
 
-      A WindowProxy or a Browsing Context container element (IFrame, Frame, Embed, Object) for the target frame.
+      A WindowProxy or a browsing context container Element (iframe, frame, embed, or object) for the target frame.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -1389,7 +1425,7 @@ A context hosting extension content
       :name: [``documentId``]
       :refid: runtime-extension-context-document-id
       :refname: documentId
-      :type: (string, optional) **Unsupported.**
+      :type: (string, optional)
 
       An UUID for the document associated with this context, or undefined if it is not hosted in a document
 
@@ -1428,6 +1464,16 @@ An object containing information about the script context that sent a message or
 
 .. api-header::
    :label: object
+
+   .. _runtime.^message^sender.document^id:
+
+   .. api-member::
+      :name: [``documentId``]
+      :refid: runtime-message-sender-document-id
+      :refname: documentId
+      :type: (string, optional)
+
+      A UUID of the document that opened the connection.
 
    .. _runtime.^message^sender.frame^id:
 
@@ -1676,6 +1722,13 @@ The machine's processor architecture.
             :name: :value:`ppc64`
             :refid: runtime-platform-arch-ppc64
             :refname: ppc64
+
+         .. _runtime.^platform^arch.riscv64:
+
+         .. api-member::
+            :name: :value:`riscv64`
+            :refid: runtime-platform-arch-riscv64
+            :refname: riscv64
 
          .. _runtime.^platform^arch.s390x:
 

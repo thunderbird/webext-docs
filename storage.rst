@@ -104,7 +104,7 @@ Fired when one or more items change.
       :refname: areaName
       :type: (string)
 
-      The name of the storage area (:code:`"sync"`, :code:`"local"` or :code:`"managed"`) the changes are for.
+      The name of the storage area (:code:`"session"`, :code:`"sync"`, :code:`"local"` or :code:`"managed"`) the changes are for.
 
 .. api-header::
    :label: Required permissions
@@ -122,16 +122,6 @@ StorageArea
 -----------
 
 .. api-section-annotation-hack:: -- [Added in TB 60.0]
-
-.. api-header::
-   :label: object
-
-.. _storage.^storage^area^with^usage:
-
-StorageAreaWithUsage
---------------------
-
-.. api-section-annotation-hack:: 
 
 .. api-header::
    :label: object

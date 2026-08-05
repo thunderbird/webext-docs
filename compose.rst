@@ -70,6 +70,15 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Send composed email messages on your behalf.
 
+.. _compose.permission.messages^read:
+
+.. api-member::
+   :name: :permission:`messagesRead`
+   :refid: compose-permission-messages-read
+   :refname: messagesRead
+
+   Read your email messages.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -164,12 +173,16 @@ Open a new message compose window forwarding a given message.
          :refid: compose-begin-forward-forward-type-forward-as-attachment
          :refname: forwardAsAttachment
 
+         Forward the message as an attachment.
+
       .. _compose.begin^forward.forward^type.forward^inline:
 
       .. api-member::
          :name: :value:`forwardInline`
          :refid: compose-begin-forward-forward-type-forward-inline
          :refname: forwardInline
+
+         Forward the message inline.
 
    .. _compose.begin^forward.details:
 
@@ -283,6 +296,8 @@ Open a new message compose window replying to a given message.
          :refid: compose-begin-reply-reply-type-reply-to-all
          :refname: replyToAll
 
+         Reply to all recipients.
+
       .. _compose.begin^reply.reply^type.reply^to^list:
 
       .. api-member::
@@ -290,12 +305,16 @@ Open a new message compose window replying to a given message.
          :refid: compose-begin-reply-reply-type-reply-to-list
          :refname: replyToList
 
+         Reply to the mailing list.
+
       .. _compose.begin^reply.reply^type.reply^to^sender:
 
       .. api-member::
          :name: :value:`replyToSender`
          :refid: compose-begin-reply-reply-type-reply-to-sender
          :refname: replyToSender
+
+         Reply to the sender only.
 
    .. _compose.begin^reply.details:
 
@@ -576,12 +595,16 @@ Saves the message currently being composed as a draft or as a template. If the s
             :refid: compose-save-message-options-mode-draft
             :refname: draft
 
+            Save as a draft.
+
          .. _compose.save^message.options.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-save-message-options-mode-template
             :refname: template
+
+            Save as a template.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -601,7 +624,11 @@ Saves the message currently being composed as a draft or as a template. If the s
          :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
-         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
+         An array with exactly one element, the saved message.
+
+         .. note::
+
+            Starting with Thunderbird version 142, the File Carbon Copy (FCC) configuration is no longer respected during save operations. Regardless of any FCC settings, only one message is saved, and it is stored in the default folder for the given save mode.
 
       .. _compose.save^message.returns.mode:
 
@@ -681,6 +708,8 @@ Sends the message currently being composed. If the send mode is not specified or
             :refid: compose-send-message-options-mode-default
             :refname: default
 
+            Send using the default send mode.
+
          .. _compose.send^message.options.mode.send^later:
 
          .. api-member::
@@ -688,12 +717,16 @@ Sends the message currently being composed. If the send mode is not specified or
             :refid: compose-send-message-options-mode-send-later
             :refname: sendLater
 
+            Queue the message to be sent later.
+
          .. _compose.send^message.options.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-send-message-options-mode-send-now
             :refname: sendNow
+
+            Send the message immediately.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -974,6 +1007,17 @@ Fired when saving a message as draft or template succeeded or failed.
       :refname: saveInfo
       :type: (object)
 
+      .. _compose.on^after^save.save^info.details:
+
+      .. api-member::
+         :name: ``details``
+         :refid: compose-on-after-save-save-info-details
+         :refname: details
+         :type: (:ref:`compose.^compose^details`)
+         :annotation: -- [Added in TB 153.0]
+
+         The :ref:`compose.^compose^details` of the saved message.
+
       .. _compose.on^after^save.save^info.messages:
 
       .. api-member::
@@ -982,7 +1026,11 @@ Fired when saving a message as draft or template succeeded or failed.
          :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
-         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
+         An array with exactly one element, the saved message. The :permission:`messagesRead` permission is required for this property to be included.
+
+         .. note::
+
+            Starting with Thunderbird version 142, the File Carbon Copy (FCC) configuration is no longer respected during save operations. Regardless of any FCC settings, only one message is saved, and it is stored in the default folder for the given save mode.
 
       .. _compose.on^after^save.save^info.mode:
 
@@ -1004,6 +1052,8 @@ Fired when saving a message as draft or template succeeded or failed.
             :refname: autoSave
             :annotation: -- [Added in TB 128.0]
 
+            The message was auto-saved.
+
          .. _compose.on^after^save.save^info.mode.draft:
 
          .. api-member::
@@ -1011,12 +1061,16 @@ Fired when saving a message as draft or template succeeded or failed.
             :refid: compose-on-after-save-save-info-mode-draft
             :refname: draft
 
+            The message was saved as a draft.
+
          .. _compose.on^after^save.save^info.mode.template:
 
          .. api-member::
             :name: :value:`template`
             :refid: compose-on-after-save-save-info-mode-template
             :refname: template
+
+            The message was saved as a template.
 
       .. _compose.on^after^save.save^info.error:
 
@@ -1065,6 +1119,8 @@ Fired when sending a message succeeded or failed.
       :refname: tab
       :type: (:ref:`tabs.^tab`)
 
+      The tab of the associated compose window. By the time the event listener is called, this window may have already been destroyed.
+
    .. _compose.on^after^send.send^info:
 
    .. api-member::
@@ -1072,6 +1128,17 @@ Fired when sending a message succeeded or failed.
       :refid: compose-on-after-send-send-info
       :refname: sendInfo
       :type: (object)
+
+      .. _compose.on^after^send.send^info.details:
+
+      .. api-member::
+         :name: ``details``
+         :refid: compose-on-after-send-send-info-details
+         :refname: details
+         :type: (:ref:`compose.^compose^details`)
+         :annotation: -- [Added in TB 153.0]
+
+         The :ref:`compose.^compose^details` of the send message.
 
       .. _compose.on^after^send.send^info.messages:
 
@@ -1081,7 +1148,7 @@ Fired when sending a message succeeded or failed.
          :refname: messages
          :type: (array of :ref:`messages.^message^header`)
 
-         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
+         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc). The :permission:`messagesRead` permission is required for this property to be included.
 
       .. _compose.on^after^send.send^info.mode:
 
@@ -1102,12 +1169,16 @@ Fired when sending a message succeeded or failed.
             :refid: compose-on-after-send-send-info-mode-send-later
             :refname: sendLater
 
+            The message was queued to be sent later.
+
          .. _compose.on^after^send.send^info.mode.send^now:
 
          .. api-member::
             :name: :value:`sendNow`
             :refid: compose-on-after-send-send-info-mode-send-now
             :refname: sendNow
+
+            The message was sent immediately.
 
       .. _compose.on^after^send.send^info.error:
 
@@ -1454,7 +1525,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`folders.^mail^folder^id`, optional)
       :annotation: -- [Added in TB 128.0]
 
-      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. The permission :permission:`accountsRead` is required to use this property.
+      An additional fcc folder which can be selected while composing the message. Cleared when set to :value:`null`. Has no effect when the message is saved as a draft or template; the additional copy is only created when the message is actually sent or queued for sending. The permission :permission:`accountsRead` is required to use this property.
 
    .. _compose.^compose^details.attachments:
 
@@ -1550,12 +1621,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-delivery-format-auto
          :refname: auto
 
+         Send as plain text if the message does not include any formatting, otherwise send as :value:`both`.
+
       .. _compose.^compose^details.delivery^format.both:
 
       .. api-member::
          :name: :value:`both`
          :refid: compose-compose-details-delivery-format-both
          :refname: both
+
+         Send as both plain text and HTML (multipart/alternative).
 
       .. _compose.^compose^details.delivery^format.html:
 
@@ -1564,12 +1639,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-delivery-format-html
          :refname: html
 
+         Send as HTML only.
+
       .. _compose.^compose^details.delivery^format.plaintext:
 
       .. api-member::
          :name: :value:`plaintext`
          :refid: compose-compose-details-delivery-format-plaintext
          :refname: plaintext
+
+         Send as plain text only.
 
    .. _compose.^compose^details.delivery^status^notification:
 
@@ -1683,12 +1762,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-priority-high
          :refname: high
 
+         High priority.
+
       .. _compose.^compose^details.priority.highest:
 
       .. api-member::
          :name: :value:`highest`
          :refid: compose-compose-details-priority-highest
          :refname: highest
+
+         Highest priority.
 
       .. _compose.^compose^details.priority.low:
 
@@ -1697,6 +1780,8 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-priority-low
          :refname: low
 
+         Low priority.
+
       .. _compose.^compose^details.priority.lowest:
 
       .. api-member::
@@ -1704,12 +1789,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-priority-lowest
          :refname: lowest
 
+         Lowest priority.
+
       .. _compose.^compose^details.priority.normal:
 
       .. api-member::
          :name: :value:`normal`
          :refid: compose-compose-details-priority-normal
          :refname: normal
+
+         Normal priority (default).
 
    .. _compose.^compose^details.related^message^id:
 
@@ -1720,7 +1809,7 @@ Used by various functions to represent the state of a message being composed. No
       :type: (:ref:`messages.^message^id`, optional)
       :annotation: -- [Added in TB 91.3.1]
 
-      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file.
+      The id of the original message (in case of draft, template, forward or reply). Read-only. Is :value:`undefined` in all other cases or if the original message was opened from file. The :permission:`messagesRead` permission is required to use this property.
 
    .. _compose.^compose^details.reply^to:
 
@@ -1788,12 +1877,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-type-draft
          :refname: draft
 
+         A draft message is being edited.
+
       .. _compose.^compose^details.type.forward:
 
       .. api-member::
          :name: :value:`forward`
          :refid: compose-compose-details-type-forward
          :refname: forward
+
+         A forwarded message is being composed.
 
       .. _compose.^compose^details.type.new:
 
@@ -1802,6 +1895,8 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-type-new
          :refname: new
 
+         A new message is being composed.
+
       .. _compose.^compose^details.type.redirect:
 
       .. api-member::
@@ -1809,12 +1904,16 @@ Used by various functions to represent the state of a message being composed. No
          :refid: compose-compose-details-type-redirect
          :refname: redirect
 
+         A redirected message is being composed.
+
       .. _compose.^compose^details.type.reply:
 
       .. api-member::
          :name: :value:`reply`
          :refid: compose-compose-details-type-reply
          :refname: reply
+
+         A reply is being composed.
 
 .. _compose.^compose^dictionaries:
 
@@ -1842,7 +1941,7 @@ ComposeRecipient
 
       .. container:: api-member-description-only
 
-         A name and email address in the format :value:`Name <email@example.com>`, or just an email address.
+         A name and email address in mailbox format (:value:`Name <email@example.com>`), or just an email address. Mailing lists are specified as :value:`ListName <ListName>`. Use :ref:`messenger^utilities.parse^mailbox^string` to extract the name and/or the email from the mailbox string, or to expand mailing list entries.
 
 *or*
 
@@ -1862,7 +1961,7 @@ ComposeRecipient
             :type: (string)
             :annotation: -- [Added in TB 128.0]
 
-            The ID of a contact or mailing list node from the :doc:`addressBook.contacts` or :doc:`addressBook.mailingLists`.
+            The ID of a contact or mailing list node from the :doc:`addressBooks.contacts` or :doc:`addressBooks.mailingLists`.
 
          .. _compose.^compose^recipient.type:
 

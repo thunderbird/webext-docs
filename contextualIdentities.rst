@@ -154,6 +154,58 @@ Retrieves information about a single contextual identity.
 
    - :permission:`contextualIdentities`
 
+.. _contextual^identities.get^supported^colors:
+
+getSupportedColors()
+--------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieves the list of colors supported by contextual identities.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.get^supported^colors.returns:
+
+   .. api-member::
+      :refid: contextual-identities-get-supported-colors-returns
+      :refname: _returns
+      :type: array of object
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
+.. _contextual^identities.get^supported^icons:
+
+getSupportedIcons()
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieves the list of icons supported by contextual identities.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.get^supported^icons.returns:
+
+   .. api-member::
+      :refid: contextual-identities-get-supported-icons-returns
+      :refname: _returns
+      :type: array of object
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
 .. _contextual^identities.move:
 
 move(cookieStoreIds, position)

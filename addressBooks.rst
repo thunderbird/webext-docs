@@ -534,6 +534,8 @@ Indicates the type of a Node.
             :refid: address-books-node-type-address-book
             :refname: addressBook
 
+            An address book node.
+
          .. _address^books.^node^type.contact:
 
          .. api-member::
@@ -541,9 +543,13 @@ Indicates the type of a Node.
             :refid: address-books-node-type-contact
             :refname: contact
 
+            A contact node.
+
          .. _address^books.^node^type.mailing^list:
 
          .. api-member::
             :name: :value:`mailingList`
             :refid: address-books-node-type-mailing-list
             :refname: mailingList
+
+            A mailing list node.

@@ -617,7 +617,7 @@ Information about an installed extension.
       :refname: version
       :type: (string)
 
-      The `version <manifest/version>`__ of this extension.
+      The `version <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version>`__ of this extension.
 
    .. _management.^extension^info.disabled^reason:
 
@@ -657,7 +657,7 @@ Information about an installed extension.
       :refname: icons
       :type: (array of :ref:`management.^icon^info`, optional)
 
-      A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the `manifest documentation on icons <manifest/icons>`__ for more details.
+      A list of icon information. Note that this just reflects what was declared in the manifest, and the actual image at that url may be larger or smaller than what was declared, so you might consider using explicit width and height attributes on img tags referencing these images. See the `manifest documentation on icons <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/icons>`__ for more details.
 
    .. _management.^extension^info.permissions:
 
@@ -697,7 +697,7 @@ Information about an installed extension.
       :refname: versionName
       :type: (string, optional)
 
-      The `version name <manifest/version#version_name>`__ of this extension if the manifest specified one.
+      The `version name <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/version_name>`__ of this extension if the manifest specified one.
 
 .. _management.^extension^install^type:
 
@@ -706,7 +706,7 @@ ExtensionInstallType
 
 .. api-section-annotation-hack:: 
 
-How the extension was installed. One of :value:`development`: The extension was loaded unpacked in developer mode, :value:`normal`: The extension was installed normally via an .xpi file, :value:`sideload`: The extension was installed by other software on the machine, :value:`admin`: The extension was installed by policy, :value:`other`: The extension was installed by other means.
+How the extension was installed.
 
 .. api-header::
    :label: `string`
@@ -724,12 +724,16 @@ How the extension was installed. One of :value:`development`: The extension was 
             :refid: management-extension-install-type-admin
             :refname: admin
 
+            The extension was installed by policy
+
          .. _management.^extension^install^type.development:
 
          .. api-member::
             :name: :value:`development`
             :refid: management-extension-install-type-development
             :refname: development
+
+            The extension was loaded unpacked in developer mode,
 
          .. _management.^extension^install^type.normal:
 
@@ -738,6 +742,8 @@ How the extension was installed. One of :value:`development`: The extension was 
             :refid: management-extension-install-type-normal
             :refname: normal
 
+            The extension was installed normally via an .xpi file
+
          .. _management.^extension^install^type.other:
 
          .. api-member::
@@ -745,12 +751,16 @@ How the extension was installed. One of :value:`development`: The extension was 
             :refid: management-extension-install-type-other
             :refname: other
 
+            The extension was installed by other means.
+
          .. _management.^extension^install^type.sideload:
 
          .. api-member::
             :name: :value:`sideload`
             :refid: management-extension-install-type-sideload
             :refname: sideload
+
+            The extension was installed by other software on the machine
 
 .. _management.^extension^type:
 

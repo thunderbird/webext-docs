@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 68.0]
 
+   Defines the appearance and behavior of a composeAction button in the message compose window.
+
    .. _compose^action.compose_action.browser_style:
 
    .. api-member::
@@ -69,12 +71,16 @@ Manifest file properties
          :refid: compose-action-compose-action-default-area-formattoolbar
          :refname: formattoolbar
 
+         The formatting toolbar of the message compose window.
+
       .. _compose^action.compose_action.default_area.maintoolbar:
 
       .. api-member::
          :name: :value:`maintoolbar`
          :refid: compose-action-compose-action-default-area-maintoolbar
          :refname: maintoolbar
+
+         The main toolbar of the message compose window.
 
    .. _compose^action.compose_action.default_icon:
 
@@ -157,6 +163,8 @@ Manifest file properties
          :name: :value:`menu`
          :refid: compose-action-compose-action-type-menu
          :refname: menu
+
+         The :ref:`menus.^context^type.compose_action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed composeAction button.
 
 .. rst-class:: api-main-section
 
@@ -1072,6 +1080,8 @@ ExtensionFileUrl
 ----------------
 
 .. api-section-annotation-hack:: 
+
+A path relative to the root of the extension, must not be empty and can be localized.
 
 .. api-header::
    :label: string

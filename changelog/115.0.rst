@@ -25,6 +25,8 @@ action
 
 Use the action API to add a button to Thunderbird's unified toolbar. In addition to its icon, an action button can also have a tooltip, a badge, and a popup.
 
+- :small:`property` :ref:`action <action.action>` — Defines the appearance and behavior of an action button in the toolbar.
+
 
 commands
 --------

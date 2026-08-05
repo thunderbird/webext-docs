@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 115.0]
 
+   Defines the appearance and behavior of an action button in the toolbar.
+
    .. _action.action.allowed_spaces:
 
    .. api-member::
@@ -55,29 +57,43 @@ Manifest file properties
          :name: :value:`addressbook`
          :refname: addressbook
 
+         The address book space.
+
       .. api-member::
          :name: :value:`calendar`
          :refname: calendar
+
+         The calendar space.
 
       .. api-member::
          :name: :value:`chat`
          :refname: chat
 
+         The chat space.
+
       .. api-member::
          :name: :value:`default`
          :refname: default
+
+         Tabs that do not belong to any space.
 
       .. api-member::
          :name: :value:`mail`
          :refname: mail
 
+         The mail space.
+
       .. api-member::
          :name: :value:`settings`
          :refname: settings
 
+         The settings space.
+
       .. api-member::
          :name: :value:`tasks`
          :refname: tasks
+
+         The tasks space.
 
    .. _action.action.browser_style:
 
@@ -162,9 +178,13 @@ Manifest file properties
          :name: :value:`messageDisplay`
          :refname: messageDisplay
 
+         A stand-alone message display window.
+
       .. api-member::
          :name: :value:`normal`
          :refname: normal
+
+         The normal Thunderbird application window.
 
    .. _action.action.theme_icons:
 
@@ -203,6 +223,8 @@ Manifest file properties
          :name: :value:`menu`
          :refid: action-action-type-menu
          :refname: menu
+
+         The :ref:`menus.^context^type.action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed action button.
 
 .. rst-class:: api-main-section
 
@@ -1100,6 +1122,8 @@ ExtensionFileUrl
 ----------------
 
 .. api-section-annotation-hack:: 
+
+A path relative to the root of the extension, must not be empty and can be localized.
 
 .. api-header::
    :label: string

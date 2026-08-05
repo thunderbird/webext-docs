@@ -90,6 +90,45 @@ Configures the environment for scripts running in a USER_SCRIPT world.
 
    - :permission:`userScripts`
 
+.. _user^scripts.execute:
+
+execute(injection)
+------------------
+
+.. api-section-annotation-hack:: 
+
+Executes one or more ephemeral user scripts into a specific tab.
+
+.. api-header::
+   :label: Parameters
+
+   .. _user^scripts.execute.injection:
+
+   .. api-member::
+      :name: ``injection``
+      :refid: user-scripts-execute-injection
+      :refname: injection
+      :type: (:ref:`user^scripts.^user^script^injection`)
+
+      The details of the user script which to inject.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _user^scripts.execute.returns:
+
+   .. api-member::
+      :refid: user-scripts-execute-returns
+      :refname: _returns
+      :type: array of :ref:`user^scripts.^injection^result`
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`userScripts`
+
 .. _user^scripts.get^scripts:
 
 getScripts([filter])
@@ -307,6 +346,110 @@ The JavaScript world for a script to execute within. :code:`USER_SCRIPT` is the 
             :name: :value:`USER_SCRIPT`
             :refid: user-scripts-execution-world-u-s-e-r-s-c-r-i-p-t
             :refname: USER_SCRIPT
+
+.. _user^scripts.^injection^result:
+
+InjectionResult
+---------------
+
+.. api-section-annotation-hack:: 
+
+Result of a user script injection.
+
+.. api-header::
+   :label: object
+
+   .. _user^scripts.^injection^result.document^id:
+
+   .. api-member::
+      :name: ``documentId``
+      :refid: user-scripts-injection-result-document-id
+      :refname: documentId
+      :type: (string)
+
+      Document ID associated with the injection.
+
+   .. _user^scripts.^injection^result.frame^id:
+
+   .. api-member::
+      :name: ``frameId``
+      :refid: user-scripts-injection-result-frame-id
+      :refname: frameId
+      :type: (integer)
+
+      Frame ID associated with the injection.
+
+   .. _user^scripts.^injection^result.error:
+
+   .. api-member::
+      :name: [``error``]
+      :refid: user-scripts-injection-result-error
+      :refname: error
+      :type: (any, optional)
+
+      Error message if any. This is mutually exclusive with result. The value is typically an (Error) object with a message property, but could be any value (including primitives and undefined) if the user script threw or rejected with such a value.
+
+   .. _user^scripts.^injection^result.result:
+
+   .. api-member::
+      :name: [``result``]
+      :refid: user-scripts-injection-result-result
+      :refname: result
+      :type: (any, optional)
+
+      Result of the script injection if any. This is mutually exclusive with error.
+
+.. _user^scripts.^injection^target:
+
+InjectionTarget
+---------------
+
+.. api-section-annotation-hack:: 
+
+Details specifying the target into which to inject the script.
+
+.. api-header::
+   :label: object
+
+   .. _user^scripts.^injection^target.tab^id:
+
+   .. api-member::
+      :name: ``tabId``
+      :refid: user-scripts-injection-target-tab-id
+      :refname: tabId
+      :type: (number)
+
+      The ID of the tab into which to inject.
+
+   .. _user^scripts.^injection^target.all^frames:
+
+   .. api-member::
+      :name: [``allFrames``]
+      :refid: user-scripts-injection-target-all-frames
+      :refname: allFrames
+      :type: (boolean, optional)
+
+      Whether the script should inject into all frames within the tab. Defaults to false. This must not be true if :value:`frameIds` is specified.
+
+   .. _user^scripts.^injection^target.document^ids:
+
+   .. api-member::
+      :name: [``documentIds``]
+      :refid: user-scripts-injection-target-document-ids
+      :refname: documentIds
+      :type: (array of string, optional)
+
+      The IDs of specific documentIds to inject into. This must not be set if frameIds is set.
+
+   .. _user^scripts.^injection^target.frame^ids:
+
+   .. api-member::
+      :name: [``frameIds``]
+      :refid: user-scripts-injection-target-frame-ids
+      :refname: frameIds
+      :type: (array of number, optional)
+
+      The IDs of specific frames to inject into.
 
 .. _user^scripts.^match^pattern:
 
@@ -579,6 +722,68 @@ Optional filter to use with getScripts() and unregister().
       :refid: user-scripts-user-script-filter-ids
       :refname: ids
       :type: (array of string, optional)
+
+.. _user^scripts.^user^script^injection:
+
+UserScriptInjection
+-------------------
+
+.. api-section-annotation-hack:: 
+
+Details of a user script injection
+
+.. api-header::
+   :label: object
+
+   .. _user^scripts.^user^script^injection.js:
+
+   .. api-member::
+      :name: ``js``
+      :refid: user-scripts-user-script-injection-js
+      :refname: js
+      :type: (array of :ref:`user^scripts.^script^source`)
+
+      The list of ScriptSource objects defining sources of scripts to be injected into matching pages.
+
+   .. _user^scripts.^user^script^injection.target:
+
+   .. api-member::
+      :name: ``target``
+      :refid: user-scripts-user-script-injection-target
+      :refname: target
+      :type: (:ref:`user^scripts.^injection^target`)
+
+      Details specifying the target into which to inject the script.
+
+   .. _user^scripts.^user^script^injection.inject^immediately:
+
+   .. api-member::
+      :name: [``injectImmediately``]
+      :refid: user-scripts-user-script-injection-inject-immediately
+      :refname: injectImmediately
+      :type: (boolean, optional)
+
+      Whether the injection should be triggered in the target as soon as possible. Note that this is not a guarantee that injection will occur prior to page load, as the page may have already loaded by the time the script reaches the target.
+
+   .. _user^scripts.^user^script^injection.world:
+
+   .. api-member::
+      :name: [``world``]
+      :refid: user-scripts-user-script-injection-world
+      :refname: world
+      :type: (:ref:`user^scripts.^execution^world`, optional)
+
+      The JavaScript "world" to run the script in. The default is :value:`USER_SCRIPT`.
+
+   .. _user^scripts.^user^script^injection.world^id:
+
+   .. api-member::
+      :name: [``worldId``]
+      :refid: user-scripts-user-script-injection-world-id
+      :refname: worldId
+      :type: (string, optional)
+
+      A specific user script world ID to execute in. Only valid if :value:`world` is omitted or is :value:`USER_SCRIPT`. If :value:`worldId` is omitted, the default value is an empty string ("") and the script will execute in the default world.
 
 .. _user^scripts.^world^properties:
 

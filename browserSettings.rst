@@ -190,6 +190,7 @@ Settings
   overrideContentColorScheme <browserSettings.overrideContentColorScheme>
   overrideDocumentColors <browserSettings.overrideDocumentColors>
   useDocumentFonts <browserSettings.useDocumentFonts>
+  verticalTabs <browserSettings.verticalTabs>
   webNotificationsDisabled <browserSettings.webNotificationsDisabled>
   zoomFullPage <browserSettings.zoomFullPage>
   zoomSiteSpecific <browserSettings.zoomSiteSpecific>
@@ -260,9 +261,9 @@ Controls after which mouse event context menus popup. This setting's value is of
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="browserSettings.ftpProtocolEnabled.html">ftpProtocolEnabled</a>
    </div>
 
@@ -280,9 +281,9 @@ Returns whether the FTP protocol is enabled. Read-only.
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="browserSettings.homepageOverride.html">homepageOverride</a>
    </div>
 
@@ -312,9 +313,9 @@ Controls the behaviour of image animation in the browser. This setting's value i
 
 .. raw:: html
 
-   <section class="setting-prop-header-section write">
+   <section class="setting-prop-header-section read">
    <div class="setting-prop-header">
-     <span class="setting-prop-label">write</span>
+     <span class="setting-prop-label">read</span>
      <a href="browserSettings.newTabPageOverride.html">newTabPageOverride</a>
    </div>
 
@@ -433,6 +434,22 @@ This setting controls whether the user-chosen colors override the page's colors.
 .. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 This setting controls whether the document's fonts are used.
+
+.. raw:: html
+
+   </section>
+
+.. raw:: html
+
+   <section class="setting-prop-header-section write">
+   <div class="setting-prop-header">
+     <span class="setting-prop-label">write</span>
+     <a href="browserSettings.verticalTabs.html">verticalTabs</a>
+   </div>
+
+.. api-section-annotation-hack:: 
+
+This boolean setting controls whether vertical tabs are enabled.
 
 .. raw:: html
 

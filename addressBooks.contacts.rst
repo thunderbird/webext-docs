@@ -437,6 +437,43 @@ Fired when a contact is removed from an address book.
 
    - :permission:`addressBooks`
 
+.. _address^books.contacts.on^many^created:
+
+onManyCreated
+-------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Fired when a large number of contacts are added. The contacts are not emitted for performance reasons. The event indicates significant changes, and consumers should rebuild any cached representation of the address book.
+
+.. api-header::
+   :label: Parameters for onManyCreated.addListener(listener)
+
+   .. _address^books.contacts.on^many^created.listener(node):
+
+   .. api-member::
+      :name: ``listener(node)``
+      :refid: address-books-contacts-on-many-created-listener-node
+      :refname: listener(node)
+
+      A function that will be called when this event occurs.
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   .. _address^books.contacts.on^many^created.node:
+
+   .. api-member::
+      :name: ``node``
+      :refid: address-books-contacts-on-many-created-node
+      :refname: node
+      :type: (:ref:`address^books.^address^book^node`)
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`addressBooks`
+
 .. _address^books.contacts.on^updated:
 
 onUpdated
@@ -588,7 +625,7 @@ QueryInfo
 
 .. api-section-annotation-hack:: -- [Added in TB 128.0]
 
-Object defining a query for :ref:`address^books.contacts.quick^search`.
+Object defining a query for :ref:`address^books.contacts.query`.
 
 .. api-header::
    :label: object

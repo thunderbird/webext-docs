@@ -871,6 +871,8 @@ The different contexts a menu can appear in. Specifying :value:`all` is equivale
             :refname: header_pane_link
             :annotation: -- [Added in TB 140.0]
 
+            Applies when the user context-clicks a link in the message header pane.
+
          .. _menus.^context^type.image:
 
          .. api-member::
@@ -1008,12 +1010,16 @@ The type of menu item.
             :refid: menus-item-type-checkbox
             :refname: checkbox
 
+            A menu item with a checkbox.
+
          .. _menus.^item^type.normal:
 
          .. api-member::
             :name: :value:`normal`
             :refid: menus-item-type-normal
             :refname: normal
+
+            A normal menu item.
 
          .. _menus.^item^type.radio:
 
@@ -1022,12 +1028,16 @@ The type of menu item.
             :refid: menus-item-type-radio
             :refname: radio
 
+            A menu item with a radio button.
+
          .. _menus.^item^type.separator:
 
          .. api-member::
             :name: :value:`separator`
             :refid: menus-item-type-separator
             :refname: separator
+
+            A separator line in the menu.
 
 .. _menus.^menu^action^command:
 
@@ -1054,6 +1064,8 @@ A predefined command to open an action popup.
             :refid: menus-menu-action-command-execute-action
             :refname: _execute_action
 
+            Triggers the action of the extension.
+
          .. _menus.^menu^action^command._execute_compose_action:
 
          .. api-member::
@@ -1061,12 +1073,16 @@ A predefined command to open an action popup.
             :refid: menus-menu-action-command-execute-compose-action
             :refname: _execute_compose_action
 
+            Triggers the compose action of the extension.
+
          .. _menus.^menu^action^command._execute_message_display_action:
 
          .. api-member::
             :name: :value:`_execute_message_display_action`
             :refid: menus-menu-action-command-execute-message-display-action
             :refname: _execute_message_display_action
+
+            Triggers the message display action of the extension.
 
 .. _menus.^menu^icon^dictionary:
 
@@ -1233,12 +1249,16 @@ Information sent when a context menu item is clicked.
          :refid: menus-on-click-data-field-id-compose-bcc
          :refname: composeBcc
 
+         The Bcc field of the message compose window.
+
       .. _menus.^on^click^data.field^id.compose^cc:
 
       .. api-member::
          :name: :value:`composeCc`
          :refid: menus-on-click-data-field-id-compose-cc
          :refname: composeCc
+
+         The Cc field of the message compose window.
 
       .. _menus.^on^click^data.field^id.compose^newsgroup^to:
 
@@ -1247,12 +1267,16 @@ Information sent when a context menu item is clicked.
          :refid: menus-on-click-data-field-id-compose-newsgroup-to
          :refname: composeNewsgroupTo
 
+         The Newsgroup field of the message compose window.
+
       .. _menus.^on^click^data.field^id.compose^reply^to:
 
       .. api-member::
          :name: :value:`composeReplyTo`
          :refid: menus-on-click-data-field-id-compose-reply-to
          :refname: composeReplyTo
+
+         The Reply-To field of the message compose window.
 
       .. _menus.^on^click^data.field^id.compose^subject:
 
@@ -1261,12 +1285,16 @@ Information sent when a context menu item is clicked.
          :refid: menus-on-click-data-field-id-compose-subject
          :refname: composeSubject
 
+         The subject field of the message compose window.
+
       .. _menus.^on^click^data.field^id.compose^to:
 
       .. api-member::
          :name: :value:`composeTo`
          :refid: menus-on-click-data-field-id-compose-to
          :refname: composeTo
+
+         The To field of the message compose window.
 
    .. _menus.^on^click^data.frame^id:
 
@@ -1347,7 +1375,7 @@ Information sent when a context menu item is clicked.
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128.0]
 
-      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
    .. _menus.^on^click^data.selected^messages:
 
@@ -1357,7 +1385,7 @@ Information sent when a context menu item is clicked.
       :refname: selectedMessages
       :type: (:ref:`messages.^message^list`, optional)
 
-      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
+      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbird's UI, which may not be the currently selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
 
    .. _menus.^on^click^data.selection^text:
 
@@ -1491,6 +1519,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refname: composeBcc
          :annotation: -- [Added in TB 102.0]
 
+         The Bcc field of the message compose window.
+
       .. _menus.^on^show^data.field^id.compose^cc:
 
       .. api-member::
@@ -1498,6 +1528,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refid: menus-on-show-data-field-id-compose-cc
          :refname: composeCc
          :annotation: -- [Added in TB 102.0]
+
+         The Cc field of the message compose window.
 
       .. _menus.^on^show^data.field^id.compose^newsgroup^to:
 
@@ -1507,6 +1539,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refname: composeNewsgroupTo
          :annotation: -- [Added in TB 102.0]
 
+         The Newsgroup field of the message compose window.
+
       .. _menus.^on^show^data.field^id.compose^reply^to:
 
       .. api-member::
@@ -1514,6 +1548,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refid: menus-on-show-data-field-id-compose-reply-to
          :refname: composeReplyTo
          :annotation: -- [Added in TB 102.0]
+
+         The Reply-To field of the message compose window.
 
       .. _menus.^on^show^data.field^id.compose^subject:
 
@@ -1523,6 +1559,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refname: composeSubject
          :annotation: -- [Added in TB 102.0]
 
+         The subject field of the message compose window.
+
       .. _menus.^on^show^data.field^id.compose^to:
 
       .. api-member::
@@ -1530,6 +1568,8 @@ Information sent when a context menu is being shown. Some properties are only in
          :refid: menus-on-show-data-field-id-compose-to
          :refname: composeTo
          :annotation: -- [Added in TB 102.0]
+
+         The To field of the message compose window.
 
    .. _menus.^on^show^data.frame^url:
 
@@ -1606,7 +1646,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :type: (array of :ref:`folders.^mail^folder`, optional)
       :annotation: -- [Added in TB 128.0]
 
-      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
+      The selected folders in the folder pane. Only available for the :value:`folder_pane` context. The :permission:`accountsRead` permission is required. The returned selection includes the folders which would be affected by a context action through Thunderbird's UI, which may not be the currently selected folders. For example, if the user has multiple folders selected and opens the context menu for a folder outside that selection, only the folder for which the context menu was opened, is returned.
 
    .. _menus.^on^show^data.selected^messages:
 
@@ -1616,7 +1656,7 @@ Information sent when a context menu is being shown. Some properties are only in
       :refname: selectedMessages
       :type: (:ref:`messages.^message^list`, optional)
 
-      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbirds UI, which may not be the actuall selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
+      The selected message(s) in the message list (a.k.a. the thread pane). Only available for the :value:`message_list` context. The :permission:`messagesRead` permission is required. The returned selection includes the messages which would be affected by a context action through Thunderbird's UI, which may not be the currently selected messages. For example, if the user has multiple messages selected and opens the context menu for a message outside that selection, only the message for which the context menu was opened, is returned.
 
    .. _menus.^on^show^data.selection^text:
 
