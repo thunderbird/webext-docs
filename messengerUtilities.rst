@@ -2,6 +2,7 @@
 
   ≡ messengerUtilities API
 
+  * `Permissions`_
   * `Functions`_
   * `Types`_
 
@@ -20,6 +21,24 @@ messengerUtilities API
 .. role:: small
 
 The messengerUtilities API provides helpful methods for working with messages and emails.
+
+.. rst-class:: api-main-section
+
+Permissions
+===========
+
+The following permissions influence the behavior of the API. Depending on which permissions are requested, additional methods might be available, or certain data may be included in responses.
+
+.. hint::
+
+   Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
+
+.. _messenger^utilities.permission.address^book:
+
+.. api-member::
+   :name: :permission:`addressBook`
+   :refid: messenger-utilities-permission-address-book
+   :refname: addressBook
 
 .. rst-class:: api-main-section
 
@@ -214,8 +233,8 @@ Returns the provided file size in a human readable format (e.g. :value:`12 bytes
 
 .. _messenger^utilities.parse^mailbox^string:
 
-parseMailboxString(mailboxString, [preserveGroups])
----------------------------------------------------
+parseMailboxString(mailboxString, [options])
+--------------------------------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 140.0]
 
@@ -234,15 +253,47 @@ Parse a mailbox string containing one or more email addresses (see RFC 5322, sec
 
       The string to be parsed (e.g. :value:`User <user@example.com>, other-user@example.com`)
 
-   .. _messenger^utilities.parse^mailbox^string.preserve^groups:
+   .. _messenger^utilities.parse^mailbox^string.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messenger-utilities-parse-mailbox-string-options
+      :refname: options
+      :type: (boolean or object, optional)
+
+   .. api-member::
+      :type: (boolean) **Deprecated.**
+      :depth: 1
+
+      Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+
+   .. api-member::
+      :type: or (object)
+      :depth: 1
+
+   .. _messenger^utilities.parse^mailbox^string.options.expand^mailing^lists:
+
+   .. api-member::
+      :name: [``expandMailingLists``]
+      :refid: messenger-utilities-parse-mailbox-string-options-expand-mailing-lists
+      :refname: expandMailingLists
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 153.0]
+      :depth: 2
+
+      Expand Thunderbird mailing lists (specified as :value:`ListName <ListName>`) and include the parsed primary email addresses of all members. When used together with :value:`preserveGroups`, the mailing list's name and hierarchy are preserved. If the mailing list does not exist, or the :permission:`addressBook` permission is not granted, the entries are not expanded and returned unchanged.
+
+   .. _messenger^utilities.parse^mailbox^string.options.preserve^groups:
 
    .. api-member::
       :name: [``preserveGroups``]
-      :refid: messenger-utilities-parse-mailbox-string-preserve-groups
+      :refid: messenger-utilities-parse-mailbox-string-options-preserve-groups
       :refname: preserveGroups
       :type: (boolean, optional)
+      :annotation: -- [Added in TB 153.0]
+      :depth: 2
 
-      Keep grouped hierachies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
+      Keep grouped hierarchies. Groups may be specified in a mailbox string as follows: :value:`GroupName : user1 <user1@example.com>, user2@example,com ;`.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -286,12 +337,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-approved
             :refname: approved
 
+            The moderator approval header, used in mailing lists.
+
          .. _messenger^utilities.^mailbox^headers.bcc:
 
          .. api-member::
             :name: :value:`bcc`
             :refid: messenger-utilities-mailbox-headers-bcc
             :refname: bcc
+
+            Bcc recipients.
 
          .. _messenger^utilities.^mailbox^headers.cc:
 
@@ -300,12 +355,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-cc
             :refname: cc
 
+            Cc recipients.
+
          .. _messenger^utilities.^mailbox^headers.delivered-to:
 
          .. api-member::
             :name: :value:`delivered-to`
             :refid: messenger-utilities-mailbox-headers-delivered-to
             :refname: delivered-to
+
+            The address the message was delivered to.
 
          .. _messenger^utilities.^mailbox^headers.disposition-notification-to:
 
@@ -314,12 +373,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-disposition-notification-to
             :refname: disposition-notification-to
 
+            The address to send return receipts to.
+
          .. _messenger^utilities.^mailbox^headers.from:
 
          .. api-member::
             :name: :value:`from`
             :refid: messenger-utilities-mailbox-headers-from
             :refname: from
+
+            Who the message is from.
 
          .. _messenger^utilities.^mailbox^headers.mail-followup-to:
 
@@ -328,12 +391,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-mail-followup-to
             :refname: mail-followup-to
 
+            The address for follow-up messages (used in mailing lists).
+
          .. _messenger^utilities.^mailbox^headers.mail-reply-to:
 
          .. api-member::
             :name: :value:`mail-reply-to`
             :refid: messenger-utilities-mailbox-headers-mail-reply-to
             :refname: mail-reply-to
+
+            The address for direct replies to the author (used in mailing lists).
 
          .. _messenger^utilities.^mailbox^headers.reply-to:
 
@@ -342,12 +409,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-reply-to
             :refname: reply-to
 
+            The address for replies.
+
          .. _messenger^utilities.^mailbox^headers.resent-bcc:
 
          .. api-member::
             :name: :value:`resent-bcc`
             :refid: messenger-utilities-mailbox-headers-resent-bcc
             :refname: resent-bcc
+
+            Bcc recipients of the resent message.
 
          .. _messenger^utilities.^mailbox^headers.resent-cc:
 
@@ -356,12 +427,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-resent-cc
             :refname: resent-cc
 
+            Cc recipients of the resent message.
+
          .. _messenger^utilities.^mailbox^headers.resent-from:
 
          .. api-member::
             :name: :value:`resent-from`
             :refid: messenger-utilities-mailbox-headers-resent-from
             :refname: resent-from
+
+            The sender of the resent message.
 
          .. _messenger^utilities.^mailbox^headers.resent-reply-to:
 
@@ -370,12 +445,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-resent-reply-to
             :refname: resent-reply-to
 
+            The reply-to address of the resent message.
+
          .. _messenger^utilities.^mailbox^headers.resent-sender:
 
          .. api-member::
             :name: :value:`resent-sender`
             :refid: messenger-utilities-mailbox-headers-resent-sender
             :refname: resent-sender
+
+            The actual sender of the resent message.
 
          .. _messenger^utilities.^mailbox^headers.resent-to:
 
@@ -384,12 +463,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-resent-to
             :refname: resent-to
 
+            The primary recipients of the resent message.
+
          .. _messenger^utilities.^mailbox^headers.return-receipt-to:
 
          .. api-member::
             :name: :value:`return-receipt-to`
             :refid: messenger-utilities-mailbox-headers-return-receipt-to
             :refname: return-receipt-to
+
+            The address to send return receipts to. (Deprecated.)
 
          .. _messenger^utilities.^mailbox^headers.sender:
 
@@ -398,12 +481,16 @@ MIME headers, which by default are treated as containing one or more mailbox str
             :refid: messenger-utilities-mailbox-headers-sender
             :refname: sender
 
+            The actual sender of the message (may differ from :value:`from`).
+
          .. _messenger^utilities.^mailbox^headers.to:
 
          .. api-member::
             :name: :value:`to`
             :refid: messenger-utilities-mailbox-headers-to
             :refname: to
+
+            The primary recipients of the message.
 
 .. _messenger^utilities.^parsed^mailbox:
 

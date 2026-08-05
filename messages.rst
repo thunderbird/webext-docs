@@ -51,6 +51,24 @@ The following permissions influence the behavior of the API. Depending on which 
 
    See your mail accounts, their identities and their folders.
 
+.. _messages.permission.messages.save:
+
+.. api-member::
+   :name: :permission:`messages.save`
+   :refid: messages-permission-messages-save
+   :refname: messages.save
+
+   Save email messages as drafts or templates programmatically, without your interaction.
+
+.. _messages.permission.messages.send:
+
+.. api-member::
+   :name: :permission:`messages.send`
+   :refid: messages-permission-messages-send
+   :refname: messages.send
+
+   Programmatically send email messages in bulk on your behalf, without any visual feedback. Use the Activity Manager to review the add-on’s send history.
+
 .. _messages.permission.messages^delete:
 
 .. api-member::
@@ -400,7 +418,7 @@ deleteAttachments(messageId, partNames)
 
 .. api-section-annotation-hack:: -- [Added in TB 128.0]
 
-Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message.
+Deletes the specified attachments and replaces them by placeholder text attachments with meta information about the original attachments and a :value:`text/x-moz-deleted` content type. This permanently modifies the message. Deleting attachments of encrypted messages is not supported and will throw an *ExtensionError*.
 
 .. api-header::
    :label: Parameters
@@ -502,7 +520,7 @@ getAttachmentFile(messageId, partName)
 
 .. api-section-annotation-hack:: -- [Added in TB 91.0]
 
-Gets the content of a :ref:`messages.^message^attachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object.
+Gets the content of a :ref:`messages.^message^attachment` as a `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object. If the message is encrypted, the function retrieves the attachment from the decrypted message.
 
 The most simple way to get the content of an attachment is to use the `text() <https://developer.mozilla.org/en-US/docs/Web/API/Blob/text>`__ method of the returned `File <https://developer.mozilla.org/en-US/docs/Web/API/File>`__ object:
 
@@ -532,6 +550,8 @@ The most simple way to get the content of an attachment is to use the `text() <h
       :refid: messages-get-attachment-file-part-name
       :refname: partName
       :type: (string)
+
+      The :value:`partName` of an attachment to be retrieved from the decrypted message.
 
 .. api-header::
    :label: Return type (`Promise`_)
@@ -623,6 +643,65 @@ Returns the specified message, including all headers and MIME parts. Throws if t
       :refname: _returns
       :type: :ref:`messages.^message^part`
       :annotation: -- [Added in TB 128.0]
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messagesRead`
+
+.. _messages.get^headers:
+
+getHeaders(messageId, [options])
+--------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Returns all message headers of the specified message, without MIME structure parsing. Throws an error if the message cannot be read, for example due to network issues. This function is significantly faster than :ref:`messages.get^full` when only the header information is required.
+
+.. note::
+
+   Unlike :ref:`messages.get^full`, this function is not MIME-aware and simply returns every header line found before the first blank line that separates the headers from the RFC 822 message body. This includes headers such as :value:`Content-Type` and :value:`Content-Transfer-Encoding`, which are otherwise associated with a specific MIME part.
+
+.. api-header::
+   :label: Parameters
+
+   .. _messages.get^headers.message^id:
+
+   .. api-member::
+      :name: ``messageId``
+      :refid: messages-get-headers-message-id
+      :refname: messageId
+      :type: (:ref:`messages.^message^id`)
+
+   .. _messages.get^headers.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-get-headers-options
+      :refname: options
+      :type: (object, optional)
+
+      .. _messages.get^headers.options.decode^headers:
+
+      .. api-member::
+         :name: [``decodeHeaders``]
+         :refid: messages-get-headers-options-decode-headers
+         :refname: decodeHeaders
+         :type: (boolean, optional)
+
+         Whether to decode RFC 2047 encoded headers. Defaults to :value:`true`.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messages.get^headers.returns:
+
+   .. api-member::
+      :refid: messages-get-headers-returns
+      :refname: _returns
+      :type: :ref:`messages.^headers^dictionary`
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -797,8 +876,8 @@ Imports a message into a folder. Supports local folders, POP and IMAP folders. T
 
 .. _messages.list:
 
-list(folder)
-------------
+list(folder, [options])
+-----------------------
 
 .. api-section-annotation-hack:: -- [Added in TB 68.0]
 
@@ -815,6 +894,132 @@ Gets all messages in a folder.
       :refname: folder
       :type: (:ref:`folders.^mail^folder` or :ref:`folders.^mail^folder^id`)
 
+   .. _messages.list.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-list-options
+      :refname: options
+      :type: (object, optional)
+      :annotation: -- [Added in TB 102.0]
+
+      .. _messages.list.options.sort^order:
+
+      .. api-member::
+         :name: [``sortOrder``]
+         :refid: messages-list-options-sort-order
+         :refname: sortOrder
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 153.0]
+
+         The sort order for the returned messages. Ignored if :value:`sortType` is not specified.
+
+         Supported values:
+
+         .. _messages.list.options.sort^order.ascending:
+
+         .. api-member::
+            :name: :value:`ascending`
+            :refid: messages-list-options-sort-order-ascending
+            :refname: ascending
+
+         .. _messages.list.options.sort^order.descending:
+
+         .. api-member::
+            :name: :value:`descending`
+            :refid: messages-list-options-sort-order-descending
+            :refname: descending
+
+      .. _messages.list.options.sort^type:
+
+      .. api-member::
+         :name: [``sortType``]
+         :refid: messages-list-options-sort-type
+         :refname: sortType
+         :type: (`string`, optional)
+         :annotation: -- [Added in TB 153.0]
+
+         Specifies how the returned messages should be sorted. Default sort order is :value:`descending`, if not specified otherwise. Returning sorted messages is faster than manually sorting the messages afterwards, but slower than returning the messages in their original order.
+
+         Supported values:
+
+         .. _messages.list.options.sort^type.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: messages-list-options-sort-type-author
+            :refname: author
+
+         .. _messages.list.options.sort^type.date:
+
+         .. api-member::
+            :name: :value:`date`
+            :refid: messages-list-options-sort-type-date
+            :refname: date
+
+         .. _messages.list.options.sort^type.flagged:
+
+         .. api-member::
+            :name: :value:`flagged`
+            :refid: messages-list-options-sort-type-flagged
+            :refname: flagged
+
+         .. _messages.list.options.sort^type.junk:
+
+         .. api-member::
+            :name: :value:`junk`
+            :refid: messages-list-options-sort-type-junk
+            :refname: junk
+
+         .. _messages.list.options.sort^type.junk^score:
+
+         .. api-member::
+            :name: :value:`junkScore`
+            :refid: messages-list-options-sort-type-junk-score
+            :refname: junkScore
+
+         .. _messages.list.options.sort^type.priority:
+
+         .. api-member::
+            :name: :value:`priority`
+            :refid: messages-list-options-sort-type-priority
+            :refname: priority
+
+         .. _messages.list.options.sort^type.read:
+
+         .. api-member::
+            :name: :value:`read`
+            :refid: messages-list-options-sort-type-read
+            :refname: read
+
+         .. _messages.list.options.sort^type.recipients:
+
+         .. api-member::
+            :name: :value:`recipients`
+            :refid: messages-list-options-sort-type-recipients
+            :refname: recipients
+
+         .. _messages.list.options.sort^type.size:
+
+         .. api-member::
+            :name: :value:`size`
+            :refid: messages-list-options-sort-type-size
+            :refname: size
+
+         .. _messages.list.options.sort^type.subject:
+
+         .. api-member::
+            :name: :value:`subject`
+            :refid: messages-list-options-sort-type-subject
+            :refname: subject
+
+         .. _messages.list.options.sort^type.tags:
+
+         .. api-member::
+            :name: :value:`tags`
+            :refid: messages-list-options-sort-type-tags
+            :refname: tags
+
 .. api-header::
    :label: Return type (`Promise`_)
 
@@ -824,7 +1029,7 @@ Gets all messages in a folder.
       :refid: messages-list-returns
       :refname: _returns
       :type: :ref:`messages.^message^list`
-      :annotation: -- [Added in TB 102.0]
+      :annotation: -- [Added in TB 153.0]
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
@@ -841,7 +1046,7 @@ listAttachments(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 91.0]
 
-Lists the attachments of a message.
+Lists the attachments of a message. If the message is encrypted, the attachments of the decrypted message are listed.
 
 .. api-header::
    :label: Parameters
@@ -879,7 +1084,7 @@ listInlineTextParts(messageId)
 
 .. api-section-annotation-hack:: -- [Added in TB 128.0]
 
-Lists all inline text parts of a message. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messenger^utilities.convert^to^plain^text` can be used to retreive a plain text version.
+Lists all inline text parts of a message. These parts are not returned by :ref:`messages.list^attachments` and usually make up the readable content of the message, mostly with content type :value:`text/plain` or :value:`text/html`. If a message only includes a part with content type :value:`text/html`, the method :ref:`messenger^utilities.convert^to^plain^text` can be used to retreive a plain text version. If the message is encrypted, the inline text parts of the decrypted message are listed.
 
 .. note::
 
@@ -1354,6 +1559,235 @@ Gets all messages that have the specified properties, or all messages if no prop
 
    - :permission:`messagesRead`
 
+.. _messages.save^message:
+
+saveMessage(details, [options])
+-------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Saves a message programmatically as a draft or as a template in the background without user interaction. The save mode defaults to <value>draft</value>. The returned Promise fulfills once the message has been successfully saved. Throws when there has been an error while saving the message.\\n**Note:** If no <value>deliveryFormat</value> is specified, the message is saved as plain text when the body contains no HTML formatting.
+
+.. api-header::
+   :label: Parameters
+
+   .. _messages.save^message.details:
+
+   .. api-member::
+      :name: ``details``
+      :refid: messages-save-message-details
+      :refname: details
+      :type: (:ref:`messages.^new^message^details`)
+
+   .. _messages.save^message.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-save-message-options
+      :refname: options
+      :type: (object, optional)
+
+      .. _messages.save^message.options.mode:
+
+      .. api-member::
+         :name: ``mode``
+         :refid: messages-save-message-options-mode
+         :refname: mode
+         :type: (`string`)
+
+         Supported values:
+
+         .. _messages.save^message.options.mode.draft:
+
+         .. api-member::
+            :name: :value:`draft`
+            :refid: messages-save-message-options-mode-draft
+            :refname: draft
+
+         .. _messages.save^message.options.mode.template:
+
+         .. api-member::
+            :name: :value:`template`
+            :refid: messages-save-message-options-mode-template
+            :refname: template
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messages.save^message.returns:
+
+   .. api-member::
+      :refid: messages-save-message-returns
+      :refname: _returns
+      :type: object
+
+      .. _messages.save^message.returns.messages:
+
+      .. api-member::
+         :name: ``messages``
+         :refid: messages-save-message-returns-messages
+         :refname: messages
+         :type: (array of :ref:`messages.^message^header`)
+
+         The saved message(s). The number of saved messages depends on the applied file carbon copy configuration (fcc).
+
+      .. _messages.save^message.returns.mode:
+
+      .. api-member::
+         :name: ``mode``
+         :refid: messages-save-message-returns-mode
+         :refname: mode
+         :type: (`string`)
+
+         The used save mode.
+
+         Supported values:
+
+         .. _messages.save^message.returns.mode.draft:
+
+         .. api-member::
+            :name: :value:`draft`
+            :refid: messages-save-message-returns-mode-draft
+            :refname: draft
+
+         .. _messages.save^message.returns.mode.template:
+
+         .. api-member::
+            :name: :value:`template`
+            :refid: messages-save-message-returns-mode-template
+            :refname: template
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messages.save`
+   - :permission:`messagesRead`
+
+.. _messages.send^message:
+
+sendMessage(details, [options])
+-------------------------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Sends a message programmatically in the background without user interaction. If the send mode is not specified or set to <value>default</value>, the message will be sent directly if the user is online and placed in the user's outbox otherwise. The returned Promise fulfills once the message has been successfully sent or placed in the user's outbox. Throws when there has been an error while sending the message to the outgoing mail server.\\n**Note:** If no <value>deliveryFormat</value> is specified, the message is sent as plain text when the body contains no HTML formatting.\\n**Note:** It is possible to pass in a :ref:`compose.^compose^details` object as the <value>details</value> parameter, and it will be interpreted as a :ref:`messages.^new^message^details` object.
+
+.. api-header::
+   :label: Parameters
+
+   .. _messages.send^message.details:
+
+   .. api-member::
+      :name: ``details``
+      :refid: messages-send-message-details
+      :refname: details
+      :type: (:ref:`messages.^new^message^details`)
+
+   .. _messages.send^message.options:
+
+   .. api-member::
+      :name: [``options``]
+      :refid: messages-send-message-options
+      :refname: options
+      :type: (object, optional)
+
+      .. _messages.send^message.options.mode:
+
+      .. api-member::
+         :name: ``mode``
+         :refid: messages-send-message-options-mode
+         :refname: mode
+         :type: (`string`)
+
+         Supported values:
+
+         .. _messages.send^message.options.mode.default:
+
+         .. api-member::
+            :name: :value:`default`
+            :refid: messages-send-message-options-mode-default
+            :refname: default
+
+         .. _messages.send^message.options.mode.send^later:
+
+         .. api-member::
+            :name: :value:`sendLater`
+            :refid: messages-send-message-options-mode-send-later
+            :refname: sendLater
+
+         .. _messages.send^message.options.mode.send^now:
+
+         .. api-member::
+            :name: :value:`sendNow`
+            :refid: messages-send-message-options-mode-send-now
+            :refname: sendNow
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messages.send^message.returns:
+
+   .. api-member::
+      :refid: messages-send-message-returns
+      :refname: _returns
+      :type: object
+
+      .. _messages.send^message.returns.messages:
+
+      .. api-member::
+         :name: ``messages``
+         :refid: messages-send-message-returns-messages
+         :refname: messages
+         :type: (array of :ref:`messages.^message^header`)
+
+         Copies of the sent message. The number of created copies depends on the applied file carbon copy configuration (fcc).
+
+      .. _messages.send^message.returns.mode:
+
+      .. api-member::
+         :name: ``mode``
+         :refid: messages-send-message-returns-mode
+         :refname: mode
+         :type: (`string`)
+
+         The used send mode.
+
+         Supported values:
+
+         .. _messages.send^message.returns.mode.send^later:
+
+         .. api-member::
+            :name: :value:`sendLater`
+            :refid: messages-send-message-returns-mode-send-later
+            :refname: sendLater
+
+         .. _messages.send^message.returns.mode.send^now:
+
+         .. api-member::
+            :name: :value:`sendNow`
+            :refid: messages-send-message-returns-mode-send-now
+            :refname: sendNow
+
+      .. _messages.send^message.returns.header^message^id:
+
+      .. api-member::
+         :name: [``headerMessageId``]
+         :refid: messages-send-message-returns-header-message-id
+         :refname: headerMessageId
+         :type: (string, optional)
+
+         The header messageId of the outgoing message. Only included for actually sent messages.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`messages.send`
+   - :permission:`messagesRead`
+
 .. _messages.update:
 
 update(messageId, newProperties)
@@ -1695,6 +2129,81 @@ Fired when one or more properties of a message have been updated.
 Types
 =====
 
+.. _messages.^attachment^type:
+
+AttachmentType
+--------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+The type of an attachment in a message.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. _messages.^attachment^type.cloud^file:
+
+         .. api-member::
+            :name: :value:`cloudFile`
+            :refid: messages-attachment-type-cloud-file
+            :refname: cloudFile
+
+            The attachment's content is not part of the message but stored by a cloud provider.
+
+         .. _messages.^attachment^type.deleted:
+
+         .. api-member::
+            :name: :value:`deleted`
+            :refid: messages-attachment-type-deleted
+            :refname: deleted
+
+            The attachment's content was permanently removed and only a placeholder remains.
+
+         .. _messages.^attachment^type.detached:
+
+         .. api-member::
+            :name: :value:`detached`
+            :refid: messages-attachment-type-detached
+            :refname: detached
+
+            The attachment's content is stored in a detached local file.
+
+         .. _messages.^attachment^type.linked:
+
+         .. api-member::
+            :name: :value:`linked`
+            :refid: messages-attachment-type-linked
+            :refname: linked
+
+            The attachment's content is not part of the message but referenced by a link.
+
+         .. _messages.^attachment^type.normal:
+
+         .. api-member::
+            :name: :value:`normal`
+            :refid: messages-attachment-type-normal
+            :refname: normal
+
+            A normal attachment.
+
+.. _messages.^headers^dictionary:
+
+HeadersDictionary
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+A *dictionary object* of headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
+
+.. api-header::
+   :label: object
+
 .. _messages.^inline^text^part:
 
 InlineTextPart
@@ -1778,7 +2287,7 @@ Represents an attachment in a message.
       :name: ``headers``
       :refid: messages-message-attachment-headers
       :refname: headers
-      :type: (object)
+      :type: (:ref:`messages.^headers^dictionary`)
       :annotation: -- [Added in TB 140.0]
 
       A *dictionary object* of RFC 2047 decoded attachment headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*.
@@ -1791,7 +2300,7 @@ Represents an attachment in a message.
       :refname: name
       :type: (string)
 
-      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file.
+      The name, as displayed to the user, of this attachment. This is usually but not always the filename of the attached file. For a :value:`cloudFile` attachment, this is the real name of the linked file, when the message provides one.
 
    .. _messages.^message^attachment.part^name:
 
@@ -1813,6 +2322,28 @@ Represents an attachment in a message.
 
       The size in bytes of this attachment.
 
+   .. _messages.^message^attachment.type:
+
+   .. api-member::
+      :name: ``type``
+      :refid: messages-message-attachment-type
+      :refname: type
+      :type: (:ref:`messages.^attachment^type`)
+      :annotation: -- [Added in TB 153.0]
+
+      The type of this attachment.
+
+   .. _messages.^message^attachment.cloud^file^url:
+
+   .. api-member::
+      :name: [``cloudFileUrl``]
+      :refid: messages-message-attachment-cloud-file-url
+      :refname: cloudFileUrl
+      :type: (string, optional)
+      :annotation: -- [Added in TB 153.0]
+
+      The remote location a :value:`cloudFile` attachment's content is stored at. Present for :value:`cloudFile` attachments (see :ref:`messages.^attachment^type`), whose content is not part of the message.
+
    .. _messages.^message^attachment.content^id:
 
    .. api-member::
@@ -1823,6 +2354,17 @@ Represents an attachment in a message.
       :annotation: -- [Added in TB 128.0]
 
       The content-id of this part. Available for related parts, which are referenced from other places inside the same message (e.g. inline images).
+
+   .. _messages.^message^attachment.link^url:
+
+   .. api-member::
+      :name: [``linkUrl``]
+      :refid: messages-message-attachment-link-url
+      :refname: linkUrl
+      :type: (string, optional)
+      :annotation: -- [Added in TB 153.0]
+
+      The remote location the attachment's content is linked to. Present for :value:`linked` attachments (see :ref:`messages.^attachment^type`), whose content is not part of the message and can be fetched from this url.
 
    .. _messages.^message^attachment.message:
 
@@ -1882,6 +2424,8 @@ Basic information about a message.
       :refid: messages-message-header-date
       :refname: date
       :type: (`Date <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date>`__)
+
+      The date and time when the message was sent, according to the Date header in the message.
 
    .. _messages.^message^header.external:
 
@@ -1963,6 +2507,73 @@ Basic information about a message.
       :annotation: -- [Added in TB 115.0]
 
       Whether the message has been received recently and is marked as new.
+
+   .. _messages.^message^header.priority:
+
+   .. api-member::
+      :name: ``priority``
+      :refid: messages-message-header-priority
+      :refname: priority
+      :type: (`string`)
+      :annotation: -- [Added in TB 153.0]
+
+      The priority of the message.
+
+      Supported values:
+
+      .. _messages.^message^header.priority.high:
+
+      .. api-member::
+         :name: :value:`high`
+         :refid: messages-message-header-priority-high
+         :refname: high
+
+         High priority.
+
+      .. _messages.^message^header.priority.highest:
+
+      .. api-member::
+         :name: :value:`highest`
+         :refid: messages-message-header-priority-highest
+         :refname: highest
+
+         Highest priority.
+
+      .. _messages.^message^header.priority.low:
+
+      .. api-member::
+         :name: :value:`low`
+         :refid: messages-message-header-priority-low
+         :refname: low
+
+         Low priority.
+
+      .. _messages.^message^header.priority.lowest:
+
+      .. api-member::
+         :name: :value:`lowest`
+         :refid: messages-message-header-priority-lowest
+         :refname: lowest
+
+         Lowest priority.
+
+      .. _messages.^message^header.priority.none:
+
+      .. api-member::
+         :name: :value:`none`
+         :refid: messages-message-header-priority-none
+         :refname: none
+
+         No priority set.
+
+      .. _messages.^message^header.priority.normal:
+
+      .. api-member::
+         :name: :value:`normal`
+         :refid: messages-message-header-priority-normal
+         :refname: normal
+
+         Normal priority.
 
    .. _messages.^message^header.recipients:
 
@@ -2116,12 +2727,16 @@ Represents an email message "part", which could be the whole message.
          :refid: messages-message-part-decryption-status-fail
          :refname: fail
 
+         Decryption failed.
+
       .. _messages.^message^part.decryption^status.none:
 
       .. api-member::
          :name: :value:`none`
          :refid: messages-message-part-decryption-status-none
          :refname: none
+
+         The part is not encrypted.
 
       .. _messages.^message^part.decryption^status.skipped:
 
@@ -2130,6 +2745,8 @@ Represents an email message "part", which could be the whole message.
          :refid: messages-message-part-decryption-status-skipped
          :refname: skipped
 
+         Decryption was skipped.
+
       .. _messages.^message^part.decryption^status.success:
 
       .. api-member::
@@ -2137,13 +2754,15 @@ Represents an email message "part", which could be the whole message.
          :refid: messages-message-part-decryption-status-success
          :refname: success
 
+         The part was successfully decrypted.
+
    .. _messages.^message^part.headers:
 
    .. api-member::
       :name: [``headers``]
       :refid: messages-message-part-headers
       :refname: headers
-      :type: (object, optional)
+      :type: (:ref:`messages.^headers^dictionary`, optional)
 
       A *dictionary object* of RFC 2047 decoded part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.get^full`.
 
@@ -2194,7 +2813,7 @@ Represents an email message "part", which could be the whole message.
       :name: [``rawHeaders``]
       :refid: messages-message-part-raw-headers
       :refname: rawHeaders
-      :type: (object, optional)
+      :type: (:ref:`messages.^headers^dictionary`, optional)
       :annotation: -- [Added in TB 140.0]
 
       A *dictionary object* of raw part headers as *key-value* pairs, with the header name as *key*, and an array of headers as *value*. Only present if requested, see the :value:`decodeHeaders` option of :ref:`messages.get^full`.
@@ -2270,6 +2889,297 @@ Message properties used in :ref:`messages.update` and :ref:`messages.import`. Th
       :type: (array of string, optional)
 
       Tags associated with this message. For a list of available tags, call the :ref:`messages.tags.list` method.
+
+.. _messages.^new^message^details:
+
+NewMessageDetails
+-----------------
+
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
+
+Details of a message to be sent.
+
+.. api-header::
+   :label: object
+
+   .. _messages.^new^message^details.subject:
+
+   .. api-member::
+      :name: ``subject``
+      :refid: messages-new-message-details-subject
+      :refname: subject
+      :type: (string)
+
+   .. _messages.^new^message^details.additional^fcc^folder:
+
+   .. api-member::
+      :name: [``additionalFccFolder``]
+      :refid: messages-new-message-details-additional-fcc-folder
+      :refname: additionalFccFolder
+      :type: (:ref:`folders.^mail^folder` or `string`, optional)
+
+      An additional fcc folder. Only effective for send operations (:ref:`messages.send^message`), has no effect for save operations (:ref:`messages.save^message`), which only ever store the message in the primary draft or template folder. For compatibility with :ref:`compose.^compose^details`, setting an empty string is supported as well, but has no effect.
+
+   .. _messages.^new^message^details.attachments:
+
+   .. api-member::
+      :name: [``attachments``]
+      :refid: messages-new-message-details-attachments
+      :refname: attachments
+      :type: (array of :ref:`compose.^file^attachment` or :ref:`compose.^compose^attachment`, optional)
+
+      Attachments to add to the message. **Note:** :ref:`compose.^compose^attachments` are included as real file attachments, not as cloudFile links.
+
+   .. _messages.^new^message^details.attach^v^card:
+
+   .. api-member::
+      :name: [``attachVCard``]
+      :refid: messages-new-message-details-attach-v-card
+      :refname: attachVCard
+      :type: (boolean, optional)
+
+      Wether or not the vCard of the used identity will be attached to the message during send.
+
+   .. _messages.^new^message^details.bcc:
+
+   .. api-member::
+      :name: [``bcc``]
+      :refid: messages-new-message-details-bcc
+      :refname: bcc
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
+
+   .. _messages.^new^message^details.body:
+
+   .. api-member::
+      :name: [``body``]
+      :refid: messages-new-message-details-body
+      :refname: body
+      :type: (string, optional)
+
+      The HTML content for the message.
+
+   .. _messages.^new^message^details.cc:
+
+   .. api-member::
+      :name: [``cc``]
+      :refid: messages-new-message-details-cc
+      :refname: cc
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
+
+   .. _messages.^new^message^details.content^language:
+
+   .. api-member::
+      :name: [``contentLanguage``]
+      :refid: messages-new-message-details-content-language
+      :refname: contentLanguage
+      :type: (array of string, optional)
+
+      The languages of the message content, used for the *Content-Language* header. Each entry is a free-form language tag (for example :value:`en-US`). If omitted, no *Content-Language* header is added. The i18n API's :value:`detectLanguage()` can be used to derive a value from the message body, which should be converted to plain text first (for example via :ref:`messenger^utilities.convert^to^plain^text`), so that markup does not influence the detection.
+
+      .. note::
+
+         No :value:`Content-Language` header is added if the user has enabled the :value:`mail.suppress_content_language` preference.
+
+   .. _messages.^new^message^details.custom^headers:
+
+   .. api-member::
+      :name: [``customHeaders``]
+      :refid: messages-new-message-details-custom-headers
+      :refname: customHeaders
+      :type: (array of :ref:`compose.^custom^header`, optional)
+
+      Array of custom headers.
+
+   .. _messages.^new^message^details.delivery^format:
+
+   .. api-member::
+      :name: [``deliveryFormat``]
+      :refid: messages-new-message-details-delivery-format
+      :refname: deliveryFormat
+      :type: (`string`, optional)
+
+      Defines the mime format of the sent message. Defaults to <value>auto</value>, which prefers to send plain text messages, if the specified body does not include any formatting.\\n**Note**: If a plain text body and an HTML body is included in the message, the plain text body is always derived from the included HTML body. It is not possible to specify two independent values via <value>body</value> and <value>plainTextBody</value>.
+
+      Supported values:
+
+      .. _messages.^new^message^details.delivery^format.auto:
+
+      .. api-member::
+         :name: :value:`auto`
+         :refid: messages-new-message-details-delivery-format-auto
+         :refname: auto
+
+      .. _messages.^new^message^details.delivery^format.both:
+
+      .. api-member::
+         :name: :value:`both`
+         :refid: messages-new-message-details-delivery-format-both
+         :refname: both
+
+      .. _messages.^new^message^details.delivery^format.html:
+
+      .. api-member::
+         :name: :value:`html`
+         :refid: messages-new-message-details-delivery-format-html
+         :refname: html
+
+      .. _messages.^new^message^details.delivery^format.plaintext:
+
+      .. api-member::
+         :name: :value:`plaintext`
+         :refid: messages-new-message-details-delivery-format-plaintext
+         :refname: plaintext
+
+   .. _messages.^new^message^details.delivery^status^notification:
+
+   .. api-member::
+      :name: [``deliveryStatusNotification``]
+      :refid: messages-new-message-details-delivery-status-notification
+      :refname: deliveryStatusNotification
+      :type: (boolean, optional)
+
+      Let the sender know when the recipient's server received the message. Not supported by all servers.
+
+   .. _messages.^new^message^details.followup^to:
+
+   .. api-member::
+      :name: [``followupTo``]
+      :refid: messages-new-message-details-followup-to
+      :refname: followupTo
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
+
+   .. _messages.^new^message^details.from:
+
+   .. api-member::
+      :name: [``from``]
+      :refid: messages-new-message-details-from
+      :refname: from
+      :type: (:ref:`compose.^compose^recipient`, optional)
+
+      *Caution*: Setting a value for :value:`from` does not change the used identity, it overrides the FROM header. Many email servers do not accept emails where the FROM header does not match the sender identity. Must be set to exactly one valid email address.
+
+   .. _messages.^new^message^details.identity^id:
+
+   .. api-member::
+      :name: [``identityId``]
+      :refid: messages-new-message-details-identity-id
+      :refname: identityId
+      :type: (string, optional)
+
+      The ID of an identity from the :doc:`accounts` API. Defaults to the default identity. The permission :permission:`accountsRead` is required to include the :value:`identityId`.
+
+   .. _messages.^new^message^details.is^plain^text:
+
+   .. api-member::
+      :name: [``isPlainText``]
+      :refid: messages-new-message-details-is-plain-text
+      :refname: isPlainText
+      :type: (boolean, optional)
+
+      Whether the message should be sent as plain text or as HTML. Prefers a specified <value>plainTextBody</value> over a specified <value>body</value>.
+
+   .. _messages.^new^message^details.newsgroups:
+
+   .. api-member::
+      :name: [``newsgroups``]
+      :refid: messages-new-message-details-newsgroups
+      :refname: newsgroups
+      :type: (string or array of string, optional)
+
+      A single newsgroup name or an array of newsgroup names.
+
+   .. _messages.^new^message^details.override^default^fcc^folder:
+
+   .. api-member::
+      :name: [``overrideDefaultFccFolder``]
+      :refid: messages-new-message-details-override-default-fcc-folder
+      :refname: overrideDefaultFccFolder
+      :type: (:ref:`folders.^mail^folder` or `string`, optional)
+
+      This value overrides the default fcc setting (defined by the used identity) for this message. Either a :ref:`folders.^mail^folder` specifying the folder for the copy of the sent message, or an empty string to not save a copy at all.
+
+   .. _messages.^new^message^details.plain^text^body:
+
+   .. api-member::
+      :name: [``plainTextBody``]
+      :refid: messages-new-message-details-plain-text-body
+      :refname: plainTextBody
+      :type: (string, optional)
+
+      The content for a plain text message. A specified <value>body</value> will be preferred, except when <value>isPlainText</value> is specified as well.
+
+   .. _messages.^new^message^details.priority:
+
+   .. api-member::
+      :name: [``priority``]
+      :refid: messages-new-message-details-priority
+      :refname: priority
+      :type: (`string`, optional)
+
+      The priority of the message.
+
+      Supported values:
+
+      .. _messages.^new^message^details.priority.high:
+
+      .. api-member::
+         :name: :value:`high`
+         :refid: messages-new-message-details-priority-high
+         :refname: high
+
+      .. _messages.^new^message^details.priority.highest:
+
+      .. api-member::
+         :name: :value:`highest`
+         :refid: messages-new-message-details-priority-highest
+         :refname: highest
+
+      .. _messages.^new^message^details.priority.low:
+
+      .. api-member::
+         :name: :value:`low`
+         :refid: messages-new-message-details-priority-low
+         :refname: low
+
+      .. _messages.^new^message^details.priority.lowest:
+
+      .. api-member::
+         :name: :value:`lowest`
+         :refid: messages-new-message-details-priority-lowest
+         :refname: lowest
+
+      .. _messages.^new^message^details.priority.normal:
+
+      .. api-member::
+         :name: :value:`normal`
+         :refid: messages-new-message-details-priority-normal
+         :refname: normal
+
+   .. _messages.^new^message^details.reply^to:
+
+   .. api-member::
+      :name: [``replyTo``]
+      :refid: messages-new-message-details-reply-to
+      :refname: replyTo
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
+
+   .. _messages.^new^message^details.return^receipt:
+
+   .. api-member::
+      :name: [``returnReceipt``]
+      :refid: messages-new-message-details-return-receipt
+      :refname: returnReceipt
+      :type: (boolean, optional)
+
+      Add the *Disposition-Notification-To* header to the message to requests the recipients email client to send a reply once the message has been received. Recipient server may strip the header and the recipient might ignore the request.
+
+   .. _messages.^new^message^details.to:
+
+   .. api-member::
+      :name: [``to``]
+      :refid: messages-new-message-details-to
+      :refname: to
+      :type: (:ref:`compose.^compose^recipient^list`, optional)
 
 .. _messages.^query^range:
 

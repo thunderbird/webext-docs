@@ -20,6 +20,8 @@ scripting.compose API
 
 .. role:: small
 
+The scripting.compose API allows to register and unregister scripts for the message compose window.
+
 .. rst-class:: api-main-section
 
 Permissions
@@ -118,6 +120,10 @@ Registers one or more compose scripts for this extension, which should be inject
 .. note::
 
    Registered scripts will only be applied to newly opened message compose tabs. To apply the script to already open message compose tabs, manually inject your script by calling :ref:`scripting.execute^script` for each of the open :value:`messageCompose` tabs.
+
+.. hint::
+
+   There is a known issue in the logging mechanism of compose scripts: All entries logged to the console appear twice.
 
 .. api-header::
    :label: Parameters

@@ -18,6 +18,8 @@ oauthProvider API
 
 .. role:: small
 
+The oauthProvider API allows to manage OAuth authentication providers for Thunderbird to use when connecting to mail/address book/calendar services.
+
 .. rst-class:: api-main-section
 
 Manifest file properties
@@ -32,7 +34,7 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 140.0]
 
-   Describes an OAuth authentication provider for Thunderbird to use when connecting to mail/address book/calendar services. You will need to have a client ID registered with the provider to use this API.
+   Describes an OAuth authentication provider for Thunderbird. You will need to have a client ID registered with the provider to use this API.
 
    .. _oauth^provider.oauth_provider.authorization^endpoint:
 
@@ -121,6 +123,28 @@ Manifest file properties
       :annotation: -- [Added in TB 140.0]
 
       Identifies the OAuth client to the server.
+
+   .. _oauth^provider.oauth_provider.issuer^identifier:
+
+   .. api-member::
+      :name: [``issuerIdentifier``]
+      :refid: oauth-provider-oauth-provider-issuer-identifier
+      :refname: issuerIdentifier
+      :type: (string, optional)
+      :annotation: -- [Added in TB 153.0]
+
+      The OAuth authorization server issuer identifier, as defined by RFC 9207. If provided, it *must* be an exact string match to what the provider gives in the iss field.
+
+   .. _oauth^provider.oauth_provider.use^external^browser:
+
+   .. api-member::
+      :name: [``useExternalBrowser``]
+      :refid: oauth-provider-oauth-provider-use-external-browser
+      :refname: useExternalBrowser
+      :type: (boolean, optional)
+      :annotation: -- [Added in TB 153.0]
+
+      If the login flow should use the system web browser. If true, the redirectionEndpoint *must* be a loopback address, so an origin of http://127.0.0.1 or http://localhost.
 
    .. _oauth^provider.oauth_provider.use^p^k^c^e:
 

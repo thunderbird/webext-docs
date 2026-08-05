@@ -361,6 +361,38 @@ CSSInjection
          :refid: scripting-c-s-s-injection-origin-u-s-e-r
          :refname: USER
 
+.. _scripting.^c^s^s^origin:
+
+CSSOrigin
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
+
+The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. _scripting.^c^s^s^origin.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: scripting-c-s-s-origin-author
+            :refname: author
+
+         .. _scripting.^c^s^s^origin.user:
+
+         .. api-member::
+            :name: :value:`user`
+            :refid: scripting-c-s-s-origin-user
+            :refname: user
+
 .. _scripting.^execution^world:
 
 ExecutionWorld
@@ -417,6 +449,16 @@ Result of a script injection.
 
 .. api-header::
    :label: object
+
+   .. _scripting.^injection^result.document^id:
+
+   .. api-member::
+      :name: ``documentId``
+      :refid: scripting-injection-result-document-id
+      :refname: documentId
+      :type: (string)
+
+      The document associated with the injection.
 
    .. _scripting.^injection^result.frame^id:
 
@@ -478,6 +520,16 @@ InjectionTarget
 
       Whether the script should inject into all frames within the tab. Defaults to false. This must not be true if :code:`frameIds` is specified.
 
+   .. _scripting.^injection^target.document^ids:
+
+   .. api-member::
+      :name: [``documentIds``]
+      :refid: scripting-injection-target-document-ids
+      :refname: documentIds
+      :type: (array of string, optional)
+
+      The IDs of specific documents to inject into. This must not be set if :code:`frameIds` or :code:`allFrames` is set.
+
    .. _scripting.^injection^target.frame^ids:
 
    .. api-member::
@@ -527,6 +579,14 @@ RegisteredContentScript
       :type: (array of :ref:`scripting.^extension^u^r^l`, optional)
 
       The list of CSS files to be injected into matching pages. These are injected in the order they appear in this array.
+
+   .. _scripting.^registered^content^script.css^origin:
+
+   .. api-member::
+      :name: [``cssOrigin``]
+      :refid: scripting-registered-content-script-css-origin
+      :refname: cssOrigin
+      :type: (:ref:`scripting.^c^s^s^origin`, optional)
 
    .. _scripting.^registered^content^script.exclude^matches:
 

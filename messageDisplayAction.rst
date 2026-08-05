@@ -38,6 +38,8 @@ Manifest file properties
    :type: (object, optional)
    :annotation: -- [Added in TB 68.2.3]
 
+   Defines the appearance and behavior of a messageDisplayAction button in the message display window.
+
    .. _message^display^action.message_display_action.browser_style:
 
    .. api-member::
@@ -141,6 +143,8 @@ Manifest file properties
          :name: :value:`menu`
          :refid: message-display-action-message-display-action-type-menu
          :refname: menu
+
+         The :ref:`menus.^context^type.message_display_action_menu` context of the :doc:`menus` can be used to add menu entries to a menu-typed messageDisplayAction button.
 
 .. rst-class:: api-main-section
 
@@ -1055,6 +1059,8 @@ ExtensionFileUrl
 ----------------
 
 .. api-section-annotation-hack:: 
+
+A path relative to the root of the extension, must not be empty and can be localized.
 
 .. api-header::
    :label: string

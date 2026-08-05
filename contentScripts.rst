@@ -23,6 +23,8 @@ contentScripts API
 
    The contentScripts API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/contentScripts>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
+The contentScripts API allows to register and unregister scripts for content pages.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -52,6 +54,38 @@ Register a content script programmatically
 
 Types
 =====
+
+.. _content^scripts.^c^s^s^origin:
+
+CSSOrigin
+---------
+
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
+
+The origin of the CSS to inject, this affects the cascading order (priority) of the stylesheet.
+
+.. api-header::
+   :label: `string`
+
+   .. container:: api-member-node
+
+      .. container:: api-member-description-only
+
+         Supported values:
+
+         .. _content^scripts.^c^s^s^origin.author:
+
+         .. api-member::
+            :name: :value:`author`
+            :refid: content-scripts-c-s-s-origin-author
+            :refname: author
+
+         .. _content^scripts.^c^s^s^origin.user:
+
+         .. api-member::
+            :name: :value:`user`
+            :refid: content-scripts-c-s-s-origin-user
+            :refname: user
 
 .. _content^scripts.^execution^world:
 
@@ -265,6 +299,16 @@ Details of a content script registered programmatically
       :type: (array of :ref:`content^scripts.^extension^file^or^code`, optional)
 
       The list of CSS files to inject
+
+   .. _content^scripts.^registered^content^script^options.css^origin:
+
+   .. api-member::
+      :name: [``cssOrigin``]
+      :refid: content-scripts-registered-content-script-options-css-origin
+      :refname: cssOrigin
+      :type: (:ref:`content^scripts.^c^s^s^origin`, optional)
+
+      The css origin of the stylesheet to inject. Defaults to "author".
 
    .. _content^scripts.^registered^content^script^options.exclude^globs:
 

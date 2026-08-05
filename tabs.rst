@@ -104,6 +104,17 @@ Connects to the content script(s) in the specified tab. The `runtime.onConnect <
       :refname: connectInfo
       :type: (object, optional)
 
+      .. _tabs.connect.connect^info.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: tabs-connect-connect-info-document-id
+         :refname: documentId
+         :type: (string, optional)
+         :annotation: -- [Added in TB 153.0]
+
+         Open a port to a specific document identified by :value:`documentId` instead of all frames in the tab.
+
       .. _tabs.connect.connect^info.frame^id:
 
       .. api-member::
@@ -451,7 +462,7 @@ move(tabIds, moveProperties)
 
 .. api-section-annotation-hack:: -- [Added in TB 60.3.0]
 
-Moves one or more tabs to a new position within its current window, or to a different window. Tabs can only be moved to and from windows of type :value:`normal`.
+Moves one or more tabs to a new position within its current window, or to a different window. Tabs can only be moved to and from windows of type :value:`normal`. The primary mail tab cannot be moved, attempting to actively reposition it will throw an *ExtensionError*. Other tabs also cannot be placed before the primary mail tab, they will automatically be positioned after it, ensuring that the primary mail tab always remains first.
 
 .. api-header::
    :label: Parameters
@@ -633,7 +644,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refname: title
          :type: (string, optional)
 
-         Match page titles against a pattern.
+         Match page titles against a pattern. The :permission:`tabs` permission is required to use this property.
 
       .. _tabs.query.query^info.type:
 
@@ -654,7 +665,7 @@ Gets all tabs that have the specified properties, or all tabs if no properties a
          :refname: url
          :type: (string or array of string, optional)
 
-         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Fragment identifiers are not matched.
+         Match tabs against one or more `URL Patterns <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns>`__. Fragment identifiers are not matched. The :permission:`tabs` permission is required to use this property.
 
       .. _tabs.query.query^info.window^id:
 
@@ -817,6 +828,17 @@ Sends a single message to the content script(s) in the specified tab, with an op
       :refid: tabs-send-message-options
       :refname: options
       :type: (object, optional)
+
+      .. _tabs.send^message.options.document^id:
+
+      .. api-member::
+         :name: [``documentId``]
+         :refid: tabs-send-message-options-document-id
+         :refname: documentId
+         :type: (string, optional)
+         :annotation: -- [Added in TB 153.0]
+
+         Send a message to a specific document identified by :value:`documentId` instead of all frames in the tab.
 
       .. _tabs.send^message.options.frame^id:
 
@@ -1586,6 +1608,10 @@ Tab
 
       The ID of the group that the tab belongs to. -1 if the tab does not belong to a tab group.
 
+      .. note::
+
+         Thunderbird does not support tab groups. This property will always be :code:`-1` and cannot be changed.
+
    .. _tabs.^tab.height:
 
    .. api-member::
@@ -1627,6 +1653,21 @@ Tab
       :annotation: -- [Added in TB 115.0]
 
       The id of the space.
+
+   .. _tabs.^tab.split^view^id:
+
+   .. api-member::
+      :name: [``splitViewId``]
+      :refid: tabs-tab-split-view-id
+      :refname: splitViewId
+      :type: (integer, optional)
+      :annotation: -- [Added in TB 153.0]
+
+      The ID of the Split View that the tab belongs to. -1 if the tab does not belong to a split view.
+
+      .. note::
+
+         Thunderbird does not support Split View. This property will always be :code:`-1` and cannot be changed.
 
    .. _tabs.^tab.status:
 

@@ -24,7 +24,7 @@ messagePlainTextFlowedOutputEnabled Setting
 
 .. _messenger^settings.message^plain^text^flowed^output^enabled:
 
-Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messageLineLengthLimit <messenger^settings.message^line^length^limit>`.
+Whether long lines in outgoing plain text messages will get soft line breaks (:value:`​ \\n`) or hard line breaks (:value:`\\n`), to comply with requirements from RFC 2822. Soft line breaks will be ignored when displayed by the receiving client. When flowed output is enabled, add-ons should not create plain text messages with manually inserted hard or soft line breaks to achieve a certain text width, as that will most probably interfere with the default line break handling and generate ridged text. When flowed output is disabled, add-ons could add hard line breaks to have control over the final message, but any line longer than the maximum line length will still receive additional hard line breaks. See :ref:`messageLineLengthLimit <messenger^settings.message^line^length^limit>`. This property is read-only.
 
 .. rst-class:: api-main-section
 
@@ -63,59 +63,10 @@ To read the :value:`messagePlainTextFlowedOutputEnabled` setting:
 
    let { value } = await messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.get({});
 
-To update the :value:`messagePlainTextFlowedOutputEnabled` setting:
-
-.. code-block:: javascript
-
-   await messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.set({ value: <newValue> });
-
-To clear the :value:`messagePlainTextFlowedOutputEnabled` setting and restore the default value:
-
-.. code-block:: javascript
-
-   await messenger.messengerSettings.messagePlainTextFlowedOutputEnabled.clear({});
-
 .. rst-class:: api-main-section
 
 Functions
 =========
-
-.. _messenger^settings.message^plain^text^flowed^output^enabled.clear:
-
-clear(details)
---------------
-
-.. api-section-annotation-hack:: 
-
-Clears the setting, restoring any default value.
-
-.. api-header::
-   :label: Parameters
-
-   .. _messenger^settings.message^plain^text^flowed^output^enabled.clear.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: messenger-settings-message-plain-text-flowed-output-enabled-clear-details
-      :refname: details
-      :type: (object)
-
-      Which setting to clear.
-
-      .. _messenger^settings.message^plain^text^flowed^output^enabled.clear.details.scope:
-
-      .. api-member::
-         :name: [``scope``]
-         :refid: messenger-settings-message-plain-text-flowed-output-enabled-clear-details-scope
-         :refname: scope
-         :type: (:ref:`messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope`, optional)
-
-         Where to clear the setting (default: regular).
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messengerSettings`
 
 .. _messenger^settings.message^plain^text^flowed^output^enabled.get:
 
@@ -192,53 +143,6 @@ Gets the value of a setting.
          Whether the effective value is specific to the incognito session. This property will *only* be present if the :value:`incognito` property in the :value:`details` parameter of :code:`get()` was true.
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
-   :label: Required permissions
-
-   - :permission:`messengerSettings`
-
-.. _messenger^settings.message^plain^text^flowed^output^enabled.set:
-
-set(details)
-------------
-
-.. api-section-annotation-hack:: 
-
-Sets the value of a setting.
-
-.. api-header::
-   :label: Parameters
-
-   .. _messenger^settings.message^plain^text^flowed^output^enabled.set.details:
-
-   .. api-member::
-      :name: ``details``
-      :refid: messenger-settings-message-plain-text-flowed-output-enabled-set-details
-      :refname: details
-      :type: (object)
-
-      Which setting to change.
-
-      .. _messenger^settings.message^plain^text^flowed^output^enabled.set.details.value:
-
-      .. api-member::
-         :name: ``value``
-         :refid: messenger-settings-message-plain-text-flowed-output-enabled-set-details-value
-         :refname: value
-         :type: (any)
-
-         The value of the setting.  Note that every setting has a specific value type, which is described together with the setting. An extension should *not* set a value of a different type.
-
-      .. _messenger^settings.message^plain^text^flowed^output^enabled.set.details.scope:
-
-      .. api-member::
-         :name: [``scope``]
-         :refid: messenger-settings-message-plain-text-flowed-output-enabled-set-details-scope
-         :refname: scope
-         :type: (:ref:`messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope`, optional)
-
-         Where to set the setting (default: regular).
 
 .. api-header::
    :label: Required permissions
@@ -375,57 +279,3 @@ One of
             :name: :value:`not_controllable`
             :refid: messenger-settings-message-plain-text-flowed-output-enabled-level-of-control-not-controllable
             :refname: not_controllable
-
-.. _messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope:
-
-SettingScope
-------------
-
-.. api-section-annotation-hack:: 
-
-The scope of the Setting. One of
-
- * :value:`regular`: setting for the regular profile (which is inherited by the incognito profile if not overridden elsewhere),
-
- * :value:`regular_only`: setting for the regular profile only (not inherited by the incognito profile),
-
- * :value:`incognito_persistent`: setting for the incognito profile that survives browser restarts (overrides regular preferences),
-
- * :value:`incognito_session_only`: setting for the incognito profile that can only be set during an incognito session and is deleted when the incognito session ends (overrides regular and incognito_persistent preferences). Only :value:`regular` is supported by Thunderbird at this time.
-
-.. api-header::
-   :label: `string`
-
-   .. container:: api-member-node
-
-      .. container:: api-member-description-only
-
-         Supported values:
-
-         .. _messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope.incognito_persistent:
-
-         .. api-member::
-            :name: :value:`incognito_persistent`
-            :refid: messenger-settings-message-plain-text-flowed-output-enabled-setting-scope-incognito-persistent
-            :refname: incognito_persistent
-
-         .. _messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope.incognito_session_only:
-
-         .. api-member::
-            :name: :value:`incognito_session_only`
-            :refid: messenger-settings-message-plain-text-flowed-output-enabled-setting-scope-incognito-session-only
-            :refname: incognito_session_only
-
-         .. _messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope.regular:
-
-         .. api-member::
-            :name: :value:`regular`
-            :refid: messenger-settings-message-plain-text-flowed-output-enabled-setting-scope-regular
-            :refname: regular
-
-         .. _messenger^settings.message^plain^text^flowed^output^enabled.^setting^scope.regular_only:
-
-         .. api-member::
-            :name: :value:`regular_only`
-            :refid: messenger-settings-message-plain-text-flowed-output-enabled-setting-scope-regular-only
-            :refname: regular_only

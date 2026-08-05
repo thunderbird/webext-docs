@@ -24,6 +24,8 @@ permissions API
 
    The permissions API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/permissions>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
 
+The permissions API allows to manage optional permissions at runtime.
+
 .. rst-class:: api-main-section
 
 Functions
@@ -264,6 +266,10 @@ CommonDataCollectionPermission
 ------------------------------
 
 .. api-section-annotation-hack:: 
+
+.. warning::
+
+   Unlike Firefox, Thunderbird does not use the built-in onboarding flow that prompts users to opt into data collection. In Thunderbird, add-ons must request consent explicitly, for example by adding a checkbox on the options page or by showing a popup. The application does not provide an automatic prompt.
 
 .. api-header::
    :label: `string`
@@ -597,6 +603,14 @@ OptionalPermission
             :refid: permissions-optional-permission-management
             :refname: management
 
+         .. _permissions.^optional^permission.messages.save:
+
+         .. api-member::
+            :name: :value:`messages.save`
+            :refid: permissions-optional-permission-messages-save
+            :refname: messages.save
+            :annotation: -- [Added in TB 153.0]
+
          .. _permissions.^optional^permission.messages^delete:
 
          .. api-member::
@@ -704,6 +718,14 @@ OptionalPermission
             :name: :value:`privacy`
             :refid: permissions-optional-permission-privacy
             :refname: privacy
+
+         .. _permissions.^optional^permission.proxy:
+
+         .. api-member::
+            :name: :value:`proxy`
+            :refid: permissions-optional-permission-proxy
+            :refname: proxy
+            :annotation: -- [Added in TB 147]
 
          .. _permissions.^optional^permission.sensitive^data^upload:
 

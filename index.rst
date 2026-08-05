@@ -59,6 +59,7 @@
   privacy.services
   privacy.websites
   protocolHandlers
+  proxy
   runtime
   scripting
   scripting.compose
@@ -92,6 +93,9 @@
   :hidden:
   :maxdepth: 1
   :caption: Changelog
+
+  Thunderbird 153.0 <changelog/153.0>
+
 
   Thunderbird 140.0 <changelog/140.0>
 

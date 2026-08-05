@@ -181,6 +181,29 @@ Gets the localized string for the specified message. If the message is missing, 
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _i18n.get^preferred^system^languages:
+
+getPreferredSystemLanguages()
+-----------------------------
+
+.. api-section-annotation-hack:: 
+
+Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.get^accept^languages`.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _i18n.get^preferred^system^languages.returns:
+
+   .. api-member::
+      :refid: i18n-get-preferred-system-languages-returns
+      :refname: _returns
+      :type: array of :ref:`i18n.^language^code`
+
+      Array of LanguageCode
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _i18n.get^u^i^language:
 
 getUILanguage()
