@@ -94,6 +94,9 @@
   :maxdepth: 1
   :caption: Changelog
 
+  Thunderbird 155 <changelog/155>
+
+
   Thunderbird 153 <changelog/153>
 
 

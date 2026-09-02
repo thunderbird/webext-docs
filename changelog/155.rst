@@ -1,0 +1,26 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 155
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 155.
+
+
+oauthProvider
+-------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../oauthProvider.html">oauthProvider</a>
+   </div>
+
+- :small:`property` :ref:`oauth_provider.emailDomains <oauth^provider.oauth_provider.email^domains>` — Email domains for which this OAuth provider should be used. If omitted, the provider applies to all domains in use with a given hostname
