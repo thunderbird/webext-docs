@@ -154,6 +154,57 @@ Retrieves information about a single contextual identity.
 
    - :permission:`contextualIdentities`
 
+.. _contextual^identities.get^site^association:
+
+getSiteAssociation(details)
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieves the association of a site, or null if the site is not associated with any container.
+
+.. api-header::
+   :label: Parameters
+
+   .. _contextual^identities.get^site^association.details:
+
+   .. api-member::
+      :name: ``details``
+      :refid: contextual-identities-get-site-association-details
+      :refname: details
+      :type: (object)
+
+      Details about the site to look up.
+
+      .. _contextual^identities.get^site^association.details.site:
+
+      .. api-member::
+         :name: ``site``
+         :refid: contextual-identities-get-site-association-details-site
+         :refname: site
+         :type: (string)
+
+         The host to look up.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.get^site^association.returns:
+
+   .. api-member::
+      :refid: contextual-identities-get-site-association-returns
+      :refname: _returns
+      :type: :ref:`contextual^identities.^site^association`
+
+      The association of the site, null if the site is not associated with any container.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
 .. _contextual^identities.get^supported^colors:
 
 getSupportedColors()
@@ -284,6 +335,57 @@ Retrieves all contextual identities
 
    - :permission:`contextualIdentities`
 
+.. _contextual^identities.query^site^associations:
+
+querySiteAssociations(details)
+------------------------------
+
+.. api-section-annotation-hack:: 
+
+Retrieves the list of site-to-container associations.
+
+.. api-header::
+   :label: Parameters
+
+   .. _contextual^identities.query^site^associations.details:
+
+   .. api-member::
+      :name: ``details``
+      :refid: contextual-identities-query-site-associations-details
+      :refname: details
+      :type: (object)
+
+      Information to filter the associations being retrieved.
+
+      .. _contextual^identities.query^site^associations.details.cookie^store^id:
+
+      .. api-member::
+         :name: [``cookieStoreId``]
+         :refid: contextual-identities-query-site-associations-details-cookie-store-id
+         :refname: cookieStoreId
+         :type: (string, optional)
+
+         If provided, only associations for this container are returned.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.query^site^associations.returns:
+
+   .. api-member::
+      :refid: contextual-identities-query-site-associations-returns
+      :refname: _returns
+      :type: array of :ref:`contextual^identities.^site^association`
+
+      The site-to-container associations.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
 .. _contextual^identities.remove:
 
 remove(cookieStoreId)
@@ -313,6 +415,90 @@ Deletes a contextual identity by its cookie Store ID.
       :type: (string)
 
       The ID of the contextual identity cookie store.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
+.. _contextual^identities.remove^site^association:
+
+removeSiteAssociation(details)
+------------------------------
+
+.. api-section-annotation-hack:: 
+
+Removes the container association for a site.
+
+.. api-header::
+   :label: Parameters
+
+   .. _contextual^identities.remove^site^association.details:
+
+   .. api-member::
+      :name: ``details``
+      :refid: contextual-identities-remove-site-association-details
+      :refname: details
+      :type: (object)
+
+      Details about the site association to remove.
+
+      .. _contextual^identities.remove^site^association.details.site:
+
+      .. api-member::
+         :name: ``site``
+         :refid: contextual-identities-remove-site-association-details-site
+         :refname: site
+         :type: (string)
+
+         The host whose container association should be removed.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
+.. _contextual^identities.set^site^association:
+
+setSiteAssociation(details)
+---------------------------
+
+.. api-section-annotation-hack:: 
+
+Associates a site with a container. Top-level navigations to that site will load in the given container.
+
+.. api-header::
+   :label: Parameters
+
+   .. _contextual^identities.set^site^association.details:
+
+   .. api-member::
+      :name: ``details``
+      :refid: contextual-identities-set-site-association-details
+      :refname: details
+      :type: (object)
+
+      Details about the site association.
+
+      .. _contextual^identities.set^site^association.details.cookie^store^id:
+
+      .. api-member::
+         :name: ``cookieStoreId``
+         :refid: contextual-identities-set-site-association-details-cookie-store-id
+         :refname: cookieStoreId
+         :type: (string)
+
+         The cookie store ID of the container to associate the site with.
+
+      .. _contextual^identities.set^site^association.details.site:
+
+      .. api-member::
+         :name: ``site``
+         :refid: contextual-identities-set-site-association-details-site
+         :refname: site
+         :type: (string)
+
+         The host to associate with the container (matched as an exact host).
 
 .. api-header::
    :label: Required permissions
@@ -493,6 +679,63 @@ Fired when a container is removed.
 
    - :permission:`contextualIdentities`
 
+.. _contextual^identities.on^site^association^changed:
+
+onSiteAssociationChanged
+------------------------
+
+.. api-section-annotation-hack:: 
+
+Fired when a site-to-container association is added, changed, or removed.
+
+.. api-header::
+   :label: Parameters for onSiteAssociationChanged.addListener(listener)
+
+   .. _contextual^identities.on^site^association^changed.listener(change^info):
+
+   .. api-member::
+      :name: ``listener(changeInfo)``
+      :refid: contextual-identities-on-site-association-changed-listener-change-info
+      :refname: listener(changeInfo)
+
+      A function that will be called when this event occurs.
+
+.. api-header::
+   :label: Parameters passed to the listener function
+
+   .. _contextual^identities.on^site^association^changed.change^info:
+
+   .. api-member::
+      :name: ``changeInfo``
+      :refid: contextual-identities-on-site-association-changed-change-info
+      :refname: changeInfo
+      :type: (object)
+
+      .. _contextual^identities.on^site^association^changed.change^info.site:
+
+      .. api-member::
+         :name: ``site``
+         :refid: contextual-identities-on-site-association-changed-change-info-site
+         :refname: site
+         :type: (string)
+
+         The host whose association changed.
+
+      .. _contextual^identities.on^site^association^changed.change^info.cookie^store^id:
+
+      .. api-member::
+         :name: [``cookieStoreId``]
+         :refid: contextual-identities-on-site-association-changed-change-info-cookie-store-id
+         :refname: cookieStoreId
+         :type: (string, optional)
+
+         The cookie store ID of the now-associated container, or omitted if the association was removed.
+
+.. api-header::
+   :label: Required permissions
+
+   - :permission:`contextualIdentities`
+
 .. _contextual^identities.on^updated:
 
 onUpdated
@@ -618,3 +861,35 @@ Represents information about a contextual identity.
       :type: (string)
 
       The name of the contextual identity.
+
+.. _contextual^identities.^site^association:
+
+SiteAssociation
+---------------
+
+.. api-section-annotation-hack:: 
+
+Represents the association between a site and a contextual identity.
+
+.. api-header::
+   :label: object
+
+   .. _contextual^identities.^site^association.cookie^store^id:
+
+   .. api-member::
+      :name: ``cookieStoreId``
+      :refid: contextual-identities-site-association-cookie-store-id
+      :refname: cookieStoreId
+      :type: (string)
+
+      The cookie store ID of the contextual identity the host is associated with.
+
+   .. _contextual^identities.^site^association.site:
+
+   .. api-member::
+      :name: ``site``
+      :refid: contextual-identities-site-association-site
+      :refname: site
+      :type: (string)
+
+      The associated host, normalized to lower case and encoded as ASCII.

@@ -67,7 +67,7 @@ Manifest file properties
       :type: (array of string)
       :annotation: -- [Added in TB 140]
 
-      One or more hostnames which use this OAuth provider.
+      One or more server hostnames that use this OAuth provider. Include any service or autodiscovery hostnames that may initiate OAuth authentication. For example, to override many Microsoft configurations, both of these would be needed - ["office365.com", "outlook.com"]
 
    .. _oauth^provider.oauth_provider.issuer:
 
@@ -123,6 +123,17 @@ Manifest file properties
       :annotation: -- [Added in TB 140]
 
       Identifies the OAuth client to the server.
+
+   .. _oauth^provider.oauth_provider.email^domains:
+
+   .. api-member::
+      :name: [``emailDomains``]
+      :refid: oauth-provider-oauth-provider-email-domains
+      :refname: emailDomains
+      :type: (array of string, optional)
+      :annotation: -- [Added in TB 155]
+
+      Email domains for which this OAuth provider should be used. If omitted, the provider applies to all domains in use with a given hostname
 
    .. _oauth^provider.oauth_provider.issuer^identifier:
 
