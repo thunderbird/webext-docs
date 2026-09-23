@@ -109,20 +109,6 @@ clearAll()
 Clears all alarms.
 
 .. api-header::
-   :label: Return type (`Promise`_)
-
-   .. _alarms.clear^all.returns:
-
-   .. api-member::
-      :refid: alarms-clear-all-returns
-      :refname: _returns
-      :type: boolean
-
-      Whether any alarm was found to clear.
-
-   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
-
-.. api-header::
    :label: Required permissions
 
    - :permission:`alarms`
