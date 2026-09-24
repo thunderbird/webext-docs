@@ -51,6 +51,13 @@ Guides Overview
   requirements and both accepted declaration formats: a ``VENDOR.md`` file and a
   version-pinned ``package.json``.
 
+:doc:`guides/sourceCodeSubmission`
+  Find out when a Thunderbird add-on's build needs a source code submission
+  alongside the packaged XPI, and when a copy-only build (see
+  :doc:`guides/vendoring`) is enough on its own. This guide covers the
+  difference between minification and obfuscation, what the review team needs
+  to reproduce your build, and a checklist to run through before submitting.
+
 :doc:`guides/innerHTML`
   Understand why ``innerHTML`` is discouraged in Thunderbird WebExtensions and which
   safer patterns to use instead. This guide covers alternatives such as

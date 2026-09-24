@@ -10,6 +10,7 @@
 ≡ Guides
 
 * :doc:`/guides/vendoring`
+* :doc:`/guides/sourceCodeSubmission`
 * :doc:`/guides/innerHTML`
 * :doc:`/guides/eventListeners`
 * :doc:`/guides/runtimeMessaging`
