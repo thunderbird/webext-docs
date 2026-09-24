@@ -7,9 +7,8 @@ the package. To keep these bundled copies trustworthy, each one has to be
 declared and traceable back to an exact upstream release.
 
 If your extension uses minified, obfuscated or otherwise machine-generated
-first-party code, please see `our requirements`__ for that.
-
-__ https://extensionworkshop.com/documentation/publish/source-code-submission/
+first-party code, see :doc:`our requirements </guides/sourceCodeSubmission>` for
+that.
 
 Declaring your vendored libraries unlocks two things:
 
@@ -191,7 +190,8 @@ review needs: the copied library files, your readable source, and the
 You do not ship the ``node_modules`` folder, and you do not submit a separate
 source archive.
 
-This is different from a real `source code submission`__, where the build
+This is different from a real
+:doc:`source code submission </guides/sourceCodeSubmission>`, where the build
 *transforms* your authored code into what actually ships, for example by
 transpiling it (from TypeScript) or bundling it (with webpack). That output is
 minified, machine-generated, and not reviewable on its own, so it has to be
@@ -199,8 +199,6 @@ accompanied by an archive of the original source and the steps to reproduce the
 build. Please note that source code submissions take considerably longer to be
 reviewed, so avoid them where you can: a copy-only build like the one above keeps
 your add-on reviewable as-is and needs no source archive.
-
-__ https://extensionworkshop.com/documentation/publish/source-code-submission/
 
 Update a vendored library
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
