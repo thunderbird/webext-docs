@@ -1,14 +1,14 @@
-Vendoring 3rd party libraries
-=============================
+Vendoring 3rd party libraries for ATN review
+=============================================
 
-Add-ons are not allowed to load and execute remote code at runtime, so every
-third-party library an add-on relies on must be **bundled** (*vendored*) into
-the package. To keep these bundled copies trustworthy, each one has to be
-declared and traceable back to an exact upstream release.
+Add-ons submitted to addons.thunderbird.net (ATN) are not allowed to load and
+execute remote code at runtime, so every third-party library an add-on relies
+on must be **bundled** (*vendored*) into the package. To keep these bundled
+copies trustworthy, each one has to be declared and traceable back to an
+exact upstream release.
 
-If your extension uses minified, obfuscated or otherwise machine-generated
-first-party code, see :doc:`our requirements </guides/sourceCodeSubmission>` for
-that.
+If your extension uses minified or otherwise machine-generated first-party code,
+see :doc:`our requirements </guides/sourceCodeSubmission>` for that.
 
 Declaring your vendored libraries unlocks two things:
 
