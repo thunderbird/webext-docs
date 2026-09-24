@@ -79,6 +79,7 @@
   :caption: Guides
 
   guides/vendoring
+  guides/sourceCodeSubmission
   guides/innerHTML
   guides/eventListeners
   guides/runtimeMessaging
