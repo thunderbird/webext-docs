@@ -1,8 +1,9 @@
-Source code submission
-=======================
+Source code submission for ATN review
+======================================
 
-Add-ons are reviewed as submitted, so the review team has to be able to read
-every file inside the package. If your build process only **copies** files,
+Add-ons submitted to addons.thunderbird.net (ATN) are reviewed as submitted,
+so the review team has to be able to read every file inside the package. If
+your build process only **copies** files,
 such as the workflow described in :doc:`/guides/vendoring`, the packaged
 add-on already is that readable source, and no further submission is needed.
 

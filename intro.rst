@@ -45,18 +45,20 @@ Guides Overview
 ===============
 
 :doc:`guides/vendoring`
-  Learn how to bundle third-party libraries into your add-on and declare them so
-  reviewers can verify the sources are unmodified and automated tooling can audit
-  them for known vulnerabilities. This guide covers the trusted source
-  requirements and both accepted declaration formats: a ``VENDOR.md`` file and a
+  An addons.thunderbird.net (ATN) submission requirement. Learn how to bundle
+  third-party libraries into your add-on and declare them so reviewers can
+  verify the sources are unmodified and automated tooling can audit them for
+  known vulnerabilities. This guide covers the trusted source requirements
+  and both accepted declaration formats: a ``VENDOR.md`` file and a
   version-pinned ``package.json``.
 
 :doc:`guides/sourceCodeSubmission`
-  Find out when a Thunderbird add-on's build needs a source code submission
-  alongside the packaged XPI, and when a copy-only build (see
-  :doc:`guides/vendoring`) is enough on its own. This guide covers the
-  difference between minification and obfuscation, what the review team needs
-  to reproduce your build, and a checklist to run through before submitting.
+  An addons.thunderbird.net (ATN) submission requirement. Find out when a
+  Thunderbird add-on's build needs a source code submission alongside the
+  packaged XPI, and when a copy-only build (see :doc:`guides/vendoring`) is
+  enough on its own. This guide covers the difference between minification
+  and obfuscation, what the review team needs to reproduce your build, and a
+  checklist to run through before submitting.
 
 :doc:`guides/innerHTML`
   Understand why ``innerHTML`` is discouraged in Thunderbird WebExtensions and which
