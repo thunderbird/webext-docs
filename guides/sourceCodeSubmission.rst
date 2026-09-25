@@ -11,8 +11,9 @@ If your build process instead **transforms** your authored code into what
 actually ships, for example by minifying it, bundling it with a tool such as
 webpack or browserify, compiling it from another language such as
 TypeScript, the packaged files are no longer reviewable on their own. In that
-case, upload an archive of the original authored source alongside build
-instructions the review team can follow to reproduce the exact files you shipped.
+case, upload an archive of the original authored source (the source code
+archive, or SCA) alongside build instructions the review team can follow to
+reproduce the exact files you shipped.
 
 .. note::
 
@@ -67,16 +68,32 @@ Alongside the ``README``, include:
   ``^1.2.3``, can resolve to a different release by the time the review team
   rebuilds your add-on, and the lockfile is what pins it down. The review
   team reproduces the install with ``npm ci`` or
-  ``pnpm install --frozen-lockfile``, so commit whichever lockfile matches
-  the package manager you built with.
-- **Every dependency.** Including anything pulled from a private repository,
-  since the review team cannot reach outside the submission.
+  ``pnpm install --frozen-lockfile``.
 - **A build script**, if you have one, so the commands documented in the
   ``README`` do not have to be run by hand.
 - **No generated files.** Leave ``node_modules`` and your build output out of
   the archive. The review team recreates them from the lockfile, and shipping
   your own copies makes every regenerated file look like a change, which
   only causes confusion.
+
+Keep the archive minimal
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Every file in the archive is subject to review, so include only what the
+build needs to produce the shipped add-on. From previous experience, test
+files often fail the automated review and cause rejections, which could be
+avoided by not including them. This applies beyond the test files
+themselves: leave out test fixtures and the configuration for a test runner
+too, since none of it ends up in the shipped add-on either.
+
+Do not bundle a third-party library's source into the archive. Declare it as
+a dependency in ``package.json`` instead, and let npm pull it in during the
+build, the same way the review team's rebuild does. Resolving dependencies
+this way, rather than including their source in the SCA, is the main point
+of a source code submission, but it only works for widely used libraries the
+review team can install from the public registry. Anything else, such as a
+library that only lives in a private repository, is not widely used, or is
+not published at all, has to be included in the archive directly.
 
 Before you submit
 ~~~~~~~~~~~~~~~~~~
@@ -88,8 +105,11 @@ Before you submit
   build.
 - The lockfile is included and matches the dependency versions you actually
   built with.
-- All dependencies are included, including anything from a private
-  repository.
 - ``node_modules`` and the build output are left out of the archive.
+- Only widely used, publicly published libraries are declared as
+  dependencies and pulled in via npm. Anything else, such as a private or
+  unpublished library, is included in the archive directly.
+- Test files, test fixtures, and test-only tooling are left out of the
+  archive.
 - The packaged add-on and the rebuilt output match: submit the source archive
   alongside the add-on, not instead of it.
