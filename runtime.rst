@@ -407,6 +407,29 @@ Converts a relative path within an app/extension install directory to a fully-qu
 
    .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
+.. _runtime.get^version:
+
+getVersion()
+------------
+
+.. api-section-annotation-hack:: 
+
+Returns the extension version as declared in the manifest.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _runtime.get^version.returns:
+
+   .. api-member::
+      :refid: runtime-get-version-returns
+      :refname: _returns
+      :type: string
+
+      The extension version.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _runtime.open^options^page:
 
 openOptionsPage()
