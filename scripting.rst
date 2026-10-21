@@ -527,6 +527,7 @@ InjectionTarget
       :refid: scripting-injection-target-document-ids
       :refname: documentIds
       :type: (array of string, optional)
+      :annotation: -- [Added in TB 153.0]
 
       The IDs of specific documents to inject into. This must not be set if :code:`frameIds` or :code:`allFrames` is set.
 
@@ -587,6 +588,7 @@ RegisteredContentScript
       :refid: scripting-registered-content-script-css-origin
       :refname: cssOrigin
       :type: (:ref:`scripting.^c^s^s^origin`, optional)
+      :annotation: -- [Added in TB 153.0]
 
    .. _scripting.^registered^content^script.exclude^matches:
 

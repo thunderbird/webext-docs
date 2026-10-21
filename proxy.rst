@@ -63,7 +63,7 @@ Events
 onError
 -------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
 
 Notifies about errors caused by the invalid use of the proxy API.
 

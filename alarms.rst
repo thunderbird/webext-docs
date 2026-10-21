@@ -108,6 +108,10 @@ clearAll()
 
 Clears all alarms.
 
+.. note::
+
+   Until Thunderbird 156, returned a boolean rather than undefined.
+
 .. api-header::
    :label: Return type (`Promise`_)
 

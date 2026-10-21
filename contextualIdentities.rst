@@ -159,7 +159,7 @@ Retrieves information about a single contextual identity.
 getSupportedColors()
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
 
 Retrieves the list of colors supported by contextual identities.
 
@@ -185,7 +185,7 @@ Retrieves the list of colors supported by contextual identities.
 getSupportedIcons()
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153.0]
 
 Retrieves the list of icons supported by contextual identities.
 

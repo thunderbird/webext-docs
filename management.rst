@@ -222,7 +222,15 @@ Enables or disables the given add-on.
 
 .. note::
 
-   Only extensions whose 'type' is 'theme' can be enabled and disabled.
+   Any extension can enable and disable themes.
+
+.. note::
+
+   Extensions installed via policies can enable and disable any extension.
+
+.. note::
+
+   Thunderbird 55–139: Extensions can only enable and disable themes.
 
 .. api-header::
    :label: Parameters
@@ -568,6 +576,10 @@ Information about an installed extension.
       :type: (:ref:`management.^extension^install^type`)
 
       How the extension was installed.
+
+      .. note::
+
+         Thunderbird 51–126: When the add-on is installed using an enterprise policy the value "other" is set, rather than the expected value of "admin".
 
    .. _management.^extension^info.may^disable:
 

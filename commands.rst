@@ -38,7 +38,7 @@ Manifest file properties
    :refid: commands-commands
    :refname: commands
    :type: (object, optional)
-   :annotation: -- [Added in TB 102.0]
+   :annotation: -- [Added in TB 68.0]
 
    A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`commands.^commands^shortcut`.
 
@@ -91,7 +91,7 @@ Functions
 getAll()
 --------
 
-.. api-section-annotation-hack:: -- [Added in TB 102.0]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Returns all the registered extension commands for this extension and their shortcut (if active).
 
@@ -121,7 +121,7 @@ Open extension shortcuts configuration page.
 reset(name)
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 102.0]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Reset a command's details to what is specified in the manifest.
 
@@ -143,7 +143,7 @@ Reset a command's details to what is specified in the manifest.
 update(detail)
 --------------
 
-.. api-section-annotation-hack:: -- [Added in TB 102.0]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Update the details of an already defined command.
 
@@ -262,7 +262,7 @@ Fired when a registered command's shortcut is changed.
 onCommand
 ---------
 
-.. api-section-annotation-hack:: -- [Added in TB 102.0]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Fired when a registered command is activated using a keyboard shortcut. This is a user input event handler. For asynchronous listeners some `restrictions <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/User_actions>`__ apply.
 
@@ -310,7 +310,7 @@ Types
 Command
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 102.0]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 .. api-header::
    :label: object
@@ -416,7 +416,7 @@ CommandsShortcut
 KeyName
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 102.0]
+.. api-section-annotation-hack:: -- [Added in TB 68.0]
 
 Definition of a shortcut, for example :value:`Alt+F5`. The string must match the shortcut format as defined by the `MDN page of the commands API <https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/manifest.json/commands#shortcut_values>`__.
 
