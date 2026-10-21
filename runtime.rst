@@ -256,7 +256,7 @@ Fetches information about active contexts associated with this extension
 getDocumentId(target)
 ---------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153]
 
 Get the documentId of any window global or frame element. Throws for invalid targets, such as unloaded frames.
 
@@ -412,7 +412,7 @@ Converts a relative path within an app/extension install directory to a fully-qu
 getVersion()
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 158]
 
 Returns the extension version as declared in the manifest.
 
@@ -575,9 +575,17 @@ Send a single message to a native application.
 setUninstallURL([url])
 ----------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 Sets the URL to be visited upon uninstallation. This may be used to clean up server-side data, do analytics, and implement surveys. Maximum 1023 characters.
+
+.. note::
+
+   The maximum length is 1023 characters.
+
+.. note::
+
+   Thunderbird 47–115: The maximum length is 255 characters.
 
 .. api-header::
    :label: Parameters
@@ -1497,6 +1505,7 @@ An object containing information about the script context that sent a message or
       :refid: runtime-message-sender-document-id
       :refname: documentId
       :type: (string, optional)
+      :annotation: -- [Added in TB 153]
 
       A UUID of the document that opened the connection.
 

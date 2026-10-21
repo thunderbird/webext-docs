@@ -447,7 +447,7 @@ This setting controls whether the document's fonts are used.
      <a href="browserSettings.verticalTabs.html">verticalTabs</a>
    </div>
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 142]
 
 This boolean setting controls whether vertical tabs are enabled.
 

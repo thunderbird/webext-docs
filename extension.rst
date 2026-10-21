@@ -129,6 +129,14 @@ isAllowedFileSchemeAccess()
 
 Retrieves the state of the extension's access to the 'file://' scheme (as determined by the user-controlled 'Allow access to File URLs' checkbox.
 
+.. note::
+
+   The value returned reflects the "Access local files on your computer" option in the extension's permissions settings.
+
+.. note::
+
+   Thunderbird 48–152: Always returns :code:`false`.
+
 .. api-header::
    :label: Return type (`Promise`_)
 

@@ -92,7 +92,7 @@ Creates a new message tag and returns the associated key. Tagging a message will
       :refname: key
       :type: (string, optional)
 
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces. Will be auto-generated if not provided.
+      Unique tag identifier (will be converted to lower case). Must be an ASCII string that is safe to use as an IMAP keyword. Will be auto-generated if not provided.
 
    .. _messages.tags.create.tag:
 

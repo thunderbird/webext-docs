@@ -95,7 +95,7 @@ Configures the environment for scripts running in a USER_SCRIPT world.
 execute(injection)
 ------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153]
 
 Executes one or more ephemeral user scripts into a specific tab.
 

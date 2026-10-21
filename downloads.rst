@@ -955,7 +955,7 @@ DoubleDelta
 DownloadItem
 ------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 47]
 
 .. api-header::
    :label: object
@@ -1098,6 +1098,10 @@ DownloadItem
       :refname: byExtensionId
       :type: (string, optional)
 
+      .. note::
+
+         Thunderbird 47–68: Always returns :code:`undefined`.
+
    .. _downloads.^download^item.by^extension^name:
 
    .. api-member::
@@ -1105,6 +1109,10 @@ DownloadItem
       :refid: downloads-download-item-by-extension-name
       :refname: byExtensionName
       :type: (string, optional)
+
+      .. note::
+
+         Thunderbird 47–68: Always returns :code:`undefined`.
 
    .. _downloads.^download^item.cookie^store^id:
 
