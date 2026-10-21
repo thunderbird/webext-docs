@@ -68,7 +68,11 @@ Clears various types of browsing data stored in a user's profile.
 
 .. note::
 
-   Specifying :code:`dataTypes.history` will also remove download history and service workers.
+   Specifying :code:`dataTypes.history` also removes download history and service workers.
+
+.. note::
+
+   Specifying :code:`dataTypes.localStorage` also removes `sessionStorage <https://developer.mozilla.org/docs/Web/API/Window/sessionStorage>`__ from Thunderbird 146.
 
 .. api-header::
    :label: Parameters
@@ -129,10 +133,6 @@ removeCache(options)
 .. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Clears the browser's cache.
-
-.. note::
-
-   :code:`removalOptions.since` is not supported.
 
 .. api-header::
    :label: Parameters
@@ -315,7 +315,7 @@ Clears websites' local storage data.
 
 .. note::
 
-   :code:`removalOptions.since` is not supported.
+   Also removes `sessionStorage <https://developer.mozilla.org/docs/Web/API/Window/sessionStorage>`__ from Thunderbird 146.
 
 .. api-header::
    :label: Parameters
@@ -472,7 +472,7 @@ Types
 DataTypeSet
 -----------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 A set of data types. Missing data types are interpreted as :code:`false`.
 
@@ -594,7 +594,7 @@ A set of data types. Missing data types are interpreted as :code:`false`.
 RemovalOptions
 --------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 60.0]
 
 Options that determine exactly what data will be removed.
 

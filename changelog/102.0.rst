@@ -60,21 +60,6 @@ cloudFile
 - :small:`property` :ref:`cloud_file.reuse_uploads <cloud^file.cloud_file.reuse_uploads>` — If a previously uploaded cloud file attachment is reused at a later time in a different message, Thunderbird may use the already known :value:`url` and :value:`templateInfo` values without triggering the registered :ref:`cloudFile.onFileUpload <cloud^file.on^file^upload>` listener again. Setting this option to :value:`false` will always trigger the registered listener, providing the already known values through the :value:`relatedFileInfo` parameter of the :ref:`cloudFile.onFileUpload <cloud^file.on^file^upload>` event, to let the provider decide how to handle these cases.
 
 
-commands
---------
-
-.. raw:: html
-
-   <div class="changelog-api-header">
-     <span class="changelog-api-label">api</span>
-     <a href="../commands.html">commands</a>
-   </div>
-
-Use the commands API to add keyboard shortcuts that trigger actions in your extension, for example opening one of the action popups or sending a command to the extension.
-
-- :small:`property` :ref:`commands <commands.commands>` — A *dictionary object* defining one or more commands as *name-value* pairs, the *name* being the name of the command and the *value* being a :ref:`CommandsShortcut <^commands^shortcut>`.
-
-
 compose
 -------
 

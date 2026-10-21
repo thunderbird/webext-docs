@@ -689,7 +689,6 @@ OptionalPermission
             :name: :value:`messengerSettings`
             :refid: permissions-optional-permission-messenger-settings
             :refname: messengerSettings
-            :annotation: -- [Added in TB 140.0]
 
          .. _permissions.^optional^permission.native^messaging:
 
@@ -741,7 +740,6 @@ OptionalPermission
             :name: :value:`sessions`
             :refid: permissions-optional-permission-sessions
             :refname: sessions
-            :annotation: -- [Added in TB 140.0]
 
          .. _permissions.^optional^permission.tabs:
 
@@ -945,6 +943,7 @@ Permissions
       :refid: permissions-permissions-data-collection
       :refname: data_collection
       :type: (array of :ref:`permissions.^optional^data^collection^permission`, optional)
+      :annotation: -- [Added in TB 140.0]
 
    .. _permissions.^permissions.origins:
 
