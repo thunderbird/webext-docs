@@ -1034,7 +1034,7 @@ Fired when a messageDisplayAction button is clicked. This event will not fire if
       :refid: message-display-action-on-clicked-info
       :refname: info
       :type: (:ref:`message^display^action.^on^click^data`, optional)
-      :annotation: -- [Added in TB 74]
+      :annotation: -- [Added in TB 75]
 
 .. rst-class:: api-main-section
 
@@ -1132,7 +1132,7 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 74]
+.. api-section-annotation-hack:: -- [Added in TB 75]
 
 Information sent when a messageDisplayAction button is clicked.
 

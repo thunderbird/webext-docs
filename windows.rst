@@ -747,7 +747,7 @@ Specifies what type of window to create. Thunderbird does not support :value:`pa
 GetInfo
 -------
 
-.. api-section-annotation-hack:: -- [Added in TB 78]
+.. api-section-annotation-hack:: -- [Added in TB 79]
 
 Specifies additional requirements for the returned windows.
 

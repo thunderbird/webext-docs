@@ -210,7 +210,7 @@ Retrieves the association of a site, or null if the site is not associated with 
 getSupportedColors()
 --------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153]
 
 Retrieves the list of colors supported by contextual identities.
 
@@ -236,7 +236,7 @@ Retrieves the list of colors supported by contextual identities.
 getSupportedIcons()
 -------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 153]
 
 Retrieves the list of icons supported by contextual identities.
 

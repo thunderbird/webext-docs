@@ -186,7 +186,7 @@ Gets the localized string for the specified message. If the message is missing, 
 getPreferredSystemLanguages()
 -----------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 141]
 
 Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.get^accept^languages`.
 
