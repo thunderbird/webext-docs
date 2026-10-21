@@ -21,6 +21,10 @@ cookies API
 
 .. role:: small
 
+.. hint::
+
+   The cookies API is inherited from Firefox, and its primary documentation is maintained by Mozilla at `MDN <https://developer.mozilla.org/docs/Mozilla/Add-ons/WebExtensions/API/cookies>`__. Thunderbird implements only the subset of functions, events, and types listed here. The MDN pages may provide further details and examples, but they may also reference features that are not supported in Thunderbird.
+
 Use the :code:`browser.cookies` API to query and modify cookies, and to be notified when they change.
 
 .. rst-class:: api-main-section
@@ -852,6 +856,10 @@ Represents information about an HTTP cookie.
       :type: (number, optional)
 
       The expiration date of the cookie as the number of seconds since the UNIX epoch. Not provided for session cookies.
+
+      .. note::
+
+         Includes milliseconds in the fractional part from Thunderbird 142.
 
    .. _cookies.^cookie.partition^key:
 

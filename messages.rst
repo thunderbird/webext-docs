@@ -313,7 +313,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :refname: key
       :type: (string)
 
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+      Unique tag identifier (will be converted to lower case). Must be an ASCII string that is safe to use as an IMAP keyword.
 
    .. _messages.create^tag.tag:
 
@@ -1538,7 +1538,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-unread
          :refname: unread
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 70]
+         :annotation: -- [Added in TB 71]
 
          Returns only unread (or read if false) messages.
 
