@@ -1334,6 +1334,7 @@ Fired when a message is about to be sent from the compose window. This is a user
       :refid: compose-on-before-send-details
       :refname: details
       :type: (:ref:`compose.^compose^details`)
+      :annotation: -- [Added in TB 75]
 
       The current state of the compose window. This is functionally the same as calling the :ref:`compose.get^compose^details` function.
 
@@ -1416,7 +1417,7 @@ Fired when the state of the message composer changed.
 onIdentityChanged
 -----------------
 
-.. api-section-annotation-hack:: -- [Added in TB 78]
+.. api-section-annotation-hack:: -- [Added in TB 79]
 
 Fired when the user changes the identity that will be used to send a message being composed.
 

@@ -1,0 +1,26 @@
+.. role:: permission
+
+.. role:: value
+
+.. role:: code
+
+.. role:: small
+
+=============================
+Changelog for Thunderbird 141
+=============================
+
+The following WebExtension API changes were introduced in Thunderbird 141.
+
+
+i18n
+----
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../i18n.html">i18n</a>
+   </div>
+
+- :small:`function` :ref:`getPreferredSystemLanguages <i18n.get^preferred^system^languages>` — Gets the preferred locales of the operating system. This is different from the locales set in the browser; to get those, use :ref:`i18n.getAcceptLanguages <i18n.get^accept^languages>`.

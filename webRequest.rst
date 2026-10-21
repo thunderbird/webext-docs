@@ -134,6 +134,14 @@ Retrieves the security information for the request.  Returns a promise that will
       :refname: options
       :type: (object, optional)
 
+      .. note::
+
+         Optional
+
+      .. note::
+
+         Thunderbird 62–129: Required
+
       .. _web^request.get^security^info.options.certificate^chain:
 
       .. api-member::
@@ -164,9 +172,13 @@ Retrieves the security information for the request.  Returns a promise that will
 handlerBehaviorChanged()
 ------------------------
 
-.. api-section-annotation-hack:: 
+.. api-section-annotation-hack:: -- [Added in TB 45]
 
 Needs to be called when the behavior of the webRequest handlers has changed to prevent incorrect handling due to caching. This function call is expensive. Don't call it often.
+
+.. note::
+
+   Thunderbird 45–137: Exposed but non-functional
 
 .. api-header::
    :label: Required permissions
@@ -411,6 +423,7 @@ Fired when an authentication failure is received. The listener has three options
          :refid: web-request-on-auth-required-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -452,6 +465,7 @@ Fired when an authentication failure is received. The listener has three options
          :refid: web-request-on-auth-required-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -713,6 +727,7 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -766,6 +781,7 @@ Fired when a server-initiated redirect is about to occur.
          :refid: web-request-on-before-redirect-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -962,6 +978,7 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -1005,6 +1022,7 @@ Fired when a request is about to occur.
          :refid: web-request-on-before-request-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -1243,6 +1261,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -1286,6 +1305,7 @@ Fired before sending an HTTP request, once the request headers are available. Th
          :refid: web-request-on-before-send-headers-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -1555,6 +1575,7 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -1608,6 +1629,7 @@ Fired when a request is completed.
          :refid: web-request-on-completed-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -1795,6 +1817,7 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request. This value is not present if the request is a navigation of a frame.
 
@@ -1848,6 +1871,7 @@ Fired when an error occurs.
          :refid: web-request-on-error-occurred-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -2058,6 +2082,7 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -2101,6 +2126,7 @@ Fired when HTTP response headers of a request have been received.
          :refid: web-request-on-headers-received-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -2334,6 +2360,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -2387,6 +2414,7 @@ Fired when the first byte of the response body is received. For HTTP requests, t
          :refid: web-request-on-response-started-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 
@@ -2579,6 +2607,7 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-document-id
          :refname: documentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the document making the request.
 
@@ -2622,6 +2651,7 @@ Fired just before a request is going to be sent to the server (modifications of 
          :refid: web-request-on-send-headers-details-parent-document-id
          :refname: parentDocumentId
          :type: (string, optional)
+         :annotation: -- [Added in TB 153]
 
          The UUID of the parent document owning this frame. This is not set if there is no parent.
 

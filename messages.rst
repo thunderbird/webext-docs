@@ -1538,7 +1538,7 @@ Gets all messages that have the specified properties, or all messages if no prop
          :refid: messages-query-query-info-unread
          :refname: unread
          :type: (boolean, optional)
-         :annotation: -- [Added in TB 70]
+         :annotation: -- [Added in TB 71]
 
          Returns only unread (or read if false) messages.
 

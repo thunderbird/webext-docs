@@ -1128,7 +1128,7 @@ Fired when an action button is clicked. This event will not fire if the action h
       :refid: browser-action-on-clicked-tab
       :refname: tab
       :type: (:ref:`tabs.^tab`)
-      :annotation: -- [Added in TB 74]
+      :annotation: -- [Added in TB 75]
 
    .. _browser^action.on^clicked.info:
 
@@ -1137,7 +1137,7 @@ Fired when an action button is clicked. This event will not fire if the action h
       :refid: browser-action-on-clicked-info
       :refname: info
       :type: (:ref:`browser^action.^on^click^data`, optional)
-      :annotation: -- [Added in TB 74]
+      :annotation: -- [Added in TB 75]
 
 .. rst-class:: api-main-section
 
@@ -1235,7 +1235,7 @@ Pixel data for an image. Must be an `ImageData <https://developer.mozilla.org/en
 OnClickData
 -----------
 
-.. api-section-annotation-hack:: -- [Added in TB 74]
+.. api-section-annotation-hack:: -- [Added in TB 75]
 
 Information sent when an action button is clicked.
 

@@ -741,7 +741,6 @@ OptionalPermission
             :name: :value:`sessions`
             :refid: permissions-optional-permission-sessions
             :refname: sessions
-            :annotation: -- [Added in TB 140]
 
          .. _permissions.^optional^permission.tabs:
 
@@ -945,6 +944,7 @@ Permissions
       :refid: permissions-permissions-data-collection
       :refname: data_collection
       :type: (array of :ref:`permissions.^optional^data^collection^permission`, optional)
+      :annotation: -- [Added in TB 140]
 
    .. _permissions.^permissions.origins:
 
