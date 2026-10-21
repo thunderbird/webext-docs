@@ -13,6 +13,20 @@ Changelog for Thunderbird 153
 The following WebExtension API changes were introduced in Thunderbird 153.
 
 
+contextualIdentities
+--------------------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../contextualIdentities.html">contextualIdentities</a>
+   </div>
+
+- :small:`function` :ref:`getSupportedColors <contextual^identities.get^supported^colors>` — Retrieves the list of colors supported by contextual identities.
+- :small:`function` :ref:`getSupportedIcons <contextual^identities.get^supported^icons>` — Retrieves the list of icons supported by contextual identities.
+
+
 messages
 --------
 
@@ -59,6 +73,33 @@ oauthProvider
 - :small:`property` :ref:`oauth_provider.useExternalBrowser <oauth^provider.oauth_provider.use^external^browser>` — If the login flow should use the system web browser. If true, the redirectionEndpoint *must* be a loopback address, so an origin of http://127.0.0.1 or http://localhost.
 
 
+runtime
+-------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../runtime.html">runtime</a>
+   </div>
+
+- :small:`function` :ref:`getDocumentId <runtime.get^document^id>` — Get the documentId of any window global or frame element. Throws for invalid targets, such as unloaded frames.
+- :small:`type` :ref:`MessageSender.documentId <runtime.^message^sender.document^id>` — A UUID of the document that opened the connection.
+
+
+scripting
+---------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../scripting.html">scripting</a>
+   </div>
+
+- :small:`type` :ref:`InjectionTarget.documentIds <scripting.^injection^target.document^ids>` — The IDs of specific documents to inject into. This must not be set if :code:`frameIds` or :code:`allFrames` is set.
+
+
 tabs
 ----
 
@@ -71,3 +112,46 @@ tabs
 
 - :small:`function` :ref:`connect.connectInfo.documentId <tabs.connect.connect^info.document^id>` — Open a port to a specific document identified by :value:`documentId` instead of all frames in the tab.
 - :small:`function` :ref:`sendMessage.options.documentId <tabs.send^message.options.document^id>` — Send a message to a specific document identified by :value:`documentId` instead of all frames in the tab.
+
+
+userScripts
+-----------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../userScripts.html">userScripts</a>
+   </div>
+
+- :small:`function` :ref:`execute <user^scripts.execute>` — Executes one or more ephemeral user scripts into a specific tab.
+
+
+webRequest
+----------
+
+.. raw:: html
+
+   <div class="changelog-api-header">
+     <span class="changelog-api-label">api</span>
+     <a href="../webRequest.html">webRequest</a>
+   </div>
+
+- :small:`event` :ref:`onAuthRequired.details.documentId <web^request.on^auth^required.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onAuthRequired.details.parentDocumentId <web^request.on^auth^required.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onBeforeRedirect.details.documentId <web^request.on^before^redirect.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onBeforeRedirect.details.parentDocumentId <web^request.on^before^redirect.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onBeforeRequest.details.documentId <web^request.on^before^request.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onBeforeRequest.details.parentDocumentId <web^request.on^before^request.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onBeforeSendHeaders.details.documentId <web^request.on^before^send^headers.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onBeforeSendHeaders.details.parentDocumentId <web^request.on^before^send^headers.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onCompleted.details.documentId <web^request.on^completed.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onCompleted.details.parentDocumentId <web^request.on^completed.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onErrorOccurred.details.documentId <web^request.on^error^occurred.details.document^id>` — The UUID of the document making the request. This value is not present if the request is a navigation of a frame.
+- :small:`event` :ref:`onErrorOccurred.details.parentDocumentId <web^request.on^error^occurred.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onHeadersReceived.details.documentId <web^request.on^headers^received.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onHeadersReceived.details.parentDocumentId <web^request.on^headers^received.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onResponseStarted.details.documentId <web^request.on^response^started.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onResponseStarted.details.parentDocumentId <web^request.on^response^started.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.
+- :small:`event` :ref:`onSendHeaders.details.documentId <web^request.on^send^headers.details.document^id>` — The UUID of the document making the request.
+- :small:`event` :ref:`onSendHeaders.details.parentDocumentId <web^request.on^send^headers.details.parent^document^id>` — The UUID of the parent document owning this frame. This is not set if there is no parent.

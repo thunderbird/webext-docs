@@ -93,6 +93,9 @@
   :maxdepth: 1
   :caption: Changelog
 
+  Thunderbird 158 <changelog/158>
+
+
   Thunderbird 155 <changelog/155>
 
 
@@ -109,6 +112,15 @@
 
 
   Thunderbird 147 <changelog/147>
+
+
+  Thunderbird 143 <changelog/143>
+
+
+  Thunderbird 142 <changelog/142>
+
+
+  Thunderbird 141 <changelog/141>
 
 
   Thunderbird 140 <changelog/140>
