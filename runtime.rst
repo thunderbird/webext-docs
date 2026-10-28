@@ -1569,6 +1569,16 @@ An object containing information about the script context that sent a message or
 
       The worldId of the USER_SCRIPT world that sent the message. Only present on onUserScriptMessage and onUserScriptConnect (in port.sender) events.
 
+   .. _runtime.^message^sender.window^id:
+
+   .. api-member::
+      :name: [``windowId``]
+      :refid: runtime-message-sender-window-id
+      :refname: windowId
+      :type: (integer, optional)
+
+      The window ID of the document that opened the connection.
+
 .. _runtime.^on^installed^reason:
 
 OnInstalledReason
