@@ -313,7 +313,7 @@ Creates a new message tag. Tagging a message will store the tag's key in the use
       :refname: key
       :type: (string)
 
-      Unique tag identifier (will be converted to lower case). Must not include :value:`()<>{/%*"` or spaces.
+      Unique tag identifier (will be converted to lower case). Must be an ASCII string that is safe to use as an IMAP keyword.
 
    .. _messages.create^tag.tag:
 
