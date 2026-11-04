@@ -277,6 +277,7 @@ Sets the default identity for the requested account.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`accountsIdentities`
    - :permission:`accountsRead`
 
 .. _identities.update:
