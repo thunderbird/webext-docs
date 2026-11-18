@@ -85,7 +85,7 @@ you'll be implementing:
 
 You can see some more-complicated schemas `in the Thunderbird source code`__. 
 
-__ https://hg.mozilla.org/comm-central/file/tip/mail/components/extensions/schemas
+__ https://github.com/thunderbird/thunderbird-desktop/tree/main/mail/components/extensions/schemas
 
 Implementing functions
 ----------------------

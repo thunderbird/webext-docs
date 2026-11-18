@@ -77,6 +77,20 @@ Enumerate a module's slots, each with their name and whether a token is present
       :type: (string)
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _pkcs11.get^module^slots.returns:
+
+   .. api-member::
+      :refid: pkcs11-get-module-slots-returns
+      :refname: _returns
+      :type: array of object
+
+      The slots of the module.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`pkcs11`
@@ -133,6 +147,20 @@ checks whether a PKCS#11 module, given by name, is installed
       :refid: pkcs11-is-module-installed-name
       :refname: name
       :type: (string)
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _pkcs11.is^module^installed.returns:
+
+   .. api-member::
+      :refid: pkcs11-is-module-installed-returns
+      :refname: _returns
+      :type: boolean
+
+      Whether the module is installed.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
