@@ -34,6 +34,15 @@ The following permissions influence the behavior of the API. Depending on which 
 
    Request permissions only when needed. Unnecessary requests may result in rejection during ATN review.
 
+.. _accounts.permission.accounts^identities:
+
+.. api-member::
+   :name: :permission:`accountsIdentities`
+   :refid: accounts-permission-accounts-identities
+   :refname: accountsIdentities
+
+   Create, modify or delete your mail account identities.
+
 .. _accounts.permission.accounts^read:
 
 .. api-member::
@@ -254,6 +263,7 @@ Sets the default identity for an account.
 .. api-header::
    :label: Required permissions
 
+   - :permission:`accountsIdentities`
    - :permission:`accountsRead`
 
 .. rst-class:: api-main-section
