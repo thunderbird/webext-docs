@@ -1627,6 +1627,10 @@ The machine's processor architecture.
             :refid: runtime-platform-arch-aarch64
             :refname: aarch64
 
+            .. note::
+
+               Equivalent of :code:`arm64` on Chrome.
+
          .. _runtime.^platform^arch.arm:
 
          .. api-member::
@@ -1641,12 +1645,20 @@ The machine's processor architecture.
             :refid: runtime-platform-arch-noarch
             :refname: noarch
 
+            .. note::
+
+               Not used on any official Thunderbird release.
+
          .. _runtime.^platform^arch.ppc64:
 
          .. api-member::
             :name: :value:`ppc64`
             :refid: runtime-platform-arch-ppc64
             :refname: ppc64
+
+            .. note::
+
+               Only used by some unofficial Thunderbird releases for Linux.
 
          .. _runtime.^platform^arch.riscv64:
 
@@ -1655,6 +1667,10 @@ The machine's processor architecture.
             :refid: runtime-platform-arch-riscv64
             :refname: riscv64
 
+            .. note::
+
+               Only used by some unofficial Thunderbird releases for Linux.
+
          .. _runtime.^platform^arch.s390x:
 
          .. api-member::
@@ -1662,12 +1678,20 @@ The machine's processor architecture.
             :refid: runtime-platform-arch-s390x
             :refname: s390x
 
+            .. note::
+
+               Only used by some unofficial Thunderbird releases for Linux.
+
          .. _runtime.^platform^arch.sparc64:
 
          .. api-member::
             :name: :value:`sparc64`
             :refid: runtime-platform-arch-sparc64
             :refname: sparc64
+
+            .. note::
+
+               Only used by some unofficial Thunderbird releases for Linux.
 
          .. _runtime.^platform^arch.x86-32:
 
