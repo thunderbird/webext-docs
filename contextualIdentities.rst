@@ -115,6 +115,20 @@ Creates a contextual identity with the given data.
          The name of the contextual identity.
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.create.returns:
+
+   .. api-member::
+      :refid: contextual-identities-create-returns
+      :refname: _returns
+      :type: :ref:`contextual^identities.^contextual^identity`
+
+      The created contextual identity.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`contextualIdentities`
@@ -148,6 +162,20 @@ Retrieves information about a single contextual identity.
       :type: (string)
 
       The ID of the contextual identity cookie store.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.get.returns:
+
+   .. api-member::
+      :refid: contextual-identities-get-returns
+      :refname: _returns
+      :type: :ref:`contextual^identities.^contextual^identity`
+
+      The requested contextual identity.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
@@ -331,6 +359,20 @@ Retrieves all contextual identities
          Filters the contextual identity by name.
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.query.returns:
+
+   .. api-member::
+      :refid: contextual-identities-query-returns
+      :refname: _returns
+      :type: array of :ref:`contextual^identities.^contextual^identity`
+
+      The contextual identities that match the filter.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`contextualIdentities`
@@ -415,6 +457,20 @@ Deletes a contextual identity by its cookie Store ID.
       :type: (string)
 
       The ID of the contextual identity cookie store.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.remove.returns:
+
+   .. api-member::
+      :refid: contextual-identities-remove-returns
+      :refname: _returns
+      :type: :ref:`contextual^identities.^contextual^identity`
+
+      The removed contextual identity.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
@@ -574,6 +630,20 @@ Updates a contextual identity with the given data.
          :type: (string, optional)
 
          The name of the contextual identity.
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _contextual^identities.update.returns:
+
+   .. api-member::
+      :refid: contextual-identities-update-returns
+      :refname: _returns
+      :type: :ref:`contextual^identities.^contextual^identity`
+
+      The updated contextual identity.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions

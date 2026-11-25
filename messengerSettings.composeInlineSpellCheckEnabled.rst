@@ -113,6 +113,20 @@ Clears the setting, restoring any default value.
          Where to clear the setting (default: regular).
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messenger^settings.compose^inline^spell^check^enabled.clear.returns:
+
+   .. api-member::
+      :refid: messenger-settings-compose-inline-spell-check-enabled-clear-returns
+      :refname: _returns
+      :type: boolean
+
+      True if the setting was cleared, false otherwise.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`messengerSettings`
@@ -239,6 +253,20 @@ Sets the value of a setting.
          :type: (:ref:`messenger^settings.compose^inline^spell^check^enabled.^setting^scope`, optional)
 
          Where to set the setting (default: regular).
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _messenger^settings.compose^inline^spell^check^enabled.set.returns:
+
+   .. api-member::
+      :refid: messenger-settings-compose-inline-spell-check-enabled-set-returns
+      :refname: _returns
+      :type: boolean
+
+      True if the setting was modified, false otherwise.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions

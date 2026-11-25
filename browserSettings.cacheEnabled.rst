@@ -117,6 +117,20 @@ Clears the setting, restoring any default value.
          Where to clear the setting (default: regular).
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _browser^settings.cache^enabled.clear.returns:
+
+   .. api-member::
+      :refid: browser-settings-cache-enabled-clear-returns
+      :refname: _returns
+      :type: boolean
+
+      True if the setting was cleared, false otherwise.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`browserSettings`
@@ -243,6 +257,20 @@ Sets the value of a setting.
          :type: (:ref:`browser^settings.cache^enabled.^setting^scope`, optional)
 
          Where to set the setting (default: regular).
+
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _browser^settings.cache^enabled.set.returns:
+
+   .. api-member::
+      :refid: browser-settings-cache-enabled-set-returns
+      :refname: _returns
+      :type: boolean
+
+      True if the setting was modified, false otherwise.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 
 .. api-header::
    :label: Required permissions
