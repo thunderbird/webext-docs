@@ -104,6 +104,20 @@ Relinquish the given permissions.
       :refname: permissions
       :type: (:ref:`permissions.^permissions`)
 
+.. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _permissions.remove.returns:
+
+   .. api-member::
+      :refid: permissions-remove-returns
+      :refname: _returns
+      :type: boolean
+
+      True if the permissions were removed.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
 .. _permissions.request:
 
 request(permissions)

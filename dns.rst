@@ -86,6 +86,20 @@ Resolves a hostname to a DNS record.
       :type: (:ref:`dns.^resolve^flags`, optional)
 
 .. api-header::
+   :label: Return type (`Promise`_)
+
+   .. _dns.resolve.returns:
+
+   .. api-member::
+      :refid: dns-resolve-returns
+      :refname: _returns
+      :type: :ref:`dns.^d^n^s^record`
+
+      The DNS record for the hostname.
+
+   .. _Promise: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
+
+.. api-header::
    :label: Required permissions
 
    - :permission:`dns`
@@ -121,7 +135,7 @@ An object encapsulating a DNS Record.
       :name: ``isTRR``
       :refid: dns-d-n-s-record-is-t-r-r
       :refname: isTRR
-      :type: (string)
+      :type: (boolean)
 
       Record retreived with TRR.
 
